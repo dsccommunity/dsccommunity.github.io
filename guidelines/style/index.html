@@ -1,0 +1,2844 @@
+<head>
+  <meta charset="utf-8">
+  <title>Style Guidelines</title>
+
+  <meta name="generator" content="Hugo 0.54.0" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="dsccommunity.orgplugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="dsccommunity.orgplugins/themify-icons/themify-icons.css">
+  <!-- highlight -->
+  <link rel="stylesheet" href="dsccommunity.orgplugins/highlight/hybrid.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+  <style>
+  :root{
+    --primary-color:#003366;
+    --secondary-color:#f9f9f9;
+    --text-color:#242738;
+    --text-color-dark:#000;
+    --white-color:#ffffff;
+  }  
+  </style>
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="/dsccommunity.org/css/style.min.css" integrity="" media="screen">
+
+  <!-- jquiry -->
+  <script src="dsccommunity.orgplugins/jquery/jquery-1.12.4.js"></script>
+
+  <!-- jquary ui -->
+  <script src="dsccommunity.orgplugins/jquery/jquery-ui.js"></script>
+
+  <!--Favicon-->
+  <link rel="icon" href="dsccommunity.orgimages/favicon.png" type="image/x-icon">
+
+</head>
+
+<!-- navigation -->
+<header class="shadow-bottom sticky-top bg-white">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="dsccommunity.org">DSC Community and Resource Kit</a>
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse text-center" id="navigation">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="dsccommunity.org">Home</a>
+      </li>
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="dsccommunity.org/code_of_conduct">Code of Conduct</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="dsccommunity.org/faq">Faq</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="dsccommunity.org/help">help</a>
+      </li>
+      
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" >
+          
+          <a class="dropdown-item" href="dsccommunity.org/community">Community</a>
+          
+          <a class="dropdown-item" href="dsccommunity.org/guidelines">Guidelines</a>
+          
+          <a class="dropdown-item" href="dsccommunity.org/blog">Blog Posts</a>
+          
+          <a class="dropdown-item" href="dsccommunity.org/configmgt">Config Management</a>
+          
+        </div>
+      </li>
+      
+      
+    </ul>
+    
+    <ul class="list-inline text-center mb-0">
+      
+      <li class="list-inline-item"><a class="text-dark" href="dsccommunity.org/">En</a></li>
+      
+    </ul>
+  </div>
+</nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<section class="single pt-5 bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="p-4 bg-white sticky-top top-100">
+            
+            <nav class="sidebar-menu">
+              <ul class="list-styled">
+            <li class=""><a href="dsccommunity.org/community/">Community</a>
+              <ul class="">
+            <li class=""><a href="dsccommunity.org/community/ownership/">Ownership of DSC Resources</a>
+            </li>
+            <li class=""><a href="dsccommunity.org/community/committee/">DSC Community Committee</a>
+            </li>
+            <li class=""><a href="dsccommunity.org/community/contact/">Join the conversation</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="dsccommunity.org/resources/">Resource Modules</a>
+            </li>
+            <li class="parent d-block "><a href="dsccommunity.org/guidelines/">Guidelines</a>
+              <ul class="sub-menu">
+            <li class=" active "><a href="dsccommunity.org/guidelines/style/">Style Guidelines</a>
+            </li>
+            <li class=""><a href="dsccommunity.org/guidelines/markdown-files/">Markdown Files</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="dsccommunity.org/blog/">Blog Posts</a>
+              <ul class="">
+            <li class=""><a href="dsccommunity.org/blog/helloworld/">Helloworld</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="dsccommunity.org/configmgt/">Configuration Management</a>
+              <ul class="">
+            <li class=""><a href="dsccommunity.org/configmgt/requirments/">Requirments</a>
+            </li>
+            <li class=""><a href="dsccommunity.org/configmgt/install/">Installation</a>
+            </li>
+            <li class=""><a href="dsccommunity.org/configmgt/configuration/">Configuration</a>
+            </li>
+            <li class=""><a href="dsccommunity.org/configmgt/customization/">Customization</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="dsccommunity.org/code_of_conduct/">Code of Conduct</a>
+              <ul class="">
+            <li class=""><a href="dsccommunity.org/code_of_conduct/standards/">Our Standards</a>
+            </li>
+            <li class=""><a href="dsccommunity.org/code_of_conduct/responsibilities/">Our Responsibilities</a>
+            </li>
+            <li class=""><a href="dsccommunity.org/code_of_conduct/scope/">Scope</a>
+            </li>
+            <li class=""><a href="dsccommunity.org/code_of_conduct/enforcement/">Enforcement</a>
+            </li>
+            <li class=""><a href="dsccommunity.org/code_of_conduct/common_questions/">Common Questions</a>
+            </li>
+            <li class=""><a href="dsccommunity.org/code_of_conduct/attribution/">Attribution</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="dsccommunity.org/help/">Help</a>
+            </li>
+            <li class=""><a href="dsccommunity.org/contributors/">Elements</a>
+            </li>
+            <li class=""><a href="dsccommunity.org/faq/">Frequently Asked Questions</a>
+            </li></ul>
+            </nav>
+
+            
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-5 bg-white">
+            <h2>Style Guidelines</h2>
+            
+
+<h1 id="dsc-resource-style-guidelines-best-practices">DSC Resource Style Guidelines &amp; Best Practices</h1>
+
+<p>In order to provide clean and consistent code, please follow the <a href="#style-guidelines">style guidelines</a> listed below when contributing to any <a href="https://github.com/PowerShell/DscResources/tree/master/xDscResources">DSC Resource Kit repositories</a>.</p>
+
+<p>It is recommended to also follow the guidance from the <a href="#best-practices">best practices</a> section, although this is not required unless the module aims to meet the <a href="HighQualityModuleGuidelines.md">High Quality Resource Module</a> standards.</p>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+<li><a href="#style-guidelines">Style Guidelines</a>
+
+<ul>
+<li><a href="#markdown-files">Markdown Files</a></li>
+<li><a href="#general">General</a></li>
+<li><a href="#correct-file-encoding">Correct File Encoding</a></li>
+<li><a href="#descriptive-names">Descriptive Names</a></li>
+<li><a href="#correct-parameter-usage-in-function-and-cmdlet-calls">Correct Parameter Usage in Function and Cmdlet Calls</a></li>
+<li><a href="#correct-format-for-arrays">Correct Format for Arrays</a></li>
+<li><a href="#correct-format-for-hashtables-or-objects">Correct Format for Hashtables or Objects</a></li>
+<li><a href="#correct-use-of-single--and-double-quotes">Correct use of single- and double quotes</a></li>
+<li><a href="#correct-format-for-comments">Correct Format for Comments</a></li>
+<li><a href="#correct-format-for-keywords">Correct Format for Keywords</a></li>
+<li><a href="#whitespace">Whitespace</a></li>
+<li><a href="#indentation">Indentation</a></li>
+<li><a href="#no-trailing-whitespace-after-backticks">No Trailing Whitespace After Backticks</a></li>
+<li><a href="#newline-at-end-of-file">Newline at End of File</a></li>
+<li><a href="#newline-character-encoding">Newline Character Encoding</a></li>
+<li><a href="#no-more-than-two-consecutive-newlines">No More Than Two Consecutive Newlines</a></li>
+<li><a href="#one-newline-before-braces">One Newline Before Braces</a></li>
+<li><a href="#one-newline-after-opening-brace">One Newline After Opening Brace</a></li>
+<li><a href="#two-newlines-after-closing-brace">Two Newlines After Closing Brace</a></li>
+<li><a href="#one-space-between-type-and-variable-name">One Space Between Type and Variable Name</a></li>
+<li><a href="#one-space-on-either-side-of-operators">One Space on Either Side of Operators</a></li>
+<li><a href="#one-space-between-keyword-and-parenthesis">One Space Between Keyword and Parenthesis</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#function-names-use-pascal-case">Function Names Use Pascal Case</a></li>
+<li><a href="#function-names-use-verb-noun-format">Function Names Use Verb-Noun Format</a></li>
+<li><a href="#function-names-use-approved-verbs">Function Names Use Approved Verbs</a></li>
+<li><a href="#functions-have-comment-based-help">Functions Have Comment-Based Help</a></li>
+<li><a href="#parameter-block-at-top-of-function">Parameter Block at Top of Function</a></li>
+<li><a href="#parameters">Parameters</a></li>
+<li><a href="#correct-format-for-parameter-block">Correct Format for Parameter Block</a></li>
+<li><a href="#parameter-names-use-pascal-case">Parameter Names Use Pascal Case</a></li>
+<li><a href="#parameters-separated-by-one-line">Parameters Separated by One Line</a></li>
+<li><a href="#parameter-type-on-line-above">Parameter Type on Line Above</a></li>
+<li><a href="#parameter-attributes-on-separate-lines">Parameter Attributes on Separate Lines</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#variable-names-use-camel-case">Variable Names Use Camel Case</a></li>
+<li><a href="#script-environment-and-global-variable-names-include-scope">Script, Environment and Global Variable Names Include Scope</a></li>
+</ul></li>
+<li><a href="#best-practices">Best Practices</a>
+
+<ul>
+<li><a href="#general-best-practices">General Best Practices</a></li>
+<li><a href="#avoid-using-hardcoded-computer-name">Avoid Using Hardcoded Computer Name</a></li>
+<li><a href="#avoid-empty-catch-blocks">Avoid Empty Catch Blocks</a></li>
+<li><a href="#ensure-null-is-on-left-side-of-comparisons">Ensure Null is on Left Side of Comparisons</a></li>
+<li><a href="#avoid-global-variables">Avoid Global Variables</a></li>
+<li><a href="#use-declared-local-and-script-variables-more-than-once">Use Declared Local and Script Variables More Than Once</a></li>
+<li><a href="#use-pscredential-for-all-credentials">Use PSCredential for All Credentials</a></li>
+<li><a href="#use-variables-rather-than-extensive-piping">Use Variables Rather Than Extensive Piping</a></li>
+<li><a href="#avoid-unnecessary-type-declarations">Avoid Unnecessary Type Declarations</a></li>
+<li><a href="#calling-functions">Calling Functions</a></li>
+<li><a href="#avoid-cmdlet-aliases">Avoid Cmdlet Aliases</a></li>
+<li><a href="#avoid-invoke-expression">Avoid Invoke-Expression</a></li>
+<li><a href="#use-the-force-parameter-with-calls-to-shouldcontinue">Use the Force Parameter with Calls to ShouldContinue</a></li>
+<li><a href="#avoid-the-wmi-cmdlets">Avoid the WMI Cmdlets</a></li>
+<li><a href="#avoid-write-host">Avoid Write-Host</a></li>
+<li><a href="#avoid-convertto-securestring-with-asplaintext">Avoid ConvertTo-SecureString with AsPlainText</a></li>
+<li><a href="#assign-function-results-to-variables-rather-than-extensive-inline-calls">Assign Function Results to Variables Rather Than Extensive Inline Calls</a></li>
+<li><a href="#writing-functions">Writing Functions</a></li>
+<li><a href="#avoid-default-values-for-mandatory-parameters">Avoid Default Values for Mandatory Parameters</a></li>
+<li><a href="#avoid-default-values-for-switch-parameters">Avoid Default Values for Switch Parameters</a></li>
+<li><a href="#include-the-force-parameter-in-functions-with-the-shouldcontinue-attribute">Include the Force Parameter in Functions with the ShouldContinue Attribute</a></li>
+<li><a href="#use-shouldprocess-if-the-shouldprocess-attribute-is-defined">Use ShouldProcess if the ShouldProcess Attribute is Defined</a></li>
+<li><a href="#define-the-shouldprocess-attribute-if-the-function-calls-shouldprocess">Define the ShouldProcess Attribute if the Function Calls ShouldProcess</a></li>
+<li><a href="#avoid-redefining-reserved-parameters">Avoid Redefining Reserved Parameters</a></li>
+<li><a href="#use-the-cmdletbinding-attribute-on-every-function">Use the CmdletBinding Attribute on Every Function</a></li>
+<li><a href="#define-the-outputtype-attribute-for-all-functions-with-output">Define the OutputType Attribute for All Functions With Output</a></li>
+<li><a href="#return-only-one-object-from-each-function">Return Only One Object From Each Function</a></li>
+<li><a href="#dsc-resource-functions">DSC Resource Functions</a></li>
+<li><a href="#return-a-hashtable-from-get-targetresource">Return a Hashtable from Get-TargetResource</a></li>
+<li><a href="#return-a-boolean-from-test-targetresource">Return a Boolean from Test-TargetResource</a></li>
+<li><a href="#avoid-returning-anything-from-set-targetresource">Avoid Returning Anything From Set-TargetResource</a></li>
+<li><a href="#define-get-targetresource-set-targetresource-and-test-targetresource-for-every-dsc-resource">Define Get-TargetResource, Set-TargetResource, and Test-TargetResource for Every DSC Resource</a></li>
+<li><a href="#get-targetresource-should-not-contain-unused-non-mandatory-parameters">Get-TargetResource should not contain unused non-mandatory parameters</a></li>
+<li><a href="#any-unused-parameters-that-must-be-included-in-a-function-definition-should-include-not-used-in-function_name-in-the-help-comment-for-that-parameter-in-the-comment-based-help">Any unused parameters that must be included in a function definition should include &lsquo;Not used in &lt;function_name&gt;&rsquo; in the help comment for that parameter in the comment-based help</a></li>
+<li><a href="#use-identical-parameters-for-set-targetresource-and-test-targetresource">Use Identical Parameters for Set-TargetResource and Test-TargetResource</a></li>
+<li><a href="#use-write-verbose-at-least-once-in-get-targetresource-set-targetresource-and-test-targetresource">Use Write-Verbose At Least Once in Get-TargetResource, Set-TargetResource, and Test-TargetResource</a></li>
+<li><a href="#use--targetresource-for-exporting-dsc-resource-functions">Use *-TargetResource for Exporting DSC Resource Functions</a></li>
+<li><a href="#manifests">Manifests</a></li>
+<li><a href="#avoid-using-deprecated-manifest-fields">Avoid Using Deprecated Manifest Fields</a></li>
+<li><a href="#ensure-manifest-contains-correct-fields">Ensure Manifest Contains Correct Fields</a></li>
+<li><a href="#do-not-use-nestedmodules-to-export-shared-commands">Do not use NestedModules to export shared commands</a></li>
+<li><a href="#localization">Localization</a></li>
+<li><a href="#localization-string-id-suffix">Localization string ID suffix</a></li>
+<li><a href="#using-localization-string-in-code">Using localization string in code</a></li>
+<li><a href="#helper-functions-for-localization">Helper functions for localization</a>
+
+<ul>
+<li><a href="#get-localizeddata"><code>Get-LocalizedData</code></a></li>
+<li><a href="#new-invalidargumentexception"><code>New-InvalidArgumentException</code></a></li>
+<li><a href="#new-invalidoperationexception"><code>New-InvalidOperationException</code></a></li>
+<li><a href="#new-objectnotfoundexception"><code>New-ObjectNotFoundException</code></a></li>
+<li><a href="#new-invalidresultexception"><code>New-InvalidResultException</code></a></li>
+</ul></li>
+<li><a href="#pester-tests">Pester Tests</a></li>
+<li><a href="#capitalized-pester-assertions">Capitalized Pester Assertions</a></li>
+</ul></li>
+</ul>
+
+<h2 id="style-guidelines">Style Guidelines</h2>
+
+<h3 id="markdown-files">Markdown Files</h3>
+
+<p>If a paragraph includes more than one sentence, end each sentence with a newline.
+GitHub will still render the sentences as a single paragraph, but the readability of <code>git diff</code> will be greatly improved.</p>
+
+<h3 id="general">General</h3>
+
+<h4 id="correct-file-encoding">Correct File Encoding</h4>
+
+<p>Make sure all files are encoded using UTF-8 (not UTF-8 with BOM), except mof files which should be encoded using ASCII.
+You can use <code>ConvertTo-UTF8</code> and <code>ConvertTo-ASCII</code> to convert a file to UTF-8 or ASCII.</p>
+
+<h4 id="descriptive-names">Descriptive Names</h4>
+
+<p>Use descriptive, clear, and full names for all variables, parameters, and functions.
+All names must be at least more than <strong>2</strong> characters.
+No abbreviations should be used.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">$r = Get-RdsHost
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">$frtytw = 42
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-Thing
+{
+    ...
+}
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Set-ServerName
+{
+    param
+    (
+        $mySTU
+    )
+    ...
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$remoteDesktopSessionHost = Get-RemoteDesktopSessionHost
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$fileCharacterLimit = 42
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-ArchiveFileHandle
+{
+    ...
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Set-ServerName
+{
+    param
+    (
+        [Parameter()]
+        $myServerToUse
+    )
+    ...
+}
+</code></pre>
+
+<h4 id="correct-parameter-usage-in-function-and-cmdlet-calls">Correct Parameter Usage in Function and Cmdlet Calls</h4>
+
+<p>Use named parameters for function and cmdlet calls rather than positional parameters.
+Named parameters help other developers who are unfamiliar with your code to better
+understand it.</p>
+
+<p>When calling a function with many long parameters, use parameter splatting. If
+splatting is used, then all the parameters should be in the splat.
+More help on splatting can be found in the article
+<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_splatting">About Splatting</a>.</p>
+
+<p>Make sure hashtable parameters are still properly formatted with multiple lines
+and the proper indentation.</p>
+
+<p><strong>Bad:</strong></p>
+
+<p>Not using named parameters.</p>
+
+<pre><code class="language-powershell">Get-ChildItem C:\Documents *.md
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<p>The call is very long and will wrap a lot in the review tool when the code is
+viewed by the reviewer during the review process of the PR.</p>
+
+<pre><code class="language-powershell">$mySuperLongHashtableParameter = @{
+    MySuperLongKey1 = 'MySuperLongValue1'
+    MySuperLongKey2 = 'MySuperLongValue2'
+}
+
+$superLongVariableName = Get-MySuperLongVariablePlease -MySuperLongHashtableParameter  $mySuperLongHashtableParameter -MySuperLongStringParameter '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890' -Verbose
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<p>Hashtable is not following <a href="https://github.com/PowerShell/DscResources/blob/master/StyleGuidelines.md#correct-format-for-hashtables-or-objects">Correct Format for Hashtables or Objects</a>.</p>
+
+<pre><code class="language-powershell">$superLongVariableName = Get-MySuperLongVariablePlease -MySuperLongHashtableParameter @{ MySuperLongKey1 = 'MySuperLongValue1'; MySuperLongKey2 = 'MySuperLongValue2' } -MySuperLongStringParameter '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890' -Verbose
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<p>Hashtable is not following <a href="https://github.com/PowerShell/DscResources/blob/master/StyleGuidelines.md#correct-format-for-hashtables-or-objects">Correct Format for Hashtables or Objects</a>.</p>
+
+<pre><code class="language-powershell">$superLongVariableName = Get-MySuperLongVariablePlease -MySuperLongHashtableParameter @{ MySuperLongKey1 = 'MySuperLongValue1'; MySuperLongKey2 = 'MySuperLongValue2' } `
+                                                       -MySuperLongStringParameter '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890' `
+                                                       -Verbose
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<p>Hashtable is not following <a href="https://github.com/PowerShell/DscResources/blob/master/StyleGuidelines.md#correct-format-for-hashtables-or-objects">Correct Format for Hashtables or Objects</a>.</p>
+
+<pre><code class="language-powershell">$superLongVariableName = Get-MySuperLongVariablePlease `
+    -MySuperLongHashtableParameter @{ MySuperLongKey1 = 'MySuperLongValue1'; MySuperLongKey2 = 'MySuperLongValue2' } `
+    -MySuperLongStringParameter '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890' `
+    -Verbose
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<p>Passing parameter (<code>Verbose</code>) outside of the splat.</p>
+
+<pre><code class="language-powershell">$getMySuperLongVariablePleaseParameters = @{
+    MySuperLongHashtableParameter = @{
+        MySuperLongKey1 = 'MySuperLongValue1'
+        MySuperLongKey2 = 'MySuperLongValue2'
+    }
+    MySuperLongStringParameter = '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890'
+}
+
+$superLongVariableName = Get-MySuperLongVariablePlease @getMySuperLongVariablePleaseParameters -Verbose
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">Get-ChildItem -Path C:\Documents -Filter *.md
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$superLongVariableName = Get-MyVariablePlease -MyStringParameter '123456789012349012345678901234567890' -Verbose
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$superLongVariableName = Get-MyVariablePlease -MyString1 '1234567890' -MyString2 '1234567890' -MyString3 '1234567890' -Verbose
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$mySuperLongHashtableParameter = @{
+    MySuperLongKey1 = 'MySuperLongValue1'
+    MySuperLongKey2 = 'MySuperLongValue2'
+}
+
+$superLongVariableName = Get-MySuperLongVariablePlease -MySuperLongHashtableParameter $mySuperLongHashtableParameter -Verbose
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<p>Splatting all parameters.</p>
+
+<pre><code class="language-powershell">$getMySuperLongVariablePleaseParameters = @{
+    MySuperLongHashtableParameter = @{
+        MySuperLongKey1 = 'MySuperLongValue1'
+        MySuperLongKey2 = 'MySuperLongValue2'
+    }
+    MySuperLongStringParameter = '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890'
+    Verbose = $true
+}
+
+$superLongVariableName = Get-MySuperLongVariablePlease @getMySuperLongVariablePleaseParameters
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$superLongVariableName = Get-MySuperLongVariablePlease `
+    -MySuperLongHashtableParameter @{
+        MySuperLongKey1 = 'MySuperLongValue1'
+        MySuperLongKey2 = 'MySuperLongValue2'
+    } `
+    -MySuperLongStringParameter '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890' `
+    -Verbose
+</code></pre>
+
+<h4 id="correct-format-for-arrays">Correct Format for Arrays</h4>
+
+<p>Arrays should be written in one of the following formats.</p>
+
+<p>If an array is declared on a single line, then there should be a single space
+between each element in the array. If arrays written on a single line tend to be
+long, please consider using one of the alternative ways of writing the array.</p>
+
+<p><strong>Bad:</strong></p>
+
+<p>Array elements are not format consistently.</p>
+
+<pre><code class="language-powershell">$array = @( 'one', `
+'two', `
+'three'
+)
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<p>There are no single space beetween the elements in the array.</p>
+
+<pre><code class="language-powershell">$array = @('one','two','three')
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<p>There are multiple array elements on the same row.</p>
+
+<pre><code class="language-powershell">$array = @(
+    'one', 'two', `
+    'my long string example', `
+    'three', 'four'
+)
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<p>Hashtable is not following <a href="https://github.com/PowerShell/DscResources/blob/master/StyleGuidelines.md#correct-format-for-hashtables-or-objects">Correct Format for Hashtables or Objects</a>.</p>
+
+<pre><code class="language-powershell">$array = @(
+    'one',
+    @{MyKey = 'MyValue'},
+    'three'
+)
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<p>Hashtables are not following <a href="https://github.com/PowerShell/DscResources/blob/master/StyleGuidelines.md#correct-format-for-hashtables-or-objects">Correct Format for Hashtables or Objects</a>.</p>
+
+<pre><code class="language-powershell">$myArray = @(
+    @{Key1 = Value1;Key2 = Value2},
+    @{Key1 = Value1;Key2 = Value2}
+)
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$array = @('one', 'two', 'three')
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$array = @(
+    'one',
+    'two',
+    'three'
+)
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$array = @(
+    'one'
+    'two'
+    'three'
+)
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$hashtable = @{
+    Key = &quot;Value&quot;
+}
+
+$array = @( 'one', 'two', 'three', $hashtable )
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$hashtable = @{
+    Key = &quot;Value&quot;
+}
+
+$array = @(
+    'one',
+    'two',
+    'three',
+    $hashtable
+)
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$myArray = @(
+    @{
+        Key1 = Value1
+        Key2 = Value2
+    },
+    @{
+        Key1 = Value1
+        Key2 = Value2
+    }
+)
+</code></pre>
+
+<h4 id="correct-format-for-hashtables-or-objects">Correct Format for Hashtables or Objects</h4>
+
+<p>Hashtables and Objects should be written in the following format.
+Each property should be on its own line indented once.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">$hashtable = @{Key1 = 'Value1';Key2 = 2;Key3 = '3'}
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">$hashtable = @{ Key1 = 'Value1'
+Key2 = 2
+Key3 = '3' }
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$hashtable = @{
+    Key1 = 'Value1'
+    Key2 = 2
+    Key3 = '3'
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$hashtable = @{
+    Key1 = 'Value1'
+    Key2 = 2
+    Key3 = @{
+        Key3Key1 = 'ExampleText'
+        Key3Key2 = 42
+    }
+}
+</code></pre>
+
+<h4 id="correct-use-of-single-and-double-quotes">Correct use of single- and double quotes</h4>
+
+<p>Single quotes should always be used to delimit string literals wherever possible.
+Double quoted string literals may only be used when it contains ($) expressions
+that need to be evaluated.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">$string = &quot;String that do not evaluate variable&quot;
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">$string = &quot;String that evaluate variable {0}&quot; -f $SomeObject.SomeProperty
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$string = 'String that do not evaluate variable'
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$string = 'String that evaluate variable {0}' -f $SomeObject.SomeProperty
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$string = &quot;String that evaluate variable $($SomeObject.SomeProperty)&quot;
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$string = 'String that evaluate variable ''{0}''' -f $SomeObject.SomeProperty
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$string = &quot;String that evaluate variable '{0}'&quot; -f $SomeObject.SomeProperty
+</code></pre>
+
+<h4 id="correct-format-for-comments">Correct Format for Comments</h4>
+
+<p>There should not be any commented-out code in checked-in files.
+The first letter of the comment should be capitalized.</p>
+
+<p>Single line comments should be on their own line and start with a single pound-sign followed by a single space.
+The comment should be indented the same amount as the following line of code.</p>
+
+<p>Comments that are more than one line should use the <code>&lt;# #&gt;</code> format rather than the single pound-sign.
+The opening and closing brackets should be on their own lines.
+The comment inside the brackets should be indented once more than the brackets.
+The brackets should be indented the same amount as the following line of code.</p>
+
+<p>Formatting help-comments for functions has a few more specific rules that can be found <a href="#all-functions-must-have-comment-based-help">here</a>.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyVariable
+{#this is a bad comment
+    [CmdletBinding()]
+    param ()
+#this is a bad comment
+    foreach ($example in $examples)
+    {
+        Write-Verbose -Message $example #this is a bad comment
+    }
+}
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyVariable
+{
+    [CmdletBinding()]
+    param ()
+
+    # this is a bad comment
+    # On multiple lines
+    foreach ($example in $examples)
+    {
+        # No commented-out code!
+        # Write-Verbose -Message $example
+    }
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyVariable
+{
+    # This is a good comment
+    [CmdletBinding()]
+    param ()
+
+    # This is a good comment
+    foreach ($example in $examples)
+    {
+        # This is a good comment
+        Write-Verbose -Message $example
+    }
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyVariable
+{
+    [CmdletBinding()]
+    param ()
+
+    &lt;#
+        This is a good comment
+        on multiple lines
+    #&gt;
+    foreach ($example in $examples)
+    {
+        Write-Verbose -Message $example
+    }
+}
+</code></pre>
+
+<h4 id="correct-format-for-keywords">Correct Format for Keywords</h4>
+
+<p>PowerShell reserved Keywords should be in all lower case and should
+be immediately followed by a space if there is non-whitespace characters
+following (for example, an open brace).</p>
+
+<p>Some reserved Keywords may also be followed by an open curly brace, for
+example the <code>catch</code> keyword. These keywords that are followed by a
+curly brace should also follow the <a href="#one-newline-before-braces">One Newline Before Braces</a>
+guideline.</p>
+
+<p>The following is the current list of PowerShell reserved keywords in
+PowerShell 5.1:</p>
+
+<pre><code class="language-powershell">begin, break, catch, class, continue, data, define do, dynamicparam, else,
+elseif, end, enum, exit, filter, finally, for, foreach, from, function
+hidden, if, in, inlinescript, param, process, return, static, switch,
+throw, trap, try, until, using, var, while
+</code></pre>
+
+<p>This list may change in newer versions of PowerShell.</p>
+
+<p>The latest list of PowerShell reserved keywords can also be found
+on <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_keywords?view=powershell-5.1">this page</a>.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell"># Missing space after keyword and before open bracket
+foreach($item in $list)
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell"># Capital letters in keyword
+BEGIN
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell"># Violates 'One Newline Before Braces' guideline
+begin {
+    # Do some work
+}
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell"># Capital letters in 'in' and 'foreach' keyword
+ForEach ($item In $list)
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">foreach ($item in $list)
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">begin
+{
+    # Do some work
+}
+</code></pre>
+
+<h3 id="whitespace">Whitespace</h3>
+
+<h4 id="indentation">Indentation</h4>
+
+<p>For all indentation, use <strong>4</strong> spaces instead of tabs.
+There should be no tab characters in the file unless they are in a here-string.</p>
+
+<h4 id="no-trailing-whitespace-after-backticks">No Trailing Whitespace After Backticks</h4>
+
+<p>Backticks should always be directly followed by a newline</p>
+
+<h4 id="newline-at-end-of-file">Newline at End of File</h4>
+
+<p>All files must end with a newline, see <a href="http://stackoverflow.com/questions/5813311/no-newline-at-end-of-file">StackOverflow.</a></p>
+
+<h4 id="newline-character-encoding">Newline Character Encoding</h4>
+
+<p>Save <a href="http://en.wikipedia.org/wiki/Newline">newlines</a> using CR+LF instead of CR.
+For interoperability reasons, we recommend that you follow <a href="GettingStartedWithGitHub.md#setup-git">these instructions</a> when installing Git on Windows so that newlines saved to GitHub are simply CRs.</p>
+
+<h4 id="no-more-than-two-consecutive-newlines">No More Than Two Consecutive Newlines</h4>
+
+<p>Code should not contain more than two consecutive newlines unless they are contained in a here-string.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyValue
+{
+    Write-Verbose -Message 'Getting MyValue'
+
+
+    return $MyValue
+}
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyValue
+{
+    Write-Verbose -Message 'Getting MyValue'
+    return $MyValue
+}
+
+function Write-Log
+{
+    Write-Verbose -Message 'Logging...'
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyValue
+{
+    Write-Verbose -Message 'Getting MyValue'
+    return $MyValue
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyValue
+{
+    Write-Verbose -Message 'Getting MyValue'
+    return $MyValue
+}
+
+function Write-Log
+{
+    Write-Verbose -Message 'Logging...'
+}
+</code></pre>
+
+<h4 id="one-newline-before-braces">One Newline Before Braces</h4>
+
+<p>Each curly brace should be preceded by a newline unless assigning to a variable.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">if ($booleanValue) {
+    Write-Verbose -Message &quot;Boolean is $booleanValue&quot;
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">if ($booleanValue)
+{
+    Write-Verbose -Message &quot;Boolean is $booleanValue&quot;
+}
+</code></pre>
+
+<p>When assigning to a variable, opening curly braces should be on the same line as the assignment operator.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">$scriptBlockVariable =
+{
+    Write-Verbose -Message 'Executing script block'
+}
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">$hashtableVariable =
+@{
+    Key1 = 'Value1'
+    Key2 = 'Value2'
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$scriptBlockVariable = {
+    Write-Verbose -Message 'Executing script block'
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$hashtableVariable = @{
+    Key1 = 'Value1'
+    Key2 = 'Value2'
+}
+</code></pre>
+
+<h4 id="one-newline-after-opening-brace">One Newline After Opening Brace</h4>
+
+<p>Each opening curly brace should be followed by only one newline.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyValue
+{
+
+    Write-Verbose -Message 'Getting MyValue'
+
+    return $MyValue
+}
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyValue
+{ Write-Verbose -Message 'Getting MyValue'
+
+    return $MyValue
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyValue
+{
+    Write-Verbose -Message 'Getting MyValue'
+    return $MyValue
+}
+</code></pre>
+
+<h4 id="two-newlines-after-closing-brace">Two Newlines After Closing Brace</h4>
+
+<p>Each closing curly brace <strong>ending</strong> a function, conditional block, loop, etc. should be followed by exactly two newlines unless it is directly followed by another closing brace.
+If the closing brace is followed by another closing brace or continues a conditional or switch block, there should be only one newline after the closing brace.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyValue
+{
+    Write-Verbose -Message 'Getting MyValue'
+    return $MyValue
+} Get-MyValue
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyValue
+{ Write-Verbose -Message 'Getting MyValue'
+
+    if ($myBoolean)
+    {
+        return $MyValue
+    }
+
+    else
+    {
+        return 0
+    }
+
+}
+Get-MyValue
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyValue
+{
+    Write-Verbose -Message 'Getting MyValue'
+
+    if ($myBoolean)
+    {
+        return $MyValue
+    }
+    else
+    {
+        return 0
+    }
+}
+
+Get-MyValue
+</code></pre>
+
+<h4 id="one-space-between-type-and-variable-name">One Space Between Type and Variable Name</h4>
+
+<p>If you must declare a variable type, type declarations should be separated from the variable name by a single space.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param ()
+
+    [Int]$number = 2
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param ()
+
+    [Int] $number = 2
+}
+</code></pre>
+
+<h4 id="one-space-on-either-side-of-operators">One Space on Either Side of Operators</h4>
+
+<p>There should be one blank space on either side of all operators.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param ()
+
+    $number=2+4-5*9/6
+}
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param ()
+
+    if ('example'-eq'example'-or'magic')
+    {
+        Write-Verbose -Message 'Example found.'
+    }
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param ()
+
+    $number = 2 + 4 - 5 * 9 / 6
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param ()
+
+    if ('example' -eq 'example' -or 'magic')
+    {
+        Write-Verbose -Message 'Example found.'
+    }
+}
+</code></pre>
+
+<h4 id="one-space-between-keyword-and-parenthesis">One Space Between Keyword and Parenthesis</h4>
+
+<p>If a keyword is followed by a parenthesis, there should be single space between the keyword and the parenthesis.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param ()
+
+    if('example' -eq 'example' -or 'magic')
+    {
+        Write-Verbose -Message 'Example found.'
+    }
+
+    foreach($example in $examples)
+    {
+        Write-Verbose -Message $example
+    }
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param ()
+
+    if ('example' -eq 'example' -or 'magic')
+    {
+        Write-Verbose -Message 'Example found.'
+    }
+
+    foreach ($example in $examples)
+    {
+        Write-Verbose -Message $example
+    }
+}
+</code></pre>
+
+<h3 id="functions">Functions</h3>
+
+<h4 id="function-names-use-pascal-case">Function Names Use Pascal Case</h4>
+
+<p>Function names must use PascalCase.  This means that each concatenated word is capitalized.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function get-targetresource
+{
+    # ...
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    # ...
+}
+</code></pre>
+
+<h4 id="function-names-use-verb-noun-format">Function Names Use Verb-Noun Format</h4>
+
+<p>All function names must follow the standard PowerShell Verb-Noun format.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function TargetResourceGetter
+{
+    # ...
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    # ...
+}
+</code></pre>
+
+<h4 id="function-names-use-approved-verbs">Function Names Use Approved Verbs</h4>
+
+<p>All function names must use <a href="https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx">approved verbs</a>.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Normalize-String
+{
+    # ...
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function ConvertTo-NormalizedString
+{
+    # ...
+}
+</code></pre>
+
+<h4 id="functions-have-comment-based-help">Functions Have Comment-Based Help</h4>
+
+<p>All functions should have comment-based help with the correct syntax directly above the function.
+Comment-help should include at least the SYNOPSIS section and a PARAMETER section for each parameter.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell"># Creates an event
+function New-Event
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $Message,
+
+        [Parameter()]
+        [ValidateSet('operational', 'debug', 'analytic')]
+        [String]
+        $Channel = 'operational'
+    )
+    # Implementation...
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">&lt;#
+    .SYNOPSIS
+        Creates an event
+
+    .PARAMETER Message
+        Message to write
+
+    .PARAMETER Channel
+        Channel where message should be stored
+
+    .EXAMPLE
+        New-Event -Message 'Attempting to connect to server' -Channel 'debug'
+#&gt;
+function New-Event
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $Message,
+
+        [Parameter()]
+        [ValidateSet('operational', 'debug', 'analytic')]
+        [String]
+        $Channel = 'operational'
+    )
+    # Implementation
+}
+</code></pre>
+
+<h4 id="parameter-block-at-top-of-function">Parameter Block at Top of Function</h4>
+
+<p>There must be a parameter block declared for every function.
+The parameter block must be at the top of the function and not declared next to the function name.
+Functions with no parameters should still display an empty parameter block.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Write-Text([Parameter(Mandatory = $true)][ValidateNotNullOrEmpty()][String]$Text)
+{
+    Write-Verbose -Message $Text
+}
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Write-Nothing
+{
+    Write-Verbose -Message 'Nothing'
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Write-Text
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $Text
+    )
+
+    Write-Verbose -Message $Text
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Write-Nothing
+{
+    param ()
+
+    Write-Verbose -Message 'Nothing'
+}
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<h4 id="correct-format-for-parameter-block">Correct Format for Parameter Block</h4>
+
+<ul>
+<li>An empty parameter block should be displayed on its own line like this: <code>param ()</code>.</li>
+<li>A non-empty parameter block should have the opening and closing parentheses on their own line.</li>
+<li>All text inside the parameter block should be indented once.</li>
+<li>Every parameter should include the <code>[Parameter()]</code> attribute, regardless of whether the attribute requires decoration or not.</li>
+<li>A parameter that is mandatory should contain this decoration: <code>[Parameter(Mandatory = $true)]</code>.</li>
+<li>A parameter that is not mandatory should <em>not</em> contain a <code>Mandatory</code> decoration in the <code>[Parameter()]</code>.</li>
+</ul>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Write-Nothing
+{
+    param
+    (
+
+    )
+
+    Write-Verbose -Message 'Nothing'
+}
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Write-Text
+{
+    param([Parameter(Mandatory = $true)]
+[ValidateNotNullOrEmpty()]
+                    [String] $Text )
+
+    Write-Verbose -Message $Text
+}
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Write-Text
+{
+    param
+    (
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $Text
+
+        [Parameter(Mandatory = $false)]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $PrefixText
+
+        [Boolean]
+        $AsWarning = $false
+    )
+
+    if ($AsWarning)
+    {
+        Write-Warning -Message &quot;$PrefixText - $Text&quot;
+    }
+    else
+    {
+        Write-Verbose -Message &quot;$PrefixText - $Text&quot;
+    }
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Write-Nothing
+{
+    param ()
+
+    Write-Verbose -Message 'Nothing'
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Write-Text
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $Text
+    )
+
+    Write-Verbose -Message $Text
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Write-Text
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $Text
+
+        [Parameter()]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $PrefixText
+
+        [Parameter()]
+        [Boolean]
+        $AsWarning = $false
+    )
+
+    if ($AsWarning)
+    {
+        Write-Warning -Message &quot;$PrefixText - $Text&quot;
+    }
+    else
+    {
+        Write-Verbose -Message &quot;$PrefixText - $Text&quot;
+    }
+}
+</code></pre>
+
+<h4 id="parameter-names-use-pascal-case">Parameter Names Use Pascal Case</h4>
+
+<p>All parameters must use PascalCase.  This means that each concatenated word is capitalized.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param
+    (
+        $SOURCEPATH
+    )
+}
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param
+    (
+        $sourcepath
+    )
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param
+    (
+        [Parameter()]
+        $SourcePath
+    )
+}
+</code></pre>
+
+<h4 id="parameters-separated-by-one-line">Parameters Separated by One Line</h4>
+
+<p>Parameters must be separated by a single, blank line.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function New-Event
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $Message,
+        [ValidateSet('operational', 'debug', 'analytic')]
+        [String]
+        $Channel = 'operational'
+    )
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function New-Event
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $Message,
+
+        [Parameter()]
+        [ValidateSet('operational', 'debug', 'analytic')]
+        [String]
+        $Channel = 'operational'
+    )
+}
+</code></pre>
+
+<h4 id="parameter-type-on-line-above">Parameter Type on Line Above</h4>
+
+<p>The parameter type must be on its own line above the parameter name.
+If an attribute needs to follow the type, it should also have its own line between the parameter type and the parameter name.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param
+    (
+        [String] $SourcePath = 'c:\'
+    )
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param
+    (
+        [Parameter()]
+        [String]
+        $SourcePath = 'c:\'
+    )
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-TargetResource
+{
+    [CmdletBinding()]
+    param
+    (
+        [Parameter()]
+        [PSCredential]
+        [Credential()]
+        $MyCredential
+    )
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function New-Event
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $Message,
+
+        [Parameter()]
+        [ValidateSet('operational', 'debug', 'analytic')]
+        [String]
+        $Channel = 'operational'
+    )
+}
+</code></pre>
+
+<h4 id="parameter-attributes-on-separate-lines">Parameter Attributes on Separate Lines</h4>
+
+<p>Parameter attributes should each have their own line.
+All attributes should go above the parameter type, except those that <em>must</em> be between the type and the name.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function New-Event
+{
+    param
+    (
+        [Parameter(Mandatory = $true)][ValidateNotNullOrEmpty()][String]
+        $Message,
+
+        [ValidateSet('operational', 'debug', 'analytic')][String]
+        $Channel = 'operational'
+    )
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function New-Event
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $Message,
+
+        [Parameter()]
+        [ValidateSet('operational', 'debug', 'analytic')]
+        [String]
+        $Channel = 'operational'
+    )
+}
+</code></pre>
+
+<h3 id="variables">Variables</h3>
+
+<h4 id="variable-names-use-camel-case">Variable Names Use Camel Case</h4>
+
+<p>Variable names should use camelCase.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Write-Log
+{
+    $VerboseMessage = 'New log message'
+    Write-Verbose $VerboseMessage
+}
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Write-Log
+{
+    $verbosemessage = 'New log message'
+    Write-Verbose $verbosemessage
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Write-Log
+{
+    $verboseMessage = 'New log message'
+    Write-Verbose $verboseMessage
+}
+</code></pre>
+
+<h4 id="script-environment-and-global-variable-names-include-scope">Script, Environment and Global Variable Names Include Scope</h4>
+
+<p>Script, environment, and global variables must always include their scope in the variable name unless the &lsquo;using&rsquo; scope is needed.
+The script and global scope specifications should be all in lowercase.
+Script and global variable names following the scope should use camelCase.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">$fileCount = 0
+$GLOBAL:MYRESOURCENAME = 'MyResource'
+
+function New-File
+{
+    $fileCount++
+    Write-Verbose -Message &quot;Adding file to $MYRESOURCENAME to $ENV:COMPUTERNAME.&quot;
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$script:fileCount = 0
+$global:myResourceName = 'MyResource'
+
+function New-File
+{
+    $script:fileCount++
+    Write-Verbose -Message &quot;Adding file to $global:myResourceName to $env:computerName.&quot;
+}
+</code></pre>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<p>Although adoping the <em>best practices</em> is optional, doing so will help improve the
+quality of the DSC resource module.</p>
+
+<p>Note: Modules that aim to meet the <a href="HighQualityModuleGuidelines.md">High Quality Resource Module</a> standards
+must also implement the <em>best practices</em> whereever possible.</p>
+
+<h3 id="general-best-practices">General Best Practices</h3>
+
+<h4 id="avoid-using-hardcoded-computer-name">Avoid Using Hardcoded Computer Name</h4>
+
+<p>Using hardcoded computer names exposes sensitive information on your machine.
+Use a parameter or environment variable instead if a computer name is necessary.
+This comes from <a href="https://github.com/PowerShell/PSScriptAnalyzer/blob/development/RuleDocumentation/AvoidUsingComputerNameHardcoded.md">this</a> PS Script Analyzer rule.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">Invoke-Command -Port 0 -ComputerName 'hardcodedName'
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">Invoke-Command -Port 0 -ComputerName $env:computerName
+</code></pre>
+
+<h4 id="avoid-empty-catch-blocks">Avoid Empty Catch Blocks</h4>
+
+<p>Empty catch blocks are not necessary.
+Most errors should be thrown or at least acted upon in some way.
+If you really don&rsquo;t want an error to be thrown or logged at all, use the ErrorAction parameter with the SilentlyContinue value instead.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">try
+{
+    Get-Command -Name Invoke-NotACommand
+}
+catch {}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">Get-Command -Name Invoke-NotACommand -ErrorAction SilentlyContinue
+</code></pre>
+
+<h4 id="ensure-null-is-on-left-side-of-comparisons">Ensure Null is on Left Side of Comparisons</h4>
+
+<p>When comparing a value to <code>$null</code>, <code>$null</code> should be on the left side of the comparison.
+This is due to an issue in PowerShell.
+If <code>$null</code> is on the right side of the comparison and the value you are comparing it against happens to be a collection, PowerShell will return true if the collection <em>contains</em> <code>$null</code> rather than if the entire collection actually <em>is</em> <code>$null</code>.
+Even if you are sure your variable will never be a collection, for consistency, please ensure that <code>$null</code> is on the left side of all comparisons.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">if ($myArray -eq $null)
+{
+    Remove-AllItems
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">if ($null -eq $myArray)
+{
+    Remove-AllItems
+}
+</code></pre>
+
+<h4 id="avoid-global-variables">Avoid Global Variables</h4>
+
+<p>Avoid using global variables whenever possible.
+These variables can be edited by any other script that ran before your script or is running at the same time as your script.
+Use them only with extreme caution, and try to use parameters or script/local variables instead.</p>
+
+<p>This rule has a few exceptions:</p>
+
+<ul>
+<li>The use of <code>$global:DSCMachineStatus</code> is still recommended to restart a machine from a DSC resource.</li>
+</ul>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">$global:configurationName = 'MyConfigurationName'
+...
+Set-MyConfiguration -ConfigurationName $global:configurationName
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$script:configurationName = 'MyConfigurationName'
+...
+Set-MyConfiguration -ConfigurationName $script:configurationName
+</code></pre>
+
+<h4 id="use-declared-local-and-script-variables-more-than-once">Use Declared Local and Script Variables More Than Once</h4>
+
+<p>Don&rsquo;t declare a local or script variable if you&rsquo;re not going to use it.
+This creates excess code that isn&rsquo;t needed</p>
+
+<h4 id="use-pscredential-for-all-credentials">Use PSCredential for All Credentials</h4>
+
+<p>PSCredentials are more secure than using plaintext username and passwords.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-Settings
+{
+    param
+    (
+        [String]
+        $Username
+
+        [String]
+        $Password
+    )
+    ...
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-Settings
+{
+    param
+    (
+        [PSCredential]
+        [Credential()]
+        $UserCredential
+    )
+}
+</code></pre>
+
+<h4 id="use-variables-rather-than-extensive-piping">Use Variables Rather Than Extensive Piping</h4>
+
+<p>This is a script not a console. Code should be easy to follow.
+There should be no more than 1 pipe in a line.
+This rule is specific to the DSC Resource Kit - other PowerShell best practices may say differently, but this is our preferred format for readability.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">Get-Objects | Where-Object { $_.Propery -ieq 'Valid' } | Set-ObjectValue `
+    -Value 'Invalid' | Foreach-Object { Write-Output $_ }
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$validPropertyObjects = Get-Objects | Where-Object { $_.Property -ieq 'Valid' }
+
+foreach ($validPropertyObject in $validPropertyObjects)
+{
+    $propertySetResult = Set-ObjectValue $validPropertyObject -Value 'Invalid'
+    Write-Output $propertySetResult
+}
+</code></pre>
+
+<h4 id="avoid-unnecessary-type-declarations">Avoid Unnecessary Type Declarations</h4>
+
+<p>If it is clear what type a variable is then it is not necessary to explicitly declare its type.
+Extra type declarations can clutter the code.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">[String] $myString = 'My String'
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">[System.Boolean] $myBoolean = $true
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$myString = 'My String'
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$myBoolean = $true
+</code></pre>
+
+<h3 id="calling-functions">Calling Functions</h3>
+
+<h4 id="avoid-cmdlet-aliases">Avoid Cmdlet Aliases</h4>
+
+<p>When calling a function use the full command not an alias.
+You can get the full command an alias represents by calling <code>Get-Alias</code>.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">ls -File $root -Recurse | ? { @('.gitignore', '.mof') -contains $_.Extension }
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-Powershell">Get-ChildItem -File $root -Recurse | Where-Object { @('.gitignore', '.mof') -contains $_.Extension }
+</code></pre>
+
+<h3 id="avoid-invoke-expression">Avoid Invoke-Expression</h3>
+
+<p>Invoke-Expression is vulnerable to string injection attacks.
+It should not be used in any DSC resources.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">Invoke-Expression -Command &quot;Test-$DSCResourceName&quot;
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">&amp; &quot;Test-$DSCResourceName&quot;
+</code></pre>
+
+<h4 id="use-the-force-parameter-with-calls-to-shouldcontinue">Use the Force Parameter with Calls to ShouldContinue</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h4 id="avoid-the-wmi-cmdlets">Avoid the WMI Cmdlets</h4>
+
+<p>The WMI cmdlets can all be replaced by CIM cmdlets.
+Use the CIM cmdlets instead because they align with industry standards.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">Get-WMIInstance -ClassName Win32_Process
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">Get-CIMInstance -ClassName Win32_Process
+</code></pre>
+
+<h4 id="avoid-write-host">Avoid Write-Host</h4>
+
+<p><a href="http://www.jsnover.com/blog/2013/12/07/write-host-considered-harmful/">Write-Host is harmful</a>.
+Use alternatives such as Write-Verbose, Write-Output, Write-Debug, etc.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">Write-Host 'Setting the variable to a value.'
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">Write-Verbose -Message 'Setting the variable to a value.'
+</code></pre>
+
+<h4 id="avoid-convertto-securestring-with-asplaintext">Avoid ConvertTo-SecureString with AsPlainText</h4>
+
+<p>SecureStrings should be encrypted.
+When using ConvertTo-SecureString with the AsPlainText parameter specified the SecureString text is not encrypted and thus not secure
+This is allowed in tests/examples when needed, but never in the actual resources.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">ConvertTo-SecureString -String 'mySecret' -AsPlainText -Force
+</code></pre>
+
+<h4 id="assign-function-results-to-variables-rather-than-extensive-inline-calls">Assign Function Results to Variables Rather Than Extensive Inline Calls</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">Set-Background -Color (Get-Color -Name ((Get-Settings -User (Get-CurrentUser)).ColorName))
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$currentUser = Get-CurrentUser
+$userSettings = Get-Settings -User $currentUser
+$backgroundColor = Get-Color -Name $userSettings.ColorName
+
+Set-Background -Color $backgroundColor
+</code></pre>
+
+<h3 id="writing-functions">Writing Functions</h3>
+
+<h4 id="avoid-default-values-for-mandatory-parameters">Avoid Default Values for Mandatory Parameters</h4>
+
+<p>Default values for mandatory parameters will always be overwritten, thus they are never used and can cause confusion.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-Something
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [String]
+        $Name = 'My Name'
+    )
+
+    ...
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-Something
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [String]
+        $Name
+    )
+
+    ...
+}
+</code></pre>
+
+<h4 id="avoid-default-values-for-switch-parameters">Avoid Default Values for Switch Parameters</h4>
+
+<p>Switch parameters have 2 values - there or not there.
+The default value is automatically $false so it doesn&rsquo;t need to be declared.
+If you are tempted to set the default value to $true - don&rsquo;t - refactor your code instead.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-Something
+{
+    param
+    (
+        [Switch]
+        $MySwitch = $true
+    )
+
+    ...
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-Something
+{
+    param
+    (
+        [Switch]
+        $MySwitch
+    )
+
+    ...
+}
+</code></pre>
+
+<h4 id="include-the-force-parameter-in-functions-with-the-shouldcontinue-attribute">Include the Force Parameter in Functions with the ShouldContinue Attribute</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h3 id="use-shouldprocess-if-the-shouldprocess-attribute-is-defined">Use ShouldProcess if the ShouldProcess Attribute is Defined</h3>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h4 id="define-the-shouldprocess-attribute-if-the-function-calls-shouldprocess">Define the ShouldProcess Attribute if the Function Calls ShouldProcess</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h4 id="avoid-redefining-reserved-parameters">Avoid Redefining Reserved Parameters</h4>
+
+<p><a href="https://msdn.microsoft.com/en-us/library/dd901844(v=vs.85).aspx">Reserved Parameters</a> such as Verbose, Debug, etc. are already added to the function at runtime so don&rsquo;t redefine them.
+Add the CmdletBinding attribute to include the reserved parameters in your function.</p>
+
+<h4 id="use-the-cmdletbinding-attribute-on-every-function">Use the CmdletBinding Attribute on Every Function</h4>
+
+<p>The CmdletBinding attribute adds the reserved parameters to your function which is always preferable.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-Property
+{
+    param
+    (
+        ...
+    )
+    ...
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-Property
+{
+    [CmdletBinding()]
+    param
+    (
+        ...
+    )
+    ...
+}
+</code></pre>
+
+<h4 id="define-the-outputtype-attribute-for-all-functions-with-output">Define the OutputType Attribute for All Functions With Output</h4>
+
+<p>The OutputType attribute should be declared if the function has output so that the correct error messages get displayed if the function ever produces an incorrect output type.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyBoolean
+{
+    [OutputType([Boolean])]
+    param ()
+
+    ...
+
+    return $myBoolean
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">function Get-MyBoolean
+{
+    [CmdletBinding()]
+    [OutputType([Boolean])]
+    param ()
+
+    ...
+
+    return $myBoolean
+}
+</code></pre>
+
+<h4 id="return-only-one-object-from-each-function">Return Only One Object From Each Function</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h3 id="dsc-resource-functions">DSC Resource Functions</h3>
+
+<h4 id="return-a-hashtable-from-get-targetresource">Return a Hashtable from Get-TargetResource</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h4 id="return-a-boolean-from-test-targetresource">Return a Boolean from Test-TargetResource</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h4 id="avoid-returning-anything-from-set-targetresource">Avoid Returning Anything From Set-TargetResource</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h4 id="define-get-targetresource-set-targetresource-and-test-targetresource-for-every-dsc-resource">Define Get-TargetResource, Set-TargetResource, and Test-TargetResource for Every DSC Resource</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h4 id="get-targetresource-should-not-contain-unused-non-mandatory-parameters">Get-TargetResource should not contain unused non-mandatory parameters</h4>
+
+<p>The inclusion of a non-mandatory parameter that is never used could signal that there is a design flaw in the implementation of the <code>Get-TargetResource</code> function.
+The non-mandatory parameters that are used to call <code>Get-TargetResource</code> should help to retrieve the actual values of the properties for the resource.
+For example, if there is a parameter <code>Ensure</code> that is non-mandatory, that parameter describes the state the resource should have, but it might not be used to retrieve
+the actual values.
+Another example would be if a parameter <code>FilePathName</code> is set to be non-mandatory, but <code>FilePathName</code> is actually a property that <code>Get-TargetResource</code> should return
+the actual value of.
+In that case it does not make sense to assign a value to <code>FilePathName</code> when calling <code>Get-TargetResource</code> because that value will never be used.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">&lt;#
+    .SYNOPSIS
+        Returns the current state of the feature.
+
+    .PARAMETER Name
+        The feature for which to return the state for.
+
+    .PARAMETER ServerName
+        The server name on which the feature is installed.
+
+    .PARAMETER Ensure
+        The desired state of the feature.
+#&gt;
+function Get-TargetResource
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $Name,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $ServerName,
+
+        [Parameter()]
+        [System.String]
+        $Ensure
+    )
+
+    Write-Verbose -Message ('{0} for {1}' -f $Name, $ServerName)
+
+    if( $Name )
+    {
+        $feature = 'Enabled'
+    }
+
+    return @{
+        Name = $Name
+        Servername = $ServerName
+        Feeature = $feature
+    }
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">&lt;#
+    .SYNOPSIS
+        Returns the current state of the feature.
+
+    .PARAMETER Name
+        The feature for which to return the state for.
+
+    .PARAMETER ServerName
+        The server name on which the feature is installed.
+#&gt;
+function Get-TargetResource
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $Name,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $ServerName
+    )
+
+    Write-Verbose -Message ('{0} for {1}' -f $Name, $ServerName)
+
+    if( $Name )
+    {
+        $feature = 'Yes'
+    }
+
+    return @{
+        Name = $Name
+        Servername = $ServerName
+        Feeature = $feature
+    }
+}
+</code></pre>
+
+<h4 id="any-unused-parameters-that-must-be-included-in-a-function-definition-should-include-not-used-in-function-name-in-the-help-comment-for-that-parameter-in-the-comment-based-help">Any unused parameters that must be included in a function definition should include &lsquo;Not used in &lt;function_name&gt;&rsquo; in the help comment for that parameter in the comment-based help</h4>
+
+<p>The inclusion of a mandatory parameter in the &lsquo;Get-TargetResource&rsquo; function that is never used could signal that there is a design flaw in the implementation
+of the function.
+The mandatory parameters that are used to call &lsquo;Get-TargetResource&rsquo; should help to retrieve the actual values of the properties for the resource.
+For example, if there is a parameter &lsquo;Ensure&rsquo; that is mandatory, that parameter will not be used to retrieve the actual values.
+Another example would be if a parameter &lsquo;FilePathName&rsquo; is set to be mandatory, but &lsquo;FilePathName&rsquo; is actually a property that &lsquo;Get-TargetResource&rsquo; should
+return the actual value of. In that case it does not make sense to assign a value to &lsquo;FilePathName&rsquo; when calling &lsquo;Get-TargetResource&rsquo; because that value will
+never be used.</p>
+
+<p>The inclusion of a mandatory or a non-mandatory parameter in the Test-TargetResource function that is not used is more common since it is required that both
+the &lsquo;Set-TargetResource&rsquo; and the &lsquo;Test-TargetResource&rsquo; have the same parameters. Thus, there will be times when not all of the parameters in the &lsquo;Test-TargetResource&rsquo;
+function will be used in the function.</p>
+
+<p>If there is a need design-wise to include a mandatory parameter that will not be used, then the comment-based help for that parameter should contain the description &lsquo;Not used in <function_name>&rsquo;.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">&lt;#
+    .SYNOPSIS
+        Returns the current state of the feature.
+
+    .PARAMETER Name
+        The feature for which to return the state for.
+
+    .PARAMETER ServerName
+        The server name on which the feature is installed.
+
+    .PARAMETER Ensure
+        The desired state of the feature.
+#&gt;
+function Get-TargetResource
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $Name,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $ServerName,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $Ensure
+    )
+
+    Write-Verbose -Message ('{0} for {1}' -f $Name, $ServerName)
+
+    if( $Name )
+    {
+        $feature = 'Yes'
+    }
+
+    return @{
+        Name = $Name
+        Servername = $ServerName
+        Feeature = $feature
+    }
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">&lt;#
+    .SYNOPSIS
+        Returns the current state of the feature.
+
+    .PARAMETER Name
+        The feature for which to return the state for.
+
+    .PARAMETER ServerName
+        The server name on which the feature is installed.
+
+    .PARAMETER Ensure
+        The desired state of the feature.
+        Not used in Get-TargetResource
+#&gt;
+function Get-TargetResource
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $Name,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $ServerName,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $Ensure
+    )
+
+    Write-Verbose -Message ('{0} for {1}' -f $Name, $ServerName)
+
+    if( $Name )
+    {
+        $feature = 'Yes'
+    }
+
+    return @{
+        Name = $Name
+        Servername = $ServerName
+        Feeature = $feature
+    }
+}
+</code></pre>
+
+<h4 id="use-identical-parameters-for-set-targetresource-and-test-targetresource">Use Identical Parameters for Set-TargetResource and Test-TargetResource</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h4 id="use-write-verbose-at-least-once-in-get-targetresource-set-targetresource-and-test-targetresource">Use Write-Verbose At Least Once in Get-TargetResource, Set-TargetResource, and Test-TargetResource</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h4 id="use-targetresource-for-exporting-dsc-resource-functions">Use *-TargetResource for Exporting DSC Resource Functions</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h3 id="manifests">Manifests</h3>
+
+<h4 id="avoid-using-deprecated-manifest-fields">Avoid Using Deprecated Manifest Fields</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h4 id="ensure-manifest-contains-correct-fields">Ensure Manifest Contains Correct Fields</h4>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h4 id="do-not-use-nestedmodules-to-export-shared-commands">Do not use NestedModules to export shared commands</h4>
+
+<p>Since we don&rsquo;t use the <code>RootModule</code> key in the module manifest, we should not
+use the <code>NestedModules</code> key to add modules that export commands that are shared
+between resource modules.</p>
+
+<p>Normally, a single list in the <code>RootModule</code> key, can restrict what is
+exported using the cmdlet <code>Export-ModuleMember</code>. Since we don&rsquo;t use the <code>RootModule</code>
+key we can&rsquo;t restrict what is exported, so every nested module will export all the
+commands (or all the commands restricted by <code>Export-ModuleMember</code> in that
+individual nested module). If two resource modules were to use the <code>NestedModules</code>
+method, it would result in one of them being unable to install since they have
+conflicting exported commands.</p>
+
+<h3 id="localization">Localization</h3>
+
+<p>In each resource folder there should be at least one localization folder for
+english language &lsquo;en-US&rsquo;. Add other localization folders as appropriate, the
+correct folder name can be found by running <code>Get-UICulture</code> on the node that
+has a UI culture installed that the strings are being built for.
+There is also the list of
+<a href="https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/available-language-packs-for-windows#language-packs">Available Language Packs for Windows</a>.</p>
+
+<p>In each localization folder there should be a PowerShell data (.psd1) file named
+&lsquo;MSFT_&lt;ResourceName&gt;.strings.psd1&rsquo; (e.g. &lsquo;MSFT_Folder.strings.psd1&rsquo;).
+Each localized string file should contain the following with the correct
+localization key and accompanying localization string value (the example uses
+the friendly resource name of &lsquo;Folder&rsquo;).</p>
+
+<pre><code class="language-powershell"># Localized resources for Folder
+
+ConvertFrom-StringData @'
+    CreateFolder = Creating folder at path '{0}'. (F0001)
+    RetrievingFolderInformation = Retrieving folder information from path '{0}'. (F0002)
+    ProblemAccessFolder = Could not access the requested path '{0}'. (F0003)
+    FailedToReadProperties = Could not read property '{0}' of path '{1}'. (F0004)
+'@
+</code></pre>
+
+<p>When using the previous example, the folder structure would look like the
+following:</p>
+
+<pre><code class="language-plaintext">DSCResources\MSFT_Folder\en-US\MSFT_Folder.strings.psd1
+DSCResources\MSFT_Folder\es-ES\MSFT_Folder.strings.psd1
+</code></pre>
+
+<p>To use the localization strings in a resource, then localization strings are
+imported at the top of each resource PowerShell module script file (.psm1). The
+localized strings should be imported using <a href="#get-localizeddata"><code>Get-LocalizedData</code></a>.</p>
+
+<h4 id="localization-string-id-suffix">Localization string ID suffix</h4>
+
+<p>To easier debug localized verbose logs, and to find the correct localized string
+key in the code, it is recommended to use a hard coded ID on each localized key&rsquo;s
+string value. That ID must be the same across the localized language files,
+and it is not recommended to reuse ID&rsquo;s once they become obsolete (because of
+for example code change).</p>
+
+<blockquote>
+<p>Using this method we could also test that each localized string is
+represented in each language specific localization file for that
+resource.</p>
+</blockquote>
+
+<p><strong>Format:</strong> <code>(ID:yyyyZZZZ)</code></p>
+
+<ul>
+<li>&lsquo;yyyy&rsquo; - The resource name prefix. It is composed of every first letter of
+every word in the resource friendly name.</li>
+<li>&lsquo;ZZZZ&rsquo; - The suffix is a serial number starting from &lsquo;0001&rsquo;.</li>
+</ul>
+
+<p><strong>Example of prefixes:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Resource</th>
+<th>ID prefix (yyyy)</th>
+<th>First string ID suffix</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>PSDscResources</td>
+<td>GroupResource</td>
+<td>GR</td>
+<td><code>(GR0001)</code></td>
+</tr>
+
+<tr>
+<td>PSDscResources</td>
+<td>WindowsOptionalFeature</td>
+<td>WOF</td>
+<td><code>(WOF0001)</code></td>
+</tr>
+
+<tr>
+<td>SqlServerDsc</td>
+<td>SqlSetup</td>
+<td>SS</td>
+<td><code>(SS0001)</code></td>
+</tr>
+
+<tr>
+<td>SqlServerDsc</td>
+<td>SqlAGDatabase</td>
+<td>SAGD</td>
+<td><code>(SAGD0001)</code></td>
+</tr>
+
+<tr>
+<td>NetworkingDsc</td>
+<td>DnsClientGlobalSetting</td>
+<td>DCGS</td>
+<td><code>(DCGS0001)</code></td>
+</tr>
+
+<tr>
+<td>NetworkingDsc</td>
+<td>Firewall</td>
+<td>F</td>
+<td><code>(F0001)</code></td>
+</tr>
+
+<tr>
+<td>CertificateDsc</td>
+<td>PfxImport</td>
+<td>PI</td>
+<td><code>(PI0001)</code></td>
+</tr>
+
+<tr>
+<td>CertificateDsc</td>
+<td>WaitForCertificateServices</td>
+<td>WFCS</td>
+<td><code>(WFCS0001)</code></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Example of usage:</strong></p>
+
+<p>See example of localized strings under <a href="#localization">Localization</a>.</p>
+
+<h4 id="using-localization-string-in-code">Using localization string in code</h4>
+
+<p>This is an example of how to write localized verbose messages.</p>
+
+<pre><code class="language-powershell">Write-Verbose -Message `
+    ($script:localizedData.RetrievingFolderInformation -f $path)
+</code></pre>
+
+<p>This is an example of how to write localized warning messages.</p>
+
+<pre><code class="language-powershell">Write-Warning -Message `
+    ($script:localizedData.ProblemAccessFolder -f $path)
+</code></pre>
+
+<p>This is an example of how to throw localized error messages, but the
+<a href="#helper-functions-for-localization">helper functions</a>
+<a href="#new-invalidargumentexception"><code>New-InvalidArgumentException</code></a>,
+<a href="#new-invalidoperationexception"><code>New-InvalidOperationException</code></a>,
+<a href="#new-objectnotfoundexception"><code>New-ObjectNotFoundException</code></a> and
+<a href="#new-invalidresultexception"><code>New-InvalidResultException</code></a>
+should preferably be used whenever possible.</p>
+
+<pre><code class="language-powershell">throw ($script:localizedData.FailedToReadProperties -f $property, $path)
+</code></pre>
+
+<h5 id="helper-functions-for-localization">Helper functions for localization</h5>
+
+<p>There are also five helper functions to simplify localization. These can be
+be found in the repository <a href="https://github.com/PowerShell/DscResource.Template">DscResource.Template</a>
+in the module script file <a href="https://github.com/PowerShell/DscResource.Template/blob/master/Modules/DscResource.LocalizationHelper/DscResource.LocalizationHelper.psm1">DscResource.LocalizationHelper</a></p>
+
+<p>To use it, copy the module folder
+<a href="https://github.com/PowerShell/DscResource.Template/blob/master/Modules/DscResource.LocalizationHelper">DscResource.LocalizationHelper</a>
+and the unit tests
+<a href="https://github.com/PowerShell/DscResource.Template/blob/master/Tests/Unit/DscResource.LocalizationHelper.Tests.ps1">DscResource.LocalizationHelper.Tests.ps1</a>
+to the new resource module.</p>
+
+<h6 id="get-localizeddata">Get-LocalizedData</h6>
+
+<p>This should be used at the top of each resource PowerShell module script file
+(.psm1).
+Refer to the comment-based help for more information about this helper function.</p>
+
+<pre><code class="language-powershell">$script:resourceModulePath = Split-Path `
+    -Path (Split-Path -Path $PSScriptRoot -Parent) `
+    -Parent
+
+$script:localizationModulePath = Join-Path `
+    -Path $script:resourceModulePath `
+    -ChildPath 'Modules\DscResource.LocalizationHelper'
+
+Import-Module -Name (
+    Join-Path `
+        -Path $script:localizationModulePath `
+        -ChildPath 'DscResource.LocalizationHelper.psm1'
+    )
+
+$script:localizedData = Get-LocalizedData -ResourceName 'MSFT_SqlSetup'
+</code></pre>
+
+<h6 id="new-invalidargumentexception">New-InvalidArgumentException</h6>
+
+<p>Refer to the comment-based help for more information about this helper function.</p>
+
+<pre><code class="language-powershell">if ( -not $resultOfEvaluation )
+{
+    $errorMessage = `
+        $script:localizedData.ActionCannotBeUsedInThisContextMessage `
+            -f $Action, $Parameter
+
+    New-InvalidArgumentException -ArgumentName 'Action' -Message $errorMessage
+}
+</code></pre>
+
+<h6 id="new-invalidoperationexception">New-InvalidOperationException</h6>
+
+<p>Refer to the comment-based help for more information about this helper function.</p>
+
+<pre><code class="language-powershell">try
+{
+    Start-Process @startProcessArguments
+}
+catch
+{
+    $errorMessage = $script:localizedData.InstallationFailedMessage -f $Path, $processId
+    New-InvalidOperationException -Message $errorMessage -ErrorRecord $_
+}
+
+</code></pre>
+
+<h6 id="new-objectnotfoundexception">New-ObjectNotFoundException</h6>
+
+<p>Refer to the comment-based help for more information about this helper function.</p>
+
+<pre><code class="language-powershell">try
+{
+    Get-ChildItem -Path $path
+}
+catch
+{
+    $errorMessage = $script:localizedData.PathNotFoundMessage -f $path
+    New-ObjectNotFoundException -Message $errorMessage -ErrorRecord $_
+}
+
+</code></pre>
+
+<h6 id="new-invalidresultexception">New-InvalidResultException</h6>
+
+<p>Refer to the comment-based help for more information about this helper function.</p>
+
+<pre><code class="language-powershell">try
+{
+    $numberOfObjects = Get-ChildItem -Path $path
+    if ($numberOfObjects -eq 0)
+    {
+        throw 'To few files.'
+    }
+}
+catch
+{
+    $errorMessage = $script:localizedData.TooFewFilesMessage -f $path
+    New-InvalidResultException -Message $errorMessage -ErrorRecord $_
+}
+
+</code></pre>
+
+<h3 id="pester-tests">Pester Tests</h3>
+
+<h4 id="capitalized-pester-assertions">Capitalized Pester Assertions</h4>
+
+<p>Pester assertions should all start with capital letters.  This makes code easier to read.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">it 'Should return something' {
+    get-targetresource @testParameters | should -be 'something'
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">It 'Should return something' {
+    Get-TargetResource @testParameters | Should -Be 'something'
+}
+</code></pre>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 29 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="dsccommunity.org/guidelines/" title="Guidelines"><i class="ti-arrow-left mr-2"></i>Guidelines</a>
+            <a class="nav nav-next" href="dsccommunity.org/guidelines/markdown-files/" title="Markdown Files">Markdown Files<i class="ti-arrow-right ml-2"></i></a>
+            </nav></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- footer -->
+<footer class="section bg-gray pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+        <p>DSC Community all rights reserved ©.</p> 
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://github.com/dsccommunity/"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/dsccommunity"><i class="ti-twitter-alt"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Bootstrap JS -->
+<script src="dsccommunity.orgplugins/bootstrap/bootstrap.min.js"></script>
+<!-- highlight -->
+<script src="dsccommunity.orgplugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Main Script -->
+
+<script src="/dsccommunity.org/js/script.min.js"></script>

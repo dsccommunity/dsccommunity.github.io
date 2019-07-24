@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>Help</title>
+
+  <meta name="generator" content="Hugo 0.54.0" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="dsccommunity.orgplugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="dsccommunity.orgplugins/themify-icons/themify-icons.css">
+  <!-- highlight -->
+  <link rel="stylesheet" href="dsccommunity.orgplugins/highlight/hybrid.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+  <style>
+  :root{
+    --primary-color:#003366;
+    --secondary-color:#f9f9f9;
+    --text-color:#242738;
+    --text-color-dark:#000;
+    --white-color:#ffffff;
+  }  
+  </style>
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="/dsccommunity.org/css/style.min.css" integrity="" media="screen">
+
+  <!-- jquiry -->
+  <script src="dsccommunity.orgplugins/jquery/jquery-1.12.4.js"></script>
+
+  <!-- jquary ui -->
+  <script src="dsccommunity.orgplugins/jquery/jquery-ui.js"></script>
+
+  <!--Favicon-->
+  <link rel="icon" href="dsccommunity.orgimages/favicon.png" type="image/x-icon">
+
+</head><body>
+        
+        <!-- navigation -->
+        <header class="shadow-bottom sticky-top bg-white">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="dsccommunity.org">DSC Community and Resource Kit</a>
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse text-center" id="navigation">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="dsccommunity.org">Home</a>
+      </li>
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="dsccommunity.org/code_of_conduct">Code of Conduct</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="dsccommunity.org/faq">Faq</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="dsccommunity.org/help">help</a>
+      </li>
+      
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" >
+          
+          <a class="dropdown-item" href="dsccommunity.org/community">Community</a>
+          
+          <a class="dropdown-item" href="dsccommunity.org/guidelines">Guidelines</a>
+          
+          <a class="dropdown-item" href="dsccommunity.org/blog">Blog Posts</a>
+          
+          <a class="dropdown-item" href="dsccommunity.org/configmgt">Config Management</a>
+          
+        </div>
+      </li>
+      
+      
+    </ul>
+    
+    <ul class="list-inline text-center mb-0">
+      
+      <li class="list-inline-item"><a class="text-dark" href="dsccommunity.org/">En</a></li>
+      
+    </ul>
+  </div>
+</nav>
+            </div>
+        </header>
+        <!-- /navigation -->
+        
+        <div id="content">
+
+  <!-- page title -->
+  <section class="section" style="background-color: #00CC6A">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+           <h1 class="text-white mb-4">The DSC Community</h1> 
+           <input id="search" class="form-control" placeholder="Have a question? Just ask here or enter terms"> 
+            <!-- Javascript -->
+            <script>
+              $(function() {
+                var projects = [
+                  
+                ];
+                $( "#search" ).autocomplete({
+                    minLength: 0,
+                    source: projects,
+                    focus: function( event, ui ) {
+                      $( "#search" ).val( ui.item.label );
+                        return false;
+                    },
+                    select: function( event, ui ) {
+                      $( "#search" ).val( ui.item.label );
+                      $( "#project-id" ).val( ui.item.value );
+                      return false;
+                    }
+                })
+                .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+                  return $( "<li>" )
+                  .append( "<a href=" + item.url + " + \" &quot;\" +  >" + item.label + "</a>" )
+                  .appendTo( ul );
+                };
+              });
+            </script>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /page title -->
+
+  <!-- details page -->
+  <section class="single section bg-gray pb-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="mb-5 bg-white p-4 sticky-top">
+            <a href="dsccommunity.org/help/">
+              <h4 class="mb-4">Help</h4>
+            </a>
+            <ul class="list-styled">
+              
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="p-5 bg-white">
+              
+              
+              <div class="bg-white p-4">
+                
+
+<h2 id="what-is-desired-state-configuration">What is Desired State Configuration</h2>
+
+<p>As per <a href="https://docs.microsoft.com/en-us/powershell/dsc/overview/overview">the official documentation</a>, DSC is a management Platform in PowerShell.</p>
+
+<p>It is built around different components:</p>
+
+<ul>
+<li><strong>DSC DSL</strong>: The <strong>Domain Specific Language</strong> of DSC with the <code>Configuration</code> keyword</li>
+<li><strong>DSC LCM</strong>: The <strong>Local Configuration Manager</strong>, that can be seen as the agent enacting the configurations on the managed nodes</li>
+<li><strong>DSC Resources</strong>: A rich ecosystem of modules exposing declarative and idempotent interface to imperative code configuring resources</li>
+<li><strong>DSC Pull Server</strong>: External component implementing the MS-DSCPM protocol to register nodes, offer configuration, gather reporting from the LCM</li>
+</ul>
+
+<h2 id="where-to-find-help">Where to find Help</h2>
+
+<p>DSC being a framework, a basic structure for configuration management, finding answers to your problem might be difficult if you only rely on the official documentation.</p>
+
+<p>Here&rsquo;s a quick run down of the best source of information we know of.</p>
+
+<hr />
+
+<h3 id="official-dsc-documentation">Official DSC Documentation</h3>
+
+<p><a href="https://docs.microsoft.com/en-us/powershell/dsc/overview/overview" target="_blank"><img src="https://github.com/dend/docs-graphics/blob/master/assets/docs-logo-ms.png?raw=true" alt="docs-msft" style="width:100px; display:block; float: left; margin: auto; padding: 10px; border-radius:50%" /></a></p>
+
+<p>When talking about DSC, we usually refer to <a href="https://docs.microsoft.com/en-us/powershell/dsc/overview/overview">PowerShell DSC</a>, the <a href="https://docs.microsoft.com/en-us/powershell/dsc/getting-started/lnxgettingstarted">cross platform</a> framework that is leveraged by other solutions such as <a href="https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview">Azure Automation State Configuration</a>, <a href="https://docs.microsoft.com/en-us/azure/governance/policy/concepts/guest-configuration">Azure Policy Guest Configuration</a>, <a href="https://docs.chef.io/resource_dsc_resource.html">Chef</a>, <a href="https://forge.puppet.com/puppetlabs/dsc_lite">Puppet</a> (or <a href="https://forge.puppet.com/puppetlabs/dsc">this other module</a>), <a href="https://docs.ansible.com/ansible/latest/user_guide/windows_dsc.html">Ansible</a>, <a href="https://aws.amazon.com/blogs/mt/run-compliance-enforcement-and-view-compliant-and-non-compliant-instances-using-aws-systems-manager-and-powershell-dsc/">AWS Systems Manager</a> or DIY (Do It Yourself) solutions people have built to solve their infrastructure management needs.</p>
+
+<p>The <a href="https://docs.microsoft.com/en-us/powershell/dsc/overview/overview">official documentation</a> is available with other <a href="https://docs.microsoft.com/en-us/">Microsoft docs</a>, and if you need to learn how the framework works, that&rsquo;s probably the best place to start!
+<hr /></p>
+
+<h3 id="powershell-org-and-its-dsc-forum-https-powershell-org-forums-forum-dsc-desired-state-configuration">PowerShell.org and its <a href="https://powershell.org/forums/forum/dsc-desired-state-configuration/">DSC Forum</a></h3>
+
+<p><a href="https://powershell.org/forums/forum/dsc-desired-state-configuration/" target="_blank"><img src="https://pbs.twimg.com/profile_images/1056972376951476229/sR84-VP4_400x400.jpg" alt="PowerShell.org" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-right: 15px; border-radius:0%" /></a></p>
+
+<p>The PowerShell.org community has always been a great source of information for DSC, whether in their articles, from their PowerShell Summit sessions, and also for their active <a href="https://powershell.org/forums/forum/dsc-desired-state-configuration/">DSC forum</a>!</p>
+
+<p>Make sure you check those resources and post your question on the forum if you can&rsquo;t find your answer elsewhere!</p>
+
+<hr />
+
+<h3 id="dsc-slack-discord-instant-messaging">DSC Slack &amp; Discord Instant Messaging</h3>
+
+<p><a href="http://slack.poshcode.org/" target="_blank"><img src="../images/appIcon_desktop.png" alt="Slack" style="width:100px; display:block; float: left; margin-left: auto;margin-right:auto; padding-right: 15px; border-radius:0%" /></a></p>
+
+<p>Some members of the community are very active in the DSC channel, of the PowerShell Slack.
+Join the conversation here if you want to meet the community, and ask questions.</p>
+
+<p>It&rsquo;s great for some real-time guidance, but tough questions are probably better detailed on the PowerShell.org forums, and maybe linked in the chat for people to answer. That way the answers are searchable and discoverable for the next person.</p>
+
+<p>You can chose to join either in Slack or Discord, as both services are bridged together via a bot. If you don&rsquo;t know which one to pick, maybe give discord a chance, as it does not have the history limit that Slack has on free plans.
+<hr /></p>
+
+<h3 id="dsc-community-twitter-account">DSC Community Twitter Account</h3>
+
+<p><a href="https://twitter.com/dsccommunity" target="_blank"><img src="../images/Twitter_Social_Icon_Square_Color.png" alt="Slack" style="width:100px; display:block; float: right; margin-left: auto;margin:auto; padding: 0px; border-radius:50%" /></a></p>
+
+<p>We&rsquo;ve recently created a <a href="https://twitter.com/dsccommunity">@dsccommunity</a> twitter account so that we could share news, announcement, and information around what is happening in the DSC Community.</p>
+
+<p>We want to tweet about anything DSC and Configuration Management. Give us a Follow, and help us share the content you like.</p>
+
+<hr />
+
+<h3 id="powershell-team-twitter-account">PowerShell Team Twitter Account</h3>
+
+<p><a href="http://twitter.com/PowerShell_Team" target="_blank"><img src="https://pbs.twimg.com/profile_images/855495866664140800/t96UQmF__400x400.jpg" alt="Slack" style="width:100px; display:block; float: left; margin-left: auto;margin:auto; padding: 0px; border-radius:50%" /></a></p>
+
+<p>Maybe not best place for help, but a good resource for news and worth to mention.</p>
+
+<p>Although the DSC Team and the PowerShell Team are distinct, they still work closely together, and the DSC Team does not have its own twitter account. Most communication about DSC is still released through the PowerShell team&rsquo;s account.</p>
+
+<hr />
+
+<h3 id="other-references">Other references</h3>
+
+<p><a href="https://leanpub.com/the-dsc-book">The DSC Book</a>, by Don Jones &amp; Missy Januszko</p>
+
+<p><a href="https://www.amazon.com/PowerShell-Desired-State-Configuration-Depth-ebook/dp/B07CNQD3M9">Pro PowerShell Desired State Configuration</a>, by Ravikanth Chaganti</p>
+
+<p><a href="https://channel9.msdn.com/Series/Getting-Started-with-PowerShell-Desired-State-Configuration-DSC">Getting Started with PS DSC</a>, MVA Videos - Jason Helmick &amp; Jeffrey Snover</p>
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /details page -->
+
+
+        </div><!-- footer -->
+<footer class="section bg-gray pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+        <p>DSC Community all rights reserved ©.</p> 
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://github.com/dsccommunity/"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/dsccommunity"><i class="ti-twitter-alt"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Bootstrap JS -->
+<script src="dsccommunity.orgplugins/bootstrap/bootstrap.min.js"></script>
+<!-- highlight -->
+<script src="dsccommunity.orgplugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Main Script -->
+
+<script src="/dsccommunity.org/js/script.min.js"></script></body>
+</html>
