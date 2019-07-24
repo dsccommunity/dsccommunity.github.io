@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Guidelines on DSC Community</title>
-    <link>dsccommunity.org/guidelines/</link>
+    <link>/guidelines/</link>
     <description>Recent content in Guidelines on DSC Community</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>DSC Community all rights reserved ©.</copyright>
     <lastBuildDate>Fri, 28 Dec 2018 11:02:05 +0600</lastBuildDate>
     
-	<atom:link href="dsccommunity.org/guidelines/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/guidelines/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Style Guidelines</title>
-      <link>dsccommunity.org/guidelines/style/</link>
+      <link>/guidelines/style/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/guidelines/style/</guid>
+      <guid>/guidelines/style/</guid>
       <description>DSC Resource Style Guidelines &amp;amp; Best Practices In order to provide clean and consistent code, please follow the style guidelines listed below when contributing to any DSC Resource Kit repositories.
 It is recommended to also follow the guidance from the best practices section, although this is not required unless the module aims to meet the High Quality Resource Module standards.
 Table of Contents  Style Guidelines  Markdown Files General Correct File Encoding Descriptive Names Correct Parameter Usage in Function and Cmdlet Calls Correct Format for Arrays Correct Format for Hashtables or Objects Correct use of single- and double quotes Correct Format for Comments Correct Format for Keywords Whitespace Indentation No Trailing Whitespace After Backticks Newline at End of File Newline Character Encoding No More Than Two Consecutive Newlines One Newline Before Braces One Newline After Opening Brace Two Newlines After Closing Brace One Space Between Type and Variable Name One Space on Either Side of Operators One Space Between Keyword and Parenthesis Functions Function Names Use Pascal Case Function Names Use Verb-Noun Format Function Names Use Approved Verbs Functions Have Comment-Based Help Parameter Block at Top of Function Parameters Correct Format for Parameter Block Parameter Names Use Pascal Case Parameters Separated by One Line Parameter Type on Line Above Parameter Attributes on Separate Lines Variables Variable Names Use Camel Case Script, Environment and Global Variable Names Include Scope  Best Practices  General Best Practices Avoid Using Hardcoded Computer Name Avoid Empty Catch Blocks Ensure Null is on Left Side of Comparisons Avoid Global Variables Use Declared Local and Script Variables More Than Once Use PSCredential for All Credentials Use Variables Rather Than Extensive Piping Avoid Unnecessary Type Declarations Calling Functions Avoid Cmdlet Aliases Avoid Invoke-Expression Use the Force Parameter with Calls to ShouldContinue Avoid the WMI Cmdlets Avoid Write-Host Avoid ConvertTo-SecureString with AsPlainText Assign Function Results to Variables Rather Than Extensive Inline Calls Writing Functions Avoid Default Values for Mandatory Parameters Avoid Default Values for Switch Parameters Include the Force Parameter in Functions with the ShouldContinue Attribute Use ShouldProcess if the ShouldProcess Attribute is Defined Define the ShouldProcess Attribute if the Function Calls ShouldProcess Avoid Redefining Reserved Parameters Use the CmdletBinding Attribute on Every Function Define the OutputType Attribute for All Functions With Output Return Only One Object From Each Function DSC Resource Functions Return a Hashtable from Get-TargetResource Return a Boolean from Test-TargetResource Avoid Returning Anything From Set-TargetResource Define Get-TargetResource, Set-TargetResource, and Test-TargetResource for Every DSC Resource Get-TargetResource should not contain unused non-mandatory parameters Any unused parameters that must be included in a function definition should include &amp;lsquo;Not used in &amp;lt;function_name&amp;gt;&amp;rsquo; in the help comment for that parameter in the comment-based help Use Identical Parameters for Set-TargetResource and Test-TargetResource Use Write-Verbose At Least Once in Get-TargetResource, Set-TargetResource, and Test-TargetResource Use *-TargetResource for Exporting DSC Resource Functions Manifests Avoid Using Deprecated Manifest Fields Ensure Manifest Contains Correct Fields Do not use NestedModules to export shared commands Localization Localization string ID suffix Using localization string in code Helper functions for localization  Get-LocalizedData New-InvalidArgumentException New-InvalidOperationException New-ObjectNotFoundException New-InvalidResultException  Pester Tests Capitalized Pester Assertions   Style Guidelines Markdown Files If a paragraph includes more than one sentence, end each sentence with a newline.</description>
@@ -25,10 +25,10 @@ Table of Contents  Style Guidelines  Markdown Files General Correct File Encodin
     
     <item>
       <title>Markdown Files</title>
-      <link>dsccommunity.org/guidelines/markdown-files/</link>
+      <link>/guidelines/markdown-files/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/guidelines/markdown-files/</guid>
+      <guid>/guidelines/markdown-files/</guid>
       <description>Line length not longer than 80 characters Rows longer than 80 characters should be split into multiple lines where appropriate. This helps make it easier for reviewers to make review comments and for the contributors to see where the requested changes are (without scrolling). It is also easier to see the lines in split view mode when the lines don&amp;rsquo;t wrap on the screen. It will also improve the readability when using git diff.</description>
     </item>
     

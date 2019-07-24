@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Configuration Management on DSC Community</title>
-    <link>dsccommunity.org/configmgt/</link>
+    <link>/configmgt/</link>
     <description>Recent content in Configuration Management on DSC Community</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>DSC Community all rights reserved ©.</copyright>
     <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate>
     
-	<atom:link href="dsccommunity.org/configmgt/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/configmgt/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Requirments</title>
-      <link>dsccommunity.org/configmgt/requirments/</link>
+      <link>/configmgt/requirments/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/configmgt/requirments/</guid>
+      <guid>/configmgt/requirments/</guid>
       <description>Thanks to the simplicity of Hugo, this page is as empty as this theme needs requirements.
 Just download latest version of Hugo binary (&amp;gt; 0.53) for your OS (Windows, Linux, Mac) : it&amp;rsquo;s that simple.</description>
     </item>
     
     <item>
       <title>Installation</title>
-      <link>dsccommunity.org/configmgt/install/</link>
+      <link>/configmgt/install/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/configmgt/install/</guid>
+      <guid>/configmgt/install/</guid>
       <description>The following steps are here to help you initialize your new website. If you don&amp;rsquo;t know Hugo at all, we strongly suggest you learn more about it by following this great documentation for beginners.
 Create your project Hugo provides a new command to create a new website.
 hugo new site &amp;lt;new_project&amp;gt;  Install the theme Install the Doc-List theme by following this documentation
@@ -37,10 +37,10 @@ Alternatively, you can download the theme as .</description>
     
     <item>
       <title>Configuration</title>
-      <link>dsccommunity.org/configmgt/configuration/</link>
+      <link>/configmgt/configuration/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/configmgt/configuration/</guid>
+      <guid>/configmgt/configuration/</guid>
       <description>Global site parameters On top of Hugo global configuration, Doc-list lets you define the following parameters in your config.toml (here, values are default).
 Note that some of these parameters are explained in details in other sections of this documentation.
 [params] # Prefix URL to edit current page. # Useful to give opportunity to people to create merge request for your doc. # See the config.toml file from this documentation site to have an example.</description>
@@ -48,10 +48,10 @@ Note that some of these parameters are explained in details in other sections of
     
     <item>
       <title>Customization</title>
-      <link>dsccommunity.org/configmgt/customization/</link>
+      <link>/configmgt/customization/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/configmgt/customization/</guid>
+      <guid>/configmgt/customization/</guid>
       <description>Doc-List has been built to be as configurable as possible.
 Change the logo In config.toml you will find a logo variable. you can change your logo there.
 The size of the logo will adapt automatically  Change the favicon If your favicon is a png, just drop off your image in your local static/images/ folder and name it favicon.png
