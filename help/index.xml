@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Help on DSC Community</title>
-    <link>/help/</link>
+    <link>dsccommunity.org/help/</link>
     <description>Recent content in Help on DSC Community</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>DSC Community all rights reserved ©.</copyright>
+    <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Fri, 28 Dec 2018 11:02:05 +0600</lastBuildDate>
     
-	<atom:link href="/help/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="dsccommunity.org/help/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

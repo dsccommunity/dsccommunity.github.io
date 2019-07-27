@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog Posts on DSC Community</title>
-    <link>/blog/</link>
+    <link>dsccommunity.org/blog/</link>
     <description>Recent content in Blog Posts on DSC Community</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>DSC Community all rights reserved ©.</copyright>
+    <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate>
     
-	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="dsccommunity.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Helloworld</title>
-      <link>/blog/helloworld/</link>
+      <link>dsccommunity.org/blog/helloworld/</link>
       <pubDate>Fri, 08 Mar 2019 12:41:48 +0800</pubDate>
       
-      <guid>/blog/helloworld/</guid>
+      <guid>dsccommunity.org/blog/helloworld/</guid>
       <description>Hello world FAIL: first attempt in learning</description>
     </item>
     
