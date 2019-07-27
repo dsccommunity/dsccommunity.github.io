@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DSC Community</title>
-    <link>dsccommunity.org/</link>
+    <link>/</link>
     <description>Recent content on DSC Community</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Thu, 18 Jul 2019 15:02:05 +0600</lastBuildDate>
     
-	<atom:link href="dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ownership of DSC Resources</title>
-      <link>dsccommunity.org/community/ownership/</link>
+      <link>/community/ownership/</link>
       <pubDate>Thu, 18 Jul 2019 15:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/community/ownership/</guid>
+      <guid>/community/ownership/</guid>
       <description>Goal and purpose Previously owned by the DSC Team, and more specifically by Katie, the DSC Resources are now owned by the DSC Community: a collective of Open Source maintainers getting together to improve the Resources, their quality and the practices around DSC.
 The main purpose is to handle better the increased community contributions, and remove hindrance to improvements by spreading the load on a Committee, and giving more privileges to the maintainers.</description>
     </item>
     
     <item>
       <title>Our Standards</title>
-      <link>dsccommunity.org/code_of_conduct/standards/</link>
+      <link>/code_of_conduct/standards/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/code_of_conduct/standards/</guid>
+      <guid>/code_of_conduct/standards/</guid>
       <description>Examples of behavior that contributes to creating a positive environment include:
  Using welcoming and inclusive language Being respectful of differing viewpoints and experiences Gracefully accepting constructive criticism Focusing on what is best for the community Showing empathy towards other community members  Examples of unacceptable behavior by participants include:
  The use of sexualized language or imagery and unwelcome sexual attention or advances Trolling, insulting/derogatory comments, and personal or political attacks Public or private harassment Publishing others&amp;rsquo; private information, such as a physical or electronic address, without explicit permission Other conduct which could reasonably be considered inappropriate in a professional setting  </description>
@@ -35,20 +35,20 @@ The main purpose is to handle better the increased community contributions, and 
     
     <item>
       <title>Requirments</title>
-      <link>dsccommunity.org/configmgt/requirments/</link>
+      <link>/configmgt/requirments/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/configmgt/requirments/</guid>
+      <guid>/configmgt/requirments/</guid>
       <description>Thanks to the simplicity of Hugo, this page is as empty as this theme needs requirements.
 Just download latest version of Hugo binary (&amp;gt; 0.53) for your OS (Windows, Linux, Mac) : it&amp;rsquo;s that simple.</description>
     </item>
     
     <item>
       <title>DSC Community Committee</title>
-      <link>dsccommunity.org/community/committee/</link>
+      <link>/community/committee/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/community/committee/</guid>
+      <guid>/community/committee/</guid>
       <description>Here is an explanation of what the DSC Committee is attempting to help with, and how we&amp;rsquo;re trying to help the community.
 Come and chat with us if you&amp;rsquo;d like to discuss how we can improve!
 Members 
@@ -57,20 +57,20 @@ Katie is the owner of the Resource Kit at Microsoft and has steered its directio
     
     <item>
       <title>Our Responsibilities</title>
-      <link>dsccommunity.org/code_of_conduct/responsibilities/</link>
+      <link>/code_of_conduct/responsibilities/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/code_of_conduct/responsibilities/</guid>
+      <guid>/code_of_conduct/responsibilities/</guid>
       <description>Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
 Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.</description>
     </item>
     
     <item>
       <title>Installation</title>
-      <link>dsccommunity.org/configmgt/install/</link>
+      <link>/configmgt/install/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/configmgt/install/</guid>
+      <guid>/configmgt/install/</guid>
       <description>The following steps are here to help you initialize your new website. If you don&amp;rsquo;t know Hugo at all, we strongly suggest you learn more about it by following this great documentation for beginners.
 Create your project Hugo provides a new command to create a new website.
 hugo new site &amp;lt;new_project&amp;gt;  Install the theme Install the Doc-List theme by following this documentation
@@ -80,28 +80,28 @@ Alternatively, you can download the theme as .</description>
     
     <item>
       <title>Maintainers</title>
-      <link>dsccommunity.org/community/maintainers/</link>
+      <link>/community/maintainers/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/community/maintainers/</guid>
+      <guid>/community/maintainers/</guid>
       <description>Here is a list of the current maintainers of DSC modules in the DSC Community. If you wish to be a maintainer in a module, please either contact a maintainer of the module, or a member of the committee. If you are a maintainer and feel you no longer have the time to put in and want to stop being maintainer then please send in a PR to update this list, or contact a member of the committee.</description>
     </item>
     
     <item>
       <title>Scope</title>
-      <link>dsccommunity.org/code_of_conduct/scope/</link>
+      <link>/code_of_conduct/scope/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/code_of_conduct/scope/</guid>
+      <guid>/code_of_conduct/scope/</guid>
       <description>This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.</description>
     </item>
     
     <item>
       <title>Configuration</title>
-      <link>dsccommunity.org/configmgt/configuration/</link>
+      <link>/configmgt/configuration/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/configmgt/configuration/</guid>
+      <guid>/configmgt/configuration/</guid>
       <description>Global site parameters On top of Hugo global configuration, Doc-list lets you define the following parameters in your config.toml (here, values are default).
 Note that some of these parameters are explained in details in other sections of this documentation.
 [params] # Prefix URL to edit current page. # Useful to give opportunity to people to create merge request for your doc. # See the config.toml file from this documentation site to have an example.</description>
@@ -109,38 +109,38 @@ Note that some of these parameters are explained in details in other sections of
     
     <item>
       <title>Enforcement</title>
-      <link>dsccommunity.org/code_of_conduct/enforcement/</link>
+      <link>/code_of_conduct/enforcement/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/code_of_conduct/enforcement/</guid>
+      <guid>/code_of_conduct/enforcement/</guid>
       <description>Enforcement Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at dsccommunity@outlook.com. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
 Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project&amp;rsquo;s leadership.</description>
     </item>
     
     <item>
       <title>Common Questions</title>
-      <link>dsccommunity.org/code_of_conduct/common_questions/</link>
+      <link>/code_of_conduct/common_questions/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/code_of_conduct/common_questions/</guid>
+      <guid>/code_of_conduct/common_questions/</guid>
       <description>For answers to common questions about this code of conduct, see https://www.contributor-covenant.org/faq</description>
     </item>
     
     <item>
       <title>Attribution</title>
-      <link>dsccommunity.org/code_of_conduct/attribution/</link>
+      <link>/code_of_conduct/attribution/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/code_of_conduct/attribution/</guid>
+      <guid>/code_of_conduct/attribution/</guid>
       <description>This Code of Conduct is adapted from the Contributor Covenant, version 1.4, available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html</description>
     </item>
     
     <item>
       <title>Join the Conversation</title>
-      <link>dsccommunity.org/community/contact/</link>
+      <link>/community/contact/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/community/contact/</guid>
+      <guid>/community/contact/</guid>
       <description>The #DSC Channel The community gathers in the Virtual PowerShell User Group #DSC channel, which is an open &amp;amp; instant messaging chat room for all DSC related questions, discussions, and collaboration.
 The PowerShell channels are bridged between Discord and Slack, so you can use either service, via the apps or websites.
 The Virtual PowerShell User Group contains more than just the #DSC channel: there are also channels covering topics related to PowerShell, DevOps as well as many other and practices and technologies, so you may also join them too.</description>
@@ -148,19 +148,19 @@ The Virtual PowerShell User Group contains more than just the #DSC channel: ther
     
     <item>
       <title>Helloworld</title>
-      <link>dsccommunity.org/blog/helloworld/</link>
+      <link>/blog/helloworld/</link>
       <pubDate>Fri, 08 Mar 2019 12:41:48 +0800</pubDate>
       
-      <guid>dsccommunity.org/blog/helloworld/</guid>
+      <guid>/blog/helloworld/</guid>
       <description>Hello world FAIL: first attempt in learning</description>
     </item>
     
     <item>
       <title>Style Guidelines</title>
-      <link>dsccommunity.org/guidelines/style/</link>
+      <link>/guidelines/style/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/guidelines/style/</guid>
+      <guid>/guidelines/style/</guid>
       <description>DSC Resource Style Guidelines &amp;amp; Best Practices In order to provide clean and consistent code, please follow the style guidelines listed below when contributing to any DSC Resource Kit repositories.
 It is recommended to also follow the guidance from the best practices section, although this is not required unless the module aims to meet the High Quality Resource Module standards.
 Table of Contents  Style Guidelines  Markdown Files General Correct File Encoding Descriptive Names Correct Parameter Usage in Function and Cmdlet Calls Correct Format for Arrays Correct Format for Hashtables or Objects Correct use of single- and double quotes Correct Format for Comments Correct Format for Keywords Whitespace Indentation No Trailing Whitespace After Backticks Newline at End of File Newline Character Encoding No More Than Two Consecutive Newlines One Newline Before Braces One Newline After Opening Brace Two Newlines After Closing Brace One Space Between Type and Variable Name One Space on Either Side of Operators One Space Between Keyword and Parenthesis Functions Function Names Use Pascal Case Function Names Use Verb-Noun Format Function Names Use Approved Verbs Functions Have Comment-Based Help Parameter Block at Top of Function Parameters Correct Format for Parameter Block Parameter Names Use Pascal Case Parameters Separated by One Line Parameter Type on Line Above Parameter Attributes on Separate Lines Variables Variable Names Use Camel Case Script, Environment and Global Variable Names Include Scope  Best Practices  General Best Practices Avoid Using Hardcoded Computer Name Avoid Empty Catch Blocks Ensure Null is on Left Side of Comparisons Avoid Global Variables Use Declared Local and Script Variables More Than Once Use PSCredential for All Credentials Use Variables Rather Than Extensive Piping Avoid Unnecessary Type Declarations Calling Functions Avoid Cmdlet Aliases Avoid Invoke-Expression Use the Force Parameter with Calls to ShouldContinue Avoid the WMI Cmdlets Avoid Write-Host Avoid ConvertTo-SecureString with AsPlainText Assign Function Results to Variables Rather Than Extensive Inline Calls Writing Functions Avoid Default Values for Mandatory Parameters Avoid Default Values for Switch Parameters Include the Force Parameter in Functions with the ShouldContinue Attribute Use ShouldProcess if the ShouldProcess Attribute is Defined Define the ShouldProcess Attribute if the Function Calls ShouldProcess Avoid Redefining Reserved Parameters Use the CmdletBinding Attribute on Every Function Define the OutputType Attribute for All Functions With Output Return Only One Object From Each Function DSC Resource Functions Return a Hashtable from Get-TargetResource Return a Boolean from Test-TargetResource Avoid Returning Anything From Set-TargetResource Define Get-TargetResource, Set-TargetResource, and Test-TargetResource for Every DSC Resource Get-TargetResource should not contain unused non-mandatory parameters Any unused parameters that must be included in a function definition should include &amp;lsquo;Not used in &amp;lt;function_name&amp;gt;&amp;rsquo; in the help comment for that parameter in the comment-based help Use Identical Parameters for Set-TargetResource and Test-TargetResource Use Write-Verbose At Least Once in Get-TargetResource, Set-TargetResource, and Test-TargetResource Use *-TargetResource for Exporting DSC Resource Functions Manifests Avoid Using Deprecated Manifest Fields Ensure Manifest Contains Correct Fields Do not use NestedModules to export shared commands Localization Localization string ID suffix Using localization string in code Helper functions for localization  Get-LocalizedData New-InvalidArgumentException New-InvalidOperationException New-ObjectNotFoundException New-InvalidResultException  Pester Tests Capitalized Pester Assertions   Style Guidelines Markdown Files If a paragraph includes more than one sentence, end each sentence with a newline.</description>
@@ -168,19 +168,19 @@ Table of Contents  Style Guidelines  Markdown Files General Correct File Encodin
     
     <item>
       <title>Markdown Files</title>
-      <link>dsccommunity.org/guidelines/markdown-files/</link>
+      <link>/guidelines/markdown-files/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/guidelines/markdown-files/</guid>
+      <guid>/guidelines/markdown-files/</guid>
       <description>Line length not longer than 80 characters Rows longer than 80 characters should be split into multiple lines where appropriate. This helps make it easier for reviewers to make review comments and for the contributors to see where the requested changes are (without scrolling). It is also easier to see the lines in split view mode when the lines don&amp;rsquo;t wrap on the screen. It will also improve the readability when using git diff.</description>
     </item>
     
     <item>
       <title>Customization</title>
-      <link>dsccommunity.org/configmgt/customization/</link>
+      <link>/configmgt/customization/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/configmgt/customization/</guid>
+      <guid>/configmgt/customization/</guid>
       <description>Doc-List has been built to be as configurable as possible.
 Change the logo In config.toml you will find a logo variable. you can change your logo there.
 The size of the logo will adapt automatically  Change the favicon If your favicon is a png, just drop off your image in your local static/images/ folder and name it favicon.png

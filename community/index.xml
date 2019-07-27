@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Community on DSC Community</title>
-    <link>dsccommunity.org/community/</link>
+    <link>/community/</link>
     <description>Recent content in Community on DSC Community</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Fri, 28 Dec 2018 11:02:05 +0600</lastBuildDate>
     
-	<atom:link href="dsccommunity.org/community/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/community/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ownership of DSC Resources</title>
-      <link>dsccommunity.org/community/ownership/</link>
+      <link>/community/ownership/</link>
       <pubDate>Thu, 18 Jul 2019 15:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/community/ownership/</guid>
+      <guid>/community/ownership/</guid>
       <description>Goal and purpose Previously owned by the DSC Team, and more specifically by Katie, the DSC Resources are now owned by the DSC Community: a collective of Open Source maintainers getting together to improve the Resources, their quality and the practices around DSC.
 The main purpose is to handle better the increased community contributions, and remove hindrance to improvements by spreading the load on a Committee, and giving more privileges to the maintainers.</description>
     </item>
     
     <item>
       <title>DSC Community Committee</title>
-      <link>dsccommunity.org/community/committee/</link>
+      <link>/community/committee/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/community/committee/</guid>
+      <guid>/community/committee/</guid>
       <description>Here is an explanation of what the DSC Committee is attempting to help with, and how we&amp;rsquo;re trying to help the community.
 Come and chat with us if you&amp;rsquo;d like to discuss how we can improve!
 Members 
@@ -36,19 +36,19 @@ Katie is the owner of the Resource Kit at Microsoft and has steered its directio
     
     <item>
       <title>Maintainers</title>
-      <link>dsccommunity.org/community/maintainers/</link>
+      <link>/community/maintainers/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/community/maintainers/</guid>
+      <guid>/community/maintainers/</guid>
       <description>Here is a list of the current maintainers of DSC modules in the DSC Community. If you wish to be a maintainer in a module, please either contact a maintainer of the module, or a member of the committee. If you are a maintainer and feel you no longer have the time to put in and want to stop being maintainer then please send in a PR to update this list, or contact a member of the committee.</description>
     </item>
     
     <item>
       <title>Join the Conversation</title>
-      <link>dsccommunity.org/community/contact/</link>
+      <link>/community/contact/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>dsccommunity.org/community/contact/</guid>
+      <guid>/community/contact/</guid>
       <description>The #DSC Channel The community gathers in the Virtual PowerShell User Group #DSC channel, which is an open &amp;amp; instant messaging chat room for all DSC related questions, discussions, and collaboration.
 The PowerShell channels are bridged between Discord and Slack, so you can use either service, via the apps or websites.
 The Virtual PowerShell User Group contains more than just the #DSC channel: there are also channels covering topics related to PowerShell, DevOps as well as many other and practices and technologies, so you may also join them too.</description>
