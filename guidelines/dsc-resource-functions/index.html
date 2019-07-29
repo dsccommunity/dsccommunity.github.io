@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Installation</title>
+  <title>Dsc Resource Functions</title>
 
   <meta name="generator" content="Hugo 0.56.1" />
 
@@ -154,8 +154,8 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/resources/">Resource Modules</a>
             </li>
-            <li class=""><a href="/guidelines/">Guidelines</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/guidelines/">Guidelines</a>
+              <ul class="sub-menu">
             <li class=""><a href="/guidelines/markdown-files/">Markdown Files</a>
             </li>
             <li class=""><a href="/guidelines/general/">General</a>
@@ -174,7 +174,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/guidelines/writing-functions/">Writing Functions</a>
             </li>
-            <li class=""><a href="/guidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            <li class=" active "><a href="/guidelines/dsc-resource-functions/">Dsc Resource Functions</a>
             </li>
             <li class=""><a href="/guidelines/manifest/">Manifest</a>
             </li>
@@ -192,11 +192,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class="parent d-block "><a href="/configmgt/">Configuration Management</a>
-              <ul class="sub-menu">
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
             <li class=""><a href="/configmgt/requirments/">Requirments</a>
             </li>
-            <li class=" active "><a href="/configmgt/install/">Installation</a>
+            <li class=""><a href="/configmgt/install/">Installation</a>
             </li>
             <li class=""><a href="/configmgt/configuration/">Configuration</a>
             </li>
@@ -243,85 +243,315 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Installation</h2>
+            <h2>Dsc Resource Functions</h2>
             
 
-<p>The following steps are here to help you initialize your new website. If you
-don&rsquo;t know Hugo at all, we strongly suggest you learn more about it by following
-this <a href="https://gohugo.io/overview/quickstart/">great documentation for beginners</a>.</p>
+<h2 id="return-a-hashtable-from-get-targetresource">Return a Hashtable from Get-TargetResource</h2>
 
-<h3 id="create-your-project">Create your project</h3>
+<p><strong>Bad:</strong></p>
 
-<p>Hugo provides a <code>new</code> command to create a new website.</p>
-
-<pre><code class="language-bash">hugo new site &lt;new_project&gt;
+<pre><code class="language-powershell">
 </code></pre>
 
-<h3 id="install-the-theme">Install the theme</h3>
+<p><strong>Good:</strong></p>
 
-<p>Install the <strong>Doc-List</strong> theme by following <a href="https://gohugo.io/themes/installing/">this documentation</a></p>
-
-<p>This theme&rsquo;s repository is: <a href="https://github.com/matcornic/Doc-List.git">https://github.com/matcornic/Doc-List.git</a></p>
-
-<p>Alternatively, you can <a href="https://github.com/matcornic/Doc-List/archive/master.zip">download the theme as .zip</a>
-file and extract it in the <code>themes</code> directory.</p>
-
-<p>Or you can check this video documentation for installing this template:
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/Srt3lTmRxzQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-</p>
-
-<h3 id="basic-configuration">Basic configuration</h3>
-
-<p>When building the website, you can set a theme by using <code>--theme</code> option. However,
-we suggest you modify the configuration file (<code>config.toml</code>) and set the theme
-as the default.</p>
-
-<pre><code class="language-toml"># Change the default theme to be use when building the site with Hugo
-theme = &quot;Doc-List&quot;
+<pre><code class="language-powershell">
 </code></pre>
 
-<h3 id="create-your-first-content-pages">Create your first content pages</h3>
+<h2 id="return-a-boolean-from-test-targetresource">Return a Boolean from Test-TargetResource</h2>
 
-<p>Then, create content pages inside the previously created chapter. Here are two
-ways to create content in the chapter:</p>
+<p><strong>Bad:</strong></p>
 
-<pre><code class="language-bash">hugo new installation/first-content.md
-hugo new installation/second-content/_index.md
+<pre><code class="language-powershell">
 </code></pre>
 
-<p>Feel free to edit thoses files by adding some sample content and replacing the
-<code>title</code> value in the beginning of the files.</p>
+<p><strong>Good:</strong></p>
 
-<h3 id="launching-the-website-locally">Launching the website locally</h3>
-
-<p>Launch by using the following command:</p>
-
-<pre><code class="language-bash">hugo serve
+<pre><code class="language-powershell">
 </code></pre>
 
-<p>Go to <code>http://localhost:1313</code></p>
+<h2 id="avoid-returning-anything-from-set-targetresource">Avoid Returning Anything From Set-TargetResource</h2>
 
-<h3 id="build-the-website">Build the website</h3>
+<p><strong>Bad:</strong></p>
 
-<p>When your site is ready to deploy, run the following command:</p>
-
-<pre><code class="language-bash">hugo
+<pre><code class="language-powershell">
 </code></pre>
 
-<p>A <code>public</code> folder will be generated, containing all static content and assets for
-your website. It can now be deployed on any web server.</p>
+<p><strong>Good:</strong></p>
 
-<div class="alert rounded-0 alert-info">
-This website can be automatically published and hosted with [Netlify](https://www.netlify.com/)
-(Read more about [Automated HUGO deployments with Netlify](https://www.netlify.com/blog/2015/07/30/hosting-hugo-on-netlifyinsanely-fast-deploys/)).
-Alternatively, you can use [Github pages](https://gohugo.io/hosting-and-deployment/hosting-on-github/)
-</div>
+<pre><code class="language-powershell">
+</code></pre>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 29 Dec 2018</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/configmgt/requirments/" title="Requirments"><i class="ti-arrow-left mr-2"></i>Requirments</a>
-            <a class="nav nav-next" href="/configmgt/configuration/" title="Configuration">Configuration<i class="ti-arrow-right ml-2"></i></a>
+<h2 id="define-get-targetresource-set-targetresource-and-test-targetresource-for-every-dsc-resource">Define Get-TargetResource, Set-TargetResource, and Test-TargetResource for Every DSC Resource</h2>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h2 id="get-targetresource-should-not-contain-unused-non-mandatory-parameters">Get-TargetResource should not contain unused non-mandatory parameters</h2>
+
+<p>The inclusion of a non-mandatory parameter that is never used could signal that
+there is a design flaw in the implementation of the <code>Get-TargetResource</code> function.
+The non-mandatory parameters that are used to call <code>Get-TargetResource</code> should help
+to retrieve the actual values of the properties for the resource.
+For example, if there is a parameter <code>Ensure</code> that is non-mandatory, that parameter
+describes the state the resource should have, but it might not be used to retrieve
+the actual values.
+Another example would be if a parameter <code>FilePathName</code> is set to be non-mandatory,
+but <code>FilePathName</code> is actually a property that <code>Get-TargetResource</code> should return
+the actual value of.
+In that case it does not make sense to assign a value to <code>FilePathName</code> when
+calling <code>Get-TargetResource</code> because that value will never be used.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">&lt;#
+    .SYNOPSIS
+        Returns the current state of the feature.
+
+    .PARAMETER Name
+        The feature for which to return the state for.
+
+    .PARAMETER ServerName
+        The server name on which the feature is installed.
+
+    .PARAMETER Ensure
+        The desired state of the feature.
+#&gt;
+function Get-TargetResource
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $Name,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $ServerName,
+
+        [Parameter()]
+        [System.String]
+        $Ensure
+    )
+
+    Write-Verbose -Message ('{0} for {1}' -f $Name, $ServerName)
+
+    if( $Name )
+    {
+        $feature = 'Enabled'
+    }
+
+    return @{
+        Name = $Name
+        Servername = $ServerName
+        Feeature = $feature
+    }
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">&lt;#
+    .SYNOPSIS
+        Returns the current state of the feature.
+
+    .PARAMETER Name
+        The feature for which to return the state for.
+
+    .PARAMETER ServerName
+        The server name on which the feature is installed.
+#&gt;
+function Get-TargetResource
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $Name,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $ServerName
+    )
+
+    Write-Verbose -Message ('{0} for {1}' -f $Name, $ServerName)
+
+    if( $Name )
+    {
+        $feature = 'Yes'
+    }
+
+    return @{
+        Name = $Name
+        Servername = $ServerName
+        Feeature = $feature
+    }
+}
+</code></pre>
+
+<h2 id="any-unused-parameters-that-must-be-included-in-a-function-definition-should-include-not-used-in-function-name-in-the-help-comment-for-that-parameter-in-the-comment-based-help">Any unused parameters that must be included in a function definition should include &lsquo;Not used in &lt;function_name&gt;&rsquo; in the help comment for that parameter in the comment-based help</h2>
+
+<p>The inclusion of a mandatory parameter in the &lsquo;Get-TargetResource&rsquo; function that
+is never used could signal that there is a design flaw in the implementation of
+the function. The mandatory parameters that are used to call &lsquo;Get-TargetResource&rsquo;
+should help to retrieve the actual values of the properties for the resource.
+For example, if there is a parameter &lsquo;Ensure&rsquo; that is mandatory, that parameter
+will not be used to retrieve the actual values. Another example would be if a
+parameter &lsquo;FilePathName&rsquo; is set to be mandatory, but &lsquo;FilePathName&rsquo; is actually
+a property that &lsquo;Get-TargetResource&rsquo; should return the actual value of. In that
+case it does not make sense to assign a value to &lsquo;FilePathName&rsquo; when calling
+&lsquo;Get-TargetResource&rsquo; because that value will never be used.</p>
+
+<p>The inclusion of a mandatory or a non-mandatory parameter in the Test-TargetResource
+function that is not used is more common since it is required that both the
+&lsquo;Set-TargetResource&rsquo; and the &lsquo;Test-TargetResource&rsquo; have the same parameters. Thus,
+there will be times when not all of the parameters in the &lsquo;Test-TargetResource&rsquo;
+function will be used in the function.</p>
+
+<p>If there is a need design-wise to include a mandatory parameter that will not be
+used, then the comment-based help for that parameter should contain the description
+&lsquo;Not used in <function_name>&rsquo;.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">&lt;#
+    .SYNOPSIS
+        Returns the current state of the feature.
+
+    .PARAMETER Name
+        The feature for which to return the state for.
+
+    .PARAMETER ServerName
+        The server name on which the feature is installed.
+
+    .PARAMETER Ensure
+        The desired state of the feature.
+#&gt;
+function Get-TargetResource
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $Name,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $ServerName,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $Ensure
+    )
+
+    Write-Verbose -Message ('{0} for {1}' -f $Name, $ServerName)
+
+    if( $Name )
+    {
+        $feature = 'Yes'
+    }
+
+    return @{
+        Name = $Name
+        Servername = $ServerName
+        Feeature = $feature
+    }
+}
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">&lt;#
+    .SYNOPSIS
+        Returns the current state of the feature.
+
+    .PARAMETER Name
+        The feature for which to return the state for.
+
+    .PARAMETER ServerName
+        The server name on which the feature is installed.
+
+    .PARAMETER Ensure
+        The desired state of the feature.
+        Not used in Get-TargetResource
+#&gt;
+function Get-TargetResource
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $Name,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $ServerName,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $Ensure
+    )
+
+    Write-Verbose -Message ('{0} for {1}' -f $Name, $ServerName)
+
+    if( $Name )
+    {
+        $feature = 'Yes'
+    }
+
+    return @{
+        Name = $Name
+        Servername = $ServerName
+        Feeature = $feature
+    }
+}
+</code></pre>
+
+<h2 id="use-identical-parameters-for-set-targetresource-and-test-targetresource">Use Identical Parameters for Set-TargetResource and Test-TargetResource</h2>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h2 id="use-write-verbose-at-least-once-in-get-targetresource-set-targetresource-and-test-targetresource">Use Write-Verbose At Least Once in Get-TargetResource, Set-TargetResource, and Test-TargetResource</h2>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<h2 id="use-targetresource-for-exporting-dsc-resource-functions">Use *-TargetResource for Exporting DSC Resource Functions</h2>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">
+</code></pre>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/guidelines/writing-functions/" title="Writing Functions"><i class="ti-arrow-left mr-2"></i>Writing Functions</a>
+            <a class="nav nav-next" href="/guidelines/manifest/" title="Manifest">Manifest<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

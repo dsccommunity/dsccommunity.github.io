@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Installation</title>
+  <title>Variables</title>
 
   <meta name="generator" content="Hugo 0.56.1" />
 
@@ -154,8 +154,8 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/resources/">Resource Modules</a>
             </li>
-            <li class=""><a href="/guidelines/">Guidelines</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/guidelines/">Guidelines</a>
+              <ul class="sub-menu">
             <li class=""><a href="/guidelines/markdown-files/">Markdown Files</a>
             </li>
             <li class=""><a href="/guidelines/general/">General</a>
@@ -166,7 +166,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/guidelines/parameters/">Parameters</a>
             </li>
-            <li class=""><a href="/guidelines/variables/">Variables</a>
+            <li class=" active "><a href="/guidelines/variables/">Variables</a>
             </li>
             <li class=""><a href="/guidelines/general-best-practices/">General Best Practices</a>
             </li>
@@ -192,11 +192,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class="parent d-block "><a href="/configmgt/">Configuration Management</a>
-              <ul class="sub-menu">
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
             <li class=""><a href="/configmgt/requirments/">Requirments</a>
             </li>
-            <li class=" active "><a href="/configmgt/install/">Installation</a>
+            <li class=""><a href="/configmgt/install/">Installation</a>
             </li>
             <li class=""><a href="/configmgt/configuration/">Configuration</a>
             </li>
@@ -243,85 +243,73 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Installation</h2>
+            <h2>Variables</h2>
             
 
-<p>The following steps are here to help you initialize your new website. If you
-don&rsquo;t know Hugo at all, we strongly suggest you learn more about it by following
-this <a href="https://gohugo.io/overview/quickstart/">great documentation for beginners</a>.</p>
+<h2 id="variable-names-use-camel-case">Variable Names Use Camel Case</h2>
 
-<h3 id="create-your-project">Create your project</h3>
+<p>Variable names should use camelCase.</p>
 
-<p>Hugo provides a <code>new</code> command to create a new website.</p>
+<p><strong>Bad:</strong></p>
 
-<pre><code class="language-bash">hugo new site &lt;new_project&gt;
+<pre><code class="language-powershell">function Write-Log
+{
+    $VerboseMessage = 'New log message'
+    Write-Verbose $VerboseMessage
+}
 </code></pre>
 
-<h3 id="install-the-theme">Install the theme</h3>
+<p><strong>Bad:</strong></p>
 
-<p>Install the <strong>Doc-List</strong> theme by following <a href="https://gohugo.io/themes/installing/">this documentation</a></p>
-
-<p>This theme&rsquo;s repository is: <a href="https://github.com/matcornic/Doc-List.git">https://github.com/matcornic/Doc-List.git</a></p>
-
-<p>Alternatively, you can <a href="https://github.com/matcornic/Doc-List/archive/master.zip">download the theme as .zip</a>
-file and extract it in the <code>themes</code> directory.</p>
-
-<p>Or you can check this video documentation for installing this template:
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/Srt3lTmRxzQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-</p>
-
-<h3 id="basic-configuration">Basic configuration</h3>
-
-<p>When building the website, you can set a theme by using <code>--theme</code> option. However,
-we suggest you modify the configuration file (<code>config.toml</code>) and set the theme
-as the default.</p>
-
-<pre><code class="language-toml"># Change the default theme to be use when building the site with Hugo
-theme = &quot;Doc-List&quot;
+<pre><code class="language-powershell">function Write-Log
+{
+    $verbosemessage = 'New log message'
+    Write-Verbose $verbosemessage
+}
 </code></pre>
 
-<h3 id="create-your-first-content-pages">Create your first content pages</h3>
+<p><strong>Good:</strong></p>
 
-<p>Then, create content pages inside the previously created chapter. Here are two
-ways to create content in the chapter:</p>
-
-<pre><code class="language-bash">hugo new installation/first-content.md
-hugo new installation/second-content/_index.md
+<pre><code class="language-powershell">function Write-Log
+{
+    $verboseMessage = 'New log message'
+    Write-Verbose $verboseMessage
+}
 </code></pre>
 
-<p>Feel free to edit thoses files by adding some sample content and replacing the
-<code>title</code> value in the beginning of the files.</p>
+<h2 id="script-environment-and-global-variable-names-include-scope">Script, Environment and Global Variable Names Include Scope</h2>
 
-<h3 id="launching-the-website-locally">Launching the website locally</h3>
+<p>Script, environment, and global variables must always include their scope in the
+variable name unless the &lsquo;using&rsquo; scope is needed. The script and global scope
+specifications should be all in lowercase. Script and global variable names following
+the scope should use camelCase.</p>
 
-<p>Launch by using the following command:</p>
+<p><strong>Bad:</strong></p>
 
-<pre><code class="language-bash">hugo serve
+<pre><code class="language-powershell">$fileCount = 0
+$GLOBAL:MYRESOURCENAME = 'MyResource'
+
+function New-File
+{
+    $fileCount++
+    Write-Verbose -Message &quot;Adding file to $MYRESOURCENAME to $ENV:COMPUTERNAME.&quot;
+}
 </code></pre>
 
-<p>Go to <code>http://localhost:1313</code></p>
+<p><strong>Good:</strong></p>
 
-<h3 id="build-the-website">Build the website</h3>
+<pre><code class="language-powershell">$script:fileCount = 0
+$global:myResourceName = 'MyResource'
 
-<p>When your site is ready to deploy, run the following command:</p>
-
-<pre><code class="language-bash">hugo
+function New-File
+{
+    $script:fileCount++
+    Write-Verbose -Message &quot;Adding file to $global:myResourceName to $env:computerName.&quot;
+}
 </code></pre>
 
-<p>A <code>public</code> folder will be generated, containing all static content and assets for
-your website. It can now be deployed on any web server.</p>
-
-<div class="alert rounded-0 alert-info">
-This website can be automatically published and hosted with [Netlify](https://www.netlify.com/)
-(Read more about [Automated HUGO deployments with Netlify](https://www.netlify.com/blog/2015/07/30/hosting-hugo-on-netlifyinsanely-fast-deploys/)).
-Alternatively, you can use [Github pages](https://gohugo.io/hosting-and-deployment/hosting-on-github/)
-</div>
-
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 29 Dec 2018</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/configmgt/requirments/" title="Requirments"><i class="ti-arrow-left mr-2"></i>Requirments</a>
-            <a class="nav nav-next" href="/configmgt/configuration/" title="Configuration">Configuration<i class="ti-arrow-right ml-2"></i></a>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/guidelines/parameters/" title="Parameters"><i class="ti-arrow-left mr-2"></i>Parameters</a>
+            <a class="nav nav-next" href="/guidelines/general-best-practices/" title="General Best Practices">General Best Practices<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

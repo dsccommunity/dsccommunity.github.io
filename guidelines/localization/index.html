@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Installation</title>
+  <title>Localization</title>
 
   <meta name="generator" content="Hugo 0.56.1" />
 
@@ -154,8 +154,8 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/resources/">Resource Modules</a>
             </li>
-            <li class=""><a href="/guidelines/">Guidelines</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/guidelines/">Guidelines</a>
+              <ul class="sub-menu">
             <li class=""><a href="/guidelines/markdown-files/">Markdown Files</a>
             </li>
             <li class=""><a href="/guidelines/general/">General</a>
@@ -178,7 +178,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/guidelines/manifest/">Manifest</a>
             </li>
-            <li class=""><a href="/guidelines/localization/">Localization</a>
+            <li class=" active "><a href="/guidelines/localization/">Localization</a>
             </li>
             <li class=""><a href="/guidelines/pester-tests/">Pester Tests</a>
             </li></ul>
@@ -192,11 +192,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class="parent d-block "><a href="/configmgt/">Configuration Management</a>
-              <ul class="sub-menu">
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
             <li class=""><a href="/configmgt/requirments/">Requirments</a>
             </li>
-            <li class=" active "><a href="/configmgt/install/">Installation</a>
+            <li class=""><a href="/configmgt/install/">Installation</a>
             </li>
             <li class=""><a href="/configmgt/configuration/">Configuration</a>
             </li>
@@ -243,85 +243,268 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Installation</h2>
+            <h2>Localization</h2>
             
 
-<p>The following steps are here to help you initialize your new website. If you
-don&rsquo;t know Hugo at all, we strongly suggest you learn more about it by following
-this <a href="https://gohugo.io/overview/quickstart/">great documentation for beginners</a>.</p>
+<p>In each resource folder there should be at least one localization folder for
+english language &lsquo;en-US&rsquo;. Add other localization folders as appropriate, the
+correct folder name can be found by running <code>Get-UICulture</code> on the node that
+has a UI culture installed that the strings are being built for.
+There is also the list of
+<a href="https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/available-language-packs-for-windows#language-packs">Available Language Packs for Windows</a>.</p>
 
-<h3 id="create-your-project">Create your project</h3>
+<p>In each localization folder there should be a PowerShell data (.psd1) file named
+&lsquo;MSFT_&lt;ResourceName&gt;.strings.psd1&rsquo; (e.g. &lsquo;MSFT_Folder.strings.psd1&rsquo;).
+Each localized string file should contain the following with the correct
+localization key and accompanying localization string value (the example uses
+the friendly resource name of &lsquo;Folder&rsquo;).</p>
 
-<p>Hugo provides a <code>new</code> command to create a new website.</p>
+<pre><code class="language-powershell"># Localized resources for Folder
 
-<pre><code class="language-bash">hugo new site &lt;new_project&gt;
+ConvertFrom-StringData @'
+    CreateFolder = Creating folder at path '{0}'. (F0001)
+    RetrievingFolderInformation = Retrieving folder information from path '{0}'. (F0002)
+    ProblemAccessFolder = Could not access the requested path '{0}'. (F0003)
+    FailedToReadProperties = Could not read property '{0}' of path '{1}'. (F0004)
+'@
 </code></pre>
 
-<h3 id="install-the-theme">Install the theme</h3>
+<p>When using the previous example, the folder structure would look like the
+following:</p>
 
-<p>Install the <strong>Doc-List</strong> theme by following <a href="https://gohugo.io/themes/installing/">this documentation</a></p>
-
-<p>This theme&rsquo;s repository is: <a href="https://github.com/matcornic/Doc-List.git">https://github.com/matcornic/Doc-List.git</a></p>
-
-<p>Alternatively, you can <a href="https://github.com/matcornic/Doc-List/archive/master.zip">download the theme as .zip</a>
-file and extract it in the <code>themes</code> directory.</p>
-
-<p>Or you can check this video documentation for installing this template:
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/Srt3lTmRxzQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-</p>
-
-<h3 id="basic-configuration">Basic configuration</h3>
-
-<p>When building the website, you can set a theme by using <code>--theme</code> option. However,
-we suggest you modify the configuration file (<code>config.toml</code>) and set the theme
-as the default.</p>
-
-<pre><code class="language-toml"># Change the default theme to be use when building the site with Hugo
-theme = &quot;Doc-List&quot;
+<pre><code class="language-plaintext">DSCResources\MSFT_Folder\en-US\MSFT_Folder.strings.psd1
+DSCResources\MSFT_Folder\es-ES\MSFT_Folder.strings.psd1
 </code></pre>
 
-<h3 id="create-your-first-content-pages">Create your first content pages</h3>
+<p>To use the localization strings in a resource, then localization strings are
+imported at the top of each resource PowerShell module script file (.psm1). The
+localized strings should be imported using <a href="#get-localizeddata"><code>Get-LocalizedData</code></a>.</p>
 
-<p>Then, create content pages inside the previously created chapter. Here are two
-ways to create content in the chapter:</p>
+<h2 id="localization-string-id-suffix">Localization string ID suffix</h2>
 
-<pre><code class="language-bash">hugo new installation/first-content.md
-hugo new installation/second-content/_index.md
+<p>To easier debug localized verbose logs, and to find the correct localized string
+key in the code, it is recommended to use a hard coded ID on each localized key&rsquo;s
+string value. That ID must be the same across the localized language files,
+and it is not recommended to reuse ID&rsquo;s once they become obsolete (because of
+for example code change).</p>
+
+<blockquote>
+<p>Using this method we could also test that each localized string is
+represented in each language specific localization file for that
+resource.</p>
+</blockquote>
+
+<p><strong>Format:</strong> <code>(ID:yyyyZZZZ)</code></p>
+
+<ul>
+<li>&lsquo;yyyy&rsquo; - The resource name prefix. It is composed of every first letter of
+every word in the resource friendly name.</li>
+<li>&lsquo;ZZZZ&rsquo; - The suffix is a serial number starting from &lsquo;0001&rsquo;.</li>
+</ul>
+
+<p><strong>Example of prefixes:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Resource</th>
+<th>ID prefix (yyyy)</th>
+<th>First string ID suffix</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>PSDscResources</td>
+<td>GroupResource</td>
+<td>GR</td>
+<td><code>(GR0001)</code></td>
+</tr>
+
+<tr>
+<td>PSDscResources</td>
+<td>WindowsOptionalFeature</td>
+<td>WOF</td>
+<td><code>(WOF0001)</code></td>
+</tr>
+
+<tr>
+<td>SqlServerDsc</td>
+<td>SqlSetup</td>
+<td>SS</td>
+<td><code>(SS0001)</code></td>
+</tr>
+
+<tr>
+<td>SqlServerDsc</td>
+<td>SqlAGDatabase</td>
+<td>SAGD</td>
+<td><code>(SAGD0001)</code></td>
+</tr>
+
+<tr>
+<td>NetworkingDsc</td>
+<td>DnsClientGlobalSetting</td>
+<td>DCGS</td>
+<td><code>(DCGS0001)</code></td>
+</tr>
+
+<tr>
+<td>NetworkingDsc</td>
+<td>Firewall</td>
+<td>F</td>
+<td><code>(F0001)</code></td>
+</tr>
+
+<tr>
+<td>CertificateDsc</td>
+<td>PfxImport</td>
+<td>PI</td>
+<td><code>(PI0001)</code></td>
+</tr>
+
+<tr>
+<td>CertificateDsc</td>
+<td>WaitForCertificateServices</td>
+<td>WFCS</td>
+<td><code>(WFCS0001)</code></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Example of usage:</strong></p>
+
+<p>See example of localized strings under <a href="#localization">Localization</a>.</p>
+
+<h2 id="using-localization-string-in-code">Using localization string in code</h2>
+
+<p>This is an example of how to write localized verbose messages.</p>
+
+<pre><code class="language-powershell">Write-Verbose -Message `
+    ($script:localizedData.RetrievingFolderInformation -f $path)
 </code></pre>
 
-<p>Feel free to edit thoses files by adding some sample content and replacing the
-<code>title</code> value in the beginning of the files.</p>
+<p>This is an example of how to write localized warning messages.</p>
 
-<h3 id="launching-the-website-locally">Launching the website locally</h3>
-
-<p>Launch by using the following command:</p>
-
-<pre><code class="language-bash">hugo serve
+<pre><code class="language-powershell">Write-Warning -Message `
+    ($script:localizedData.ProblemAccessFolder -f $path)
 </code></pre>
 
-<p>Go to <code>http://localhost:1313</code></p>
+<p>This is an example of how to throw localized error messages, but the
+<a href="#helper-functions-for-localization">helper functions</a>
+<a href="#new-invalidargumentexception"><code>New-InvalidArgumentException</code></a>,
+<a href="#new-invalidoperationexception"><code>New-InvalidOperationException</code></a>,
+<a href="#new-objectnotfoundexception"><code>New-ObjectNotFoundException</code></a> and
+<a href="#new-invalidresultexception"><code>New-InvalidResultException</code></a>
+should preferably be used whenever possible.</p>
 
-<h3 id="build-the-website">Build the website</h3>
-
-<p>When your site is ready to deploy, run the following command:</p>
-
-<pre><code class="language-bash">hugo
+<pre><code class="language-powershell">throw ($script:localizedData.FailedToReadProperties -f $property, $path)
 </code></pre>
 
-<p>A <code>public</code> folder will be generated, containing all static content and assets for
-your website. It can now be deployed on any web server.</p>
+<h3 id="helper-functions-for-localization">Helper functions for localization</h3>
 
-<div class="alert rounded-0 alert-info">
-This website can be automatically published and hosted with [Netlify](https://www.netlify.com/)
-(Read more about [Automated HUGO deployments with Netlify](https://www.netlify.com/blog/2015/07/30/hosting-hugo-on-netlifyinsanely-fast-deploys/)).
-Alternatively, you can use [Github pages](https://gohugo.io/hosting-and-deployment/hosting-on-github/)
-</div>
+<p>There are also five helper functions to simplify localization. These can be
+be found in the repository <a href="https://github.com/PowerShell/DscResource.Template">DscResource.Template</a>
+in the module script file <a href="https://github.com/PowerShell/DscResource.Template/blob/master/Modules/DscResource.LocalizationHelper/DscResource.LocalizationHelper.psm1">DscResource.LocalizationHelper</a></p>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 29 Dec 2018</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/configmgt/requirments/" title="Requirments"><i class="ti-arrow-left mr-2"></i>Requirments</a>
-            <a class="nav nav-next" href="/configmgt/configuration/" title="Configuration">Configuration<i class="ti-arrow-right ml-2"></i></a>
+<p>To use it, copy the module folder
+<a href="https://github.com/PowerShell/DscResource.Template/blob/master/Modules/DscResource.LocalizationHelper">DscResource.LocalizationHelper</a>
+and the unit tests
+<a href="https://github.com/PowerShell/DscResource.Template/blob/master/Tests/Unit/DscResource.LocalizationHelper.Tests.ps1">DscResource.LocalizationHelper.Tests.ps1</a>
+to the new resource module.</p>
+
+<h4 id="get-localizeddata">Get-LocalizedData</h4>
+
+<p>This should be used at the top of each resource PowerShell module script file
+(.psm1).
+Refer to the comment-based help for more information about this helper function.</p>
+
+<pre><code class="language-powershell">$script:resourceModulePath = Split-Path `
+    -Path (Split-Path -Path $PSScriptRoot -Parent) `
+    -Parent
+
+$script:localizationModulePath = Join-Path `
+    -Path $script:resourceModulePath `
+    -ChildPath 'Modules\DscResource.LocalizationHelper'
+
+Import-Module -Name (
+    Join-Path `
+        -Path $script:localizationModulePath `
+        -ChildPath 'DscResource.LocalizationHelper.psm1'
+    )
+
+$script:localizedData = Get-LocalizedData -ResourceName 'MSFT_SqlSetup'
+</code></pre>
+
+<h4 id="new-invalidargumentexception">New-InvalidArgumentException</h4>
+
+<p>Refer to the comment-based help for more information about this helper function.</p>
+
+<pre><code class="language-powershell">if ( -not $resultOfEvaluation )
+{
+    $errorMessage = `
+        $script:localizedData.ActionCannotBeUsedInThisContextMessage `
+            -f $Action, $Parameter
+
+    New-InvalidArgumentException -ArgumentName 'Action' -Message $errorMessage
+}
+</code></pre>
+
+<h4 id="new-invalidoperationexception">New-InvalidOperationException</h4>
+
+<p>Refer to the comment-based help for more information about this helper function.</p>
+
+<pre><code class="language-powershell">try
+{
+    Start-Process @startProcessArguments
+}
+catch
+{
+    $errorMessage = $script:localizedData.InstallationFailedMessage -f $Path, $processId
+    New-InvalidOperationException -Message $errorMessage -ErrorRecord $_
+}
+
+</code></pre>
+
+<h4 id="new-objectnotfoundexception">New-ObjectNotFoundException</h4>
+
+<p>Refer to the comment-based help for more information about this helper function.</p>
+
+<pre><code class="language-powershell">try
+{
+    Get-ChildItem -Path $path
+}
+catch
+{
+    $errorMessage = $script:localizedData.PathNotFoundMessage -f $path
+    New-ObjectNotFoundException -Message $errorMessage -ErrorRecord $_
+}
+
+</code></pre>
+
+<h4 id="new-invalidresultexception">New-InvalidResultException</h4>
+
+<p>Refer to the comment-based help for more information about this helper function.</p>
+
+<pre><code class="language-powershell">try
+{
+    $numberOfObjects = Get-ChildItem -Path $path
+    if ($numberOfObjects -eq 0)
+    {
+        throw 'To few files.'
+    }
+}
+catch
+{
+    $errorMessage = $script:localizedData.TooFewFilesMessage -f $path
+    New-InvalidResultException -Message $errorMessage -ErrorRecord $_
+}
+
+</code></pre>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/guidelines/manifest/" title="Manifest"><i class="ti-arrow-left mr-2"></i>Manifest</a>
+            <a class="nav nav-next" href="/guidelines/pester-tests/" title="Pester Tests">Pester Tests<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

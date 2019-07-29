@@ -23,6 +23,11 @@
   </url>
   
   <url>
+    <loc>/guidelines/markdown-files/</loc>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/configmgt/requirments/</loc>
     <lastmod>2019-07-27T04:00:03+12:00</lastmod>
   </url>
@@ -35,6 +40,11 @@
   <url>
     <loc>/code_of_conduct/responsibilities/</loc>
     <lastmod>2019-07-19T11:21:36+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guidelines/general/</loc>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
   </url>
   
   <url>
@@ -63,6 +73,11 @@
   </url>
   
   <url>
+    <loc>/guidelines/whitespace/</loc>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/configmgt/configuration/</loc>
     <lastmod>2019-07-27T04:00:03+12:00</lastmod>
   </url>
@@ -78,6 +93,11 @@
   </url>
   
   <url>
+    <loc>/guidelines/functions/</loc>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/</loc>
     <lastmod>2019-07-19T10:52:34+02:00</lastmod>
   </url>
@@ -85,6 +105,11 @@
   <url>
     <loc>/code_of_conduct/common_questions/</loc>
     <lastmod>2019-07-19T11:21:36+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guidelines/parameters/</loc>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
   </url>
   
   <url>
@@ -103,8 +128,48 @@
   </url>
   
   <url>
+    <loc>/guidelines/variables/</loc>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guidelines/general-best-practices/</loc>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guidelines/calling-functions/</loc>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guidelines/writing-functions/</loc>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/community/contact/</loc>
     <lastmod>2019-07-27T04:00:03+12:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guidelines/dsc-resource-functions/</loc>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guidelines/manifest/</loc>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guidelines/localization/</loc>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guidelines/pester-tests/</loc>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
   </url>
   
   <url>
@@ -119,23 +184,13 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-07-29T09:40:53+02:00</lastmod>
+    <lastmod>2019-07-29T20:28:45+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/blog/helloworld/</loc>
     <lastmod>2019-07-19T10:52:34+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/guidelines/style/</loc>
-    <lastmod>2019-07-22T21:55:27+12:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/guidelines/markdown-files/</loc>
-    <lastmod>2019-07-21T17:41:13+02:00</lastmod>
   </url>
   
   <url>
