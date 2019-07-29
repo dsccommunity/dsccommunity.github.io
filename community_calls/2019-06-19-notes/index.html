@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Configuration</title>
+  <title>2019-06-19 Notes</title>
 
   <meta name="generator" content="Hugo 0.56.1" />
 
@@ -170,23 +170,23 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class="parent d-block "><a href="/configmgt/">Configuration Management</a>
-              <ul class="sub-menu">
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
             <li class=""><a href="/configmgt/requirments/">Requirments</a>
             </li>
             <li class=""><a href="/configmgt/install/">Installation</a>
             </li>
-            <li class=" active "><a href="/configmgt/configuration/">Configuration</a>
+            <li class=""><a href="/configmgt/configuration/">Configuration</a>
             </li>
             <li class=""><a href="/configmgt/customization/">Customization</a>
             </li></ul>
               
             </li>
-            <li class=""><a href="/community_calls/">Community Calls</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
+              <ul class="sub-menu">
             <li class=""><a href="/community_calls/next_call/">Next Community Call</a>
             </li>
-            <li class=""><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
+            <li class=" active "><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
             </li></ul>
@@ -221,31 +221,54 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Configuration</h2>
+            <h2>2019-06-19 Notes</h2>
             
 
-<h3 id="global-site-parameters">Global site parameters</h3>
+<h3 id="resources-to-be-released">Resources to be released</h3>
 
-<p>On top of <a href="https://gohugo.io/overview/configuration/">Hugo global configuration</a>,
-<strong>Doc-list</strong> lets you define the following parameters in your <code>config.toml</code> (here,
-values are default).</p>
+<p>There are 7 modules on track for release on Wednesday June 26:</p>
 
-<p>Note that some of these parameters are explained in details in other sections of
-this documentation.</p>
+<ul>
+<li>CertificateDsc</li>
+<li>NetworkingDsc</li>
+<li>PSDscResources</li>
+<li>SharePointDsc</li>
+<li>SqlServerDsc (BREAKING CHANGE)</li>
+<li>xActiveDirectory</li>
+<li>xDnsServer</li>
+</ul>
 
-<pre><code class="language-toml">[params]
-  # Prefix URL to edit current page.
-  # Useful to give opportunity to people to create merge request for your doc.
-  # See the config.toml file from this documentation site to have an example.
-  # Javascript and CSS cache are automatically busted when new version of site is generated.
-  # Order sections in menu by &quot;weight&quot;
-  # Call to action is default enabled, if you want to disable it. just change the
-  enable = false
-  # You can change banner title and other text from the config file.
-</code></pre>
+<h3 id="discussions">Discussions</h3>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 29 Dec 2018</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/configmgt/install/" title="Installation"><i class="ti-arrow-left mr-2"></i>Installation</a>
-            <a class="nav nav-next" href="/configmgt/customization/" title="Customization">Customization<i class="ti-arrow-right ml-2"></i></a>
+<ul>
+<li>Topics or questions from the community (welcome at any point during the call)</li>
+<li>Ben Gelens not able to maintain <a href="https://github.com/PowerShell/xHyper-V">xHyper-V</a> anymore</li>
+<li><a href="https://github.com/PowerShell/DscResources/issues/507">DSC Community Logo</a></li>
+<li>Waffle board has closed, Migrated to GitHub board, but not great</li>
+
+<li><p>Talk to us on PoshCode slack: the #dsc channel in either
+<a href="https://powershell.slack.com">Slack</a> or
+<a href="https://discordapp.com/channels/180528040881815552/447475636487979008">Discord</a>.
+<em>The form on the page <a href="http://slack.poshcode.org/">http://slack.poshcode.org/</a> does not work, though there is
+a link in the text on that page that works.
+Joel has said that the form is meant to be removed</em>.</p>
+
+<ul>
+<li>Join through Slack: <a href="https://j.mp/psslack">https://j.mp/psslack</a></li>
+<li>Join through Discord: <a href="https://j.mp/psdiscord">https://j.mp/psdiscord</a></li>
+</ul></li>
+
+<li><p>New module submissions (if the module submission is not ready,
+the item is moved to next community call)</p>
+
+<ul>
+<li>Office365Dsc</li>
+<li>UpdateServicesDsc</li>
+</ul></li>
+</ul>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 01 Jun 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/next_call/" title="Next Community Call"><i class="ti-arrow-left mr-2"></i>Next Community Call</a>
+            <a class="nav nav-next" href="/community_calls/2019-05-08-notes/" title="2019-05-08 Notes">2019-05-08 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/community_calls/next_call/</loc>
+    <lastmod>2019-07-29T09:40:53+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/community/ownership/</loc>
     <lastmod>2019-07-26T17:29:57+02:00</lastmod>
   </url>
@@ -88,13 +93,13 @@
   </url>
   
   <url>
-    <loc>/code_of_conduct/attribution/</loc>
-    <lastmod>2019-07-27T04:00:03+12:00</lastmod>
+    <loc>/community_calls/</loc>
+    <lastmod>2019-07-29T09:40:53+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/code_of_conduct/</loc>
-    <lastmod>2019-07-19T11:21:36+02:00</lastmod>
+    <loc>/code_of_conduct/attribution/</loc>
+    <lastmod>2019-07-27T04:00:03+12:00</lastmod>
   </url>
   
   <url>
@@ -103,8 +108,18 @@
   </url>
   
   <url>
+    <loc>/community_calls/2019-06-19-notes/</loc>
+    <lastmod>2019-07-29T09:40:53+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/community_calls/2019-05-08-notes/</loc>
+    <lastmod>2019-07-29T09:40:53+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/</loc>
-    <lastmod>2019-07-27T18:35:54+02:00</lastmod>
+    <lastmod>2019-07-29T09:40:53+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -121,6 +136,11 @@
   <url>
     <loc>/guidelines/markdown-files/</loc>
     <lastmod>2019-07-21T17:41:13+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/code_of_conduct/</loc>
+    <lastmod>2019-07-29T09:40:53+02:00</lastmod>
   </url>
   
   <url>

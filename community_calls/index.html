@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us"><head>
   <meta charset="utf-8">
-  <title>Blog Posts</title>
+  <title>Community Calls</title>
 
   <meta name="generator" content="Hugo 0.56.1" />
 
@@ -135,7 +135,7 @@ if (!doNotTrack) {
         <div id="content">
 
   <!-- page title -->
-  <section class="section" style="background-color: #00B7C3">
+  <section class="section" style="background-color: #FFB900">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
@@ -147,15 +147,21 @@ if (!doNotTrack) {
                 var projects = [
                   
                     {
-                      value: "Create an Article",
-                      label: "Create an Article",
-                      url:"\/blog\/create-an-article\/"
+                      value: "Next Community Call",
+                      label: "Next Community Call",
+                      url:"\/community_calls\/next_call\/"
                     },
                   
                     {
-                      value: "Helloworld",
-                      label: "Helloworld",
-                      url:"\/blog\/helloworld\/"
+                      value: "2019-06-19 Notes",
+                      label: "2019-06-19 Notes",
+                      url:"\/community_calls\/2019-06-19-notes\/"
+                    },
+                  
+                    {
+                      value: "2019-05-08 Notes",
+                      label: "2019-05-08 Notes",
+                      url:"\/community_calls\/2019-05-08-notes\/"
                     },
                   
                 ];
@@ -191,14 +197,16 @@ if (!doNotTrack) {
       <div class="row">
         <div class="col-lg-3">
           <div class="mb-5 bg-white p-4 sticky-top">
-            <a href="/blog/">
-              <h4 class="mb-4">Blog Posts</h4>
+            <a href="/community_calls/">
+              <h4 class="mb-4">Community Calls</h4>
             </a>
             <ul class="list-styled">
               
-              <li><a href="/blog/create-an-article/">Create an Article</a></li>
+              <li><a href="/community_calls/next_call/">Next Community Call</a></li>
               
-              <li><a href="/blog/helloworld/">Helloworld</a></li>
+              <li><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a></li>
+              
+              <li><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a></li>
               
             </ul>
           </div>
@@ -208,12 +216,14 @@ if (!doNotTrack) {
               
               
               <div class="bg-gray p-4">
-                  <h3 class="mt-0">Blog Posts:</h3>
+                  <h3 class="mt-0">Community Calls:</h3>
                   <ul class="list-unstyled">
                     
-                    <li><a href="/blog/create-an-article/" style="padding-bottom: 0px; padding-top: 0px;">- Create an Article</a></li>
+                    <li><a href="/community_calls/next_call/" style="padding-bottom: 0px; padding-top: 0px;">- Next Community Call</a></li>
                     
-                    <li><a href="/blog/helloworld/" style="padding-bottom: 0px; padding-top: 0px;">- Helloworld</a></li>
+                    <li><a href="/community_calls/2019-06-19-notes/" style="padding-bottom: 0px; padding-top: 0px;">- 2019-06-19 Notes</a></li>
+                    
+                    <li><a href="/community_calls/2019-05-08-notes/" style="padding-bottom: 0px; padding-top: 0px;">- 2019-05-08 Notes</a></li>
                     
                   </ul>
               </div>
@@ -221,12 +231,44 @@ if (!doNotTrack) {
               <div class="bg-white p-4">
                 
 
-<h2 id="blog-with-us">Blog with us</h2>
+<h3 id="community-calls">Community Calls</h3>
 
-<p>Hi, this is where our blogged content is made available.
-Feel free to send us your content of stuff using or related with DSC! Just submit a Pull request to the Website under the <code>/content/blog/</code> section.</p>
+<p>The DSC Community calls are schedule and you can add them to your calender
+using the <a href="https://github.com/PowerShell/DscResources/blob/master/CommunityCalls/DSC%20Resource%20Kit%20Community%20Call%20ICS.zip">ICS file</a>.</p>
 
-<p>Please make sure <strong>the name of the file contains the language</strong> such as <code>mycontent.en.md</code> for an article written in English.</p>
+<h4 id="how-to-join">How to Join</h4>
+
+<p>The calls are open for everyone in the community.</p>
+
+<h5 id="microsoft-teams">Microsoft Teams</h5>
+
+<p>Join through the <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OTc2YThjZGQtNWE4Yi00NDQyLTk5NTktYWIwYjdhMGZjNDRl%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%222fd83437-7fe6-4ee4-a109-828a19cb7bff%22%7d">Microsoft Teams Meeting</a></p>
+
+<h5 id="phone">Phone</h5>
+
+<p>+1 323-849-4874 United States, Los Angeles (Toll),
+or <a href="https://dialin.teams.microsoft.com/8551f4c1-bea3-441a-8738-69aa517a91c5?id=50343176">Local numbers</a>.</p>
+
+<p>Conference ID: 503 431 76#</p>
+
+<p>Participants using the Join by Phone option must dial the full number for call access.</p>
+
+<h3 id="community-call-agenda">Community Call Agenda</h3>
+
+<p>To the left you find the next agenda and the previous community call notes
+from what has been discussed.
+Please feel free to send in PR&rsquo;s to add items you feel need to be discussed
+to the agenda for the next community call.</p>
+
+<h3 id="add-next-community-call-agenda-and-update-notes-to-the-web-site">Add next community call agenda and update notes to the web site</h3>
+
+<p>Make sure after the call that the agenda (next_call.en.md) is renamed
+appropriately, and the <code>weight: 99x</code> decremented from the last notes.</p>
+
+<p>Then run the command below to create a new file under <code>content/community_calls</code>.</p>
+
+<pre><code class="language-bash">hugo new community_calls/next_call.en.md
+</code></pre>
 
               </div>
           </div>

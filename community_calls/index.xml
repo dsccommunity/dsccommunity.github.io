@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Community Calls on DSC Community</title>
+    <link>/community_calls/</link>
+    <description>Recent content in Community Calls on DSC Community</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
+    <lastBuildDate>Sun, 28 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/community_calls/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Next Community Call</title>
+      <link>/community_calls/next_call/</link>
+      <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/community_calls/next_call/</guid>
+      <description>2019-07-31  Feel free to send a PR to this file if there&amp;rsquo;s something you&amp;rsquo;d like to add to the agenda  Resources to be released TBC
+Discussions  Topics or questions from the community (welcome at any point during the call)
+ Some surprise announcement will be made! Watch this space!
+ Talk to us on Virtual PowerShell User Group #DSC channel. Information how to join, see https://dsccommunity.org/community/contact/</description>
+    </item>
+    
+    <item>
+      <title>2019-06-19 Notes</title>
+      <link>/community_calls/2019-06-19-notes/</link>
+      <pubDate>Sat, 01 Jun 2019 23:35:30 +0200</pubDate>
+      
+      <guid>/community_calls/2019-06-19-notes/</guid>
+      <description>Resources to be released There are 7 modules on track for release on Wednesday June 26:
+ CertificateDsc NetworkingDsc PSDscResources SharePointDsc SqlServerDsc (BREAKING CHANGE) xActiveDirectory xDnsServer  Discussions  Topics or questions from the community (welcome at any point during the call) Ben Gelens not able to maintain xHyper-V anymore DSC Community Logo Waffle board has closed, Migrated to GitHub board, but not great Talk to us on PoshCode slack: the #dsc channel in either Slack or Discord.</description>
+    </item>
+    
+    <item>
+      <title>2019-05-08 Notes</title>
+      <link>/community_calls/2019-05-08-notes/</link>
+      <pubDate>Sun, 28 Jul 2019 23:35:30 +0200</pubDate>
+      
+      <guid>/community_calls/2019-05-08-notes/</guid>
+      <description>Resources to be released  TBC  Discussions  Topics or questions from the community (welcome at any point during the call) Celebrating new maintainers:  Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Jason Patton &amp;ndash;&amp;gt; xDnsServer Nehru Ali &amp;ndash;&amp;gt; xPendingReboot Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc) Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox  Waffle board will be closing, still looking into a replacement Moving off gitter to PoshCode slack: the #dsc channel in either Slack or Discord.</description>
+    </item>
+    
+  </channel>
+</rss>

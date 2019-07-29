@@ -84,6 +84,12 @@ if (!doNotTrack) {
       
       
       <li class="nav-item">
+          <a class="nav-link text-dark" href="/community_calls">Community Calls</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
           <a class="nav-link text-dark" href="/faq">Faq</a>
       </li>
       
@@ -104,11 +110,13 @@ if (!doNotTrack) {
           
           <a class="dropdown-item" href="/community">Community</a>
           
+          <a class="dropdown-item" href="/resources">Resource Modules</a>
+          
           <a class="dropdown-item" href="/guidelines">Guidelines</a>
           
           <a class="dropdown-item" href="/blog">Blog Posts</a>
           
-          <a class="dropdown-item" href="/configmgt">Config Management</a>
+          <a class="dropdown-item" href="/configmgt">Config. Management</a>
           
         </div>
       </li>
@@ -135,6 +143,12 @@ if (!doNotTrack) {
         <script>
             $(function() {
             var projects = [
+                
+                {
+                    value: "Next Community Call",
+                    label: "Next Community Call",
+                    url:"\/community_calls\/next_call\/"
+                },
                 
                 {
                     value: "Ownership of DSC Resources",
@@ -218,6 +232,18 @@ if (!doNotTrack) {
                     value: "Join the Conversation",
                     label: "Join the Conversation",
                     url:"\/community\/contact\/"
+                },
+                
+                {
+                    value: "2019-06-19 Notes",
+                    label: "2019-06-19 Notes",
+                    url:"\/community_calls\/2019-06-19-notes\/"
+                },
+                
+                {
+                    value: "2019-05-08 Notes",
+                    label: "2019-05-08 Notes",
+                    url:"\/community_calls\/2019-05-08-notes\/"
                 },
                 
                 {
@@ -325,10 +351,10 @@ if (!doNotTrack) {
             </div>
             
             <div class="col-lg-4 col-sm-6 mb-4">
-              <a href="/code_of_conduct/" class="px-4 py-5 shadow text-center d-block" style="background-color:#FFB900">
-                <i class="ti-agenda icon text-dark d-block mb-4"></i>
-                <h3 class="mb-3">Code of Conduct</h3>
-                <p class="mb-0">The rules ensuring an harassment-free environment for the community to thrive</p>
+              <a href="/community_calls/" class="px-4 py-5 shadow text-center d-block" style="background-color:#FFB900">
+                <i class="ti-headphone-alt icon text-dark d-block mb-4"></i>
+                <h3 class="mb-3">Community Calls</h3>
+                <p class="mb-0">Agenda for the next community call and meeting notes</p>
               </a>
             </div>
             
