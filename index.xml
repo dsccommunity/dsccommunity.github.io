@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DSC Community</title>
-    <link>/</link>
+    <link>https://dsccommunity.org/</link>
     <description>Recent content on DSC Community</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Sun, 28 Jul 2019 23:35:30 +0200</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Next Community Call</title>
-      <link>/community_calls/next_call/</link>
+      <link>https://dsccommunity.org/community_calls/next_call/</link>
       <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/community_calls/next_call/</guid>
+      <guid>https://dsccommunity.org/community_calls/next_call/</guid>
       <description>2019-07-31  Feel free to send a PR to this file if there&amp;rsquo;s something you&amp;rsquo;d like to add to the agenda  Resources to be released TBC
 Discussions  Topics or questions from the community (welcome at any point during the call)
  Some surprise announcement will be made! Watch this space!
@@ -26,30 +26,30 @@ Discussions  Topics or questions from the community (welcome at any point during
     
     <item>
       <title>Ownership of DSC Resources</title>
-      <link>/community/ownership/</link>
+      <link>https://dsccommunity.org/community/ownership/</link>
       <pubDate>Thu, 18 Jul 2019 15:02:05 +0600</pubDate>
       
-      <guid>/community/ownership/</guid>
+      <guid>https://dsccommunity.org/community/ownership/</guid>
       <description>Goal and purpose Previously owned by the DSC Team, and more specifically by Katie, the DSC Resources are now owned by the DSC Community: a collective of Open Source maintainers getting together to improve the Resources, their quality and the practices around DSC.
 The main purpose is to handle better the increased community contributions, and remove hindrance to improvements by spreading the load on a Committee, and giving more privileges to the maintainers.</description>
     </item>
     
     <item>
       <title>Create an Article</title>
-      <link>/blog/create-an-article/</link>
+      <link>https://dsccommunity.org/blog/create-an-article/</link>
       <pubDate>Fri, 08 Mar 2019 12:41:48 +0800</pubDate>
       
-      <guid>/blog/create-an-article/</guid>
+      <guid>https://dsccommunity.org/blog/create-an-article/</guid>
       <description>How to Create an Article Creating the md file is easy, but you might want to double check how it will render on the website. To do so, we recommend you to install Hugo (using Chocolatey it&amp;rsquo;s just a choco install hugo) and test what you create.
 But when you have installed hugo, forked the dsccommunity.org, and cloned your fork locally, you can generate a post from the template, from the source directory: &amp;gt; C:\src\dsccommunity.</description>
     </item>
     
     <item>
       <title>Our Standards</title>
-      <link>/code_of_conduct/standards/</link>
+      <link>https://dsccommunity.org/code_of_conduct/standards/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/code_of_conduct/standards/</guid>
+      <guid>https://dsccommunity.org/code_of_conduct/standards/</guid>
       <description>Examples of behavior that contributes to creating a positive environment include:
  Using welcoming and inclusive language Being respectful of differing viewpoints and experiences Gracefully accepting constructive criticism Focusing on what is best for the community Showing empathy towards other community members  Examples of unacceptable behavior by participants include:
  The use of sexualized language or imagery and unwelcome sexual attention or advances Trolling, insulting/derogatory comments, and personal or political attacks Public or private harassment Publishing others&amp;rsquo; private information, such as a physical or electronic address, without explicit permission Other conduct which could reasonably be considered inappropriate in a professional setting  </description>
@@ -57,29 +57,29 @@ But when you have installed hugo, forked the dsccommunity.org, and cloned your f
     
     <item>
       <title>Markdown Files</title>
-      <link>/guidelines/markdown-files/</link>
+      <link>https://dsccommunity.org/guidelines/markdown-files/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/markdown-files/</guid>
+      <guid>https://dsccommunity.org/guidelines/markdown-files/</guid>
       <description>Line length not longer than 80 characters Rows longer than 80 characters should be split into multiple lines where appropriate. This helps make it easier for reviewers to make review comments and for the contributors to see where the requested changes are (without scrolling). It is also easier to see the lines in split view mode when the lines don&amp;rsquo;t wrap on the screen. It will also improve the readability when using git diff.</description>
     </item>
     
     <item>
       <title>Requirments</title>
-      <link>/configmgt/requirments/</link>
+      <link>https://dsccommunity.org/configmgt/requirments/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       
-      <guid>/configmgt/requirments/</guid>
+      <guid>https://dsccommunity.org/configmgt/requirments/</guid>
       <description>Thanks to the simplicity of Hugo, this page is as empty as this theme needs requirements.
 Just download latest version of Hugo binary (&amp;gt; 0.53) for your OS (Windows, Linux, Mac) : it&amp;rsquo;s that simple.</description>
     </item>
     
     <item>
       <title>DSC Community Committee</title>
-      <link>/community/committee/</link>
+      <link>https://dsccommunity.org/community/committee/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/community/committee/</guid>
+      <guid>https://dsccommunity.org/community/committee/</guid>
       <description>Here is an explanation of what the DSC Committee is attempting to help with, and how we&amp;rsquo;re trying to help the community.
 Come and chat with us if you&amp;rsquo;d like to discuss how we can improve!
 Members 
@@ -88,20 +88,20 @@ Katie is the owner of the Resource Kit at Microsoft and has steered its directio
     
     <item>
       <title>Our Responsibilities</title>
-      <link>/code_of_conduct/responsibilities/</link>
+      <link>https://dsccommunity.org/code_of_conduct/responsibilities/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/code_of_conduct/responsibilities/</guid>
+      <guid>https://dsccommunity.org/code_of_conduct/responsibilities/</guid>
       <description>Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
 Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.</description>
     </item>
     
     <item>
       <title>General</title>
-      <link>/guidelines/general/</link>
+      <link>https://dsccommunity.org/guidelines/general/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/general/</guid>
+      <guid>https://dsccommunity.org/guidelines/general/</guid>
       <description>Correct File Encoding Make sure all files are encoded using UTF-8 (not UTF-8 with BOM), except mof files which should be encoded using ASCII. You can use ConvertTo-UTF8 and ConvertTo-ASCII to convert a file to UTF-8 or ASCII.
 Descriptive Names Use descriptive, clear, and full names for all variables, parameters, and functions. All names must be at least more than 2 characters. No abbreviations should be used.
 Bad:
@@ -110,10 +110,10 @@ $r = Get-RdsHost  Bad:</description>
     
     <item>
       <title>Installation</title>
-      <link>/configmgt/install/</link>
+      <link>https://dsccommunity.org/configmgt/install/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       
-      <guid>/configmgt/install/</guid>
+      <guid>https://dsccommunity.org/configmgt/install/</guid>
       <description>The following steps are here to help you initialize your new website. If you don&amp;rsquo;t know Hugo at all, we strongly suggest you learn more about it by following this great documentation for beginners.
 Create your project Hugo provides a new command to create a new website.
 hugo new site &amp;lt;new_project&amp;gt;  Install the theme Install the Doc-List theme by following this documentation
@@ -123,28 +123,28 @@ Alternatively, you can download the theme as .</description>
     
     <item>
       <title>Maintainers</title>
-      <link>/community/maintainers/</link>
+      <link>https://dsccommunity.org/community/maintainers/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/community/maintainers/</guid>
+      <guid>https://dsccommunity.org/community/maintainers/</guid>
       <description>Here is a list of the current maintainers of DSC modules in the DSC Community. If you wish to be a maintainer in a module, please either contact a maintainer of the module, or a member of the committee. If you are a maintainer and feel you no longer have the time to put in and want to stop being maintainer then please send in a PR to update this list, or contact a member of the committee.</description>
     </item>
     
     <item>
       <title>Scope</title>
-      <link>/code_of_conduct/scope/</link>
+      <link>https://dsccommunity.org/code_of_conduct/scope/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/code_of_conduct/scope/</guid>
+      <guid>https://dsccommunity.org/code_of_conduct/scope/</guid>
       <description>This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.</description>
     </item>
     
     <item>
       <title>Whitespace</title>
-      <link>/guidelines/whitespace/</link>
+      <link>https://dsccommunity.org/guidelines/whitespace/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/whitespace/</guid>
+      <guid>https://dsccommunity.org/guidelines/whitespace/</guid>
       <description>Indentation For all indentation, use 4 spaces instead of tabs. There should be no tab characters in the file unless they are in a here-string.
 No Trailing Whitespace After Backticks Backticks should always be directly followed by a newline
 Newline at End of File All files must end with a newline, see StackOverflow.
@@ -153,10 +153,10 @@ Newline Character Encoding Save newlines using CR+LF instead of CR. For interope
     
     <item>
       <title>Configuration</title>
-      <link>/configmgt/configuration/</link>
+      <link>https://dsccommunity.org/configmgt/configuration/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       
-      <guid>/configmgt/configuration/</guid>
+      <guid>https://dsccommunity.org/configmgt/configuration/</guid>
       <description>Global site parameters On top of Hugo global configuration, Doc-list lets you define the following parameters in your config.toml (here, values are default).
 Note that some of these parameters are explained in details in other sections of this documentation.
 [params] # Prefix URL to edit current page. # Useful to give opportunity to people to create merge request for your doc. # See the config.toml file from this documentation site to have an example.</description>
@@ -164,20 +164,20 @@ Note that some of these parameters are explained in details in other sections of
     
     <item>
       <title>Enforcement</title>
-      <link>/code_of_conduct/enforcement/</link>
+      <link>https://dsccommunity.org/code_of_conduct/enforcement/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/code_of_conduct/enforcement/</guid>
+      <guid>https://dsccommunity.org/code_of_conduct/enforcement/</guid>
       <description>Enforcement Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at dsccommunity@outlook.com. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
 Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project&amp;rsquo;s leadership.</description>
     </item>
     
     <item>
       <title>Functions</title>
-      <link>/guidelines/functions/</link>
+      <link>https://dsccommunity.org/guidelines/functions/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/functions/</guid>
+      <guid>https://dsccommunity.org/guidelines/functions/</guid>
       <description>Function Names Use Pascal Case Function names must use PascalCase. This means that each concatenated word is capitalized.
 Bad:
 function get-targetresource { # ... }  Good:
@@ -189,37 +189,37 @@ function Get-TargetResource { # ... }  Function Names Use Approved Verbs All fun
     
     <item>
       <title>Common Questions</title>
-      <link>/code_of_conduct/common_questions/</link>
+      <link>https://dsccommunity.org/code_of_conduct/common_questions/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/code_of_conduct/common_questions/</guid>
+      <guid>https://dsccommunity.org/code_of_conduct/common_questions/</guid>
       <description>For answers to common questions about this code of conduct, see https://www.contributor-covenant.org/faq</description>
     </item>
     
     <item>
       <title>Parameters</title>
-      <link>/guidelines/parameters/</link>
+      <link>https://dsccommunity.org/guidelines/parameters/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/parameters/</guid>
+      <guid>https://dsccommunity.org/guidelines/parameters/</guid>
       <description>Correct Format for Parameter Block  An empty parameter block should be displayed on its own line like this: param (). A non-empty parameter block should have the opening and closing parentheses on their own line. All text inside the parameter block should be indented once. Every parameter should include the [Parameter()] attribute, regardless of whether the attribute requires decoration or not. A parameter that is mandatory should contain this decoration: [Parameter(Mandatory = $true)].</description>
     </item>
     
     <item>
       <title>Attribution</title>
-      <link>/code_of_conduct/attribution/</link>
+      <link>https://dsccommunity.org/code_of_conduct/attribution/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/code_of_conduct/attribution/</guid>
+      <guid>https://dsccommunity.org/code_of_conduct/attribution/</guid>
       <description>This Code of Conduct is adapted from the Contributor Covenant, version 1.4, available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html</description>
     </item>
     
     <item>
       <title>Variables</title>
-      <link>/guidelines/variables/</link>
+      <link>https://dsccommunity.org/guidelines/variables/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/variables/</guid>
+      <guid>https://dsccommunity.org/guidelines/variables/</guid>
       <description>Variable Names Use Camel Case Variable names should use camelCase.
 Bad:
 function Write-Log { $VerboseMessage = &#39;New log message&#39; Write-Verbose $VerboseMessage }  Bad:
@@ -229,10 +229,10 @@ function Write-Log { $verboseMessage = &#39;New log message&#39; Write-Verbose $
     
     <item>
       <title>General Best Practices</title>
-      <link>/guidelines/general-best-practices/</link>
+      <link>https://dsccommunity.org/guidelines/general-best-practices/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/general-best-practices/</guid>
+      <guid>https://dsccommunity.org/guidelines/general-best-practices/</guid>
       <description>Although adopting the best practices is optional, doing so will help improve the quality of the DSC resource module.
 Note: Modules that aim to meet the High Quality Resource Module standards must also implement the best practices wherever possible.
 Avoid Using ard coded Computer Name Using hard coded computer names exposes sensitive information on your machine. Use a parameter or environment variable instead if a computer name is necessary. This comes from this PS Script Analyzer rule.</description>
@@ -240,10 +240,10 @@ Avoid Using ard coded Computer Name Using hard coded computer names exposes sens
     
     <item>
       <title>Calling Functions</title>
-      <link>/guidelines/calling-functions/</link>
+      <link>https://dsccommunity.org/guidelines/calling-functions/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/calling-functions/</guid>
+      <guid>https://dsccommunity.org/guidelines/calling-functions/</guid>
       <description>Avoid Cmdlet Aliases When calling a function use the full command not an alias. You can get the full command an alias represents by calling Get-Alias.
 Bad:
 ls -File $root -Recurse | ? { @(&#39;.gitignore&#39;, &#39;.mof&#39;) -contains $_.Extension }  Good:
@@ -252,10 +252,10 @@ Get-ChildItem -File $root -Recurse | Where-Object -FilterScript { @(&#39;.gitign
     
     <item>
       <title>Writing Functions</title>
-      <link>/guidelines/writing-functions/</link>
+      <link>https://dsccommunity.org/guidelines/writing-functions/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/writing-functions/</guid>
+      <guid>https://dsccommunity.org/guidelines/writing-functions/</guid>
       <description>Avoid Default Values for Mandatory Parameters Default values for mandatory parameters will always be overwritten, thus they are never used and can cause confusion.
 Bad:
 function Get-Something { param ( [Parameter(Mandatory = $true)] [String] $Name = &#39;My Name&#39; ) ... }  Good:
@@ -264,10 +264,10 @@ function Get-Something { param ( [Parameter(Mandatory = $true)] [String] $Name )
     
     <item>
       <title>Join the Conversation</title>
-      <link>/community/contact/</link>
+      <link>https://dsccommunity.org/community/contact/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/community/contact/</guid>
+      <guid>https://dsccommunity.org/community/contact/</guid>
       <description>The #DSC Channel The community gathers in the Virtual PowerShell User Group #DSC channel, which is an open &amp;amp; instant messaging chat room for all DSC related questions, discussions, and collaboration.
 The PowerShell channels are bridged between Discord and Slack, so you can use either service, via the apps or websites.
 The Virtual PowerShell User Group contains more than just the #DSC channel: there are also channels covering topics related to PowerShell, DevOps as well as many other and practices and technologies, so you may also join them too.</description>
@@ -275,10 +275,10 @@ The Virtual PowerShell User Group contains more than just the #DSC channel: ther
     
     <item>
       <title>Dsc Resource Functions</title>
-      <link>/guidelines/dsc-resource-functions/</link>
+      <link>https://dsccommunity.org/guidelines/dsc-resource-functions/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/dsc-resource-functions/</guid>
+      <guid>https://dsccommunity.org/guidelines/dsc-resource-functions/</guid>
       <description>Return a Hashtable from Get-TargetResource Bad:
  Good:
  Return a Boolean from Test-TargetResource Bad:
@@ -292,10 +292,10 @@ The Virtual PowerShell User Group contains more than just the #DSC channel: ther
     
     <item>
       <title>Manifest</title>
-      <link>/guidelines/manifest/</link>
+      <link>https://dsccommunity.org/guidelines/manifest/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/manifest/</guid>
+      <guid>https://dsccommunity.org/guidelines/manifest/</guid>
       <description>Avoid Using Deprecated Manifest Fields Bad:
  Good:
  Ensure Manifest Contains Correct Fields Bad:
@@ -306,20 +306,20 @@ Normally, a single list in the RootModule key, can restrict what is exported usi
     
     <item>
       <title>Localization</title>
-      <link>/guidelines/localization/</link>
+      <link>https://dsccommunity.org/guidelines/localization/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/localization/</guid>
+      <guid>https://dsccommunity.org/guidelines/localization/</guid>
       <description>In each resource folder there should be at least one localization folder for english language &amp;lsquo;en-US&amp;rsquo;. Add other localization folders as appropriate, the correct folder name can be found by running Get-UICulture on the node that has a UI culture installed that the strings are being built for. There is also the list of Available Language Packs for Windows.
 In each localization folder there should be a PowerShell data (.</description>
     </item>
     
     <item>
       <title>Pester Tests</title>
-      <link>/guidelines/pester-tests/</link>
+      <link>https://dsccommunity.org/guidelines/pester-tests/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/pester-tests/</guid>
+      <guid>https://dsccommunity.org/guidelines/pester-tests/</guid>
       <description>Capitalized Pester Assertions Pester assertions should all start with capital letters. This makes code easier to read.
 Bad:
 it &#39;Should return something&#39; { get-targetresource @testParameters | should -be &#39;something&#39; }  Good:
@@ -328,38 +328,38 @@ It &#39;Should return something&#39; { Get-TargetResource @testParameters | Shou
     
     <item>
       <title>2019-06-19 Notes</title>
-      <link>/community_calls/2019-06-19-notes/</link>
+      <link>https://dsccommunity.org/community_calls/2019-06-19-notes/</link>
       <pubDate>Sat, 01 Jun 2019 23:35:30 +0200</pubDate>
       
-      <guid>/community_calls/2019-06-19-notes/</guid>
+      <guid>https://dsccommunity.org/community_calls/2019-06-19-notes/</guid>
       <description>Resources to be released There are 7 modules on track for release on Wednesday June 26:
  CertificateDsc NetworkingDsc PSDscResources SharePointDsc SqlServerDsc (BREAKING CHANGE) xActiveDirectory xDnsServer  Discussions  Topics or questions from the community (welcome at any point during the call) Ben Gelens not able to maintain xHyper-V anymore DSC Community Logo Waffle board has closed, Migrated to GitHub board, but not great Talk to us on PoshCode slack: the #dsc channel in either Slack or Discord.</description>
     </item>
     
     <item>
       <title>2019-05-08 Notes</title>
-      <link>/community_calls/2019-05-08-notes/</link>
+      <link>https://dsccommunity.org/community_calls/2019-05-08-notes/</link>
       <pubDate>Sun, 28 Jul 2019 23:35:30 +0200</pubDate>
       
-      <guid>/community_calls/2019-05-08-notes/</guid>
+      <guid>https://dsccommunity.org/community_calls/2019-05-08-notes/</guid>
       <description>Resources to be released  TBC  Discussions  Topics or questions from the community (welcome at any point during the call) Celebrating new maintainers:  Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Jason Patton &amp;ndash;&amp;gt; xDnsServer Nehru Ali &amp;ndash;&amp;gt; xPendingReboot Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc) Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox  Waffle board will be closing, still looking into a replacement Moving off gitter to PoshCode slack: the #dsc channel in either Slack or Discord.</description>
     </item>
     
     <item>
       <title>Helloworld</title>
-      <link>/blog/helloworld/</link>
+      <link>https://dsccommunity.org/blog/helloworld/</link>
       <pubDate>Fri, 08 Mar 2019 12:41:48 +0800</pubDate>
       
-      <guid>/blog/helloworld/</guid>
+      <guid>https://dsccommunity.org/blog/helloworld/</guid>
       <description>Hello world FAIL: first attempt in learning</description>
     </item>
     
     <item>
       <title>Customization</title>
-      <link>/configmgt/customization/</link>
+      <link>https://dsccommunity.org/configmgt/customization/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       
-      <guid>/configmgt/customization/</guid>
+      <guid>https://dsccommunity.org/configmgt/customization/</guid>
       <description>Doc-List has been built to be as configurable as possible.
 Change the logo In config.toml you will find a logo variable. you can change your logo there.
 The size of the logo will adapt automatically  Change the favicon If your favicon is a png, just drop off your image in your local static/images/ folder and name it favicon.png

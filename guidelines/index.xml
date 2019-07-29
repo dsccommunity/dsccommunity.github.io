@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Guidelines on DSC Community</title>
-    <link>/guidelines/</link>
+    <link>https://dsccommunity.org/guidelines/</link>
     <description>Recent content in Guidelines on DSC Community</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Fri, 28 Dec 2018 11:02:05 +0600</lastBuildDate>
     
-	<atom:link href="/guidelines/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dsccommunity.org/guidelines/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Markdown Files</title>
-      <link>/guidelines/markdown-files/</link>
+      <link>https://dsccommunity.org/guidelines/markdown-files/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/markdown-files/</guid>
+      <guid>https://dsccommunity.org/guidelines/markdown-files/</guid>
       <description>Line length not longer than 80 characters Rows longer than 80 characters should be split into multiple lines where appropriate. This helps make it easier for reviewers to make review comments and for the contributors to see where the requested changes are (without scrolling). It is also easier to see the lines in split view mode when the lines don&amp;rsquo;t wrap on the screen. It will also improve the readability when using git diff.</description>
     </item>
     
     <item>
       <title>General</title>
-      <link>/guidelines/general/</link>
+      <link>https://dsccommunity.org/guidelines/general/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/general/</guid>
+      <guid>https://dsccommunity.org/guidelines/general/</guid>
       <description>Correct File Encoding Make sure all files are encoded using UTF-8 (not UTF-8 with BOM), except mof files which should be encoded using ASCII. You can use ConvertTo-UTF8 and ConvertTo-ASCII to convert a file to UTF-8 or ASCII.
 Descriptive Names Use descriptive, clear, and full names for all variables, parameters, and functions. All names must be at least more than 2 characters. No abbreviations should be used.
 Bad:
@@ -35,10 +35,10 @@ $r = Get-RdsHost  Bad:</description>
     
     <item>
       <title>Whitespace</title>
-      <link>/guidelines/whitespace/</link>
+      <link>https://dsccommunity.org/guidelines/whitespace/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/whitespace/</guid>
+      <guid>https://dsccommunity.org/guidelines/whitespace/</guid>
       <description>Indentation For all indentation, use 4 spaces instead of tabs. There should be no tab characters in the file unless they are in a here-string.
 No Trailing Whitespace After Backticks Backticks should always be directly followed by a newline
 Newline at End of File All files must end with a newline, see StackOverflow.
@@ -47,10 +47,10 @@ Newline Character Encoding Save newlines using CR+LF instead of CR. For interope
     
     <item>
       <title>Functions</title>
-      <link>/guidelines/functions/</link>
+      <link>https://dsccommunity.org/guidelines/functions/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/functions/</guid>
+      <guid>https://dsccommunity.org/guidelines/functions/</guid>
       <description>Function Names Use Pascal Case Function names must use PascalCase. This means that each concatenated word is capitalized.
 Bad:
 function get-targetresource { # ... }  Good:
@@ -62,19 +62,19 @@ function Get-TargetResource { # ... }  Function Names Use Approved Verbs All fun
     
     <item>
       <title>Parameters</title>
-      <link>/guidelines/parameters/</link>
+      <link>https://dsccommunity.org/guidelines/parameters/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/parameters/</guid>
+      <guid>https://dsccommunity.org/guidelines/parameters/</guid>
       <description>Correct Format for Parameter Block  An empty parameter block should be displayed on its own line like this: param (). A non-empty parameter block should have the opening and closing parentheses on their own line. All text inside the parameter block should be indented once. Every parameter should include the [Parameter()] attribute, regardless of whether the attribute requires decoration or not. A parameter that is mandatory should contain this decoration: [Parameter(Mandatory = $true)].</description>
     </item>
     
     <item>
       <title>Variables</title>
-      <link>/guidelines/variables/</link>
+      <link>https://dsccommunity.org/guidelines/variables/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/variables/</guid>
+      <guid>https://dsccommunity.org/guidelines/variables/</guid>
       <description>Variable Names Use Camel Case Variable names should use camelCase.
 Bad:
 function Write-Log { $VerboseMessage = &#39;New log message&#39; Write-Verbose $VerboseMessage }  Bad:
@@ -84,10 +84,10 @@ function Write-Log { $verboseMessage = &#39;New log message&#39; Write-Verbose $
     
     <item>
       <title>General Best Practices</title>
-      <link>/guidelines/general-best-practices/</link>
+      <link>https://dsccommunity.org/guidelines/general-best-practices/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/general-best-practices/</guid>
+      <guid>https://dsccommunity.org/guidelines/general-best-practices/</guid>
       <description>Although adopting the best practices is optional, doing so will help improve the quality of the DSC resource module.
 Note: Modules that aim to meet the High Quality Resource Module standards must also implement the best practices wherever possible.
 Avoid Using ard coded Computer Name Using hard coded computer names exposes sensitive information on your machine. Use a parameter or environment variable instead if a computer name is necessary. This comes from this PS Script Analyzer rule.</description>
@@ -95,10 +95,10 @@ Avoid Using ard coded Computer Name Using hard coded computer names exposes sens
     
     <item>
       <title>Calling Functions</title>
-      <link>/guidelines/calling-functions/</link>
+      <link>https://dsccommunity.org/guidelines/calling-functions/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/calling-functions/</guid>
+      <guid>https://dsccommunity.org/guidelines/calling-functions/</guid>
       <description>Avoid Cmdlet Aliases When calling a function use the full command not an alias. You can get the full command an alias represents by calling Get-Alias.
 Bad:
 ls -File $root -Recurse | ? { @(&#39;.gitignore&#39;, &#39;.mof&#39;) -contains $_.Extension }  Good:
@@ -107,10 +107,10 @@ Get-ChildItem -File $root -Recurse | Where-Object -FilterScript { @(&#39;.gitign
     
     <item>
       <title>Writing Functions</title>
-      <link>/guidelines/writing-functions/</link>
+      <link>https://dsccommunity.org/guidelines/writing-functions/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/writing-functions/</guid>
+      <guid>https://dsccommunity.org/guidelines/writing-functions/</guid>
       <description>Avoid Default Values for Mandatory Parameters Default values for mandatory parameters will always be overwritten, thus they are never used and can cause confusion.
 Bad:
 function Get-Something { param ( [Parameter(Mandatory = $true)] [String] $Name = &#39;My Name&#39; ) ... }  Good:
@@ -119,10 +119,10 @@ function Get-Something { param ( [Parameter(Mandatory = $true)] [String] $Name )
     
     <item>
       <title>Dsc Resource Functions</title>
-      <link>/guidelines/dsc-resource-functions/</link>
+      <link>https://dsccommunity.org/guidelines/dsc-resource-functions/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/dsc-resource-functions/</guid>
+      <guid>https://dsccommunity.org/guidelines/dsc-resource-functions/</guid>
       <description>Return a Hashtable from Get-TargetResource Bad:
  Good:
  Return a Boolean from Test-TargetResource Bad:
@@ -136,10 +136,10 @@ function Get-Something { param ( [Parameter(Mandatory = $true)] [String] $Name )
     
     <item>
       <title>Manifest</title>
-      <link>/guidelines/manifest/</link>
+      <link>https://dsccommunity.org/guidelines/manifest/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/manifest/</guid>
+      <guid>https://dsccommunity.org/guidelines/manifest/</guid>
       <description>Avoid Using Deprecated Manifest Fields Bad:
  Good:
  Ensure Manifest Contains Correct Fields Bad:
@@ -150,20 +150,20 @@ Normally, a single list in the RootModule key, can restrict what is exported usi
     
     <item>
       <title>Localization</title>
-      <link>/guidelines/localization/</link>
+      <link>https://dsccommunity.org/guidelines/localization/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/localization/</guid>
+      <guid>https://dsccommunity.org/guidelines/localization/</guid>
       <description>In each resource folder there should be at least one localization folder for english language &amp;lsquo;en-US&amp;rsquo;. Add other localization folders as appropriate, the correct folder name can be found by running Get-UICulture on the node that has a UI culture installed that the strings are being built for. There is also the list of Available Language Packs for Windows.
 In each localization folder there should be a PowerShell data (.</description>
     </item>
     
     <item>
       <title>Pester Tests</title>
-      <link>/guidelines/pester-tests/</link>
+      <link>https://dsccommunity.org/guidelines/pester-tests/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>/guidelines/pester-tests/</guid>
+      <guid>https://dsccommunity.org/guidelines/pester-tests/</guid>
       <description>Capitalized Pester Assertions Pester assertions should all start with capital letters. This makes code easier to read.
 Bad:
 it &#39;Should return something&#39; { get-targetresource @testParameters | should -be &#39;something&#39; }  Good:
