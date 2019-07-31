@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Calling Functions</title>
+  <title>Future of Configuration Management</title>
 
   <meta name="generator" content="Hugo 0.56.3" />
 
@@ -156,8 +156,8 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/resources/">Resource Modules</a>
             </li>
-            <li class="parent d-block "><a href="/guidelines/">Guidelines</a>
-              <ul class="sub-menu">
+            <li class=""><a href="/guidelines/">Guidelines</a>
+              <ul class="">
             <li class=""><a href="/guidelines/markdown-files/">Markdown Files</a>
             </li>
             <li class=""><a href="/guidelines/general/">General</a>
@@ -172,7 +172,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/guidelines/general-best-practices/">General Best Practices</a>
             </li>
-            <li class=" active "><a href="/guidelines/calling-functions/">Calling Functions</a>
+            <li class=""><a href="/guidelines/calling-functions/">Calling Functions</a>
             </li>
             <li class=""><a href="/guidelines/writing-functions/">Writing Functions</a>
             </li>
@@ -192,9 +192,9 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class=""><a href="/configmgt/">Configuration Management</a>
-              <ul class="">
-            <li class=""><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
+            <li class="parent d-block "><a href="/configmgt/">Configuration Management</a>
+              <ul class="sub-menu">
+            <li class=" active "><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
             </li></ul>
               
             </li>
@@ -243,113 +243,89 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Calling Functions</h2>
+            <h2>Future of Configuration Management</h2>
             
 
-<h2 id="avoid-cmdlet-aliases">Avoid Cmdlet Aliases</h2>
+<p>It&rsquo;s good to make sure we understand the world in which
+DSC evolves, so I thought of writing this post below.
+Unfortunately, the future is not something we can predict, so this is
+just a personal opinion, which I hope you&rsquo;ll find useful.</p>
 
-<p>When calling a function use the full command not an alias.
-You can get the full command an alias represents by calling <code>Get-Alias</code>.</p>
+<h2 id="configuration-management-evolution">Configuration Management evolution</h2>
 
-<p><strong>Bad:</strong></p>
+<p>Some like to classify different configuration management models,
+but I prefer to show them as an evolution of similar principles,
+that happened with the evolution of technology and principles.</p>
 
-<pre><code class="language-powershell">ls -File $root -Recurse | ? { @('.gitignore', '.mof') -contains $_.Extension }
-</code></pre>
+<table class="table">
+<thead>
+<tr>
+<th>version</th>
+<th>Name</th>
+<th>Concepts</th>
+</tr>
+</thead>
 
-<p><strong>Good:</strong></p>
+<tbody>
+<tr>
+<td>0.0</td>
+<td>GUI-driven</td>
+<td>Changes and abstractions are GUI-Driven</td>
+</tr>
 
-<pre><code class="language-Powershell">Get-ChildItem -File $root -Recurse | Where-Object -FilterScript {
-    @('.gitignore', '.mof') -contains $_.Extension
-}
-</code></pre>
+<tr>
+<td>0.5</td>
+<td>Scripted Transform</td>
+<td>Code, Deployment Scripts, Imperative, Transformations assume a starting state</td>
+</tr>
 
-<h3 id="avoid-invoke-expression">Avoid Invoke-Expression</h3>
+<tr>
+<td>1.0</td>
+<td>Policy-Driven Convergence</td>
+<td>Declarative Intent, Change Pipeline, Idempotency, drift management, Operation Validation</td>
+</tr>
 
-<p>Invoke-Expression is vulnerable to string injection attacks.
-It should not be used in any DSC resources.</p>
+<tr>
+<td>2.0</td>
+<td>Container Model</td>
+<td>Artefact everything, Immutability, microservices</td>
+</tr>
+</tbody>
+</table>
 
-<p><strong>Bad:</strong></p>
+<h2 id="unpopular-opinion">Unpopular opinion</h2>
 
-<pre><code class="language-powershell">Invoke-Expression -Command &quot;Test-$DSCResourceName&quot;
-</code></pre>
+<p>It might not be a popular opinion, but I don&rsquo;t think Configuration Management
+as we know it—Managing configuration drift—will be prevalent in the future.
+It is not relevant for ephemeral infrastructure, or serverless. However many
+principles, such as artifact managements that are managed in release pipelines,
+are transferable to other management models, and are valuable lessons for the future.</p>
 
-<p><strong>Good:</strong></p>
+<p>That said, not all workload are cloud-native ready, and while the companies
+transform or give way to competition, many administrators and systems engineer
+will benefit from improving their practices when it comes to managing VM.
+Let&rsquo;s be honest here, although we strongly recommend companies to really invest in
+their transformation to stay competitive, we know it will take a while—and
+a duration no-one can predict—for all industry to change decades
+of practices and habits.</p>
 
-<pre><code class="language-powershell">&amp; &quot;Test-$DSCResourceName&quot;
-</code></pre>
+<p>The <strong>DSC ecosystem</strong> is a great option when you manage a great chunk of Windows
+systems (not exclusively), whether <strong>on-prem</strong> or in a <strong>cloud environment</strong>, and
+even more when you&rsquo;re <strong>transitioning to a cloud model</strong> or having a <strong>hybrid approach</strong>.</p>
 
-<h2 id="use-the-force-parameter-with-calls-to-shouldcontinue">Use the Force Parameter with Calls to ShouldContinue</h2>
+<p>The <strong>solution</strong> you use, however, may differ greatly depending on your
+team&rsquo;s preference, skills, need, and business constraints.</p>
 
-<p><strong>Bad:</strong></p>
+<p>If you need to take away anything from this article is that the clock is ticking,
+and both at a personal and company level you need to work towards the future.</p>
 
-<pre><code class="language-powershell">
-</code></pre>
+<p>Being bogged down in old ways because one tool may not be doing things you need
+on paper is foolish, we all know that in practice any solution will not
+do things we initially thought it would.
+Just start now, adapt, and learn!</p>
 
-<p><strong>Good:</strong></p>
-
-<pre><code class="language-powershell">
-</code></pre>
-
-<h2 id="avoid-the-wmi-cmdlets">Avoid the WMI Cmdlets</h2>
-
-<p>The WMI cmdlets can all be replaced by CIM cmdlets.
-Use the CIM cmdlets instead because they align with industry standards.</p>
-
-<p><strong>Bad:</strong></p>
-
-<pre><code class="language-powershell">Get-WMIInstance -ClassName Win32_Process
-</code></pre>
-
-<p><strong>Good:</strong></p>
-
-<pre><code class="language-powershell">Get-CIMInstance -ClassName Win32_Process
-</code></pre>
-
-<h2 id="avoid-write-host">Avoid Write-Host</h2>
-
-<p><a href="http://www.jsnover.com/blog/2013/12/07/write-host-considered-harmful/">Write-Host is harmful</a>.
-Use alternatives such as Write-Verbose, Write-Output, Write-Debug, etc.</p>
-
-<p><strong>Bad:</strong></p>
-
-<pre><code class="language-powershell">Write-Host 'Setting the variable to a value.'
-</code></pre>
-
-<p><strong>Good:</strong></p>
-
-<pre><code class="language-powershell">Write-Verbose -Message 'Setting the variable to a value.'
-</code></pre>
-
-<h2 id="avoid-convertto-securestring-with-asplaintext">Avoid ConvertTo-SecureString with AsPlainText</h2>
-
-<p>SecureStrings should be encrypted. When using ConvertTo-SecureString with the
-<code>AsPlainText</code> parameter specified the SecureString text is not encrypted and thus
-not secure. This is allowed in tests/examples when needed, but never in the actual
-resources.</p>
-
-<p><strong>Bad:</strong></p>
-
-<pre><code class="language-powershell">ConvertTo-SecureString -String 'mySecret' -AsPlainText -Force
-</code></pre>
-
-<h2 id="assign-function-results-to-variables-rather-than-extensive-inline-calls">Assign Function Results to Variables Rather Than Extensive Inline Calls</h2>
-
-<p><strong>Bad:</strong></p>
-
-<pre><code class="language-powershell">Set-Background -Color (Get-Color -Name ((Get-Settings -User (Get-CurrentUser)).ColorName))
-</code></pre>
-
-<p><strong>Good:</strong></p>
-
-<pre><code class="language-powershell">$currentUser = Get-CurrentUser
-$userSettings = Get-Settings -User $currentUser
-$backgroundColor = Get-Color -Name $userSettings.ColorName
-
-Set-Background -Color $backgroundColor
-</code></pre>
-
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/guidelines/general-best-practices/" title="General Best Practices"><i class="ti-arrow-left mr-2"></i>General Best Practices</a>
-            <a class="nav nav-next" href="/guidelines/writing-functions/" title="Writing Functions">Writing Functions<i class="ti-arrow-right ml-2"></i></a>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 31 Jul 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/configmgt/" title="Configuration Management"><i class="ti-arrow-left mr-2"></i>Configuration Management</a>
+            <a class="nav nav-next" href="/community_calls/" title="Community Calls">Community Calls<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

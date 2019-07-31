@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <title>Help</title>
 
-  <meta name="generator" content="Hugo 0.56.1" />
+  <meta name="generator" content="Hugo 0.56.3" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -146,6 +146,18 @@ if (!doNotTrack) {
               $(function() {
                 var projects = [
                   
+                    {
+                      value: "What is Desired State Configuration",
+                      label: "What is Desired State Configuration",
+                      url:"https:\/\/dsccommunity.org\/help\/what-is-dsc\/"
+                    },
+                  
+                    {
+                      value: "What Future for Dsc",
+                      label: "What Future for Dsc",
+                      url:"https:\/\/dsccommunity.org\/help\/what-future-for-dsc\/"
+                    },
+                  
                 ];
                 $( "#search" ).autocomplete({
                     minLength: 0,
@@ -184,6 +196,10 @@ if (!doNotTrack) {
             </a>
             <ul class="list-styled">
               
+              <li><a href="https://dsccommunity.org/help/what-is-dsc/">What is Desired State Configuration</a></li>
+              
+              <li><a href="https://dsccommunity.org/help/what-future-for-dsc/">What Future for Dsc</a></li>
+              
             </ul>
           </div>
         </div>
@@ -191,27 +207,30 @@ if (!doNotTrack) {
           <div class="p-5 bg-white">
               
               
+              <div class="bg-gray p-4">
+                  <h3 class="mt-0">Help:</h3>
+                  <ul class="list-unstyled">
+                    
+                    <li><a href="https://dsccommunity.org/help/what-is-dsc/" style="padding-bottom: 0px; padding-top: 0px;">- What is Desired State Configuration</a></li>
+                    
+                    <li><a href="https://dsccommunity.org/help/what-future-for-dsc/" style="padding-bottom: 0px; padding-top: 0px;">- What Future for Dsc</a></li>
+                    
+                  </ul>
+              </div>
+              
               <div class="bg-white p-4">
                 
 
-<h2 id="what-is-desired-state-configuration">What is Desired State Configuration</h2>
-
-<p>As per <a href="https://docs.microsoft.com/en-us/powershell/dsc/overview/overview">the official documentation</a>, DSC is a management Platform in PowerShell.</p>
-
-<p>It is built around different components:</p>
-
-<ul>
-<li><strong>DSC DSL</strong>: The <strong>Domain Specific Language</strong> of DSC with the <code>Configuration</code> keyword</li>
-<li><strong>DSC LCM</strong>: The <strong>Local Configuration Manager</strong>, that can be seen as the agent enacting the configurations on the managed nodes</li>
-<li><strong>DSC Resources</strong>: A rich ecosystem of modules exposing declarative and idempotent interface to imperative code configuring resources</li>
-<li><strong>DSC Pull Server</strong>: External component implementing the MS-DSCPM protocol to register nodes, offer configuration, gather reporting from the LCM</li>
-</ul>
-
 <h2 id="where-to-find-help">Where to find Help</h2>
 
-<p>DSC being a framework, a basic structure for configuration management, finding answers to your problem might be difficult if you only rely on the official documentation.</p>
+<p>DSC being a framework—a basic structure for configuration management—finding
+answers to your problem might be difficult if you only rely on the official
+documentation.</p>
 
-<p>Here&rsquo;s a quick run down of the best source of information we know of.</p>
+<p>Here is a quick run down of the best source of information we know of.</p>
+
+<p>This is not official or approved documentation (we&rsquo;re not Microsoft),
+and so some may be opinionated.</p>
 
 <hr />
 

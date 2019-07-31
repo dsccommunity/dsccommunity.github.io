@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Calling Functions</title>
+  <title>Origin Story</title>
 
   <meta name="generator" content="Hugo 0.56.3" />
 
@@ -140,9 +140,9 @@ if (!doNotTrack) {
             
             <nav class="sidebar-menu">
               <ul class="list-styled">
-            <li class=""><a href="/community/">Community</a>
-              <ul class="">
-            <li class=""><a href="/community/origin-story/">Origin Story</a>
+            <li class="parent d-block "><a href="/community/">Community</a>
+              <ul class="sub-menu">
+            <li class=" active "><a href="/community/origin-story/">Origin Story</a>
             </li>
             <li class=""><a href="/community/ownership/">Ownership of DSC Resources</a>
             </li>
@@ -156,8 +156,8 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/resources/">Resource Modules</a>
             </li>
-            <li class="parent d-block "><a href="/guidelines/">Guidelines</a>
-              <ul class="sub-menu">
+            <li class=""><a href="/guidelines/">Guidelines</a>
+              <ul class="">
             <li class=""><a href="/guidelines/markdown-files/">Markdown Files</a>
             </li>
             <li class=""><a href="/guidelines/general/">General</a>
@@ -172,7 +172,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/guidelines/general-best-practices/">General Best Practices</a>
             </li>
-            <li class=" active "><a href="/guidelines/calling-functions/">Calling Functions</a>
+            <li class=""><a href="/guidelines/calling-functions/">Calling Functions</a>
             </li>
             <li class=""><a href="/guidelines/writing-functions/">Writing Functions</a>
             </li>
@@ -243,113 +243,116 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Calling Functions</h2>
+            <h2>Origin Story</h2>
             
 
-<h2 id="avoid-cmdlet-aliases">Avoid Cmdlet Aliases</h2>
+<h2 id="the-dsc-resource-kit">The DSC Resource Kit</h2>
 
-<p>When calling a function use the full command not an alias.
-You can get the full command an alias represents by calling <code>Get-Alias</code>.</p>
+<p>A lot has changed since the <a href="https://devblogs.microsoft.com/powershell/holiday-gift-desired-state-configuration-dsc-resource-kit-wave-1/">creation of the <strong>DSC Resource Kit</strong></a>
+back in 2013—the PowerShell/DSC Team initiative was created to seed the DSC
+Ecosystem.</p>
 
-<p><strong>Bad:</strong></p>
+<p>The intention then was to illustrate the capabilities of DSC,
+and solve realistic configuration scenarios to build a community of users.
+The team had been developing the resources and publishing them as the
+PowerShell Team in TechNet Gallery, long before the PowerShell Gallery
+existed.</p>
 
-<pre><code class="language-powershell">ls -File $root -Recurse | ? { @('.gitignore', '.mof') -contains $_.Extension }
-</code></pre>
+<p>Over the years, more and more modules were created, with most of these becomming
+open sourced on GitHub and seeing <strong>increasing community contributions</strong>.</p>
 
-<p><strong>Good:</strong></p>
+<p>So much so, that the community contributions have outgrown the DSC Team&rsquo;s capacity
+to single-handedly manage the DSC Resources and do their day job.</p>
 
-<pre><code class="language-Powershell">Get-ChildItem -File $root -Recurse | Where-Object -FilterScript {
-    @('.gitignore', '.mof') -contains $_.Extension
-}
-</code></pre>
+<p>As the DSC Team realized the limitations of the operating model being used
+to support the DSC Resource Kit, they
+<a href="https://github.com/PowerShell/DscResources/blob/master/NewResourceModuleSubmissions.md">started to take action to stop the increase of the effort required</a>
+to maintain the Resource Kit: <strong>No more modules would be owned and managed
+by Microsoft</strong>, and the DSC Resource Kit would only <strong>list them for
+discoverability</strong>.</p>
 
-<h3 id="avoid-invoke-expression">Avoid Invoke-Expression</h3>
+<p>As the DSC team took on extra work internally (later known as Azure Policy Guest
+Configuration), they contracted Johan, to help manage the DSC Resources &amp;
+community.</p>
 
-<p>Invoke-Expression is vulnerable to string injection attacks.
-It should not be used in any DSC resources.</p>
+<h2 id="origin-story">Origin Story</h2>
 
-<p><strong>Bad:</strong></p>
+<p>Johan massively helped moving the DSC Resources forward by working closely with
+the community—especially with Daniel, one of the top community
+contributors—improving the quality of the code, the test coverage, functionality
+and resources within the DSC Resource Kit.</p>
 
-<pre><code class="language-powershell">Invoke-Expression -Command &quot;Test-$DSCResourceName&quot;
-</code></pre>
+<p>As Johan only had a limited time available for the contract, his time fulfilling
+this role ended, but his contributions to the DSC Resource Kit redoubled during
+his personal time.
+With Johan and Daniel being very active, they built a strong trust relationship
+with Katie (DSC Team Member, owner of the DSC Resource Kit) and Michael
+(Principal Program Manager for DSC), and together became the more or less formal
+&ldquo;leaders&rdquo; or &ldquo;Guardians of the DSC Resource Kit&rdquo;.</p>
 
-<p><strong>Good:</strong></p>
+<p>After a few months, with neither Johan or Daniel available for contract,
+the DSC team was trying to find a way to scale the DSC Resource Kit without
+increasing the time spent on resources (to focus their efforts on vNext).</p>
 
-<pre><code class="language-powershell">&amp; &quot;Test-$DSCResourceName&quot;
-</code></pre>
+<p>This is where they contracted me, Gael, to help with the DSC Resource Kit to see
+what could be done to make sure the DSC Team was not &ldquo;in the way&rdquo; of the community
+contributions and growth.</p>
 
-<h2 id="use-the-force-parameter-with-calls-to-shouldcontinue">Use the Force Parameter with Calls to ShouldContinue</h2>
+<p>Although not a DSC Resource Kit contributor, I have been using DSC since its release,
+and sharing my understanding and opinions in the community for years, and
+knew some of the DSC and PowerShell team members, including Michael.</p>
 
-<p><strong>Bad:</strong></p>
+<p>From talking to many contributors, maintainers, and people who&rsquo;ve tried to contribute
+it became clear that having the DSC Resource Kit under the PowerShell GitHub
+organization was a key friction point between for community contributions.
+The <a href="https://help.github.com/en/articles/repository-permission-levels-for-an-organization">GitHub permission scheme</a>,
+coupled with the need for security of the <a href="https://github.com/PowerShell/">PowerShell GitHub Organization</a>,
+meant that only employees of the DSC or PowerShell Team could have
+the permissions required to properly manage the DSC Resource Kit and its repositories.</p>
 
-<pre><code class="language-powershell">
-</code></pre>
+<p>Many permissions required for GitHub third party apps, creating/renaming repositories,
+and assigning new permissions, could only be delegated to members of the Organization.
+Although the community would already be doing the time consuming reviews,
+helping answering issues, and fixing bugs, they would still be waiting on someone
+from the DSC Team, most likely Katie, to action any decisions.</p>
 
-<p><strong>Good:</strong></p>
+<p>To delegate that responsibility to trusted contributors who could enforce the
+same standard of quality, while making the process more transparent and open to
+the community, only one solution seemed available: <strong>create an independent
+GitHub Organization</strong> and appoint a committee that would share this responsibility,
+enforce security and quality, and help the community mature and self-organize
+over time.</p>
 
-<pre><code class="language-powershell">
-</code></pre>
+<h2 id="dsc-community-organization-committee">DSC Community Organization &amp; Committee</h2>
 
-<h2 id="avoid-the-wmi-cmdlets">Avoid the WMI Cmdlets</h2>
+<p>When it emerged that the community required greater permissions, and
+after sharing the constraints of the PowerShell GitHub organization management,
+it became clear to everyone that something more independent from Microsoft
+would be the best approach, similar to <a href="https://www.chef.io/">Chef</a>&rsquo;s <a href="https://sous-chefs.org">Sous-Chefs</a>,
+<a href="https://puppet.com/">Puppet</a>&rsquo;s <a href="https://voxpupuli.org">Vox Pupuli</a>,
+and maybe other similar approaches by other vendors.</p>
 
-<p>The WMI cmdlets can all be replaced by CIM cmdlets.
-Use the CIM cmdlets instead because they align with industry standards.</p>
+<p>While I&rsquo;m here, I&rsquo;d like to thank the people—Glenn, Mike, James, Stuart, Andrew,
+Joel, Ben, Steven and many more—who helped us along the way, and still do!</p>
 
-<p><strong>Bad:</strong></p>
+<p>We then worked with the DSC Team to ensure the consumers and the community&rsquo;s best
+interests would be kept safe, and suggested creating the
+<a href="https://github.com/dsccommunity/">DSC Community GitHub organization</a> and
+transfer the Open-Source and community-driven DSC resource modules there.
+This has enabled us to formalize a DSC Community <strong>Committee</strong> of trusted members,
+who can ensure continuity to the DSC Resource Kit&rsquo;s effort of quality and security,
+while giving them the permissions needed to do so quickly and with less friction.</p>
 
-<pre><code class="language-powershell">Get-WMIInstance -ClassName Win32_Process
-</code></pre>
+<p>More on the <a href="../committee/">committee here</a>.</p>
 
-<p><strong>Good:</strong></p>
+<p>After bringing those ideas in front of the MVP community, and contacting the
+maintainers, we are announcing this during the DSC Community Call, this July 2019,
+and starting the transition!</p>
 
-<pre><code class="language-powershell">Get-CIMInstance -ClassName Win32_Process
-</code></pre>
+<p>That&rsquo;s it for the origin, make sure you contribute and help build the future!</p>
 
-<h2 id="avoid-write-host">Avoid Write-Host</h2>
-
-<p><a href="http://www.jsnover.com/blog/2013/12/07/write-host-considered-harmful/">Write-Host is harmful</a>.
-Use alternatives such as Write-Verbose, Write-Output, Write-Debug, etc.</p>
-
-<p><strong>Bad:</strong></p>
-
-<pre><code class="language-powershell">Write-Host 'Setting the variable to a value.'
-</code></pre>
-
-<p><strong>Good:</strong></p>
-
-<pre><code class="language-powershell">Write-Verbose -Message 'Setting the variable to a value.'
-</code></pre>
-
-<h2 id="avoid-convertto-securestring-with-asplaintext">Avoid ConvertTo-SecureString with AsPlainText</h2>
-
-<p>SecureStrings should be encrypted. When using ConvertTo-SecureString with the
-<code>AsPlainText</code> parameter specified the SecureString text is not encrypted and thus
-not secure. This is allowed in tests/examples when needed, but never in the actual
-resources.</p>
-
-<p><strong>Bad:</strong></p>
-
-<pre><code class="language-powershell">ConvertTo-SecureString -String 'mySecret' -AsPlainText -Force
-</code></pre>
-
-<h2 id="assign-function-results-to-variables-rather-than-extensive-inline-calls">Assign Function Results to Variables Rather Than Extensive Inline Calls</h2>
-
-<p><strong>Bad:</strong></p>
-
-<pre><code class="language-powershell">Set-Background -Color (Get-Color -Name ((Get-Settings -User (Get-CurrentUser)).ColorName))
-</code></pre>
-
-<p><strong>Good:</strong></p>
-
-<pre><code class="language-powershell">$currentUser = Get-CurrentUser
-$userSettings = Get-Settings -User $currentUser
-$backgroundColor = Get-Color -Name $userSettings.ColorName
-
-Set-Background -Color $backgroundColor
-</code></pre>
-
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/guidelines/general-best-practices/" title="General Best Practices"><i class="ti-arrow-left mr-2"></i>General Best Practices</a>
-            <a class="nav nav-next" href="/guidelines/writing-functions/" title="Writing Functions">Writing Functions<i class="ti-arrow-right ml-2"></i></a>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 30 Jul 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community/" title="Community"><i class="ti-arrow-left mr-2"></i>Community</a>
+            <a class="nav nav-next" href="/community/ownership/" title="Ownership of DSC Resources">Ownership of DSC Resources<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

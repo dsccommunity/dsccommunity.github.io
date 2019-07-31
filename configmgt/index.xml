@@ -13,49 +13,13 @@
     
     
     <item>
-      <title>Requirments</title>
-      <link>https://dsccommunity.org/configmgt/requirments/</link>
-      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <title>Future of Configuration Management</title>
+      <link>https://dsccommunity.org/configmgt/future-of-config-mgt/</link>
+      <pubDate>Wed, 31 Jul 2019 16:44:09 +0200</pubDate>
       
-      <guid>https://dsccommunity.org/configmgt/requirments/</guid>
-      <description>Thanks to the simplicity of Hugo, this page is as empty as this theme needs requirements.
-Just download latest version of Hugo binary (&amp;gt; 0.53) for your OS (Windows, Linux, Mac) : it&amp;rsquo;s that simple.</description>
-    </item>
-    
-    <item>
-      <title>Installation</title>
-      <link>https://dsccommunity.org/configmgt/install/</link>
-      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/configmgt/install/</guid>
-      <description>The following steps are here to help you initialize your new website. If you don&amp;rsquo;t know Hugo at all, we strongly suggest you learn more about it by following this great documentation for beginners.
-Create your project Hugo provides a new command to create a new website.
-hugo new site &amp;lt;new_project&amp;gt;  Install the theme Install the Doc-List theme by following this documentation
-This theme&amp;rsquo;s repository is: https://github.com/matcornic/Doc-List.git
-Alternatively, you can download the theme as .</description>
-    </item>
-    
-    <item>
-      <title>Configuration</title>
-      <link>https://dsccommunity.org/configmgt/configuration/</link>
-      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/configmgt/configuration/</guid>
-      <description>Global site parameters On top of Hugo global configuration, Doc-list lets you define the following parameters in your config.toml (here, values are default).
-Note that some of these parameters are explained in details in other sections of this documentation.
-[params] # Prefix URL to edit current page. # Useful to give opportunity to people to create merge request for your doc. # See the config.toml file from this documentation site to have an example.</description>
-    </item>
-    
-    <item>
-      <title>Customization</title>
-      <link>https://dsccommunity.org/configmgt/customization/</link>
-      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/configmgt/customization/</guid>
-      <description>Doc-List has been built to be as configurable as possible.
-Change the logo In config.toml you will find a logo variable. you can change your logo there.
-The size of the logo will adapt automatically  Change the favicon If your favicon is a png, just drop off your image in your local static/images/ folder and name it favicon.png
-If you need to change this default behavior, create a new file in layouts/partials/ named head.</description>
+      <guid>https://dsccommunity.org/configmgt/future-of-config-mgt/</guid>
+      <description>It&amp;rsquo;s good to make sure we understand the world in which DSC evolves, so I thought of writing this post below. Unfortunately, the future is not something we can predict, so this is just a personal opinion, which I hope you&amp;rsquo;ll find useful.
+Configuration Management evolution Some like to classify different configuration management models, but I prefer to show them as an evolution of similar principles, that happened with the evolution of technology and principles.</description>
     </item>
     
   </channel>

@@ -12,5 +12,27 @@
 	<atom:link href="https://dsccommunity.org/help/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>What is Desired State Configuration</title>
+      <link>https://dsccommunity.org/help/what-is-dsc/</link>
+      <pubDate>Tue, 30 Jul 2019 10:56:10 +0200</pubDate>
+      
+      <guid>https://dsccommunity.org/help/what-is-dsc/</guid>
+      <description>As per the official documentation, Desired State Configuration (DSC) is a management platform in PowerShell.
+It is built around different components:
+ DSC DSL: The Domain Specific Language of DSC with the Configuration keyword. DSC LCM: The Local Configuration Manager (LCM), that can be seen as the agent enacting the configurations on the managed nodes. DSC Resources: A rich ecosystem of modules exposing a declarative and idempotent interface to imperative code configuring resources.</description>
+    </item>
+    
+    <item>
+      <title>What Future for Dsc</title>
+      <link>https://dsccommunity.org/help/what-future-for-dsc/</link>
+      <pubDate>Tue, 30 Jul 2019 11:35:49 +0200</pubDate>
+      
+      <guid>https://dsccommunity.org/help/what-future-for-dsc/</guid>
+      <description>Despite the few &amp;ldquo;DSC Planning Updates&amp;ldquo; written by Michael Greene (Program Manager for DSC, and DSC Community Committee member), there are still misunderstandings by the community with regards to the directions Microsoft is taking for DSC and its ecosystem.
+Here, we&amp;rsquo;ll try to explain what we understand from the DSC Community.
+Former plans &amp;amp; realignment Microsoft&amp;rsquo;s DSC Team, about a year and an half ago, was working on a new version of the LCM component of the DSC Platform.</description>
+    </item>
+    
   </channel>
 </rss>

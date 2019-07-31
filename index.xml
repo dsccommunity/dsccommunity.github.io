@@ -7,10 +7,41 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Sun, 28 Jul 2019 23:35:30 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 31 Jul 2019 16:44:09 +0200</lastBuildDate>
     
 	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Future of Configuration Management</title>
+      <link>https://dsccommunity.org/configmgt/future-of-config-mgt/</link>
+      <pubDate>Wed, 31 Jul 2019 16:44:09 +0200</pubDate>
+      
+      <guid>https://dsccommunity.org/configmgt/future-of-config-mgt/</guid>
+      <description>It&amp;rsquo;s good to make sure we understand the world in which DSC evolves, so I thought of writing this post below. Unfortunately, the future is not something we can predict, so this is just a personal opinion, which I hope you&amp;rsquo;ll find useful.
+Configuration Management evolution Some like to classify different configuration management models, but I prefer to show them as an evolution of similar principles, that happened with the evolution of technology and principles.</description>
+    </item>
+    
+    <item>
+      <title>Origin Story</title>
+      <link>https://dsccommunity.org/community/origin-story/</link>
+      <pubDate>Tue, 30 Jul 2019 15:36:48 +0200</pubDate>
+      
+      <guid>https://dsccommunity.org/community/origin-story/</guid>
+      <description>The DSC Resource Kit A lot has changed since the creation of the DSC Resource Kit back in 2013—the PowerShell/DSC Team initiative was created to seed the DSC Ecosystem.
+The intention then was to illustrate the capabilities of DSC, and solve realistic configuration scenarios to build a community of users. The team had been developing the resources and publishing them as the PowerShell Team in TechNet Gallery, long before the PowerShell Gallery existed.</description>
+    </item>
+    
+    <item>
+      <title>What is Desired State Configuration</title>
+      <link>https://dsccommunity.org/help/what-is-dsc/</link>
+      <pubDate>Tue, 30 Jul 2019 10:56:10 +0200</pubDate>
+      
+      <guid>https://dsccommunity.org/help/what-is-dsc/</guid>
+      <description>As per the official documentation, Desired State Configuration (DSC) is a management platform in PowerShell.
+It is built around different components:
+ DSC DSL: The Domain Specific Language of DSC with the Configuration keyword. DSC LCM: The Local Configuration Manager (LCM), that can be seen as the agent enacting the configurations on the managed nodes. DSC Resources: A rich ecosystem of modules exposing a declarative and idempotent interface to imperative code configuring resources.</description>
+    </item>
     
     <item>
       <title>Next Community Call</title>
@@ -40,8 +71,8 @@ The main purpose is to handle better the increased community contributions, and 
       <pubDate>Fri, 08 Mar 2019 12:41:48 +0800</pubDate>
       
       <guid>https://dsccommunity.org/blog/create-an-article/</guid>
-      <description>How to Create an Article Creating the md file is easy, but you might want to double check how it will render on the website. To do so, we recommend you to install Hugo (using Chocolatey it&amp;rsquo;s just a choco install hugo) and test what you create.
-But when you have installed hugo, forked the dsccommunity.org, and cloned your fork locally, you can generate a post from the template, from the source directory: &amp;gt; C:\src\dsccommunity.</description>
+      <description>Creating the md file is easy, but you might want to double check how it will render on the website. To do so, we recommend you to install Hugo (using Chocolatey it&amp;rsquo;s just a choco install hugo) and test what you create.
+But when you have installed hugo, forked the dsccommunity.org, and cloned your fork locally, you can generate a post from the template, from the source directory: &amp;gt; C:\src\dsccommunity.org &amp;gt; hugo new blog/your-title-in-lowercase.</description>
     </item>
     
     <item>
@@ -65,13 +96,14 @@ But when you have installed hugo, forked the dsccommunity.org, and cloned your f
     </item>
     
     <item>
-      <title>Requirments</title>
-      <link>https://dsccommunity.org/configmgt/requirments/</link>
-      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <title>What Future for Dsc</title>
+      <link>https://dsccommunity.org/help/what-future-for-dsc/</link>
+      <pubDate>Tue, 30 Jul 2019 11:35:49 +0200</pubDate>
       
-      <guid>https://dsccommunity.org/configmgt/requirments/</guid>
-      <description>Thanks to the simplicity of Hugo, this page is as empty as this theme needs requirements.
-Just download latest version of Hugo binary (&amp;gt; 0.53) for your OS (Windows, Linux, Mac) : it&amp;rsquo;s that simple.</description>
+      <guid>https://dsccommunity.org/help/what-future-for-dsc/</guid>
+      <description>Despite the few &amp;ldquo;DSC Planning Updates&amp;ldquo; written by Michael Greene (Program Manager for DSC, and DSC Community Committee member), there are still misunderstandings by the community with regards to the directions Microsoft is taking for DSC and its ecosystem.
+Here, we&amp;rsquo;ll try to explain what we understand from the DSC Community.
+Former plans &amp;amp; realignment Microsoft&amp;rsquo;s DSC Team, about a year and an half ago, was working on a new version of the LCM component of the DSC Platform.</description>
     </item>
     
     <item>
@@ -109,19 +141,6 @@ $r = Get-RdsHost  Bad:</description>
     </item>
     
     <item>
-      <title>Installation</title>
-      <link>https://dsccommunity.org/configmgt/install/</link>
-      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/configmgt/install/</guid>
-      <description>The following steps are here to help you initialize your new website. If you don&amp;rsquo;t know Hugo at all, we strongly suggest you learn more about it by following this great documentation for beginners.
-Create your project Hugo provides a new command to create a new website.
-hugo new site &amp;lt;new_project&amp;gt;  Install the theme Install the Doc-List theme by following this documentation
-This theme&amp;rsquo;s repository is: https://github.com/matcornic/Doc-List.git
-Alternatively, you can download the theme as .</description>
-    </item>
-    
-    <item>
       <title>Maintainers</title>
       <link>https://dsccommunity.org/community/maintainers/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
@@ -149,17 +168,6 @@ Alternatively, you can download the theme as .</description>
 No Trailing Whitespace After Backticks Backticks should always be directly followed by a newline
 Newline at End of File All files must end with a newline, see StackOverflow.
 Newline Character Encoding Save newlines using CR+LF instead of CR. For interoperability reasons, we recommend that you follow these instructions when installing Git on Windows so that newlines saved to GitHub are simply CRs.</description>
-    </item>
-    
-    <item>
-      <title>Configuration</title>
-      <link>https://dsccommunity.org/configmgt/configuration/</link>
-      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/configmgt/configuration/</guid>
-      <description>Global site parameters On top of Hugo global configuration, Doc-list lets you define the following parameters in your config.toml (here, values are default).
-Note that some of these parameters are explained in details in other sections of this documentation.
-[params] # Prefix URL to edit current page. # Useful to give opportunity to people to create merge request for your doc. # See the config.toml file from this documentation site to have an example.</description>
     </item>
     
     <item>
@@ -343,27 +351,6 @@ It &#39;Should return something&#39; { Get-TargetResource @testParameters | Shou
       
       <guid>https://dsccommunity.org/community_calls/2019-05-08-notes/</guid>
       <description>Resources to be released  TBC  Discussions  Topics or questions from the community (welcome at any point during the call) Celebrating new maintainers:  Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Jason Patton &amp;ndash;&amp;gt; xDnsServer Nehru Ali &amp;ndash;&amp;gt; xPendingReboot Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc) Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox  Waffle board will be closing, still looking into a replacement Moving off gitter to PoshCode slack: the #dsc channel in either Slack or Discord.</description>
-    </item>
-    
-    <item>
-      <title>Helloworld</title>
-      <link>https://dsccommunity.org/blog/helloworld/</link>
-      <pubDate>Fri, 08 Mar 2019 12:41:48 +0800</pubDate>
-      
-      <guid>https://dsccommunity.org/blog/helloworld/</guid>
-      <description>Hello world FAIL: first attempt in learning</description>
-    </item>
-    
-    <item>
-      <title>Customization</title>
-      <link>https://dsccommunity.org/configmgt/customization/</link>
-      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/configmgt/customization/</guid>
-      <description>Doc-List has been built to be as configurable as possible.
-Change the logo In config.toml you will find a logo variable. you can change your logo there.
-The size of the logo will adapt automatically  Change the favicon If your favicon is a png, just drop off your image in your local static/images/ folder and name it favicon.png
-If you need to change this default behavior, create a new file in layouts/partials/ named head.</description>
     </item>
     
   </channel>

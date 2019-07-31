@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Calling Functions</title>
+  <title>What Future for Dsc</title>
 
   <meta name="generator" content="Hugo 0.56.3" />
 
@@ -156,8 +156,8 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/resources/">Resource Modules</a>
             </li>
-            <li class="parent d-block "><a href="/guidelines/">Guidelines</a>
-              <ul class="sub-menu">
+            <li class=""><a href="/guidelines/">Guidelines</a>
+              <ul class="">
             <li class=""><a href="/guidelines/markdown-files/">Markdown Files</a>
             </li>
             <li class=""><a href="/guidelines/general/">General</a>
@@ -172,7 +172,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/guidelines/general-best-practices/">General Best Practices</a>
             </li>
-            <li class=" active "><a href="/guidelines/calling-functions/">Calling Functions</a>
+            <li class=""><a href="/guidelines/calling-functions/">Calling Functions</a>
             </li>
             <li class=""><a href="/guidelines/writing-functions/">Writing Functions</a>
             </li>
@@ -224,11 +224,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class=""><a href="/help/">Help</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/help/">Help</a>
+              <ul class="sub-menu">
             <li class=""><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
             </li>
-            <li class=""><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
+            <li class=" active "><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
             </li></ul>
               
             </li>
@@ -243,113 +243,113 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Calling Functions</h2>
+            <h2>What Future for Dsc</h2>
             
 
-<h2 id="avoid-cmdlet-aliases">Avoid Cmdlet Aliases</h2>
+<p>Despite the few &ldquo;<a href="https://devblogs.microsoft.com/powershell/?s=DSC+Planning&amp;submit=%EE%9C%A1">DSC Planning Updates</a>&ldquo;
+written by Michael Greene (Program Manager for DSC, and DSC Community Committee
+member), there are still misunderstandings by the community with regards to the
+directions Microsoft is taking for DSC and its ecosystem.</p>
 
-<p>When calling a function use the full command not an alias.
-You can get the full command an alias represents by calling <code>Get-Alias</code>.</p>
+<p>Here, we&rsquo;ll try to explain what <strong>we</strong> understand from the DSC Community.</p>
 
-<p><strong>Bad:</strong></p>
+<h2 id="former-plans-realignment">Former plans &amp; realignment</h2>
 
-<pre><code class="language-powershell">ls -File $root -Recurse | ? { @('.gitignore', '.mof') -contains $_.Extension }
-</code></pre>
+<p>Microsoft&rsquo;s DSC Team, about a year and an half ago, was working
+on a new version of the LCM component of the DSC Platform.</p>
 
-<p><strong>Good:</strong></p>
+<p>They were thinking they would open-source it shortly after, as you can judge
+from the DSC Planning update of the time, or sessions delivered ar events
+by the teams. They labelled, confusingly, the work a <em>new DSC</em>, or DSC <em>Core</em>,
+before rectifying some of this communication.</p>
 
-<pre><code class="language-Powershell">Get-ChildItem -File $root -Recurse | Where-Object -FilterScript {
-    @('.gitignore', '.mof') -contains $_.Extension
-}
-</code></pre>
+<p>Anyway, around June 2018, the medium-term strategy changed, and their work
+was to be used and developed further for new Azure Services. It&rsquo;d be a
+great mistake to be oblivious of Microsoft&rsquo;s focus to deliver a great
+cloud where customers are successful.</p>
 
-<h3 id="avoid-invoke-expression">Avoid Invoke-Expression</h3>
+<p>This new commitments, and having the new Native LCM in production in Azure, meant
+the teams would not have the resource to commit to open sourcing the engine,
+a lesson learnt from the DSC Resource Kit and PowerShell team.</p>
 
-<p>Invoke-Expression is vulnerable to string injection attacks.
-It should not be used in any DSC resources.</p>
+<p>Moreover, the solution they developed was primarily focused on audits,
+as required by the enabled services: Change Tracking, Inventory, Guest Configuration,
+and Update Management, so not a potential replacement for DSC until it
+implements the <code>Set</code> functionality (from DSC&rsquo;s <code>Get</code>, <code>Test</code>, <code>Set</code>).</p>
 
-<p><strong>Bad:</strong></p>
+<p>So in terms of planning, which now usually spans across a 6 months window,
+open sourcing the work now would be premature. The engine would not be doing
+enough for the DSC community, and managing a public project while having to
+support the Azure solutions would stretch thin the time working on for further improvements.</p>
 
-<pre><code class="language-powershell">Invoke-Expression -Command &quot;Test-$DSCResourceName&quot;
-</code></pre>
+<p>The plan is clear, the focus for now is to focus on delivering the <code>Set</code> and making
+sure the quality is up to the task of managing cloud-scale environments,
+as required by the demanding Azure services.</p>
 
-<p><strong>Good:</strong></p>
+<p>Doing it this way, on Azure first, has some great value.</p>
 
-<pre><code class="language-powershell">&amp; &quot;Test-$DSCResourceName&quot;
-</code></pre>
+<p>It:</p>
 
-<h2 id="use-the-force-parameter-with-calls-to-shouldcontinue">Use the Force Parameter with Calls to ShouldContinue</h2>
+<ul>
+<li>is far less <em>theoretical</em> than attempting to build a generic framework/agent.</li>
+<li>supports an untethered release and feedback cadence within Microsoft Azure.</li>
+<li>enable iterative solution development that uses the components as they&rsquo;re
+developed, and develop them as they are needed.</li>
+<li>enables the team to have their code running on millions of machines,
+benefiting from telemetry, and huge scale to solve modern use cases:
+a short and very valuable feedback loop.</li>
+<li>Make sure it solves actual problem, early in its life, even before the <code>Set</code>
+is implemented.</li>
+</ul>
 
-<p><strong>Bad:</strong></p>
+<h2 id="no-plan-for-dscvnext">No plan for DSCvNext</h2>
 
-<pre><code class="language-powershell">
-</code></pre>
+<p>With this said, let&rsquo;s be clear.</p>
 
-<p><strong>Good:</strong></p>
+<p>There are <strong>no plans for DSCv2, DSC vNext or DSC Core</strong>.</p>
 
-<pre><code class="language-powershell">
-</code></pre>
+<p>Plans are only made for a 6 months window (roughly), and its not in there,
+as far as I know.</p>
 
-<h2 id="avoid-the-wmi-cmdlets">Avoid the WMI Cmdlets</h2>
+<p>Now that&rsquo;s said loud and clear, there&rsquo;s definitely a team working on DSC
+and investments are made on the technology.
+Azure Policy Guest Configuration <strong>relies on DSC</strong>, for its DSL, Resources
+and principle to audit Virtual Machines in Azure, or as long as
+they&rsquo;re managed in Azure (Hybrid)&hellip;</p>
 
-<p>The WMI cmdlets can all be replaced by CIM cmdlets.
-Use the CIM cmdlets instead because they align with industry standards.</p>
+<p>The team do wish the DSC community will continue to grow, and that there will
+be increasing usage and demand for open sourcing the LCM they&rsquo;re working on.
+They hope the demand will mostly align with Microsoft&rsquo;s mission to make
+companies more successful by transitioning towards a cloud <strong>model</strong>.</p>
 
-<p><strong>Bad:</strong></p>
+<h2 id="the-future">The Future</h2>
 
-<pre><code class="language-powershell">Get-WMIInstance -ClassName Win32_Process
-</code></pre>
+<p>The future is bright, and will see <strong>changes happening on different time frames</strong>.</p>
 
-<p><strong>Good:</strong></p>
+<p>Investment has been, and is still being made, and we&rsquo;re just starting to see
+the results.</p>
 
-<pre><code class="language-powershell">Get-CIMInstance -ClassName Win32_Process
-</code></pre>
+<p>Azure Guest Configuration supports custom content, using the DSC DSL to create
+custom audits (now <code>Public Preview</code>).
+It&rsquo;s a clear sign that leveraging the DSC ecosystem is still a reality for new services.</p>
 
-<h2 id="avoid-write-host">Avoid Write-Host</h2>
+<p>The DSC Team is investing in this DSC Community, supporting its growth, and
+help with its evolution.
+They&rsquo;re actively supporting more openness, transparency, and community
+involvement in the DSC Resource Kit to find a more sustainable path that helps
+the users (<code>released now</code>).</p>
 
-<p><a href="http://www.jsnover.com/blog/2013/12/07/write-host-considered-harmful/">Write-Host is harmful</a>.
-Use alternatives such as Write-Verbose, Write-Output, Write-Debug, etc.</p>
+<p>The <a href="https://github.com/PowerShell/PowerShell-RFC/pull/214">PowerShell and DSC team are planning</a>
+to release a cross platform <code>Invoke-DscResource</code> command that would allow to
+leverage PowerShell DSC Resources within scripts, running in current context,
+without the burden and limitations of running through the LCM as found in
+WMF5.1 (<code>in the next few months</code>).</p>
 
-<p><strong>Bad:</strong></p>
+<p>And in the slightly longer term, the DSC team aims to implemented the <code>Set</code> for
+their new LCM, and start using it in some Azure services (<code>~6 months+</code>).</p>
 
-<pre><code class="language-powershell">Write-Host 'Setting the variable to a value.'
-</code></pre>
-
-<p><strong>Good:</strong></p>
-
-<pre><code class="language-powershell">Write-Verbose -Message 'Setting the variable to a value.'
-</code></pre>
-
-<h2 id="avoid-convertto-securestring-with-asplaintext">Avoid ConvertTo-SecureString with AsPlainText</h2>
-
-<p>SecureStrings should be encrypted. When using ConvertTo-SecureString with the
-<code>AsPlainText</code> parameter specified the SecureString text is not encrypted and thus
-not secure. This is allowed in tests/examples when needed, but never in the actual
-resources.</p>
-
-<p><strong>Bad:</strong></p>
-
-<pre><code class="language-powershell">ConvertTo-SecureString -String 'mySecret' -AsPlainText -Force
-</code></pre>
-
-<h2 id="assign-function-results-to-variables-rather-than-extensive-inline-calls">Assign Function Results to Variables Rather Than Extensive Inline Calls</h2>
-
-<p><strong>Bad:</strong></p>
-
-<pre><code class="language-powershell">Set-Background -Color (Get-Color -Name ((Get-Settings -User (Get-CurrentUser)).ColorName))
-</code></pre>
-
-<p><strong>Good:</strong></p>
-
-<pre><code class="language-powershell">$currentUser = Get-CurrentUser
-$userSettings = Get-Settings -User $currentUser
-$backgroundColor = Get-Color -Name $userSettings.ColorName
-
-Set-Background -Color $backgroundColor
-</code></pre>
-
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/guidelines/general-best-practices/" title="General Best Practices"><i class="ti-arrow-left mr-2"></i>General Best Practices</a>
-            <a class="nav nav-next" href="/guidelines/writing-functions/" title="Writing Functions">Writing Functions<i class="ti-arrow-right ml-2"></i></a>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 30 Jul 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/help/what-is-dsc/" title="What is Desired State Configuration"><i class="ti-arrow-left mr-2"></i>What is Desired State Configuration</a>
+            <a class="nav nav-next" href="/contributors/" title="Elements">Elements<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

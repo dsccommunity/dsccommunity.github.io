@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>Origin Story</title>
+      <link>https://dsccommunity.org/community/origin-story/</link>
+      <pubDate>Tue, 30 Jul 2019 15:36:48 +0200</pubDate>
+      
+      <guid>https://dsccommunity.org/community/origin-story/</guid>
+      <description>The DSC Resource Kit A lot has changed since the creation of the DSC Resource Kit back in 2013—the PowerShell/DSC Team initiative was created to seed the DSC Ecosystem.
+The intention then was to illustrate the capabilities of DSC, and solve realistic configuration scenarios to build a community of users. The team had been developing the resources and publishing them as the PowerShell Team in TechNet Gallery, long before the PowerShell Gallery existed.</description>
+    </item>
+    
+    <item>
       <title>Ownership of DSC Resources</title>
       <link>https://dsccommunity.org/community/ownership/</link>
       <pubDate>Thu, 18 Jul 2019 15:02:05 +0600</pubDate>
