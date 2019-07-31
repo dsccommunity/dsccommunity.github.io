@@ -49,9 +49,7 @@ It is built around different components:
       <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>2019-07-31  Feel free to send a PR to this file if there&amp;rsquo;s something you&amp;rsquo;d like to add to the agenda  Resources to be released ActiveDirectoryCSDsc ComputerManagementDsc DFSDsc (get examples published) NetworkingDsc (?) OfficeOnlineServerDsc (?) SecurityPolicyDsc SqlServerDsc ActiveDirectoryDsc (renamed from xActiveDirectory) StorageDsc xBitlocker xDnsServer xPSDesiredStateConfiguration xSCSMA xWebAdministration SharePointDsc (?)
-Discussions  Topics or questions from the community (welcome at any point during the call)
- Resource Kit August 2019</description>
+      <description>2019-07-31  Feel free to send a PR to this file if there&amp;rsquo;s something you&amp;rsquo;d like to add to the agenda  Resources to be released  ActiveDirectoryCSDsc (BREAKING CHANGES) ComputerManagementDsc DFSDsc (get examples published) OfficeOnlineServerDsc (?) SecurityPolicyDsc SqlServerDsc ActiveDirectoryDsc (renamed from xActiveDirectory - BREAKING CHANGES) StorageDsc xBitlocker xDnsServer xPSDesiredStateConfiguration xSCSMA xWebAdministration SharePointDsc (?)  Discussions  Topics or questions from the community (welcome at any point during the call)</description>
     </item>
     
     <item>
