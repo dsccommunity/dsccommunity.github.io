@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Wed, 31 Jul 2019 16:44:09 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Next Community Call 2019-09-11</title>
+      <link>https://dsccommunity.org/community_calls/next_call/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/next_call/</guid>
+      <description>How to join
+Agenda  Feel free to send a PR to this file if there&amp;rsquo;s something you&amp;rsquo;d like to add to the agenda  Resources to be released TBC
+Discussions Topics or questions from the community (welcome at any point during the call)
+Talk to us on Virtual PowerShell User Group #DSC channel. For information on how to join, see https://dsccommunity.org/community/contact/</description>
+    </item>
     
     <item>
       <title>Future of Configuration Management</title>
@@ -41,15 +53,6 @@ The intention then was to illustrate the capabilities of DSC, and solve realisti
       <description>As per the official documentation, Desired State Configuration (DSC) is a management platform in PowerShell.
 It is built around different components:
  DSC DSL: The Domain Specific Language of DSC with the Configuration keyword. DSC LCM: The Local Configuration Manager (LCM), that can be seen as the agent enacting the configurations on the managed nodes. DSC Resources: A rich ecosystem of modules exposing a declarative and idempotent interface to imperative code configuring resources.</description>
-    </item>
-    
-    <item>
-      <title>Next Community Call</title>
-      <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>2019-07-31  Feel free to send a PR to this file if there&amp;rsquo;s something you&amp;rsquo;d like to add to the agenda  Resources to be released  ActiveDirectoryCSDsc (BREAKING CHANGES) ComputerManagementDsc DFSDsc (get examples published) OfficeOnlineServerDsc (?) SecurityPolicyDsc SqlServerDsc ActiveDirectoryDsc (renamed from xActiveDirectory - BREAKING CHANGES) StorageDsc xBitlocker xDnsServer xPSDesiredStateConfiguration xSCSMA xWebAdministration SharePointDsc (?)  Discussions  Topics or questions from the community (welcome at any point during the call)</description>
     </item>
     
     <item>
@@ -329,6 +332,18 @@ In each localization folder there should be a PowerShell data (.</description>
 Bad:
 it &#39;Should return something&#39; { get-targetresource @testParameters | should -be &#39;something&#39; }  Good:
 It &#39;Should return something&#39; { Get-TargetResource @testParameters | Should -Be &#39;something&#39; }  Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
+    </item>
+    
+    <item>
+      <title>2019-07-31 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2019-07-31-notes/</link>
+      <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2019-07-31-notes/</guid>
+      <description>The community call was recorded, and these notes will be updated with a link to the call once published.
+Agenda Resource Kit August 2019 See resources to be released below.
+DSC Community Logo The logo will be published on https://dsccommunity.org with a license granting everyone to use it.
+DSC Community Organization Gael talked about the new organization (listen back to the recording when it is available, and you can read more about it here https://dsccommunity.</description>
     </item>
     
     <item>
