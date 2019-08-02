@@ -20,8 +20,9 @@
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
       <description>How to join
 Agenda  Feel free to send a PR to this file if there&amp;rsquo;s something you&amp;rsquo;d like to add to the agenda  Resources to be released TBC
+Should leaving unsupported OS be treated as breaking change For example Windows Server 2008 R2 is leaving extended support.
 Discussions Topics or questions from the community (welcome at any point during the call)
-Talk to us on Virtual PowerShell User Group #DSC channel. For information on how to join, see https://dsccommunity.org/community/contact/</description>
+Talk to us on Virtual PowerShell User Group #DSC channel.</description>
     </item>
     
     <item>
