@@ -341,10 +341,11 @@ It &#39;Should return something&#39; { Get-TargetResource @testParameters | Shou
       <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/2019-07-31-notes/</guid>
-      <description>The community call was recorded, and these notes will be updated with a link to the call once published.
-Agenda Resource Kit August 2019 See resources to be released below.
+      <description>The community call was recorded, you can listen here.
+  Agenda Resource Kit August 2019 See resources to be released below.
 DSC Community Logo The logo will be published on https://dsccommunity.org with a license granting everyone to use it.
-DSC Community Organization Gael talked about the new organization (listen back to the recording when it is available, and you can read more about it here https://dsccommunity.</description>
+DSC Community Organization Gael talked about the new organization (listen back to the recording when it is available, and you can read more about it here https://dsccommunity.org/community/)
+DSC Community Committee Read more about it here https://dsccommunity.</description>
     </item>
     
     <item>
