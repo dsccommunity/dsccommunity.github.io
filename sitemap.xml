@@ -195,7 +195,6 @@
   <url>
     <loc>https://dsccommunity.org/</loc>
     <lastmod>2019-08-08T08:55:32+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -220,12 +219,10 @@
   
   <url>
     <loc>https://dsccommunity.org/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://dsccommunity.org/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
