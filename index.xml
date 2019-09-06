@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Aug 2019 18:11:05 +0200</lastBuildDate>
     
 	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
@@ -365,6 +365,16 @@ DSC Community Committee Read more about it here https://dsccommunity.</descripti
       
       <guid>https://dsccommunity.org/community_calls/2019-05-08-notes/</guid>
       <description>Resources to be released  TBC  Discussions  Topics or questions from the community (welcome at any point during the call) Celebrating new maintainers:  Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Jason Patton &amp;ndash;&amp;gt; xDnsServer Nehru Ali &amp;ndash;&amp;gt; xPendingReboot Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc) Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox  Waffle board will be closing, still looking into a replacement Moving off gitter to PoshCode slack: the #dsc channel in either Slack or Discord.</description>
+    </item>
+    
+    <item>
+      <title>Realizing maintenance windows with DSC</title>
+      <link>https://dsccommunity.org/blog/dsc-maintenance-windows/</link>
+      <pubDate>Thu, 08 Aug 2019 18:11:05 +0200</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/dsc-maintenance-windows/</guid>
+      <description>Introduction Since 2017 I have been involved in a number of DSC projects in medium to very large enterprises. It has not been easy to implement DSC for a number of reasons. For some companies, the reason why DSC was not an option is the lack of support for maintenance windows. DSC runs whenever an internal timer expires. This is fine for some enterprises but not for all.
+This article summarizes the ideas and technical implementation I have worked on with two large enterprises.</description>
     </item>
     
   </channel>

@@ -22,5 +22,15 @@
 But when you have installed hugo, forked the dsccommunity.org, and cloned your fork locally, you can generate a post from the template, from the source directory: &amp;gt; C:\src\dsccommunity.org &amp;gt; hugo new blog/your-title-in-lowercase.</description>
     </item>
     
+    <item>
+      <title>Realizing maintenance windows with DSC</title>
+      <link>https://dsccommunity.org/blog/dsc-maintenance-windows/</link>
+      <pubDate>Thu, 08 Aug 2019 18:11:05 +0200</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/dsc-maintenance-windows/</guid>
+      <description>Introduction Since 2017 I have been involved in a number of DSC projects in medium to very large enterprises. It has not been easy to implement DSC for a number of reasons. For some companies, the reason why DSC was not an option is the lack of support for maintenance windows. DSC runs whenever an internal timer expires. This is fine for some enterprises but not for all.
+This article summarizes the ideas and technical implementation I have worked on with two large enterprises.</description>
+    </item>
+    
   </channel>
 </rss>
