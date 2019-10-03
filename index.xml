@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Thu, 08 Aug 2019 18:11:05 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 24 Sep 2019 16:37:42 +0200</lastBuildDate>
     
 	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
@@ -362,6 +362,16 @@ DSC Community Committee Read more about it here https://dsccommunity.</descripti
       
       <guid>https://dsccommunity.org/community_calls/2019-05-08-notes/</guid>
       <description>Resources to be released  TBC  Discussions  Topics or questions from the community (welcome at any point during the call) Celebrating new maintainers:  Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Jason Patton &amp;ndash;&amp;gt; xDnsServer Nehru Ali &amp;ndash;&amp;gt; xPendingReboot Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc) Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox  Waffle board will be closing, still looking into a replacement Moving off gitter to PoshCode slack: the #dsc channel in either Slack or Discord.</description>
+    </item>
+    
+    <item>
+      <title>How to Use Dsc Logging</title>
+      <link>https://dsccommunity.org/blog/how-to-use-dsc-logging/</link>
+      <pubDate>Tue, 24 Sep 2019 16:37:42 +0200</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/how-to-use-dsc-logging/</guid>
+      <description>The Local Configuration Manager (LCM) in PowerShell Desired State Configuration (DSC) logs its deployment progress and errors on several places. The most commonly known location is the event log, where errors are logged in the log: Applications and Services Logs \ Microsoft \ Windows \ Desired State Configuration \ Operational
+This log contains various events that were generated during a DSC job, it is however less useful to track the progress of a running job.</description>
     </item>
     
     <item>

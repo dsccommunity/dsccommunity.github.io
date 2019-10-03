@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Markdown Files</title>
+  <title>How to Use Dsc Logging</title>
 
   <meta name="generator" content="Hugo 0.58.3" />
 
@@ -156,9 +156,9 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/resources/">Resource Modules</a>
             </li>
-            <li class="parent d-block "><a href="/guidelines/">Guidelines</a>
-              <ul class="sub-menu">
-            <li class=" active "><a href="/guidelines/markdown-files/">Markdown Files</a>
+            <li class=""><a href="/guidelines/">Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/guidelines/markdown-files/">Markdown Files</a>
             </li>
             <li class=""><a href="/guidelines/general/">General</a>
             </li>
@@ -186,11 +186,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class=""><a href="/blog/">Blog Posts</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/blog/">Blog Posts</a>
+              <ul class="sub-menu">
             <li class=""><a href="/blog/create-an-article/">Create an Article</a>
             </li>
-            <li class=""><a href="/blog/how-to-use-dsc-logging/">How to Use Dsc Logging</a>
+            <li class=" active "><a href="/blog/how-to-use-dsc-logging/">How to Use Dsc Logging</a>
             </li>
             <li class=""><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
             </li></ul>
@@ -249,54 +249,131 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Markdown Files</h2>
+            <h2>How to Use Dsc Logging</h2>
             
 
-<h3 id="line-length-not-longer-than-80-characters">Line length not longer than 80 characters</h3>
+<p>The Local Configuration Manager (LCM) in PowerShell Desired State Configuration (DSC)
+logs its deployment progress and errors on several places. The most commonly known
+location is the event log, where errors are logged in the log:
+<strong>Applications and Services Logs \ Microsoft \ Windows \ Desired State Configuration \ Operational</strong></p>
 
-<p>Rows longer than 80 characters should be split into multiple lines where appropriate.
-This helps make it easier for reviewers to make review comments and for the
-contributors to see where the requested changes are (without scrolling).
-It is also easier to see the lines in split view mode when the lines don&rsquo;t wrap
-on the screen. It will also improve the readability when using <code>git diff</code>.</p>
+<p><img src="../../images/dsc_eventlog.png" alt="DSC Eventlog" style="width:725px;" /></p>
 
-<h4 id="tools">Tools</h4>
+<p>This log contains various events that were generated during a DSC job, it is however
+less useful to track the progress of a running job.</p>
 
-<p>To help with this it is suggested to add tools to help see when I line is starting
-to get to long.</p>
+<h3 id="deployment-process">Deployment process</h3>
 
-<h5 id="visual-studio-code">Visual Studio Code</h5>
+<p>When doing a push deployment using Start-DscConfiguration, you can use the
+-Verbose parameter to output verbose logging to the screen. A downside of this
+verbose logging is that reboots will kill this logging. After the restart DSC
+continues deploying the configuration, without you being able to track its progress.
+The same is true for a Pull deployment, where verbose logging isn&rsquo;t available at all.</p>
 
-<p>In the Visual Studio Code it is possible to install the extension
-<a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint"><em>markdownlint</em></a>
-and then add a markdownlint settings file <em>.markdownlint.json</em> file to the root
-of the repository.</p>
+<p>Fortunately there is a log that is not known by everybody. During each DSC job
+(even when -Verbose hasn&rsquo;t been specified), all Verbose output is always written
+to log files in: <strong>C:\Windows\System32\Configuration\ConfigurationStatus</strong></p>
 
-<pre><code class="language-json">{
-    &quot;MD013&quot;: {
-        &quot;line_length&quot;: 80,
-        &quot;headers&quot;: false,
-        &quot;code_blocks&quot;:false,
-        &quot;tables&quot;: false
-    }
-}
+<p>For each job, DSC creates two files:</p>
+
+<ol>
+<li><strong>{&lt;DSC_Job_Id&gt;}-0.mof</strong>
+
+<ul>
+<li>This file contains LCM configuration, resources not in the desired state and
+the results of the DSC job.</li>
+</ul></li>
+<li><strong>{&lt;DSC_Job_Id&gt;}-0.details.json</strong>
+
+<ul>
+<li>This file contains the verbose logging in JSON format.</li>
+</ul></li>
+</ol>
+
+<p>If you want to know the job id of a specific DSC job, the cmdlet Get-DscConfigurationStatus
+is your best friend. Without parameters this cmdlet will only retrieve the most recent
+job and show you the details:</p>
+
+<pre><code class="language-none">PS C:\&gt; Get-DscConfigurationStatus | fl
+
+JobID                      : {CB285D33-E069-11E9-B86F-B4AE2BDC70C4}
+HostName                   : SERVER
+Error                      : 
+Locale                     : nl-NL
+IPV4Addresses              : {169.254.64.242, 169.254.192.125, 192.168.0.1...}
+IPV6Addresses              : {fe80::944e:555:4c67:40f2%7, ::2000:0:0:0, fe80::b431:fdc4:c5a5:c07d%16...}
+MACAddresses               : {B6-AE-2B-DC-71-C2, B6-AE-2B-DC-74-C2, B4-AE-2B-DC-70-C3, B4-AE-2B-DC-70-C4}
+LCMVersion                 : 2.0
+Mode                       : PUSH
+NumberOfResources          : 1
+MetaData                   : Author: ykuijs; Name: SChannelDsc_Test; Version: 2.0.0; GenerationDate: 07/03/2019 21:43:58; GenerationHost: SERVER;
+MetaConfiguration          : MSFT_DSCMetaConfiguration
+Type                       : Consistency
+Status                     : Success
+StartDate                  : 26-9-2019 16:27:41
+DurationInSeconds          : 0
+RebootRequested            : False
+ResourcesInDesiredState    : 
+ResourcesNotInDesiredState : {[SChannelSettings]ConfigureSChannel}
+PSComputerName             : 
 </code></pre>
 
-<p>In addition to this, or instead of, it is possible to add rulers in Visual Studio
-Code that will help guide where the line should best be split. This is could be
-added to the workspace <em>settings.json</em> file.</p>
+<p>If you want to know which DSC jobs have ran in the past period, you can add the -All
+parameter, which outputs all executed jobs:</p>
 
-<pre><code class="language-json">{
-    &quot;[markdown]&quot;: {
-        &quot;editor.rulers&quot;: [
-            80
-        ]
-    }
-}
+<pre><code class="language-none">PS C:\&gt; Get-DscConfigurationStatus -All
+
+Status     StartDate                 Type            Mode  RebootRequested      NumberOfResources
+------     ---------                 ----            ----  ---------------      -----------------
+Success    26-9-2019 16:27:41        Consistency     PUSH  False                1
+Success    26-9-2019 16:27:40        Consistency     PUSH  False                1
+Success    26-9-2019 15:27:44        Consistency     PUSH  False                1
+Success    26-9-2019 15:12:45        Consistency     PUSH  False                1
+Success    26-9-2019 15:12:44        Consistency     PUSH  False                1
+Success    26-9-2019 14:57:44        Consistency     PUSH  False                1
+Success    26-9-2019 14:42:45        Consistency     PUSH  False                1
+Success    26-9-2019 14:42:44        Consistency     PUSH  False                1
+Success    26-9-2019 14:27:44        Consistency     PUSH  False                1
+...
 </code></pre>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/guidelines/" title="Guidelines"><i class="ti-arrow-left mr-2"></i>Guidelines</a>
-            <a class="nav nav-next" href="/guidelines/general/" title="General">General<i class="ti-arrow-right ml-2"></i></a>
+<p>You can use the pipeline and filter to extract the job you are interested in.
+For example:</p>
+
+<pre><code class="language-PowerShell">Get-DscConfigurationStatus -All | Where-Object { $_.StartDate -gt ((Get-Date).AddHours(-2)) -and $_.Status -eq &quot;Failure&quot; }
+</code></pre>
+
+<h3 id="reading-the-active-log-file">Reading the active log file</h3>
+
+<p>While diving into this topic, DSC presented me with a not so nice surprise:
+When a DSC job is running, not only the Get-DscConfigurationStatus cmdlet does
+not work, also the logfile that is currently being created cannot be read!
+Neither via Windows Explorer, nor via PowerShell.
+So how can you keep track of the progress of an active DSC job?</p>
+
+<p>Fortunately some digging around on the Internet resulted in a <a href="https://superuser.com/questions/1184789/powershell-get-content-without-locking-file">solution</a>!</p>
+
+<h3 id="dsc-log-parser-script">DSC Log Parser script</h3>
+
+<p>I have created a PowerShell script that uses Get-DscConfigurationStatus to
+retrieve all DSC jobs.</p>
+
+<p>If the cmdlet succeeds, it will show all results in a Gridview so you can
+select the job you are interested in. When you click Ok, the script
+retrieves the logfile, reads the JSON and displays the results in a Gridview.</p>
+
+<p>If the cmdlet fails, it knows a DSC job is currently running and uses
+Volume Shadow Copy to open a copy of the most recent log file.</p>
+
+<blockquote>
+<p>Important: DSC flushes all caches log entries to the log file in chunks. So
+unfortunately the log file won&rsquo;t be 100% accurate, but pretty close!</p>
+</blockquote>
+
+<p>You can find the script <a href="https://raw.githubusercontent.com/ykuijs/Powershell/master/Dsc/DSCLogParser.ps1">here</a></p>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 24 Sep 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/create-an-article/" title="Create an Article"><i class="ti-arrow-left mr-2"></i>Create an Article</a>
+            <a class="nav nav-next" href="/blog/dsc-maintenance-windows/" title="Realizing maintenance windows with DSC">Realizing maintenance windows with DSC<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>
