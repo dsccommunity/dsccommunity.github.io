@@ -575,7 +575,14 @@ $array = @(
 <h2 id="correct-format-for-hashtables-or-objects">Correct Format for Hashtables or Objects</h2>
 
 <p>Hashtables and Objects should be written in the following format.
-Each property should be on its own line indented once.</p>
+Each property should be on its own line indented once.
+There should be no space between the brackets of an empty hashtable.</p>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code class="language-powershell">$hashtable = @{
+}
+</code></pre>
 
 <p><strong>Bad:</strong></p>
 
@@ -587,6 +594,11 @@ Each property should be on its own line indented once.</p>
 <pre><code class="language-powershell">$hashtable = @{ Key1 = 'Value1'
 Key2 = 2
 Key3 = '3' }
+</code></pre>
+
+<p><strong>Good:</strong></p>
+
+<pre><code class="language-powershell">$hashtable = @{}
 </code></pre>
 
 <p><strong>Good:</strong></p>
