@@ -206,7 +206,7 @@ if (!doNotTrack) {
               <ul class="">
             <li class=""><a href="/community_calls/next_call/">Next Community Call 2019-10-23</a>
             </li>
-            <li class=""><a href="/community_calls/2019-09-11-notes/">Next Community Call 2019-09-11</a>
+            <li class=""><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
             </li>
@@ -279,18 +279,15 @@ to log files in: <strong>C:\Windows\System32\Configuration\ConfigurationStatus</
 <p>For each job, DSC creates two files:</p>
 
 <ol>
-<li><strong>{&lt;DSC_Job_Id&gt;}-0.mof</strong>
+<li><p><strong>{&lt;DSC_Job_Id&gt;}-0.mof</strong></p>
 
-<ul>
-<li>This file contains LCM configuration, resources not in the desired state and
-the results of the DSC job.</li>
-</ul></li>
-<li><strong>{&lt;DSC_Job_Id&gt;}-0.details.json</strong>
+<p>This file contains LCM configuration, resources not in the desired state and
+ the results of the DSC job.</p></li>
 
-<ul>
-<li>This file contains the verbose logging in JSON format.</li>
-</ul></li>
+<li><p><strong>{&lt;DSC_Job_Id&gt;}-0.details.json</strong></p></li>
 </ol>
+
+<p>This file contains the verbose logging in JSON format.</p>
 
 <p>If you want to know the job id of a specific DSC job, the cmdlet Get-DscConfigurationStatus
 is your best friend. Without parameters this cmdlet will only retrieve the most recent
@@ -300,7 +297,7 @@ job and show you the details:</p>
 
 JobID                      : {CB285D33-E069-11E9-B86F-B4AE2BDC70C4}
 HostName                   : SERVER
-Error                      : 
+Error                      :
 Locale                     : nl-NL
 IPV4Addresses              : {169.254.64.242, 169.254.192.125, 192.168.0.1...}
 IPV6Addresses              : {fe80::944e:555:4c67:40f2%7, ::2000:0:0:0, fe80::b431:fdc4:c5a5:c07d%16...}
@@ -315,9 +312,9 @@ Status                     : Success
 StartDate                  : 26-9-2019 16:27:41
 DurationInSeconds          : 0
 RebootRequested            : False
-ResourcesInDesiredState    : 
+ResourcesInDesiredState    :
 ResourcesNotInDesiredState : {[SChannelSettings]ConfigureSChannel}
-PSComputerName             : 
+PSComputerName             :
 </code></pre>
 
 <p>If you want to know which DSC jobs have ran in the past period, you can add the -All

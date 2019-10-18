@@ -206,7 +206,7 @@ if (!doNotTrack) {
               <ul class="">
             <li class=""><a href="/community_calls/next_call/">Next Community Call 2019-10-23</a>
             </li>
-            <li class=""><a href="/community_calls/2019-09-11-notes/">Next Community Call 2019-09-11</a>
+            <li class=""><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
             </li>
@@ -256,7 +256,7 @@ if (!doNotTrack) {
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Since 2017 I have been involved in a number of DSC projects in medium to very large enterprises. It has not been easy to implement DSC for a number of reasons. For some companies, the reason why DSC was not an option is the lack of support for maintenance windows. DSC runs whenever an internal timer expires. This is fine for some enterprises but not for all.<br />
+<p>Since 2017 I have been involved in a number of DSC projects in medium to very large enterprises. It has not been easy to implement DSC for a number of reasons. For some companies, the reason why DSC was not an option is the lack of support for maintenance windows. DSC runs whenever an internal timer expires. This is fine for some enterprises but not for all.
 This article summarizes the ideas and technical implementation I have worked on with two large enterprises. Both of them have a very time-sensitive business, they don’t accept downtimes, and both wanted to have DSC running in the &ldquo;ApplyAndAutoCorrenct&rdquo; mode.</p>
 
 <p>The way how maintenance windows have been implemented leaves room for improvement but should cover most of the requirements. You can define a start time and a time frame and if desired also a day of week.</p>
@@ -287,10 +287,10 @@ This article summarizes the ideas and technical implementation I have worked on 
 <p>In the <a href="https://github.com/AutomatedLab/DscWorkshop">DscWorkshop</a> project we use <a href="https://github.com/gaelcolas/Datum">Datum</a> to handle the configuration data. With Datum we can apply a pattern similar to <a href="https://puppet.com/docs/pe/2017.2/r_n_p_intro.html">Puppet’s Roles and Profiles</a>. The DscWorkshop uses configurations defined in the <a href="https://github.com/AutomatedLab/CommonTasks">CommonTasks</a> repository. This repository is named CommonTasks as it provides simple access to a few common configurations that most of you might need when configuring servers. For example, let’s suppose you want to configure a web server with DSC. This could be the list of configurations you want to assign to a web server:</p>
 
 <ul>
-<li>NetworkIpConfiguration: Let’s make sure the server has the correct network settings</li>
-<li>WindowsFeatures: You want to make sure the OS knows how to host a web site</li>
-<li>FilesAndFolders: Your web content should be copied from somewhere</li>
-<li>WebSite: There should be a separate web site for our stuff</li>
+<li><code>NetworkIpConfiguration</code>: Let’s make sure the server has the correct network settings</li>
+<li><code>WindowsFeatures</code>: You want to make sure the OS knows how to host a web site</li>
+<li><code>FilesAndFolders</code>: Your web content should be copied from somewhere</li>
+<li><code>WebSite</code>: There should be a separate web site for our stuff</li>
 </ul>
 
 <p>These four configurations are <a href="https://docs.microsoft.com/en-us/powershell/dsc/resources/authoringresourcecomposite">DSC composite resources</a>. If a DSC configuration gets too large, you should split it up in portions that are called composite resources. Composite resources are like functions. You can add some logic to it to meet your / your businesses’ requirements, like done in the <a href="https://github.com/AutomatedLab/CommonTasks/blob/dev/CommonTasks/DscResources/SecurityBase/SecurityBase.schema.psm1">SecurityBase</a> configuration.
@@ -324,7 +324,7 @@ DscLcmController:
   MaintenanceWindowMode: AutoCorrect # the other option is 'Monitor'
   MonitorInterval: 00:05:00
   AutoCorrectInterval: 00:10:00
-  AutoCorrectIntervalOverride: false  
+  AutoCorrectIntervalOverride: false
   RefreshInterval: 00:20:00
   RefreshIntervalOverride: false
   ControllerInterval: 00:01:00
@@ -346,8 +346,8 @@ DscLcmController:
 
     Hive: HKEY_LOCAL_MACHINE\SOFTWARE\DscLcmController\MaintenanceWindows
 
-Name                           Property          
-----                           --------          
+Name                           Property
+----                           --------
 FirstWednesdayNight            StartTime : 00:30:00
                                Timespan  : 02:00:00
                                DayOfWeek : Wednesday
@@ -397,19 +397,19 @@ DscLcmController               MaintenanceWindowMode       : AutoCorrect
 </blockquote>
 
 <ul>
-<li>MaintenanceWindowMode: This should be set to &lsquo;AutoCorrect&rsquo;. If set to &lsquo;Montitor&rsquo; the maintenance window functionality is disabled.</li>
-<li>MonitorInterval: If this interval applies, the LcmController script puts the LCM to the &lsquo;ApplyAndMonitor&rsquo; mode and triggers a conisitency check.</li>
-<li>AutoCorrectInterval: If this interval applies, the LcmController script puts the LCM to the &lsquo;ApplyAndAutoCorrect&rsquo; mode and triggers a conisitency check. This interval applies only if in maintenance window.</li>
-<li>AutoCorrectIntervalOverride: If enabled the &lsquo;AutoCorrectInterval&rsquo; is no longer considered. This is mainly for troubleshooting. Maintenance windows still apply.</li>
-<li>RefreshInterval: If this interval applies, the LcmController script triggers the LCM to do an update with the pull server. This interval applies only if in maintenance window.</li>
-<li>RefreshIntervalOverride: If enabled the &lsquo;RefreshInterval&rsquo; is no longer considered. This is mainly for troubleshooting. Maintenance windows still apply.</li>
-<li>ControllerInterval: Controls when the scheduled task runs. This interval is configured on the scheduled task’s (\DscController\DscLcmController) trigger.</li>
-<li>MaintenanceWindowOverride: If set to 1, maintenance windows do no longer apply. This is mainly for troubleshooting.</li>
-<li>WriteTranscripts: Writes the scheduled tasks’ output to &ldquo;C:\ProgramData\Dsc\LcmController&rdquo;.</li>
-<li>LastLcmPostpone: A timestamp written by the LcmController script indicating when the LCM was postone the last time.</li>
-<li>LastAutoCorrect: This value is written by the DscLcmController scheduled task to remember when the last AutoCorrect was triggered.</li>
-<li>LastRefresh: This value is written by the DscLcmController scheduled task to remember when the last update check was triggered.</li>
-<li>LastMonitor: This value is written by the DscLcmController scheduled task to remember when the last Monitor was triggered.</li>
+<li><code>MaintenanceWindowMode</code>: This should be set to &lsquo;AutoCorrect&rsquo;. If set to &lsquo;Montitor&rsquo; the maintenance window functionality is disabled.</li>
+<li><code>MonitorInterval</code>: If this interval applies, the LcmController script puts the LCM to the &lsquo;ApplyAndMonitor&rsquo; mode and triggers a conisitency check.</li>
+<li><code>AutoCorrectInterval</code>: If this interval applies, the LcmController script puts the LCM to the &lsquo;ApplyAndAutoCorrect&rsquo; mode and triggers a conisitency check. This interval applies only if in maintenance window.</li>
+<li><code>AutoCorrectIntervalOverride</code>: If enabled the &lsquo;AutoCorrectInterval&rsquo; is no longer considered. This is mainly for troubleshooting. Maintenance windows still apply.</li>
+<li><code>RefreshInterval</code>: If this interval applies, the LcmController script triggers the LCM to do an update with the pull server. This interval applies only if in maintenance window.</li>
+<li><code>RefreshIntervalOverride</code>: If enabled the &lsquo;RefreshInterval&rsquo; is no longer considered. This is mainly for troubleshooting. Maintenance windows still apply.</li>
+<li><code>ControllerInterval</code>: Controls when the scheduled task runs. This interval is configured on the scheduled task’s (\DscController\DscLcmController) trigger.</li>
+<li><code>MaintenanceWindowOverride</code>: If set to 1, maintenance windows do no longer apply. This is mainly for troubleshooting.</li>
+<li><code>WriteTranscripts</code>: Writes the scheduled tasks’ output to &ldquo;C:\ProgramData\Dsc\LcmController&rdquo;.</li>
+<li><code>LastLcmPostpone</code>: A timestamp written by the LcmController script indicating when the LCM was postone the last time.</li>
+<li><code>LastAutoCorrect</code>: This value is written by the DscLcmController scheduled task to remember when the last AutoCorrect was triggered.</li>
+<li><code>LastRefresh</code>: This value is written by the DscLcmController scheduled task to remember when the last update check was triggered.</li>
+<li><code>LastMonitor</code>: This value is written by the DscLcmController scheduled task to remember when the last Monitor was triggered.</li>
 </ul>
 
 <p>The actual work is done by a single scheduled task that is also created and controlled by the DscLcmController configuration:</p>
@@ -487,42 +487,42 @@ d-----         8/5/2019   5:38 PM                MetaMof
 <pre><code class="language-none">PS C:\ProgramData\Dsc\LcmController&gt; Import-Csv -Path .\LcmControllerSummery.txt | Format-Table -Property *
 
 
-CurrentTime           InMaintenanceWindow DoAutoCorrect DoMonitor DoRefresh LastAutoCorrect       LastMonitor          
------------           ------------------- ------------- --------- --------- ---------------       -----------          
-8/30/2019 7:10:26 PM  1                   1             0         1         1/1/0001 12:00:00 AM  1/1/0001 12:00:00 AM 
-8/30/2019 7:11:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  1/1/0001 12:00:00 AM 
-8/30/2019 7:12:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  1/1/0001 12:00:00 AM 
-8/30/2019 7:13:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  1/1/0001 12:00:00 AM 
-8/30/2019 7:14:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  1/1/0001 12:00:00 AM 
-8/30/2019 7:15:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  1/1/0001 12:00:00 AM 
-8/30/2019 7:16:24 PM  1                   0             1         0         8/30/2019 7:10:26 PM  1/1/0001 12:00:00 AM 
-8/30/2019 7:17:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  8/30/2019 7:16:24 PM 
-8/30/2019 7:18:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  8/30/2019 7:16:24 PM 
-8/30/2019 7:19:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  8/30/2019 7:16:24 PM 
-8/30/2019 7:20:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  8/30/2019 7:16:24 PM 
-8/30/2019 7:21:25 PM  1                   1             0         0         8/30/2019 7:10:26 PM  8/30/2019 7:16:24 PM 
-8/30/2019 7:22:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:16:24 PM 
-8/30/2019 7:23:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:16:24 PM 
-8/30/2019 7:24:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:16:24 PM 
-8/30/2019 7:25:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:16:24 PM 
-8/30/2019 7:26:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:16:24 PM 
-8/30/2019 7:27:25 PM  1                   0             1         0         8/30/2019 7:21:25 PM  8/30/2019 7:16:24 PM 
-8/30/2019 7:28:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:27:25 PM 
-8/30/2019 7:29:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:27:25 PM 
-8/30/2019 7:30:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:27:25 PM 
-8/30/2019 7:31:25 PM  1                   0             0         1         8/30/2019 7:21:25 PM  8/30/2019 7:27:25 PM 
-8/30/2019 7:32:24 PM  1                   1             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:27:25 PM 
-8/30/2019 7:33:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:27:25 PM 
-8/30/2019 7:34:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:27:25 PM 
-8/30/2019 7:35:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:27:25 PM 
-8/30/2019 7:36:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:27:25 PM 
-8/30/2019 7:37:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:27:25 PM 
-8/30/2019 7:38:24 PM  1                   0             1         0         8/30/2019 7:32:24 PM  8/30/2019 7:27:25 PM 
-8/30/2019 7:39:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:38:24 PM 
-8/30/2019 7:40:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:38:24 PM 
-8/30/2019 7:41:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:38:24 PM 
-8/30/2019 7:42:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:38:24 PM 
-8/30/2019 7:43:25 PM  1                   1             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:38:24 PM 
+CurrentTime           InMaintenanceWindow DoAutoCorrect DoMonitor DoRefresh LastAutoCorrect       LastMonitor
+-----------           ------------------- ------------- --------- --------- ---------------       -----------
+8/30/2019 7:10:26 PM  1                   1             0         1         1/1/0001 12:00:00 AM  1/1/0001 12:00:00 AM
+8/30/2019 7:11:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  1/1/0001 12:00:00 AM
+8/30/2019 7:12:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  1/1/0001 12:00:00 AM
+8/30/2019 7:13:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  1/1/0001 12:00:00 AM
+8/30/2019 7:14:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  1/1/0001 12:00:00 AM
+8/30/2019 7:15:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  1/1/0001 12:00:00 AM
+8/30/2019 7:16:24 PM  1                   0             1         0         8/30/2019 7:10:26 PM  1/1/0001 12:00:00 AM
+8/30/2019 7:17:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  8/30/2019 7:16:24 PM
+8/30/2019 7:18:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  8/30/2019 7:16:24 PM
+8/30/2019 7:19:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  8/30/2019 7:16:24 PM
+8/30/2019 7:20:23 PM  1                   0             0         0         8/30/2019 7:10:26 PM  8/30/2019 7:16:24 PM
+8/30/2019 7:21:25 PM  1                   1             0         0         8/30/2019 7:10:26 PM  8/30/2019 7:16:24 PM
+8/30/2019 7:22:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:16:24 PM
+8/30/2019 7:23:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:16:24 PM
+8/30/2019 7:24:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:16:24 PM
+8/30/2019 7:25:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:16:24 PM
+8/30/2019 7:26:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:16:24 PM
+8/30/2019 7:27:25 PM  1                   0             1         0         8/30/2019 7:21:25 PM  8/30/2019 7:16:24 PM
+8/30/2019 7:28:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:27:25 PM
+8/30/2019 7:29:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:27:25 PM
+8/30/2019 7:30:23 PM  1                   0             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:27:25 PM
+8/30/2019 7:31:25 PM  1                   0             0         1         8/30/2019 7:21:25 PM  8/30/2019 7:27:25 PM
+8/30/2019 7:32:24 PM  1                   1             0         0         8/30/2019 7:21:25 PM  8/30/2019 7:27:25 PM
+8/30/2019 7:33:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:27:25 PM
+8/30/2019 7:34:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:27:25 PM
+8/30/2019 7:35:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:27:25 PM
+8/30/2019 7:36:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:27:25 PM
+8/30/2019 7:37:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:27:25 PM
+8/30/2019 7:38:24 PM  1                   0             1         0         8/30/2019 7:32:24 PM  8/30/2019 7:27:25 PM
+8/30/2019 7:39:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:38:24 PM
+8/30/2019 7:40:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:38:24 PM
+8/30/2019 7:41:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:38:24 PM
+8/30/2019 7:42:23 PM  1                   0             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:38:24 PM
+8/30/2019 7:43:25 PM  1                   1             0         0         8/30/2019 7:32:24 PM  8/30/2019 7:38:24 PM
 </code></pre>
 
 <h4 id="lcmpostponesummery-log">LcmPostponeSummery.log</h4>
