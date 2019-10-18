@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Pester Tests</title>
+  <title>Next Community Call 2019-09-11</title>
 
   <meta name="generator" content="Hugo 0.58.3" />
 
@@ -156,8 +156,8 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/resources/">Resource Modules</a>
             </li>
-            <li class="parent d-block "><a href="/guidelines/">Guidelines</a>
-              <ul class="sub-menu">
+            <li class=""><a href="/guidelines/">Guidelines</a>
+              <ul class="">
             <li class=""><a href="/guidelines/markdown-files/">Markdown Files</a>
             </li>
             <li class=""><a href="/guidelines/general/">General</a>
@@ -182,7 +182,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/guidelines/localization/">Localization</a>
             </li>
-            <li class=" active "><a href="/guidelines/pester-tests/">Pester Tests</a>
+            <li class=""><a href="/guidelines/pester-tests/">Pester Tests</a>
             </li></ul>
               
             </li>
@@ -202,11 +202,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class=""><a href="/community_calls/">Community Calls</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
+              <ul class="sub-menu">
             <li class=""><a href="/community_calls/next_call/">Next Community Call 2019-10-23</a>
             </li>
-            <li class=""><a href="/community_calls/2019-09-11-notes/">Next Community Call 2019-09-11</a>
+            <li class=" active "><a href="/community_calls/2019-09-11-notes/">Next Community Call 2019-09-11</a>
             </li>
             <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
             </li>
@@ -251,107 +251,133 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Pester Tests</h2>
+            <h2>Next Community Call 2019-09-11</h2>
             
 
-<h2 id="capitalized-pester-assertions">Capitalized Pester Assertions</h2>
+<p>Read the <a href="https://devblogs.microsoft.com/powershell/dsc-resource-kit-release-september-2019/">DSC Resource Kit Release September 2019</a>
+ Blog post, on PowerShell&rsquo;s blog.</p>
 
-<p>Pester assertions should all start with capital letters. This makes code easier
-to read.</p>
+<h4 id="resources-released">Resources released</h4>
 
-<p><strong>Bad:</strong></p>
+<ul>
+<li>ActiveDirectoryDsc</li>
+<li>ComputerManagementDsc (BREAKING CHANGE - ScheduleTask)</li>
+<li>DFSDsc (Fix to get the examples to be published)</li>
+<li>NetworkingDsc</li>
+<li>SharePointDsc (might not be released)</li>
+<li>StorageDsc</li>
+<li>WmiNamespaceSecurityDsc (former WmiNamespaceSecurity)</li>
+<li>xDnsServer</li>
+<li>xFailOverCluster</li>
+<li>xHyper-V</li>
+<li>xPSDesiredStateConfiguration</li>
+<li>xRemoteDesktopSessionHost</li>
+<li>xSCSMA</li>
+<li>xWebAdministration</li>
+</ul>
 
-<pre><code class="language-powershell">it 'Should return something' {
-    get-targetresource @testParameters | should -be 'something'
-}
-</code></pre>
+<h5 id="deprecated">Deprecated</h5>
 
-<p><strong>Good:</strong></p>
+<ul>
+<li>xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet)</li>
+<li>xPendingReboot (moved to ComputerManagementDsc)</li>
+</ul>
 
-<pre><code class="language-powershell">It 'Should return something' {
-    Get-TargetResource @testParameters | Should -Be 'something'
-}
-</code></pre>
+<h4 id="should-leaving-unsupported-os-be-treated-as-breaking-change">Should leaving unsupported OS be treated as breaking change</h4>
 
-<h2 id="assertion-messages-start-with-should">Assertion Messages Start with Should</h2>
+<p>No, it&rsquo;s not a breaking change but it should be clearly noted in release notes
+when conscious decision is made.</p>
 
-<p>Pester assertions should always start with the word &lsquo;Should&rsquo;. This is to ensure the
-test results read more naturally as well as helping to indentify assertion messages
-that aren&rsquo;t making assertions.</p>
+<p>In many cases DSC Resources modules already have Resources not compatible,
+and already mention it.</p>
 
-<p><strong>Bad:</strong></p>
+<h4 id="gallery-account-for-dsc-community">Gallery account for DSC Community</h4>
 
-<pre><code class="language-powershell"># This is not an assertive message
-It 'When calling Get-TargetResource' {
-    Get-TargetResource @testParameters | Should -Be 'something'
-}
-</code></pre>
+<p>We should setup a gallery account so we can release repos.
+Most likely the DSC Committee will own the PSGallery account,
+and will generate a key per modules with specific rights.</p>
 
-<p><strong>Bad:</strong></p>
+<h3 id="discussions">Discussions</h3>
 
-<pre><code class="language-powershell"># This does not start with 'Should'
-It 'Something is returned' {
-    Get-TargetResource @testParameters | Should -Be 'something'
-}
-</code></pre>
+<p>Topics or questions from the community (welcome at any point during the call)</p>
 
-<p><strong>Good:</strong></p>
+<p>Talk to us on <strong>Virtual PowerShell User Group</strong> <em>#DSC</em> channel.
+For information on how to join, see <a href="https://dsccommunity.org/community/contact/">https://dsccommunity.org/community/contact/</a></p>
 
-<pre><code class="language-powershell">It 'Should return something' {
-    Get-TargetResource @testParameters | Should -Be 'something'
-}
-</code></pre>
+<h4 id="releasing-vnext">Releasing vNext</h4>
 
-<h2 id="context-block-messages-start-with-when">Context Block Messages Start with When</h2>
+<p>Goal is to have a scripted pipeline that works identically on your local machine,
+ on appVeyor and Azure (DevOps) Pipelines.</p>
 
-<p>Pester test <strong>outer</strong> <code>Context</code> block messages should always start with the word
-&lsquo;When&rsquo;. This is to ensure the test results read more naturally as well as helping
-to indentify context messages that aren&rsquo;t defining context.</p>
+<ul>
+<li><p>Create a Module template to Create, build &amp; Release module (the template should
+be able to just come on top of existing module, and suggesting to remove/edit
+some code)
+The build/release process should, on merge to Master:</p>
 
-<p><strong>Bad:</strong></p>
+<ul>
+<li>Download the Required Modules needed for the Build, test, release process</li>
+<li>Build the module (update PSD1, changelog, version &amp; all)</li>
+<li>Validate the compiled module against Style Guidelines (&amp; PSSA)</li>
+<li>Validate the compiled modules against Unit &amp; Integration tests</li>
+<li>Validate the compiled module against Quality Standards (test Coverage, help
+&amp; Documentation)</li>
+<li>Validate the compiled module against Release Standards (Changelog, version)</li>
+<li>[sign package, eventually]</li>
+<li>[Create GitHub Release]</li>
+<li>Publish the compiled module to the Gallery as a Pre-release</li>
+<li>Save the Test results as Artefacts</li>
+</ul></li>
 
-<pre><code class="language-powershell"># Context block not using 'When'
-Context 'Calling Get-TargetResource with default parameters'
-    It 'Should return something' {
-        Get-TargetResource @testParameters | Should -Be 'something'
-    }
-}
-</code></pre>
+<li><p>When we tag a pre-released version, we should release the pre-released package
+as Full Release:</p>
 
-<p><strong>Bad:</strong></p>
+<ul>
+<li>Download the Required Modules needed for the Build, test, release process</li>
+<li>Extract the module</li>
+<li>Update the Module Manifest (remove pre-release, update Changelog)</li>
+<li>Re-test the newly compiled package</li>
+<li>[re-sign package, eventually]</li>
+<li>[Create GitHub Release]</li>
+<li>Release to gallery</li>
+<li>Save the Test results as Artefacts</li>
+</ul></li>
+</ul>
 
-<pre><code class="language-powershell">Context 'When calling Get-TargetResource'
-    # Inner context block not using 'When'
-    Context 'With default parameters'
-        It 'Should return something' {
-            Get-TargetResource @testParameters | Should -Be 'something'
-        }
-    }
-}
-</code></pre>
+<p>Normal release (from Tag), could be initiated by a DSC Committee member to
+improve trust.
+We need to make sure the release process can be trusted, we&rsquo;ll detail and ask
+for comment soon.
+We&rsquo;re considering moving to AzDO (but mainly having most of the pipeline scripted
+so it works on both AppVeyor &amp; AzDO)</p>
 
-<p><strong>Good:</strong></p>
+<p>To do so we should change:</p>
 
-<pre><code class="language-powershell">Context 'When Get-TargetResource is called with default parameters'
-    It 'Should return something' {
-        Get-TargetResource @testParameters | Should -Be 'something'
-    }
-}
-</code></pre>
+<ul>
+<li><p>How SubModules are used:</p>
 
-<p><strong>Good:</strong></p>
+<ul>
+<li>DscResource.Common (which can be common to all DSC Resource Modules) should
+be a module released idependently, &lsquo;nested&rsquo; at build time (but not added
+to nestedModules manifest)</li>
+<li>We should version modules using SemVer, via the nuget-compliant string (that
+means {major}.{minor}.{patch} and pre-release tags &amp; metadata) Maybe using
+GitVersion to track that consistently for us (means no extra effort)</li>
+</ul></li>
 
-<pre><code class="language-powershell">Context 'When Get-TargetResource is called'
-    Context 'When passing default parameters'
-        It 'Should return something' {
-            Get-TargetResource @testParameters | Should -Be 'something'
-        }
-    }
-}
-</code></pre>
+<li><p>How we do test:</p>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/guidelines/localization/" title="Localization"><i class="ti-arrow-left mr-2"></i>Localization</a>
-            <a class="nav nav-next" href="/blog/" title="Blog Posts">Blog Posts<i class="ti-arrow-right ml-2"></i></a>
+<ul>
+<li>Decouple DscResource.tests &amp; PSSA custom rules from other parts</li>
+<li>Release DscResource.Tests as module released/versioned idependently.
+It should be saved/installed and run tests against compiled module (no more
+git clone on the fly)</li>
+<li>[eventually do more integration testing]</li>
+</ul></li>
+</ul>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 01 Aug 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/next_call/" title="Next Community Call 2019-10-23"><i class="ti-arrow-left mr-2"></i>Next Community Call 2019-10-23</a>
+            <a class="nav nav-next" href="/community_calls/2019-07-31-notes/" title="2019-07-31 Notes">2019-07-31 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

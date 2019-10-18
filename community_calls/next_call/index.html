@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Next Community Call 2019-09-11</title>
+  <title>Next Community Call 2019-10-23</title>
 
   <meta name="generator" content="Hugo 0.58.3" />
 
@@ -204,7 +204,9 @@ if (!doNotTrack) {
             </li>
             <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
               <ul class="sub-menu">
-            <li class=" active "><a href="/community_calls/next_call/">Next Community Call 2019-09-11</a>
+            <li class=" active "><a href="/community_calls/next_call/">Next Community Call 2019-10-23</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-09-11-notes/">Next Community Call 2019-09-11</a>
             </li>
             <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
             </li>
@@ -249,51 +251,25 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Next Community Call 2019-09-11</h2>
+            <h2>Next Community Call 2019-10-23</h2>
             
+
+<p>Next call will be on Wednesday, October 23rd, at</p>
 
 <p><a href="..">How to join</a></p>
 
 <h3 id="agenda">Agenda</h3>
 
 <ul>
-<li>Feel free to send a PR to this file if there&rsquo;s something you&rsquo;d like
-to add to the agenda</li>
+<li><p>Demo of automation as introduced during last call</p></li>
+
+<li><p>Feel free to send a PR to this file if there&rsquo;s something you&rsquo;d like
+to add to the agenda</p></li>
 </ul>
 
 <h4 id="resources-to-be-released">Resources to be released</h4>
 
-<ul>
-<li>ActiveDirectoryDsc</li>
-<li>ComputerManagementDsc (BREAKING CHANGE - ScheduleTask)</li>
-<li>DFSDsc (Fix to get the examples to be published)</li>
-<li>NetworkingDsc</li>
-<li>SharePointDsc (might not be released)</li>
-<li>StorageDsc</li>
-<li>WmiNamespaceSecurityDsc (former WmiNamespaceSecurity)</li>
-<li>xDnsServer</li>
-<li>xFailOverCluster</li>
-<li>xHyper-V</li>
-<li>xPSDesiredStateConfiguration</li>
-<li>xRemoteDesktopSessionHost</li>
-<li>xSCSMA</li>
-<li>xWebAdministration</li>
-</ul>
-
-<h5 id="deprecated">Deprecated</h5>
-
-<ul>
-<li>xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet)</li>
-<li>xPendingReboot (moved to ComputerManagementDsc)</li>
-</ul>
-
-<h4 id="should-leaving-unsupported-os-be-treated-as-breaking-change">Should leaving unsupported OS be treated as breaking change</h4>
-
-<p>For example Windows Server 2008 R2 is leaving extended support.</p>
-
-<h4 id="gallery-account-for-dsc-community">Gallery account for DSC Community</h4>
-
-<p>We should setup a gallery account so we can release repos.</p>
+<p>TBD</p>
 
 <h3 id="discussions">Discussions</h3>
 
@@ -302,67 +278,8 @@ to add to the agenda</li>
 <p>Talk to us on <strong>Virtual PowerShell User Group</strong> <em>#DSC</em> channel.
 For information on how to join, see <a href="https://dsccommunity.org/community/contact/">https://dsccommunity.org/community/contact/</a></p>
 
-<h4 id="releasing-vnext">Releasing vNext</h4>
-
-<p>Goal is to have a scripted pipeline that works identically on your local machine, on appVeyor and Azure (DevOps) Pipelines.</p>
-
-<ul>
-<li><p>Create a Module template to Create, build &amp; Release module (the template should be able to just come on top of existing module, and suggesting to remove/edit some code)
-The build/release process should, on merge to Master:</p>
-
-<ul>
-<li>Download the Required Modules needed for the Build, test, release process</li>
-<li>Build the module (update PSD1, changelog, version &amp; all)</li>
-<li>Validate the compiled module against Style Guidelines (&amp; PSSA)</li>
-<li>Validate the compiled modules against Unit &amp; Integration tests</li>
-<li>Validate the compiled module against Quality Standards (test Coverage, help &amp; Documentation)</li>
-<li>Validate the compiled module against Release Standards (Changelog, version)</li>
-<li>[sign package, eventually]</li>
-<li>[Create GitHub Release]</li>
-<li>Publish the compiled module to the Gallery as a Pre-release</li>
-<li>Save the Test results as Artefacts
-
-<br /></li>
-</ul></li>
-
-<li><p>When we tag a pre-released version, we should release the pre-released package as Full Release:</p>
-
-<ul>
-<li>Download the Required Modules needed for the Build, test, release process</li>
-<li>Extract the module</li>
-<li>Update the Module Manifest (remove pre-release, update Changelog)</li>
-<li>Re-test the newly compiled package</li>
-<li>[re-sign package, eventually]</li>
-<li>[Create GitHub Release]</li>
-<li>Release to gallery</li>
-<li>Save the Test results as Artefacts</li>
-</ul></li>
-</ul>
-
-<p>Normal release (from Tag), could be initiated by a DSC Committee member to improve trust.
-We need to make sure the release process can be trusted, we&rsquo;ll detail and ask for comment soon.
-We&rsquo;re considering moving to AzDO (but mainly having most of the pipeline scripted so it works on both AppVeyor &amp; AzDO)</p>
-
-<p>To do so we should change:
-- How SubModules are used:</p>
-
-<ul>
-<li>DscResource.Common (which can be common to all DSC Resource Modules) should be a module released idependently, &lsquo;nested&rsquo; at build time (but not added to nestedModules manifest)</li>
-
-<li><p>We should version modules using SemVer, via the nuget-compliant string (that means {major}.{minor}.{patch} and pre-release tags &amp; metadata) Maybe using GitVersion to track that consistently for us (means no extra effort)</p></li>
-
-<li><p>How we do test:</p>
-
-<ul>
-<li>Decouple DscResource.tests &amp; PSSA custom rules from other parts</li>
-<li>Release DscResource.Tests as module released/versioned idependently. It should be saved/installed and run tests against compiled module (no more git clone on the fly)</li>
-<li>[eventually do more integration testing]
-<br /></li>
-</ul></li>
-</ul>
-
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 01 Aug 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/" title="Community Calls"><i class="ti-arrow-left mr-2"></i>Community Calls</a>
-            <a class="nav nav-next" href="/community_calls/2019-07-31-notes/" title="2019-07-31 Notes">2019-07-31 Notes<i class="ti-arrow-right ml-2"></i></a>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 01 Oct 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/" title="Community Calls"><i class="ti-arrow-left mr-2"></i>Community Calls</a>
+            <a class="nav nav-next" href="/community_calls/2019-09-11-notes/" title="Next Community Call 2019-09-11">Next Community Call 2019-09-11<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>
