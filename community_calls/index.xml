@@ -24,7 +24,7 @@ Agenda  Demo of automation as introduced during last call
  Share results of DSC survey
  More maintainers for the DSC resources needed?
  Feel free to send a PR to this file if there&amp;rsquo;s something you&amp;rsquo;d like to add to the agenda
-  Resources to be released  ActiveDirectoryDsc ComputerManagementDsc (new resource SmbServerConfiguration) StorageDsc xDSCResourceDesigner xDnsServer xExchange (new resource xExchAcceptedDomain) xHyper-V xWebAdministration  Discussions Topics or questions from the community (welcome at any point during the call)</description>
+  Resources to be released  ActiveDirectoryDsc ComputerManagementDsc (new resource SmbServerConfiguration) StorageDsc xDSCResourceDesigner xDnsServer xExchange (new resource xExchAcceptedDomain) xHyper-V xWebAdministration (BREAKING CHANGE: xWebAppPoolDefaults, xWebSiteDefaults)  Discussions Topics or questions from the community (welcome at any point during the call)</description>
     </item>
     
     <item>
