@@ -7,34 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Tue, 01 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Next Community Call 2019-10-23</title>
+      <title>Next Community Call 2019-12-04</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, October 23rd, at
+      <description>Next call will be on Wednesday, December 4th, at 12 PM PST
 How to join
-Agenda  Demo of automation as introduced during last call
- Share results of DSC survey
- More maintainers for the DSC resources needed?
- Feel free to send a PR to this file if there&amp;rsquo;s something you&amp;rsquo;d like to add to the agenda
-  Resources to be released  ActiveDirectoryDsc ComputerManagementDsc (new resource SmbServerConfiguration) StorageDsc xDSCResourceDesigner xDnsServer xExchange (new resource xExchAcceptedDomain) xHyper-V xWebAdministration (BREAKING CHANGE: xWebAppPoolDefaults, xWebSiteDefaults)  Discussions Topics or questions from the community (welcome at any point during the call)</description>
-    </item>
-    
-    <item>
-      <title>2019-09-11 Notes</title>
-      <link>https://dsccommunity.org/community_calls/2019-09-11-notes/</link>
-      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://dsccommunity.org/community_calls/2019-09-11-notes/</guid>
-      <description>Read the DSC Resource Kit Release September 2019 Blog post, on PowerShell&amp;rsquo;s blog.
-Resources released  ActiveDirectoryDsc ComputerManagementDsc (BREAKING CHANGE - ScheduleTask) DFSDsc (Fix to get the examples to be published) NetworkingDsc SharePointDsc (might not be released) StorageDsc WmiNamespaceSecurityDsc (former WmiNamespaceSecurity) xDnsServer xFailOverCluster xHyper-V xPSDesiredStateConfiguration xRemoteDesktopSessionHost xSCSMA xWebAdministration  Deprecated  xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet) xPendingReboot (moved to ComputerManagementDsc)  Should leaving unsupported OS be treated as breaking change No, it&amp;rsquo;s not a breaking change but it should be clearly noted in release notes when conscious decision is made.</description>
+Agenda  Demo of automation and status update (continued)
+ DscResource.AnalyzerRules DscResource.Test Sampler &amp;amp; AzureDevOps  DSC Community Maintainers, what should you do?
+ Accept GitHub Invitation (or tell us if you did not receive it) Consider making your DSC Community membership public Use the DSC Community&amp;rsquo;s Teams for communication (discussions) Consider updating your GitHUb picture &amp;amp; Bio (we use it to display on the website) Try doing code reviews even outside of your repository.</description>
     </item>
     
     <item>
@@ -345,6 +333,28 @@ In each localization folder there should be a PowerShell data (.</description>
 Bad:
 it &#39;Should return something&#39; { get-targetresource @testParameters | should -be &#39;something&#39; }  Good:
 It &#39;Should return something&#39; { Get-TargetResource @testParameters | Should -Be &#39;something&#39; }  Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
+    </item>
+    
+    <item>
+      <title>2019-10-23 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2019-10-23-notes/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2019-10-23-notes/</guid>
+      <description>Next call will be on Wednesday, October 23rd, at
+How to join
+Recording The recording of the community call, with the result of the DSC Survey is available on YouTube:   Notes  Quick intro of automation as introduced during last call I&amp;rsquo;ve done a video since to show the basic template automation    Shared results of DSC survey (watch the video for details)
+ More maintainers for the DSC resources needed?</description>
+    </item>
+    
+    <item>
+      <title>2019-09-11 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2019-09-11-notes/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2019-09-11-notes/</guid>
+      <description>Read the DSC Resource Kit Release September 2019 Blog post, on PowerShell&amp;rsquo;s blog.
+Resources released  ActiveDirectoryDsc ComputerManagementDsc (BREAKING CHANGE - ScheduleTask) DFSDsc (Fix to get the examples to be published) NetworkingDsc SharePointDsc (might not be released) StorageDsc WmiNamespaceSecurityDsc (former WmiNamespaceSecurity) xDnsServer xFailOverCluster xHyper-V xPSDesiredStateConfiguration xRemoteDesktopSessionHost xSCSMA xWebAdministration  Deprecated  xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet) xPendingReboot (moved to ComputerManagementDsc)  Should leaving unsupported OS be treated as breaking change No, it&amp;rsquo;s not a breaking change but it should be clearly noted in release notes when conscious decision is made.</description>
     </item>
     
     <item>
