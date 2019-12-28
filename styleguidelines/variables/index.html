@@ -1,0 +1,355 @@
+<head>
+  <meta charset="utf-8">
+  <title>Variables</title>
+
+  <meta name="generator" content="Hugo 0.62.0" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144465379-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/themify-icons/themify-icons.css">
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/highlight/hybrid.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+
+  <style>
+  :root{
+    --primary-color:#003366;
+    --secondary-color:#f9f9f9;
+    --text-color:#242738;
+    --text-color-dark:#000;
+    --white-color:#ffffff;
+  }
+  </style>
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://dsccommunity.org/css/style.min.css" integrity="" media="screen">
+
+  <!-- jquiry -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-1.12.4.js"></script>
+
+  <!-- jquary ui -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-ui.js"></script>
+
+  <!--Favicon-->
+  <link rel="icon" href="https://dsccommunity.org/images/favicon.png" type="image/x-icon">
+
+</head>
+
+<!-- navigation -->
+<header class="shadow-bottom sticky-top bg-white">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="https://dsccommunity.org/">DSC Community and Resource Kit</a>
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse text-center" id="navigation">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="https://dsccommunity.org/">Home</a>
+      </li>
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/code_of_conduct">Code of Conduct</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/community_calls">Community Calls</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/faq">Faq</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/help">help</a>
+      </li>
+      
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" >
+          
+          <a class="dropdown-item" href="/community">Community</a>
+          
+          <a class="dropdown-item" href="/resources">Resource Modules</a>
+          
+          <a class="dropdown-item" href="/guidelines">Guidelines</a>
+          
+          <a class="dropdown-item" href="/blog">Blog Posts</a>
+          
+          <a class="dropdown-item" href="/configmgt">Config. Management</a>
+          
+        </div>
+      </li>
+      
+      
+    </ul>
+    
+    <ul class="list-inline text-center mb-0">
+      
+    </ul>
+  </div>
+</nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<section class="single pt-5 bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="p-4 bg-white sticky-top top-100">
+            
+            <nav class="sidebar-menu">
+              <ul class="list-styled">
+            <li class=""><a href="/community/">Community</a>
+              <ul class="">
+            <li class=""><a href="/community/origin-story/">Origin Story</a>
+            </li>
+            <li class=""><a href="/community/ownership/">Ownership of DSC Resources</a>
+            </li>
+            <li class=""><a href="/community/committee/">DSC Community Committee</a>
+            </li>
+            <li class=""><a href="/community/maintainers/">Maintainers</a>
+            </li>
+            <li class=""><a href="/community/contact/">Join the Conversation</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/resources/">Resource Modules</a>
+            </li>
+            <li class=""><a href="/guidelines/">Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
+            </li>
+            <li class=""><a href="/guidelines/contributing/">Contributing</a>
+            </li>
+            <li class=""><a href="/guidelines/maintaining/">Maintaining</a>
+            </li>
+            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
+            </li>
+            <li class="parent d-block "><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="sub-menu">
+            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general/">General</a>
+            </li>
+            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
+            </li>
+            <li class=""><a href="/styleguidelines/functions/">Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
+            </li>
+            <li class=" active "><a href="/styleguidelines/variables/">Variables</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/blog/">Blog Posts</a>
+              <ul class="">
+            <li class=""><a href="/blog/create-an-article/">Create an Article</a>
+            </li>
+            <li class=""><a href="/blog/how-to-use-dsc-logging/">How to Use Dsc Logging</a>
+            </li>
+            <li class=""><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
+            <li class=""><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/community_calls/">Community Calls</a>
+              <ul class="">
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2019-12-04</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/code_of_conduct/">Code of Conduct</a>
+              <ul class="">
+            <li class=""><a href="/code_of_conduct/standards/">Our Standards</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/scope/">Scope</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/enforcement/">Enforcement</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/common_questions/">Common Questions</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/attribution/">Attribution</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/help/">Help</a>
+              <ul class="">
+            <li class=""><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
+            </li>
+            <li class=""><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/contributors/">Elements</a>
+            </li>
+            <li class=""><a href="/faq/">Frequently Asked Questions</a>
+            </li></ul>
+            </nav>
+
+            
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-5 bg-white">
+            <h2>Variables</h2>
+            <h2 id="variable-names-use-camel-case">Variable Names Use Camel Case</h2>
+<p>Variable names should use camelCase.</p>
+<p><strong>Bad:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Log
+{
+    $VerboseMessage = <span style="color:#e6db74">&#39;New log message&#39;</span>
+    Write-Verbose $VerboseMessage
+}
+</code></pre></div><p><strong>Bad:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Log
+{
+    $verbosemessage = <span style="color:#e6db74">&#39;New log message&#39;</span>
+    Write-Verbose $verbosemessage
+}
+</code></pre></div><p><strong>Good:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Log
+{
+    $verboseMessage = <span style="color:#e6db74">&#39;New log message&#39;</span>
+    Write-Verbose $verboseMessage
+}
+</code></pre></div><h2 id="script-environment-and-global-variable-names-include-scope">Script, Environment and Global Variable Names Include Scope</h2>
+<p>Script, environment, and global variables must always include their scope in the
+variable name unless the &lsquo;using&rsquo; scope is needed. The script and global scope
+specifications should be all in lowercase. Script and global variable names following
+the scope should use camelCase.</p>
+<p><strong>Bad:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$fileCount = 0
+$GLOBAL:MYRESOURCENAME = <span style="color:#e6db74">&#39;MyResource&#39;</span>
+
+<span style="color:#66d9ef">function</span> New-File
+{
+    $fileCount++
+    Write-Verbose -Message <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Adding file to </span><span style="color:#e6db74">$</span><span style="color:#e6db74">MYRESOURCENAME to </span><span style="color:#e6db74">$</span><span style="color:#e6db74">ENV:COMPUTERNAME.</span><span style="color:#e6db74">&#34;</span>
+}
+</code></pre></div><p><strong>Good:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$script:fileCount = 0
+$global:myResourceName = <span style="color:#e6db74">&#39;MyResource&#39;</span>
+
+<span style="color:#66d9ef">function</span> New-File
+{
+    $script:fileCount++
+    Write-Verbose -Message <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Adding file to </span><span style="color:#e6db74">$</span><span style="color:#e6db74">global:myResourceName to </span><span style="color:#e6db74">$</span><span style="color:#e6db74">env:computerName.</span><span style="color:#e6db74">&#34;</span>
+}
+</code></pre></div>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/styleguidelines/parameters/" title="Parameters"><i class="ti-arrow-left mr-2"></i>Parameters</a>
+            <a class="nav nav-next" href="/styleguidelines/general-best-practices/" title="General Best Practices">General Best Practices<i class="ti-arrow-right ml-2"></i></a>
+            </nav></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- footer -->
+<footer class="section bg-gray pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+        <p>Copyright 2019 the dsccommunity.org contributors.</p> 
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://github.com/dsccommunity/"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/dsccommunity"><i class="ti-twitter-alt"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Bootstrap JS -->
+<script src="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- highlight -->
+<script src="https://dsccommunity.org/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Main Script -->
+
+<script src="https://dsccommunity.org/js/script.min.js"></script>

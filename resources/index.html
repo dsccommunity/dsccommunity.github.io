@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <title>Resource Modules</title>
 
-  <meta name="generator" content="Hugo 0.59.1" />
+  <meta name="generator" content="Hugo 0.62.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -912,15 +912,14 @@ fixes <a href="https://github.com/PowerShell/CertificateDsc/issues/195">Issue 19
 <code>CertificateDsc.Common</code> module and renamed to <code>CertificateDsc.CommonHelper</code>
 module.</li>
 <li>CertReq:
-
 <ul>
 <li>Fix error when ProviderName parameter is not encapsulated in
 double quotes - fixes <a href="https://github.com/PowerShell/CertificateDsc/issues/185">Issue 185</a>.</li>
-</ul></li>
+</ul>
+</li>
 <li>Refactor integration tests to update to latest standards.</li>
 <li>Refactor unit tests to update to latest standards.</li>
 <li>CertificateImport:
-
 <ul>
 <li>Refactor to use common functions and share more code with <code>PfxImport</code>
 resource.</li>
@@ -930,27 +929,28 @@ and it needs to be imported.</li>
 to remove a certificate from the store without the need to have the
 access to the certificate file.</li>
 <li>Removed ShouldProcess because it is not required by DSC Resources.</li>
-</ul></li>
+</ul>
+</li>
 <li>CertificatePfx:
-
 <ul>
 <li>Refactor to use common functions and share more code with
 <code>CertificateImport</code> resource.</li>
 <li>Resource will now only throw an exception if the certificate file does
 not exist and it needs to be imported.</li>
-</ul></li>
+</ul>
+</li>
 <li>CertificateImport:
-
 <ul>
 <li>Added <code>FriendlyName</code> parameter to allow setting the certificate friendly
 name of the imported certificate - fixes <a href="https://github.com/PowerShell/CertificateDsc/issues/194">Issue 194</a>.</li>
-</ul></li>
+</ul>
+</li>
 <li>CertificatePfx:
-
 <ul>
 <li>Added <code>FriendlyName</code> parameter to allow setting the certificate friendly
 name of the imported certificate - fixes <a href="https://github.com/PowerShell/CertificateDsc/issues/194">Issue 194</a>.</li>
-</ul></li>
+</ul>
+</li>
 </ul></div>
                       </div>
                       
@@ -1048,12 +1048,12 @@ All of the resources in the DSC Resource Kit are provided AS IS, and are not sup
                       <div class="tab-pane fade card border-top-0" id="nav-rn-ComputerManagementDsc" role="tabpanel" aria-labelledby="nav-rn-tab-ComputerManagementDsc">
                           <div class="card card-body border-top-0"><ul>
 <li>ScheduledTask:
-
 <ul>
 <li>IdleWaitTimeout returned from Get-TargetResource always null - Fixes <a href="https://github.com/PowerShell/ComputerManagementDsc/issues/186">Issue 186</a>.</li>
 <li>Added BuiltInAccount Property to allow running task as one of the build in
 service accounts - Fixes <a href="https://github.com/PowerShell/ComputerManagementDsc/issues/130">Issue 130</a>.</li>
-</ul></li>
+</ul>
+</li>
 <li>Refactored module folder structure to move resource to root folder of
 repository and remove test harness - fixes <a href="https://github.com/PowerShell/ComputerManagementDsc/issues/188">Issue 188</a>.</li>
 <li>Added a CODE_OF_CONDUCT.md with the same content as in the README.md and
@@ -1485,44 +1485,44 @@ to empty list in manifest to meet best practice.</li>
                       <div class="tab-pane fade card border-top-0" id="nav-rn-NetworkingDsc" role="tabpanel" aria-labelledby="nav-rn-tab-NetworkingDsc">
                           <div class="card card-body border-top-0"><ul>
 <li>DnsClientGlobalSettings:
-
 <ul>
 <li>Fixed SuffixSearchList Empty String Handling - fixes <a href="https://github.com/PowerShell/NetworkingDsc/issues/398">Issue 398</a>.</li>
-</ul></li>
+</ul>
+</li>
 <li>NetAdapterAdvancedProperty:
-
 <ul>
 <li>Removed validation from RegistryKeyword parameter because the list
 of valid registry keywords is not fixed and will depend on adapter
 driver - fixes <a href="https://github.com/PowerShell/NetworkingDsc/issues/388">Issue 388</a>.</li>
-</ul></li>
+</ul>
+</li>
 <li>MSFT_WinsServerAddress
 Added MSFT_WinsServerAddress to control the WINS servers for a given network adapter.</li>
 <li>Test-DscParameterState:
-
 <ul>
 <li>This function was enhanced with an optional reversecheck, optional internal
 sorting for arrays.</li>
 <li>The functions ConvertTo-CimInstance and ConvertTo-Hashtable were added
 required by Test-DscParameterState.</li>
-</ul></li>
+</ul>
+</li>
 <li>Fix missing context message content in unit tests - fixes <a href="https://github.com/PowerShell/NetworkingDsc/issues/405">Issue 405</a>.</li>
 <li>Correct style violations in unit tests:
-
 <ul>
 <li>Adding <code>Get</code>, <code>Set</code> and <code>Test</code> tags to appropriate <code>describe</code> blocks.</li>
 <li>Removing uneccesary <code>region</code> blocks.</li>
 <li>Conversion of double quotes to single quotes where possible.</li>
 <li>Replace variables with string litterals in <code>describe</code> block description.</li>
-</ul></li>
+</ul>
+</li>
 <li>Firewall:
-
 <ul>
 <li>Fix bug when LocalAddress or RemoteAddress is specified using CIDR
 notation with number of bits specified in subnet mask (e.g.
-10.0.0.<sup>1</sup>&frasl;<sub>8</sub>) rather than using CIDR subnet mask notation (e.g
-10.0.0.<sup>1</sup>&frasl;<sub>255</sub>.0.0.0) - fixes <a href="https://github.com/PowerShell/NetworkingDsc/issues/404">Issue 404</a>.</li>
-</ul></li>
+10.0.0.1/8) rather than using CIDR subnet mask notation (e.g
+10.0.0.1/255.0.0.0) - fixes <a href="https://github.com/PowerShell/NetworkingDsc/issues/404">Issue 404</a>.</li>
+</ul>
+</li>
 </ul></div>
                       </div>
                       
@@ -1610,22 +1610,22 @@ notation with number of bits specified in subnet mask (e.g.
                       <div class="tab-pane fade card border-top-0" id="nav-rn-OfficeOnlineServerDsc" role="tabpanel" aria-labelledby="nav-rn-tab-OfficeOnlineServerDsc">
                           <div class="card card-body border-top-0"><ul>
 <li>OfficeOnlineServerInstall
-
 <ul>
 <li>Updated resource to make sure the Windows Environment
 variables are loaded into the PowerShell session;</li>
-</ul></li>
+</ul>
+</li>
 <li>OfficeOnlineServerMachine
-
 <ul>
 <li>Updated resource to make sure the Windows Environment
 variables are loaded into the PowerShell session;</li>
-</ul></li>
+</ul>
+</li>
 <li>Created LICENSE file to match the Microsoft Open Source Team standard.
-
 <ul>
 <li>Fixes <a href="https://github.com/PowerShell/OfficeOnlineServerDsc/issues/35">Issue 35</a></li>
-</ul></li>
+</ul>
+</li>
 </ul></div>
                       </div>
                       
@@ -2184,73 +2184,43 @@ Specifically fixes
                       <div class="tab-pane fade card border-top-0" id="nav-rn-SharePointDSC" role="tabpanel" aria-labelledby="nav-rn-tab-SharePointDSC">
                           <div class="card card-body border-top-0"><ul>
 <li>SharePointDsc generic
-    * Improved logging in all resource. They are now outputting
-      the current and targeted values in the Test method.
-    * Updated various resources to comply with coding style guidelines.
-    * Updated the following resources to not return Null from the Get
-      method anymore, but an hashtable which contains null values:
-      SPDesignerSettings, SPDiagnosticLoggingSettings, SPFarmAdministrators,
-      SPHealthAnalyzerRuleState, SPIrmSettings, SPOutgoingEmailSettings,
-      SPPasswordChangeSettings, SPSearchTopology, SPServiceAppProxyGroup,
-      SPTimerJobState, SPUserProfileSection, SPUserProfileSyncConnection,
-      SPWebAppBlockedFileTypes, SPWebApplicationAppDomain, SPWebAppPolicy,
-      SPWebAppSiteUseAndDeletion, SPWebAppThrottlingSettings,
-      SPWordAutomationServiceApp.
-
-<ul>
-<li>SPConfigWizard
-
-<ul>
-<li>Added check to make sure the Config Wizard is only executed when all
-servers have the binaries installed.</li>
-</ul></li>
-<li>SPDistributedCacheService
-
-<ul>
-<li>Added ability to check for incorrect service account.</li>
-</ul></li>
-<li>SPExcelServiceApp
-
-<ul>
-<li>Fixes issue where Get method throws an error when the value of
-PrivateBytesMax and UnusedObjectAgeMax are negative values.</li>
-</ul></li>
-<li>SPFarm
-
-<ul>
-<li>Throw error in Get method if CentralAdministrationUrl is HTTP.</li>
-</ul></li>
-<li>SPInstallPrereqs
-
-<ul>
-<li>Fixed bug in version check, where lower versions would be
-detected as higher versions.</li>
-</ul></li>
-<li>SPProductUpdate
-
-<ul>
-<li>Updated Readme to reflect the new patching possibilities added in v3.3.</li>
-</ul></li>
-<li>SPSecureStore
-
-<ul>
-<li>Fixed issue where the test issue returned false is the service
-application didn&rsquo;t exist, but the database name/server parameter
-was specified.</li>
-</ul></li>
-<li>SPUserProfileSyncConnection
-
-<ul>
-<li>Fixed issue where the parameter Server was checked in SP2016
-but isn&rsquo;t used there and therefore always fails.</li>
-</ul></li>
-<li>SPWebAppAuthentication
-
-<ul>
-<li>Updated the documentation to better explain the use of this resource
+* Improved logging in all resource. They are now outputting
+the current and targeted values in the Test method.
+* Updated various resources to comply with coding style guidelines.
+* Updated the following resources to not return Null from the Get
+method anymore, but an hashtable which contains null values:
+SPDesignerSettings, SPDiagnosticLoggingSettings, SPFarmAdministrators,
+SPHealthAnalyzerRuleState, SPIrmSettings, SPOutgoingEmailSettings,
+SPPasswordChangeSettings, SPSearchTopology, SPServiceAppProxyGroup,
+SPTimerJobState, SPUserProfileSection, SPUserProfileSyncConnection,
+SPWebAppBlockedFileTypes, SPWebApplicationAppDomain, SPWebAppPolicy,
+SPWebAppSiteUseAndDeletion, SPWebAppThrottlingSettings,
+SPWordAutomationServiceApp.
+* SPConfigWizard
+* Added check to make sure the Config Wizard is only executed when all
+servers have the binaries installed.
+* SPDistributedCacheService
+* Added ability to check for incorrect service account.
+* SPExcelServiceApp
+* Fixes issue where Get method throws an error when the value of
+PrivateBytesMax and UnusedObjectAgeMax are negative values.
+* SPFarm
+* Throw error in Get method if CentralAdministrationUrl is HTTP.
+* SPInstallPrereqs
+* Fixed bug in version check, where lower versions would be
+detected as higher versions.
+* SPProductUpdate
+* Updated Readme to reflect the new patching possibilities added in v3.3.
+* SPSecureStore
+* Fixed issue where the test issue returned false is the service
+application didn't exist, but the database name/server parameter
+was specified.
+* SPUserProfileSyncConnection
+* Fixed issue where the parameter Server was checked in SP2016
+but isn't used there and therefore always fails.
+* SPWebAppAuthentication
+* Updated the documentation to better explain the use of this resource
 when using Classic authentication.</li>
-</ul></li>
-</ul></li>
 </ul></div>
                       </div>
                       
@@ -2400,7 +2370,6 @@ when using Classic authentication.</li>
                       <div class="tab-pane fade card border-top-0" id="nav-rn-SqlServerDsc" role="tabpanel" aria-labelledby="nav-rn-tab-SqlServerDsc">
                           <div class="card card-body border-top-0"><ul>
 <li>Changes to SqlServerDsc
-
 <ul>
 <li>Added SqlAgentAlert resource.</li>
 <li>Opt-in to the common test &ldquo;Common Test - Validation Localization&rdquo;.</li>
@@ -2413,14 +2382,15 @@ and <code>New-VerboseMessage</code> in favor of the the new
 SqlServerDsc.Common (<a href="https://github.com/PowerShell/SqlServerDsc/issues/1357">issue 1357</a>).</li>
 <li>Update Assert-TestEnvironment.ps1 to not error if strict mode is enabled
 and there are no missing dependencies (<a href="https://github.com/PowerShell/SqlServerDsc/issues/1368">issue 1368</a>).</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to SqlServerDsc.Common
-
 <ul>
 <li>Added StatementTimeout to function &ldquo;Connect-SQL&rdquo; with default 600 seconds (10mins).</li>
 <li>Added StatementTimeout to function &ldquo;Invoke-Query&rdquo; with default 600 seconds (10mins)
 (<a href="https://github.com/PowerShell/SqlServerDsc/issues/1358">issue 1358</a>).</li>
-<li>Changes to helper function Connect-SQL</li>
+<li>Changes to helper function Connect-SQL
+<ul>
 <li>The function now make it more clear that when using the parameter
 <code>SetupCredential</code> is impersonates that user, and by default it does
 not impersonates a user but uses the credential that the resource
@@ -2428,47 +2398,49 @@ is run as (for example the built-in credential parameter
 <code>PsDscRunAsCredential</code>). <a href="https://github.com/kungfu71186">@kungfu71186</a></li>
 <li>Added parameter alias <code>-DatabaseCredential</code> for the parameter
 <code>-SetupCredential</code>. <a href="https://github.com/kungfu71186">@kungfu71186</a></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>Changes to SqlAG
-
 <ul>
 <li>Added en-US localization.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to SqlAGReplica
-
 <ul>
 <li>Added en-US localization.</li>
 <li>Improved verbose message output when creating availability group replica,
 removing a availability group replica, and joining the availability
 group replica to the availability group.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to SqlAlwaysOnService
-
 <ul>
 <li>Now outputs the correct verbose message when restarting the service.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to SqlServerMemory
-
 <ul>
 <li>Now outputs the correct verbose messages when calculating the dynamic
 memory, and when limiting maximum memory.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to SqlServerRole
-
 <ul>
 <li>Now outputs the correct verbose message when the members of a role is
 not in desired state.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to SqlAgentOperator
-
 <ul>
 <li>Fix minor issue that when unable to connect to an instance. Instead
 of showing a message saying that connect failed another unrelated
 error message could have been shown, because of an error in the code.</li>
 <li>Fix typo in test it block.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to SqlDatabaseRole
-
 <ul>
 <li>BREAKING CHANGE: Refactored to enable creation/deletion of the database role
 itself as well as management of the role members. <em>Note that the resource no
@@ -2477,9 +2449,9 @@ longer adds database users.</em> (<a href="https://github.com/PowerShell/SqlServ
 <a href="https://github.com/PowerShell/SqlServerDsc/issues/1252">issue 1252</a>,
 <a href="https://github.com/PowerShell/SqlServerDsc/issues/1339">issue 1339</a>).
 <a href="https://github.com/pshamus">Paul Shamus @pshamus</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to SqlSetup
-
 <ul>
 <li>Add an Action type of &ldquo;Upgrade&rdquo;. This will ask setup to do a version
 upgrade where possible (<a href="https://github.com/PowerShell/SqlServerDsc/issues/1368">issue 1368</a>).</li>
@@ -2488,17 +2460,17 @@ upgrade where possible (<a href="https://github.com/PowerShell/SqlServerDsc/issu
 set since that was preventing the resource to be able to be debugged
 (<a href="https://github.com/PowerShell/SqlServerDsc/issues/448">issue 448</a>).</li>
 <li>Added RSInstallMode parameter (<a href="https://github.com/PowerShell/SqlServerDsc/issues/1163">issue 1163</a>).</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to SqlWindowsFirewall
-
 <ul>
 <li>Where a version upgrade has changed paths for a database engine, the
 existing firewall rule for that instance will be updated rather than
 another one created (<a href="https://github.com/PowerShell/SqlServerDsc/issues/1368">issue 1368</a>).
 Other firewall rules can be fixed to work in the same way later.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to SqlAGDatabase
-
 <ul>
 <li>Added new parameter &ldquo;ReplaceExisting&rdquo; with default false.
 This allows forced restores when a database already exists on secondary.</li>
@@ -2506,7 +2478,8 @@ This allows forced restores when a database already exists on secondary.</li>
 <li>Fix issue where calling Get would return an error because the database
 name list may have been returned as a string instead of as a string array
 (<a href="https://github.com/PowerShell/SqlServerDsc/issues/1368">issue 1368</a>).</li>
-</ul></li>
+</ul>
+</li>
 </ul></div>
                       </div>
                       
@@ -2598,11 +2571,11 @@ name list may have been returned as a string instead of as a string array
                       <div class="tab-pane fade card border-top-0" id="nav-rn-StorageDsc" role="tabpanel" aria-labelledby="nav-rn-tab-StorageDsc">
                           <div class="card card-body border-top-0"><ul>
 <li>DiskAccessPath:
-
 <ul>
 <li>Added a Get-Partition to properly handle setting the NoDefaultDriveLetter
 parameter - fixes <a href="https://github.com/PowerShell/StorageDsc/pull/198">Issue 198</a>.</li>
-</ul></li>
+</ul>
+</li>
 </ul></div>
                       </div>
                       
@@ -2695,12 +2668,12 @@ files to be formatted as per the DSC Resource kit style guidelines.</li>
 <li>Converted files with UTF8 with BOM over to UTF8.</li>
 <li>Updated Year to 2017 in License and Manifest.</li>
 <li>Added .github support files:
-
 <ul>
 <li>CONTRIBUTING.md</li>
 <li>ISSUE_TEMPLATE.md</li>
 <li>PULL_REQUEST_TEMPLATE.md</li>
-</ul></li>
+</ul>
+</li>
 <li>Resolved all PSScriptAnalyzer warnings and style guide warnings.</li>
 </ul></div>
                       </div>
@@ -2985,16 +2958,19 @@ All of the resources in the DSC Resource Kit are provided AS IS, and are not sup
                       <div class="tab-pane fade card border-top-0" id="nav-rn-xActiveDirectory" role="tabpanel" aria-labelledby="nav-rn-tab-xActiveDirectory">
                           <div class="card card-body border-top-0"><ul>
 <li>Changes to xActiveDirectory
-
 <ul>
 <li>Added new helper functions in xADCommon, see each functions comment-based
-help for more information.</li>
+help for more information.
+<ul>
 <li>Convert-PropertyMapToObjectProperties</li>
 <li>Compare-ResourcePropertyState</li>
 <li>Test-DscPropertyState</li>
+</ul>
+</li>
 <li>Move the examples in the README.md to Examples folder.</li>
 <li>Fix Script Analyzer rule failures.</li>
-<li>Opt-in to the following DSC Resource Common Meta Tests:</li>
+<li>Opt-in to the following DSC Resource Common Meta Tests:
+<ul>
 <li>Common Tests - Custom Script Analyzer Rules</li>
 <li>Common Tests - Required Script Analyzer Rules</li>
 <li>Common Tests - Flagged Script Analyzer Rules</li>
@@ -3005,31 +2981,39 @@ help for more information.</li>
 <li>Common Tests - Validate Localization (<a href="https://github.com/PowerShell/xActiveDirectory/issues/281">issue 281</a>)</li>
 <li>Common Tests - Validate Example Files (<a href="https://github.com/PowerShell/xActiveDirectory/issues/279">issue 279</a>)</li>
 <li>Common Tests - Validate Example Files To Be Published (<a href="https://github.com/PowerShell/xActiveDirectory/issues/311">issue 311</a>)</li>
+</ul>
+</li>
 <li>Move resource descriptions to Wiki using auto-documentation (<a href="https://github.com/PowerShell/xActiveDirectory/issues/289">issue 289</a>)</li>
 <li>Move helper functions from MSFT_xADCommon to the module
-xActiveDirectory.Common (<a href="https://github.com/PowerShell/xActiveDirectory/issues/288">issue 288</a>).</li>
+xActiveDirectory.Common (<a href="https://github.com/PowerShell/xActiveDirectory/issues/288">issue 288</a>).
+<ul>
 <li>Removed helper function <code>Test-ADDomain</code> since it was not used. The
 helper function had design flaws too.</li>
 <li>Now the helper function <code>Test-Members</code> outputs all the members that
 are not in desired state when verbose output is enabled.</li>
+</ul>
+</li>
 <li>Update all unit tests to latest unit test template.</li>
 <li>Deleted the obsolete xActiveDirectory_TechNetDocumentation.html file.</li>
 <li>Added new resource xADObjectEnabledState. This resource should be
 used to enforce the <code>Enabled</code> property of computer accounts. This
 resource replaces the deprecated <code>Enabled</code> property in the resource
 xADComputer.</li>
-<li>Cleanup of code</li>
+<li>Cleanup of code
+<ul>
 <li>Removed semicolon throughout where it is not needed.</li>
 <li>Migrate tests to Pester syntax v4.x (<a href="https://github.com/PowerShell/xActiveDirectory/issues/322">issue 322</a>).</li>
 <li>Removed <code>-MockWith {}</code> in unit tests.</li>
 <li>Use fully qualified type names for parameters and variables
 (<a href="https://github.com/PowerShell/xActiveDirectory/issues/374">issue 374</a>).</li>
+</ul>
+</li>
 <li>Removed unused legacy test files from the root of the repository.</li>
 <li>Updated Example List README with missing resources.</li>
 <li>Added missing examples for xADReplicationSubnet, xADServicePrincipalName and xWaitForADDomain. (<a href="https://github.com/PowerShell/xActiveDirectory/issues/395">issue 395</a>).</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADComputer
-
 <ul>
 <li>Refactored the resource and the unit tests.</li>
 <li>BREAKING CHANGE: The <code>Enabled</code> property is <strong>DEPRECATED</strong> and is no
@@ -3048,30 +3032,30 @@ Examples folder.</li>
 <li>Fix the RestoreFromRecycleBin description.</li>
 <li>Fix unnecessary cast in <code>Test-TargetResource</code> (<a href="https://github.com/PowerShell/xActiveDirectory/issues/295">issue 295</a>).</li>
 <li>Fix ServicePrincipalNames property empty string exception (<a href="https://github.com/PowerShell/xActiveDirectory/issues/382">issue 382</a>).</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADGroup
-
 <ul>
 <li>Change the description of the property RestoreFromRecycleBin.</li>
 <li>Code cleanup.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADObjectPermissionEntry
-
 <ul>
 <li>Change the description of the property IdentityReference.</li>
 <li>Fix failure when applied in the same configuration as xADDomain.</li>
 <li>Localize and Improve verbose messaging.</li>
 <li>Code cleanup.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADOrganizationalUnit
-
 <ul>
 <li>Change the description of the property RestoreFromRecycleBin.</li>
 <li>Code cleanup.</li>
 <li>Fix incorrect verbose message when this resource has Ensure set to Absent (<a href="https://github.com/PowerShell/xActiveDirectory/issues/276">issue 276</a>).</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADUser
-
 <ul>
 <li>Change the description of the property RestoreFromRecycleBin.</li>
 <li>Added ServicePrincipalNames property (<a href="https://github.com/PowerShell/xActiveDirectory/issues/153">issue 153</a>).</li>
@@ -3089,9 +3073,9 @@ Examples folder.</li>
 <li>Fix Password property being updated whenever another property is changed
 (<a href="https://github.com/PowerShell/xActiveDirectory/issues/384">issue 384</a>).</li>
 <li>Replace Write-Error with the correct helper function (<a href="https://github.com/PowerShell/xActiveDirectory/issues/331">Issue 331</a>).</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADDomainController
-
 <ul>
 <li>Change the <code>Requires</code> statement in the Examples to require the correct
 module.</li>
@@ -3099,32 +3083,32 @@ module.</li>
 resource is using the <code>$global:DSCMachineStatus</code> variable to trigger
 a reboot.</li>
 <li>Code cleanup.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADDomain
-
 <ul>
 <li>Suppressing the Script Analyzer rule <code>PSAvoidGlobalVars</code> since the
 resource is using the <code>$global:DSCMachineStatus</code> variable to trigger
 a reboot.</li>
 <li>Code cleanup.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADDomainTrust
-
 <ul>
 <li>Replaced New-TerminatingError with Standard Function.</li>
 <li>Code cleanup.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xWaitForADDomain
-
 <ul>
 <li>Suppressing the Script Analyzer rule <code>PSAvoidGlobalVars</code> since the
 resource is using the <code>$global:DSCMachineStatus</code> variable to trigger
 a reboot.</li>
 <li>Added missing property schema descriptions (<a href="https://github.com/PowerShell/xActiveDirectory/issues/369">issue 369</a>).</li>
 <li>Code cleanup.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADRecycleBin
-
 <ul>
 <li>Remove unneeded example and resource designer files.</li>
 <li>Added missing property schema descriptions (<a href="https://github.com/PowerShell/xActiveDirectory/issues/368">issue 368</a>).</li>
@@ -3132,55 +3116,56 @@ a reboot.</li>
 <li>It now sets back the <code>$ErrorActionPreference</code> that was set prior to
 setting it to <code>&quot;Stop&quot;</code>.</li>
 <li>Replace Write-Error with the correct helper function (<a href="https://github.com/PowerShell/xActiveDirectory/issues/327">issue 327</a>).</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADReplicationSiteLink
-
 <ul>
 <li>Fix ADIdentityNotFoundException when creating a new site link.</li>
 <li>Code cleanup.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADReplicationSubnet
-
 <ul>
 <li>Remove <code>{ *Present* | Absent }</code> from the property schema descriptions
 which were causing corruption in the Wiki documentation.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADServicePrincipalNames
-
 <ul>
 <li>Remove <code>{ *Present* | Absent }</code> from the property schema descriptions
 which were causing corruption in the Wiki documentation.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADDomainDefaultPasswordPolicy
-
 <ul>
 <li>Code cleanup.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADForestProperties
-
 <ul>
 <li>Minor style cleanup.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADReplicationSubnet
-
 <ul>
 <li>Code cleanup.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADKDSKey
-
 <ul>
 <li>Code cleanup.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADManagedServiceAccount
-
 <ul>
 <li>Code cleanup.</li>
-</ul></li>
+</ul>
+</li>
 <li>Changes to xADServicePrincipalName
-
 <ul>
 <li>Code cleanup.</li>
-</ul></li>
+</ul>
+</li>
 </ul></div>
                       </div>
                       
@@ -4752,16 +4737,19 @@ and adds remaining Unit tests.</li>
                       <div class="tab-pane fade card border-top-0" id="nav-rn-xHyper-V" role="tabpanel" aria-labelledby="nav-rn-tab-xHyper-V">
                           <div class="card card-body border-top-0"><ul>
 <li>MSFT_xVMHyperV:
-
 <ul>
 <li>Moved localization string data to own file.</li>
 <li>Fixed code styling issues.</li>
 <li>Fixed bug where StartupMemory was not evaluated in Test-TargetResource.</li>
-<li>Redo of abandoned PRs:</li>
+<li>Redo of abandoned PRs:
+<ul>
 <li><a href="https://github.com/PowerShell/xHyper-V/pull/148">PR 148</a>, Fixes <a href="https://github.com/PowerShell/xHyper-V/issues/149">Issue 149</a>.</li>
 <li><a href="https://github.com/PowerShell/xHyper-V/pull/67">PR 67</a>, Fixes <a href="https://github.com/PowerShell/xHyper-V/issues/145">Issue 145</a>.</li>
+</ul>
+</li>
 <li>Fixed Get throws error when NetworkAdapters are not attached or missing properties.</li>
-</ul></li>
+</ul>
+</li>
 </ul></div>
                       </div>
                       
@@ -5298,10 +5286,10 @@ troubleshoot issues with the test HttpListener objects in the future.</li>
                           <div class="card card-body border-top-0"><ul>
 <li>Added dependencies on xPSDesiredStateConfiguration and xWebAdministration</li>
 <li>Renamed the resource as it was named against naming standards and resources cannot be named the same as the module.
-
 <ul>
 <li>xPhpProvision</li>
-</ul></li>
+</ul>
+</li>
 </ul></div>
                       </div>
                       
@@ -5554,19 +5542,19 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                       <div class="tab-pane fade card border-top-0" id="nav-rn-xRemoteDesktopSessionHost" role="tabpanel" aria-labelledby="nav-rn-tab-xRemoteDesktopSessionHost">
                           <div class="card card-body border-top-0"><ul>
 <li>Changes to xRDSessionDeployment
-
 <ul>
 <li>Fixed issue where an initial deployment failed due to a convert to lowercase (issue 39).</li>
 <li>Added unit tests to test Get, Test and Set results in this resource.</li>
-</ul></li>
+</ul>
+</li>
 <li>Change to xRDRemoteApp
-
 <ul>
 <li>Fixed issue where this resource ignored the CollectionName provided in the parameters (issue 41).</li>
 <li>Changed key values in schema.mof to only Alias and CollectionName, DisplayName and FilePath are not key values.</li>
 <li>Added Ensure property (Absent or Present) to enable removal of RemoteApps.</li>
 <li>Added unit tests to test Get, Test and Set results in this resource.</li>
-</ul></li>
+</ul>
+</li>
 </ul></div>
                       </div>
                       
@@ -6340,11 +6328,11 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
 <li>Added default template files .codecov.yml, .gitattributes, and .gitignore, and
 .vscode folder.</li>
 <li>Changes to xSmbShare
-
 <ul>
 <li>Added support for parameter CachingMode (<a href="https://github.com/PowerShell/xSmbShare/issues/8">issue 8</a>).
 <a href="https://github.com/MartinVokurek">Martin Vokurek (@MartinVokurek)</a></li>
-</ul></li>
+</ul>
+</li>
 </ul></div>
                       </div>
                       
@@ -6522,10 +6510,10 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                       <div class="tab-pane fade card border-top-0" id="nav-rn-xSystemSecurity" role="tabpanel" aria-labelledby="nav-rn-tab-xSystemSecurity">
                           <div class="card card-body border-top-0"><ul>
 <li>Changes to xFileSystemAccessRule
-
 <ul>
 <li>Fixed issue when cluster shared disk is not present on the server (<a href="https://github.com/PowerShell/xSystemSecurity/issues/16">issue 16</a>). <a href="https://github.com/randomnote1">Dan Reist (@randomnote1)</a></li>
-</ul></li>
+</ul>
+</li>
 </ul></div>
                       </div>
                       

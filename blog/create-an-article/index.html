@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Create an Article</title>
 
-  <meta name="generator" content="Hugo 0.59.1" />
+  <meta name="generator" content="Hugo 0.62.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -158,31 +158,47 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/guidelines/">Guidelines</a>
               <ul class="">
-            <li class=""><a href="/guidelines/markdown-files/">Markdown Files</a>
+            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
             </li>
-            <li class=""><a href="/guidelines/general/">General</a>
+            <li class=""><a href="/guidelines/contributing/">Contributing</a>
             </li>
-            <li class=""><a href="/guidelines/whitespace/">Whitespace</a>
+            <li class=""><a href="/guidelines/maintaining/">Maintaining</a>
             </li>
-            <li class=""><a href="/guidelines/functions/">Functions</a>
+            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
             </li>
-            <li class=""><a href="/guidelines/parameters/">Parameters</a>
+            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
             </li>
-            <li class=""><a href="/guidelines/variables/">Variables</a>
+            <li class=""><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
             </li>
-            <li class=""><a href="/guidelines/general-best-practices/">General Best Practices</a>
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
             </li>
-            <li class=""><a href="/guidelines/calling-functions/">Calling Functions</a>
+            <li class=""><a href="/styleguidelines/general/">General</a>
             </li>
-            <li class=""><a href="/guidelines/writing-functions/">Writing Functions</a>
+            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
             </li>
-            <li class=""><a href="/guidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            <li class=""><a href="/styleguidelines/functions/">Functions</a>
             </li>
-            <li class=""><a href="/guidelines/manifest/">Manifest</a>
+            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
             </li>
-            <li class=""><a href="/guidelines/localization/">Localization</a>
+            <li class=""><a href="/styleguidelines/variables/">Variables</a>
             </li>
-            <li class=""><a href="/guidelines/pester-tests/">Pester Tests</a>
+            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
             </li></ul>
               
             </li>
@@ -256,26 +272,22 @@ if (!doNotTrack) {
             <h2>Create an Article</h2>
             <p>Creating the md file is easy, but you might want to double check how it will
 render on the website. To do so, we recommend you to install Hugo
-(using Chocolatey it&rsquo;s just a <code>choco install hugo</code>) and test what you create.</p>
-
+(using Chocolatey it's just a <code>choco install hugo</code>) and test what you create.</p>
 <p>But when you have installed hugo, forked the <code>dsccommunity.org</code>,
 and cloned your fork locally, you can generate a post from the template,
-from the source directory:
-&gt; <code>C:\src\dsccommunity.org &gt; hugo new blog/your-title-in-lowercase.md</code>.</p>
-
+from the source directory:</p>
+<blockquote>
+<p><code>C:\src\dsccommunity.org &gt; hugo new blog/your-title-in-lowercase.md</code>.</p>
+</blockquote>
 <p>The command will use the template <code>archetypes\blog.md</code> to generate your draft
 with correct metadata.</p>
-
 <p>Before you commit, make sure you create a new branch with a distinctive name:
 <code>git checkout -b my_branch_name</code>.</p>
-
 <p>Then add your file, commit to this branch, and push to your fork:</p>
-
-<pre><code class="language-PowerShell">git add .\content\blog\your-title-in-lowercase.md
-git commit -m &quot;adding blog post draft&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">git add .\content\blog\your-title-in-lowercase.md
+git commit -m <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">adding blog post draft</span><span style="color:#e6db74">&#34;</span>
 git push -u origin my_branch_name
-</code></pre>
-
+</code></pre></div>
             <p class="post-meta border-bottom pb-3 mb-0">Updated on 08 Mar 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/" title="Blog Posts"><i class="ti-arrow-left mr-2"></i>Blog Posts</a>
             <a class="nav nav-next" href="/blog/how-to-use-dsc-logging/" title="How to Use Dsc Logging">How to Use Dsc Logging<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>

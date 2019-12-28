@@ -20,9 +20,9 @@
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
       <description>Next call will be on Wednesday, December 4th, at 12 PM PST
 How to join
-Agenda  Demo of automation and status update (continued)
- DscResource.AnalyzerRules DscResource.Test Sampler &amp;amp; AzureDevOps  DSC Community Maintainers, what should you do?
- Accept GitHub Invitation (or tell us if you did not receive it) Consider making your DSC Community membership public Use the DSC Community&amp;rsquo;s Teams for communication (discussions) Consider updating your GitHUb picture &amp;amp; Bio (we use it to display on the website) Try doing code reviews even outside of your repository.</description>
+Agenda   Demo of automation and status update (continued)
+ DscResource.AnalyzerRules DscResource.Test Sampler &amp;amp; AzureDevOps    DSC Community Maintainers, what should you do?
+ Accept GitHub Invitation (or tell us if you did not receive it) Consider making your DSC Community membership public Use the DSC Community&#39;s Teams for communication (discussions) Consider updating your GitHUb picture &amp;amp; Bio (we use it to display on the website) Try doing code reviews even outside of your repository.</description>
     </item>
     
     <item>
@@ -31,7 +31,7 @@ Agenda  Demo of automation and status update (continued)
       <pubDate>Wed, 31 Jul 2019 16:44:09 +0200</pubDate>
       
       <guid>https://dsccommunity.org/configmgt/future-of-config-mgt/</guid>
-      <description>It&amp;rsquo;s good to make sure we understand the world in which DSC evolves, so I thought of writing this post below. Unfortunately, the future is not something we can predict, so this is just a personal opinion, which I hope you&amp;rsquo;ll find useful.
+      <description>It&#39;s good to make sure we understand the world in which DSC evolves, so I thought of writing this post below. Unfortunately, the future is not something we can predict, so this is just a personal opinion, which I hope you&#39;ll find useful.
 Configuration Management evolution Some like to classify different configuration management models, but I prefer to show them as an evolution of similar principles, that happened with the evolution of technology and principles.</description>
     </item>
     
@@ -72,8 +72,9 @@ The main purpose is to handle better the increased community contributions, and 
       <pubDate>Fri, 08 Mar 2019 12:41:48 +0800</pubDate>
       
       <guid>https://dsccommunity.org/blog/create-an-article/</guid>
-      <description>Creating the md file is easy, but you might want to double check how it will render on the website. To do so, we recommend you to install Hugo (using Chocolatey it&amp;rsquo;s just a choco install hugo) and test what you create.
-But when you have installed hugo, forked the dsccommunity.org, and cloned your fork locally, you can generate a post from the template, from the source directory: &amp;gt; C:\src\dsccommunity.org &amp;gt; hugo new blog/your-title-in-lowercase.</description>
+      <description>Creating the md file is easy, but you might want to double check how it will render on the website. To do so, we recommend you to install Hugo (using Chocolatey it&#39;s just a choco install hugo) and test what you create.
+But when you have installed hugo, forked the dsccommunity.org, and cloned your fork locally, you can generate a post from the template, from the source directory:
+ C:\src\dsccommunity.org &amp;gt; hugo new blog/your-title-in-lowercase.</description>
     </item>
     
     <item>
@@ -88,12 +89,23 @@ But when you have installed hugo, forked the dsccommunity.org, and cloned your f
     </item>
     
     <item>
-      <title>Markdown Files</title>
-      <link>https://dsccommunity.org/guidelines/markdown-files/</link>
+      <title>Getting Started as a Contributor</title>
+      <link>https://dsccommunity.org/guidelines/getting-started/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/markdown-files/</guid>
-      <description>Line length not longer than 80 characters Rows longer than 80 characters should be split into multiple lines where appropriate. This helps make it easier for reviewers to make review comments and for the contributors to see where the requested changes are (without scrolling). It is also easier to see the lines in split view mode when the lines don&amp;rsquo;t wrap on the screen. It will also improve the readability when using git diff.</description>
+      <guid>https://dsccommunity.org/guidelines/getting-started/</guid>
+      <description>There are a lot of guides on the Internet that will show different aspects of what is described here, but this article will focus on a simple way to get started using the workflow we use for DSC modules and DSC resources within the DSC Community.
+ After you read through this guide, then please continue with the guide Contributor.
+ Table of Contents  Create free GitHub account Install Visual Studio Code Install Visual Studio Code PowerShell Extension Install Git Configure Git Install PowerShell Module posh-git Install GitVersion Clone repository from GitHub Forking a repository on GitHub Adding the fork as a remote in the local repository Making changes and pushing them to the fork Make changes to an existing pull request of yours Switch between local working branches Delete a branch  Create free GitHub account Create a free GitHub account by browsing to GitHub and clicking on the Sign up button.</description>
+    </item>
+    
+    <item>
+      <title>Markdown Files</title>
+      <link>https://dsccommunity.org/styleguidelines/markdown-files/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/markdown-files/</guid>
+      <description>Line length not longer than 80 characters Rows longer than 80 characters should be split into multiple lines where appropriate. This helps make it easier for reviewers to make review comments and for the contributors to see where the requested changes are (without scrolling). It is also easier to see the lines in split view mode when the lines don&#39;t wrap on the screen. It will also improve the readability when using git diff.</description>
     </item>
     
     <item>
@@ -102,9 +114,9 @@ But when you have installed hugo, forked the dsccommunity.org, and cloned your f
       <pubDate>Tue, 30 Jul 2019 11:35:49 +0200</pubDate>
       
       <guid>https://dsccommunity.org/help/what-future-for-dsc/</guid>
-      <description>Despite the few &amp;ldquo;DSC Planning Updates&amp;ldquo; written by Michael Greene (Program Manager for DSC, and DSC Community Committee member), there are still misunderstandings by the community with regards to the directions Microsoft is taking for DSC and its ecosystem.
-Here, we&amp;rsquo;ll try to explain what we understand from the DSC Community.
-Former plans &amp;amp; realignment Microsoft&amp;rsquo;s DSC Team, about a year and an half ago, was working on a new version of the LCM component of the DSC Platform.</description>
+      <description>Despite the few &amp;ldquo;DSC Planning Updates&amp;rdquo; written by Michael Greene (Program Manager for DSC, and DSC Community Committee member), there are still misunderstandings by the community with regards to the directions Microsoft is taking for DSC and its ecosystem.
+Here, we&#39;ll try to explain what we understand from the DSC Community.
+Former plans &amp;amp; realignment Microsoft&#39;s DSC Team, about a year and an half ago, was working on a new version of the LCM component of the DSC Platform.</description>
     </item>
     
     <item>
@@ -115,8 +127,7 @@ Former plans &amp;amp; realignment Microsoft&amp;rsquo;s DSC Team, about a year 
       <guid>https://dsccommunity.org/community/committee/</guid>
       <description>The following is an explanation of what the DSC Committee is attempting to help with, and how we are trying to help the community.
 Come and chat with us if you would like to discuss how we can improve and build a better community!
-Members 
-Katie is the owner of the Resource Kit at Microsoft and has steered its direction over the years. She is also an active member of the Engineering team at Microsoft looking after all things DSC as well as Azure Guest Configuration, and can bridge the communication between the new products and features leveraging DSC and the DSC Community.</description>
+Members Katie is the owner of the Resource Kit at Microsoft and has steered its direction over the years. She is also an active member of the Engineering team at Microsoft looking after all things DSC as well as Azure Guest Configuration, and can bridge the communication between the new products and features leveraging DSC and the DSC Community.</description>
     </item>
     
     <item>
@@ -130,15 +141,26 @@ Project maintainers have the right and responsibility to remove, edit, or reject
     </item>
     
     <item>
-      <title>General</title>
-      <link>https://dsccommunity.org/guidelines/general/</link>
+      <title>Contributing</title>
+      <link>https://dsccommunity.org/guidelines/contributing/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/general/</guid>
+      <guid>https://dsccommunity.org/guidelines/contributing/</guid>
+      <description>Thank you for your interest in contributing to the DSC Community.
+There are several ways you can contribute.
+ You can submit an issue to report a bug or to request an improvement. You are encourage to take part in discussions around an issue or pull request. You may review pull requests. You may send in a pull request to improve the DSC modules by adding a new DSC resource, fixing issues in existing DSC resources, improve the CI pipeline, or updating documentation around the DSC modules.</description>
+    </item>
+    
+    <item>
+      <title>General</title>
+      <link>https://dsccommunity.org/styleguidelines/general/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/general/</guid>
       <description>Correct File Encoding Make sure all files are encoded using UTF-8 (not UTF-8 with BOM), except mof files which should be encoded using ASCII. You can use ConvertTo-UTF8 and ConvertTo-ASCII to convert a file to UTF-8 or ASCII.
 Descriptive Names Use descriptive, clear, and full names for all variables, parameters, and functions. All names must be at least more than 2 characters. No abbreviations should be used.
 Bad:
-$r = Get-RdsHost  Bad:</description>
+$r = Get-RdsHostBad:</description>
     </item>
     
     <item>
@@ -160,11 +182,24 @@ $r = Get-RdsHost  Bad:</description>
     </item>
     
     <item>
-      <title>Whitespace</title>
-      <link>https://dsccommunity.org/guidelines/whitespace/</link>
+      <title>Maintaining</title>
+      <link>https://dsccommunity.org/guidelines/maintaining/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/whitespace/</guid>
+      <guid>https://dsccommunity.org/guidelines/maintaining/</guid>
+      <description>Security To be maintainer you must have 2FA enabled on accounts that give you access to DSC Community resources, for example your GitHub account and the account that access DSC Community Azure DevOps organization.
+Breaking Changes See Breaking Changes
+Review Not yet written.
+Merging code Only merge code that passes status checks, have been reviewed, and where all the review comments have be resolved and approved.
+As a maintainer you are allowed to review and merge your own code, but then only after 24 hours so the community has a chance to comment on the changes.</description>
+    </item>
+    
+    <item>
+      <title>Whitespace</title>
+      <link>https://dsccommunity.org/styleguidelines/whitespace/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/whitespace/</guid>
       <description>Indentation For all indentation, use 4 spaces instead of tabs. There should be no tab characters in the file unless they are in a here-string.
 No Trailing Whitespace After Backticks Backticks should always be directly followed by a newline
 Newline at End of File All files must end with a newline, see StackOverflow.
@@ -178,22 +213,31 @@ Newline Character Encoding Save newlines using CR+LF instead of CR. For interope
       
       <guid>https://dsccommunity.org/code_of_conduct/enforcement/</guid>
       <description>Enforcement Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at dsccommunity@outlook.com. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
-Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project&amp;rsquo;s leadership.</description>
+Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project&#39;s leadership.</description>
     </item>
     
     <item>
       <title>Functions</title>
-      <link>https://dsccommunity.org/guidelines/functions/</link>
+      <link>https://dsccommunity.org/styleguidelines/functions/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/functions/</guid>
+      <guid>https://dsccommunity.org/styleguidelines/functions/</guid>
       <description>Function Names Use Pascal Case Function names must use PascalCase. This means that each concatenated word is capitalized.
 Bad:
-function get-targetresource { # ... }  Good:
-function Get-TargetResource { # ... }  Function Names Use Verb-Noun Format All function names must follow the standard PowerShell Verb-Noun format.
+function get-targetresource{# ... }Good:
+function Get-TargetResource{# ... }Function Names Use Verb-Noun Format All function names must follow the standard PowerShell Verb-Noun format.
 Bad:
-function TargetResourceGetter { # ... }  Good:
-function Get-TargetResource { # ... }  Function Names Use Approved Verbs All function names must use approved verbs.</description>
+function TargetResourceGetter{# ... }Good:
+function Get-TargetResource{# ... }Function Names Use Approved Verbs All function names must use approved verbs.</description>
+    </item>
+    
+    <item>
+      <title>Style Guidelines</title>
+      <link>https://dsccommunity.org/guidelines/style-guidelines/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/guidelines/style-guidelines/</guid>
+      <description>The Style Guidelines can be found in its own section Style Guidelines.</description>
     </item>
     
     <item>
@@ -207,11 +251,20 @@ function Get-TargetResource { # ... }  Function Names Use Approved Verbs All fun
     
     <item>
       <title>Parameters</title>
-      <link>https://dsccommunity.org/guidelines/parameters/</link>
+      <link>https://dsccommunity.org/styleguidelines/parameters/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/parameters/</guid>
+      <guid>https://dsccommunity.org/styleguidelines/parameters/</guid>
       <description>Correct Format for Parameter Block  An empty parameter block should be displayed on its own line like this: param (). A non-empty parameter block should have the opening and closing parentheses on their own line. All text inside the parameter block should be indented once. Every parameter should include the [Parameter()] attribute, regardless of whether the attribute requires decoration or not. A parameter that is mandatory should contain this decoration: [Parameter(Mandatory = $true)].</description>
+    </item>
+    
+    <item>
+      <title>Testing Guidelines</title>
+      <link>https://dsccommunity.org/guidelines/testing-guidelines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/guidelines/testing-guidelines/</guid>
+      <description>General Rules  Tests are written using Pester. Preferably use the concept of test-driven development when writing tests. Each DSC module should contain the following Test folder structure:  tests|---Unit|---Integration The tests\Unit folder must contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.Tests.ps1. The tests\Integration folder should, whenever possible, contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.</description>
     </item>
     
     <item>
@@ -224,24 +277,35 @@ function Get-TargetResource { # ... }  Function Names Use Approved Verbs All fun
     </item>
     
     <item>
-      <title>Variables</title>
-      <link>https://dsccommunity.org/guidelines/variables/</link>
+      <title>Administration</title>
+      <link>https://dsccommunity.org/guidelines/administration/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/variables/</guid>
+      <guid>https://dsccommunity.org/guidelines/administration/</guid>
+      <description>Create GitHub repository Not written.
+Create Azure DevOps project Not written.
+Create pipeline in Azure Pipelines Not written.</description>
+    </item>
+    
+    <item>
+      <title>Variables</title>
+      <link>https://dsccommunity.org/styleguidelines/variables/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/variables/</guid>
       <description>Variable Names Use Camel Case Variable names should use camelCase.
 Bad:
-function Write-Log { $VerboseMessage = &#39;New log message&#39; Write-Verbose $VerboseMessage }  Bad:
-function Write-Log { $verbosemessage = &#39;New log message&#39; Write-Verbose $verbosemessage }  Good:
-function Write-Log { $verboseMessage = &#39;New log message&#39; Write-Verbose $verboseMessage }  Script, Environment and Global Variable Names Include Scope Script, environment, and global variables must always include their scope in the variable name unless the &amp;lsquo;using&amp;rsquo; scope is needed.</description>
+function Write-Log{$VerboseMessage = &amp;#39;New log message&amp;#39;Write-Verbose $VerboseMessage}Bad:
+function Write-Log{$verbosemessage = &amp;#39;New log message&amp;#39;Write-Verbose $verbosemessage}Good:
+function Write-Log{$verboseMessage = &amp;#39;New log message&amp;#39;Write-Verbose $verboseMessage}Script, Environment and Global Variable Names Include Scope Script, environment, and global variables must always include their scope in the variable name unless the &amp;lsquo;using&amp;rsquo; scope is needed.</description>
     </item>
     
     <item>
       <title>General Best Practices</title>
-      <link>https://dsccommunity.org/guidelines/general-best-practices/</link>
+      <link>https://dsccommunity.org/styleguidelines/general-best-practices/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/general-best-practices/</guid>
+      <guid>https://dsccommunity.org/styleguidelines/general-best-practices/</guid>
       <description>Although adopting the best practices is optional, doing so will help improve the quality of the DSC resource module.
 Note: Modules that aim to meet the High Quality Resource Module standards must also implement the best practices wherever possible.
 Avoid Using ard coded Computer Name Using hard coded computer names exposes sensitive information on your machine. Use a parameter or environment variable instead if a computer name is necessary. This comes from this PS Script Analyzer rule.</description>
@@ -249,26 +313,26 @@ Avoid Using ard coded Computer Name Using hard coded computer names exposes sens
     
     <item>
       <title>Calling Functions</title>
-      <link>https://dsccommunity.org/guidelines/calling-functions/</link>
+      <link>https://dsccommunity.org/styleguidelines/calling-functions/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/calling-functions/</guid>
+      <guid>https://dsccommunity.org/styleguidelines/calling-functions/</guid>
       <description>Avoid Cmdlet Aliases When calling a function use the full command not an alias. You can get the full command an alias represents by calling Get-Alias.
 Bad:
-ls -File $root -Recurse | ? { @(&#39;.gitignore&#39;, &#39;.mof&#39;) -contains $_.Extension }  Good:
-Get-ChildItem -File $root -Recurse | Where-Object -FilterScript { @(&#39;.gitignore&#39;, &#39;.mof&#39;) -contains $_.Extension }  Avoid Invoke-Expression Invoke-Expression is vulnerable to string injection attacks. It should not be used in any DSC resources.</description>
+ls -File $root -Recurse | ? { @(&amp;#39;.gitignore&amp;#39;, &amp;#39;.mof&amp;#39;) -contains $_.Extension }Good:
+Get-ChildItem -File $root -Recurse | Where-Object -FilterScript {@(&amp;#39;.gitignore&amp;#39;, &amp;#39;.mof&amp;#39;) -contains $_.Extension}Avoid Invoke-Expression Invoke-Expression is vulnerable to string injection attacks. It should not be used in any DSC resources.</description>
     </item>
     
     <item>
       <title>Writing Functions</title>
-      <link>https://dsccommunity.org/guidelines/writing-functions/</link>
+      <link>https://dsccommunity.org/styleguidelines/writing-functions/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/writing-functions/</guid>
+      <guid>https://dsccommunity.org/styleguidelines/writing-functions/</guid>
       <description>Avoid Default Values for Mandatory Parameters Default values for mandatory parameters will always be overwritten, thus they are never used and can cause confusion.
 Bad:
-function Get-Something { param ( [Parameter(Mandatory = $true)] [String] $Name = &#39;My Name&#39; ) ... }  Good:
-function Get-Something { param ( [Parameter(Mandatory = $true)] [String] $Name ) ... }  Avoid Default Values for Switch Parameters Switch parameters have 2 values - there or not there.</description>
+function Get-Something{param([Parameter(Mandatory = $true)][String]$Name = &amp;#39;My Name&amp;#39;)...}Good:
+function Get-Something{param([Parameter(Mandatory = $true)][String]$Name)...}Avoid Default Values for Switch Parameters Switch parameters have 2 values - there or not there.</description>
     </item>
     
     <item>
@@ -284,55 +348,55 @@ The Virtual PowerShell User Group contains more than just the #DSC channel: ther
     
     <item>
       <title>Dsc Resource Functions</title>
-      <link>https://dsccommunity.org/guidelines/dsc-resource-functions/</link>
+      <link>https://dsccommunity.org/styleguidelines/dsc-resource-functions/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/dsc-resource-functions/</guid>
+      <guid>https://dsccommunity.org/styleguidelines/dsc-resource-functions/</guid>
       <description>Return a Hashtable from Get-TargetResource Bad:
- Good:
- Return a Boolean from Test-TargetResource Bad:
- Good:
- Avoid Returning Anything From Set-TargetResource Bad:
- Good:
- Define Get-TargetResource, Set-TargetResource, and Test-TargetResource for Every DSC Resource Bad:
- Good:
- Get-TargetResource should not contain unused non-mandatory parameters The inclusion of a non-mandatory parameter that is never used could signal that there is a design flaw in the implementation of the Get-TargetResource function.</description>
+Good:
+Return a Boolean from Test-TargetResource Bad:
+Good:
+Avoid Returning Anything From Set-TargetResource Bad:
+Good:
+Define Get-TargetResource, Set-TargetResource, and Test-TargetResource for Every DSC Resource Bad:
+Good:
+Get-TargetResource should not contain unused non-mandatory parameters The inclusion of a non-mandatory parameter that is never used could signal that there is a design flaw in the implementation of the Get-TargetResource function. The non-mandatory parameters that are used to call Get-TargetResource should help to retrieve the actual values of the properties for the resource.</description>
     </item>
     
     <item>
       <title>Manifest</title>
-      <link>https://dsccommunity.org/guidelines/manifest/</link>
+      <link>https://dsccommunity.org/styleguidelines/manifest/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/manifest/</guid>
+      <guid>https://dsccommunity.org/styleguidelines/manifest/</guid>
       <description>Avoid Using Deprecated Manifest Fields Bad:
- Good:
- Ensure Manifest Contains Correct Fields Bad:
- Good:
- Do not use NestedModules to export shared commands Since we don&amp;rsquo;t use the RootModule key in the module manifest, we should not use the NestedModules key to add modules that export commands that are shared between resource modules.
-Normally, a single list in the RootModule key, can restrict what is exported using the cmdlet Export-ModuleMember.</description>
+Good:
+Ensure Manifest Contains Correct Fields Bad:
+Good:
+Do not use NestedModules to export shared commands Since we don&#39;t use the RootModule key in the module manifest, we should not use the NestedModules key to add modules that export commands that are shared between resource modules.
+Normally, a single list in the RootModule key, can restrict what is exported using the cmdlet Export-ModuleMember. Since we don&#39;t use the RootModule key we can&#39;t restrict what is exported, so every nested module will export all the commands (or all the commands restricted by Export-ModuleMember in that individual nested module).</description>
     </item>
     
     <item>
       <title>Localization</title>
-      <link>https://dsccommunity.org/guidelines/localization/</link>
+      <link>https://dsccommunity.org/styleguidelines/localization/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/localization/</guid>
+      <guid>https://dsccommunity.org/styleguidelines/localization/</guid>
       <description>In each resource folder there should be at least one localization folder for english language &amp;lsquo;en-US&amp;rsquo;. Add other localization folders as appropriate, the correct folder name can be found by running Get-UICulture on the node that has a UI culture installed that the strings are being built for. There is also the list of Available Language Packs for Windows.
-In each localization folder there should be a PowerShell data (.</description>
+In each localization folder there should be a PowerShell data (.psd1) file named &amp;lsquo;MSFT_&amp;lt;ResourceName&amp;gt;.</description>
     </item>
     
     <item>
       <title>Pester Tests</title>
-      <link>https://dsccommunity.org/guidelines/pester-tests/</link>
+      <link>https://dsccommunity.org/styleguidelines/pester-tests/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/pester-tests/</guid>
+      <guid>https://dsccommunity.org/styleguidelines/pester-tests/</guid>
       <description>Capitalized Pester Assertions Pester assertions should all start with capital letters. This makes code easier to read.
 Bad:
-it &#39;Should return something&#39; { get-targetresource @testParameters | should -be &#39;something&#39; }  Good:
-It &#39;Should return something&#39; { Get-TargetResource @testParameters | Should -Be &#39;something&#39; }  Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
+it &amp;#39;Should return something&amp;#39; {get-targetresource @testParameters | should -be &amp;#39;something&amp;#39;}Good:
+It &amp;#39;Should return something&amp;#39; {Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39;}Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&#39;t making assertions.</description>
     </item>
     
     <item>
@@ -343,8 +407,8 @@ It &#39;Should return something&#39; { Get-TargetResource @testParameters | Shou
       <guid>https://dsccommunity.org/community_calls/2019-10-23-notes/</guid>
       <description>Next call will be on Wednesday, October 23rd, at
 How to join
-Recording The recording of the community call, with the result of the DSC Survey is available on YouTube:   Notes  Quick intro of automation as introduced during last call I&amp;rsquo;ve done a video since to show the basic template automation    Shared results of DSC survey (watch the video for details)
- More maintainers for the DSC resources needed?</description>
+Recording The recording of the community call, with the result of the DSC Survey is available on YouTube:   Notes   Quick intro of automation as introduced during last call I&#39;ve done a video since to show the basic template automation     Shared results of DSC survey (watch the video for details)
+  More maintainers for the DSC resources needed?</description>
     </item>
     
     <item>
@@ -353,8 +417,8 @@ Recording The recording of the community call, with the result of the DSC Survey
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/2019-09-11-notes/</guid>
-      <description>Read the DSC Resource Kit Release September 2019 Blog post, on PowerShell&amp;rsquo;s blog.
-Resources released  ActiveDirectoryDsc ComputerManagementDsc (BREAKING CHANGE - ScheduleTask) DFSDsc (Fix to get the examples to be published) NetworkingDsc SharePointDsc (might not be released) StorageDsc WmiNamespaceSecurityDsc (former WmiNamespaceSecurity) xDnsServer xFailOverCluster xHyper-V xPSDesiredStateConfiguration xRemoteDesktopSessionHost xSCSMA xWebAdministration  Deprecated  xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet) xPendingReboot (moved to ComputerManagementDsc)  Should leaving unsupported OS be treated as breaking change No, it&amp;rsquo;s not a breaking change but it should be clearly noted in release notes when conscious decision is made.</description>
+      <description>Read the DSC Resource Kit Release September 2019 Blog post, on PowerShell&#39;s blog.
+Resources released  ActiveDirectoryDsc ComputerManagementDsc (BREAKING CHANGE - ScheduleTask) DFSDsc (Fix to get the examples to be published) NetworkingDsc SharePointDsc (might not be released) StorageDsc WmiNamespaceSecurityDsc (former WmiNamespaceSecurity) xDnsServer xFailOverCluster xHyper-V xPSDesiredStateConfiguration xRemoteDesktopSessionHost xSCSMA xWebAdministration  Deprecated  xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet) xPendingReboot (moved to ComputerManagementDsc)  Should leaving unsupported OS be treated as breaking change No, it&#39;s not a breaking change but it should be clearly noted in release notes when conscious decision is made.</description>
     </item>
     
     <item>
@@ -377,7 +441,10 @@ DSC Community Committee Read more about it here https://dsccommunity.</descripti
       
       <guid>https://dsccommunity.org/community_calls/2019-06-19-notes/</guid>
       <description>Resources to be released There are 7 modules on track for release on Wednesday June 26:
- CertificateDsc NetworkingDsc PSDscResources SharePointDsc SqlServerDsc (BREAKING CHANGE) xActiveDirectory xDnsServer  Discussions  Topics or questions from the community (welcome at any point during the call) Ben Gelens not able to maintain xHyper-V anymore DSC Community Logo Waffle board has closed, Migrated to GitHub board, but not great Talk to us on PoshCode slack: the #dsc channel in either Slack or Discord.</description>
+ CertificateDsc NetworkingDsc PSDscResources SharePointDsc SqlServerDsc (BREAKING CHANGE) xActiveDirectory xDnsServer  Discussions   Topics or questions from the community (welcome at any point during the call)
+  Ben Gelens not able to maintain xHyper-V anymore
+  DSC Community Logo
+  Waffle board has closed, Migrated to GitHub board, but not great</description>
     </item>
     
     <item>
@@ -386,7 +453,7 @@ DSC Community Committee Read more about it here https://dsccommunity.</descripti
       <pubDate>Sun, 28 Jul 2019 23:35:30 +0200</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/2019-05-08-notes/</guid>
-      <description>Resources to be released  TBC  Discussions  Topics or questions from the community (welcome at any point during the call) Celebrating new maintainers:  Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Jason Patton &amp;ndash;&amp;gt; xDnsServer Nehru Ali &amp;ndash;&amp;gt; xPendingReboot Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc) Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox  Waffle board will be closing, still looking into a replacement Moving off gitter to PoshCode slack: the #dsc channel in either Slack or Discord.</description>
+      <description>Resources to be released  TBC  Discussions  Topics or questions from the community (welcome at any point during the call) Celebrating new maintainers:  Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Jason Patton &amp;ndash;&amp;gt; xDnsServer Nehru Ali &amp;ndash;&amp;gt; xPendingReboot Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc) Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox   Waffle board will be closing, still looking into a replacement Moving off gitter to PoshCode slack: the #dsc channel in either Slack or Discord.</description>
     </item>
     
     <item>

@@ -13,161 +13,67 @@
     
     
     <item>
-      <title>Markdown Files</title>
-      <link>https://dsccommunity.org/guidelines/markdown-files/</link>
+      <title>Getting Started as a Contributor</title>
+      <link>https://dsccommunity.org/guidelines/getting-started/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/markdown-files/</guid>
-      <description>Line length not longer than 80 characters Rows longer than 80 characters should be split into multiple lines where appropriate. This helps make it easier for reviewers to make review comments and for the contributors to see where the requested changes are (without scrolling). It is also easier to see the lines in split view mode when the lines don&amp;rsquo;t wrap on the screen. It will also improve the readability when using git diff.</description>
+      <guid>https://dsccommunity.org/guidelines/getting-started/</guid>
+      <description>There are a lot of guides on the Internet that will show different aspects of what is described here, but this article will focus on a simple way to get started using the workflow we use for DSC modules and DSC resources within the DSC Community.
+ After you read through this guide, then please continue with the guide Contributor.
+ Table of Contents  Create free GitHub account Install Visual Studio Code Install Visual Studio Code PowerShell Extension Install Git Configure Git Install PowerShell Module posh-git Install GitVersion Clone repository from GitHub Forking a repository on GitHub Adding the fork as a remote in the local repository Making changes and pushing them to the fork Make changes to an existing pull request of yours Switch between local working branches Delete a branch  Create free GitHub account Create a free GitHub account by browsing to GitHub and clicking on the Sign up button.</description>
     </item>
     
     <item>
-      <title>General</title>
-      <link>https://dsccommunity.org/guidelines/general/</link>
+      <title>Contributing</title>
+      <link>https://dsccommunity.org/guidelines/contributing/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/general/</guid>
-      <description>Correct File Encoding Make sure all files are encoded using UTF-8 (not UTF-8 with BOM), except mof files which should be encoded using ASCII. You can use ConvertTo-UTF8 and ConvertTo-ASCII to convert a file to UTF-8 or ASCII.
-Descriptive Names Use descriptive, clear, and full names for all variables, parameters, and functions. All names must be at least more than 2 characters. No abbreviations should be used.
-Bad:
-$r = Get-RdsHost  Bad:</description>
+      <guid>https://dsccommunity.org/guidelines/contributing/</guid>
+      <description>Thank you for your interest in contributing to the DSC Community.
+There are several ways you can contribute.
+ You can submit an issue to report a bug or to request an improvement. You are encourage to take part in discussions around an issue or pull request. You may review pull requests. You may send in a pull request to improve the DSC modules by adding a new DSC resource, fixing issues in existing DSC resources, improve the CI pipeline, or updating documentation around the DSC modules.</description>
     </item>
     
     <item>
-      <title>Whitespace</title>
-      <link>https://dsccommunity.org/guidelines/whitespace/</link>
+      <title>Maintaining</title>
+      <link>https://dsccommunity.org/guidelines/maintaining/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/whitespace/</guid>
-      <description>Indentation For all indentation, use 4 spaces instead of tabs. There should be no tab characters in the file unless they are in a here-string.
-No Trailing Whitespace After Backticks Backticks should always be directly followed by a newline
-Newline at End of File All files must end with a newline, see StackOverflow.
-Newline Character Encoding Save newlines using CR+LF instead of CR. For interoperability reasons, we recommend that you follow these instructions when installing Git on Windows so that newlines saved to GitHub are simply CRs.</description>
+      <guid>https://dsccommunity.org/guidelines/maintaining/</guid>
+      <description>Security To be maintainer you must have 2FA enabled on accounts that give you access to DSC Community resources, for example your GitHub account and the account that access DSC Community Azure DevOps organization.
+Breaking Changes See Breaking Changes
+Review Not yet written.
+Merging code Only merge code that passes status checks, have been reviewed, and where all the review comments have be resolved and approved.
+As a maintainer you are allowed to review and merge your own code, but then only after 24 hours so the community has a chance to comment on the changes.</description>
     </item>
     
     <item>
-      <title>Functions</title>
-      <link>https://dsccommunity.org/guidelines/functions/</link>
+      <title>Style Guidelines</title>
+      <link>https://dsccommunity.org/guidelines/style-guidelines/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/functions/</guid>
-      <description>Function Names Use Pascal Case Function names must use PascalCase. This means that each concatenated word is capitalized.
-Bad:
-function get-targetresource { # ... }  Good:
-function Get-TargetResource { # ... }  Function Names Use Verb-Noun Format All function names must follow the standard PowerShell Verb-Noun format.
-Bad:
-function TargetResourceGetter { # ... }  Good:
-function Get-TargetResource { # ... }  Function Names Use Approved Verbs All function names must use approved verbs.</description>
+      <guid>https://dsccommunity.org/guidelines/style-guidelines/</guid>
+      <description>The Style Guidelines can be found in its own section Style Guidelines.</description>
     </item>
     
     <item>
-      <title>Parameters</title>
-      <link>https://dsccommunity.org/guidelines/parameters/</link>
-      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      <title>Testing Guidelines</title>
+      <link>https://dsccommunity.org/guidelines/testing-guidelines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/parameters/</guid>
-      <description>Correct Format for Parameter Block  An empty parameter block should be displayed on its own line like this: param (). A non-empty parameter block should have the opening and closing parentheses on their own line. All text inside the parameter block should be indented once. Every parameter should include the [Parameter()] attribute, regardless of whether the attribute requires decoration or not. A parameter that is mandatory should contain this decoration: [Parameter(Mandatory = $true)].</description>
+      <guid>https://dsccommunity.org/guidelines/testing-guidelines/</guid>
+      <description>General Rules  Tests are written using Pester. Preferably use the concept of test-driven development when writing tests. Each DSC module should contain the following Test folder structure:  tests|---Unit|---Integration The tests\Unit folder must contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.Tests.ps1. The tests\Integration folder should, whenever possible, contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.</description>
     </item>
     
     <item>
-      <title>Variables</title>
-      <link>https://dsccommunity.org/guidelines/variables/</link>
+      <title>Administration</title>
+      <link>https://dsccommunity.org/guidelines/administration/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
-      <guid>https://dsccommunity.org/guidelines/variables/</guid>
-      <description>Variable Names Use Camel Case Variable names should use camelCase.
-Bad:
-function Write-Log { $VerboseMessage = &#39;New log message&#39; Write-Verbose $VerboseMessage }  Bad:
-function Write-Log { $verbosemessage = &#39;New log message&#39; Write-Verbose $verbosemessage }  Good:
-function Write-Log { $verboseMessage = &#39;New log message&#39; Write-Verbose $verboseMessage }  Script, Environment and Global Variable Names Include Scope Script, environment, and global variables must always include their scope in the variable name unless the &amp;lsquo;using&amp;rsquo; scope is needed.</description>
-    </item>
-    
-    <item>
-      <title>General Best Practices</title>
-      <link>https://dsccommunity.org/guidelines/general-best-practices/</link>
-      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/guidelines/general-best-practices/</guid>
-      <description>Although adopting the best practices is optional, doing so will help improve the quality of the DSC resource module.
-Note: Modules that aim to meet the High Quality Resource Module standards must also implement the best practices wherever possible.
-Avoid Using ard coded Computer Name Using hard coded computer names exposes sensitive information on your machine. Use a parameter or environment variable instead if a computer name is necessary. This comes from this PS Script Analyzer rule.</description>
-    </item>
-    
-    <item>
-      <title>Calling Functions</title>
-      <link>https://dsccommunity.org/guidelines/calling-functions/</link>
-      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/guidelines/calling-functions/</guid>
-      <description>Avoid Cmdlet Aliases When calling a function use the full command not an alias. You can get the full command an alias represents by calling Get-Alias.
-Bad:
-ls -File $root -Recurse | ? { @(&#39;.gitignore&#39;, &#39;.mof&#39;) -contains $_.Extension }  Good:
-Get-ChildItem -File $root -Recurse | Where-Object -FilterScript { @(&#39;.gitignore&#39;, &#39;.mof&#39;) -contains $_.Extension }  Avoid Invoke-Expression Invoke-Expression is vulnerable to string injection attacks. It should not be used in any DSC resources.</description>
-    </item>
-    
-    <item>
-      <title>Writing Functions</title>
-      <link>https://dsccommunity.org/guidelines/writing-functions/</link>
-      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/guidelines/writing-functions/</guid>
-      <description>Avoid Default Values for Mandatory Parameters Default values for mandatory parameters will always be overwritten, thus they are never used and can cause confusion.
-Bad:
-function Get-Something { param ( [Parameter(Mandatory = $true)] [String] $Name = &#39;My Name&#39; ) ... }  Good:
-function Get-Something { param ( [Parameter(Mandatory = $true)] [String] $Name ) ... }  Avoid Default Values for Switch Parameters Switch parameters have 2 values - there or not there.</description>
-    </item>
-    
-    <item>
-      <title>Dsc Resource Functions</title>
-      <link>https://dsccommunity.org/guidelines/dsc-resource-functions/</link>
-      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/guidelines/dsc-resource-functions/</guid>
-      <description>Return a Hashtable from Get-TargetResource Bad:
- Good:
- Return a Boolean from Test-TargetResource Bad:
- Good:
- Avoid Returning Anything From Set-TargetResource Bad:
- Good:
- Define Get-TargetResource, Set-TargetResource, and Test-TargetResource for Every DSC Resource Bad:
- Good:
- Get-TargetResource should not contain unused non-mandatory parameters The inclusion of a non-mandatory parameter that is never used could signal that there is a design flaw in the implementation of the Get-TargetResource function.</description>
-    </item>
-    
-    <item>
-      <title>Manifest</title>
-      <link>https://dsccommunity.org/guidelines/manifest/</link>
-      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/guidelines/manifest/</guid>
-      <description>Avoid Using Deprecated Manifest Fields Bad:
- Good:
- Ensure Manifest Contains Correct Fields Bad:
- Good:
- Do not use NestedModules to export shared commands Since we don&amp;rsquo;t use the RootModule key in the module manifest, we should not use the NestedModules key to add modules that export commands that are shared between resource modules.
-Normally, a single list in the RootModule key, can restrict what is exported using the cmdlet Export-ModuleMember.</description>
-    </item>
-    
-    <item>
-      <title>Localization</title>
-      <link>https://dsccommunity.org/guidelines/localization/</link>
-      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/guidelines/localization/</guid>
-      <description>In each resource folder there should be at least one localization folder for english language &amp;lsquo;en-US&amp;rsquo;. Add other localization folders as appropriate, the correct folder name can be found by running Get-UICulture on the node that has a UI culture installed that the strings are being built for. There is also the list of Available Language Packs for Windows.
-In each localization folder there should be a PowerShell data (.</description>
-    </item>
-    
-    <item>
-      <title>Pester Tests</title>
-      <link>https://dsccommunity.org/guidelines/pester-tests/</link>
-      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/guidelines/pester-tests/</guid>
-      <description>Capitalized Pester Assertions Pester assertions should all start with capital letters. This makes code easier to read.
-Bad:
-it &#39;Should return something&#39; { get-targetresource @testParameters | should -be &#39;something&#39; }  Good:
-It &#39;Should return something&#39; { Get-TargetResource @testParameters | Should -Be &#39;something&#39; }  Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
+      <guid>https://dsccommunity.org/guidelines/administration/</guid>
+      <description>Create GitHub repository Not written.
+Create Azure DevOps project Not written.
+Create pipeline in Azure Pipelines Not written.</description>
     </item>
     
   </channel>

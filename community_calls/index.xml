@@ -20,9 +20,9 @@
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
       <description>Next call will be on Wednesday, December 4th, at 12 PM PST
 How to join
-Agenda  Demo of automation and status update (continued)
- DscResource.AnalyzerRules DscResource.Test Sampler &amp;amp; AzureDevOps  DSC Community Maintainers, what should you do?
- Accept GitHub Invitation (or tell us if you did not receive it) Consider making your DSC Community membership public Use the DSC Community&amp;rsquo;s Teams for communication (discussions) Consider updating your GitHUb picture &amp;amp; Bio (we use it to display on the website) Try doing code reviews even outside of your repository.</description>
+Agenda   Demo of automation and status update (continued)
+ DscResource.AnalyzerRules DscResource.Test Sampler &amp;amp; AzureDevOps    DSC Community Maintainers, what should you do?
+ Accept GitHub Invitation (or tell us if you did not receive it) Consider making your DSC Community membership public Use the DSC Community&#39;s Teams for communication (discussions) Consider updating your GitHUb picture &amp;amp; Bio (we use it to display on the website) Try doing code reviews even outside of your repository.</description>
     </item>
     
     <item>
@@ -33,8 +33,8 @@ Agenda  Demo of automation and status update (continued)
       <guid>https://dsccommunity.org/community_calls/2019-10-23-notes/</guid>
       <description>Next call will be on Wednesday, October 23rd, at
 How to join
-Recording The recording of the community call, with the result of the DSC Survey is available on YouTube:   Notes  Quick intro of automation as introduced during last call I&amp;rsquo;ve done a video since to show the basic template automation    Shared results of DSC survey (watch the video for details)
- More maintainers for the DSC resources needed?</description>
+Recording The recording of the community call, with the result of the DSC Survey is available on YouTube:   Notes   Quick intro of automation as introduced during last call I&#39;ve done a video since to show the basic template automation     Shared results of DSC survey (watch the video for details)
+  More maintainers for the DSC resources needed?</description>
     </item>
     
     <item>
@@ -43,8 +43,8 @@ Recording The recording of the community call, with the result of the DSC Survey
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/2019-09-11-notes/</guid>
-      <description>Read the DSC Resource Kit Release September 2019 Blog post, on PowerShell&amp;rsquo;s blog.
-Resources released  ActiveDirectoryDsc ComputerManagementDsc (BREAKING CHANGE - ScheduleTask) DFSDsc (Fix to get the examples to be published) NetworkingDsc SharePointDsc (might not be released) StorageDsc WmiNamespaceSecurityDsc (former WmiNamespaceSecurity) xDnsServer xFailOverCluster xHyper-V xPSDesiredStateConfiguration xRemoteDesktopSessionHost xSCSMA xWebAdministration  Deprecated  xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet) xPendingReboot (moved to ComputerManagementDsc)  Should leaving unsupported OS be treated as breaking change No, it&amp;rsquo;s not a breaking change but it should be clearly noted in release notes when conscious decision is made.</description>
+      <description>Read the DSC Resource Kit Release September 2019 Blog post, on PowerShell&#39;s blog.
+Resources released  ActiveDirectoryDsc ComputerManagementDsc (BREAKING CHANGE - ScheduleTask) DFSDsc (Fix to get the examples to be published) NetworkingDsc SharePointDsc (might not be released) StorageDsc WmiNamespaceSecurityDsc (former WmiNamespaceSecurity) xDnsServer xFailOverCluster xHyper-V xPSDesiredStateConfiguration xRemoteDesktopSessionHost xSCSMA xWebAdministration  Deprecated  xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet) xPendingReboot (moved to ComputerManagementDsc)  Should leaving unsupported OS be treated as breaking change No, it&#39;s not a breaking change but it should be clearly noted in release notes when conscious decision is made.</description>
     </item>
     
     <item>
@@ -67,7 +67,10 @@ DSC Community Committee Read more about it here https://dsccommunity.</descripti
       
       <guid>https://dsccommunity.org/community_calls/2019-06-19-notes/</guid>
       <description>Resources to be released There are 7 modules on track for release on Wednesday June 26:
- CertificateDsc NetworkingDsc PSDscResources SharePointDsc SqlServerDsc (BREAKING CHANGE) xActiveDirectory xDnsServer  Discussions  Topics or questions from the community (welcome at any point during the call) Ben Gelens not able to maintain xHyper-V anymore DSC Community Logo Waffle board has closed, Migrated to GitHub board, but not great Talk to us on PoshCode slack: the #dsc channel in either Slack or Discord.</description>
+ CertificateDsc NetworkingDsc PSDscResources SharePointDsc SqlServerDsc (BREAKING CHANGE) xActiveDirectory xDnsServer  Discussions   Topics or questions from the community (welcome at any point during the call)
+  Ben Gelens not able to maintain xHyper-V anymore
+  DSC Community Logo
+  Waffle board has closed, Migrated to GitHub board, but not great</description>
     </item>
     
     <item>
@@ -76,7 +79,7 @@ DSC Community Committee Read more about it here https://dsccommunity.</descripti
       <pubDate>Sun, 28 Jul 2019 23:35:30 +0200</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/2019-05-08-notes/</guid>
-      <description>Resources to be released  TBC  Discussions  Topics or questions from the community (welcome at any point during the call) Celebrating new maintainers:  Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Jason Patton &amp;ndash;&amp;gt; xDnsServer Nehru Ali &amp;ndash;&amp;gt; xPendingReboot Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc) Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox  Waffle board will be closing, still looking into a replacement Moving off gitter to PoshCode slack: the #dsc channel in either Slack or Discord.</description>
+      <description>Resources to be released  TBC  Discussions  Topics or questions from the community (welcome at any point during the call) Celebrating new maintainers:  Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Jason Patton &amp;ndash;&amp;gt; xDnsServer Nehru Ali &amp;ndash;&amp;gt; xPendingReboot Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc) Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox   Waffle board will be closing, still looking into a replacement Moving off gitter to PoshCode slack: the #dsc channel in either Slack or Discord.</description>
     </item>
     
   </channel>

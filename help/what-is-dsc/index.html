@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>What is Desired State Configuration</title>
 
-  <meta name="generator" content="Hugo 0.59.1" />
+  <meta name="generator" content="Hugo 0.62.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -158,31 +158,47 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/guidelines/">Guidelines</a>
               <ul class="">
-            <li class=""><a href="/guidelines/markdown-files/">Markdown Files</a>
+            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
             </li>
-            <li class=""><a href="/guidelines/general/">General</a>
+            <li class=""><a href="/guidelines/contributing/">Contributing</a>
             </li>
-            <li class=""><a href="/guidelines/whitespace/">Whitespace</a>
+            <li class=""><a href="/guidelines/maintaining/">Maintaining</a>
             </li>
-            <li class=""><a href="/guidelines/functions/">Functions</a>
+            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
             </li>
-            <li class=""><a href="/guidelines/parameters/">Parameters</a>
+            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
             </li>
-            <li class=""><a href="/guidelines/variables/">Variables</a>
+            <li class=""><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
             </li>
-            <li class=""><a href="/guidelines/general-best-practices/">General Best Practices</a>
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
             </li>
-            <li class=""><a href="/guidelines/calling-functions/">Calling Functions</a>
+            <li class=""><a href="/styleguidelines/general/">General</a>
             </li>
-            <li class=""><a href="/guidelines/writing-functions/">Writing Functions</a>
+            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
             </li>
-            <li class=""><a href="/guidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            <li class=""><a href="/styleguidelines/functions/">Functions</a>
             </li>
-            <li class=""><a href="/guidelines/manifest/">Manifest</a>
+            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
             </li>
-            <li class=""><a href="/guidelines/localization/">Localization</a>
+            <li class=""><a href="/styleguidelines/variables/">Variables</a>
             </li>
-            <li class=""><a href="/guidelines/pester-tests/">Pester Tests</a>
+            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
             </li></ul>
               
             </li>
@@ -254,13 +270,9 @@ if (!doNotTrack) {
       <div class="col-lg-9">
         <div class="p-5 bg-white">
             <h2>What is Desired State Configuration</h2>
-            
-
-<p>As per <a href="https://docs.microsoft.com/en-us/powershell/dsc/overview/overview">the official documentation</a>,
- Desired State Configuration (DSC) is a management platform in PowerShell.</p>
-
+            <p>As per <a href="https://docs.microsoft.com/en-us/powershell/dsc/overview/overview">the official documentation</a>,
+Desired State Configuration (DSC) is a management platform in PowerShell.</p>
 <p>It is built around different components:</p>
-
 <ul>
 <li><strong>DSC DSL</strong>: The <strong>Domain Specific Language</strong> of DSC with the <code>Configuration</code> keyword.</li>
 <li><strong>DSC LCM</strong>: The <strong>Local Configuration Manager (LCM)</strong>, that can be seen as the
@@ -270,60 +282,47 @@ idempotent interface to imperative code configuring resources.</li>
 <li><strong>DSC Pull Server</strong>: External component implementing the <a href="https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-dscpm/ea744c01-51a2-4000-9ef2-312711dcc8c9">MS-DSCPM protocol</a>
 to register nodes, offer configuration, gather reporting from the LCM</li>
 </ul>
-
 <p>The <strong>DSL</strong> is what allows us to use the Declarative Syntax within PowerShell
 to define the configuration policy of your systems, and compiles (or serialize)
 into MOF Documents.
 The <strong>LCM</strong> is the agent what enacts those MOF documents, whether on demand or
 periodically when using the Pull model.</p>
-
 <p>The <strong>pull server</strong> is a glorified File server that implements the MS-DSCPM protocol
 to talk to the LCM. The <strong>Report server</strong> is a data collector aggregating the
 results of each DSC runs in its database.</p>
-
 <p>The <strong>DSC resources</strong> are some sorts of interfaces enabling idempotent
 characteristics to scripts configuring atomic resources, or a composition
 of different resources. The most populars are written for the Windows LCM
 supporting PowerShell 5.1, but some exists for Linux and can be written in Python
 or pretty much any language.</p>
-
 <h2 id="what-is-it-used-for">What is it used for</h2>
-
 <p>DSC is a platform enabling <strong>idempotent</strong> and <strong>declarative</strong> configuration,
 that helps managing complexity of an infrastructure when
 used within a <a href="https://aka.ms/TRPM"><strong>Release Pipeline</strong></a>.</p>
-
 <p>It is best used for <strong>Policy-Driven infrastructure</strong>, where version-controlled
 <strong>documents</strong> describing the unique source of human intent, drive and deliver
 the configuration of the infrastructure components, automatically.</p>
-
-<p>In essence, it&rsquo;s <a href="https://devopscollective.org/maybe-infrastructure-as-code-isnt-the-right-way/">Infrastructure <em>from</em> code</a>,
+<p>In essence, it's <a href="https://devopscollective.org/maybe-infrastructure-as-code-isnt-the-right-way/">Infrastructure <em>from</em> code</a>,
 whatever the code is, including YAML, and whatever the automation is in the
 pipeline, including Chef, Puppet, a DIY DSC solution or
 other Configuration Management solutions.</p>
-
 <p>It is those concepts—and many more—that the industry often refer to when
 talking about <strong>Infrastructure As Code</strong> (and
 <a href="https://info.thoughtworks.com/Infrastructure-as-Code-Kief-Morris.html">the book from Kief Morris is a great read</a>).</p>
-
 <h2 id="platform-not-solution">Platform not solution</h2>
-
 <p>Since its apparition with Windows 2012 R2, DSC has been announced as a platform
 not a solution, but what does that mean?</p>
-
 <p>DSC was created to provide the bricks you need to help create
 Infrastructure as Code solutions for Windows, based on
 PowerShell (and later, cross platform, and with other languages).
-It&rsquo;s aimed at you, individuals and organizations building a Do-it-yourself
+It's aimed at you, individuals and organizations building a Do-it-yourself
 solution, or other solutions to integrate and tap into the PowerShell and
 DSC community and ecosystem.</p>
-
-<p>The solutions, such as Microsoft&rsquo;s Azure Automation DSC now Azure State
+<p>The solutions, such as Microsoft's Azure Automation DSC now Azure State
 Configuration, can leverage any and all of those components, and enhance them.
 Others, like Puppet or Chef, might only integrate the resources
 and execute them from their agent.</p>
-
-<p>So when you look solely at DSC and documentation, you&rsquo;ll see many missing bits
+<p>So when you look solely at DSC and documentation, you'll see many missing bits
 and pieces you would expect if you think about turn-key solutions: Visualization,
 Reporting, certificate management, Configuration Data management&hellip;
 Some of those have been solved by the community, or are available in those solutions.</p>

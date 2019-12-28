@@ -1,0 +1,539 @@
+<head>
+  <meta charset="utf-8">
+  <title>Maintaining</title>
+
+  <meta name="generator" content="Hugo 0.62.0" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144465379-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/themify-icons/themify-icons.css">
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/highlight/hybrid.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+
+  <style>
+  :root{
+    --primary-color:#003366;
+    --secondary-color:#f9f9f9;
+    --text-color:#242738;
+    --text-color-dark:#000;
+    --white-color:#ffffff;
+  }
+  </style>
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://dsccommunity.org/css/style.min.css" integrity="" media="screen">
+
+  <!-- jquiry -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-1.12.4.js"></script>
+
+  <!-- jquary ui -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-ui.js"></script>
+
+  <!--Favicon-->
+  <link rel="icon" href="https://dsccommunity.org/images/favicon.png" type="image/x-icon">
+
+</head>
+
+<!-- navigation -->
+<header class="shadow-bottom sticky-top bg-white">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="https://dsccommunity.org/">DSC Community and Resource Kit</a>
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse text-center" id="navigation">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="https://dsccommunity.org/">Home</a>
+      </li>
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/code_of_conduct">Code of Conduct</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/community_calls">Community Calls</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/faq">Faq</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/help">help</a>
+      </li>
+      
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" >
+          
+          <a class="dropdown-item" href="/community">Community</a>
+          
+          <a class="dropdown-item" href="/resources">Resource Modules</a>
+          
+          <a class="dropdown-item" href="/guidelines">Guidelines</a>
+          
+          <a class="dropdown-item" href="/blog">Blog Posts</a>
+          
+          <a class="dropdown-item" href="/configmgt">Config. Management</a>
+          
+        </div>
+      </li>
+      
+      
+    </ul>
+    
+    <ul class="list-inline text-center mb-0">
+      
+    </ul>
+  </div>
+</nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<section class="single pt-5 bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="p-4 bg-white sticky-top top-100">
+            
+            <nav class="sidebar-menu">
+              <ul class="list-styled">
+            <li class=""><a href="/community/">Community</a>
+              <ul class="">
+            <li class=""><a href="/community/origin-story/">Origin Story</a>
+            </li>
+            <li class=""><a href="/community/ownership/">Ownership of DSC Resources</a>
+            </li>
+            <li class=""><a href="/community/committee/">DSC Community Committee</a>
+            </li>
+            <li class=""><a href="/community/maintainers/">Maintainers</a>
+            </li>
+            <li class=""><a href="/community/contact/">Join the Conversation</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/resources/">Resource Modules</a>
+            </li>
+            <li class="parent d-block "><a href="/guidelines/">Guidelines</a>
+              <ul class="sub-menu">
+            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
+            </li>
+            <li class=""><a href="/guidelines/contributing/">Contributing</a>
+            </li>
+            <li class=" active "><a href="/guidelines/maintaining/">Maintaining</a>
+            </li>
+            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general/">General</a>
+            </li>
+            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
+            </li>
+            <li class=""><a href="/styleguidelines/functions/">Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
+            </li>
+            <li class=""><a href="/styleguidelines/variables/">Variables</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/blog/">Blog Posts</a>
+              <ul class="">
+            <li class=""><a href="/blog/create-an-article/">Create an Article</a>
+            </li>
+            <li class=""><a href="/blog/how-to-use-dsc-logging/">How to Use Dsc Logging</a>
+            </li>
+            <li class=""><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
+            <li class=""><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/community_calls/">Community Calls</a>
+              <ul class="">
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2019-12-04</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/code_of_conduct/">Code of Conduct</a>
+              <ul class="">
+            <li class=""><a href="/code_of_conduct/standards/">Our Standards</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/scope/">Scope</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/enforcement/">Enforcement</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/common_questions/">Common Questions</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/attribution/">Attribution</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/help/">Help</a>
+              <ul class="">
+            <li class=""><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
+            </li>
+            <li class=""><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/contributors/">Elements</a>
+            </li>
+            <li class=""><a href="/faq/">Frequently Asked Questions</a>
+            </li></ul>
+            </nav>
+
+            
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-5 bg-white">
+            <h2>Maintaining</h2>
+            <h3 id="security">Security</h3>
+<p>To be maintainer you must have 2FA enabled on accounts that give you
+access to DSC Community resources, for example your GitHub account and
+the account that access DSC Community Azure DevOps organization.</p>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<p>See <a href="/guidelines/contributing#breaking-changes">Breaking Changes</a></p>
+<h3 id="review">Review</h3>
+<p>Not yet written.</p>
+<h3 id="merging-code">Merging code</h3>
+<p>Only merge code that passes status checks, have been reviewed, and where
+all the review comments have be resolved and approved.</p>
+<p>As a maintainer you are allowed to review and merge your own code, but
+then only after 24 hours so the community has a chance to comment on
+the changes.</p>
+<h3 id="prerelease">Prerelease</h3>
+<p>Not written.</p>
+<h3 id="release">Release</h3>
+<p>Not written.</p>
+<h3 id="labels">Labels</h3>
+<p>Labels are used in the issue and pull request workflows to show the
+current state.</p>
+<p>These are the labels currently used by the resource modules in DSC Community
+Kit. Some of these labels are meant to be used with future automation.</p>
+<blockquote>
+<p>The script
+<a href="https://gist.github.com/johlju/f83f99787029a6b5d65cfd6844cf9449">DscResourceKit-Labels</a>
+that is provided by the community can be used to update the labels in a
+repository.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Description</th>
+<th>Color Hex</th>
+<th>Area of usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abandoned</td>
+<td>The pull request has been abandoned.</td>
+<td>#ffffff White</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>blocking release</td>
+<td>The issue or pull request is blocking the next release. Higher priority than label &lsquo;High priority&rsquo;.</td>
+<td>#800000 Dark red</td>
+<td>Issue, PR</td>
+</tr>
+<tr>
+<td>breaking change</td>
+<td>When used on an issue, the issue has been found to be a breaking change.</td>
+<td>#ff9900 Orange</td>
+<td>Issue, PR</td>
+</tr>
+<tr>
+<td>bug</td>
+<td>The issue is a bug.</td>
+<td>#ee0701 Red</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>by design</td>
+<td>The issue is describing an expect behavior.</td>
+<td>#ffffff White</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>closed by author</td>
+<td>The issue or pull request was closed by the author.</td>
+<td>#ffffff White</td>
+<td>Issue, PR</td>
+</tr>
+<tr>
+<td>discussion</td>
+<td>The issue is a discussion.</td>
+<td>#993399 Purple</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>documentation</td>
+<td>The issue is related to documentation only.</td>
+<td>#c5def5 Lighter blue</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>duplicate</td>
+<td>The issue or PR is the duplicate of another.</td>
+<td>#ffffff White</td>
+<td>Issue, PR</td>
+</tr>
+<tr>
+<td>good first issue</td>
+<td>The issue should be easier to fix and can be taken up by a beginner to learn to contribute on GitHub</td>
+<td>#5319e7 Purple</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>enhancement</td>
+<td>The issue is an enhancement request.</td>
+<td>#84b6eb Light blue</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>external</td>
+<td>The issue cannot be resolved within the DSC Resource Kit.</td>
+<td>#ffffff White</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>help wanted</td>
+<td>The issue is up for grabs for anyone in the community.</td>
+<td>#128A0C Green</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>high priority</td>
+<td>The issue or PR should be resolved first. It is of less priority than the label &lsquo;Blocking Release&rsquo;.</td>
+<td>#ffcc99 Light orange</td>
+<td>Issue, PR</td>
+</tr>
+<tr>
+<td>in progress</td>
+<td>The issue is being actively worked on by someone.</td>
+<td>#99ffcc Turquoise</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>needs investigation</td>
+<td>The issue needs to be investigated by the maintainers or/and the community.</td>
+<td>#ffff99 Yellow</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>needs more information</td>
+<td>The issue needs more information from the author or the community.</td>
+<td>#ffff99 Yellow</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>needs review</td>
+<td>The pull request needs a code review.</td>
+<td>#99ff33 Lime green</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>new module submission</td>
+<td>A request that the community evaluate a resource module for submission into the DSC Resource Kit.</td>
+<td>#207de5 Dark blue</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>not fixed</td>
+<td>The issue was closed without being fixed.</td>
+<td>#ffffff White</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>on hold</td>
+<td>The issue or pull request has been put on hold by a maintainer.</td>
+<td>#1e1e7b Dark blue</td>
+<td>Issue, PR</td>
+</tr>
+<tr>
+<td>question</td>
+<td>The issue is a question.</td>
+<td>#cc317c Dark pink</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>ready for merge</td>
+<td>The pull request was approved by the community and is ready to be merged by a maintainer.</td>
+<td>#215e82 Dark cyan</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>resource proposal</td>
+<td>The issue is proposing a new resource in the resource module.</td>
+<td>#fbca04 Dark yellow</td>
+<td>Issue</td>
+</tr>
+<tr>
+<td>stale</td>
+<td>The issue was marked as stale because there has not been activity from the community.</td>
+<td>#cccccc Grey</td>
+<td>Issues</td>
+</tr>
+<tr>
+<td>tests</td>
+<td>The issue or pull request is about tests only.</td>
+<td>#c5def5 Lighter blue</td>
+<td>Issue, PR</td>
+</tr>
+<tr>
+<td>updated by author</td>
+<td>The author last updated the pull request.</td>
+<td>#e3f1dA Lighter Green</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>waiting for author response</td>
+<td>The pull request is waiting for the author to respond to comments in the pull request.</td>
+<td>#ffff99 Yellow</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>waiting for CLA pass</td>
+<td>The contributor has not yet signed the CLA so that pull request check is not successful.</td>
+<td>#ee0701 Red</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>waiting for code fix</td>
+<td>A review left open comments, and the pull request is waiting for changes to be pushed by the author.</td>
+<td>#ffff99 Yellow</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>resolved in dev</td>
+<td>A fix has been merged into the dev-branch but issue is still open and awaits next release.</td>
+<td>#215e82 Dark cyan</td>
+<td>Issue</td>
+</tr>
+</tbody>
+</table>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/guidelines/contributing/" title="Contributing"><i class="ti-arrow-left mr-2"></i>Contributing</a>
+            <a class="nav nav-next" href="/guidelines/style-guidelines/" title="Style Guidelines">Style Guidelines<i class="ti-arrow-right ml-2"></i></a>
+            </nav></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- footer -->
+<footer class="section bg-gray pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+        <p>Copyright 2019 the dsccommunity.org contributors.</p> 
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://github.com/dsccommunity/"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/dsccommunity"><i class="ti-twitter-alt"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Bootstrap JS -->
+<script src="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- highlight -->
+<script src="https://dsccommunity.org/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Main Script -->
+
+<script src="https://dsccommunity.org/js/script.min.js"></script>

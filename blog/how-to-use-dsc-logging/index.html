@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>How to Use Dsc Logging</title>
 
-  <meta name="generator" content="Hugo 0.59.1" />
+  <meta name="generator" content="Hugo 0.62.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -158,31 +158,47 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/guidelines/">Guidelines</a>
               <ul class="">
-            <li class=""><a href="/guidelines/markdown-files/">Markdown Files</a>
+            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
             </li>
-            <li class=""><a href="/guidelines/general/">General</a>
+            <li class=""><a href="/guidelines/contributing/">Contributing</a>
             </li>
-            <li class=""><a href="/guidelines/whitespace/">Whitespace</a>
+            <li class=""><a href="/guidelines/maintaining/">Maintaining</a>
             </li>
-            <li class=""><a href="/guidelines/functions/">Functions</a>
+            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
             </li>
-            <li class=""><a href="/guidelines/parameters/">Parameters</a>
+            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
             </li>
-            <li class=""><a href="/guidelines/variables/">Variables</a>
+            <li class=""><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
             </li>
-            <li class=""><a href="/guidelines/general-best-practices/">General Best Practices</a>
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
             </li>
-            <li class=""><a href="/guidelines/calling-functions/">Calling Functions</a>
+            <li class=""><a href="/styleguidelines/general/">General</a>
             </li>
-            <li class=""><a href="/guidelines/writing-functions/">Writing Functions</a>
+            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
             </li>
-            <li class=""><a href="/guidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            <li class=""><a href="/styleguidelines/functions/">Functions</a>
             </li>
-            <li class=""><a href="/guidelines/manifest/">Manifest</a>
+            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
             </li>
-            <li class=""><a href="/guidelines/localization/">Localization</a>
+            <li class=""><a href="/styleguidelines/variables/">Variables</a>
             </li>
-            <li class=""><a href="/guidelines/pester-tests/">Pester Tests</a>
+            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
             </li></ul>
               
             </li>
@@ -254,48 +270,38 @@ if (!doNotTrack) {
       <div class="col-lg-9">
         <div class="p-5 bg-white">
             <h2>How to Use Dsc Logging</h2>
-            
-
-<p>The Local Configuration Manager (LCM) in PowerShell Desired State Configuration (DSC)
+            <p>The Local Configuration Manager (LCM) in PowerShell Desired State Configuration (DSC)
 logs its deployment progress and errors on several places. The most commonly known
 location is the event log, where errors are logged in the log:
 <strong>Applications and Services Logs \ Microsoft \ Windows \ Desired State Configuration \ Operational</strong></p>
-
-<p><img src="../../images/dsc_eventlog.png" alt="DSC Eventlog" style="width:725px;" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <p>This log contains various events that were generated during a DSC job, it is however
 less useful to track the progress of a running job.</p>
-
 <h3 id="deployment-process">Deployment process</h3>
-
 <p>When doing a push deployment using Start-DscConfiguration, you can use the
 -Verbose parameter to output verbose logging to the screen. A downside of this
 verbose logging is that reboots will kill this logging. After the restart DSC
 continues deploying the configuration, without you being able to track its progress.
-The same is true for a Pull deployment, where verbose logging isn&rsquo;t available at all.</p>
-
+The same is true for a Pull deployment, where verbose logging isn't available at all.</p>
 <p>Fortunately there is a log that is not known by everybody. During each DSC job
-(even when -Verbose hasn&rsquo;t been specified), all Verbose output is always written
+(even when -Verbose hasn't been specified), all Verbose output is always written
 to log files in: <strong>C:\Windows\System32\Configuration\ConfigurationStatus</strong></p>
-
 <p>For each job, DSC creates two files:</p>
-
 <ol>
-<li><p><strong>{&lt;DSC_Job_Id&gt;}-0.mof</strong></p>
-
+<li>
+<p><strong>{&lt;DSC_Job_Id&gt;}-0.mof</strong></p>
 <p>This file contains LCM configuration, resources not in the desired state and
- the results of the DSC job.</p></li>
-
-<li><p><strong>{&lt;DSC_Job_Id&gt;}-0.details.json</strong></p>
-
-<p>This file contains the verbose logging in JSON format.</p></li>
+the results of the DSC job.</p>
+</li>
+<li>
+<p><strong>{&lt;DSC_Job_Id&gt;}-0.details.json</strong></p>
+<p>This file contains the verbose logging in JSON format.</p>
+</li>
 </ol>
-
 <p>If you want to know the job id of a specific DSC job, the cmdlet Get-DscConfigurationStatus
 is your best friend. Without parameters this cmdlet will only retrieve the most recent
 job and show you the details:</p>
-
-<pre><code class="language-none">PS C:\&gt; Get-DscConfigurationStatus | fl
+<pre><code class="language-none" data-lang="none">PS C:\&gt; Get-DscConfigurationStatus | fl
 
 JobID                      : {CB285D33-E069-11E9-B86F-B4AE2BDC70C4}
 HostName                   : SERVER
@@ -317,12 +323,9 @@ RebootRequested            : False
 ResourcesInDesiredState    :
 ResourcesNotInDesiredState : {[SChannelSettings]ConfigureSChannel}
 PSComputerName             :
-</code></pre>
-
-<p>If you want to know which DSC jobs have ran in the past period, you can add the -All
+</code></pre><p>If you want to know which DSC jobs have ran in the past period, you can add the -All
 parameter, which outputs all executed jobs:</p>
-
-<pre><code class="language-none">PS C:\&gt; Get-DscConfigurationStatus -All
+<pre><code class="language-none" data-lang="none">PS C:\&gt; Get-DscConfigurationStatus -All
 
 Status     StartDate                 Type            Mode  RebootRequested      NumberOfResources
 ------     ---------                 ----            ----  ---------------      -----------------
@@ -336,41 +339,28 @@ Success    26-9-2019 14:42:45        Consistency     PUSH  False                
 Success    26-9-2019 14:42:44        Consistency     PUSH  False                1
 Success    26-9-2019 14:27:44        Consistency     PUSH  False                1
 ...
-</code></pre>
-
-<p>You can use the pipeline and filter to extract the job you are interested in.
+</code></pre><p>You can use the pipeline and filter to extract the job you are interested in.
 For example:</p>
-
-<pre><code class="language-PowerShell">Get-DscConfigurationStatus -All | Where-Object { $_.StartDate -gt ((Get-Date).AddHours(-2)) -and $_.Status -eq &quot;Failure&quot; }
-</code></pre>
-
-<h3 id="reading-the-active-log-file">Reading the active log file</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">Get-DscConfigurationStatus -All | Where-Object { $_.StartDate <span style="color:#f92672">-gt</span> ((Get-Date).AddHours(-2)) <span style="color:#f92672">-and</span> $_.Status <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Failure</span><span style="color:#e6db74">&#34;</span> }
+</code></pre></div><h3 id="reading-the-active-log-file">Reading the active log file</h3>
 <p>While diving into this topic, DSC presented me with a not so nice surprise:
 When a DSC job is running, not only the Get-DscConfigurationStatus cmdlet does
 not work, also the logfile that is currently being created cannot be read!
 Neither via Windows Explorer, nor via PowerShell.
 So how can you keep track of the progress of an active DSC job?</p>
-
 <p>Fortunately some digging around on the Internet resulted in a <a href="https://superuser.com/questions/1184789/powershell-get-content-without-locking-file">solution</a>!</p>
-
 <h3 id="dsc-log-parser-script">DSC Log Parser script</h3>
-
 <p>I have created a PowerShell script that uses Get-DscConfigurationStatus to
 retrieve all DSC jobs.</p>
-
 <p>If the cmdlet succeeds, it will show all results in a Gridview so you can
 select the job you are interested in. When you click Ok, the script
 retrieves the logfile, reads the JSON and displays the results in a Gridview.</p>
-
 <p>If the cmdlet fails, it knows a DSC job is currently running and uses
 Volume Shadow Copy to open a copy of the most recent log file.</p>
-
 <blockquote>
 <p>Important: DSC flushes all caches log entries to the log file in chunks. So
-unfortunately the log file won&rsquo;t be 100% accurate, but pretty close!</p>
+unfortunately the log file won't be 100% accurate, but pretty close!</p>
 </blockquote>
-
 <p>You can find the script <a href="https://raw.githubusercontent.com/ykuijs/Powershell/master/Dsc/DSCLogParser.ps1">here</a></p>
 
             <p class="post-meta border-bottom pb-3 mb-0">Updated on 24 Sep 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/create-an-article/" title="Create an Article"><i class="ti-arrow-left mr-2"></i>Create an Article</a>

@@ -18,8 +18,9 @@
       <pubDate>Fri, 08 Mar 2019 12:41:48 +0800</pubDate>
       
       <guid>https://dsccommunity.org/blog/create-an-article/</guid>
-      <description>Creating the md file is easy, but you might want to double check how it will render on the website. To do so, we recommend you to install Hugo (using Chocolatey it&amp;rsquo;s just a choco install hugo) and test what you create.
-But when you have installed hugo, forked the dsccommunity.org, and cloned your fork locally, you can generate a post from the template, from the source directory: &amp;gt; C:\src\dsccommunity.org &amp;gt; hugo new blog/your-title-in-lowercase.</description>
+      <description>Creating the md file is easy, but you might want to double check how it will render on the website. To do so, we recommend you to install Hugo (using Chocolatey it&#39;s just a choco install hugo) and test what you create.
+But when you have installed hugo, forked the dsccommunity.org, and cloned your fork locally, you can generate a post from the template, from the source directory:
+ C:\src\dsccommunity.org &amp;gt; hugo new blog/your-title-in-lowercase.</description>
     </item>
     
     <item>

@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>What Future for Dsc</title>
 
-  <meta name="generator" content="Hugo 0.59.1" />
+  <meta name="generator" content="Hugo 0.62.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -158,31 +158,47 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/guidelines/">Guidelines</a>
               <ul class="">
-            <li class=""><a href="/guidelines/markdown-files/">Markdown Files</a>
+            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
             </li>
-            <li class=""><a href="/guidelines/general/">General</a>
+            <li class=""><a href="/guidelines/contributing/">Contributing</a>
             </li>
-            <li class=""><a href="/guidelines/whitespace/">Whitespace</a>
+            <li class=""><a href="/guidelines/maintaining/">Maintaining</a>
             </li>
-            <li class=""><a href="/guidelines/functions/">Functions</a>
+            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
             </li>
-            <li class=""><a href="/guidelines/parameters/">Parameters</a>
+            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
             </li>
-            <li class=""><a href="/guidelines/variables/">Variables</a>
+            <li class=""><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
             </li>
-            <li class=""><a href="/guidelines/general-best-practices/">General Best Practices</a>
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
             </li>
-            <li class=""><a href="/guidelines/calling-functions/">Calling Functions</a>
+            <li class=""><a href="/styleguidelines/general/">General</a>
             </li>
-            <li class=""><a href="/guidelines/writing-functions/">Writing Functions</a>
+            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
             </li>
-            <li class=""><a href="/guidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            <li class=""><a href="/styleguidelines/functions/">Functions</a>
             </li>
-            <li class=""><a href="/guidelines/manifest/">Manifest</a>
+            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
             </li>
-            <li class=""><a href="/guidelines/localization/">Localization</a>
+            <li class=""><a href="/styleguidelines/variables/">Variables</a>
             </li>
-            <li class=""><a href="/guidelines/pester-tests/">Pester Tests</a>
+            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
             </li></ul>
               
             </li>
@@ -254,56 +270,42 @@ if (!doNotTrack) {
       <div class="col-lg-9">
         <div class="p-5 bg-white">
             <h2>What Future for Dsc</h2>
-            
-
-<p>Despite the few &ldquo;<a href="https://devblogs.microsoft.com/powershell/?s=DSC+Planning&amp;submit=%EE%9C%A1">DSC Planning Updates</a>&ldquo;
+            <p>Despite the few &ldquo;<a href="https://devblogs.microsoft.com/powershell/?s=DSC+Planning&amp;submit=%EE%9C%A1">DSC Planning Updates</a>&rdquo;
 written by Michael Greene (Program Manager for DSC, and DSC Community Committee
 member), there are still misunderstandings by the community with regards to the
 directions Microsoft is taking for DSC and its ecosystem.</p>
-
-<p>Here, we&rsquo;ll try to explain what <strong>we</strong> understand from the DSC Community.</p>
-
-<h2 id="former-plans-realignment">Former plans &amp; realignment</h2>
-
-<p>Microsoft&rsquo;s DSC Team, about a year and an half ago, was working
+<p>Here, we'll try to explain what <strong>we</strong> understand from the DSC Community.</p>
+<h2 id="former-plans--realignment">Former plans &amp; realignment</h2>
+<p>Microsoft's DSC Team, about a year and an half ago, was working
 on a new version of the LCM component of the DSC Platform.</p>
-
 <p>They were thinking they would open-source it shortly after, as you can judge
 from the DSC Planning update of the time, or sessions delivered ar events
 by the teams. They labelled, confusingly, the work a <em>new DSC</em>, or DSC <em>Core</em>,
 before rectifying some of this communication.</p>
-
 <p>Anyway, around June 2018, the medium-term strategy changed, and their work
-was to be used and developed further for new Azure Services. It&rsquo;d be a
-great mistake to be oblivious of Microsoft&rsquo;s focus to deliver a great
+was to be used and developed further for new Azure Services. It'd be a
+great mistake to be oblivious of Microsoft's focus to deliver a great
 cloud where customers are successful.</p>
-
 <p>This new commitments, and having the new Native LCM in production in Azure, meant
 the teams would not have the resource to commit to open sourcing the engine,
 a lesson learnt from the DSC Resource Kit and PowerShell team.</p>
-
 <p>Moreover, the solution they developed was primarily focused on audits,
 as required by the enabled services: Change Tracking, Inventory, Guest Configuration,
 and Update Management, so not a potential replacement for DSC until it
-implements the <code>Set</code> functionality (from DSC&rsquo;s <code>Get</code>, <code>Test</code>, <code>Set</code>).</p>
-
+implements the <code>Set</code> functionality (from DSC's <code>Get</code>, <code>Test</code>, <code>Set</code>).</p>
 <p>So in terms of planning, which now usually spans across a 6 months window,
 open sourcing the work now would be premature. The engine would not be doing
 enough for the DSC community, and managing a public project while having to
 support the Azure solutions would stretch thin the time working on for further improvements.</p>
-
 <p>The plan is clear, the focus for now is to focus on delivering the <code>Set</code> and making
 sure the quality is up to the task of managing cloud-scale environments,
 as required by the demanding Azure services.</p>
-
 <p>Doing it this way, on Azure first, has some great value.</p>
-
 <p>It:</p>
-
 <ul>
 <li>is far less <em>theoretical</em> than attempting to build a generic framework/agent.</li>
 <li>supports an untethered release and feedback cadence within Microsoft Azure.</li>
-<li>enable iterative solution development that uses the components as they&rsquo;re
+<li>enable iterative solution development that uses the components as they're
 developed, and develop them as they are needed.</li>
 <li>enables the team to have their code running on millions of machines,
 benefiting from telemetry, and huge scale to solve modern use cases:
@@ -311,50 +313,37 @@ a short and very valuable feedback loop.</li>
 <li>Make sure it solves actual problem, early in its life, even before the <code>Set</code>
 is implemented.</li>
 </ul>
-
 <h2 id="no-plan-for-dscvnext">No plan for DSCvNext</h2>
-
-<p>With this said, let&rsquo;s be clear.</p>
-
+<p>With this said, let's be clear.</p>
 <p>There are <strong>no plans for DSCv2, DSC vNext or DSC Core</strong>.</p>
-
 <p>Plans are only made for a 6 months window (roughly), and its not in there,
 as far as I know.</p>
-
-<p>Now that&rsquo;s said loud and clear, there&rsquo;s definitely a team working on DSC
+<p>Now that's said loud and clear, there's definitely a team working on DSC
 and investments are made on the technology.
 Azure Policy Guest Configuration <strong>relies on DSC</strong>, for its DSL, Resources
 and principle to audit Virtual Machines in Azure, or as long as
-they&rsquo;re managed in Azure (Hybrid)&hellip;</p>
-
+they're managed in Azure (Hybrid)&hellip;</p>
 <p>The team do wish the DSC community will continue to grow, and that there will
-be increasing usage and demand for open sourcing the LCM they&rsquo;re working on.
-They hope the demand will mostly align with Microsoft&rsquo;s mission to make
+be increasing usage and demand for open sourcing the LCM they're working on.
+They hope the demand will mostly align with Microsoft's mission to make
 companies more successful by transitioning towards a cloud <strong>model</strong>.</p>
-
 <h2 id="the-future">The Future</h2>
-
 <p>The future is bright, and will see <strong>changes happening on different time frames</strong>.</p>
-
-<p>Investment has been, and is still being made, and we&rsquo;re just starting to see
+<p>Investment has been, and is still being made, and we're just starting to see
 the results.</p>
-
 <p>Azure Guest Configuration supports custom content, using the DSC DSL to create
 custom audits (now <code>Public Preview</code>).
-It&rsquo;s a clear sign that leveraging the DSC ecosystem is still a reality for new services.</p>
-
+It's a clear sign that leveraging the DSC ecosystem is still a reality for new services.</p>
 <p>The DSC Team is investing in this DSC Community, supporting its growth, and
 help with its evolution.
-They&rsquo;re actively supporting more openness, transparency, and community
+They're actively supporting more openness, transparency, and community
 involvement in the DSC Resource Kit to find a more sustainable path that helps
 the users (<code>released now</code>).</p>
-
 <p>The <a href="https://github.com/PowerShell/PowerShell-RFC/pull/214">PowerShell and DSC team are planning</a>
 to release a cross platform <code>Invoke-DscResource</code> command that would allow to
 leverage PowerShell DSC Resources within scripts, running in current context,
 without the burden and limitations of running through the LCM as found in
 WMF5.1 (<code>in the next few months</code>).</p>
-
 <p>And in the slightly longer term, the DSC team aims to implemented the <code>Set</code> for
 their new LCM, and start using it in some Azure services (<code>~6 months+</code>).</p>
 

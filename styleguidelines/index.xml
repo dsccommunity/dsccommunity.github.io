@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Style Guidelines on DSC Community</title>
+    <link>https://dsccommunity.org/styleguidelines/</link>
+    <description>Recent content in Style Guidelines on DSC Community</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
+    <lastBuildDate>Fri, 28 Dec 2018 11:02:05 +0600</lastBuildDate>
+    
+	<atom:link href="https://dsccommunity.org/styleguidelines/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Markdown Files</title>
+      <link>https://dsccommunity.org/styleguidelines/markdown-files/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/markdown-files/</guid>
+      <description>Line length not longer than 80 characters Rows longer than 80 characters should be split into multiple lines where appropriate. This helps make it easier for reviewers to make review comments and for the contributors to see where the requested changes are (without scrolling). It is also easier to see the lines in split view mode when the lines don&#39;t wrap on the screen. It will also improve the readability when using git diff.</description>
+    </item>
+    
+    <item>
+      <title>General</title>
+      <link>https://dsccommunity.org/styleguidelines/general/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/general/</guid>
+      <description>Correct File Encoding Make sure all files are encoded using UTF-8 (not UTF-8 with BOM), except mof files which should be encoded using ASCII. You can use ConvertTo-UTF8 and ConvertTo-ASCII to convert a file to UTF-8 or ASCII.
+Descriptive Names Use descriptive, clear, and full names for all variables, parameters, and functions. All names must be at least more than 2 characters. No abbreviations should be used.
+Bad:
+$r = Get-RdsHostBad:</description>
+    </item>
+    
+    <item>
+      <title>Whitespace</title>
+      <link>https://dsccommunity.org/styleguidelines/whitespace/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/whitespace/</guid>
+      <description>Indentation For all indentation, use 4 spaces instead of tabs. There should be no tab characters in the file unless they are in a here-string.
+No Trailing Whitespace After Backticks Backticks should always be directly followed by a newline
+Newline at End of File All files must end with a newline, see StackOverflow.
+Newline Character Encoding Save newlines using CR+LF instead of CR. For interoperability reasons, we recommend that you follow these instructions when installing Git on Windows so that newlines saved to GitHub are simply CRs.</description>
+    </item>
+    
+    <item>
+      <title>Functions</title>
+      <link>https://dsccommunity.org/styleguidelines/functions/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/functions/</guid>
+      <description>Function Names Use Pascal Case Function names must use PascalCase. This means that each concatenated word is capitalized.
+Bad:
+function get-targetresource{# ... }Good:
+function Get-TargetResource{# ... }Function Names Use Verb-Noun Format All function names must follow the standard PowerShell Verb-Noun format.
+Bad:
+function TargetResourceGetter{# ... }Good:
+function Get-TargetResource{# ... }Function Names Use Approved Verbs All function names must use approved verbs.</description>
+    </item>
+    
+    <item>
+      <title>Parameters</title>
+      <link>https://dsccommunity.org/styleguidelines/parameters/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/parameters/</guid>
+      <description>Correct Format for Parameter Block  An empty parameter block should be displayed on its own line like this: param (). A non-empty parameter block should have the opening and closing parentheses on their own line. All text inside the parameter block should be indented once. Every parameter should include the [Parameter()] attribute, regardless of whether the attribute requires decoration or not. A parameter that is mandatory should contain this decoration: [Parameter(Mandatory = $true)].</description>
+    </item>
+    
+    <item>
+      <title>Variables</title>
+      <link>https://dsccommunity.org/styleguidelines/variables/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/variables/</guid>
+      <description>Variable Names Use Camel Case Variable names should use camelCase.
+Bad:
+function Write-Log{$VerboseMessage = &amp;#39;New log message&amp;#39;Write-Verbose $VerboseMessage}Bad:
+function Write-Log{$verbosemessage = &amp;#39;New log message&amp;#39;Write-Verbose $verbosemessage}Good:
+function Write-Log{$verboseMessage = &amp;#39;New log message&amp;#39;Write-Verbose $verboseMessage}Script, Environment and Global Variable Names Include Scope Script, environment, and global variables must always include their scope in the variable name unless the &amp;lsquo;using&amp;rsquo; scope is needed.</description>
+    </item>
+    
+    <item>
+      <title>General Best Practices</title>
+      <link>https://dsccommunity.org/styleguidelines/general-best-practices/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/general-best-practices/</guid>
+      <description>Although adopting the best practices is optional, doing so will help improve the quality of the DSC resource module.
+Note: Modules that aim to meet the High Quality Resource Module standards must also implement the best practices wherever possible.
+Avoid Using ard coded Computer Name Using hard coded computer names exposes sensitive information on your machine. Use a parameter or environment variable instead if a computer name is necessary. This comes from this PS Script Analyzer rule.</description>
+    </item>
+    
+    <item>
+      <title>Calling Functions</title>
+      <link>https://dsccommunity.org/styleguidelines/calling-functions/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/calling-functions/</guid>
+      <description>Avoid Cmdlet Aliases When calling a function use the full command not an alias. You can get the full command an alias represents by calling Get-Alias.
+Bad:
+ls -File $root -Recurse | ? { @(&amp;#39;.gitignore&amp;#39;, &amp;#39;.mof&amp;#39;) -contains $_.Extension }Good:
+Get-ChildItem -File $root -Recurse | Where-Object -FilterScript {@(&amp;#39;.gitignore&amp;#39;, &amp;#39;.mof&amp;#39;) -contains $_.Extension}Avoid Invoke-Expression Invoke-Expression is vulnerable to string injection attacks. It should not be used in any DSC resources.</description>
+    </item>
+    
+    <item>
+      <title>Writing Functions</title>
+      <link>https://dsccommunity.org/styleguidelines/writing-functions/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/writing-functions/</guid>
+      <description>Avoid Default Values for Mandatory Parameters Default values for mandatory parameters will always be overwritten, thus they are never used and can cause confusion.
+Bad:
+function Get-Something{param([Parameter(Mandatory = $true)][String]$Name = &amp;#39;My Name&amp;#39;)...}Good:
+function Get-Something{param([Parameter(Mandatory = $true)][String]$Name)...}Avoid Default Values for Switch Parameters Switch parameters have 2 values - there or not there.</description>
+    </item>
+    
+    <item>
+      <title>Dsc Resource Functions</title>
+      <link>https://dsccommunity.org/styleguidelines/dsc-resource-functions/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/dsc-resource-functions/</guid>
+      <description>Return a Hashtable from Get-TargetResource Bad:
+Good:
+Return a Boolean from Test-TargetResource Bad:
+Good:
+Avoid Returning Anything From Set-TargetResource Bad:
+Good:
+Define Get-TargetResource, Set-TargetResource, and Test-TargetResource for Every DSC Resource Bad:
+Good:
+Get-TargetResource should not contain unused non-mandatory parameters The inclusion of a non-mandatory parameter that is never used could signal that there is a design flaw in the implementation of the Get-TargetResource function. The non-mandatory parameters that are used to call Get-TargetResource should help to retrieve the actual values of the properties for the resource.</description>
+    </item>
+    
+    <item>
+      <title>Manifest</title>
+      <link>https://dsccommunity.org/styleguidelines/manifest/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/manifest/</guid>
+      <description>Avoid Using Deprecated Manifest Fields Bad:
+Good:
+Ensure Manifest Contains Correct Fields Bad:
+Good:
+Do not use NestedModules to export shared commands Since we don&#39;t use the RootModule key in the module manifest, we should not use the NestedModules key to add modules that export commands that are shared between resource modules.
+Normally, a single list in the RootModule key, can restrict what is exported using the cmdlet Export-ModuleMember. Since we don&#39;t use the RootModule key we can&#39;t restrict what is exported, so every nested module will export all the commands (or all the commands restricted by Export-ModuleMember in that individual nested module).</description>
+    </item>
+    
+    <item>
+      <title>Localization</title>
+      <link>https://dsccommunity.org/styleguidelines/localization/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/localization/</guid>
+      <description>In each resource folder there should be at least one localization folder for english language &amp;lsquo;en-US&amp;rsquo;. Add other localization folders as appropriate, the correct folder name can be found by running Get-UICulture on the node that has a UI culture installed that the strings are being built for. There is also the list of Available Language Packs for Windows.
+In each localization folder there should be a PowerShell data (.psd1) file named &amp;lsquo;MSFT_&amp;lt;ResourceName&amp;gt;.</description>
+    </item>
+    
+    <item>
+      <title>Pester Tests</title>
+      <link>https://dsccommunity.org/styleguidelines/pester-tests/</link>
+      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/styleguidelines/pester-tests/</guid>
+      <description>Capitalized Pester Assertions Pester assertions should all start with capital letters. This makes code easier to read.
+Bad:
+it &amp;#39;Should return something&amp;#39; {get-targetresource @testParameters | should -be &amp;#39;something&amp;#39;}Good:
+It &amp;#39;Should return something&amp;#39; {Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39;}Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&#39;t making assertions.</description>
+    </item>
+    
+  </channel>
+</rss>

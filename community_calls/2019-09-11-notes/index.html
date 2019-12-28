@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>2019-09-11 Notes</title>
 
-  <meta name="generator" content="Hugo 0.59.1" />
+  <meta name="generator" content="Hugo 0.62.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -158,31 +158,47 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/guidelines/">Guidelines</a>
               <ul class="">
-            <li class=""><a href="/guidelines/markdown-files/">Markdown Files</a>
+            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
             </li>
-            <li class=""><a href="/guidelines/general/">General</a>
+            <li class=""><a href="/guidelines/contributing/">Contributing</a>
             </li>
-            <li class=""><a href="/guidelines/whitespace/">Whitespace</a>
+            <li class=""><a href="/guidelines/maintaining/">Maintaining</a>
             </li>
-            <li class=""><a href="/guidelines/functions/">Functions</a>
+            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
             </li>
-            <li class=""><a href="/guidelines/parameters/">Parameters</a>
+            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
             </li>
-            <li class=""><a href="/guidelines/variables/">Variables</a>
+            <li class=""><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
             </li>
-            <li class=""><a href="/guidelines/general-best-practices/">General Best Practices</a>
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
             </li>
-            <li class=""><a href="/guidelines/calling-functions/">Calling Functions</a>
+            <li class=""><a href="/styleguidelines/general/">General</a>
             </li>
-            <li class=""><a href="/guidelines/writing-functions/">Writing Functions</a>
+            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
             </li>
-            <li class=""><a href="/guidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            <li class=""><a href="/styleguidelines/functions/">Functions</a>
             </li>
-            <li class=""><a href="/guidelines/manifest/">Manifest</a>
+            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
             </li>
-            <li class=""><a href="/guidelines/localization/">Localization</a>
+            <li class=""><a href="/styleguidelines/variables/">Variables</a>
             </li>
-            <li class=""><a href="/guidelines/pester-tests/">Pester Tests</a>
+            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
             </li></ul>
               
             </li>
@@ -254,13 +270,9 @@ if (!doNotTrack) {
       <div class="col-lg-9">
         <div class="p-5 bg-white">
             <h2>2019-09-11 Notes</h2>
-            
-
-<p>Read the <a href="https://devblogs.microsoft.com/powershell/dsc-resource-kit-release-september-2019/">DSC Resource Kit Release September 2019</a>
- Blog post, on PowerShell&rsquo;s blog.</p>
-
+            <p>Read the <a href="https://devblogs.microsoft.com/powershell/dsc-resource-kit-release-september-2019/">DSC Resource Kit Release September 2019</a>
+Blog post, on PowerShell's blog.</p>
 <h4 id="resources-released">Resources released</h4>
-
 <ul>
 <li>ActiveDirectoryDsc</li>
 <li>ComputerManagementDsc (BREAKING CHANGE - ScheduleTask)</li>
@@ -277,46 +289,33 @@ if (!doNotTrack) {
 <li>xSCSMA</li>
 <li>xWebAdministration</li>
 </ul>
-
 <h5 id="deprecated">Deprecated</h5>
-
 <ul>
 <li>xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet)</li>
 <li>xPendingReboot (moved to ComputerManagementDsc)</li>
 </ul>
-
 <h4 id="should-leaving-unsupported-os-be-treated-as-breaking-change">Should leaving unsupported OS be treated as breaking change</h4>
-
-<p>No, it&rsquo;s not a breaking change but it should be clearly noted in release notes
+<p>No, it's not a breaking change but it should be clearly noted in release notes
 when conscious decision is made.</p>
-
 <p>In many cases DSC Resources modules already have Resources not compatible,
 and already mention it.</p>
-
 <h4 id="gallery-account-for-dsc-community">Gallery account for DSC Community</h4>
-
 <p>We should setup a gallery account so we can release repos.
 Most likely the DSC Committee will own the PSGallery account,
 and will generate a key per modules with specific rights.</p>
-
 <h3 id="discussions">Discussions</h3>
-
 <p>Topics or questions from the community (welcome at any point during the call)</p>
-
 <p>Talk to us on <strong>Virtual PowerShell User Group</strong> <em>#DSC</em> channel.
 For information on how to join, see <a href="https://dsccommunity.org/community/contact/">https://dsccommunity.org/community/contact/</a></p>
-
 <h4 id="releasing-vnext">Releasing vNext</h4>
-
 <p>Goal is to have a scripted pipeline that works identically on your local machine,
- on appVeyor and Azure (DevOps) Pipelines.</p>
-
+on appVeyor and Azure (DevOps) Pipelines.</p>
 <ul>
-<li><p>Create a Module template to Create, build &amp; Release module (the template should
+<li>
+<p>Create a Module template to Create, build &amp; Release module (the template should
 be able to just come on top of existing module, and suggesting to remove/edit
 some code)
 The build/release process should, on merge to Master:</p>
-
 <ul>
 <li>Download the Required Modules needed for the Build, test, release process</li>
 <li>Build the module (update PSD1, changelog, version &amp; all)</li>
@@ -329,11 +328,11 @@ The build/release process should, on merge to Master:</p>
 <li>[Create GitHub Release]</li>
 <li>Publish the compiled module to the Gallery as a Pre-release</li>
 <li>Save the Test results as Artefacts</li>
-</ul></li>
-
-<li><p>When we tag a pre-released version, we should release the pre-released package
+</ul>
+</li>
+<li>
+<p>When we tag a pre-released version, we should release the pre-released package
 as Full Release:</p>
-
 <ul>
 <li>Download the Required Modules needed for the Build, test, release process</li>
 <li>Extract the module</li>
@@ -343,21 +342,19 @@ as Full Release:</p>
 <li>[Create GitHub Release]</li>
 <li>Release to gallery</li>
 <li>Save the Test results as Artefacts</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>Normal release (from Tag), could be initiated by a DSC Committee member to
 improve trust.
-We need to make sure the release process can be trusted, we&rsquo;ll detail and ask
+We need to make sure the release process can be trusted, we'll detail and ask
 for comment soon.
-We&rsquo;re considering moving to AzDO (but mainly having most of the pipeline scripted
+We're considering moving to AzDO (but mainly having most of the pipeline scripted
 so it works on both AppVeyor &amp; AzDO)</p>
-
 <p>To do so we should change:</p>
-
 <ul>
-<li><p>How SubModules are used:</p>
-
+<li>
+<p>How SubModules are used:</p>
 <ul>
 <li>DscResource.Common (which can be common to all DSC Resource Modules) should
 be a module released idependently, &lsquo;nested&rsquo; at build time (but not added
@@ -365,17 +362,18 @@ to nestedModules manifest)</li>
 <li>We should version modules using SemVer, via the nuget-compliant string (that
 means {major}.{minor}.{patch} and pre-release tags &amp; metadata) Maybe using
 GitVersion to track that consistently for us (means no extra effort)</li>
-</ul></li>
-
-<li><p>How we do test:</p>
-
+</ul>
+</li>
+<li>
+<p>How we do test:</p>
 <ul>
 <li>Decouple DscResource.tests &amp; PSSA custom rules from other parts</li>
 <li>Release DscResource.Tests as module released/versioned idependently.
 It should be saved/installed and run tests against compiled module (no more
 git clone on the fly)</li>
 <li>[eventually do more integration testing]</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
             <p class="post-meta border-bottom pb-3 mb-0">Updated on 01 Aug 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/2019-10-23-notes/" title="2019-10-23 Notes"><i class="ti-arrow-left mr-2"></i>2019-10-23 Notes</a>
