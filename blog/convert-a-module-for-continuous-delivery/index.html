@@ -1,0 +1,1458 @@
+<head>
+  <meta charset="utf-8">
+  <title>Steps to convert a module for continuous delivery</title>
+
+  <meta name="generator" content="Hugo 0.62.0" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144465379-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/themify-icons/themify-icons.css">
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/highlight/hybrid.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+
+  <style>
+  :root{
+    --primary-color:#003366;
+    --secondary-color:#f9f9f9;
+    --text-color:#242738;
+    --text-color-dark:#000;
+    --white-color:#ffffff;
+  }
+  </style>
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://dsccommunity.org/css/style.min.css" integrity="" media="screen">
+
+  <!-- jquiry -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-1.12.4.js"></script>
+
+  <!-- jquary ui -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-ui.js"></script>
+
+  <!--Favicon-->
+  <link rel="icon" href="https://dsccommunity.org/images/favicon.png" type="image/x-icon">
+
+</head>
+
+<!-- navigation -->
+<header class="shadow-bottom sticky-top bg-white">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="https://dsccommunity.org/">DSC Community and Resource Kit</a>
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse text-center" id="navigation">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="https://dsccommunity.org/">Home</a>
+      </li>
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/code_of_conduct">Code of Conduct</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/community_calls">Community Calls</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/faq">Faq</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/help">help</a>
+      </li>
+      
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" >
+          
+          <a class="dropdown-item" href="/community">Community</a>
+          
+          <a class="dropdown-item" href="/resources">Resource Modules</a>
+          
+          <a class="dropdown-item" href="/guidelines">Guidelines</a>
+          
+          <a class="dropdown-item" href="/blog">Blog Posts</a>
+          
+          <a class="dropdown-item" href="/configmgt">Config. Management</a>
+          
+        </div>
+      </li>
+      
+      
+    </ul>
+    
+    <ul class="list-inline text-center mb-0">
+      
+    </ul>
+  </div>
+</nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<section class="single pt-5 bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="p-4 bg-white sticky-top top-100">
+            
+            <nav class="sidebar-menu">
+              <ul class="list-styled">
+            <li class=""><a href="/community/">Community</a>
+              <ul class="">
+            <li class=""><a href="/community/origin-story/">Origin Story</a>
+            </li>
+            <li class=""><a href="/community/ownership/">Ownership of DSC Resources</a>
+            </li>
+            <li class=""><a href="/community/committee/">DSC Community Committee</a>
+            </li>
+            <li class=""><a href="/community/maintainers/">Maintainers</a>
+            </li>
+            <li class=""><a href="/community/contact/">Join the Conversation</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/resources/">Resource Modules</a>
+            </li>
+            <li class=""><a href="/guidelines/">Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
+            </li>
+            <li class=""><a href="/guidelines/contributing/">Contributing</a>
+            </li>
+            <li class=""><a href="/guidelines/maintaining/">Maintaining</a>
+            </li>
+            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general/">General</a>
+            </li>
+            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
+            </li>
+            <li class=""><a href="/styleguidelines/functions/">Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
+            </li>
+            <li class=""><a href="/styleguidelines/variables/">Variables</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
+            </li></ul>
+              
+            </li>
+            <li class="parent d-block "><a href="/blog/">Blog Posts</a>
+              <ul class="sub-menu">
+            <li class=""><a href="/blog/create-an-article/">Create an Article</a>
+            </li>
+            <li class=" active "><a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a>
+            </li>
+            <li class=""><a href="/blog/how-to-use-dsc-logging/">How to Use Dsc Logging</a>
+            </li>
+            <li class=""><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
+            <li class=""><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/community_calls/">Community Calls</a>
+              <ul class="">
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2019-12-04</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/code_of_conduct/">Code of Conduct</a>
+              <ul class="">
+            <li class=""><a href="/code_of_conduct/standards/">Our Standards</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/scope/">Scope</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/enforcement/">Enforcement</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/common_questions/">Common Questions</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/attribution/">Attribution</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/help/">Help</a>
+              <ul class="">
+            <li class=""><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
+            </li>
+            <li class=""><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/contributors/">Elements</a>
+            </li>
+            <li class=""><a href="/faq/">Frequently Asked Questions</a>
+            </li></ul>
+            </nav>
+
+            
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-5 bg-white">
+            <h2>Steps to convert a module for continuous delivery</h2>
+            <p>Any comments around this blog entry are welcomed and to be submitted on
+the <a href="https://gist.github.com/johlju/2ad77aa574aa07d3e9953fe86007731c">Gist</a>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> The build is running on Linux in the CI pipeline to be able to
+support cross-platform DSC resources, so that makes all paths case-sensitive!
+Have that in mind when updating paths and folders in the configuration
+files. Make sure they match the repository, or change the repository file
+and folder names).</p>
+</blockquote>
+<p>We are moving away from AppVeyor to Azure DevOps because Azure Pipelines
+gives us longer run time per job plus parallel jobs on a free account (for
+open source projects).</p>
+<p>Also, we are no longer requiring signing of CLA since the modules are
+now part of DSC Community.</p>
+<h2 id="prepare-repository-for-automatic-releases">Prepare repository for automatic releases</h2>
+<p>This will prepare the old releases to look like the new automatic releases
+that will be done once a repository has been converted. For example the
+tags will help <code>GitVersion</code>  to determine the next version, and the
+GitHub Releases is to connect each tag with a GitHub Release and update
+the release notes for that release.</p>
+<h3 id="re-create-all-old-tags">Re-create all old tags</h3>
+<p>You can use the script <a href="https://gist.github.com/PlagueHO/40d80a7f3747c18594e63584f7745cbc">Convert-GitTagForDsc.ps1</a>
+to re-create all existing tags. You run it with the following.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Move to the local repo</span>
+cd c<span style="color:#960050;background-color:#1e0010">:</span>\source\{repositoryFolder}
+
+<span style="color:#75715e"># Make sure you have the remote names to upstream and fork.</span>
+git remote -v
+
+<span style="color:#75715e"># Get latest changes so we get all commits that the tags uses</span>
+git checkout master
+git fetch origin master <span style="color:#75715e"># origin is the remote pointing to upstream DSC Community repository.</span>
+git rebase origin/master
+git push my master --force <span style="color:#75715e"># my is the remote pointing to fork</span>
+
+<span style="color:#75715e">&lt;#</span><span style="color:#75715e">
+</span><span style="color:#75715e">    Remote - remote name to your fork
+</span><span style="color:#75715e">    Upstream - remote name to the upstream DSC Community repository</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">    DeleteOldTags - will remove the old tags</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    You can run it with parameter WhatIf to see what it will do</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#&gt;</span>
+Convert-GitTagForDsc -DeleteOldTags -Remote <span style="color:#e6db74">&#39;my&#39;</span> -Upstream <span style="color:#e6db74">&#39;origin&#39;</span> -Verbose
+</code></pre></div><h3 id="make-sure-all-previous-releases-has-tags">Make sure all previous releases has tags</h3>
+<p>Make sure all the previous releases to PowerShell Gallery has tags.
+If there are any tags missing then create those tags.</p>
+<blockquote>
+<p><strong>NOTE:</strong> At least the latest (newest) release <strong>MUST</strong> have a tag in the
+new format, otherwise GitVersion will not evaluate the versions correctly.</p>
+<p>If there are no missing tags, then you <strong>MUST</strong> re-create the
+last tag so that it is using semantic versioning and the correct format for
+the tag. See article <a href="https://devconnected.com/%3Ehow-to-delete-local-and-remote-tags-on-git/">How To Delete Local and Remote Tags on Git</a>.
+If you ran the script in the previous section this have probably been
+resolved already.</p>
+</blockquote>
+<ol>
+<li><strong>Make sure to have updated the repository with the latest changes and</strong>
+<strong>pulled latest tags, see previous section for the rebasing.</strong></li>
+<li>Run <code>git tag</code>. Compare the tags reported by <code>git tag</code> and the actual
+releases in the change log and or the PowerShell Gallery.</li>
+<li>Run the following <strong>on master branch</strong> <code>git log --pretty=oneline</code>
+and search up the SHA for each release commit (the description could be
+something like <code>Merge pull request #xxxx from PowerShell/dev</code>).</li>
+<li>For each SHA run the following (in release ascending order). The
+following shows how to tag <code>v13.1.0</code> on the specific
+commit and adding a descriptive text on the tag.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git tag -a v13.1.0 596ff25a61099b312a6f9e2eb2c6dccc9597ac28 -m <span style="color:#e6db74">&#34;Release of version 13.1.0.0 of {RepositoryName}&#34;</span>
+</code></pre></div></li>
+<li>Running <code>git tag</code> should list the new tags, and running <code>git show v13.1.0</code>
+would show a specific tag.</li>
+<li>Push the new tags to the upstream repository by running.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git push origin --tags <span style="color:#75715e"># origin is the remote pointing to upstream</span>
+git push my --tags <span style="color:#75715e"># my is the remote pointing to fork</span>
+</code></pre></div></li>
+</ol>
+<h3 id="optional-create-github-releases-for-all-releases">(Optional) Create GitHub Releases for all releases</h3>
+<p>For each tag in GitHub create a GitHub release by copying the corresponding
+change log entries to the release notes of the GitHub release.</p>
+<ol>
+<li>Browse to the tags on GitHub, e.g. <a href="https://github.com/dsccommunity/%7BRepositoryName%7D/tags">https://github.com/dsccommunity/{RepositoryName}/tags</a></li>
+<li>Browse to the <em>oldest</em> tag.</li>
+<li>Start creating GitHub Releases in ascending order. Easiest it to click
+on a tag in GitHub releases section, then click &lsquo;Edit tag&rsquo;. For &lsquo;Release title&rsquo;
+write the version number, e.g. <code>v13.2.0</code> and in the description block
+paste in the change log entries.</li>
+</ol>
+<h2 id="install-prerequisites">Install prerequisites</h2>
+<blockquote>
+<p><strong>NOTE:</strong> You must be an elevated administrator to install this.</p>
+</blockquote>
+<ol>
+<li>Install GitVersion using Chocolatey by running the below. Read more
+about GitVersion on the their website <a href="https://gitversion.readthedocs.io/en/latest/">https://gitversion.readthedocs.io/en/latest/</a>
+<em>NOTE: You must have Chocolatey installed prior to running this command,</em>
+<em>see <a href="https://chocolatey.org/install">https://chocolatey.org/install</a> on how to install Chocolatey.</em>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">choco install GitVersion.Portable
+</code></pre></div></li>
+</ol>
+<h2 id="create-a-new-working-branch">Create a new working branch</h2>
+<p>Create a new working branch based on dev branch.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd c:<span style="color:#ae81ff">\s</span>ource<span style="color:#ae81ff">\{</span>respoistoryName<span style="color:#f92672">}</span>
+git checkout dev
+git fetch origin dev <span style="color:#75715e"># origin is the remote pointing to upstream</span>
+git rebase origin/dev
+git push my dev --force <span style="color:#75715e"># my is the remote pointing to fork</span>
+git checkout -b add-new-ci
+</code></pre></div><p>Suggest adding commits to this working branch as necessary when changing
+files in each section.</p>
+<h2 id="change-repository-folder-structure">Change repository folder structure</h2>
+<p>We must change the folder structure because that is a prerequisites for
+the build and automatic release.</p>
+<blockquote>
+<p><strong>NOTE:</strong> The source folder could also have the same name as the module
+name, e.g. <code>SqlServerDsc</code>, or named <code>src</code> or <code>source</code>. We choose to use
+'source&rsquo; to clearly show that it is the source code, and easier to
+understand when mentioning the <em>source folder</em> in conversations.
+We also use lower-case to in the root folders to be compatible with
+future cross-plattform DSC modules or DSC resource in the DSC module.</p>
+</blockquote>
+<ol>
+<li>Create a folder in the root of the repo with the (lower-case) name
+<code>source</code>. This new folder will from now be referenced to as the
+<em>source folder</em>.</li>
+<li>Move the following folders into the source folder (if they exist).
+<ul>
+<li>DSCResources</li>
+<li>Examples</li>
+<li>Modules</li>
+</ul>
+</li>
+<li>Rename the folder <code>Tests</code> to lower-case <code>tests</code>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git mv Tests tests2
+git mv tests2 tests
+</code></pre></div></li>
+<li>Remove DscResource.Tests from the local repository if it was previously
+cloned.</li>
+<li>Move the module manifest, e.g. <code>SqlServerDsc.psd1</code> into the source
+folder. Overwrite any current file.</li>
+<li>Remove the file <code>.codecov.yml</code>.</li>
+<li>Remove the file <code>appveyor.yml</code>. <strong>Please make a note of anything specific</strong>
+<strong>in this file meant to help run tests, like installation of features</strong>
+<strong>etcetera. You need to add it to the new pipeline later.</strong></li>
+</ol>
+<h2 id="add-ci-pipeline-configuration-files">Add CI pipeline configuration files</h2>
+<ol>
+<li>Run the following to get a base files that we use to covert the module.
+Change the destination path to something suitable. Make sure to choose
+the full template, and to use <code>source</code> as the source folder.
+The folder that is created will be referenced as the <em>base folder</em> .
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">install-Module sampler -Scope CurrentUser
+$sampler = Import-Module -Name Sampler -PassThru
+Invoke-Plaster -TemplatePath (Join-Path $Sampler.ModuleBase <span style="color:#e6db74">&#39;Templates/Sampler&#39;</span>) -Destination C<span style="color:#960050;background-color:#1e0010">:</span>\Temp\TemplateModule
+</code></pre></div></li>
+<li>Copy the following files from the base folder to the root of the repository.
+<ul>
+<li><code>.markdownlint.json</code></li>
+<li><code>build.ps1</code></li>
+<li><code>build.yaml</code></li>
+<li><code>Resolve-Dependency.ps1</code></li>
+<li><code>Resolve-Dependency.psd1</code></li>
+<li><code>RequiredModules.psd1</code></li>
+<li><code>GitVersion.yml</code></li>
+<li><code>azure-pipelines.yml</code></li>
+<li><code>CODE_OF_CONDUCT.md</code></li>
+</ul>
+</li>
+<li>Copy the following file from the base folder <code>./source/build.psd1</code>
+into the source folder. <em>This file will not be needed once the</em>
+<em>ModuleBuilder module resolves a pending issue.</em></li>
+<li>Copy the following folder from the base folder <code>./source/en-US</code>
+into the source folder.</li>
+</ol>
+<h2 id="update-repository-and-module-files">Update repository and module files</h2>
+<h3 id="file-gitignore">File <code>.gitignore</code></h3>
+<ol>
+<li>Remove and entry of <code>DscResource.Tests</code> and <code>node_modules</code> from the
+file <code>.gitignore</code></li>
+<li>Add <code>output/</code> to the .gitignore file.</li>
+</ol>
+<h3 id="module-manifest">Module manifest</h3>
+<p>Change the module manifest in the source folder, e.g. <code>SqlServerDsc.psd1</code>.</p>
+<ol>
+<li>Remove the release notes from the module manifest by changing the
+release notes property to <code>ReleaseNotes = ''</code>.</li>
+<li>Replace the module version in the module manifest to make it more clear
+that the module version is just updated by the CI pipeline. Set the
+module version to <code>0.0.1</code>. <em>The module version is controlled by GitVersion</em>
+<em>and the GitVersion.yml that we get back to later.</em></li>
+<li>Add the property <code>Prerelease</code> with an empty string value to the <code>PSData</code>
+section. <em>Note: This must be done so that the pipeline will be able to</em>
+<em>release preview builds.</em>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PrivateData = @{
+    PSData = @{
+        <span style="color:#75715e"># Set to a prerelease string value if the release should be a prerelease.</span>
+        Prerelease = <span style="color:#e6db74">&#39;&#39;</span>
+
+        ...
+    }
+}
+</code></pre></div></li>
+<li>Change author to <code>DSC Community</code></li>
+<li>Change company name to <code>DSC Community</code></li>
+<li>Change copyright notice to <code>Copyright the DSC Community contributors. All rights reserved.</code></li>
+<li>Having the export properties set to <code>'*'</code> is not optimal. Update or
+add the export properties to optimize discovery. <em>If any of these are</em>
+<em>already exporting objects then leave that export property as is.</em>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Functions to export from this module</span>
+FunctionsToExport = @()
+
+<span style="color:#75715e"># Cmdlets to export from this module</span>
+CmdletsToExport = @()
+
+<span style="color:#75715e"># Variables to export from this module</span>
+VariablesToExport = @()
+
+<span style="color:#75715e"># Aliases to export from this module</span>
+AliasesToExport = @()
+</code></pre></div></li>
+<li>(Optional) Add the property <code>DscResourcesToExport</code> with an array of all the resources
+in the module. <em>Having this removes a warning from the cmdlet <code>Publish-Module</code></em>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">DscResourcesToExport = @(
+    <span style="color:#e6db74">&#39;Resource1&#39;</span>
+    <span style="color:#e6db74">&#39;Resource2&#39;</span>
+    <span style="color:#e6db74">&#39;Resource3&#39;</span>
+)
+</code></pre></div></li>
+<li>Add DSC Community logo as an icon to the module manifest
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PrivateData = @{
+    PSData = @{
+       IconUri = <span style="color:#e6db74">&#39;https://dsccommunity.org/images/DSC_Logo_300p.png&#39;</span>
+
+       ...
+    }
+}
+</code></pre></div></li>
+<li>Update the property <code>LicensUri</code> and <code>ProjectUri</code> replacing <code>\PowerShell\</code>
+with <code>\dsccommunity\</code>. E.g.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PrivateData = @{
+    PSData = @{
+     ...
+     LicenseUri = <span style="color:#e6db74">&#39;https://github.com/dsccommunity/{RepositoryName}/blob/master/LICENSE&#39;</span>
+
+     ProjectUri = <span style="color:#e6db74">&#39;https://github.com/dsccommunity/{RepositoryName}&#39;</span>
+     ...
+    }
+}
+</code></pre></div></li>
+</ol>
+<h3 id="file-readmemd">File <code>README.md</code></h3>
+<ol>
+<li>Remove the entire <code>Branches</code> section of the file <code>README.md</code> (if it exists).</li>
+<li>Add the status badges to the top of the README.md, just under the
+module name section.
+<blockquote>
+<p><strong>Note:</strong> To get the definition id, browse to the pipeline in
+the DSC Community Azure DevOps organization and look in the URL, e.g.
+<a href="https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&amp;_a=summary">https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&amp;_a=summary</a>
+<strong>You have to get back to this once the pipeline is configured!</strong></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## {RepositoryName}
+</span><span style="color:#75715e"></span>
+[<span style="color:#f92672">![Build Status</span>](<span style="color:#a6e22e">https://dev.azure.com/dsccommunity/{repositoryName}/_apis/build/status/dsccommunity.{repositoryName}?branchName=master</span>)](https://dev.azure.com/dsccommunity/{repositoryName}/_build/latest?definitionId={definitionId}&amp;branchName=master)
+![<span style="color:#f92672">Azure DevOps coverage (branch)</span>](<span style="color:#a6e22e">https://img.shields.io/azure-devops/coverage/dsccommunity/{repositoryName}/{definitionId}/master</span>)
+[<span style="color:#f92672">![Azure DevOps tests</span>](<span style="color:#a6e22e">https://img.shields.io/azure-devops/tests/dsccommunity/{repositoryName}/{definitionId}/master</span>)](https://dsccommunity.visualstudio.com/{repositoryName}/_test/analytics?definitionId={definitionId}&amp;contextType=build)
+[<span style="color:#f92672">![PowerShell Gallery (with prereleases)</span>](<span style="color:#a6e22e">https://img.shields.io/powershellgallery/vpre/{repositoryName}?label={repositoryName}%20Preview</span>)](https://www.powershellgallery.com/packages/{repositoryName}/)
+[<span style="color:#f92672">![PowerShell Gallery</span>](<span style="color:#a6e22e">https://img.shields.io/powershellgallery/v/{repositoryName}?label={repositoryName}</span>)](https://www.powershellgallery.com/packages/{repositoryName}/)
+</code></pre></div></li>
+<li>Replace the text referencing the code of conduct with this new section
+instead.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## Code of Conduct
+</span><span style="color:#75715e"></span>
+This project has adopted this [<span style="color:#f92672">Code of Conduct</span>](<span style="color:#a6e22e">CODE_OF_CONDUCT.md</span>).
+</code></pre></div></li>
+<li>Add a <em>Releases</em> section after the <em>Code of Conduct</em> section.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## Releases
+</span><span style="color:#75715e"></span>
+For each merge to the branch <span style="color:#e6db74">`master`</span> a preview release will be
+deployed to [<span style="color:#f92672">PowerShell Gallery</span>](<span style="color:#a6e22e">https://www.powershellgallery.com/</span>).
+Periodically a release version tag will be pushed which will deploy a
+full release to [<span style="color:#f92672">PowerShell Gallery</span>](<span style="color:#a6e22e">https://www.powershellgallery.com/</span>).
+</code></pre></div></li>
+<li>Update the <em>Contributing</em> section to. Add the section under the <em>Releases</em>
+if it does not exist.
+<pre><code>## Contributing
+
+Please check out common DSC Community [contributing guidelines](https://dsccommunity.org/guidelines/contributing).
+</code></pre></li>
+<li>Change any URLs pointing to examples (<code>[...](/Examples/Resources/...)</code>) to the
+correct path <code>[...](/source/Examples/Resources/...)</code></li>
+<li>Change any URLs pointing to <code>https://github.com/PowerShell/...</code> to
+<code>https://github.com/dsccommunity/...</code>.</li>
+</ol>
+<h3 id="file-changelogmd">File <code>CHANGELOG.md</code></h3>
+<blockquote>
+<p><strong>NOTE:</strong> Build pipeline uses the format of <a href="https://keepachangelog.com/en/1.0.0/">keep a changelog</a>
+so we need to change the changelog accordingly.</p>
+</blockquote>
+<ol>
+<li>Update the Unreleased section of the CHANGELOG.md to use the new format,
+or copy the CHANGELOG.md from the base folder if the old change log does
+not need to be retained. <em>The example change log below is somewhat</em>
+*changed from the CHANGELOG.md in base folder.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"># Change log for {RepositoryName}
+
+The format is based on and uses the types of changes according to [<span style="color:#f92672">Keep a Changelog</span>](<span style="color:#a6e22e">https://keepachangelog.com/en/1.0.0/</span>),
+and this project adheres to [<span style="color:#f92672">Semantic Versioning</span>](<span style="color:#a6e22e">https://semver.org/spec/v2.0.0.html</span>).
+
+<span style="color:#75715e">## [Unreleased]
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">### Added
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">-</span> SqlServerDsc
+  <span style="color:#66d9ef">-</span> Added automatic release with a new CI pipeline.
+
+<span style="color:#75715e">### Changed
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">-</span> SqlServerDsc
+  <span style="color:#66d9ef">-</span> Add .gitattributes file to checkout file correctly with CRLF.
+  <span style="color:#66d9ef">-</span> Updated .vscode/analyzersettings.psd1 file to correct use PSSA rules
+    and custom rules in VS Code.
+  <span style="color:#66d9ef">-</span> Fix hashtables to align with style guideline ([issue #1437](https://github.com/dsccommunity/{RepositoryName}/issues/1437)).
+<span style="color:#66d9ef">-</span> SqlServerMaxDop
+  <span style="color:#66d9ef">-</span> Fix line endings in code which did not use the correct format.
+
+<span style="color:#75715e">### Deprecated
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">-</span> None
+
+<span style="color:#75715e">### Removed
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">-</span> None
+
+<span style="color:#75715e">### Fixed
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">-</span> None
+
+<span style="color:#75715e">### Security
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">-</span> None
+</code></pre></div></li>
+<li>(Optional) Update old entires in the change log to match the new
+change log format, see example in the Sampled repository
+<a href="https://github.com/gaelcolas/Sampler/blob/master/CHANGELOG.md">https://github.com/gaelcolas/Sampler/blob/master/CHANGELOG.md</a>.
+You can get the date for each tag (release) by running this, or
+check releases in the PowerShell Gallery.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git log --tags --simplify-by-decoration --pretty<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;format:%ai %d&#34;</span>
+</code></pre></div><p>Example of log entry</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## [13.2.0.0] - 2019-09-18
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">### Changed
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">-</span> Changes to SqlServerDsc
+  <span style="color:#66d9ef">-</span> Fix keywords to lower-case to align with guideline.
+  <span style="color:#66d9ef">-</span> Fix keywords to have space before a parenthesis to align with guideline.
+  <span style="color:#66d9ef">-</span> Fix typo in SqlSetup strings ([issue #1419](https://github.com/dsccommunity/{RepositoryName}/issues/1419)).
+</code></pre></div></li>
+<li><strong>IMPORTANT!</strong> The release notes in the PowerShell Module manifest cannot
+exceed 10000 characters. Due to a bug in the CI deploy pipeline this is
+not yet handled automatically. One solution is to temporary move older
+entries to another file, e.g. <code>HISTORIC_CHANGELOG.md</code> to keep the
+change log shortened.
+<ol>
+<li>Add a file <code>HISTORIC_CHANGELOG.md</code> and move the content of the old
+version history to it.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"># Historic change log for {RepositoryName}
+
+The release notes in the PowerShell Module manifest cannot exceed 10000
+characters. Due to a bug in the CI deploy pipeline this is not handled.
+This file is to temporary move the older change log history to keep the
+change log short.
+
+<span style="color:#75715e">## [1.13.0.0] - 2019-09-19
+</span><span style="color:#75715e"></span>...
+</code></pre></div></li>
+<li>Update the file <code>CHANGELOG.md</code> with the following.
+<pre><code class="language-markdwon" data-lang="markdwon">For older change log history see the [historic changelog](HISTORIC_CHANGELOG.md).
+</code></pre></li>
+</ol>
+</li>
+</ol>
+<h3 id="file-githubpull-request-templatemd">File <code>.github/PULL_REQUEST_TEMPLATE.md</code></h3>
+<p>Make sure this file is updated to reflect having a CHANGELOG.md. The
+following is a proposed file but can changed to reflected other needs.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">&lt;!--
+    Thanks for submitting a Pull Request (PR) to this project.
+    Your contribution to this project is greatly appreciated!
+
+    Please prefix the PR title with the resource name,
+    e.g. &#39;ResourceName: My short description&#39;.
+    If this is a breaking change, then also prefix the PR title
+    with &#39;BREAKING CHANGE:&#39;,
+    e.g. &#39;BREAKING CHANGE: ResourceName: My short description&#39;.
+
+    You may remove this comment block, and the other comment blocks, but please
+    keep the headers and the task list.
+--&gt;
+<span style="color:#75715e">#### Pull Request (PR) description
+</span><span style="color:#75715e"></span>&lt;!--
+    Replace this comment block with a description of your PR.
+    Also, make sure you have updated the CHANGELOG.md, see the
+    task list below. An entry in the CHANGELOG.md is mandatory
+    for all PRs.
+--&gt;
+
+<span style="color:#75715e">#### This Pull Request (PR) fixes the following issues
+</span><span style="color:#75715e"></span>&lt;!--
+    If this PR does not fix an open issue, replace this comment block with None.
+    If this PR resolves one or more open issues, replace this comment block with
+    a list of the issues using a GitHub closing keyword, e.g.:
+
+<span style="color:#66d9ef">-</span> Fixes #123
+<span style="color:#66d9ef">-</span> Fixes #124
+--&gt;
+
+<span style="color:#75715e">#### Task list
+</span><span style="color:#75715e"></span>&lt;!--
+    To aid community reviewers in reviewing and merging your PR, please take
+    the time to run through the below checklist and make sure your PR has
+    everything updated as required.
+
+    Change to [x] for each task in the task list that applies to your PR.
+    For those task that don&#39;t apply to you PR, leave those as is.
+--&gt;
+<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Added an entry to the change log under the Unreleased section of the
+      file CHANGELOG.md. Entry should say what was changed and how that
+      affects users (if applicable), and reference the issue being resolved
+      (if applicable).
+<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Resource documentation added/updated in README.md.
+<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Resource parameter descriptions added/updated in README.md, schema.mof
+      and comment-based help.
+<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Comment-based help added/updated.
+<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Localization strings added/updated in all localization files as appropriate.
+<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Examples appropriately added/updated.
+<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Unit tests added/updated. See [<span style="color:#f92672">DSC Community Testing Guidelines</span>](<span style="color:#a6e22e">https://dsccommunity.org/guidelines/testing-guidelines</span>).
+<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Integration tests added/updated (where possible). See [<span style="color:#f92672">DSC Community Testing Guidelines</span>](<span style="color:#a6e22e">https://dsccommunity.org/guidelines/testing-guidelines</span>).
+<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> New/changed code adheres to [<span style="color:#f92672">DSC Community Style Guidelines</span>](<span style="color:#a6e22e">https://dsccommunity.org/styleguidelines</span>).
+</code></pre></div><h3 id="file-githubissue-templateproblem-with-resourcemd">File <code>.github/ISSUE_TEMPLATE/Problem_with_resource.md</code></h3>
+<p>Change the last line to the following, removing the sentence within the
+parenthesis.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">#### Version of the DSC module that was used
+</span></code></pre></div><h3 id="file-contributingmd">File <code>CONTRIBUTING.md</code></h3>
+<p>If this file does not exist, please create it as GitHub uses it in various
+locations. Change the contents of the file to the following.</p>
+<pre><code class="language-markdwon" data-lang="markdwon"># Contributing
+
+Please check out common DSC Community [contributing guidelines](https://dsccommunity.org/guidelines/contributing).
+</code></pre><h3 id="other-repository-files">Other repository files</h3>
+<ol>
+<li>Remove the file <code>.MetaTestOptIn.json</code> since it is no longer used.
+<em>We opt-in to everything by default, to opt-out see the section on</em>
+<em>testing.</em></li>
+<li>Change the copyright notice in the LICENSE file to
+<code>Copyright (c) DSC Community contributors.</code></li>
+<li>Update the contents of the conceptual help file under <code>./source/en-US</code>
+to describe the module. Change as necessary, like module name. E.g.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">TOPIC
+    about_{RepositoryName}
+
+SHORT DESCRIPTION
+    DSC resources for deployment and configuration of {Product Name}.
+
+LONG DESCRIPTION
+    This module contains DSC resources for deployment and configuration of {Product Name}.
+
+EXAMPLES
+    PS C:\&gt; Get-DscResource -Module {RepositoryName}
+
+NOTE:
+    Thank you to the DSC Community contributors who contributed to this module by
+    writing code, sharing opinions, and provided feedback.
+
+TROUBLESHOOTING NOTE:
+    Go to the Github repository for read about issues, submit a new issue, and read
+    about new releases. https://github.com/dsccommunity/{RepositoryName}
+
+SEE ALSO
+    - https://github.com/dsccommunity/{RepositoryName}
+
+KEYWORDS
+    DSC, DscResource, {productTag}
+</code></pre></div></li>
+</ol>
+<h2 id="configure-ci-build-pipeline">Configure CI build pipeline</h2>
+<h3 id="file-buildyaml">File <code>build.yaml</code></h3>
+<ol>
+<li>Uncomment the folder <code>Modules</code> if the folder exist under the source folder,
+or if there are any helper modules (which need to be moved to the <code>Modules</code>
+folder).
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">CopyDirectories:
+  - Modules
+</code></pre></div></li>
+<li>(Optional) Clear out any commented rows <em>(they can always be found in the</em>
+<em>template if they are needed in the future)</em>.</li>
+</ol>
+<h3 id="file-requiredmodulespsd1">File <code>RequiredModules.psd1</code></h3>
+<ol>
+<li>If there are any prerequisites modules needed for examples or integration
+tests (not counting the actual module being tested) those need to be
+added to the file <code>RequiredModules.psd1</code>. <strong>We need to pin the version</strong>
+<strong>we should use for both an example and an integration tests.</strong>
+<blockquote>
+<p><strong>NOTE:</strong> We must pin the version due to how the DSC resource modules
+are detected when configuration files are compiled. If we do not pin
+versions the CI pipeline will se duplicate modules due to the folder
+structure the CI pipeline is using when building the pipeline.
+E.g. paths used <code>\output\;\output\RequiredModules</code>.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Prerequisites modules needed for examples and integration tests of</span>
+<span style="color:#75715e"># the {RepositoryName} module.</span>
+PSDscResources = <span style="color:#e6db74">&#39;2.12.0.0&#39;</span>
+StorageDsc     = <span style="color:#e6db74">&#39;4.9.0.0&#39;</span>
+NetworkingDsc  = <span style="color:#e6db74">&#39;7.4.0.0&#39;</span>
+</code></pre></div></li>
+</ol>
+<h3 id="file-gitversionyml">File <code>GitVersion.yml</code></h3>
+<ol>
+<li>Update the key <code>next-version</code> to the next minor version (using semantic
+versioning). This version is from where <code>gitversion</code> tries to evaluate
+version. For example if the latest release was <code>13.2.0</code> (or <code>13.2.0.0</code>)
+then set <code>next-version</code> to <code>13.3.0</code>.</li>
+</ol>
+<blockquote>
+<p><strong>BE AWARE:</strong> If the last version released was <code>13.2.0</code> and you want to
+raise the major version to <code>14.0.0</code> you <strong>cannot</strong> set <code>next-version</code> to
+<code>14.0.0</code>. If you want next released version to be <code>14.0.0</code> then set
+<code>next-version</code> to <code>13.3.0</code> and then add a commit with the word <code>breaking</code>
+or <code>major</code> in the commit message.</p>
+</blockquote>
+<h2 id="update-helper-modules">Update helper modules</h2>
+<p>If there are any helper modules then move those to the <code>Modules</code> folder
+under the source folder (and change the code accordingly). Then for each
+helper module these steps should be done.</p>
+<ol>
+<li>Remove the <code>Export-ModuleMember</code> cmdlet from the module script file.</li>
+<li>Any helper module is required to have a module manifest.
+Create one using <code>New-ModuleManifest</code>, e.g.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Need the full path to work with WriteAllText().</span>
+$manifestFile = <span style="color:#e6db74">&#39;C:\source\{repositoryFolder}\source\Modules\{ModuleName}\{ModuleName}.psd1&#39;</span>
+
+New-ModuleManifest -Path $manifestFile `
+    -Author <span style="color:#e6db74">&#39;DSC Community&#39;</span> `
+    -CompanyName <span style="color:#e6db74">&#39;Dsc Community&#39;</span> `
+    -Copyright <span style="color:#e6db74">&#39;Copyright the DSC Community contributors. All rights reserved.&#39;</span> `
+    -Description <span style="color:#e6db74">&#39;Functions used by the DSC resources in {RepositoryName}.&#39;</span>
+
+<span style="color:#75715e"># Converts the file to UTF-8 (without BOM)</span>
+$content = Get-Content -Path $manifestFile -Encoding <span style="color:#e6db74">&#39;Unicode&#39;</span> -Raw
+<span style="color:#66d9ef">[System.IO.File]</span>::WriteAllText($manifestFile, $content, <span style="color:#66d9ef">[System.Text.Encoding]</span>::ASCII)
+</code></pre></div></li>
+<li>Change the manifest to add this. <strong>Make sure to export the</strong>
+<strong>functions from the helper module, and that it DOES NOT export <code>'*'</code>!</strong>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">@{
+    RootModule = <span style="color:#e6db74">&#39;{ModuleName}.psm1&#39;</span>
+
+    <span style="color:#75715e"># Semantic version number of this module.</span>
+    ModuleVersion     = <span style="color:#e6db74">&#39;1.0.0&#39;</span>
+
+    FunctionsToExport = @(
+        <span style="color:#e6db74">&#39;New-InvalidArgumentException&#39;</span>,
+        <span style="color:#e6db74">&#39;New-InvalidOperationException&#39;</span>,
+        <span style="color:#e6db74">&#39;New-ObjectNotFoundException&#39;</span>,
+        <span style="color:#e6db74">&#39;New-InvalidResultException&#39;</span>,
+        <span style="color:#e6db74">&#39;Get-LocalizedData&#39;</span>
+    )
+
+    CmdletsToExport = @()
+
+    VariablesToExport = @()
+
+    AliasesToExport = @()
+}
+</code></pre></div></li>
+</ol>
+<h2 id="update-examples">Update examples</h2>
+<p>If an example uses an external module in the configuration then that module
+must use a pinned version. The pinned version must be the same version that
+was pinned in the file <code>RequiredModules.psd1</code> (or make sure to pin the same
+version there too). Example of pinning a version in the configuration file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Import-DscResource -ModuleName <span style="color:#e6db74">&#39;PSDscResources&#39;</span> -ModuleVersion <span style="color:#e6db74">&#39;2.12.0.0&#39;</span>
+Import-DscResource -ModuleName <span style="color:#e6db74">&#39;StorageDsc&#39;</span> -ModuleVersion <span style="color:#e6db74">&#39;4.9.0.0&#39;</span>
+</code></pre></div><h2 id="resolve-build-dependencies">Resolve build dependencies</h2>
+<p>This requires that all steps above have been done. Running this command
+will make sure the dependencies are resolved and prepare the build
+environment.</p>
+<p>This must be run each time changes are made to the file <code>RequiredModules.psd1</code>,
+or if there are new releases of external modules listed in the file
+<code>RequiredModules.psd1</code>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> This does not install anything, it downloads the prerequisites
+into the <code>output</code> folder.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -ResolveDependency -Tasks noop
+</code></pre></div><h2 id="run-a-build">Run a build</h2>
+<p>This builds the module after which for example tests can be run on the built
+module. The built module will look the same as the one that is release.
+<code>GitVersion</code> is used to determine the next version if it is installed.</p>
+<p><strong>This must be run each time changes have been made to files in the source</strong>
+<strong>folder.</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks build
+</code></pre></div><h2 id="examples-files-if-publishing-to-gallery">Examples files (if publishing to Gallery)</h2>
+<p>For examples that are published to the Gallery the <em>Script File Information</em>
+section need to be changed. This script must be run after the build task
+have been run because it needs to resolve the modules in a <code>$PSModulePath</code>.</p>
+<p><strong>Update parameter <code>Version</code> as needed.</strong></p>
+<blockquote>
+<p><strong>NOTE:</strong> The cmdlet <code>Update-ScriptFileInfo</code> needs to be able to resolve
+modules. If an example is dependent on other modules, e.g. PSDscResources,
+they need to be present in a <code>$PSModulePath</code>. If not you will get a parse
+error. Dependent modules should have already been pinned in the file
+<code>RequiredModules.psd1</code> and in each example file.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$moduleName = <span style="color:#e6db74">&#39;&lt;repositoryName&gt;&#39;</span>
+Get-ChildItem -Path <span style="color:#e6db74">&#39;.\source\Examples&#39;</span> -Filter <span style="color:#e6db74">&#39;*.ps1&#39;</span> -Recurse | % {
+    Update-ScriptFileInfo -Path $_.FullName `
+        -Version <span style="color:#e6db74">&#39;1.0.1&#39;</span> `
+        -Author <span style="color:#e6db74">&#39;DSC Community&#39;</span> `
+        -CompanyName <span style="color:#e6db74">&#39;DSC Community&#39;</span> `
+        -Copyright <span style="color:#e6db74">&#39;DSC Community contributors. All rights reserved.&#39;</span> `
+        -LicenseUri <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">https://github.com/dsccommunity/</span><span style="color:#e6db74">$</span><span style="color:#e6db74">moduleName/blob/master/LICENSE</span><span style="color:#e6db74">&#34;</span> `
+        -ProjectUri <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">https://github.com/dsccommunity/</span><span style="color:#e6db74">$</span><span style="color:#e6db74">moduleName</span><span style="color:#e6db74">&#34;</span> `
+        -ReleaseNotes <span style="color:#e6db74">&#39;Updated author, copyright notice, and URLs.&#39;</span> `
+        -IconUri <span style="color:#e6db74">&#39;https://dsccommunity.org/images/DSC_Logo_300p.png&#39;</span>
+}
+</code></pre></div><h2 id="prepare-the-module-to-use-the-ci-test-pipeline">Prepare the module to use the CI test pipeline</h2>
+<h3 id="file-buildyaml-1">File <code>build.yaml</code></h3>
+<ol>
+<li>From the <code>test:</code> task, remove the activity <code>hqrmtest</code>.</li>
+<li>Under the key <code>Pester</code> update the key <code>Script</code> to this.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">Script:
+  - tests/Unit
+</code></pre></div></li>
+<li>Under the key <code>Pester</code> remove all the items from the key <code>ExcludeTag</code>.
+Remove these:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#66d9ef">-</span> helpQuality
+<span style="color:#66d9ef">-</span> FunctionalQuality
+<span style="color:#66d9ef">-</span> TestQuality
+</code></pre></div></li>
+</ol>
+<h3 id="update-unit-tests">Update unit tests</h3>
+<p>From all unit tests remove the header that was part
+of the previous test framework. Everything between and including
+<code>#region HEADER</code> and <code>#endregion HEADER</code>. Replace it with the following
+code, add the code inside the function <code>Invoke-TestSetup</code>. Also update
+the function <code>Invoke-TestCleanup</code>. Make sure the <code>Invoke-TestSetup</code> is
+called outside the <code>try</code>-block.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Invoke-TestSetup
+{
+    <span style="color:#66d9ef">try</span>
+    {
+        Import-Module -Name DscResource.Test -Force
+    }
+    <span style="color:#66d9ef">catch</span> <span style="color:#66d9ef">[System.IO.FileNotFoundException]</span>
+    {
+        <span style="color:#66d9ef">throw</span> <span style="color:#e6db74">&#39;DscResource.Test module dependency not found. Please run &#34;.\build.ps1 -Tasks build&#34; first.&#39;</span>
+    }
+
+    $script:testEnvironment = Initialize-TestEnvironment `
+        -DSCModuleName $script:dscModuleName `
+        -DSCResourceName $script:dscResourceName `
+        -ResourceType <span style="color:#e6db74">&#39;Mof&#39;</span> `
+        -TestType <span style="color:#e6db74">&#39;Unit&#39;</span>
+}
+
+<span style="color:#66d9ef">function</span> Invoke-TestCleanup
+{
+    Restore-TestEnvironment -TestEnvironment $script:testEnvironment
+}
+
+Invoke-TestSetup
+
+<span style="color:#66d9ef">try</span>
+{
+    InModuleScope $script:dscResourceName {
+        <span style="color:#75715e"># All tests goes here</span>
+    }
+}
+<span style="color:#66d9ef">finally</span>
+{
+    Invoke-TestCleanup
+}
+</code></pre></div><h3 id="update-integration-tests">Update integration tests</h3>
+<p>From all integration tests remove the header that was part
+of the previous test framework. Everything between and including
+<code>#region HEADER</code> and <code>#endregion HEADER</code>. Replace it with the following
+code. Make sure to change the parameter of the cmdlet <code>Restore-TestEnvironment</code>
+at the end of the file too.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">try</span>
+{
+    Import-Module -Name DscResource.Test -Force
+}
+<span style="color:#66d9ef">catch</span> <span style="color:#66d9ef">[System.IO.FileNotFoundException]</span>
+{
+    <span style="color:#66d9ef">throw</span> <span style="color:#e6db74">&#39;DscResource.Test module dependency not found. Please run &#34;.\build.ps1 -Tasks build&#34; first.&#39;</span>
+}
+
+$script:testEnvironment = Initialize-TestEnvironment `
+    -DSCModuleName $script:dscModuleName `
+    -DSCResourceName $script:dscResourceName `
+    -ResourceType <span style="color:#e6db74">&#39;Mof&#39;</span> `
+    -TestType <span style="color:#e6db74">&#39;Integration&#39;</span>
+</code></pre></div><p>Change the parameter of the cmdlet <code>Restore-TestEnvironment</code> at the end
+of the file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">finally</span>
+{
+    Restore-TestEnvironment -TestEnvironment $script:testEnvironment
+}
+</code></pre></div><p>If an integration tests uses an external module in the configuration then
+that module must use a pinned version. The pinned version must be the same
+version that was pinned in the file <code>RequiredModules.psd1</code> (or make sure to
+pin the same version there too). Example of pinning a version in the
+configuration file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Import-DscResource -ModuleName <span style="color:#e6db74">&#39;PSDscResources&#39;</span> -ModuleVersion <span style="color:#e6db74">&#39;2.12.0.0&#39;</span>
+Import-DscResource -ModuleName <span style="color:#e6db74">&#39;StorageDsc&#39;</span> -ModuleVersion <span style="color:#e6db74">&#39;4.9.0.0&#39;</span>
+</code></pre></div><h3 id="unit-tests-for-helper-modules">Unit tests for helper modules</h3>
+<p>For any helper modules, add this to each unit test (and remove any
+other code that imported the helper module previously).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">#region HEADER</span>
+$script:projectPath = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$</span><span style="color:#e6db74">PSScriptRoot\..\..</span><span style="color:#e6db74">&#34;</span> | Convert-Path
+$script:projectName = (Get-ChildItem -Path <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$</span><span style="color:#e6db74">script:projectPath\*\*.psd1</span><span style="color:#e6db74">&#34;</span> | Where-Object -FilterScript {
+        ($_.Directory.Name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#39;source|src&#39;</span> <span style="color:#f92672">-or</span> $_.Directory.Name <span style="color:#f92672">-eq</span> $_.BaseName) <span style="color:#f92672">-and</span>
+        $(<span style="color:#66d9ef">try</span> { Test-ModuleManifest -Path $_.FullName -ErrorAction Stop } <span style="color:#66d9ef">catch</span> { $false })
+    }).BaseName
+
+$script:parentModule = Get-Module -Name $script:projectName -ListAvailable | Select-Object -First 1
+$script:subModulesFolder = Join-Path -Path $script:parentModule.ModuleBase -ChildPath <span style="color:#e6db74">&#39;Modules&#39;</span>
+Remove-Module -Name $script:parentModule -Force -ErrorAction <span style="color:#e6db74">&#39;SilentlyContinue&#39;</span>
+
+$script:subModuleName = (Split-Path -Path $PSCommandPath -Leaf) <span style="color:#f92672">-replace</span> <span style="color:#e6db74">&#39;\.Tests.ps1&#39;</span>
+$script:subModuleFile = Join-Path -Path $script:subModulesFolder -ChildPath <span style="color:#e6db74">&#34;</span>$($script:subModuleName)<span style="color:#e6db74">&#34;</span>
+
+Import-Module $script:subModuleFile -Force -ErrorAction Stop
+<span style="color:#75715e">#endregion HEADER</span>
+
+InModuleScope $script:subModuleName {
+    <span style="color:#75715e"># The unit tests</span>
+}
+</code></pre></div><h2 id="run-tests-locally">Run tests locally</h2>
+<p>Make sure all tests have been updated as mentioned previously.
+This runs all the unit tests for the module. <em>It runs the tests that are</em>
+<em>configured under the key <code>Script</code> (under the key <code>Pester</code>) in the file</em>
+<em><code>build.yaml</code>.</em></p>
+<p><strong>Remember to run the build task if any file has been changed in the source</strong>
+<strong>folder.</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks test
+</code></pre></div><blockquote>
+<p>To run the integration tests you will need to add the parameter <code>PesterScript</code>,
+e.g.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks test -PesterScript <span style="color:#e6db74">&#39;tests/Integration&#39;</span>.
+</code></pre></div><p><strong>Only do this in a lab environment or CI environment.</strong></p>
+</blockquote>
+<h2 id="configure-ci-test-pipeline">Configure CI test pipeline</h2>
+<h3 id="file-azure-pipelinesyml">File <code>azure-pipelines.yml</code></h3>
+<ol>
+<li>Replace the string <code>Build_artefact</code> with <code>Build</code> (in two locations).</li>
+<li>Replace the entire stage <code>test_module</code> with the following.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- stage: Test
+  dependsOn: Build
+  jobs:
+    - job: Test_HQRM
+      pool:
+        vmImage: <span style="color:#e6db74">&#39;win1803&#39;</span>
+      timeoutInMinutes: <span style="color:#ae81ff">0</span>
+      steps:
+        - task: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
+          inputs:
+            buildType: <span style="color:#e6db74">&#39;current&#39;</span>
+            downloadType: <span style="color:#e6db74">&#39;single&#39;</span>
+            artifactName: <span style="color:#e6db74">&#39;output&#39;</span>
+            downloadPath: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
+        - task: PowerShell@<span style="color:#ae81ff">2</span>
+          name: Test
+          inputs:
+            filePath: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
+            arguments: <span style="color:#e6db74">&#39;-Tasks hqrmtest&#39;</span>
+            pwsh: <span style="color:#66d9ef">false</span>
+        - task: PublishTestResults@<span style="color:#ae81ff">2</span>
+          condition: succeededOrFailed()
+          inputs:
+            testResultsFormat: <span style="color:#e6db74">&#39;NUnit&#39;</span>
+            testResultsFiles: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
+            testRunTitle: <span style="color:#e6db74">&#39;HQRM&#39;</span>
+
+    - job: Test_Unit
+      pool:
+        vmImage: <span style="color:#e6db74">&#39;win1803&#39;</span>
+      timeoutInMinutes: <span style="color:#ae81ff">0</span>
+      steps:
+        - powershell: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">           </span><span style="color:#e6db74"> </span><span style="color:#e6db74">$repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split &#39;/&#39;</span>
+            echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryOwner;isOutput=true]$repositoryOwner&#34;</span>
+            echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName&#34;</span>
+          name: DscBuildVariable
+        - task: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
+          inputs:
+            buildType: <span style="color:#e6db74">&#39;current&#39;</span>
+            downloadType: <span style="color:#e6db74">&#39;single&#39;</span>
+            artifactName: <span style="color:#e6db74">&#39;output&#39;</span>
+            downloadPath: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
+        - task: PowerShell@<span style="color:#ae81ff">2</span>
+          name: Test
+          inputs:
+            filePath: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
+            arguments: <span style="color:#e6db74">&#34;-Tasks test -PesterScript &#39;tests/Unit&#39;&#34;</span>
+            pwsh: <span style="color:#66d9ef">false</span>
+        - task: PublishTestResults@<span style="color:#ae81ff">2</span>
+          condition: succeededOrFailed()
+          inputs:
+            testResultsFormat: <span style="color:#e6db74">&#39;NUnit&#39;</span>
+            testResultsFiles: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
+            testRunTitle: <span style="color:#e6db74">&#39;Unit (Windows Server Core)&#39;</span>
+        - task: PublishCodeCoverageResults@<span style="color:#ae81ff">1</span>
+          condition: succeededOrFailed()
+          inputs:
+            codeCoverageTool: <span style="color:#e6db74">&#39;JaCoCo&#39;</span>
+            summaryFileLocation: <span style="color:#e6db74">&#39;output/testResults/CodeCov*.xml&#39;</span>
+            pathToSources: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/output/$(DscBuildVariable.RepositoryName)&#39;</span>
+
+    - job: Test_Integration
+      pool:
+        vmImage: <span style="color:#e6db74">&#39;win1803&#39;</span>
+      timeoutInMinutes: <span style="color:#ae81ff">0</span>
+      steps:
+        - task: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
+          inputs:
+            buildType: <span style="color:#e6db74">&#39;current&#39;</span>
+            downloadType: <span style="color:#e6db74">&#39;single&#39;</span>
+            artifactName: <span style="color:#e6db74">&#39;output&#39;</span>
+            downloadPath: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
+        - task: PowerShell@<span style="color:#ae81ff">2</span>
+          name: ConfigureWinRM
+          inputs:
+            targetType: <span style="color:#e6db74">&#39;inline&#39;</span>
+            script: <span style="color:#e6db74">&#39;winrm quickconfig -quiet&#39;</span>
+            pwsh: <span style="color:#66d9ef">false</span>
+        - task: PowerShell@<span style="color:#ae81ff">2</span>
+          name: Test
+          inputs:
+            filePath: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
+            arguments: <span style="color:#e6db74">&#34;-Tasks test -PesterScript &#39;tests/Integration&#39; -CodeCoverageThreshold 0&#34;</span>
+            pwsh: <span style="color:#66d9ef">false</span>
+        - task: PublishTestResults@<span style="color:#ae81ff">2</span>
+          condition: succeededOrFailed()
+          inputs:
+            testResultsFormat: <span style="color:#e6db74">&#39;NUnit&#39;</span>
+            testResultsFiles: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
+            testRunTitle: <span style="color:#e6db74">&#39;Integration (Windows Server Core)&#39;</span>
+</code></pre></div></li>
+<li>On the stage <code>Deploy</code> change the key <code>dependsOn</code> replace <code>test_module</code> to <code>Test</code>.</li>
+<li>If the repository <em>cannot run</em> integration tests then the job <code>Test_Integration</code>
+can be removed. If there are no integration tests yet the job can still
+be present so that once an integration tests is added it will be tested.
+The job will pass if no integration tests are found (it will even pass if
+no <code>Integration</code> folder exist).</li>
+<li>(Optional) If the module does not support running unit test or integration
+tests on <strong>Windows Server Core</strong> for each relevant job, change the
+key <code>vmImage</code> to a supported image listed in the section
+<a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops#use-a-microsoft-hosted-agent">Use a Microsoft-hosted agent</a>.</li>
+<li>(Optional) If needed, add anything that was specific to running tests that was
+part of the <code>appveyor.yml</code>. For example to install a feature, add this
+before the task <code>Test</code> in the job <code>Test_Integration</code>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- powershell: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">Install-WindowsFeature -IncludeAllSubFeature -IncludeManagementTools -Name &#39;Web-Server&#39;</span>
+  name: InstallWebServerFeature
+</code></pre></div></li>
+<li>(Optional) If there are need to run integration tests in order (or
+prioritize specific tests) then specify the order in which the tests
+should run. <strong>This does not work if you call the pipeline using the</strong>
+<strong>parameter <code>PesterScript</code>, e.g. <code>./build.ps1 -Tasks test -PesterScript 'tests/Integration'</code>.</strong>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">Pester:
+  <span style="color:#75715e"># Run the script in order. First all of unit tests in no particular order,</span>
+  <span style="color:#75715e"># and then all the integration tests in a specific group order.</span>
+  - tests/Unit
+  <span style="color:#75715e"># Group 1</span>
+  - tests/Integration/MSFT_SqlSetup.Integration.Tests.ps1
+  <span style="color:#75715e"># Group 2</span>
+  - tests/Integration/MSFT_SqlAgentAlert.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlServerNetwork.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlServerLogin.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlServerEndPoint.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlServerDatabaseMail.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlRSSetup.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlDatabaseDefaultLocation.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlDatabase.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlAlwaysOnService.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlAgentOperator.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlServiceAccount.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlAgentFailsafe.Integration.Tests.ps1
+  <span style="color:#75715e"># Group 3</span>
+  - tests/Integration/MSFT_SqlServerRole.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlRS.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlDatabaseUser.Integration.Tests.ps1
+  <span style="color:#75715e"># Group 4</span>
+  - tests/Integration/MSFT_SqlScript.Integration.Tests.ps1
+  <span style="color:#75715e"># Group 5</span>
+  - tests/Integration/MSFT_SqlServerSecureConnection.Integration.Tests.ps1
+  - tests/Integration/MSFT_SqlScriptQuery.Integration.Tests.ps1
+</code></pre></div></li>
+</ol>
+<h2 id="attach-your-fork-to-a-free-azure-devops-organization">Attach your fork to a free Azure DevOps organization</h2>
+<p>This is an optional step.</p>
+<p>Adding your fork to a free Azure DevOps organization means that when you
+push a working branch to your fork and it will be tested the same way as
+when you send in a PR.</p>
+<blockquote>
+<p>This is similar to what the upstream repository is using to run CI pipeline,
+it is using the <a href="https://dev.azure.com/dsccommunity">https://dev.azure.com/dsccommunity</a> organization.</p>
+</blockquote>
+<p>This is can be used to test that everything works  as expected before sending
+in a PR. It can also be used to start a test run that takes a long time without
+having the development environment powered on. Just commit and push the changes
+and the Azure Pipelines will run the CI for you.</p>
+<ol>
+<li>Push the working branch to your fork if you have not done so already.
+We will need it for the next step.</li>
+<li>Create a free Azure DevOps organization at <a href="https://azure.microsoft.com/services/devops/">https://azure.microsoft.com/services/devops/</a></li>
+<li>Install the GitVersion task
+<ol>
+<li>Go to the <a href="https://dev.azure.com/%7Borganization%7D/_settings/extensions">https://dev.azure.com/{organization}/_settings/extensions</a> and
+browse the marketplace and search for <em>GitVersion</em>.</li>
+</ol>
+</li>
+<li>Create a new project with the same name as the <em>GitHub repository name</em>*,
+make sure to set visibility to **public**.</li>
+<li>In the new project under Pipelines, create a new pipeline and choose
+GitHub as where the source resides, choose the the fork of the repository,
+e.g. johlju/SqlServerDsc. You will need to authenticate Azure DevOps
+with GitHub, and when it asks to install the Azure Pipelines GitHub app
+you can choose to install it for all and future repositories or just
+specific ones.</li>
+<li>Once back in Azure Pipelines choose <em>Existing Azure Pipelines YAML file</em>
+and then select <code>azure-pipelines.yml</code> by browsing the branch you
+recently pushed above.</li>
+<li>On the box that says <em>Run</em>, instead just choose <em>Save</em> in the drop-down list.</li>
+<li>Overrides the continuous integration trigger by clicking on &lsquo;Edit&rsquo; where
+you see the YAML file.</li>
+<li>Click on the three dots to get the sub-menu and to show the menu item &lsquo;Triggers&rsquo;.
+<ol>
+<li>Once in Triggers pane, under <em>Continuous Integration</em> click the checkbox
+<em>Override the YAML continuous integration trigger from here</em>, and then
+change the <em>Branch specification</em> to <code>*</code> (asterisk).</li>
+<li>Under <em>Save &amp; queue</em> in the drop-down menu choose <em>Save</em>.</li>
+</ol>
+</li>
+<li>Go back to the new pipeline and on the pane <em>Runs</em> click <em>Run pipeline</em>.
+<ol>
+<li>For the <em>Branch/tag</em> choose the branch you just pushed, and leave
+<em>Commit</em> blank (to run the last the commit).</li>
+<li>Click on <em>Run</em>.</li>
+</ol>
+</li>
+</ol>
+<p>Next time you push a commit to a branch in your fork the Azure Pipeline
+will trigger on that and start a run.</p>
+<blockquote>
+<p><strong>NOTE:</strong> Even if we choose a specific YAML file that will not be used,
+instead the YAML file from the branch being pushed will be used, so any
+changes to the file <code>azure-pipelines.yml</code> will be reflected.</p>
+</blockquote>
+<h2 id="modify-upstream-repository">Modify upstream repository</h2>
+<p>Once all the tests are passing (preferably verified in you own Azure DevOps
+organization) it time to update the upstream repository on the DscCommunity
+GitHub account.</p>
+<p><strong>If you don't have access to execute one or more of these steps then send</strong>
+<strong>a message to @johlju, @PlagueHO, or @gaelcolas privately or in the</strong>
+<strong><a href="https://dsccommunity.org/community/contact/">DSC Slack channel</a>.</strong></p>
+<h3 id="remove-webhooks">Remove WebHooks</h3>
+<p>Remove old webhooks that no longer will be used.</p>
+<ol>
+<li>Browse the repository webooks at <a href="https://github.com/dsccommunity/%7Brepository%7D/settings/hooks">https://github.com/dsccommunity/{repository}/settings/hooks</a>.</li>
+<li>Remove the AppVeyor webhook (<code>ci.appveyor.com</code>).</li>
+<li>Remove the Waffle webhook (<code>hooks.waffle.io</code>). <em>If it exists.</em></li>
+<li>Remove the Microsoft CLA bot (<code>cla.microsoft.com</code>). <em>If it exists.</em></li>
+</ol>
+<h3 id="remove-appveyor-ci">Remove AppVeyor CI</h3>
+<ol>
+<li>Delete the repository AppVeyor project from the DSC Community AppVeyor
+account at <a href="https://ci.appveyor.com/account/dsccommunity/projects">https://ci.appveyor.com/account/dsccommunity/projects</a>.</li>
+</ol>
+<h3 id="push-working-branch-to-upstream-repository">Push working branch to upstream repository</h3>
+<ol>
+<li>Send in the working branch to the upstream repository, e.g.
+<code>git push --set-upstream origin add-new-ci</code>.</li>
+</ol>
+<h3 id="attach-dsc-community-azure-devops-organization">Attach DSC Community Azure DevOps organization</h3>
+<blockquote>
+<p><strong>NOTE:</strong> This needs to be done by one that has admin rights on the DSC
+Community Azure DevOps organization. If you don't have admin rights then
+contact @gaelcolas on the <a href="https://dsccommunity.org/community/contact/">Slack #DSC channel</a>
+and provide the e-mail address you want to access the Azure DevOps
+organization with. He will create the Azure DevOps project for the
+repository. He will also invite you as a stakeholder to the DSC Community
+Azure DevOps organization and give you permission in the Azure DevOps
+project.</p>
+</blockquote>
+<p>Prior to doing this, make sure that the working branch was pushed to
+the upstream repository since we need to have access to the file
+<code>azure-pipelines.yml</code> in the next step.</p>
+<ol>
+<li>Create a new project at <a href="https://dev.azure.com/dsccommunity/">https://dev.azure.com/dsccommunity/</a> with the
+same name as the <em>GitHub repository name</em>*, make sure to set visibility
+to **public**.</li>
+<li>In the new project under Pipelines, create a new pipeline and choose
+GitHub as where the source resides
+<ol>
+<li>Under <em>My repositories</em> in the drop-down choose <em>All repositories</em>.</li>
+<li>Choose the the upstream repository, e.g. dsccommunity/SqlServerDsc.
+<del>You will need to authenticate Azure DevOps with GitHub, and when it</del>
+<del>asks to install the Azure Pipelines GitHub app you can choose to</del>
+<del>install it for all and future repositories or just specific ones.</del></li>
+</ol>
+</li>
+<li>Once back in Azure Pipelines choose <em>Existing Azure Pipelines YAML file</em>
+and then to choose the file <code>azure-pipelines.yml</code> by browsing the branch
+you just pushed above. Then on the box that says <em>Run</em>, instead just
+choose <em>Save</em> in the drop-down list.</li>
+<li>When viewing the YAML file, click on <em>Variables</em> and add two variables.
+Contact @gaelcolas to set these values.
+<ul>
+<li><code>GitHubToken</code> - This should have the value of the GitHub Personal
+Access Token (PAT) for the specific repository (created from the DSC
+Community GitHub account)</li>
+<li><code>GalleryApiToken</code> - This should have the value of the PowerShell
+Gallery API key</li>
+</ul>
+</li>
+<li>Update the README.md status badges with the correct definition ID. You
+find the definition ID in the URL when you browse to the new pipeline.</li>
+</ol>
+<h3 id="remove-repository-branch-protection-rules">Remove repository branch protection rules</h3>
+<p>Browse to the repository settings page and change the branch protection
+rules for both branch <code>dev</code> and branch <code>master</code> to remove the status check
+for <strong>AppVeyor</strong> and <strong>CLA</strong>. See branch protection rules at
+<a href="https://github.com/dsccommunity/%7Brepository%7D/settings/branches">https://github.com/dsccommunity/{repository}/settings/branches</a>.</p>
+<h3 id="update-dev-branch">Update dev branch</h3>
+<ol>
+<li>Send in a PR of your working branch (that was pushed to the upstream
+repository) targeting the <code>dev</code> branch.</li>
+<li>Review and merge the PR.</li>
+<li>Delete the working branch, e.g. <code>add-new-ci</code>, from the upstream repository.</li>
+</ol>
+<h3 id="change-default-branch">Change default branch</h3>
+<p>In the repository, change the default branch to <code>master</code> at
+<a href="https://github.com/dsccommunity/%7Brepository%7D/settings/branches">https://github.com/dsccommunity/{repository}/settings/branches</a>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> GitHub will say &ldquo;Changing the default branch can have unintended
+consequences that can affect new pull requests and clones.&quot;. We have to
+help contributors so solve any consequences so just ignore ignore it and
+continue.</p>
+</blockquote>
+<h3 id="set-new-repository-branch-protection-rules">Set new repository branch protection rules</h3>
+<p>Browse to the repository settings page and set the branch protection
+rules for branch <code>master</code> to add the status check for Azure Pipelines.
+See branch protection rules at <a href="https://github.com/dsccommunity/%7Brepository%7D/settings/branches">https://github.com/dsccommunity/{repository}/settings/branches</a>.</p>
+<p>Branch protection rules:</p>
+<ul>
+<li>Require status check to pass before merging</li>
+<li>Require branches to be up to date before merging</li>
+</ul>
+<p>Status check to set (will only show once the CI has been run):</p>
+<ul>
+<li><code>dsccommunity.{repositoryName} (Build BuildModuleJob)</code></li>
+<li><code>dsccommunity.{repositoryName} (Test Test_HQRM)</code></li>
+<li><code>dsccommunity.{repositoryName} (Test Test_Integration)</code></li>
+<li><code>dsccommunity.{repositoryName} (Test Test_Unit)</code></li>
+</ul>
+<p>Plus any other test status checks you have cofngiured for other platforms
+etc.</p>
+<blockquote>
+<p><strong>NOTE:</strong> Names can differ depending on what the jobs were named
+in the file <code>azure-pipelines.yml</code>.</p>
+</blockquote>
+<h3 id="transfer-powershell-gallery-package">Transfer PowerShell Gallery package</h3>
+<p><del>Ask @gaelcolas to transfer the package for the repository over to the</del>
+<del>DSC Community. <strong>This must be done prior to merging changes into the</strong></del>
+<del><strong><code>master</code> branch</strong>.</del></p>
+<p>All modules have been transferred to the DSC Community PowerShell Gallery
+account.</p>
+<h3 id="update-master-branch">Update master branch</h3>
+<ol>
+<li>Change branch protection rules for the branch <code>dev</code> to <em>Allow force push</em>
+at <a href="https://github.com/dsccommunity/%7Brepository%7D/settings/branches">https://github.com/dsccommunity/{repository}/settings/branches</a>.</li>
+<li>Get the linear commit history of upstream branch <code>master</code> into the upstream
+branch <code>dev</code>. <em>This must be done to keep the commits that us used by the</em>
+<em>tags.</em>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout dev
+git fetch origin master
+git rebase origin/master
+git push --set-upstream origin dev --force
+</code></pre></div></li>
+<li>Send in a PR of your <code>dev</code> branch targeting the <code>master</code> branch.</li>
+<li>Review and merge the PR. <strong>Merge the PR using <em>Merge pull request</em>, and</strong>
+<strong>not <em>squash</em> to keep the commit history</strong>.</li>
+</ol>
+<p>This will publish a preview version.</p>
+<h3 id="publish-the-next-full-version">Publish the next full version</h3>
+<p>Once the next full version should be deployed, do these steps to push
+a new release version tag. Important to have the correct format <code>vX.Y.Z</code>,
+e.g. <code>v1.14.1</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout master
+git pull --tags <span style="color:#75715e"># Pull all tags from upstream master branch</span>
+git describe --tags <span style="color:#75715e"># To see the the latest tag, e.g. vX.Y.Z-preview0002</span>
+git tag vX.Y.Z <span style="color:#75715e"># Creates the full version tag locally</span>
+git push --tags <span style="color:#75715e"># Push the new tag that was created locally</span>
+</code></pre></div><blockquote>
+<p><strong>NOTE:</strong> You could also tag a specific commit if not all commits should
+be released.</p>
+</blockquote>
+<h3 id="remove-branch-dev-from-upstream-repository">Remove branch <code>dev</code> from upstream repository</h3>
+<p><strong>BE AWARE OF AFFECTED PULL REQUESTS.</strong></p>
+<ol>
+<li>Re-target any PR's to the new default branch <code>master</code>.</li>
+<li>Remove the branch <code>dev</code> by running <code>git push origin :dev</code> (or by manually
+deleting it through GitHub). <em>You might need to remove it as a protected</em>
+<em>branch first in <a href="https://github.com/dsccommunity/%7BrepositoryName%7D/settings/branches">https://github.com/dsccommunity/{repositoryName}/settings/branches</a>.</em></li>
+</ol>
+<h2 id="modify-the-forked-repository">Modify the <em>forked</em> repository</h2>
+<p>This is to updated the forked repository. All these steps are optional.</p>
+<ol>
+<li>Remove the repository AppVeyor project for the <em>forked</em>
+repository at <a href="https://ci.appveyor.com/projects">https://ci.appveyor.com/projects</a>.</li>
+<li>Change the default branch to <code>master</code> in the <em>forked</em> repository.</li>
+<li>Remove branch <code>dev</code> from the <em>forked</em> repository.</li>
+<li>Update the branch <code>master</code> in the <em>forked</em> repository.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout master
+git fetch origin master
+git rebase origin/master
+git push my --force
+</code></pre></div></li>
+</ol>
+<h2 id="re-connect-reviewable">Re-connect Reviewable</h2>
+<p>When the repository was moved Reviewable might have been disconnected
+which means that the Reviewable button might or might not show up on a
+PR <em>(depends on if or how the contributor have configured Reviewable)</em>.</p>
+<p>If there are a Reviewable button showing up on a PR, then click on that
+button as usual. If there are no reviewable button, then browse to reviewable
+using <code>https://reviewable.io/reviews/dsccommunity/{repositoryName}/{PRnumber}</code>
+that you build from the repository name and the PR number, e.g.
+<code>https://reviewable.io/reviews/dsccommunity/xExchange/439</code>. When doing this
+the Reviewable button should reappear on the PR,</p>
+<p>Once on the Reviewable page, look at the bottom of the page for a warning
+popup message saying &ldquo;This review will only sync with the PR on demand
+because the repo is not connected&rdquo;. Click on the green button that says
+<strong>CONNECT DSCCOMMUNITY/{repositoryName}</strong>.</p>
+<p>Reviewable should now have been re-connected.</p>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 30 Dec 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/create-an-article/" title="Create an Article"><i class="ti-arrow-left mr-2"></i>Create an Article</a>
+            <a class="nav nav-next" href="/blog/how-to-use-dsc-logging/" title="How to Use Dsc Logging">How to Use Dsc Logging<i class="ti-arrow-right ml-2"></i></a>
+            </nav></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- footer -->
+<footer class="section bg-gray pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+        <p>Copyright 2019 the dsccommunity.org contributors.</p> 
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://github.com/dsccommunity/"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/dsccommunity"><i class="ti-twitter-alt"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Bootstrap JS -->
+<script src="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- highlight -->
+<script src="https://dsccommunity.org/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Main Script -->
+
+<script src="https://dsccommunity.org/js/script.min.js"></script>

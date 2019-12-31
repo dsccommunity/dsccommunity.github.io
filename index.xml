@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Dec 2019 12:52:00 +0100</lastBuildDate>
     
 	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
@@ -455,6 +455,17 @@ DSC Community Committee Read more about it here https://dsccommunity.</descripti
       
       <guid>https://dsccommunity.org/community_calls/2019-05-08-notes/</guid>
       <description>Resources to be released  TBC  Discussions  Topics or questions from the community (welcome at any point during the call) Celebrating new maintainers:  Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Jason Patton &amp;ndash;&amp;gt; xDnsServer Nehru Ali &amp;ndash;&amp;gt; xPendingReboot Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc) Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox   Waffle board will be closing, still looking into a replacement Moving off gitter to PoshCode slack: the #dsc channel in either Slack or Discord.</description>
+    </item>
+    
+    <item>
+      <title>Steps to convert a module for continuous delivery</title>
+      <link>https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/</link>
+      <pubDate>Mon, 30 Dec 2019 12:52:00 +0100</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/</guid>
+      <description>Any comments around this blog entry are welcomed and to be submitted on the Gist.
+ NOTE: The build is running on Linux in the CI pipeline to be able to support cross-platform DSC resources, so that makes all paths case-sensitive! Have that in mind when updating paths and folders in the configuration files. Make sure they match the repository, or change the repository file and folder names).
+ We are moving away from AppVeyor to Azure DevOps because Azure Pipelines gives us longer run time per job plus parallel jobs on a free account (for open source projects).</description>
     </item>
     
     <item>
