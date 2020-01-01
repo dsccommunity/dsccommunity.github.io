@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Steps to convert a module for continuous delivery</title>
 
-  <meta name="generator" content="Hugo 0.62.0" />
+  <meta name="generator" content="Hugo 0.62.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1357,8 +1357,13 @@ at <a href="https://github.com/dsccommunity/%7Brepository%7D/settings/branches">
 branch <code>dev</code>. <em>This must be done to keep the commits that us used by the</em>
 <em>tags.</em>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout dev
+<span style="color:#75715e"># get latest changes from upstream dev into local branch dev</span>
+git fetch origin dev
+git rebase origin/dev
+<span style="color:#75715e"># get latest changes from upstream master into local branch dev</span>
 git fetch origin master
 git rebase origin/master
+<span style="color:#75715e"># push changes to upstream dev</span>
 git push --set-upstream origin dev --force
 </code></pre></div></li>
 <li>Send in a PR of your <code>dev</code> branch targeting the <code>master</code> branch.</li>
