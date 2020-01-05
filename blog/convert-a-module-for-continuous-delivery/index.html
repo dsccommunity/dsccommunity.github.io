@@ -314,7 +314,7 @@ git push my master --force <span style="color:#75715e"># my is the remote pointi
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">    You can run it with parameter WhatIf to see what it will do</span><span style="color:#75715e">.</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span><span style="color:#75715e">#&gt;</span>
-Convert-GitTagForDsc -DeleteOldTags -Remote <span style="color:#e6db74">&#39;my&#39;</span> -Upstream <span style="color:#e6db74">&#39;origin&#39;</span> -Verbose
+.\Convert-GitTagForDsc.ps1 -DeleteOldTags -Remote <span style="color:#e6db74">&#39;my&#39;</span> -Upstream <span style="color:#e6db74">&#39;origin&#39;</span> -Verbose
 </code></pre></div><h3 id="make-sure-all-previous-releases-has-tags">Make sure all previous releases has tags</h3>
 <p>Make sure all the previous releases to PowerShell Gallery has tags.
 If there are any tags missing then create those tags.</p>
@@ -380,22 +380,31 @@ git push my dev --force <span style="color:#75715e"># my is the remote pointing 
 git checkout -b add-new-ci
 </code></pre></div><p>Suggest adding commits to this working branch as necessary when changing
 files in each section.</p>
-<h2 id="change-repository-folder-structure">Change repository folder structure</h2>
-<p>We must change the folder structure because that is a prerequisites for
+<h2 id="add-ci-pipeline-configuration-files">Add CI pipeline configuration files</h2>
+<p>Run the following to get the necessary pipeline files and folders that we
+need to covert the module.</p>
+<p>Overwrite any files it suggest, then check the <code>git</code> diff if you need to
+keep anything. Remove any .bak files that are created if they ar no longer
+needed.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd C<span style="color:#960050;background-color:#1e0010">:</span>\source\{RepositoryName}
+
+Install-Module -Name <span style="color:#e6db74">&#39;Sampler&#39;</span> -Scope <span style="color:#e6db74">&#39;CurrentUser&#39;</span>
+$samplerModule = Import-Module -Name Sampler -PassThru
+
+$invokePlasterParameters = @{
+  TemplatePath = Join-Path -Path $samplerModule.ModuleBase -ChildPath <span style="color:#e6db74">&#39;Templates/Sampler&#39;</span>
+  DestinationPath = <span style="color:#e6db74">&#39;..\&#39;</span>
+  ModuleType = <span style="color:#e6db74">&#39;dsccommunity&#39;</span>
+  ModuleName = Split-path -Leaf $PWD
+  SourceDirectory = <span style="color:#e6db74">&#39;source&#39;</span>
+}
+
+Invoke-Plaster @invokePlasterParameters
+</code></pre></div><h2 id="change-repository-folder-structure">Change repository folder structure</h2>
+<p>We must change the folder structure because that is a prerequisite for
 the build and automatic release.</p>
-<blockquote>
-<p><strong>NOTE:</strong> The source folder could also have the same name as the module
-name, e.g. <code>SqlServerDsc</code>, or named <code>src</code> or <code>source</code>. We choose to use
-'source&rsquo; to clearly show that it is the source code, and easier to
-understand when mentioning the <em>source folder</em> in conversations.
-We also use lower-case to in the root folders to be compatible with
-future cross-plattform DSC modules or DSC resource in the DSC module.</p>
-</blockquote>
 <ol>
-<li>Create a folder in the root of the repo with the (lower-case) name
-<code>source</code>. This new folder will from now be referenced to as the
-<em>source folder</em>.</li>
-<li>Move the following folders into the source folder (if they exist).
+<li>Move the following folders into the folder <code>source</code> (if they exist).
 <ul>
 <li>DSCResources</li>
 <li>Examples</li>
@@ -415,42 +424,7 @@ folder. Overwrite any current file.</li>
 <strong>in this file meant to help run tests, like installation of features</strong>
 <strong>etcetera. You need to add it to the new pipeline later.</strong></li>
 </ol>
-<h2 id="add-ci-pipeline-configuration-files">Add CI pipeline configuration files</h2>
-<ol>
-<li>Run the following to get a base files that we use to covert the module.
-Change the destination path to something suitable. Make sure to choose
-the full template, and to use <code>source</code> as the source folder.
-The folder that is created will be referenced as the <em>base folder</em> .
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">install-Module sampler -Scope CurrentUser
-$sampler = Import-Module -Name Sampler -PassThru
-Invoke-Plaster -TemplatePath (Join-Path $Sampler.ModuleBase <span style="color:#e6db74">&#39;Templates/Sampler&#39;</span>) -Destination C<span style="color:#960050;background-color:#1e0010">:</span>\Temp\TemplateModule
-</code></pre></div></li>
-<li>Copy the following files from the base folder to the root of the repository.
-<ul>
-<li><code>.markdownlint.json</code></li>
-<li><code>build.ps1</code></li>
-<li><code>build.yaml</code></li>
-<li><code>Resolve-Dependency.ps1</code></li>
-<li><code>Resolve-Dependency.psd1</code></li>
-<li><code>RequiredModules.psd1</code></li>
-<li><code>GitVersion.yml</code></li>
-<li><code>azure-pipelines.yml</code></li>
-<li><code>CODE_OF_CONDUCT.md</code></li>
-</ul>
-</li>
-<li>Copy the following file from the base folder <code>./source/build.psd1</code>
-into the source folder. <em>This file will not be needed once the</em>
-<em>ModuleBuilder module resolves a pending issue.</em></li>
-<li>Copy the following folder from the base folder <code>./source/en-US</code>
-into the source folder.</li>
-</ol>
 <h2 id="update-repository-and-module-files">Update repository and module files</h2>
-<h3 id="file-gitignore">File <code>.gitignore</code></h3>
-<ol>
-<li>Remove and entry of <code>DscResource.Tests</code> and <code>node_modules</code> from the
-file <code>.gitignore</code></li>
-<li>Add <code>output/</code> to the .gitignore file.</li>
-</ol>
 <h3 id="module-manifest">Module manifest</h3>
 <p>Change the module manifest in the source folder, e.g. <code>SqlServerDsc.psd1</code>.</p>
 <ol>
@@ -813,7 +787,7 @@ $manifestFile = <span style="color:#e6db74">&#39;C:\source\{repositoryFolder}\so
 
 New-ModuleManifest -Path $manifestFile `
     -Author <span style="color:#e6db74">&#39;DSC Community&#39;</span> `
-    -CompanyName <span style="color:#e6db74">&#39;Dsc Community&#39;</span> `
+    -CompanyName <span style="color:#e6db74">&#39;DSC Community&#39;</span> `
     -Copyright <span style="color:#e6db74">&#39;Copyright the DSC Community contributors. All rights reserved.&#39;</span> `
     -Description <span style="color:#e6db74">&#39;Functions used by the DSC resources in {RepositoryName}.&#39;</span>
 
@@ -1002,7 +976,7 @@ Remove-Module -Name $script:parentModule -Force -ErrorAction <span style="color:
 $script:subModuleName = (Split-Path -Path $PSCommandPath -Leaf) <span style="color:#f92672">-replace</span> <span style="color:#e6db74">&#39;\.Tests.ps1&#39;</span>
 $script:subModuleFile = Join-Path -Path $script:subModulesFolder -ChildPath <span style="color:#e6db74">&#34;</span>$($script:subModuleName)<span style="color:#e6db74">&#34;</span>
 
-Import-Module $script:subModuleFile -Force -ErrorAction Stop
+Import-Module $script:subModuleFile -Force -ErrorAction <span style="color:#e6db74">&#39;Stop&#39;</span>
 <span style="color:#75715e">#endregion HEADER</span>
 
 InModuleScope $script:subModuleName {
@@ -1015,7 +989,8 @@ This runs all the unit tests for the module. <em>It runs the tests that are</em>
 <em><code>build.yaml</code>.</em></p>
 <p><strong>Remember to run the build task if any file has been changed in the source</strong>
 <strong>folder.</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks test
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks hqrmtest
+.\build.ps1 -Tasks test
 </code></pre></div><blockquote>
 <p>To run the integration tests you will need to add the parameter <code>PesterScript</code>,
 e.g.</p>
@@ -1025,7 +1000,7 @@ e.g.</p>
 <h2 id="configure-ci-test-pipeline">Configure CI test pipeline</h2>
 <h3 id="file-azure-pipelinesyml">File <code>azure-pipelines.yml</code></h3>
 <ol>
-<li>Replace the string <code>Build_artefact</code> with <code>Build</code> (in two locations).</li>
+<li>Replace the string <code>Build_artefact</code> with <code>Build</code> (in one locations).</li>
 <li>Replace the entire stage <code>test_module</code> with the following.
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- stage: Test
   dependsOn: Build
