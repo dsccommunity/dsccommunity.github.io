@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Maintaining</title>
 
-  <meta name="generator" content="Hugo 0.62.1" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -286,11 +286,37 @@ all the review comments have be resolved and approved.</p>
 <p>As a maintainer you are allowed to review and merge your own code, but
 then only after 24 hours so the community has a chance to comment on
 the changes.</p>
+<h4 id="skip-ci-on-merge">Skip CI on merge</h4>
+<p>It is possible to skip running the CI pipeline when merging a patch change,
+e.g. updating the CHANGELOG.md after a release. When merging the pull
+request just enter <code>[skip ci]</code> preferably in the commit description, but
+also works in the commit message.</p>
+<p>Read more in <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&amp;tabs=yaml#skipping-ci-for-individual-commits">Skipping CI for individual commits</a>.</p>
+<blockquote>
+<p>Do not add <code>[skip ci]</code> to a PR title, then the status checks will not
+run.</p>
+</blockquote>
 <h3 id="prerelease">Prerelease</h3>
 <p>Not written.</p>
+<blockquote>
+<p><strong>NOTE:</strong> There are an issue with module ModuleBuilder v1.0.0 and higher
+when using semantic version preview strings that uses a dash, e.g. <code>fix0008-9</code>.
+The string is compliant with SemVer 2.0 but there is a  bug in
+<code>Publish-Module</code> that prevents the module to be released.</p>
+</blockquote>
 <h3 id="release">Release</h3>
 <p>Not written.</p>
-<h3 id="labels">Labels</h3>
+<h4 id="running-the-task-pack-locally">Running the task <code>pack</code> locally</h4>
+<p>If the task <code>pack´ is run locally, e.g. ´.\build.ps1 -Task pack</code>, then
+<code>nuget.exe</code> must be updated so that it is not outdated. If it is outdated
+you can run into the issue <a href="https://github.com/PowerShell/PowerShellGet/issues/295">PowerShell/PowerShellGet#295</a>.</p>
+<p>To update run the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Non-admin</span>
+Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile <span style="color:#e6db74">&#34;</span>$env<span style="color:#e6db74">:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#75715e"># Admin</span>
+Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile <span style="color:#e6db74">&#34;</span>$env<span style="color:#e6db74">:ProgramData\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><h3 id="labels">Labels</h3>
 <p>Labels are used in the issue and pull request workflows to show the
 current state.</p>
 <p>These are the labels currently used by the resource modules in DSC Community

@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Testing Guidelines</title>
 
-  <meta name="generator" content="Hugo 0.62.1" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -322,7 +322,36 @@ in the future and that will be documented in the <a href="https://github.com/dsc
 The CI test pipeline defaults to opt-in to all tests so there are no need
 to do anything to get new functionality in the DSC modules.</p>
 <h3 id="opt-out-from-tests">Opt-Out from Tests</h3>
-<p>Not yet written.</p>
+<p>Default is that all the tests are opted-in. If a test cannot be resolved
+to pass then there are different scenarios supported to opt-out from tests.
+Preferably you should opt-out from tests.</p>
+<ul>
+<li>Configuring the <code>build.yaml</code> with the tag <code>ExcludeTag</code> under either the
+key <code>Pester</code> or <code>DscTest</code> (JSON files override excludes for the key
+<code>DscTest</code>).
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">Pester:
+  ExcludeTag:
+    - <span style="color:#e6db74">&#39;TagOnUnitTest&#39;</span>
+
+DscTest:
+  ExcludeTag:
+    - Common Tests - New Error-Level Script Analyzer Rules
+    - Common Tests - Validate Example Files
+    - Common Tests - Relative Path Length
+</code></pre></div></li>
+</ul>
+<h4 id="default-opt-outs">Default opt-outs</h4>
+<h5 id="test-new-error-level-script-analyzer-rules">Test &ldquo;New Error-Level Script Analyzer Rules&rdquo;</h5>
+<p>This HQRM tests is opt-out by default since it tests the ScriptAnalyzer
+rules <code>PSDSCDscExamplesPresent</code> and <code>PSDSCDscTestsPresent</code> which does not
+currently work with the folder structure needed by CI pipeline.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">DscTest:
+    ExcludeTag:
+    - <span style="color:#e6db74">&#39;Common Tests - New Error-Level Script Analyzer Rules&#39;</span>
+</code></pre></div><p>Even if opt-out this test will still run. You opt-out from the test phase
+failing if there are any violations. Noteworthy is also that if there are
+violations the opt-out test will be skipped (yellow), if there are no
+violations the test will pass (green).</p>
 <h3 id="pinning-version-of-prerequisites-module">Pinning version of prerequisites module</h3>
 <p>Not yet written.</p>
 <h3 id="running-tests">Running Tests</h3>
@@ -338,9 +367,19 @@ dependencies first. After that you must build the module.</p>
 <li><a href="/guidelines/contributor#build-module">Build module</a></li>
 </ol>
 <blockquote>
-<p>NOTE! Each time a source file changes you must re-build the module before
+<p><strong>NOTE!</strong> Each time a source file changes you must re-build the module before
 running tests again. This is because the tests are always run against the
 built module in the &lsquo;output&rsquo; folder, not the modules source files.</p>
+</blockquote>
+<blockquote>
+<p><strong>KNOWN ISSUE:</strong> If the DSC resources are importing a module from the folder
+<code>Modules</code> (common module), the common module is already imported if you
+run the tests a second time. That means that any changes that you make to
+the common module are not reflected in the test run. To workaround this
+the common module have to be manually removed using <code>Remove-Module -Name 'ModuleName'</code>.
+There are a second workaround, force import the module in the DSC resources.
+Force importing the module are not recommended due to performance and could
+have a big impact in production.</p>
 </blockquote>
 <h5 id="running-tests-locally-using-pipeline">Running Tests Locally Using Pipeline</h5>
 <p><strong>Remember to run the build task if any file has been changed in the source</strong>
@@ -362,6 +401,12 @@ built module in the &lsquo;output&rsquo; folder, not the modules source files.</
 <p>If you have <a href="/guidelines/contributing/#attach-your-fork-to-a-free-azure-devops-organization">Attached your fork to a free Azure DevOps organization</a>
 then for each commit that is pushed to your working branch in your fork
 the pipeline will be run.</p>
+<h5 id="re-run-failed-jobs">Re-run failed jobs</h5>
+<p>It is possible to re-run failed jobs in the Azure Pipeline. Be aware that
+in some circumstances it caches dependencies so even re-running a failed
+jobs that you know will pass it will not. Instead start a new job from the
+commit in question. If it is a pull request (PR) that failed push another
+change to the PR, or close and directly reopen the PR.</p>
 <h3 id="unit-testing-private-functions">Unit Testing Private Functions</h3>
 <p>If a resource contains private (non-exported) functions that need to be tested,
 then to allow these functions to be tested by Pester, they must be contained

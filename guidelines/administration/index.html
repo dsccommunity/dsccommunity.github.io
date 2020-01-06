@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Administration</title>
 
-  <meta name="generator" content="Hugo 0.62.1" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -272,12 +272,125 @@ if (!doNotTrack) {
       <div class="col-lg-9">
         <div class="p-5 bg-white">
             <h2>Administration</h2>
-            <h3 id="create-github-repository">Create GitHub repository</h3>
-<p>Not written.</p>
-<h3 id="create-azure-devops-project">Create Azure DevOps project</h3>
-<p>Not written.</p>
+            <h3 id="security">Security</h3>
+<p>To be administrator you must have 2FA enabled on accounts that give you
+access to DSC Community resources, for example your GitHub account and
+the account that access DSC Community Azure DevOps organization.</p>
+<h3 id="github">GitHub</h3>
+<h4 id="create-github-repository">Create GitHub repository</h4>
+<p>To create a new GitHub repository in the DSC Community organization, browse
+to <a href="https://github.com/dsccommunity">https://github.com/dsccommunity</a> and click on <em>New</em>.</p>
+<p>All repositories should always be added with <strong>MIT licensing</strong>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> To be able create repositories you must be an owner of the
+GitHub DSC Community organization. See <a href="https://github.com/orgs/dsccommunity/people?query=role%3Aowner">GitHub DSC Community organizational owners</a>.</p>
+</blockquote>
+<h5 id="create-github-repository-team">Create GitHub repository Team</h5>
+<p>Not written yet.</p>
+<h3 id="azure-devops-organization">Azure DevOps organization</h3>
+<p>DSC Community has its own Azure DevOps Organization; <a href="https://dev.azure.com/dsccommunity/">https://dev.azure.com/dsccommunity/</a>.</p>
+<h4 id="create-azure-devops-project">Create Azure DevOps project</h4>
+<p>Always create an Azure DevOps project with the same name as the GitHub
+repository.</p>
+<blockquote>
+<p><strong>NOTE:</strong> To be able to do this you need to be a member of the
+Azure DevOps group <em>Project Collection Administrators</em>.</p>
+</blockquote>
+<ol>
+<li>Create a new project at <a href="https://dev.azure.com/dsccommunity/">https://dev.azure.com/dsccommunity/</a> with the
+same name as the <strong>GitHub repository name</strong>, make sure to set visibility
+to <strong>public</strong>.</li>
+</ol>
+<h4 id="add-maintainer-as-a-stakeholder">Add maintainer as a stakeholder</h4>
+<p>Stakeholders are always added in the Azure DevOps organization level,
+<strong><em>not directly</em></strong> on the Azure DevOps project.</p>
+<p>You will need either the users Azure Active
+Directory-account, personal Microsoft-account, or GitHub account. Read
+more in the article <a href="https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/add-organization-users">Add users to your organization or project</a>.</p>
+<p>The Azure DevOps project should be created before adding stakeholders
+(maintainers) to the Azure DevOps organization (so that you can connect
+the project to the maintainer directly).</p>
+<ol>
+<li>
+<p>Add (invite) a stakeholder by going to the <a href="https://dev.azure.com/dsccommunity/_settings/users">Azure DevOps Organization Users</a>,
+and click on <em>Add user</em>.</p>
+</li>
+<li>
+<p>Add the maintainer as a stakeholder, add one or more projects, then
+add the maintainer as member of the Azure DevOps project group
+<em>Project Contributors</em>.</p>
+</li>
+<li>
+<p>Make sure to have checked the <em>Send email invites</em> so that the maintainer
+gets the invite and are able to join.</p>
+<p><img src="../../images/administration/azure_devops_organization_add_user.png" alt="Azure DevOps Organization Add User" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width:425px;" /></p>
+</li>
+</ol>
+<blockquote>
+<p><strong>NOTE:</strong> To be able to do this you need to have sufficient privileges
+in the Azure DevOps Organization. If not then contact @gaelcolas on the
+<a href="https://dsccommunity.org/community/contact/">Slack #DSC channel</a>
+and provide him with the e-mail or account (see above) the maintainer
+has, and the Azure DevOps project the maintainer should have access too.</p>
+</blockquote>
 <h4 id="create-pipeline-in-azure-pipelines">Create pipeline in Azure Pipelines</h4>
-<p>Not written.</p>
+<p>Prior to doing this, make sure that the working branch was pushed to the
+upstream repository since you need to have access to the file
+<code>azure-pipelines.yml</code> in the next step.</p>
+<ol>
+<li>In the new project under Pipelines, create a new pipeline and choose
+GitHub as where the source resides
+<ol>
+<li>Under <em>My repositories</em> in the drop-down choose <em>All repositories</em>.</li>
+<li>Choose the the upstream repository, e.g. dsccommunity/SqlServerDsc.</li>
+</ol>
+</li>
+<li>Choose <em>Existing Azure Pipelines YAML file</em> and then to choose the file
+<code>azure-pipelines.yml</code> by browsing the branch you just pushed above.
+Then on the box that says <em>Run</em>, instead just choose <em>Save</em> in the
+drop-down list.</li>
+</ol>
+<h5 id="add-access-tokens-to-an-azure-pipeline">Add access tokens to an Azure Pipeline</h5>
+<ol>
+<li>Browse to the pipeline, then click <em>Edit</em>.</li>
+<li>When viewing the YAML file, click on <em>Variables</em></li>
+<li>Add these two variables.
+<ul>
+<li><code>GitHubToken</code> - This should have the value of the GitHub repository
+Personal Access Token (PAT)</li>
+<li><code>GalleryApiToken</code> - This should have the value of the PowerShell
+Gallery API key</li>
+</ul>
+</li>
+</ol>
+<h3 id="create-the-github-personal-access-token-pat">Create the GitHub Personal Access Token (PAT)</h3>
+<p>The Personal Access Token (PAT) that is used by the pipeline is from the
+@dscbot account (the DSC Community GitHub account).</p>
+<p>Log in to the @dscbot account and from there take out a Personal Access Token.</p>
+<p>Permissions for the PAT:</p>
+<ul>
+<li>repo</li>
+<li>delete:packages</li>
+<li>read:packages</li>
+<li>write:packages</li>
+</ul>
+<p><strong><em>Personal Access Token (PAT) expire after 12 months from creation, so every</em></strong>
+<strong><em>12 months the PAT must be renewed.</em></strong></p>
+<blockquote>
+<p><strong>NOTE:</strong> There can only be one holder of the DSC Community GitHub account
+since it is (obviously) using 2FA. Currently the account holder is @johlju.</p>
+</blockquote>
+<h3 id="create-the-powershell-gallery-api-key">Create the PowerShell Gallery API key</h3>
+<p>The DSC Community PowerShell Gallery API key used by the pipeline is
+created per package so that each key can only publish new version of
+that specific package.</p>
+<blockquote>
+<p><strong>NOTE:</strong> There can only be one holder of the DSC Community PowerShell
+Gallery account since it is (obviously) using 2FA. Currently the account
+holder is @gaelcolas.</p>
+</blockquote>
+<h3 id="add-a-new-dsc-community-committee-member">Add a new DSC Community committee member</h3>
+<p>Not yet written.</p>
 
             <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/guidelines/testing-guidelines/" title="Testing Guidelines"><i class="ti-arrow-left mr-2"></i>Testing Guidelines</a>
             <a class="nav nav-next" href="/styleguidelines/" title="Style Guidelines">Style Guidelines<i class="ti-arrow-right ml-2"></i></a>

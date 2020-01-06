@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Contributing</title>
 
-  <meta name="generator" content="Hugo 0.62.1" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -482,7 +482,7 @@ directly submit in a PR.</p>
 <li>Create a new working branch based on branch <code>master</code>. See
 <a href="/guidelines/getting-started/#making-changes-and-pushing-them-to-the-fork">Making changes and pushing them to the fork</a>.</li>
 <li>Write tests that will ensure that the issue in the code is fixed.
-See <a href="/guidelines/testing-guideline">Testing Guidelines</a>.</li>
+See <a href="/guidelines/testing-guidelines">Testing Guidelines</a>.</li>
 <li>Make changes in your working branch to solve the issue.</li>
 <li>Update the <strong>Unreleased</strong> section of the repository changelog (file
 <code>CHANGELOG.md</code>) in accordance to the type of changes in <a href="https://keepachangelog.com/en/1.0.0/">keep a changelog</a>.</li>
@@ -508,7 +508,7 @@ following the style guideline. <em>This does not currently support every</em>
 <p>For code changes to be accepted you should have written tests, some
 repositories requires both unit and integration tests.</p>
 <p>You are required to provide adequate test coverage for the code you change.</p>
-<p>See <a href="/guidelines/testing-guideline">Testing Guidelines</a> for more information.</p>
+<p>See <a href="/guidelines/testing-guidelines">Testing Guidelines</a> for more information.</p>
 <blockquote>
 <p>Not all resources currently have tests. This does not mean that you do not
 have to write tests for your changes. But you do not have to write the full
@@ -721,9 +721,21 @@ repository.</p>
 <h3 id="understand-the-coding-workflow">Understand the coding workflow</h3>
 <p>The normal workflow is as follows:</p>
 <ol>
+<li><a href="#remove-old-dependencies">Remove old dependencies</a></li>
 <li><a href="#resolve-dependencies">Resolve dependencies</a></li>
 <li><a href="#build-module">Build module</a></li>
 <li><a href="#test-module">Test module</a></li>
+</ol>
+<h4 id="remove-old-dependencies">Remove old dependencies</h4>
+<p>This is only for you that have previously contributed to a repository
+and might have a previous local repository folder.</p>
+<p>The file <code>.gitignore</code> included an entry <code>DscResource.Tests</code> which means
+that there might be a folder in your local repository folder with that
+name. That folder are no longer used and will give you trouble if it is
+still present.</p>
+<ol>
+<li>Remove the folder <code>DscResource.Tests</code> inside your local repository
+folder.</li>
 </ol>
 <h4 id="resolve-dependencies">Resolve dependencies</h4>
 <p>Pay attention to any new code merged into the <code>master</code> branch of an official repository.
@@ -739,6 +751,15 @@ prepare the build and test environment.</p>
 <p><strong>NOTE:</strong> This does not install anything, it downloads the prerequisites
 into the <code>output</code> folder.</p>
 </blockquote>
+<blockquote>
+<p>KNOWN ISSUE: There are currently an known issue with this task when
+moving between local DSC repositories. If you have resolved dependencies
+in one repository, then move to a second repository and resolve dependencies
+all dependencies do not download (the module PowerShell-Yaml). This is
+because the module is already imported into the session. To workaround
+this make sure to open each new local DSC repository in a separate PowerShell
+session.</p>
+</blockquote>
 <h4 id="build-module">Build module</h4>
 <p>This builds the module after which tests can be run on the built
 module. The built module will have the same structure as the one that is
@@ -753,9 +774,36 @@ then the build version will always be reported as <code>0.0.1</code>.
 To install GitVersion see <a href="/guidelines/getting-started#install-gitversion">install GitVersion</a></p>
 </blockquote>
 <h4 id="test-module">Test module</h4>
-<p>See <a href="/guidelines/testing-guideline/">Testing Guidelines</a> for more
+<p>See <a href="/guidelines/testing-guidelines/">Testing Guidelines</a> for more
 information on how to run tests.</p>
+<h4 id="knowledge-base">Knowledge base</h4>
+<h5 id="error-cannot-find-spsd1">Error <code>cannot find &quot;s.psd1&quot;</code></h5>
+<h6 id="cause-1">Cause 1</h6>
+<p>This has been known to happen in the CI build pipeline when running in
+Azure DevOps. This is because the build pipeline cannot find or resolve
+the correct module manifest so it tries to be smart and trying to resolve
+the module name based on the root project folder path which is <code>s</code>.</p>
+<p>Make sure the module manifest is in the correct location, can be imported.</p>
+<h6 id="cause-2">Cause 2</h6>
+<p>This can also happen when the module <em>ModuleBuilder</em> is not pinned to
+version <code>1.0.0</code> in the file <code>RequiredModules.psd1</code>.</p>
+<h5 id="error-missing-property-projectname">Error <code>Missing property 'ProjectName'</code></h5>
+<p>Verify that the module manifest resolves with the cmdlet <code>Test-ModuleManifest</code>
+and does not return any errors. Make sure it resolves correctly <strong>in both</strong>
+<strong>Windows PowerShell and PowerShell Core</strong>. The build is running on Linux
+in the ci pipeline.</p>
+<h5 id="issue-with-preview-strings-containing-a-dash">Issue with preview strings containing a dash</h5>
+<p>There are a issue with ModuleBuilder using preview strings
+using dash, e.g. <code>fix0008-9</code>. The string is compliant with SemVer 2.0
+but there is a bug in <code>Publish-Module</code> that prevents the module to be
+released.</p>
+<p>Make sure to pin the ModuleBuilder to version <code>1.0.0</code> in the file
+<code>RequiredModules.psd1</code>.</p>
 <h3 id="attach-your-fork-to-a-free-azure-devops-organization">Attach your fork to a free Azure DevOps organization</h3>
+<p>We are moving to Azure DevOps because Azure Pipelines gives us better
+services on a free plan that can be created by all contributors for open
+source projects. For example it gives us longer run time per job (currently
+6 hours) plus the ability to run parallel jobs.</p>
 <p>Adding your fork to a free Azure DevOps organization means that when you
 push a working branch to your fork and it will be tested the same way as
 when you send in a PR.</p>
