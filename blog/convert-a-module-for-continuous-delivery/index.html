@@ -1006,23 +1006,27 @@ e.g.</p>
   dependsOn: Build
   jobs:
     - job: Test_HQRM
+      displayName: <span style="color:#e6db74">&#39;HQRM&#39;</span>
       pool:
         vmImage: <span style="color:#e6db74">&#39;win1803&#39;</span>
       timeoutInMinutes: <span style="color:#ae81ff">0</span>
       steps:
         - task: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
+          displayName: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
           inputs:
             buildType: <span style="color:#e6db74">&#39;current&#39;</span>
             downloadType: <span style="color:#e6db74">&#39;single&#39;</span>
             artifactName: <span style="color:#e6db74">&#39;output&#39;</span>
             downloadPath: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
         - task: PowerShell@<span style="color:#ae81ff">2</span>
-          name: Test
+          name: test
+          displayName: <span style="color:#e6db74">&#39;Run HQRM Test&#39;</span>
           inputs:
             filePath: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
             arguments: <span style="color:#e6db74">&#39;-Tasks hqrmtest&#39;</span>
             pwsh: <span style="color:#66d9ef">false</span>
         - task: PublishTestResults@<span style="color:#ae81ff">2</span>
+          displayName: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
           condition: succeededOrFailed()
           inputs:
             testResultsFormat: <span style="color:#e6db74">&#39;NUnit&#39;</span>
@@ -1030,6 +1034,7 @@ e.g.</p>
             testRunTitle: <span style="color:#e6db74">&#39;HQRM&#39;</span>
 
     - job: Test_Unit
+      displayName: <span style="color:#e6db74">&#39;Unit&#39;</span>
       pool:
         vmImage: <span style="color:#e6db74">&#39;win1803&#39;</span>
       timeoutInMinutes: <span style="color:#ae81ff">0</span>
@@ -1038,56 +1043,66 @@ e.g.</p>
 </span><span style="color:#e6db74">           </span><span style="color:#e6db74"> </span><span style="color:#e6db74">$repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split &#39;/&#39;</span>
             echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryOwner;isOutput=true]$repositoryOwner&#34;</span>
             echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName&#34;</span>
-          name: DscBuildVariable
+          name: dscBuildVariable
+          displayName: <span style="color:#e6db74">&#39;Set Environment Variables&#39;</span>
         - task: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
+          displayName: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
           inputs:
             buildType: <span style="color:#e6db74">&#39;current&#39;</span>
             downloadType: <span style="color:#e6db74">&#39;single&#39;</span>
             artifactName: <span style="color:#e6db74">&#39;output&#39;</span>
             downloadPath: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
         - task: PowerShell@<span style="color:#ae81ff">2</span>
-          name: Test
+          name: test
+          displayName: <span style="color:#e6db74">&#39;Run Unit Test&#39;</span>
           inputs:
             filePath: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
             arguments: <span style="color:#e6db74">&#34;-Tasks test -PesterScript &#39;tests/Unit&#39;&#34;</span>
             pwsh: <span style="color:#66d9ef">false</span>
         - task: PublishTestResults@<span style="color:#ae81ff">2</span>
+          displayName: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
           condition: succeededOrFailed()
           inputs:
             testResultsFormat: <span style="color:#e6db74">&#39;NUnit&#39;</span>
             testResultsFiles: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
             testRunTitle: <span style="color:#e6db74">&#39;Unit (Windows Server Core)&#39;</span>
         - task: PublishCodeCoverageResults@<span style="color:#ae81ff">1</span>
+          displayName: <span style="color:#e6db74">&#39;Publish Code Coverage&#39;</span>
           condition: succeededOrFailed()
           inputs:
             codeCoverageTool: <span style="color:#e6db74">&#39;JaCoCo&#39;</span>
             summaryFileLocation: <span style="color:#e6db74">&#39;output/testResults/CodeCov*.xml&#39;</span>
-            pathToSources: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/output/$(DscBuildVariable.RepositoryName)&#39;</span>
+            pathToSources: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/output/$(dscBuildVariable.RepositoryName)&#39;</span>
 
     - job: Test_Integration
+      displayName: <span style="color:#e6db74">&#39;Integration&#39;</span>
       pool:
         vmImage: <span style="color:#e6db74">&#39;win1803&#39;</span>
       timeoutInMinutes: <span style="color:#ae81ff">0</span>
       steps:
         - task: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
+          displayName: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
           inputs:
             buildType: <span style="color:#e6db74">&#39;current&#39;</span>
             downloadType: <span style="color:#e6db74">&#39;single&#39;</span>
             artifactName: <span style="color:#e6db74">&#39;output&#39;</span>
             downloadPath: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
         - task: PowerShell@<span style="color:#ae81ff">2</span>
-          name: ConfigureWinRM
+          name: configureWinRM
+          displayName: <span style="color:#e6db74">&#39;Configure WinRM&#39;</span>
           inputs:
             targetType: <span style="color:#e6db74">&#39;inline&#39;</span>
             script: <span style="color:#e6db74">&#39;winrm quickconfig -quiet&#39;</span>
             pwsh: <span style="color:#66d9ef">false</span>
         - task: PowerShell@<span style="color:#ae81ff">2</span>
-          name: Test
+          name: test
+          displayName: <span style="color:#e6db74">&#39;Run Integration Test&#39;</span>
           inputs:
             filePath: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
             arguments: <span style="color:#e6db74">&#34;-Tasks test -PesterScript &#39;tests/Integration&#39; -CodeCoverageThreshold 0&#34;</span>
             pwsh: <span style="color:#66d9ef">false</span>
         - task: PublishTestResults@<span style="color:#ae81ff">2</span>
+          displayName: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
           condition: succeededOrFailed()
           inputs:
             testResultsFormat: <span style="color:#e6db74">&#39;NUnit&#39;</span>
@@ -1308,10 +1323,10 @@ See branch protection rules at <a href="https://github.com/dsccommunity/%7Brepos
 </ul>
 <p>Status check to set (will only show once the CI has been run):</p>
 <ul>
-<li><code>dsccommunity.{repositoryName} (Build BuildModuleJob)</code></li>
-<li><code>dsccommunity.{repositoryName} (Test Test_HQRM)</code></li>
-<li><code>dsccommunity.{repositoryName} (Test Test_Integration)</code></li>
-<li><code>dsccommunity.{repositoryName} (Test Test_Unit)</code></li>
+<li><code>dsccommunity.{repositoryName} (Build Package Module)</code></li>
+<li><code>dsccommunity.{repositoryName} (Test HQRM)</code></li>
+<li><code>dsccommunity.{repositoryName} (Test Integration)</code></li>
+<li><code>dsccommunity.{repositoryName} (Test Unit)</code></li>
 </ul>
 <p>Plus any other test status checks you have cofngiured for other platforms
 etc.</p>
