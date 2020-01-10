@@ -887,10 +887,10 @@ Remove these:
 <h3 id="update-unit-tests">Update unit tests</h3>
 <p>From all unit tests remove the header that was part
 of the previous test framework. Everything between and including
-<code>#region HEADER</code> and <code>#endregion HEADER</code>. Replace it with the following
-code, add the code inside the function <code>Invoke-TestSetup</code>. Also update
-the function <code>Invoke-TestCleanup</code>. Make sure the <code>Invoke-TestSetup</code> is
-called outside the <code>try</code>-block.</p>
+<code>#region HEADER</code> and <code>#endregion HEADER</code>(!!beware not to delete any variables and
+any helper modules, that need to be imported).Replace it with the following code,
+add the code inside the function <code>Invoke-TestSetup</code>. Also update the function
+<code>Invoke-TestCleanup</code>. Make sure the <code>Invoke-TestSetup</code> is called outside the <code>try</code>-block.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Invoke-TestSetup
 {
     <span style="color:#66d9ef">try</span>
