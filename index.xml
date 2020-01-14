@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Mon, 30 Dec 2019 12:52:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jan 2020 15:45:00 +0100</lastBuildDate>
     
 	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
@@ -386,7 +386,7 @@ Normally, a single list in the RootModule key, can restrict what is exported usi
       
       <guid>https://dsccommunity.org/styleguidelines/localization/</guid>
       <description>In each resource folder there should be at least one localization folder for english language &amp;lsquo;en-US&amp;rsquo;. Add other localization folders as appropriate, the correct folder name can be found by running Get-UICulture on the node that has a UI culture installed that the strings are being built for. There is also the list of Available Language Packs for Windows.
-In each localization folder there should be a PowerShell data (.psd1) file named &amp;lsquo;MSFT_&amp;lt;ResourceName&amp;gt;.</description>
+In each localization folder there should be a PowerShell data (.psd1) file named &amp;lsquo;DSC_&amp;lt;ResourceName&amp;gt;.</description>
     </item>
     
     <item>
@@ -456,6 +456,17 @@ DSC Community Committee Read more about it here https://dsccommunity.</descripti
       
       <guid>https://dsccommunity.org/community_calls/2019-05-08-notes/</guid>
       <description>Resources to be released  TBC  Discussions  Topics or questions from the community (welcome at any point during the call) Celebrating new maintainers:  Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Jason Patton &amp;ndash;&amp;gt; xDnsServer Nehru Ali &amp;ndash;&amp;gt; xPendingReboot Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc) Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox   Waffle board will be closing, still looking into a replacement Moving off gitter to PoshCode slack: the #dsc channel in either Slack or Discord.</description>
+    </item>
+    
+    <item>
+      <title>DscResource.Common functions in a DSC module</title>
+      <link>https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/</link>
+      <pubDate>Sat, 11 Jan 2020 15:45:00 +0100</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/</guid>
+      <description>What This article will explain the steps needed to use a version of the DscResource.Common module that has been released to the PowerShell Gallery.
+The module DscResource.Common currently has 7 cmdlets.
+ Get-LocalizedData New-InvalidArgumentException New-InvalidOperationException New-NotImplementedException New-InvalidResultException New-ObjectNotFoundException Test-DscParameterState  Why Historically, these functions have been duplicated into many DSC resource modules. This has resulted in duplication of effort in maintaining them as well as drift in the code base and feature set with some fixes not being included.</description>
     </item>
     
     <item>

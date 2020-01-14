@@ -24,6 +24,17 @@ But when you have installed hugo, forked the dsccommunity.org, and cloned your f
     </item>
     
     <item>
+      <title>DscResource.Common functions in a DSC module</title>
+      <link>https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/</link>
+      <pubDate>Sat, 11 Jan 2020 15:45:00 +0100</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/</guid>
+      <description>What This article will explain the steps needed to use a version of the DscResource.Common module that has been released to the PowerShell Gallery.
+The module DscResource.Common currently has 7 cmdlets.
+ Get-LocalizedData New-InvalidArgumentException New-InvalidOperationException New-NotImplementedException New-InvalidResultException New-ObjectNotFoundException Test-DscParameterState  Why Historically, these functions have been duplicated into many DSC resource modules. This has resulted in duplication of effort in maintaining them as well as drift in the code base and feature set with some fixes not being included.</description>
+    </item>
+    
+    <item>
       <title>Steps to convert a module for continuous delivery</title>
       <link>https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/</link>
       <pubDate>Mon, 30 Dec 2019 12:52:00 +0100</pubDate>

@@ -155,7 +155,7 @@ Normally, a single list in the RootModule key, can restrict what is exported usi
       
       <guid>https://dsccommunity.org/styleguidelines/localization/</guid>
       <description>In each resource folder there should be at least one localization folder for english language &amp;lsquo;en-US&amp;rsquo;. Add other localization folders as appropriate, the correct folder name can be found by running Get-UICulture on the node that has a UI culture installed that the strings are being built for. There is also the list of Available Language Packs for Windows.
-In each localization folder there should be a PowerShell data (.psd1) file named &amp;lsquo;MSFT_&amp;lt;ResourceName&amp;gt;.</description>
+In each localization folder there should be a PowerShell data (.psd1) file named &amp;lsquo;DSC_&amp;lt;ResourceName&amp;gt;.</description>
     </item>
     
     <item>

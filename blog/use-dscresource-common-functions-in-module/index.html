@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Future of Configuration Management</title>
+  <title>DscResource.Common functions in a DSC module</title>
 
   <meta name="generator" content="Hugo 0.62.2" />
 
@@ -202,11 +202,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class=""><a href="/blog/">Blog Posts</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/blog/">Blog Posts</a>
+              <ul class="sub-menu">
             <li class=""><a href="/blog/create-an-article/">Create an Article</a>
             </li>
-            <li class=""><a href="/blog/use-dscresource-common-functions-in-module/">DscResource.Common functions in a DSC module</a>
+            <li class=" active "><a href="/blog/use-dscresource-common-functions-in-module/">DscResource.Common functions in a DSC module</a>
             </li>
             <li class=""><a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a>
             </li>
@@ -216,9 +216,9 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class="parent d-block "><a href="/configmgt/">Configuration Management</a>
-              <ul class="sub-menu">
-            <li class=" active "><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
+            <li class=""><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
             </li></ul>
               
             </li>
@@ -273,73 +273,101 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Future of Configuration Management</h2>
-            <p>It's good to make sure we understand the world in which
-DSC evolves, so I thought of writing this post below.
-Unfortunately, the future is not something we can predict, so this is
-just a personal opinion, which I hope you'll find useful.</p>
-<h2 id="configuration-management-evolution">Configuration Management evolution</h2>
-<p>Some like to classify different configuration management models,
-but I prefer to show them as an evolution of similar principles,
-that happened with the evolution of technology and principles.</p>
-<table class="table">
-<thead>
-<tr>
-<th>version</th>
-<th>Name</th>
-<th>Concepts</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0.0</td>
-<td>GUI-driven</td>
-<td>Changes and abstractions are GUI-Driven</td>
-</tr>
-<tr>
-<td>0.5</td>
-<td>Scripted Transform</td>
-<td>Code, Deployment Scripts, Imperative, Transformations assume a starting state</td>
-</tr>
-<tr>
-<td>1.0</td>
-<td>Policy-Driven Convergence</td>
-<td>Declarative Intent, Change Pipeline, Idempotency, drift management, Operation Validation</td>
-</tr>
-<tr>
-<td>2.0</td>
-<td>Container Model</td>
-<td>Artefact everything, Immutability, microservices</td>
-</tr>
-</tbody>
-</table>
-<h2 id="unpopular-opinion">Unpopular opinion</h2>
-<p>It might not be a popular opinion, but I don't think Configuration Management
-as we know it—Managing configuration drift—will be prevalent in the future.
-It is not relevant for ephemeral infrastructure, or serverless. However many
-principles, such as artifact managements that are managed in release pipelines,
-are transferable to other management models, and are valuable lessons for the future.</p>
-<p>That said, not all workload are cloud-native ready, and while the companies
-transform or give way to competition, many administrators and systems engineer
-will benefit from improving their practices when it comes to managing VM.
-Let's be honest here, although we strongly recommend companies to really invest in
-their transformation to stay competitive, we know it will take a while—and
-a duration no-one can predict—for all industry to change decades
-of practices and habits.</p>
-<p>The <strong>DSC ecosystem</strong> is a great option when you manage a great chunk of Windows
-systems (not exclusively), whether <strong>on-prem</strong> or in a <strong>cloud environment</strong>, and
-even more when you're <strong>transitioning to a cloud model</strong> or having a <strong>hybrid approach</strong>.</p>
-<p>The <strong>solution</strong> you use, however, may differ greatly depending on your
-team's preference, skills, need, and business constraints.</p>
-<p>If you need to take away anything from this article is that the clock is ticking,
-and both at a personal and company level you need to work towards the future.</p>
-<p>Being bogged down in old ways because one tool may not be doing things you need
-on paper is foolish, we all know that in practice any solution will not
-do things we initially thought it would.
-Just start now, adapt, and learn!</p>
+            <h2>DscResource.Common functions in a DSC module</h2>
+            <h3 id="what">What</h3>
+<p>This article will explain the steps needed to use a version of the
+<a href="https://github.com/dsccommunity/DscResource.Common">DscResource.Common</a>
+module that has been released to the <a href="https://www.powershellgallery.com/packages/DscResource.Common">PowerShell Gallery</a>.</p>
+<p>The module DscResource.Common currently has <a href="https://github.com/dsccommunity/DscResource.Common#cmdlet">7 cmdlets</a>.</p>
+<ul>
+<li><code>Get-LocalizedData</code></li>
+<li><code>New-InvalidArgumentException</code></li>
+<li><code>New-InvalidOperationException</code></li>
+<li><code>New-NotImplementedException</code></li>
+<li><code>New-InvalidResultException</code></li>
+<li><code>New-ObjectNotFoundException</code></li>
+<li><code>Test-DscParameterState</code></li>
+</ul>
+<h3 id="why">Why</h3>
+<p>Historically, these functions have been duplicated into many DSC resource
+modules. This has resulted in duplication of effort in maintaining them as
+well as drift in the code base and feature set with some fixes not being
+included. or the same changes. Instead of re-invent the wheel for these
+functions, the community can contribute to these functions in one location
+that then can be reused by all DSC module repositories.</p>
+<h3 id="how">How</h3>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>It is assumed that the DSC module repository is already using
+the DSC module Plaster template in the <a href="https://github.com/gaelcolas/Sampler">Sampler</a>
+project, or has been converted to use the new CI pipeline using the steps
+mentioned in <a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a></p>
+<h4 id="update-file-requiredmoduledpsd1">Update file <code>RequiredModuled.psd1</code></h4>
+<p>Add a new entry to the file <code>RequiredModuled.psd1</code> letting the CI pipeline
+know which module and version to download. You should pin the version here
+so that breaking changes in the upstream does not affect you.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">@{
+    <span style="color:#75715e"># ...Previous required modules...</span>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 31 Jul 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/configmgt/" title="Configuration Management"><i class="ti-arrow-left mr-2"></i>Configuration Management</a>
-            <a class="nav nav-next" href="/community_calls/" title="Community Calls">Community Calls<i class="ti-arrow-right ml-2"></i></a>
+    <span style="color:#75715e"># Build dependent modules</span>
+    <span style="color:#e6db74">&#39;DscResource.Common&#39;</span> = <span style="color:#e6db74">&#39;0.2.0&#39;</span>
+}
+</code></pre></div><p>Then resolve CI pipeline dependencies.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">./build.ps1 -ResolveDependency -task noop
+</code></pre></div><h4 id="update-file-buildyaml">Update file <code>Build.yaml</code></h4>
+<h5 id="add-a-nested-module">Add a nested module</h5>
+<p>You should add a nested module configuration to the file <code>build.yaml</code>
+so that the module is copied from the folder <code>output/RequiredModules</code>
+at build time. Important to note here that we are not adding it as a
+nested module in the module manifest, it will just copy the module to
+the folder <code>Modules</code> (which is the default for <a href="https://github.com/PoshCode/ModuleBuilder">ModuleBuilder</a>).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">####################################################</span>
+<span style="color:#75715e">#   ModuleBuilder Dependent Modules Configuration  #</span>
+<span style="color:#75715e">####################################################</span>
+
+NestedModule:
+  DscResource.Common:
+    CopyOnly: <span style="color:#66d9ef">true</span>
+    Path: ./output/RequiredModules/DscResource.Common
+    AddToManifest: <span style="color:#66d9ef">false</span>
+    Exclude: PSGetModuleInfo.xml
+</code></pre></div><h5 id="exclude-nested-module-from-tests">Exclude nested module from tests</h5>
+<p>Next, you need to exclude this module from the CI pipeline tests phase.
+The module has already been tested in its own CI pipeline so no need
+for you to test that again. It might also be that the repository has
+different quality assurances that DscResource.Common does not (like
+naming files differently).</p>
+<p>Under the key <code>Pester:</code> add an exclude from code coverage.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">Pester:
+  ExcludeFromCodeCoverage:
+    - Modules/DscResource.Common
+</code></pre></div><p>Under the key <code>DscTest:</code> add an exclude to not run HQRM tests on the module
+files.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">DscTest:
+  ExcludeModuleFile:
+    - Modules/DscResource.Common
+</code></pre></div><h4 id="update-dsc-resource-module-file">Update DSC resource module file</h4>
+<p>For each DSC resource module file that should use a helper function in
+the module DscResource.Common you must import the module.</p>
+<p>You import the module's folder, not the file <code>.psd1</code> or <code>.psm1</code>.
+The built in functionality of <code>Import-Module</code> is used to find the module
+manifest. The module is copied using the version number folder
+structure, and adding a absolut path to it here would break when you update
+to a newer version of the module <code>DscResource.Common</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$script:resourceHelperModulePath = Join-Path -Path $PSScriptRoot -ChildPath <span style="color:#e6db74">&#39;..\..\Modules\DscResource.Common&#39;</span>
+
+Import-Module -Name $script:resourceHelperModulePath
+</code></pre></div><h4 id="use-the-common-functions">Use the common functions</h4>
+<p>An example of using the common functions is to import localized strings
+using <code>Get-LocalizedData</code>.</p>
+<p>To import the localized strings for the resource add the code below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$script:localizedData = Get-LocalizedData -DefaultUICulture <span style="color:#e6db74">&#39;en-US&#39;</span>
+</code></pre></div><p>To further see how to use localization see the
+<a href="/styleguidelines/localization/">Localization section of the style guidelines</a>
+and to see how to use the common functions see the documentation in the
+<a href="https://github.com/dsccommunity/DscResource.Common">DscResource.Common repository</a>.</p>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 11 Jan 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/create-an-article/" title="Create an Article"><i class="ti-arrow-left mr-2"></i>Create an Article</a>
+            <a class="nav nav-next" href="/blog/convert-a-module-for-continuous-delivery/" title="Steps to convert a module for continuous delivery">Steps to convert a module for continuous delivery<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>
