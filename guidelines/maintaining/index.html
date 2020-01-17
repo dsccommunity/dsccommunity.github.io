@@ -301,7 +301,17 @@ also works in the commit message.</p>
 run.</p>
 </blockquote>
 <h3 id="prerelease">Prerelease</h3>
-<p>Not written.</p>
+<p>For each merge to the branch <code>master</code> there will be a prerelease
+automatically released (continuous delivery).</p>
+<p>The version is automatically calculated in the CI pipeline based on the
+commit history since the previous release. The calculation is done by
+<a href="https://gitversion.net/docs/">GitVersion</a> and each repository has a file
+<code>GitVersion.yml</code> that controls how this calculation is performed.</p>
+<p>The CI pipeline will create a tag in the format vX.Y.Z-previewXXXX, e.g
+<code>v5.0.0-preview0001</code>, and the prerelease to the PowerShell Gallery will have
+the format X.Y.Z-previewXXXX, e.g. <code>5.0.0-preview0001</code>. Any consequent
+merges to master will make a new preview release which will be named for
+example <code>5.0.0-preview0002</code> and so on.</p>
 <blockquote>
 <p><strong>NOTE:</strong> There are an issue with module ModuleBuilder v1.0.0 and higher
 when using semantic version preview strings that uses a dash, e.g. <code>fix0008-9</code>.
@@ -309,7 +319,28 @@ The string is compliant with SemVer 2.0 but there is a  bug in
 <code>Publish-Module</code> that prevents the module to be released.</p>
 </blockquote>
 <h3 id="release">Release</h3>
-<p>Not written.</p>
+<p>Once the next full version should be deployed, do these steps to push
+a new release version tag. Important to have the correct format <code>vX.Y.Z</code>,
+e.g. <code>v1.14.1</code>.</p>
+<p>Assuming &lsquo;origin&rsquo; is the remote name pointing the upstream repository, if
+not then change appropriately.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Make sure to get the latest history, use rebase to retain the linear</span>
+<span style="color:#75715e"># commit history.</span>
+git checkout master
+git fetch origin master
+git rebase origin/master
+
+git fetch origin --tags <span style="color:#75715e"># Fetch all tags from upstream master branch</span>
+git describe --tags <span style="color:#75715e"># To see the the latest tag, e.g. vX.Y.Z-preview0002</span>
+git tag vX.Y.Z <span style="color:#75715e"># Creates the new version tag locally.</span>
+git push origin --tags <span style="color:#75715e"># Push the new tag that was created locally</span>
+</code></pre></div><p><em>Avoid using <code>git pull --tags</code> as it also will merge (not rebase) any</em>
+<em>changes from upstream (unless already rebased). Using <code>git pull</code> will</em>
+<em>not retain the linear commit history.</em></p>
+<blockquote>
+<p><strong>NOTE:</strong> You could also tag a specific commit if not all commits should
+be released.</p>
+</blockquote>
 <h4 id="running-the-task-pack-locally">Running the task <code>pack</code> locally</h4>
 <p>If the task <code>pack´ is run locally, e.g. ´.\build.ps1 -Task pack</code>, then
 <code>nuget.exe</code> must be updated so that it is not outdated. If it is outdated

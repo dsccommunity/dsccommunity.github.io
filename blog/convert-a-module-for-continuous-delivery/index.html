@@ -894,8 +894,8 @@ Remove these:
 <h3 id="update-unit-tests">Update unit tests</h3>
 <p>From all unit tests remove the header that was part
 of the previous test framework. Everything between and including
-<code>#region HEADER</code> and <code>#endregion HEADER</code>(!!beware not to delete any variables and
-any helper modules, that need to be imported).Replace it with the following code,
+<code>#region HEADER</code> and <code>#endregion HEADER</code> (!! beware not to delete any variables and
+any helper modules, that need to be imported). Replace it with the following code,
 add the code inside the function <code>Invoke-TestSetup</code>. Also update the function
 <code>Invoke-TestCleanup</code>. Make sure the <code>Invoke-TestSetup</code> is called outside the <code>try</code>-block.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Invoke-TestSetup
@@ -1373,11 +1373,19 @@ git push --set-upstream origin dev --force
 <p>Once the next full version should be deployed, do these steps to push
 a new release version tag. Important to have the correct format <code>vX.Y.Z</code>,
 e.g. <code>v1.14.1</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout master
-git pull --tags <span style="color:#75715e"># Pull all tags from upstream master branch</span>
+<p>Assuming &lsquo;origin&rsquo; is the remote name pointing the upstream repository, if
+not then change appropriately.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Make sure to get the latest history, use rebase to retain the linear</span>
+<span style="color:#75715e"># commit history.</span>
+git checkout master
+git fetch origin master
+git rebase origin/master
+
+<span style="color:#75715e"># Creates the full version tag.</span>
+git fetch origin --tags <span style="color:#75715e"># Pull all tags from upstream master branch</span>
 git describe --tags <span style="color:#75715e"># To see the the latest tag, e.g. vX.Y.Z-preview0002</span>
-git tag vX.Y.Z <span style="color:#75715e"># Creates the full version tag locally</span>
-git push --tags <span style="color:#75715e"># Push the new tag that was created locally</span>
+git tag vX.Y.Z <span style="color:#75715e"># Change X.Y.Z to next version number, prefixed with &#39;v&#39;.</span>
+git push origin --tags <span style="color:#75715e"># Push the new tag that was created locally</span>
 </code></pre></div><blockquote>
 <p><strong>NOTE:</strong> You could also tag a specific commit if not all commits should
 be released.</p>
