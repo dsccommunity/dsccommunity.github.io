@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Fri, 17 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jan 2020 14:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
@@ -109,6 +109,18 @@ But when you have installed hugo, forked the dsccommunity.org, and cloned your f
     </item>
     
     <item>
+      <title>DSC Community Committee</title>
+      <link>https://dsccommunity.org/community/committee/</link>
+      <pubDate>Fri, 17 Jan 2020 14:00:00 +0100</pubDate>
+      
+      <guid>https://dsccommunity.org/community/committee/</guid>
+      <description>The following is an explanation of what the DSC Committee is attempting to help with, and how we are trying to help the community.
+Come and chat with us if you would like to discuss how we can improve and build a better community!
+Members 
+Katie is the owner of the Resource Kit at Microsoft and has steered its direction over the years. She is also an active member of the Engineering team at Microsoft looking after all things DSC as well as Azure Guest Configuration, and can bridge the communication between the new products and features leveraging DSC and the DSC Community.</description>
+    </item>
+    
+    <item>
       <title>What Future for Dsc</title>
       <link>https://dsccommunity.org/help/what-future-for-dsc/</link>
       <pubDate>Tue, 30 Jul 2019 11:35:49 +0200</pubDate>
@@ -117,18 +129,6 @@ But when you have installed hugo, forked the dsccommunity.org, and cloned your f
       <description>Despite the few &amp;ldquo;DSC Planning Updates&amp;rdquo; written by Michael Greene (Program Manager for DSC, and DSC Community Committee member), there are still misunderstandings by the community with regards to the directions Microsoft is taking for DSC and its ecosystem.
 Here, we&#39;ll try to explain what we understand from the DSC Community.
 Former plans &amp;amp; realignment Microsoft&#39;s DSC Team, about a year and an half ago, was working on a new version of the LCM component of the DSC Platform.</description>
-    </item>
-    
-    <item>
-      <title>DSC Community Committee</title>
-      <link>https://dsccommunity.org/community/committee/</link>
-      <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/community/committee/</guid>
-      <description>The following is an explanation of what the DSC Committee is attempting to help with, and how we are trying to help the community.
-Come and chat with us if you would like to discuss how we can improve and build a better community!
-Members 
-Katie is the owner of the Resource Kit at Microsoft and has steered its direction over the years. She is also an active member of the Engineering team at Microsoft looking after all things DSC as well as Azure Guest Configuration, and can bridge the communication between the new products and features leveraging DSC and the DSC Community.</description>
     </item>
     
     <item>
@@ -269,24 +269,24 @@ function Get-TargetResource{# ... }Function Names Use Approved Verbs All fun
     </item>
     
     <item>
-      <title>Attribution</title>
-      <link>https://dsccommunity.org/code_of_conduct/attribution/</link>
-      <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
-      
-      <guid>https://dsccommunity.org/code_of_conduct/attribution/</guid>
-      <description>This Code of Conduct is adapted from the Contributor Covenant, version 1.4, available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html</description>
-    </item>
-    
-    <item>
       <title>Administration</title>
       <link>https://dsccommunity.org/guidelines/administration/</link>
-      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      <pubDate>Fri, 17 Jan 2020 14:00:00 +0100</pubDate>
       
       <guid>https://dsccommunity.org/guidelines/administration/</guid>
       <description>Security To be administrator you must have 2FA enabled on accounts that give you access to DSC Community resources, for example your GitHub account and the account that access DSC Community Azure DevOps organization.
 GitHub Create GitHub repository To create a new GitHub repository in the DSC Community organization, browse to https://github.com/dsccommunity and click on New.
 All repositories should always be added with MIT licensing.
  NOTE: To be able create repositories you must be an owner of the GitHub DSC Community organization.</description>
+    </item>
+    
+    <item>
+      <title>Attribution</title>
+      <link>https://dsccommunity.org/code_of_conduct/attribution/</link>
+      <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
+      
+      <guid>https://dsccommunity.org/code_of_conduct/attribution/</guid>
+      <description>This Code of Conduct is adapted from the Contributor Covenant, version 1.4, available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html</description>
     </item>
     
     <item>

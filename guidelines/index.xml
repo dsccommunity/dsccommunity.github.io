@@ -68,7 +68,7 @@ As a maintainer you are allowed to review and merge your own code, but then only
     <item>
       <title>Administration</title>
       <link>https://dsccommunity.org/guidelines/administration/</link>
-      <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
+      <pubDate>Fri, 17 Jan 2020 14:00:00 +0100</pubDate>
       
       <guid>https://dsccommunity.org/guidelines/administration/</guid>
       <description>Security To be administrator you must have 2FA enabled on accounts that give you access to DSC Community resources, for example your GitHub account and the account that access DSC Community Azure DevOps organization.
