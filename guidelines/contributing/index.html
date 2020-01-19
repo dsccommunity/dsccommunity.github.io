@@ -798,6 +798,12 @@ version <code>1.0.0</code> in the file <code>RequiredModules.psd1</code>.</p>
 and does not return any errors. Make sure it resolves correctly <strong>in both</strong>
 <strong>Windows PowerShell and PowerShell Core</strong>. The build is running on Linux
 in the ci pipeline.</p>
+<h5 id="error-cannot-process-argument-transformation-on-parameter-projectname">Error <code>Cannot process argument transformation on parameter 'ProjectName'</code></h5>
+<p>If the old test framework folder <code>DscResource.Tests</code> is present in the local 
+repository folder then the build will fail with this error. The reason is that
+build pipeline searches for <code>*.psd1</code> files and want to use the first module
+manifest it finds which when the folder <code>DscResource.Tests</code> is present is the 
+wrong one.</p>
 <h5 id="issue-with-preview-strings-containing-a-dash">Issue with preview strings containing a dash</h5>
 <p>There are a issue with ModuleBuilder using preview strings
 using dash, e.g. <code>fix0008-9</code>. The string is compliant with SemVer 2.0
