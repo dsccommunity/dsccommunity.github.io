@@ -354,14 +354,16 @@ Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile <span style="color
 </code></pre></div><h3 id="labels">Labels</h3>
 <p>Labels are used in the issue and pull request workflows to show the
 current state.</p>
-<p>These are the labels currently used by the resource modules in DSC Community
-Kit. Some of these labels are meant to be used with future automation.</p>
+<p>These are the labels currently used by the resource modules in DSC Community. 
+Some of these labels are meant to be used with future automation.</p>
 <blockquote>
 <p>The script
 <a href="https://gist.github.com/johlju/f83f99787029a6b5d65cfd6844cf9449">DscResourceKit-Labels</a>
 that is provided by the community can be used to update the labels in a
 repository.</p>
 </blockquote>
+<p>These are also set as the <a href="https://github.com/organizations/dsccommunity/settings/labels">default organization labels</a>
+so that new repositories that are created they will automatically get these labels.</p>
 <table>
 <thead>
 <tr>
@@ -481,12 +483,6 @@ repository.</p>
 <td>PR</td>
 </tr>
 <tr>
-<td>new module submission</td>
-<td>A request that the community evaluate a resource module for submission into the DSC Resource Kit.</td>
-<td>#207de5 Dark blue</td>
-<td>Issue</td>
-</tr>
-<tr>
 <td>not fixed</td>
 <td>The issue was closed without being fixed.</td>
 <td>#ffffff White</td>
@@ -509,6 +505,12 @@ repository.</p>
 <td>The pull request was approved by the community and is ready to be merged by a maintainer.</td>
 <td>#215e82 Dark cyan</td>
 <td>PR</td>
+</tr>
+<tr>
+<td>resolved in dev</td>
+<td>A fix has been merged into the dev-branch but the issue is still open and awaits next release.</td>
+<td>#215e82 Dark cyan</td>
+<td>Issue</td>
 </tr>
 <tr>
 <td>resource proposal</td>
@@ -541,22 +543,28 @@ repository.</p>
 <td>PR</td>
 </tr>
 <tr>
-<td>waiting for CLA pass</td>
-<td>The contributor has not yet signed the CLA so that pull request check is not successful.</td>
-<td>#ee0701 Red</td>
-<td>PR</td>
-</tr>
-<tr>
 <td>waiting for code fix</td>
 <td>A review left open comments, and the pull request is waiting for changes to be pushed by the author.</td>
 <td>#ffff99 Yellow</td>
 <td>PR</td>
 </tr>
 <tr>
-<td>resolved in dev</td>
-<td>A fix has been merged into the dev-branch but issue is still open and awaits next release.</td>
-<td>#215e82 Dark cyan</td>
-<td>Issue</td>
+<td>Linux</td>
+<td>This targets Linux platform-family.</td>
+<td>#221A3e Heavy Blue Dark</td>
+<td>Issue, PR</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td>This targets macOS platform-family.</td>
+<td>#221A3e Heavy Blue Dark</td>
+<td>Issue, PR</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>This targets Windows platform-family.</td>
+<td>#221A3e Heavy Blue Dark</td>
+<td>Issue, PR</td>
 </tr>
 </tbody>
 </table>
