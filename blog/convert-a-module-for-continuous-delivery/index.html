@@ -1116,7 +1116,13 @@ e.g.</p>
             testResultsFiles: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
             testRunTitle: <span style="color:#e6db74">&#39;Integration (Windows Server Core)&#39;</span>
 </code></pre></div></li>
-<li>On the stage <code>Deploy</code> change the key <code>dependsOn</code> replace <code>test_module</code> to <code>Test</code>.</li>
+<li>On the stage <code>Deploy</code>.
+<ol>
+<li>Change the key <code>dependsOn</code> replace <code>test_module</code> to <code>Test</code>.</li>
+<li>In the condition that says <code>contains(variables['System.TeamFoundationCollectionUri'], 'synedgy')</code>
+replace <code>'synedgy'</code> with <code>'dsccommunity'</code>.</li>
+</ol>
+</li>
 <li>If the repository <em>cannot run</em> integration tests then the job <code>Test_Integration</code>
 can be removed. If there are no integration tests yet the job can still
 be present so that once an integration tests is added it will be tested.
