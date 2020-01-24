@@ -7,22 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Fri, 17 Jan 2020 14:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Next Community Call 2020-01-22</title>
+      <title>Next Community Call 2020-02-28</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, January 22nd, at 12 PM PST
-This community call is not at the normally scheduled date/time. Please use this file to add to your calendar.
+      <description>Next call will be on Wednesday, February 28nd, at 12 PM PST
+Agenda   Migration to Continuous Delivery Process:
+ Updated documentation/blog posts. Completed?  ActiveDirectoryDsc NetworkingDsc SharePointDsc SQLServerDsc WSManDsc xFailOverCluster xPSDesiredStateConfiguration xWebAdministration GPRegistryPolicyDsc   In progress:  ComputerManagementDsc xExchange Others?      Feel free to send a PR to this file if there&amp;rsquo;s something you&amp;rsquo;d like to be added to the agenda (or just ask during the call)</description>
+    </item>
+    
+    <item>
+      <title>2020-01-22 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2020-01-22-notes/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2020-01-22-notes/</guid>
+      <description>How to join
+Recording Meeting recording
 Agenda   Welcome to New Community Committee Member.
-  DSC Community: What to do if a PR doesn&amp;rsquo;t get reviewed in a reasonable time frame?
- What is the reasonable time frame? Proposal: that a DSC resource maintainer is allowed to merge PRs that did not get a review after 7 days.</description>
+  What to do if a PR doesn&amp;rsquo;t get reviewed in a reasonable time frame?
+ Minimum time before a maintainer may merge a PR without a review is 24 hours. Recommended time to wait before maintainer can merge a PR without a review is 72 hours. PRs to fix broken pipelines or high risk security issues are exempt.</description>
     </item>
     
     <item>
