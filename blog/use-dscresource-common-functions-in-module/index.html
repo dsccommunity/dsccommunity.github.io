@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>DscResource.Common functions in a DSC module</title>
 
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.63.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -328,10 +328,10 @@ the folder <code>Modules</code> (which is the default for <a href="https://githu
 
 NestedModule:
   DscResource.Common:
-    CopyOnly: <span style="color:#66d9ef">true</span>
-    Path: ./output/RequiredModules/DscResource.Common
-    AddToManifest: <span style="color:#66d9ef">false</span>
-    Exclude: PSGetModuleInfo.xml
+    <span style="color:#66d9ef">CopyOnly</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#66d9ef">Path</span>: ./output/RequiredModules/DscResource.Common
+    <span style="color:#66d9ef">AddToManifest</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#66d9ef">Exclude</span>: PSGetModuleInfo.xml
 </code></pre></div><h5 id="exclude-nested-module-from-tests">Exclude nested module from tests</h5>
 <p>Next, you need to exclude this module from the CI pipeline tests phase.
 The module has already been tested in its own CI pipeline so no need
@@ -350,7 +350,7 @@ files.</p>
 </code></pre></div><h4 id="update-dsc-resource-module-file">Update DSC resource module file</h4>
 <p>For each DSC resource module file that should use a helper function in
 the module DscResource.Common you must import the module.</p>
-<p>You import the module's folder, not the file <code>.psd1</code> or <code>.psm1</code>.
+<p>You import the module&rsquo;s folder, not the file <code>.psd1</code> or <code>.psm1</code>.
 The built in functionality of <code>Import-Module</code> is used to find the module
 manifest. The module is copied using the version number folder
 structure, and adding a absolut path to it here would break when you update

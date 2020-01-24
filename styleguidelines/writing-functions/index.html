@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Writing Functions</title>
 
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.63.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -305,8 +305,8 @@ never used and can cause confusion.</p>
 }
 </code></pre></div><h2 id="avoid-default-values-for-switch-parameters">Avoid Default Values for Switch Parameters</h2>
 <p>Switch parameters have 2 values - there or not there.
-The default value is automatically $false so it doesn't need to be declared.
-If you are tempted to set the default value to $true - don't - refactor your code
+The default value is automatically $false so it doesn&rsquo;t need to be declared.
+If you are tempted to set the default value to $true - don&rsquo;t - refactor your code
 instead.</p>
 <p><strong>Bad:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Something
@@ -347,7 +347,7 @@ instead.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
 </code></pre></div><h2 id="avoid-redefining-reserved-parameters">Avoid Redefining Reserved Parameters</h2>
 <p><a href="https://msdn.microsoft.com/en-us/library/dd901844(v=vs.85).aspx">Reserved Parameters</a>
-such as Verbose, Debug, etc. are already added to the function at runtime so don't
+such as Verbose, Debug, etc. are already added to the function at runtime so don&rsquo;t
 redefine them. Add the CmdletBinding attribute to include the reserved parameters
 in your function.</p>
 <h2 id="use-the-cmdletbinding-attribute-on-every-function">Use the CmdletBinding Attribute on Every Function</h2>

@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Testing Guidelines</title>
 
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.63.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -469,7 +469,7 @@ For example:</p>
 Mock `
     -CommandName Get-NetAdapter `
     -MockWith { <span style="color:#66d9ef">return</span> $MockNetAdapter }
-</code></pre></div><p>However, when <code>InModuleScope</code> is being used the variables that are defined won't
+</code></pre></div><p>However, when <code>InModuleScope</code> is being used the variables that are defined won&rsquo;t
 be accessible from within the mocked cmdlets. The solution to this is create a script
 block variable that contains the mocked object and then assign that to the Mock.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$GetNetAdapter_PhysicalNetAdapterMock = {

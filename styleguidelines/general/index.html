@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>General</title>
 
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.63.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -334,7 +334,7 @@ More help on splatting can be found in the article
 and the proper indentation.</p>
 <p><strong>Bad:</strong></p>
 <p>Not using named parameters.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-ChildItem C<span style="color:#960050;background-color:#1e0010">:</span>\Documents *.md
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-ChildItem C:\Documents *.md
 </code></pre></div><p><strong>Bad:</strong></p>
 <p>The call is very long and will wrap a lot in the review tool when the code is
 viewed by the reviewer during the review process of the PR.</p>
@@ -370,7 +370,7 @@ $superLongVariableName = Get-MySuperLongVariablePlease -MySuperLongHashtablePara
 
 $superLongVariableName = Get-MySuperLongVariablePlease @getMySuperLongVariablePleaseParameters -Verbose
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-ChildItem -Path C<span style="color:#960050;background-color:#1e0010">:</span>\Documents -Filter *.md
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-ChildItem -Path C:\Documents -Filter *.md
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$superLongVariableName = Get-MyVariablePlease -MyStringParameter <span style="color:#e6db74">&#39;123456789012349012345678901234567890&#39;</span> -Verbose
 </code></pre></div><p><strong>Good:</strong></p>

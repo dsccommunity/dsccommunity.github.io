@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Pester Tests</title>
 
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.63.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -290,7 +290,7 @@ to read.</p>
 </code></pre></div><h2 id="assertion-messages-start-with-should">Assertion Messages Start with Should</h2>
 <p>Pester assertions should always start with the word &lsquo;Should&rsquo;. This is to ensure the
 test results read more naturally as well as helping to indentify assertion messages
-that aren't making assertions.</p>
+that aren&rsquo;t making assertions.</p>
 <p><strong>Bad:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># This is not an assertive message</span>
 It <span style="color:#e6db74">&#39;When calling Get-TargetResource&#39;</span> {
@@ -308,7 +308,7 @@ It <span style="color:#e6db74">&#39;Something is returned&#39;</span> {
 </code></pre></div><h2 id="context-block-messages-start-with-when">Context Block Messages Start with When</h2>
 <p>Pester test <strong>outer</strong> <code>Context</code> block messages should always start with the word
 &lsquo;When&rsquo;. This is to ensure the test results read more naturally as well as helping
-to indentify context messages that aren't defining context.</p>
+to indentify context messages that aren&rsquo;t defining context.</p>
 <p><strong>Bad:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Context block not using &#39;When&#39;</span>
 Context <span style="color:#e6db74">&#39;Calling Get-TargetResource with default parameters&#39;</span>

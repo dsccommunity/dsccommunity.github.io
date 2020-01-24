@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>General Best Practices</title>
 
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.63.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -292,7 +292,7 @@ PS Script Analyzer rule.</p>
 </code></pre></div><h2 id="avoid-empty-catch-blocks">Avoid Empty Catch Blocks</h2>
 <p>Empty catch blocks are not necessary.
 Most errors should be thrown or at least acted upon in some way.
-If you really don't want an error to be thrown or logged at all, use the ErrorAction
+If you really don&rsquo;t want an error to be thrown or logged at all, use the ErrorAction
 parameter with the SilentlyContinue value instead.</p>
 <p><strong>Bad:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">try</span>
@@ -341,8 +341,8 @@ Set-MyConfiguration -ConfigurationName $global:configurationName
 ...
 Set-MyConfiguration -ConfigurationName $script:configurationName
 </code></pre></div><h2 id="use-declared-local-and-script-variables-more-than-once">Use Declared Local and Script Variables More Than Once</h2>
-<p>Don't declare a local or script variable if you're not going to use it.
-This creates excess code that isn't needed</p>
+<p>Don&rsquo;t declare a local or script variable if you&rsquo;re not going to use it.
+This creates excess code that isn&rsquo;t needed</p>
 <h2 id="use-pscredential-for-all-credentials">Use PSCredential for All Credentials</h2>
 <p>PSCredentials are more secure than using plaintext username and passwords.</p>
 <p><strong>Bad:</strong></p>

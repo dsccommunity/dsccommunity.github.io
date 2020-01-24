@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Maintaining</title>
 
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.63.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -291,8 +291,13 @@ all the review comments have be resolved and approved.</p>
 then only after 24 hours so the community has a chance to comment on
 the changes. Any pull request that fixes issues in CI pipeline or unblocks 
 release can be merged faster to unblock other pull requests.</p>
+<h4 id="skip-raising-version">Skip raising version</h4>
+<p>It is possible to tell the CI build pipeline (GitVersion) to not raise
+the version when merging a pull request, e.g. when updating the CHANGELOG.md
+after a release. When merging the pull request just enter <code>+semver:skip</code>
+preferably in the commit description, but also works in the commit message.</p>
 <h4 id="skip-ci-on-merge">Skip CI on merge</h4>
-<p>It is possible to skip running the CI pipeline when merging a patch change,
+<p>It is possible to skip running the CI pipeline when merging a pull request,
 e.g. updating the CHANGELOG.md after a release. When merging the pull
 request just enter <code>[skip ci]</code> preferably in the commit description, but
 also works in the commit message.</p>

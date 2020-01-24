@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>How to Use Dsc Logging</title>
 
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.63.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -288,9 +288,9 @@ less useful to track the progress of a running job.</p>
 -Verbose parameter to output verbose logging to the screen. A downside of this
 verbose logging is that reboots will kill this logging. After the restart DSC
 continues deploying the configuration, without you being able to track its progress.
-The same is true for a Pull deployment, where verbose logging isn't available at all.</p>
+The same is true for a Pull deployment, where verbose logging isn&rsquo;t available at all.</p>
 <p>Fortunately there is a log that is not known by everybody. During each DSC job
-(even when -Verbose hasn't been specified), all Verbose output is always written
+(even when -Verbose hasn&rsquo;t been specified), all Verbose output is always written
 to log files in: <strong>C:\Windows\System32\Configuration\ConfigurationStatus</strong></p>
 <p>For each job, DSC creates two files:</p>
 <ol>
@@ -365,7 +365,7 @@ retrieves the logfile, reads the JSON and displays the results in a Gridview.</p
 Volume Shadow Copy to open a copy of the most recent log file.</p>
 <blockquote>
 <p>Important: DSC flushes all caches log entries to the log file in chunks. So
-unfortunately the log file won't be 100% accurate, but pretty close!</p>
+unfortunately the log file won&rsquo;t be 100% accurate, but pretty close!</p>
 </blockquote>
 <p>You can find the script <a href="https://raw.githubusercontent.com/ykuijs/Powershell/master/Dsc/DSCLogParser.ps1">here</a></p>
 

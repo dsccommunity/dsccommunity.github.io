@@ -18,7 +18,7 @@
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
       
       <guid>https://dsccommunity.org/styleguidelines/markdown-files/</guid>
-      <description>Line length not longer than 80 characters Rows longer than 80 characters should be split into multiple lines where appropriate. This helps make it easier for reviewers to make review comments and for the contributors to see where the requested changes are (without scrolling). It is also easier to see the lines in split view mode when the lines don&#39;t wrap on the screen. It will also improve the readability when using git diff.</description>
+      <description>Line length not longer than 80 characters Rows longer than 80 characters should be split into multiple lines where appropriate. This helps make it easier for reviewers to make review comments and for the contributors to see where the requested changes are (without scrolling). It is also easier to see the lines in split view mode when the lines don&amp;rsquo;t wrap on the screen. It will also improve the readability when using git diff.</description>
     </item>
     
     <item>
@@ -144,8 +144,8 @@ Get-TargetResource should not contain unused non-mandatory parameters The inclus
 Good:
 Ensure Manifest Contains Correct Fields Bad:
 Good:
-Do not use NestedModules to export shared commands Since we don&#39;t use the RootModule key in the module manifest, we should not use the NestedModules key to add modules that export commands that are shared between resource modules.
-Normally, a single list in the RootModule key, can restrict what is exported using the cmdlet Export-ModuleMember. Since we don&#39;t use the RootModule key we can&#39;t restrict what is exported, so every nested module will export all the commands (or all the commands restricted by Export-ModuleMember in that individual nested module).</description>
+Do not use NestedModules to export shared commands Since we don&amp;rsquo;t use the RootModule key in the module manifest, we should not use the NestedModules key to add modules that export commands that are shared between resource modules.
+Normally, a single list in the RootModule key, can restrict what is exported using the cmdlet Export-ModuleMember. Since we don&amp;rsquo;t use the RootModule key we can&amp;rsquo;t restrict what is exported, so every nested module will export all the commands (or all the commands restricted by Export-ModuleMember in that individual nested module).</description>
     </item>
     
     <item>
@@ -167,7 +167,7 @@ In each localization folder there should be a PowerShell data (.psd1) file named
       <description>Capitalized Pester Assertions Pester assertions should all start with capital letters. This makes code easier to read.
 Bad:
 it &amp;#39;Should return something&amp;#39; {get-targetresource @testParameters | should -be &amp;#39;something&amp;#39;}Good:
-It &amp;#39;Should return something&amp;#39; {Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39;}Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&#39;t making assertions.</description>
+It &amp;#39;Should return something&amp;#39; {Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39;}Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
     </item>
     
   </channel>

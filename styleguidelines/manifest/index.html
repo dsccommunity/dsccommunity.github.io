@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Manifest</title>
 
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.63.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -287,12 +287,12 @@ if (!doNotTrack) {
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
 </code></pre></div><h2 id="do-not-use-nestedmodules-to-export-shared-commands">Do not use NestedModules to export shared commands</h2>
-<p>Since we don't use the <code>RootModule</code> key in the module manifest, we should not
+<p>Since we don&rsquo;t use the <code>RootModule</code> key in the module manifest, we should not
 use the <code>NestedModules</code> key to add modules that export commands that are shared
 between resource modules.</p>
 <p>Normally, a single list in the <code>RootModule</code> key, can restrict what is
-exported using the cmdlet <code>Export-ModuleMember</code>. Since we don't use the <code>RootModule</code>
-key we can't restrict what is exported, so every nested module will export all the
+exported using the cmdlet <code>Export-ModuleMember</code>. Since we don&rsquo;t use the <code>RootModule</code>
+key we can&rsquo;t restrict what is exported, so every nested module will export all the
 commands (or all the commands restricted by <code>Export-ModuleMember</code> in that
 individual nested module). If two resource modules were to use the <code>NestedModules</code>
 method, it would result in one of them being unable to install since they have

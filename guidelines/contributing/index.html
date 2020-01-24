@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Contributing</title>
 
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.63.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -296,7 +296,7 @@ are new to contributing and GitHub, then please read the
 <p>You may also <a href="/community/contact/">join the conversation</a> and ask for
 help or share your knowledge in direct communication with other members
 of the community.</p>
-<p>If you need any help along the way, don't be afraid to ask. We are here
+<p>If you need any help along the way, don&rsquo;t be afraid to ask. We are here
 for each other.</p>
 <p>You can read more about the different contributions here:</p>
 <ul>
@@ -451,7 +451,7 @@ users.</p>
 better. Regardless of your knowledge in DSC you can help make the
 DSC resource the best possible. In the end, DSC is installing and configuring
 the applications and components you use, so by discussing issues and
-changes in PR's you help make the DSC resources even better.</p>
+changes in PR&rsquo;s you help make the DSC resources even better.</p>
 <p>Always keep in mind the <a href="/code_of_conduct">Code of Conduct</a>.</p>
 <h3 id="resolve-an-issue">Resolve an issue</h3>
 <p>You may work on any issue. Issued labeled with <code>good first issue</code> has been
@@ -483,7 +483,7 @@ directly submit in a PR.</p>
 <a href="#breaking-changes">Breaking changes</a> section.</p>
 <p>Here is the general process of submitting a PR:</p>
 <ol>
-<li>Pick out the issue you'd like to work on, see <a href="#fixing-an-issue">Fixing an issue</a>.</li>
+<li>Pick out the issue you&rsquo;d like to work on, see <a href="#fixing-an-issue">Fixing an issue</a>.</li>
 <li>Post a comment on the issue that you are working on resolving the issue.</li>
 <li>Create a new working branch based on branch <code>master</code>. See
 <a href="/guidelines/getting-started/#making-changes-and-pushing-them-to-the-fork">Making changes and pushing them to the fork</a>.</li>
@@ -642,7 +642,7 @@ build and test the DSC module. It is the same pipeline that is used in the
 <p>A maintainer will <strong>not</strong> merge your PR if any tests are failing,
 even if they have nothing to do with your changes. If test failures are
 occurring that do not relate to the changes you made those issue must
-be resolved before the PR can be merged. If you don't know how to resolve
+be resolved before the PR can be merged. If you don&rsquo;t know how to resolve
 them then please contact the maintainer of the repository.</p>
 </blockquote>
 <h3 id="review-a-pull-request-pr">Review a pull request (PR)</h3>
@@ -652,7 +652,7 @@ or component the DSC resource is used for. The more minds on a PR the
 better the DSC resource will get, so we can help see impacts further down
 the road, like avoiding future breaking changes.</p>
 <p>Please also consider that maintainers may not have expert knowledge in an
-area that a PR is targeting. Maintainers may also not be able to review PR's
+area that a PR is targeting. Maintainers may also not be able to review PR&rsquo;s
 in a timely fashion due to other commitments. However, it is hoped that
 help and support will come from community members such as yourself.</p>
 <p>Only maintainers can merge your code, and a maintainer only merges after
@@ -661,12 +661,12 @@ the PR has been approved in a review.</p>
 <strong>then only after 24 hours so the community has a chance to comment on</strong>
 <strong>the changes.</strong></p>
 <blockquote>
-<p>We don't currently have dedicated maintainers for most modules, so it may
+<p>We don&rsquo;t currently have dedicated maintainers for most modules, so it may
 take a while for a general maintainer to get around to your pull request.
 Please be patient.
 If you want to become a maintainer, please see <a href="/community/maintainers">Maintainers</a>.</p>
 <p>If you have an urgent issue that needs to be reviewed in a repository that
-does not have a maintainer, or you haven't heard from the repository
+does not have a maintainer, or you haven&rsquo;t heard from the repository
 maintainer for a period of time. Then it possible to ask for reviews from
 the other community members or general maintainers via <a href="/community/contact/">Slack #DSC channel</a>.</p>
 </blockquote>
@@ -885,7 +885,7 @@ the changes you made in your working branch for your pull request will be
 &lsquo;replayed&rsquo; on top of the changes that were recently merged into <code>master</code>, as
 though you originally created your branch/fork from the current point that
 the <code>master</code> branch is at.</p>
-<p><em>Note: Since it's replayed you might get conflicts several times during the</em>
+<p><em>Note: Since it&rsquo;s replayed you might get conflicts several times during the</em>
 <em>rebase process (for the first <code>rebase</code> command, and for each following</em>
 <em><code>rebase --continue</code>).</em></p>
 <p>Here are the steps to rebase your branch:</p>
@@ -915,7 +915,7 @@ this point you will probably get merge conflicts that need to be resolved.
 Search for the word &lsquo;CONFLICT&rsquo; in the output. If you used <code>master</code> as your working
 branch, you can skip to step 3 to learn how to resolve the merge conflicts.</p>
 </blockquote>
-<p>Force push to your fork's <code>master</code> branch to your forked repository.
+<p>Force push to your fork&rsquo;s <code>master</code> branch to your forked repository.
 <em>Make sure there were no conflicts before running this command.</em></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git push my master --force
 </code></pre></div><h4 id="2-rebase-your-working-branch">2. Rebase your working branch</h4>
@@ -992,7 +992,7 @@ be updated automatically by GitHub.
 <em>Force push &ldquo;overwrites&rdquo; the branch in the fork, and is always needed after rebase.</em></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git push my &lt;pull request branch&gt; --force     # I.e git push my awesome_feature --force
 </code></pre></div><h3 id="how-to-continue-working-on-a-pull-request-pr-when-an-author-contributor-is-unable-to-complete-it">How to continue working on a pull request (PR) when an author (contributor) is unable to complete it</h3>
-<p>Anyone in the community is allowed to continue the work on pull requests (PR's)
+<p>Anyone in the community is allowed to continue the work on pull requests (PR&rsquo;s)
 if either of these are true.</p>
 <ul>
 <li>If the original contributor is unable to continue the work on a pull request.</li>
@@ -1004,7 +1004,7 @@ the work, by commenting on the original PR.</p>
 branch to a new working branch in your fork. Once you have create a new working
 branch with the original contributors changes,
 then you can create a new pull request into the original repository.
-It's important that when you create a new pull request from someone elses work,
+It&rsquo;s important that when you create a new pull request from someone elses work,
 that you mention the original pull request, and also acknowledge the original
 author and mention the work it is based on.
 For example mention the original author in the descriptive field when you create

@@ -21,7 +21,7 @@
       <description>Next call will be on Wednesday, January 22nd, at 12 PM PST
 This community call is not at the normally scheduled date/time. Please use this file to add to your calendar.
 Agenda   Welcome to New Community Committee Member.
-  DSC Community: What to do if a PR doesn&#39;t get reviewed in a reasonable time frame?
+  DSC Community: What to do if a PR doesn&amp;rsquo;t get reviewed in a reasonable time frame?
  What is the reasonable time frame? Proposal: that a DSC resource maintainer is allowed to merge PRs that did not get a review after 7 days.</description>
     </item>
     
@@ -34,7 +34,7 @@ Agenda   Welcome to New Community Committee Member.
       <description>How to join
 Agenda   Demo of automation and status update (continued)
  DscResource.AnalyzerRules DscResource.Test Sampler &amp;amp; AzureDevOps    DSC Community Maintainers, what should you do?
- Accept GitHub Invitation (or tell us if you did not receive it) Consider making your DSC Community membership public Use the DSC Community&#39;s Teams for communication (discussions) Consider updating your GitHUb picture &amp;amp; Bio (we use it to display on the website) Try doing code reviews even outside of your repository.</description>
+ Accept GitHub Invitation (or tell us if you did not receive it) Consider making your DSC Community membership public Use the DSC Community&amp;rsquo;s Teams for communication (discussions) Consider updating your GitHUb picture &amp;amp; Bio (we use it to display on the website) Try doing code reviews even outside of your repository.</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@ Agenda   Demo of automation and status update (continued)
       
       <guid>https://dsccommunity.org/community_calls/2019-10-23-notes/</guid>
       <description>How to join
-Recording The recording of the community call, with the result of the DSC Survey is available on YouTube:   Notes   Quick intro of automation as introduced during last call I&#39;ve done a video since to show the basic template automation     Shared results of DSC survey (watch the video for details)
+Recording The recording of the community call, with the result of the DSC Survey is available on YouTube:   Notes   Quick intro of automation as introduced during last call I&amp;rsquo;ve done a video since to show the basic template automation     Shared results of DSC survey (watch the video for details)
   More maintainers for the DSC resources needed? We agreed we needed to be more active in our search for maintainers, but we also need to make the &amp;ldquo;Contributor Funnel&amp;rdquo; more attractive and working.</description>
     </item>
     
@@ -54,8 +54,8 @@ Recording The recording of the community call, with the result of the DSC Survey
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/2019-09-11-notes/</guid>
-      <description>Read the DSC Resource Kit Release September 2019 Blog post, on PowerShell&#39;s blog.
-Resources released  ActiveDirectoryDsc ComputerManagementDsc (BREAKING CHANGE - ScheduleTask) DFSDsc (Fix to get the examples to be published) NetworkingDsc SharePointDsc (might not be released) StorageDsc WmiNamespaceSecurityDsc (former WmiNamespaceSecurity) xDnsServer xFailOverCluster xHyper-V xPSDesiredStateConfiguration xRemoteDesktopSessionHost xSCSMA xWebAdministration  Deprecated  xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet) xPendingReboot (moved to ComputerManagementDsc)  Should leaving unsupported OS be treated as breaking change No, it&#39;s not a breaking change but it should be clearly noted in release notes when conscious decision is made.</description>
+      <description>Read the DSC Resource Kit Release September 2019 Blog post, on PowerShell&amp;rsquo;s blog.
+Resources released  ActiveDirectoryDsc ComputerManagementDsc (BREAKING CHANGE - ScheduleTask) DFSDsc (Fix to get the examples to be published) NetworkingDsc SharePointDsc (might not be released) StorageDsc WmiNamespaceSecurityDsc (former WmiNamespaceSecurity) xDnsServer xFailOverCluster xHyper-V xPSDesiredStateConfiguration xRemoteDesktopSessionHost xSCSMA xWebAdministration  Deprecated  xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet) xPendingReboot (moved to ComputerManagementDsc)  Should leaving unsupported OS be treated as breaking change No, it&amp;rsquo;s not a breaking change but it should be clearly noted in release notes when conscious decision is made.</description>
     </item>
     
     <item>
