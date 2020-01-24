@@ -291,7 +291,7 @@ the account that access DSC Community Azure DevOps organization.</p>
 all the review comments have be resolved and approved.</p>
 <p>As a maintainer you are allowed to review and merge your own code, but
 then only after 24 hours so the community has a chance to comment on
-the changes. Any pull request that fixes issues in CI pipeline or unblocks 
+the changes. Any pull request that fixes issues in CI pipeline or unblocks
 release can be merged faster to unblock other pull requests.</p>
 <h4 id="skip-raising-version">Skip raising version</h4>
 <p>It is possible to tell the CI build pipeline (GitVersion) to not raise
@@ -349,7 +349,12 @@ git push origin --tags <span style="color:#75715e"># Push the new tag that was c
 <p><strong>NOTE:</strong> You could also tag a specific commit if not all commits should
 be released.</p>
 </blockquote>
-<h4 id="running-the-task-pack-locally">Running the task <code>pack</code> locally</h4>
+<h4 id="update-the-list-of-resource-modules">Update the list of resource modules</h4>
+<p>After a new resource module has been released or deprecated, please update
+the list of resource modules to include it on the site <a href="https://dsccommunity.org">https://dsccommunity.org</a>.</p>
+<p>See the section <a href="https://github.com/dsccommunity/dsccommunity.org#resource-modules">Resource modules</a>
+to learn how to update the list of resource modules.</p>
+<h3 id="running-the-task-pack-locally">Running the task <code>pack</code> locally</h3>
 <p>If the task <code>pack´ is run locally, e.g. ´.\build.ps1 -Task pack</code>, then
 <code>nuget.exe</code> must be updated so that it is not outdated. If it is outdated
 you can run into the issue <a href="https://github.com/PowerShell/PowerShellGet/issues/295">PowerShell/PowerShellGet#295</a>.</p>
@@ -362,7 +367,7 @@ Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile <span style="color
 </code></pre></div><h3 id="labels">Labels</h3>
 <p>Labels are used in the issue and pull request workflows to show the
 current state.</p>
-<p>These are the labels currently used by the resource modules in DSC Community. 
+<p>These are the labels currently used by the resource modules in DSC Community.
 Some of these labels are meant to be used with future automation.</p>
 <blockquote>
 <p>The script
