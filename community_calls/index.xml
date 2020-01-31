@@ -19,8 +19,8 @@
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
       <description>Next call will be on Wednesday, February 28nd, at 12 PM PST
-Agenda   Migration to Continuous Delivery Process:
- Updated documentation/blog posts. Completed?  ActiveDirectoryDsc NetworkingDsc SharePointDsc SQLServerDsc WSManDsc xFailOverCluster xPSDesiredStateConfiguration xWebAdministration GPRegistryPolicyDsc   In progress:  ComputerManagementDsc xExchange Others?      Feel free to send a PR to this file if there&amp;rsquo;s something you&amp;rsquo;d like to be added to the agenda (or just ask during the call)</description>
+Agenda   What to do about resources that have no maintainer?
+ Problem: without a maintainer the resource can&amp;rsquo;t be updated to the new continuous delivery process so can&amp;rsquo;t be released.  Options:  Archive? Leave as is? Other options?        What to do about resources that have a maintainer but the update to the continuous delivery process is not proceeding?</description>
     </item>
     
     <item>
