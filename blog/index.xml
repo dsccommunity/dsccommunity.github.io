@@ -24,6 +24,17 @@ But when you have installed hugo, forked the dsccommunity.org, and cloned your f
     </item>
     
     <item>
+      <title>Add Codecov Support to Repository</title>
+      <link>https://dsccommunity.org/blog/add-codecov-support-to-repository/</link>
+      <pubDate>Mon, 03 Feb 2020 19:17:35 +0100</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/add-codecov-support-to-repository/</guid>
+      <description>This assumes the repository is using the pattern from the Sampler project.
+With the release of Pester v4.10 it is now possible to upload the Pester generated JoCoCo file to Codecov.io. This is the same file that is used to upload code coverage to Azure Pipelines. Codecov.io needed missing attributes to be part of the JaCoCo XML file. Those attributes that were missing were ignored by Azure Pipelines.
+The DSC Community GitHub organization has already added the Codecov GitHub App on all existing repositories in the organization.</description>
+    </item>
+    
+    <item>
       <title>DscResource.Common functions in a DSC module</title>
       <link>https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/</link>
       <pubDate>Sat, 11 Jan 2020 15:45:00 +0100</pubDate>

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Fri, 24 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 19:17:35 +0100</lastBuildDate>
     
 	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
@@ -478,6 +478,17 @@ DSC Community Committee Read more about it here https://dsccommunity.</descripti
       
       <guid>https://dsccommunity.org/community_calls/2019-05-08-notes/</guid>
       <description>Resources to be released  TBC  Discussions  Topics or questions from the community (welcome at any point during the call) Celebrating new maintainers:  Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Jason Patton &amp;ndash;&amp;gt; xDnsServer Nehru Ali &amp;ndash;&amp;gt; xPendingReboot Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc) Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox   Waffle board will be closing, still looking into a replacement Moving off gitter to PoshCode slack: the #dsc channel in either Slack or Discord.</description>
+    </item>
+    
+    <item>
+      <title>Add Codecov Support to Repository</title>
+      <link>https://dsccommunity.org/blog/add-codecov-support-to-repository/</link>
+      <pubDate>Mon, 03 Feb 2020 19:17:35 +0100</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/add-codecov-support-to-repository/</guid>
+      <description>This assumes the repository is using the pattern from the Sampler project.
+With the release of Pester v4.10 it is now possible to upload the Pester generated JoCoCo file to Codecov.io. This is the same file that is used to upload code coverage to Azure Pipelines. Codecov.io needed missing attributes to be part of the JaCoCo XML file. Those attributes that were missing were ignored by Azure Pipelines.
+The DSC Community GitHub organization has already added the Codecov GitHub App on all existing repositories in the organization.</description>
     </item>
     
     <item>

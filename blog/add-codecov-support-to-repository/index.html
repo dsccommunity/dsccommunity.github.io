@@ -1,0 +1,512 @@
+<head>
+  <meta charset="utf-8">
+  <title>Add Codecov Support to Repository</title>
+
+  <meta name="generator" content="Hugo 0.64.0" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144465379-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/themify-icons/themify-icons.css">
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/highlight/hybrid.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+
+  <style>
+  :root{
+    --primary-color:#003366;
+    --secondary-color:#f9f9f9;
+    --text-color:#242738;
+    --text-color-dark:#000;
+    --white-color:#ffffff;
+  }
+  </style>
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://dsccommunity.org/css/style.min.css" integrity="" media="screen">
+
+  <!-- jquiry -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-1.12.4.js"></script>
+
+  <!-- jquary ui -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-ui.js"></script>
+
+  <!--Favicon-->
+  <link rel="icon" href="https://dsccommunity.org/images/favicon.png" type="image/x-icon">
+
+</head>
+
+<!-- navigation -->
+<header class="shadow-bottom sticky-top bg-white">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="https://dsccommunity.org/">DSC Community and Resource Kit</a>
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse text-center" id="navigation">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="https://dsccommunity.org/">Home</a>
+      </li>
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/code_of_conduct">Code of Conduct</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/community_calls">Community Calls</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/faq">Faq</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/help">help</a>
+      </li>
+      
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" >
+          
+          <a class="dropdown-item" href="/community">Community</a>
+          
+          <a class="dropdown-item" href="/resources">Resource Modules</a>
+          
+          <a class="dropdown-item" href="/guidelines">Guidelines</a>
+          
+          <a class="dropdown-item" href="/blog">Blog Posts</a>
+          
+          <a class="dropdown-item" href="/configmgt">Config. Management</a>
+          
+        </div>
+      </li>
+      
+      
+    </ul>
+    
+    <ul class="list-inline text-center mb-0">
+      
+    </ul>
+  </div>
+</nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<section class="single pt-5 bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="p-4 bg-white sticky-top top-100">
+            
+            <nav class="sidebar-menu">
+              <ul class="list-styled">
+            <li class=""><a href="/community/">Community</a>
+              <ul class="">
+            <li class=""><a href="/community/origin-story/">Origin Story</a>
+            </li>
+            <li class=""><a href="/community/ownership/">Ownership of DSC Resources</a>
+            </li>
+            <li class=""><a href="/community/committee/">DSC Community Committee</a>
+            </li>
+            <li class=""><a href="/community/maintainers/">Maintainers</a>
+            </li>
+            <li class=""><a href="/community/contact/">Join the Conversation</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/resources/">Resource Modules</a>
+            </li>
+            <li class=""><a href="/guidelines/">Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
+            </li>
+            <li class=""><a href="/guidelines/contributing/">Contributing</a>
+            </li>
+            <li class=""><a href="/guidelines/maintaining/">Maintaining</a>
+            </li>
+            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general/">General</a>
+            </li>
+            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
+            </li>
+            <li class=""><a href="/styleguidelines/functions/">Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
+            </li>
+            <li class=""><a href="/styleguidelines/variables/">Variables</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
+            </li></ul>
+              
+            </li>
+            <li class="parent d-block "><a href="/blog/">Blog Posts</a>
+              <ul class="sub-menu">
+            <li class=""><a href="/blog/create-an-article/">Create an Article</a>
+            </li>
+            <li class=" active "><a href="/blog/add-codecov-support-to-repository/">Add Codecov Support to Repository</a>
+            </li>
+            <li class=""><a href="/blog/use-dscresource-common-functions-in-module/">DscResource.Common functions in a DSC module</a>
+            </li>
+            <li class=""><a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a>
+            </li>
+            <li class=""><a href="/blog/how-to-use-dsc-logging/">How to Use Dsc Logging</a>
+            </li>
+            <li class=""><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
+            <li class=""><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/community_calls/">Community Calls</a>
+              <ul class="">
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-02-28</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-01-22-notes/">2020-01-22 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-12-04-notes/">2019-12-04 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/code_of_conduct/">Code of Conduct</a>
+              <ul class="">
+            <li class=""><a href="/code_of_conduct/standards/">Our Standards</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/scope/">Scope</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/enforcement/">Enforcement</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/common_questions/">Common Questions</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/attribution/">Attribution</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/help/">Help</a>
+              <ul class="">
+            <li class=""><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
+            </li>
+            <li class=""><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/contributors/">Elements</a>
+            </li>
+            <li class=""><a href="/faq/">Frequently Asked Questions</a>
+            </li></ul>
+            </nav>
+
+            
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-5 bg-white">
+            <h2>Add Codecov Support to Repository</h2>
+            <p><em>This assumes the repository is using the pattern from the <a href="https://github.com/gaelcolas/Sampler">Sampler</a></em>
+<em>project.</em></p>
+<p>With the release of <a href="https://www.powershellgallery.com/packages/Pester/4.10.0">Pester v4.10</a>
+it is now possible to upload the Pester generated JoCoCo file to <a href="https://codecov.io">Codecov.io</a>.
+This is the same file that is used to upload code coverage to Azure Pipelines.
+Codecov.io needed missing attributes to be part of the JaCoCo XML file.
+Those attributes that were missing were ignored by Azure Pipelines.</p>
+<p>The DSC Community GitHub organization has already added the Codecov GitHub
+App on all existing repositories in the organization. Also any new repository
+will have the Codecov GitHub App added automatically.</p>
+<p>To upload code coverage to Codecov.io we need to change the <code>build.yaml</code>,
+add a <code>codecov.yml</code>, and change the stage <code>Test</code> in the file <code>azure-pipelines.yml</code>
+by modifying the existing unit test job and adding a new job that uploads
+the coverage.</p>
+<h2 id="modify-buildyaml">Modify <code>build.yaml</code></h2>
+<p>Because <a href="https://codecov.io">Codecov.io</a> expects the file that is uploaded
+to be prefixed with <code>JaCoCo</code> we have to change the filename of the JaCoCo
+test results file that Pester is creating. The file cannot be created
+with the encoding <code>UTF8 with BOM</code> which is the default on Windows, so
+we make sure to change the encoding to <code>ascii</code> that <a href="https://codecov.io">Codecov.io</a>
+accepts.</p>
+<p>Under the key <code>Pester</code> add the following keys.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">Pester:
+  <span style="color:#66d9ef">CodeCoverageOutputFile</span>: JaCoCo_coverage.xml
+  <span style="color:#66d9ef">CodeCoverageOutputFileEncoding</span>: ascii
+</code></pre></div><blockquote>
+<p><em>NOTE:</em> the filename can be anything after the prefix <code>JaCoCo</code>, for example
+it is possible to use this <code>JaCoCo_$OsShortName.xml</code> which results in
+the filename <code>JaCoCO_MacOs.xml</code> when the test task is run on macOS.</p>
+</blockquote>
+<h2 id="modify-azure-pipelinesyml">Modify <code>azure-pipelines.yml</code></h2>
+<p>From the job <code>Test_Unit</code> we can remove the task <code>Set Environment Variables</code>
+and the task <code>Publish Code Coverage</code>. Those two task will be moved to the
+new job. Instead we add the task <code>Publish Test Artifact</code> which uploads
+the test result files that ended up in the folder <code>output/testResults</code>.</p>
+<h3 id="add-global-variables">Add global variables</h3>
+<p>At the top of the file, at the same level ass the key <code>trigger</code> add the
+following.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">variables:
+  <span style="color:#66d9ef">buildFolderName</span>: output
+  <span style="color:#66d9ef">buildArtifactName</span>: output
+  <span style="color:#66d9ef">testResultFolderName</span>: testResults
+  <span style="color:#66d9ef">testArtifactName</span>: testResults
+</code></pre></div><p>Then do a search and replace to change <code>artifactName: 'output'</code> to
+<code>artifactName: $(buildArtifactName)</code>.</p>
+<h3 id="job-test_unit">Job <code>Test_Unit</code></h3>
+<p>The tasks of this job are:</p>
+<ul>
+<li>Download the build artifact (<code>output</code> that was uploaded by the <code>Build</code>
+stage)</li>
+<li>Run the unit tests (which generates the JaCoCo XML file in the folder
+<code>output/testResults</code>)</li>
+<li>Uploads the <code>output/testResults</code> folder to the artifact <code>testResults</code>.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#66d9ef">job</span>: Test_Unit
+        <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Unit&#39;</span>
+        pool:
+          <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
+        <span style="color:#66d9ef">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
+        steps:
+          - <span style="color:#66d9ef">task</span>: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
+            <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
+            inputs:
+              <span style="color:#66d9ef">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
+              <span style="color:#66d9ef">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
+              <span style="color:#66d9ef">artifactName</span>: $(buildArtifactName)
+              <span style="color:#66d9ef">downloadPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
+          - <span style="color:#66d9ef">task</span>: PowerShell@<span style="color:#ae81ff">2</span>
+            <span style="color:#66d9ef">name</span>: test
+            <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Run Unit Test&#39;</span>
+            inputs:
+              <span style="color:#66d9ef">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
+              <span style="color:#66d9ef">arguments</span>: <span style="color:#e6db74">&#34;-Tasks test -PesterScript &#39;tests/Unit&#39;&#34;</span>
+              <span style="color:#66d9ef">pwsh</span>: <span style="color:#66d9ef">false</span>
+          - <span style="color:#66d9ef">task</span>: PublishTestResults@<span style="color:#ae81ff">2</span>
+            <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
+            <span style="color:#66d9ef">condition</span>: succeededOrFailed()
+            inputs:
+              <span style="color:#66d9ef">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
+              <span style="color:#66d9ef">testResultsFiles</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span>
+              <span style="color:#66d9ef">testRunTitle</span>: <span style="color:#e6db74">&#39;Unit (Windows Server Core)&#39;</span>
+          - <span style="color:#66d9ef">task</span>: PublishBuildArtifacts@<span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Artifact&#39;</span>
+            inputs:
+              <span style="color:#66d9ef">pathToPublish</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/&#39;</span>
+              <span style="color:#66d9ef">artifactName</span>: $(testArtifactName)
+              <span style="color:#66d9ef">publishLocation</span>: <span style="color:#e6db74">&#39;Container&#39;</span>
+</code></pre></div><h3 id="job-codecoverage">Job <code>CodeCoverage</code></h3>
+<p>Then we add a new job that depends on the job <code>Test_Unit</code> since we must
+wait for the JaCoCo XML file to exist. The reason for having a separate job
+is that we need (or at least it is easiest) to run the <a href="https://codecov.io">Codecov.io</a>
+upload task in a Linux build worker.</p>
+<p>The tasks of this job are:</p>
+<ul>
+<li>Set environment variables (needed for the upload of Azure Pipelines code
+coverage)</li>
+<li>Download the build artifact (<code>output</code> that was uploaded by the <code>Build</code>
+stage)</li>
+<li>Download the test artifact (<code>testResults</code> that was upload by the job
+<code>Test_Unit</code>)</li>
+<li>Publish code coverage to Azure Pipelines (Azure DevOps)</li>
+<li>Publish code coverage to Codecov.io</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#66d9ef">job</span>: Code_Coverage
+        <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage&#39;</span>
+        <span style="color:#66d9ef">dependsOn</span>: Test_Unit
+        pool:
+          <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu 16.04&#39;</span>
+        <span style="color:#66d9ef">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
+        steps:
+          - <span style="color:#66d9ef">pwsh</span>: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">             </span><span style="color:#e6db74"> </span><span style="color:#e6db74">$repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split &#39;/&#39;</span>
+              echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryOwner;isOutput=true]$repositoryOwner&#34;</span>
+              echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName&#34;</span>
+            <span style="color:#66d9ef">name</span>: dscBuildVariable
+            <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Set Environment Variables&#39;</span>
+          - <span style="color:#66d9ef">task</span>: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
+            <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
+            inputs:
+              <span style="color:#66d9ef">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
+              <span style="color:#66d9ef">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
+              <span style="color:#66d9ef">artifactName</span>: $(buildArtifactName)
+              <span style="color:#66d9ef">downloadPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
+          - <span style="color:#66d9ef">task</span>: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
+            <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Download Test Artifact&#39;</span>
+            inputs:
+              <span style="color:#66d9ef">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
+              <span style="color:#66d9ef">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
+              <span style="color:#66d9ef">artifactName</span>: $(testArtifactName)
+              <span style="color:#66d9ef">downloadPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)&#39;</span>
+          - <span style="color:#66d9ef">task</span>: PublishCodeCoverageResults@<span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Azure Code Coverage&#39;</span>
+            <span style="color:#66d9ef">condition</span>: succeededOrFailed()
+            inputs:
+              <span style="color:#66d9ef">codeCoverageTool</span>: <span style="color:#e6db74">&#39;JaCoCo&#39;</span>
+              <span style="color:#66d9ef">summaryFileLocation</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#39;</span>
+              <span style="color:#66d9ef">pathToSources</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(dscBuildVariable.RepositoryName)&#39;</span>
+          - <span style="color:#66d9ef">script</span>: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">             </span><span style="color:#e6db74"> </span><span style="color:#e6db74">bash &lt;(curl -s https://codecov.io/bash) -f &#34;./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#34;</span>
+            <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Upload to Codecov.io&#39;</span>
+            <span style="color:#66d9ef">condition</span>: succeededOrFailed()
+</code></pre></div><h2 id="add-codecovyml">Add <code>codecov.yml</code></h2>
+<blockquote>
+<p><strong>NOTE:</strong> If this file exist and starts with a full stop <code>.</code>, e.g. <code>.codecov.yml</code>,
+then please rename it to <code>codecov.yml</code>. See this FAQ for more information
+<a href="https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml">https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml</a></p>
+</blockquote>
+<p>These settings can be set as wanted, but the below is the default values
+that we have used in the DSC modules.</p>
+<p>The important part is the key <code>fixes</code>. <a href="https://codecov.io">Codecov.io</a>
+is expecting the paths in the JaCoCo file to match the folder structure in
+the GitHub repository. Since the <a href="https://github.com/gaelcolas/Sampler">Sampler</a>
+project runs tests against the built module in the <code>output</code> folder, the paths
+do not match those of the repository. The key <code>fixes</code> converts the paths in
+the JaCoCo XML file to the correct paths that <a href="https://codecov.io">Codecov.io</a>
+expects.</p>
+<p>See the <a href="https://docs.codecov.io/docs/codecovyml-reference">codecov.yml Reference</a>
+for more information about these settings.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">codecov:
+  <span style="color:#66d9ef">require_ci_to_pass</span>: no
+  <span style="color:#75715e"># master should be the baseline for reporting</span>
+  <span style="color:#66d9ef">branch</span>: master
+
+comment:
+  <span style="color:#66d9ef">layout</span>: <span style="color:#e6db74">&#39;reach, diff&#39;</span>
+  <span style="color:#66d9ef">behavior</span>: default
+
+coverage:
+  <span style="color:#66d9ef">range</span>: <span style="color:#ae81ff">50</span>..<span style="color:#ae81ff">80</span>
+  <span style="color:#66d9ef">round</span>: down
+  <span style="color:#66d9ef">precision</span>: <span style="color:#ae81ff">0</span>
+
+  status:
+    project:
+      default:
+        <span style="color:#75715e"># Set the overall project code coverage requirement to 70%</span>
+        <span style="color:#66d9ef">target</span>: <span style="color:#ae81ff">70</span>
+    patch:
+      default:
+        <span style="color:#75715e"># Set the pull request requirement to not regress overall coverage by more than 5%</span>
+        <span style="color:#75715e"># and let codecov.io set the goal for the code changed in the patch.</span>
+        <span style="color:#66d9ef">target</span>: auto
+        <span style="color:#66d9ef">threshold</span>: <span style="color:#ae81ff">5</span>
+
+fixes:
+  - <span style="color:#e6db74">&#39;\d+\.\d+\.\d+\/::source/&#39;</span>  <span style="color:#75715e"># move path &#34;X.Y.Z/&#34; =&gt; &#34;source/&#34;</span>
+</code></pre></div><h2 id="add-status-badge-to-readmemd">Add status badge to <code>README.md</code></h2>
+<p>Finally we should add the status badge to the README.md. Replace
+<code>{repositoryName}</code> with the actual repository name, e.g. <code>ComputerManagementDsc</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">[<span style="color:#f92672">![codecov</span>](<span style="color:#a6e22e">https://codecov.io/gh/dsccommunity/{repositoryName}/branch/master/graph/badge.svg</span>)](https://codecov.io/gh/dsccommunity/{repositoryName})
+</code></pre></div>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 03 Feb 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/create-an-article/" title="Create an Article"><i class="ti-arrow-left mr-2"></i>Create an Article</a>
+            <a class="nav nav-next" href="/blog/use-dscresource-common-functions-in-module/" title="DscResource.Common functions in a DSC module">DscResource.Common functions in a DSC module<i class="ti-arrow-right ml-2"></i></a>
+            </nav></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- footer -->
+<footer class="section bg-gray pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+        <p>Copyright 2019 the dsccommunity.org contributors.</p> 
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://github.com/dsccommunity/"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/dsccommunity"><i class="ti-twitter-alt"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Bootstrap JS -->
+<script src="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- highlight -->
+<script src="https://dsccommunity.org/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Main Script -->
+
+<script src="https://dsccommunity.org/js/script.min.js"></script>
