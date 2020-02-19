@@ -18,7 +18,7 @@
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, February 28nd, at 12 PM PST
+      <description>Next call will be on Wednesday, February 26nd, at 12 PM PST
 Want to submit a question to discuss during the call? Just submit a Pull request to this file!
 Agenda   What to do about resources that have no maintainer?
  Problem: without a maintainer the resource can&amp;rsquo;t be updated to the new continuous delivery process so can&amp;rsquo;t be released.  Options:  Archive? Leave as is? Other options?</description>
@@ -203,7 +203,7 @@ $r = Get-RdsHostBad:</description>
 Breaking Changes See Breaking Changes
 Review Not yet written.
 Merging code Only merge code that passes status checks, have been reviewed, and where all the review comments have be resolved and approved.
-As a maintainer you are allowed to review and merge your own code, but then only after 24 hours so the community has a chance to comment on the changes.</description>
+As a maintainer you are allowed to review and merge your own code.</description>
     </item>
     
     <item>
@@ -508,8 +508,8 @@ The module DscResource.Common currently has 7 cmdlets.
       <pubDate>Mon, 30 Dec 2019 12:52:00 +0100</pubDate>
       
       <guid>https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/</guid>
-      <description>Any comments around this blog entry are welcomed and to be submitted on the Gist.
-Before you start, here&amp;rsquo;s an overview of what the new CI looks like:    NOTE: The build is running on Linux in the CI pipeline to be able to support cross-platform DSC resources, so that makes all paths case-sensitive! Have that in mind when updating paths and folders in the configuration files. Make sure they match the repository, or change the repository file and folder names).</description>
+      <description>You are welcome to share any comments or issues you having around this process in the Discord or Slack #DSC channel.
+Before you start, here&amp;rsquo;s an overview of what the new CI looks like:    NOTE: The build is running on Linux in the CI pipeline to be able to support cross-platform DSC resources, so that makes all paths case-sensitive! Have that in mind when updating paths and folders in the configuration files.</description>
     </item>
     
     <item>
