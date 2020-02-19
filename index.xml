@@ -30,8 +30,7 @@ Agenda   What to do about resources that have no maintainer?
       
       <guid>https://dsccommunity.org/community_calls/2020-01-22-notes/</guid>
       <description>How to join
-Recording Meeting recording
-Agenda   Welcome to New Community Committee Member.
+Recording Meeting recording   Agenda   Welcome to New Community Committee Member.
   What to do if a PR doesn&amp;rsquo;t get reviewed in a reasonable time frame?
  Minimum time before a maintainer may merge a PR without a review is 24 hours. Recommended time to wait before maintainer can merge a PR without a review is 72 hours. PRs to fix broken pipelines or high risk security issues are exempt.</description>
     </item>
