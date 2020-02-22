@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Variables</title>
 
-  <meta name="generator" content="Hugo 0.64.1" />
+  <meta name="generator" content="Hugo 0.65.2" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -312,7 +312,7 @@ $GLOBAL:MYRESOURCENAME = <span style="color:#e6db74">&#39;MyResource&#39;</span>
 <span style="color:#66d9ef">function</span> New-File
 {
     $fileCount++
-    Write-Verbose -Message <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Adding file to </span><span style="color:#e6db74">$</span><span style="color:#e6db74">MYRESOURCENAME to </span><span style="color:#e6db74">$</span><span style="color:#e6db74">ENV:COMPUTERNAME.</span><span style="color:#e6db74">&#34;</span>
+    Write-Verbose -Message <span style="color:#e6db74">&#34;Adding file to $MYRESOURCENAME to $ENV:COMPUTERNAME.&#34;</span>
 }
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$script:fileCount = 0
@@ -321,7 +321,7 @@ $global:myResourceName = <span style="color:#e6db74">&#39;MyResource&#39;</span>
 <span style="color:#66d9ef">function</span> New-File
 {
     $script:fileCount++
-    Write-Verbose -Message <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Adding file to </span><span style="color:#e6db74">$</span><span style="color:#e6db74">global:myResourceName to </span><span style="color:#e6db74">$</span><span style="color:#e6db74">env:computerName.</span><span style="color:#e6db74">&#34;</span>
+    Write-Verbose -Message <span style="color:#e6db74">&#34;Adding file to $global:myResourceName to $env:computerName.&#34;</span>
 }
 </code></pre></div>
             <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/styleguidelines/parameters/" title="Parameters"><i class="ti-arrow-left mr-2"></i>Parameters</a>

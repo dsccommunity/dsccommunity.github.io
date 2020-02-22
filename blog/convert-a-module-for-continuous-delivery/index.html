@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Steps to convert a module for continuous delivery</title>
 
-  <meta name="generator" content="Hugo 0.64.1" />
+  <meta name="generator" content="Hugo 0.65.2" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -321,13 +321,13 @@ git fetch origin master <span style="color:#75715e"># origin is the remote point
 git rebase origin/master
 git push my master --force <span style="color:#75715e"># my is the remote pointing to fork</span>
 
-<span style="color:#75715e">&lt;#</span><span style="color:#75715e">
+<span style="color:#75715e">&lt;#
 </span><span style="color:#75715e">    Remote - remote name to your fork
-</span><span style="color:#75715e">    Upstream - remote name to the upstream DSC Community repository</span><span style="color:#75715e">.</span><span style="color:#75715e">
-</span><span style="color:#75715e">    DeleteOldTags - will remove the old tags</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">    Upstream - remote name to the upstream DSC Community repository.
+</span><span style="color:#75715e">    DeleteOldTags - will remove the old tags.
 </span><span style="color:#75715e">
-</span><span style="color:#75715e">    You can run it with parameter WhatIf to see what it will do</span><span style="color:#75715e">.</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#&gt;</span>
+</span><span style="color:#75715e">    You can run it with parameter WhatIf to see what it will do.
+</span><span style="color:#75715e">#&gt;</span>
 .\Convert-GitTagForDsc.ps1 -DeleteOldTags -Remote <span style="color:#e6db74">&#39;my&#39;</span> -Upstream <span style="color:#e6db74">&#39;origin&#39;</span> -Verbose
 </code></pre></div><h3 id="make-sure-all-previous-releases-has-tags">Make sure all previous releases has tags</h3>
 <p>Make sure all the previous releases to PowerShell Gallery has tags.
@@ -686,19 +686,19 @@ following is a proposed file but can changed to reflected other needs.</p>
     Change to [x] for each task in the task list that applies to your PR.
     For those task that don&#39;t apply to you PR, leave those as is.
 --&gt;
-<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Added an entry to the change log under the Unreleased section of the
+<span style="color:#66d9ef">- [ ]</span> Added an entry to the change log under the Unreleased section of the
       file CHANGELOG.md. Entry should say what was changed and how that
       affects users (if applicable), and reference the issue being resolved
       (if applicable).
-<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Resource documentation added/updated in README.md.
-<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Resource parameter descriptions added/updated in README.md, schema.mof
+<span style="color:#66d9ef">- [ ]</span> Resource documentation added/updated in README.md.
+<span style="color:#66d9ef">- [ ]</span> Resource parameter descriptions added/updated in README.md, schema.mof
       and comment-based help.
-<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Comment-based help added/updated.
-<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Localization strings added/updated in all localization files as appropriate.
-<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Examples appropriately added/updated.
-<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Unit tests added/updated. See [<span style="color:#f92672">DSC Community Testing Guidelines</span>](<span style="color:#a6e22e">https://dsccommunity.org/guidelines/testing-guidelines</span>).
-<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> Integration tests added/updated (where possible). See [<span style="color:#f92672">DSC Community Testing Guidelines</span>](<span style="color:#a6e22e">https://dsccommunity.org/guidelines/testing-guidelines</span>).
-<span style="color:#66d9ef">- </span><span style="color:#66d9ef">[ ]</span> New/changed code adheres to [<span style="color:#f92672">DSC Community Style Guidelines</span>](<span style="color:#a6e22e">https://dsccommunity.org/styleguidelines</span>).
+<span style="color:#66d9ef">- [ ]</span> Comment-based help added/updated.
+<span style="color:#66d9ef">- [ ]</span> Localization strings added/updated in all localization files as appropriate.
+<span style="color:#66d9ef">- [ ]</span> Examples appropriately added/updated.
+<span style="color:#66d9ef">- [ ]</span> Unit tests added/updated. See [<span style="color:#f92672">DSC Community Testing Guidelines</span>](<span style="color:#a6e22e">https://dsccommunity.org/guidelines/testing-guidelines</span>).
+<span style="color:#66d9ef">- [ ]</span> Integration tests added/updated (where possible). See [<span style="color:#f92672">DSC Community Testing Guidelines</span>](<span style="color:#a6e22e">https://dsccommunity.org/guidelines/testing-guidelines</span>).
+<span style="color:#66d9ef">- [ ]</span> New/changed code adheres to [<span style="color:#f92672">DSC Community Style Guidelines</span>](<span style="color:#a6e22e">https://dsccommunity.org/styleguidelines</span>).
 </code></pre></div><h3 id="file-githubissue_templateproblem_with_resourcemd">File <code>.github/ISSUE_TEMPLATE/Problem_with_resource.md</code></h3>
 <p>Change the last line to the following, removing the sentence within the
 parenthesis.</p>
@@ -881,8 +881,8 @@ Get-ChildItem -Path <span style="color:#e6db74">&#39;.\source\Examples&#39;</spa
         -Author <span style="color:#e6db74">&#39;DSC Community&#39;</span> `
         -CompanyName <span style="color:#e6db74">&#39;DSC Community&#39;</span> `
         -Copyright <span style="color:#e6db74">&#39;DSC Community contributors. All rights reserved.&#39;</span> `
-        -LicenseUri <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">https://github.com/dsccommunity/</span><span style="color:#e6db74">$</span><span style="color:#e6db74">moduleName/blob/master/LICENSE</span><span style="color:#e6db74">&#34;</span> `
-        -ProjectUri <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">https://github.com/dsccommunity/</span><span style="color:#e6db74">$</span><span style="color:#e6db74">moduleName</span><span style="color:#e6db74">&#34;</span> `
+        -LicenseUri <span style="color:#e6db74">&#34;https://github.com/dsccommunity/$moduleName/blob/master/LICENSE&#34;</span> `
+        -ProjectUri <span style="color:#e6db74">&#34;https://github.com/dsccommunity/$moduleName&#34;</span> `
         -ReleaseNotes <span style="color:#e6db74">&#39;Updated author, copyright notice, and URLs.&#39;</span> `
         -IconUri <span style="color:#e6db74">&#39;https://dsccommunity.org/images/DSC_Logo_300p.png&#39;</span>
 }
@@ -980,8 +980,8 @@ Import-DscResource -ModuleName <span style="color:#e6db74">&#39;StorageDsc&#39;<
 <p>For any helper modules, add this to each unit test (and remove any
 other code that imported the helper module previously).</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">#region HEADER</span>
-$script:projectPath = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$</span><span style="color:#e6db74">PSScriptRoot\..\..</span><span style="color:#e6db74">&#34;</span> | Convert-Path
-$script:projectName = (Get-ChildItem -Path <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$</span><span style="color:#e6db74">script:projectPath\*\*.psd1</span><span style="color:#e6db74">&#34;</span> | Where-Object -FilterScript {
+$script:projectPath = <span style="color:#e6db74">&#34;$PSScriptRoot\..\..&#34;</span> | Convert-Path
+$script:projectName = (Get-ChildItem -Path <span style="color:#e6db74">&#34;$script:projectPath\*\*.psd1&#34;</span> | Where-Object -FilterScript {
         ($_.Directory.Name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#39;source|src&#39;</span> <span style="color:#f92672">-or</span> $_.Directory.Name <span style="color:#f92672">-eq</span> $_.BaseName) <span style="color:#f92672">-and</span>
         $(<span style="color:#66d9ef">try</span> { Test-ModuleManifest -Path $_.FullName -ErrorAction Stop } <span style="color:#66d9ef">catch</span> { $false })
     }).BaseName
@@ -1057,7 +1057,7 @@ e.g.</p>
       <span style="color:#66d9ef">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
       steps:
         - <span style="color:#66d9ef">powershell</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">           </span><span style="color:#e6db74"> </span><span style="color:#e6db74">$repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split &#39;/&#39;</span>
+</span><span style="color:#e6db74">            $repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split &#39;/&#39;</span>
             echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryOwner;isOutput=true]$repositoryOwner&#34;</span>
             echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName&#34;</span>
           <span style="color:#66d9ef">name</span>: dscBuildVariable
@@ -1146,7 +1146,7 @@ key <code>vmImage</code> to a supported image listed in the section
 part of the <code>appveyor.yml</code>. For example to install a feature, add this
 before the task <code>Test</code> in the job <code>Test_Integration</code>.
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#66d9ef">powershell</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">Install-WindowsFeature -IncludeAllSubFeature -IncludeManagementTools -Name &#39;Web-Server&#39;</span>
+</span><span style="color:#e6db74">    Install-WindowsFeature -IncludeAllSubFeature -IncludeManagementTools -Name &#39;Web-Server&#39;</span>
   <span style="color:#66d9ef">name</span>: InstallWebServerFeature
 </code></pre></div></li>
 <li>(Optional) If there are need to run integration tests in order (or

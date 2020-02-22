@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Maintaining</title>
 
-  <meta name="generator" content="Hugo 0.64.1" />
+  <meta name="generator" content="Hugo 0.65.2" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -366,10 +366,10 @@ to learn how to update the list of resource modules.</p>
 you can run into the issue <a href="https://github.com/PowerShell/PowerShellGet/issues/295">PowerShell/PowerShellGet#295</a>.</p>
 <p>To update run the following:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Non-admin</span>
-Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile <span style="color:#e6db74">&#34;</span>$env<span style="color:#e6db74">:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe</span><span style="color:#e6db74">&#34;</span>
+Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile <span style="color:#e6db74">&#34;</span>$env<span style="color:#e6db74">:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe&#34;</span>
 
 <span style="color:#75715e"># Admin</span>
-Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile <span style="color:#e6db74">&#34;</span>$env<span style="color:#e6db74">:ProgramData\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe</span><span style="color:#e6db74">&#34;</span>
+Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile <span style="color:#e6db74">&#34;</span>$env<span style="color:#e6db74">:ProgramData\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe&#34;</span>
 </code></pre></div><h3 id="labels">Labels</h3>
 <p>Labels are used in the issue and pull request workflows to show the
 current state.</p>

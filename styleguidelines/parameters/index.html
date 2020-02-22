@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Parameters</title>
 
-  <meta name="generator" content="Hugo 0.64.1" />
+  <meta name="generator" content="Hugo 0.65.2" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -334,11 +334,11 @@ in the <code>[Parameter()]</code>.</li>
 
     <span style="color:#66d9ef">if</span> ($AsWarning)
     {
-        Write-Warning -Message <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$</span><span style="color:#e6db74">PrefixText - </span><span style="color:#e6db74">$</span><span style="color:#e6db74">Text</span><span style="color:#e6db74">&#34;</span>
+        Write-Warning -Message <span style="color:#e6db74">&#34;$PrefixText - $Text&#34;</span>
     }
     <span style="color:#66d9ef">else</span>
     {
-        Write-Verbose -Message <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$</span><span style="color:#e6db74">PrefixText - </span><span style="color:#e6db74">$</span><span style="color:#e6db74">Text</span><span style="color:#e6db74">&#34;</span>
+        Write-Verbose -Message <span style="color:#e6db74">&#34;$PrefixText - $Text&#34;</span>
     }
 }
 </code></pre></div><p><strong>Good:</strong></p>
@@ -383,11 +383,11 @@ in the <code>[Parameter()]</code>.</li>
 
     <span style="color:#66d9ef">if</span> ($AsWarning)
     {
-        Write-Warning -Message <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$</span><span style="color:#e6db74">PrefixText - </span><span style="color:#e6db74">$</span><span style="color:#e6db74">Text</span><span style="color:#e6db74">&#34;</span>
+        Write-Warning -Message <span style="color:#e6db74">&#34;$PrefixText - $Text&#34;</span>
     }
     <span style="color:#66d9ef">else</span>
     {
-        Write-Verbose -Message <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$</span><span style="color:#e6db74">PrefixText - </span><span style="color:#e6db74">$</span><span style="color:#e6db74">Text</span><span style="color:#e6db74">&#34;</span>
+        Write-Verbose -Message <span style="color:#e6db74">&#34;$PrefixText - $Text&#34;</span>
     }
 }
 </code></pre></div><h2 id="parameter-names-use-pascal-case">Parameter Names Use Pascal Case</h2>

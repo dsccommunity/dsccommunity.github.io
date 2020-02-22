@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Dsc Resource Functions</title>
 
-  <meta name="generator" content="Hugo 0.64.1" />
+  <meta name="generator" content="Hugo 0.65.2" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -314,19 +314,19 @@ the actual value of.
 In that case it does not make sense to assign a value to <code>FilePathName</code> when
 calling <code>Get-TargetResource</code> because that value will never be used.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#</span><span style="color:#75715e">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.SYNOPSIS</span><span style="color:#75715e">
-</span><span style="color:#75715e">        Returns the current state of the feature</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">        Returns the current state of the feature.
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> Name
-</span><span style="color:#75715e">        The feature for which to return the state for</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">        The feature for which to return the state for.
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> ServerName
-</span><span style="color:#75715e">        The server name on which the feature is installed</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">        The server name on which the feature is installed.
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> Ensure
-</span><span style="color:#75715e">        The desired state of the feature</span><span style="color:#75715e">.</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#&gt;</span>
+</span><span style="color:#75715e">        The desired state of the feature.
+</span><span style="color:#75715e">#&gt;</span>
 <span style="color:#66d9ef">function</span> Get-TargetResource
 {
     <span style="color:#66d9ef">param</span>
@@ -358,16 +358,16 @@ calling <code>Get-TargetResource</code> because that value will never be used.</
     }
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#</span><span style="color:#75715e">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.SYNOPSIS</span><span style="color:#75715e">
-</span><span style="color:#75715e">        Returns the current state of the feature</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">        Returns the current state of the feature.
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> Name
-</span><span style="color:#75715e">        The feature for which to return the state for</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">        The feature for which to return the state for.
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> ServerName
-</span><span style="color:#75715e">        The server name on which the feature is installed</span><span style="color:#75715e">.</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#&gt;</span>
+</span><span style="color:#75715e">        The server name on which the feature is installed.
+</span><span style="color:#75715e">#&gt;</span>
 <span style="color:#66d9ef">function</span> Get-TargetResource
 {
     <span style="color:#66d9ef">param</span>
@@ -414,19 +414,19 @@ function will be used in the function.</p>
 used, then the comment-based help for that parameter should contain the description
 &lsquo;Not used in &lt;function_name&gt;&rsquo;.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#</span><span style="color:#75715e">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.SYNOPSIS</span><span style="color:#75715e">
-</span><span style="color:#75715e">        Returns the current state of the feature</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">        Returns the current state of the feature.
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> Name
-</span><span style="color:#75715e">        The feature for which to return the state for</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">        The feature for which to return the state for.
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> ServerName
-</span><span style="color:#75715e">        The server name on which the feature is installed</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">        The server name on which the feature is installed.
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> Ensure
-</span><span style="color:#75715e">        The desired state of the feature</span><span style="color:#75715e">.</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#&gt;</span>
+</span><span style="color:#75715e">        The desired state of the feature.
+</span><span style="color:#75715e">#&gt;</span>
 <span style="color:#66d9ef">function</span> Get-TargetResource
 {
     <span style="color:#66d9ef">param</span>
@@ -458,20 +458,20 @@ used, then the comment-based help for that parameter should contain the descript
     }
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#</span><span style="color:#75715e">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.SYNOPSIS</span><span style="color:#75715e">
-</span><span style="color:#75715e">        Returns the current state of the feature</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">        Returns the current state of the feature.
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> Name
-</span><span style="color:#75715e">        The feature for which to return the state for</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">        The feature for which to return the state for.
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> ServerName
-</span><span style="color:#75715e">        The server name on which the feature is installed</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">        The server name on which the feature is installed.
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">    </span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> Ensure
-</span><span style="color:#75715e">        The desired state of the feature</span><span style="color:#75715e">.</span><span style="color:#75715e">
+</span><span style="color:#75715e">        The desired state of the feature.
 </span><span style="color:#75715e">        Not used in Get-TargetResource
-</span><span style="color:#75715e"></span><span style="color:#75715e">#&gt;</span>
+</span><span style="color:#75715e">#&gt;</span>
 <span style="color:#66d9ef">function</span> Get-TargetResource
 {
     <span style="color:#66d9ef">param</span>

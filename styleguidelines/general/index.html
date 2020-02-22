@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>General</title>
 
-  <meta name="generator" content="Hugo 0.64.1" />
+  <meta name="generator" content="Hugo 0.65.2" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -456,13 +456,13 @@ long, please consider using one of the alternative ways of writing the array.</p
 )
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{
-    Key = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Value</span><span style="color:#e6db74">&#34;</span>
+    Key = <span style="color:#e6db74">&#34;Value&#34;</span>
 }
 
 $array = @( <span style="color:#e6db74">&#39;one&#39;</span>, <span style="color:#e6db74">&#39;two&#39;</span>, <span style="color:#e6db74">&#39;three&#39;</span>, $hashtable )
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{
-    Key = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Value</span><span style="color:#e6db74">&#34;</span>
+    Key = <span style="color:#e6db74">&#34;Value&#34;</span>
 }
 
 $array = @(
@@ -517,19 +517,19 @@ Key3 = <span style="color:#e6db74">&#39;3&#39;</span> }
 Double quoted string literals may only be used when it contains ($) expressions
 that need to be evaluated.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">String that do not evaluate variable</span><span style="color:#e6db74">&#34;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;String that do not evaluate variable&#34;</span>
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">String that evaluate variable {0}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;String that evaluate variable {0}&#34;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#39;String that do not evaluate variable&#39;</span>
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#39;String that evaluate variable {0}&#39;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">String that evaluate variable </span>$($SomeObject.SomeProperty)<span style="color:#e6db74">&#34;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;String that evaluate variable </span>$($SomeObject.SomeProperty)<span style="color:#e6db74">&#34;</span>
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#39;String that evaluate variable &#39;&#39;{0}&#39;&#39;&#39;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">String that evaluate variable &#39;{0}&#39;</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;String that evaluate variable &#39;{0}&#39;&#34;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
 </code></pre></div><h2 id="correct-format-for-comments">Correct Format for Comments</h2>
 <p>There should not be any commented-out code in checked-in files.
 The first letter of the comment should be capitalized.</p>
@@ -588,10 +588,10 @@ found <a href="#all-functions-must-have-comment-based-help">here</a>.</p>
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
 
-    <span style="color:#75715e">&lt;#</span><span style="color:#75715e">
+    <span style="color:#75715e">&lt;#
 </span><span style="color:#75715e">        This is a good comment
 </span><span style="color:#75715e">        on multiple lines
-</span><span style="color:#75715e">    </span><span style="color:#75715e">#&gt;</span>
+</span><span style="color:#75715e">    #&gt;</span>
     <span style="color:#66d9ef">foreach</span> ($example <span style="color:#66d9ef">in</span> $examples)
     {
         Write-Verbose -Message $example

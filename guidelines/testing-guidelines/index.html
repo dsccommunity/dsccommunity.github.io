@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Testing Guidelines</title>
 
-  <meta name="generator" content="Hugo 0.64.1" />
+  <meta name="generator" content="Hugo 0.65.2" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -420,7 +420,7 @@ change to the PR, or close and directly reopen the PR.</p>
 then to allow these functions to be tested by Pester, they must be contained
 in an <code>InModuleScope</code> Pester block:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">InModuleScope $script:dscResourceName {
-    Describe <span style="color:#e6db74">&#34;</span>$($script:dscResourceName)<span style="color:#e6db74">\Get-FirewallRuleProperty</span><span style="color:#e6db74">&#34;</span> {
+    Describe <span style="color:#e6db74">&#34;</span>$($script:dscResourceName)<span style="color:#e6db74">\Get-FirewallRuleProperty&#34;</span> {
         <span style="color:#75715e"># Test Get-FirewallRuleProperty private/non-exported function</span>
     }
 }
