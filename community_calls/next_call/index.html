@@ -1,8 +1,8 @@
 <head>
   <meta charset="utf-8">
-  <title>Next Community Call 2020-02-26</title>
+  <title>Next Community Call 2020-04-08</title>
 
-  <meta name="generator" content="Hugo 0.65.2" />
+  <meta name="generator" content="Hugo 0.68.3" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -226,9 +226,11 @@ if (!doNotTrack) {
             </li>
             <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
               <ul class="sub-menu">
-            <li class=" active "><a href="/community_calls/next_call/">Next Community Call 2020-02-26</a>
+            <li class=" active "><a href="/community_calls/next_call/">Next Community Call 2020-04-08</a>
             </li>
             <li class=""><a href="/community_calls/2020-01-22-notes/">2020-01-22 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-02-26-notes/">2020-01-22 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2019-12-04-notes/">2019-12-04 Notes</a>
             </li>
@@ -279,48 +281,32 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Next Community Call 2020-02-26</h2>
-            <p>Next call will be on Wednesday, February 26nd, at 12 PM PST</p>
+            <h2>Next Community Call 2020-04-08</h2>
+            <p>Next call will be on Wednesday, April 8th, at 12 PM PST</p>
 <p>Want to submit a question to discuss during the call? Just <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md">submit a Pull request to this file</a>!</p>
 <h3 id="agenda">Agenda</h3>
+<ol>
+<li>Quick update on activity</li>
+<li>Presentation by Raimund Andre: Less code in resource with Test-DscParameterState</li>
+</ol>
 <ul>
-<li>
-<p>What to do about resources that have no maintainer?</p>
-<ul>
-<li>Problem: without a maintainer the resource can&rsquo;t be updated to
-the new continuous delivery process so can&rsquo;t be released.
-<ul>
-<li>Options:
-<ul>
-<li>Archive?</li>
-<li>Leave as is?</li>
-<li>Other options?</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>What to do about resources that have a maintainer but the update
-to the continuous delivery process is not proceeding?</p>
-</li>
 <li>
 <p>Migration to Continuous Delivery Process:</p>
 <ul>
 <li>
-<p>Updated documentation/blog posts.</p>
-</li>
-<li>
 <p>Completed since last call</p>
 <ul>
-<li>ComputerManagementDsc</li>
-<li>xSystemSecurity</li>
+<li>OfficeOnlineServerDsc</li>
+<li>xDhcpServer</li>
+<li>xHyper-V</li>
+<li>xDnsServer</li>
 </ul>
 </li>
 <li>
 <p>Completed</p>
 <ul>
+<li>xSystemSecurity</li>
+<li>ComputerManagementDsc</li>
 <li>ActiveDirectoryDsc</li>
 <li>NetworkingDsc</li>
 <li>SharePointDsc</li>
@@ -330,28 +316,31 @@ to the continuous delivery process is not proceeding?</p>
 <li>xPSDesiredStateConfiguration</li>
 <li>xWebAdministration</li>
 <li>GPRegistryPolicyDsc</li>
+<li>UpdateServicesDsc</li>
+<li>ActiveDirectoryCSDsc</li>
+<li>xExchange</li>
+<li>OfficeOnlineServerDsc</li>
 </ul>
 </li>
 <li>
-<p>In progress:</p>
+<h2 id="in-progress">In progress:</h2>
 <ul>
-<li>ActiveDirectoryCSDsc</li>
-<li>xExchange</li>
-<li>UpdateServicesDsc</li>
 <li>Others?</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<p>Stickers (suggestions from the community)</p>
+<p>These repositories have moved under DSC Community.</p>
+<ul>
+<li><a href="https://github.com/dsccommunity/DscWorkshop">https://github.com/dsccommunity/DscWorkshop</a></li>
+<li><a href="https://github.com/dsccommunity/CommonTasks">https://github.com/dsccommunity/CommonTasks</a></li>
+</ul>
 </li>
 <li>
-<p>These repositories could be better under DSC Community. Can we move them to the
-community organization?</p>
+<p>Raimund Andree presents: Test-DsvcParameterState</p>
 <ul>
-<li><a href="https://github.com/AutomatedLab/DscWorkshop">https://github.com/AutomatedLab/DscWorkshop</a></li>
-<li><a href="https://github.com/AutomatedLab/CommonTasks">https://github.com/AutomatedLab/CommonTasks</a></li>
+<li>Some resources have a huge overlap in Test() and Get() which is a pain for maintenance and testing. The SharePointDsc resource was the first that started with a generic way to compare the current with the desired state. This pattern has been extended and covers almost any type now: string, int, scriptblock, hashtable, CimInstance and PSCredential. Want to do a reverse check as well or handle sorting? Then let’s have a look at Test-DscParameterState.</li>
 </ul>
 </li>
 <li>
@@ -361,10 +350,6 @@ during the call)</p>
 </li>
 </ul>
 <h4 id="resources-that-have-been-released-recently">Resources that have been released recently</h4>
-<ul>
-<li>WSManDsc: v3.1.1</li>
-<li>xSystemSecurity: v1.5.0</li>
-</ul>
 <h3 id="discussions">Discussions</h3>
 <p>Topics or questions from the community (welcome at any point during the call)</p>
 <p>Talk to us on <strong>Virtual PowerShell User Group</strong> <em>#DSC</em> channel.
