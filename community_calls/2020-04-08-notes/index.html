@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Ownership of DSC Resources</title>
+  <title>2020-04-08 Notes</title>
 
   <meta name="generator" content="Hugo 0.68.3" />
 
@@ -144,7 +144,7 @@ if (!doNotTrack) {
               <ul class="sub-menu">
             <li class=""><a href="/community/origin-story/">Origin Story</a>
             </li>
-            <li class=" active "><a href="/community/ownership/">Ownership of DSC Resources</a>
+            <li class=""><a href="/community/ownership/">Ownership of DSC Resources</a>
             </li>
             <li class=""><a href="/community/committee/">DSC Community Committee</a>
             </li>
@@ -224,11 +224,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class=""><a href="/community_calls/">Community Calls</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
+              <ul class="sub-menu">
             <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-04-08</a>
             </li>
-            <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
+            <li class=" active "><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2020-02-26-notes/">2020-02-26 Notes</a>
             </li>
@@ -283,42 +283,89 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Ownership of DSC Resources</h2>
-            <h2 id="goal-and-purpose">Goal and purpose</h2>
-<img src="../../images/DSC_Logo_300p.png" alt="drawing" style="width:200px; display:block; float: right; margin-left: auto;margin-right:0;"/>
-<p>Previously owned by the DSC Team, and more specifically by <a href="https://github.com/kwirkykat">Katie</a>,
-the DSC Resources are now owned by <a href="https://github.com/dsccommunity">the DSC Community</a>:
-a collective of <strong>Open Source maintainers</strong> getting together to <strong>improve the Resources</strong>,
-their <strong>quality</strong> and the <strong>practices</strong> around DSC.</p>
-<p>The main purpose is to handle better the increased community contributions, and
-remove hindrance to improvements by spreading the load on a Committee, and giving
-more privileges to the maintainers.</p>
-<h2 id="context">Context</h2>
-<p>Initially, when DSC was new and the DSC Resource kit relatively small, it was
-possible for the DSC Team at Microsoft to handle the maintenance and releases
-of the DSC Resources part of the DSC Resource Kit.</p>
-<p>However, the community has outgrown the capacity of the DSC team, while the
-latter is taking on more work with the new Azure Guest Configuration.</p>
-<p>The DSC Resources from the Resource Kit that were hosted under the PowerShell Team
-GitHub organization did not allow for external (non-Microsoft) contributors to be
-members of the organization, or given extra permissions besides the permissions
-<code>external collaborators</code> were allowed.</p>
-<h2 id="committee-and-teams">Committee and Teams</h2>
-<p>By creating a new DSC Community GitHub organization outside of Microsoft&rsquo;s ownership,
-the DSC Community will be steered by the DSC Community committee where its
-members—including people not employed by Microsoft—have full control
-over the GitHub Organization.</p>
-<p>For now, <a href="../committee">the committee</a> is composed of Katie, Michael, Daniel &amp;
-Johan, long time contributors and driving force of the DSC Resource Kit. This is
-formalizing what has already been happening for the last couple of years within
-the DSC Resource Kit community.</p>
-<p>A further benefit of having a DSC Community GitHub organization is that we may
-create teams, such as the Committee team and the Maintainer Team, that can be
-@mentioned in issues or discussions as well as recieve permissions to add someone
-from that team to manage the members.</p>
+            <h2>2020-04-08 Notes</h2>
+            <p><a href="..">How to join</a></p>
+<h3 id="recording">Recording</h3>
+<p>Waiting to be published</p>
+<!-- [Meeting recording](https://youtu.be/gZqWw_ePhxs)
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 18 Jul 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community/origin-story/" title="Origin Story"><i class="ti-arrow-left mr-2"></i>Origin Story</a>
-            <a class="nav nav-next" href="/community/committee/" title="DSC Community Committee">DSC Community Committee<i class="ti-arrow-right ml-2"></i></a>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/gZqWw_ePhxs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+ -->
+<h3 id="agenda">Agenda</h3>
+<ol>
+<li>Quick update on activity</li>
+<li>Presentation by Raimund Andre: Less code in resource with Test-DscParameterState</li>
+</ol>
+<ul>
+<li>
+<p>Migration to Continuous Delivery Process:</p>
+<ul>
+<li>
+<p>Completed since last call</p>
+<ul>
+<li>OfficeOnlineServerDsc</li>
+<li>xDhcpServer</li>
+<li>xHyper-V</li>
+<li>xDnsServer</li>
+</ul>
+</li>
+<li>
+<p>Completed</p>
+<ul>
+<li>xSystemSecurity</li>
+<li>ComputerManagementDsc</li>
+<li>ActiveDirectoryDsc</li>
+<li>NetworkingDsc</li>
+<li>SharePointDsc</li>
+<li>SQLServerDsc</li>
+<li>WSManDsc</li>
+<li>xFailOverCluster</li>
+<li>xPSDesiredStateConfiguration</li>
+<li>xWebAdministration</li>
+<li>GPRegistryPolicyDsc</li>
+<li>UpdateServicesDsc</li>
+<li>ActiveDirectoryCSDsc</li>
+<li>xExchange</li>
+<li>OfficeOnlineServerDsc</li>
+</ul>
+</li>
+<li>
+<h2 id="in-progress">In progress:</h2>
+<ul>
+<li>Others?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>These repositories have moved under DSC Community.</p>
+<ul>
+<li><a href="https://github.com/dsccommunity/DscWorkshop">https://github.com/dsccommunity/DscWorkshop</a></li>
+<li><a href="https://github.com/dsccommunity/CommonTasks">https://github.com/dsccommunity/CommonTasks</a></li>
+</ul>
+</li>
+<li>
+<p>Raimund Andree presents: Test-DsvcParameterState</p>
+<ul>
+<li>Some resources have a huge overlap in Test() and Get() which is a pain for maintenance and testing. The SharePointDsc resource was the first that started with a generic way to compare the current with the desired state. This pattern has been extended and covers almost any type now: string, int, scriptblock, hashtable, CimInstance and PSCredential. Want to do a reverse check as well or handle sorting? Then let’s have a look at Test-DscParameterState.</li>
+</ul>
+</li>
+<li>
+<p>Feel free to <a href="https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md">send a PR to this file</a>
+if there&rsquo;s something you&rsquo;d like to be added to the agenda (or just ask
+during the call)</p>
+</li>
+</ul>
+<h4 id="resources-that-have-been-released-recently">Resources that have been released recently</h4>
+<h3 id="discussions">Discussions</h3>
+<p>Topics or questions from the community (welcome at any point during the call)</p>
+<p>Talk to us on <strong>Virtual PowerShell User Group</strong> <em>#DSC</em> channel.
+For information on how to join, see <a href="https://dsccommunity.org/community/contact/">https://dsccommunity.org/community/contact/</a></p>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 17 Jan 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/next_call/" title="Next Community Call 2020-04-08"><i class="ti-arrow-left mr-2"></i>Next Community Call 2020-04-08</a>
+            <a class="nav nav-next" href="/community_calls/2020-02-26-notes/" title="2020-02-26 Notes">2020-02-26 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>
