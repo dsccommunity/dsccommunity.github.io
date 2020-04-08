@@ -20,10 +20,8 @@
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
       <description>Next call will be on Wednesday, April 8th, at 12 PM PST
 Want to submit a question to discuss during the call? Just submit a Pull request to this file!
-Agenda  Quick update on activity Presentation by Raimund Andre: Less code in resource with Test-DscParameterState    Migration to Continuous Delivery Process:
-  Completed since last call
- OfficeOnlineServerDsc xDhcpServer xHyper-V xDnsServer    Completed
- xSystemSecurity ComputerManagementDsc ActiveDirectoryDsc NetworkingDsc SharePointDsc SQLServerDsc WSManDsc xFailOverCluster xPSDesiredStateConfiguration xWebAdministration GPRegistryPolicyDsc UpdateServicesDsc ActiveDirectoryCSDsc xExchange OfficeOnlineServerDsc    In progress:  Others?</description>
+Agenda  Quick update on activity Presentation by Raimund Andre: Less code in resource with Test-DscParameterState    Migration to Continuous Delivery Process (GitHub Board):
+ Completed since last call  OfficeOnlineServerDsc xDhcpServer xHyper-V xDnsServer CertificateDsc xWindowsUpdate   In progress  StorageDsc   New modules  FileSystemDsc   Deprecated (will no longer be released)  xDismFeature xSystemSecurity (deprecated, use ComputerManagementDsc and FileSystemDsc instead)   Modules not yet converted but with PR activity within last 3 months (seen in AppVeyor)  JeaDsc SecurityPolicyDsc StorageDsc DfsDsc DscResource.</description>
     </item>
     
     <item>
