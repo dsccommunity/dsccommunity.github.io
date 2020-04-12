@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Steps to convert a module for continuous delivery</title>
 
-  <meta name="generator" content="Hugo 0.68.3" />
+  <meta name="generator" content="Hugo 0.69.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1029,7 +1029,7 @@ e.g.</p>
     - <span style="color:#66d9ef">job</span>: Test_HQRM
       <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;HQRM&#39;</span>
       pool:
-        <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;win1803&#39;</span>
+        <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
       <span style="color:#66d9ef">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
       steps:
         - <span style="color:#66d9ef">task</span>: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
@@ -1057,7 +1057,7 @@ e.g.</p>
     - <span style="color:#66d9ef">job</span>: Test_Unit
       <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Unit&#39;</span>
       pool:
-        <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;win1803&#39;</span>
+        <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
       <span style="color:#66d9ef">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
       steps:
         - <span style="color:#66d9ef">powershell</span>: <span style="color:#e6db74">|
