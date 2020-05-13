@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>DscResource.Common functions in a DSC module</title>
 
-  <meta name="generator" content="Hugo 0.69.0" />
+  <meta name="generator" content="Hugo 0.70.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -226,7 +226,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-04-08</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-05-20</a>
             </li>
             <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
             </li>
@@ -316,9 +316,9 @@ mentioned in <a href="/blog/convert-a-module-for-continuous-delivery/">Steps to 
 know which module and version to download. You should pin the version here
 so that breaking changes in the upstream does not affect you.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">@{
-    <span style="color:#75715e"># ...Previous required modules...</span>
+    <span style="color:#75715e"># ...Previous required modules...</span>
 
-    <span style="color:#75715e"># Build dependent modules</span>
+    <span style="color:#75715e"># Build dependent modules</span>
     <span style="color:#e6db74">&#39;DscResource.Common&#39;</span> = <span style="color:#e6db74">&#39;0.2.0&#39;</span>
 }
 </code></pre></div><p>Then resolve CI pipeline dependencies.</p>
@@ -330,12 +330,12 @@ so that the module is copied from the folder <code>output/RequiredModules</code>
 at build time. Important to note here that we are not adding it as a
 nested module in the module manifest, it will just copy the module to
 the folder <code>Modules</code> (which is the default for <a href="https://github.com/PoshCode/ModuleBuilder">ModuleBuilder</a>).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">####################################################</span>
-<span style="color:#75715e">#   ModuleBuilder Dependent Modules Configuration  #</span>
-<span style="color:#75715e">####################################################</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">####################################################</span>
+<span style="color:#75715e">#   ModuleBuilder Dependent Modules Configuration  #</span>
+<span style="color:#75715e">####################################################</span>
 
-NestedModule:
-  DscResource.Common:
+<span style="color:#66d9ef">NestedModule</span>:
+  <span style="color:#66d9ef">DscResource.Common</span>:
     <span style="color:#66d9ef">CopyOnly</span>: <span style="color:#66d9ef">true</span>
     <span style="color:#66d9ef">Path</span>: ./output/RequiredModules/DscResource.Common
     <span style="color:#66d9ef">AddToManifest</span>: <span style="color:#66d9ef">false</span>
@@ -347,13 +347,13 @@ for you to test that again. It might also be that the repository has
 different quality assurances that DscResource.Common does not (like
 naming files differently).</p>
 <p>Under the key <code>Pester:</code> add an exclude from code coverage.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">Pester:
-  ExcludeFromCodeCoverage:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Pester</span>:
+  <span style="color:#66d9ef">ExcludeFromCodeCoverage</span>:
     - Modules/DscResource.Common
 </code></pre></div><p>Under the key <code>DscTest:</code> add an exclude to not run HQRM tests on the module
 files.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">DscTest:
-  ExcludeModuleFile:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">DscTest</span>:
+  <span style="color:#66d9ef">ExcludeModuleFile</span>:
     - Modules/DscResource.Common
 </code></pre></div><h4 id="update-dsc-resource-module-file">Update DSC resource module file</h4>
 <p>For each DSC resource module file that should use a helper function in

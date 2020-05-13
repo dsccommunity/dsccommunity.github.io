@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Steps to convert a module for continuous delivery</title>
 
-  <meta name="generator" content="Hugo 0.69.0" />
+  <meta name="generator" content="Hugo 0.70.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -226,7 +226,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-04-08</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-05-20</a>
             </li>
             <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
             </li>
@@ -313,17 +313,17 @@ the release notes for that release.</p>
 <h3 id="re-create-all-old-tags">Re-create all old tags</h3>
 <p>You can use the script <a href="https://gist.github.com/PlagueHO/40d80a7f3747c18594e63584f7745cbc">Convert-GitTagForDsc.ps1</a>
 to re-create all existing tags. You run it with the following.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Move to the local repo</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Move to the local repo</span>
 cd c:\source\{repositoryFolder}
 
-<span style="color:#75715e"># Make sure you have the remote names to upstream and fork.</span>
+<span style="color:#75715e"># Make sure you have the remote names to upstream and fork.</span>
 git remote -v
 
-<span style="color:#75715e"># Get latest changes so we get all commits that the tags uses</span>
+<span style="color:#75715e"># Get latest changes so we get all commits that the tags uses</span>
 git checkout master
-git fetch origin master <span style="color:#75715e"># origin is the remote pointing to upstream DSC Community repository.</span>
+git fetch origin master <span style="color:#75715e"># origin is the remote pointing to upstream DSC Community repository.</span>
 git rebase origin/master
-git push my master --force <span style="color:#75715e"># my is the remote pointing to fork</span>
+git push my master --force <span style="color:#75715e"># my is the remote pointing to fork</span>
 
 <span style="color:#75715e">&lt;#
 </span><span style="color:#75715e">    Remote - remote name to your fork
@@ -457,7 +457,7 @@ section. <em>Note: This must be done so that the pipeline will be able to</em>
 <em>release preview builds.</em>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PrivateData = @{
     PSData = @{
-        <span style="color:#75715e"># Set to a prerelease string value if the release should be a prerelease.</span>
+        <span style="color:#75715e"># Set to a prerelease string value if the release should be a prerelease.</span>
         Prerelease = <span style="color:#e6db74">&#39;&#39;</span>
 
         ...
@@ -470,16 +470,16 @@ section. <em>Note: This must be done so that the pipeline will be able to</em>
 <li>Having the export properties set to <code>'*'</code> is not optimal. Update or
 add the export properties to optimize discovery. <em>If any of these are</em>
 <em>already exporting objects then leave that export property as is.</em>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Functions to export from this module</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Functions to export from this module</span>
 FunctionsToExport = @()
 
-<span style="color:#75715e"># Cmdlets to export from this module</span>
+<span style="color:#75715e"># Cmdlets to export from this module</span>
 CmdletsToExport = @()
 
-<span style="color:#75715e"># Variables to export from this module</span>
+<span style="color:#75715e"># Variables to export from this module</span>
 VariablesToExport = @()
 
-<span style="color:#75715e"># Aliases to export from this module</span>
+<span style="color:#75715e"># Aliases to export from this module</span>
 AliasesToExport = @()
 </code></pre></div></li>
 <li>(Optional) Add the property <code>DscResourcesToExport</code> with an array of all the resources
@@ -525,9 +525,9 @@ the DSC Community Azure DevOps organization and look in the URL, e.g.
 </blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## {RepositoryName}
 </span><span style="color:#75715e"></span>
-[<span style="color:#f92672">![Build Status</span>](<span style="color:#a6e22e">https://dev.azure.com/dsccommunity/{repositoryName}/_apis/build/status/dsccommunity.{repositoryName}?branchName=master</span>)](https://dev.azure.com/dsccommunity/{repositoryName}/_build/latest?definitionId={definitionId}&amp;branchName=master)
+[<span style="color:#f92672">![Build Status</span>](<span style="color:#a6e22e">https://dev.azure.com/dsccommunity/{repositoryName}/_apis/build/status/dsccommunity.{repositoryName}?branchName=master</span>)](https://dev.azure.com/dsccommunity/{repositoryName}/_build/latest?definitionId={definitionId}<span style="color:#960050;background-color:#1e0010">&amp;</span>branchName=master)
 ![<span style="color:#f92672">Azure DevOps coverage (branch)</span>](<span style="color:#a6e22e">https://img.shields.io/azure-devops/coverage/dsccommunity/{repositoryName}/{definitionId}/master</span>)
-[<span style="color:#f92672">![Azure DevOps tests</span>](<span style="color:#a6e22e">https://img.shields.io/azure-devops/tests/dsccommunity/{repositoryName}/{definitionId}/master</span>)](https://dsccommunity.visualstudio.com/{repositoryName}/_test/analytics?definitionId={definitionId}&amp;contextType=build)
+[<span style="color:#f92672">![Azure DevOps tests</span>](<span style="color:#a6e22e">https://img.shields.io/azure-devops/tests/dsccommunity/{repositoryName}/{definitionId}/master</span>)](https://dsccommunity.visualstudio.com/{repositoryName}/_test/analytics?definitionId={definitionId}<span style="color:#960050;background-color:#1e0010">&amp;</span>contextType=build)
 [<span style="color:#f92672">![PowerShell Gallery (with prereleases)</span>](<span style="color:#a6e22e">https://img.shields.io/powershellgallery/vpre/{repositoryName}?label={repositoryName}%20Preview</span>)](https://www.powershellgallery.com/packages/{repositoryName}/)
 [<span style="color:#f92672">![PowerShell Gallery</span>](<span style="color:#a6e22e">https://img.shields.io/powershellgallery/v/{repositoryName}?label={repositoryName}</span>)](https://www.powershellgallery.com/packages/{repositoryName}/)
 </code></pre></div></li>
@@ -650,46 +650,46 @@ reference links to issues from <code>https://github.com/PowerShell/</code> to
 <h3 id="file-githubpull_request_templatemd">File <code>.github/PULL_REQUEST_TEMPLATE.md</code></h3>
 <p>Make sure this file is updated to reflect having a CHANGELOG.md. The
 following is a proposed file but can changed to reflected other needs.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">&lt;!--
-    Thanks for submitting a Pull Request (PR) to this project.
-    Your contribution to this project is greatly appreciated!
-
-    Please prefix the PR title with the resource name,
-    e.g. &#39;ResourceName: My short description&#39;.
-    If this is a breaking change, then also prefix the PR title
-    with &#39;BREAKING CHANGE:&#39;,
-    e.g. &#39;BREAKING CHANGE: ResourceName: My short description&#39;.
-
-    You may remove this comment block, and the other comment blocks, but please
-    keep the headers and the task list.
---&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">    Thanks for submitting a Pull Request (PR) to this project.
+</span><span style="color:#75715e">    Your contribution to this project is greatly appreciated!
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    Please prefix the PR title with the resource name,
+</span><span style="color:#75715e">    e.g. &#39;ResourceName: My short description&#39;.
+</span><span style="color:#75715e">    If this is a breaking change, then also prefix the PR title
+</span><span style="color:#75715e">    with &#39;BREAKING CHANGE:&#39;,
+</span><span style="color:#75715e">    e.g. &#39;BREAKING CHANGE: ResourceName: My short description&#39;.
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    You may remove this comment block, and the other comment blocks, but please
+</span><span style="color:#75715e">    keep the headers and the task list.
+</span><span style="color:#75715e">--&gt;</span>
 <span style="color:#75715e">#### Pull Request (PR) description
-</span><span style="color:#75715e"></span>&lt;!--
-    Replace this comment block with a description of your PR.
-    Also, make sure you have updated the CHANGELOG.md, see the
-    task list below. An entry in the CHANGELOG.md is mandatory
-    for all PRs.
---&gt;
+</span><span style="color:#75715e"></span><span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">    Replace this comment block with a description of your PR.
+</span><span style="color:#75715e">    Also, make sure you have updated the CHANGELOG.md, see the
+</span><span style="color:#75715e">    task list below. An entry in the CHANGELOG.md is mandatory
+</span><span style="color:#75715e">    for all PRs.
+</span><span style="color:#75715e">--&gt;</span>
 
 <span style="color:#75715e">#### This Pull Request (PR) fixes the following issues
-</span><span style="color:#75715e"></span>&lt;!--
-    If this PR does not fix an open issue, replace this comment block with None.
-    If this PR resolves one or more open issues, replace this comment block with
-    a list of the issues using a GitHub closing keyword, e.g.:
-
-<span style="color:#66d9ef">-</span> Fixes #123
-<span style="color:#66d9ef">-</span> Fixes #124
---&gt;
+</span><span style="color:#75715e"></span><span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">    If this PR does not fix an open issue, replace this comment block with None.
+</span><span style="color:#75715e">    If this PR resolves one or more open issues, replace this comment block with
+</span><span style="color:#75715e">    a list of the issues using a GitHub closing keyword, e.g.:
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">-</span> <span style="color:#75715e">Fixes </span>#123<span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> <span style="color:#75715e">Fixes </span>#124<span style="color:#75715e">
+</span><span style="color:#75715e">--&gt;</span>
 
 <span style="color:#75715e">#### Task list
-</span><span style="color:#75715e"></span>&lt;!--
-    To aid community reviewers in reviewing and merging your PR, please take
-    the time to run through the below checklist and make sure your PR has
-    everything updated as required.
-
-    Change to [x] for each task in the task list that applies to your PR.
-    For those task that don&#39;t apply to you PR, leave those as is.
---&gt;
+</span><span style="color:#75715e"></span><span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">    To aid community reviewers in reviewing and merging your PR, please take
+</span><span style="color:#75715e">    the time to run through the below checklist and make sure your PR has
+</span><span style="color:#75715e">    everything updated as required.
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    Change to [x] for each task in the task list that applies to your PR.
+</span><span style="color:#75715e">    For those task that don&#39;t apply to you PR, leave those as is.
+</span><span style="color:#75715e">--&gt;</span>
 <span style="color:#66d9ef">- [ ]</span> Added an entry to the change log under the Unreleased section of the
       file CHANGELOG.md. Entry should say what was changed and how that
       affects users (if applicable), and reference the issue being resolved
@@ -755,7 +755,7 @@ KEYWORDS
 <li>Uncomment the folder <code>Modules</code> if the folder exist under the source folder,
 or if there are any helper modules (which need to be moved to the <code>Modules</code>
 folder).
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">CopyDirectories:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">CopyDirectories</span>:
   - Modules
 </code></pre></div></li>
 <li>(Optional) Clear out any commented rows <em>(they can always be found in the</em>
@@ -774,8 +774,8 @@ versions the CI pipeline will se duplicate modules due to the folder
 structure the CI pipeline is using when building the pipeline.
 E.g. paths used <code>\output\;\output\RequiredModules</code>.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Prerequisites modules needed for examples and integration tests of</span>
-<span style="color:#75715e"># the {RepositoryName} module.</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Prerequisites modules needed for examples and integration tests of</span>
+<span style="color:#75715e"># the {RepositoryName} module.</span>
 PSDscResources = <span style="color:#e6db74">&#39;2.12.0.0&#39;</span>
 StorageDsc     = <span style="color:#e6db74">&#39;4.9.0.0&#39;</span>
 NetworkingDsc  = <span style="color:#e6db74">&#39;7.4.0.0&#39;</span>
@@ -803,7 +803,7 @@ helper module these steps should be done.</p>
 <li>Remove the <code>Export-ModuleMember</code> cmdlet from the module script file.</li>
 <li>Any helper module is required to have a module manifest.
 Create one using <code>New-ModuleManifest</code>, e.g.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Need the full path to work with WriteAllText().</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Need the full path to work with WriteAllText().</span>
 $manifestFile = <span style="color:#e6db74">&#39;C:\source\{repositoryFolder}\source\Modules\{ModuleName}\{ModuleName}.psd1&#39;</span>
 
 New-ModuleManifest -Path $manifestFile `
@@ -812,7 +812,7 @@ New-ModuleManifest -Path $manifestFile `
     -Copyright <span style="color:#e6db74">&#39;Copyright the DSC Community contributors. All rights reserved.&#39;</span> `
     -Description <span style="color:#e6db74">&#39;Functions used by the DSC resources in {RepositoryName}.&#39;</span>
 
-<span style="color:#75715e"># Converts the file to UTF-8 (without BOM)</span>
+<span style="color:#75715e"># Converts the file to UTF-8 (without BOM)</span>
 $content = Get-Content -Path $manifestFile -Encoding <span style="color:#e6db74">&#39;Unicode&#39;</span> -Raw
 <span style="color:#66d9ef">[System.IO.File]</span>::WriteAllText($manifestFile, $content, <span style="color:#66d9ef">[System.Text.Encoding]</span>::ASCII)
 </code></pre></div></li>
@@ -821,7 +821,7 @@ $content = Get-Content -Path $manifestFile -Encoding <span style="color:#e6db74"
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">@{
     RootModule = <span style="color:#e6db74">&#39;{ModuleName}.psm1&#39;</span>
 
-    <span style="color:#75715e"># Semantic version number of this module.</span>
+    <span style="color:#75715e"># Semantic version number of this module.</span>
     ModuleVersion     = <span style="color:#e6db74">&#39;1.0.0&#39;</span>
 
     FunctionsToExport = @(
@@ -895,7 +895,7 @@ Get-ChildItem -Path <span style="color:#e6db74">&#39;.\source\Examples&#39;</spa
 <ol>
 <li>From the <code>test:</code> task, remove the activity <code>hqrmtest</code>.</li>
 <li>Under the key <code>Pester</code> update the key <code>Script</code> to this.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">Script:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Script</span>:
   - tests/Unit
 </code></pre></div></li>
 <li>Under the key <code>Pester</code> remove all the items from the key <code>ExcludeTag</code>.
@@ -940,7 +940,7 @@ Invoke-TestSetup
 <span style="color:#66d9ef">try</span>
 {
     InModuleScope $script:dscResourceName {
-        <span style="color:#75715e"># All tests goes here</span>
+        <span style="color:#75715e"># All tests goes here</span>
     }
 }
 <span style="color:#66d9ef">finally</span>
@@ -983,7 +983,7 @@ Import-DscResource -ModuleName <span style="color:#e6db74">&#39;StorageDsc&#39;<
 </code></pre></div><h3 id="unit-tests-for-helper-modules">Unit tests for helper modules</h3>
 <p>For any helper modules, add this to each unit test (and remove any
 other code that imported the helper module previously).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">#region HEADER</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">#region HEADER</span>
 $script:projectPath = <span style="color:#e6db74">&#34;$PSScriptRoot\..\..&#34;</span> | Convert-Path
 $script:projectName = (Get-ChildItem -Path <span style="color:#e6db74">&#34;$script:projectPath\*\*.psd1&#34;</span> | Where-Object -FilterScript {
         ($_.Directory.Name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#39;source|src&#39;</span> <span style="color:#f92672">-or</span> $_.Directory.Name <span style="color:#f92672">-eq</span> $_.BaseName) <span style="color:#f92672">-and</span>
@@ -998,10 +998,10 @@ $script:subModuleName = (Split-Path -Path $PSCommandPath -Leaf) <span style="col
 $script:subModuleFile = Join-Path -Path $script:subModulesFolder -ChildPath <span style="color:#e6db74">&#34;</span>$($script:subModuleName)<span style="color:#e6db74">&#34;</span>
 
 Import-Module $script:subModuleFile -Force -ErrorAction <span style="color:#e6db74">&#39;Stop&#39;</span>
-<span style="color:#75715e">#endregion HEADER</span>
+<span style="color:#75715e">#endregion HEADER</span>
 
 InModuleScope $script:subModuleName {
-    <span style="color:#75715e"># The unit tests</span>
+    <span style="color:#75715e"># The unit tests</span>
 }
 </code></pre></div><h2 id="run-tests-locally">Run tests locally</h2>
 <p>Make sure all tests have been updated as mentioned previously.
@@ -1025,16 +1025,16 @@ e.g.</p>
 <li>Replace the entire stage <code>test_module</code> with the following.
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#66d9ef">stage</span>: Test
   <span style="color:#66d9ef">dependsOn</span>: Build
-  jobs:
+  <span style="color:#66d9ef">jobs</span>:
     - <span style="color:#66d9ef">job</span>: Test_HQRM
       <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;HQRM&#39;</span>
-      pool:
+      <span style="color:#66d9ef">pool</span>:
         <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
       <span style="color:#66d9ef">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
-      steps:
+      <span style="color:#66d9ef">steps</span>:
         - <span style="color:#66d9ef">task</span>: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
           <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
-          inputs:
+          <span style="color:#66d9ef">inputs</span>:
             <span style="color:#66d9ef">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
             <span style="color:#66d9ef">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
             <span style="color:#66d9ef">artifactName</span>: <span style="color:#e6db74">&#39;output&#39;</span>
@@ -1042,33 +1042,33 @@ e.g.</p>
         - <span style="color:#66d9ef">task</span>: PowerShell@<span style="color:#ae81ff">2</span>
           <span style="color:#66d9ef">name</span>: test
           <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Run HQRM Test&#39;</span>
-          inputs:
+          <span style="color:#66d9ef">inputs</span>:
             <span style="color:#66d9ef">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
             <span style="color:#66d9ef">arguments</span>: <span style="color:#e6db74">&#39;-Tasks hqrmtest&#39;</span>
             <span style="color:#66d9ef">pwsh</span>: <span style="color:#66d9ef">false</span>
         - <span style="color:#66d9ef">task</span>: PublishTestResults@<span style="color:#ae81ff">2</span>
           <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
           <span style="color:#66d9ef">condition</span>: succeededOrFailed()
-          inputs:
+          <span style="color:#66d9ef">inputs</span>:
             <span style="color:#66d9ef">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
             <span style="color:#66d9ef">testResultsFiles</span>: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
             <span style="color:#66d9ef">testRunTitle</span>: <span style="color:#e6db74">&#39;HQRM&#39;</span>
 
     - <span style="color:#66d9ef">job</span>: Test_Unit
       <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Unit&#39;</span>
-      pool:
+      <span style="color:#66d9ef">pool</span>:
         <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
       <span style="color:#66d9ef">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
-      steps:
+      <span style="color:#66d9ef">steps</span>:
         - <span style="color:#66d9ef">powershell</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">            $repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split &#39;/&#39;</span>
+</span><span style="color:#e6db74">            $repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split &#39;/&#39;</span>
             echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryOwner;isOutput=true]$repositoryOwner&#34;</span>
             echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName&#34;</span>
           <span style="color:#66d9ef">name</span>: dscBuildVariable
           <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Set Environment Variables&#39;</span>
         - <span style="color:#66d9ef">task</span>: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
           <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
-          inputs:
+          <span style="color:#66d9ef">inputs</span>:
             <span style="color:#66d9ef">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
             <span style="color:#66d9ef">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
             <span style="color:#66d9ef">artifactName</span>: <span style="color:#e6db74">&#39;output&#39;</span>
@@ -1076,34 +1076,34 @@ e.g.</p>
         - <span style="color:#66d9ef">task</span>: PowerShell@<span style="color:#ae81ff">2</span>
           <span style="color:#66d9ef">name</span>: test
           <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Run Unit Test&#39;</span>
-          inputs:
+          <span style="color:#66d9ef">inputs</span>:
             <span style="color:#66d9ef">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
             <span style="color:#66d9ef">arguments</span>: <span style="color:#e6db74">&#34;-Tasks test -PesterScript &#39;tests/Unit&#39;&#34;</span>
             <span style="color:#66d9ef">pwsh</span>: <span style="color:#66d9ef">false</span>
         - <span style="color:#66d9ef">task</span>: PublishTestResults@<span style="color:#ae81ff">2</span>
           <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
           <span style="color:#66d9ef">condition</span>: succeededOrFailed()
-          inputs:
+          <span style="color:#66d9ef">inputs</span>:
             <span style="color:#66d9ef">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
             <span style="color:#66d9ef">testResultsFiles</span>: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
             <span style="color:#66d9ef">testRunTitle</span>: <span style="color:#e6db74">&#39;Unit (Windows Server Core)&#39;</span>
         - <span style="color:#66d9ef">task</span>: PublishCodeCoverageResults@<span style="color:#ae81ff">1</span>
           <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage&#39;</span>
           <span style="color:#66d9ef">condition</span>: succeededOrFailed()
-          inputs:
+          <span style="color:#66d9ef">inputs</span>:
             <span style="color:#66d9ef">codeCoverageTool</span>: <span style="color:#e6db74">&#39;JaCoCo&#39;</span>
             <span style="color:#66d9ef">summaryFileLocation</span>: <span style="color:#e6db74">&#39;output/testResults/CodeCov*.xml&#39;</span>
             <span style="color:#66d9ef">pathToSources</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/output/$(dscBuildVariable.RepositoryName)&#39;</span>
 
     - <span style="color:#66d9ef">job</span>: Test_Integration
       <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Integration&#39;</span>
-      pool:
+      <span style="color:#66d9ef">pool</span>:
         <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;win1803&#39;</span>
       <span style="color:#66d9ef">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
-      steps:
+      <span style="color:#66d9ef">steps</span>:
         - <span style="color:#66d9ef">task</span>: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
           <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
-          inputs:
+          <span style="color:#66d9ef">inputs</span>:
             <span style="color:#66d9ef">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
             <span style="color:#66d9ef">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
             <span style="color:#66d9ef">artifactName</span>: <span style="color:#e6db74">&#39;output&#39;</span>
@@ -1111,21 +1111,21 @@ e.g.</p>
         - <span style="color:#66d9ef">task</span>: PowerShell@<span style="color:#ae81ff">2</span>
           <span style="color:#66d9ef">name</span>: configureWinRM
           <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Configure WinRM&#39;</span>
-          inputs:
+          <span style="color:#66d9ef">inputs</span>:
             <span style="color:#66d9ef">targetType</span>: <span style="color:#e6db74">&#39;inline&#39;</span>
             <span style="color:#66d9ef">script</span>: <span style="color:#e6db74">&#39;winrm quickconfig -quiet&#39;</span>
             <span style="color:#66d9ef">pwsh</span>: <span style="color:#66d9ef">false</span>
         - <span style="color:#66d9ef">task</span>: PowerShell@<span style="color:#ae81ff">2</span>
           <span style="color:#66d9ef">name</span>: test
           <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Run Integration Test&#39;</span>
-          inputs:
+          <span style="color:#66d9ef">inputs</span>:
             <span style="color:#66d9ef">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
             <span style="color:#66d9ef">arguments</span>: <span style="color:#e6db74">&#34;-Tasks test -PesterScript &#39;tests/Integration&#39; -CodeCoverageThreshold 0&#34;</span>
             <span style="color:#66d9ef">pwsh</span>: <span style="color:#66d9ef">false</span>
         - <span style="color:#66d9ef">task</span>: PublishTestResults@<span style="color:#ae81ff">2</span>
           <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
           <span style="color:#66d9ef">condition</span>: succeededOrFailed()
-          inputs:
+          <span style="color:#66d9ef">inputs</span>:
             <span style="color:#66d9ef">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
             <span style="color:#66d9ef">testResultsFiles</span>: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
             <span style="color:#66d9ef">testRunTitle</span>: <span style="color:#e6db74">&#39;Integration (Windows Server Core)&#39;</span>
@@ -1150,20 +1150,20 @@ key <code>vmImage</code> to a supported image listed in the section
 part of the <code>appveyor.yml</code>. For example to install a feature, add this
 before the task <code>Test</code> in the job <code>Test_Integration</code>.
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#66d9ef">powershell</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">    Install-WindowsFeature -IncludeAllSubFeature -IncludeManagementTools -Name &#39;Web-Server&#39;</span>
+</span><span style="color:#e6db74">    Install-WindowsFeature -IncludeAllSubFeature -IncludeManagementTools -Name &#39;Web-Server&#39;</span>
   <span style="color:#66d9ef">name</span>: InstallWebServerFeature
 </code></pre></div></li>
 <li>(Optional) If there are need to run integration tests in order (or
 prioritize specific tests) then specify the order in which the tests
 should run. <strong>This does not work if you call the pipeline using the</strong>
 <strong>parameter <code>PesterScript</code>, e.g. <code>./build.ps1 -Tasks test -PesterScript 'tests/Integration'</code>.</strong>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">Pester:
-  <span style="color:#75715e"># Run the script in order. First all of unit tests in no particular order,</span>
-  <span style="color:#75715e"># and then all the integration tests in a specific group order.</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Pester</span>:
+  <span style="color:#75715e"># Run the script in order. First all of unit tests in no particular order,</span>
+  <span style="color:#75715e"># and then all the integration tests in a specific group order.</span>
   - tests/Unit
-  <span style="color:#75715e"># Group 1</span>
+  <span style="color:#75715e"># Group 1</span>
   - tests/Integration/MSFT_SqlSetup.Integration.Tests.ps1
-  <span style="color:#75715e"># Group 2</span>
+  <span style="color:#75715e"># Group 2</span>
   - tests/Integration/MSFT_SqlAgentAlert.Integration.Tests.ps1
   - tests/Integration/MSFT_SqlServerNetwork.Integration.Tests.ps1
   - tests/Integration/MSFT_SqlServerLogin.Integration.Tests.ps1
@@ -1176,13 +1176,13 @@ should run. <strong>This does not work if you call the pipeline using the</stron
   - tests/Integration/MSFT_SqlAgentOperator.Integration.Tests.ps1
   - tests/Integration/MSFT_SqlServiceAccount.Integration.Tests.ps1
   - tests/Integration/MSFT_SqlAgentFailsafe.Integration.Tests.ps1
-  <span style="color:#75715e"># Group 3</span>
+  <span style="color:#75715e"># Group 3</span>
   - tests/Integration/MSFT_SqlServerRole.Integration.Tests.ps1
   - tests/Integration/MSFT_SqlRS.Integration.Tests.ps1
   - tests/Integration/MSFT_SqlDatabaseUser.Integration.Tests.ps1
-  <span style="color:#75715e"># Group 4</span>
+  <span style="color:#75715e"># Group 4</span>
   - tests/Integration/MSFT_SqlScript.Integration.Tests.ps1
-  <span style="color:#75715e"># Group 5</span>
+  <span style="color:#75715e"># Group 5</span>
   - tests/Integration/MSFT_SqlServerSecureConnection.Integration.Tests.ps1
   - tests/Integration/MSFT_SqlScriptQuery.Integration.Tests.ps1
 </code></pre></div></li>

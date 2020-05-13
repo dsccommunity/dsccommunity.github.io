@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Localization</title>
 
-  <meta name="generator" content="Hugo 0.69.0" />
+  <meta name="generator" content="Hugo 0.70.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -226,7 +226,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-04-08</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-05-20</a>
             </li>
             <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
             </li>
@@ -295,14 +295,14 @@ There is also the list of
 Each localized string file should contain the following with the correct
 localization key and accompanying localization string value (the example uses
 the friendly resource name of &lsquo;Folder&rsquo;).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Localized resources for Folder</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Localized resources for Folder</span>
 
-ConvertFrom-StringData @<span style="color:#e6db74">&#39;
-</span><span style="color:#e6db74">    CreateFolder = Creating folder at path &#39;</span>{0}<span style="color:#e6db74">&#39;. (F0001)
-</span><span style="color:#e6db74">    RetrievingFolderInformation = Retrieving folder information from path &#39;</span>{0}<span style="color:#e6db74">&#39;. (F0002)
-</span><span style="color:#e6db74">    ProblemAccessFolder = Could not access the requested path &#39;</span>{0}<span style="color:#e6db74">&#39;. (F0003)
-</span><span style="color:#e6db74">    FailedToReadProperties = Could not read property &#39;</span>{0}<span style="color:#e6db74">&#39; of path &#39;</span>{1}<span style="color:#e6db74">&#39;. (F0004)
-</span><span style="color:#e6db74">&#39;</span>@
+ConvertFrom-StringData <span style="color:#e6db74">@&#39;
+</span><span style="color:#e6db74">    CreateFolder = Creating folder at path &#39;{0}&#39;. (F0001)
+</span><span style="color:#e6db74">    RetrievingFolderInformation = Retrieving folder information from path &#39;{0}&#39;. (F0002)
+</span><span style="color:#e6db74">    ProblemAccessFolder = Could not access the requested path &#39;{0}&#39;. (F0003)
+</span><span style="color:#e6db74">    FailedToReadProperties = Could not read property &#39;{0}&#39; of path &#39;{1}&#39;. (F0004)
+</span><span style="color:#e6db74">&#39;@</span>
 </code></pre></div><p>When using the previous example, the folder structure would look like the
 following:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">DSCResources\DSC_Folder\en-US\DSC_Folder.strings.psd1

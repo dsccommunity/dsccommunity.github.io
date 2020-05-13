@@ -1,8 +1,8 @@
 <head>
   <meta charset="utf-8">
-  <title>Next Community Call 2020-04-08</title>
+  <title>Next Community Call 2020-05-20</title>
 
-  <meta name="generator" content="Hugo 0.69.0" />
+  <meta name="generator" content="Hugo 0.70.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -226,7 +226,7 @@ if (!doNotTrack) {
             </li>
             <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
               <ul class="sub-menu">
-            <li class=" active "><a href="/community_calls/next_call/">Next Community Call 2020-04-08</a>
+            <li class=" active "><a href="/community_calls/next_call/">Next Community Call 2020-05-20</a>
             </li>
             <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
             </li>
@@ -283,54 +283,42 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Next Community Call 2020-04-08</h2>
-            <p>Next call will be on Wednesday, April 8th, at 12 PM PST</p>
+            <h2>Next Community Call 2020-05-20</h2>
+            <p>Next call will be on Wednesday, May 20th, at 12 PM PST</p>
 <p>Want to submit a question to discuss during the call? Just <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md">submit a Pull request to this file</a>!</p>
 <h3 id="agenda">Agenda</h3>
 <ol>
-<li>Quick update on activity</li>
-<li>Presentation by Raimund Andre: Less code in resource with Test-DscParameterState</li>
-</ol>
+<li>Presentation by Bartek Bielawski: Class Based DSC Resources from the trenches</li>
+<li>Quick update on activity:
 <ul>
-<li>
-<p>Migration to Continuous Delivery Process (<a href="https://github.com/orgs/dsccommunity/projects/1">GitHub Board</a>):</p>
+<li>Migration to Continuous Delivery Process (<a href="https://github.com/orgs/dsccommunity/projects/1">GitHub Board</a>):
 <ul>
 <li>Completed since last call
 <ul>
-<li>OfficeOnlineServerDsc</li>
-<li>xDhcpServer</li>
-<li>xHyper-V</li>
-<li>xDnsServer</li>
-<li>CertificateDsc</li>
-<li>xWindowsUpdate</li>
+<li>iSCSIDsc</li>
+<li>StorageDsc</li>
+<li>SecurityPolicyDsc</li>
+<li>?</li>
 </ul>
 </li>
 <li>In progress
 <ul>
-<li>StorageDsc</li>
+<li><em>None</em></li>
 </ul>
 </li>
 <li>New modules
 <ul>
-<li>FileSystemDsc</li>
+<li><em>None</em></li>
 </ul>
 </li>
-<li>Deprecated (will no longer be released)
-<ul>
-<li>xDismFeature</li>
-<li>xSystemSecurity (deprecated, use ComputerManagementDsc and FileSystemDsc instead)</li>
-</ul>
-</li>
-<li>Modules not yet converted but with PR activity within last 3 months (seen in AppVeyor)
+<li>Modules not yet converted but with PR activity within last 4 months
+(seen in AppVeyor)
 <ul>
 <li>JeaDsc</li>
-<li>SecurityPolicyDsc</li>
-<li>StorageDsc</li>
 <li>DfsDsc</li>
 <li>DscResource.Analysis</li>
 <li>xBitlocker</li>
 <li>FileContentDsc</li>
-<li>iSCSIDsc</li>
 <li>FSRMDsc</li>
 </ul>
 </li>
@@ -350,36 +338,26 @@ if (!doNotTrack) {
 <li>UpdateServicesDsc</li>
 <li>ActiveDirectoryCSDsc</li>
 <li>xExchange</li>
+<li>FileSystemDsc</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<p>These repositories have moved under DSC Community.</p>
+</ul>
+</li>
+<li>Resources that have been released recently</li>
+</ol>
 <ul>
-<li><a href="https://github.com/dsccommunity/DscWorkshop">https://github.com/dsccommunity/DscWorkshop</a></li>
-<li><a href="https://github.com/dsccommunity/CommonTasks">https://github.com/dsccommunity/CommonTasks</a></li>
-</ul>
-</li>
-<li>
-<p>Raimund Andree presents: Test-DsvcParameterState</p>
-<ul>
-<li>Some resources have a huge overlap in Test() and Get() which is a pain for maintenance and testing. The SharePointDsc resource was the first that started with a generic way to compare the current with the desired state. This pattern has been extended and covers almost any type now: string, int, scriptblock, hashtable, CimInstance and PSCredential. Want to do a reverse check as well or handle sorting? Then let’s have a look at Test-DscParameterState.</li>
-</ul>
-</li>
-<li>
-<p>Feel free to <a href="https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md">send a PR to this file</a>
+<li>Feel free to <a href="https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md">send a PR to this file</a>
 if there&rsquo;s something you&rsquo;d like to be added to the agenda (or just ask
-during the call)</p>
-</li>
+during the call)</li>
 </ul>
-<h4 id="resources-that-have-been-released-recently">Resources that have been released recently</h4>
 <h3 id="discussions">Discussions</h3>
 <p>Topics or questions from the community (welcome at any point during the call)</p>
 <p>Talk to us on <strong>Virtual PowerShell User Group</strong> <em>#DSC</em> channel.
 For information on how to join, see <a href="https://dsccommunity.org/community/contact/">https://dsccommunity.org/community/contact/</a></p>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 24 Jan 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/" title="Community Calls"><i class="ti-arrow-left mr-2"></i>Community Calls</a>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 12 May 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/" title="Community Calls"><i class="ti-arrow-left mr-2"></i>Community Calls</a>
             <a class="nav nav-next" href="/community_calls/2020-04-08-notes/" title="2020-04-08 Notes">2020-04-08 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>

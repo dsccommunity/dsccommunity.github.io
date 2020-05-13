@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>General</title>
 
-  <meta name="generator" content="Hugo 0.69.0" />
+  <meta name="generator" content="Hugo 0.70.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -226,7 +226,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-04-08</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-05-20</a>
             </li>
             <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
             </li>
@@ -549,13 +549,13 @@ of code.</p>
 found <a href="#all-functions-must-have-comment-based-help">here</a>.</p>
 <p><strong>Bad:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyVariable
-{<span style="color:#75715e">#this is a bad comment</span>
+{<span style="color:#75715e">#this is a bad comment</span>
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
-<span style="color:#75715e">#this is a bad comment</span>
+<span style="color:#75715e">#this is a bad comment</span>
     <span style="color:#66d9ef">foreach</span> ($example <span style="color:#66d9ef">in</span> $examples)
     {
-        Write-Verbose -Message $example <span style="color:#75715e">#this is a bad comment</span>
+        Write-Verbose -Message $example <span style="color:#75715e">#this is a bad comment</span>
     }
 }
 </code></pre></div><p><strong>Bad:</strong></p>
@@ -564,25 +564,25 @@ found <a href="#all-functions-must-have-comment-based-help">here</a>.</p>
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
 
-    <span style="color:#75715e"># this is a bad comment</span>
-    <span style="color:#75715e"># On multiple lines</span>
+    <span style="color:#75715e"># this is a bad comment</span>
+    <span style="color:#75715e"># On multiple lines</span>
     <span style="color:#66d9ef">foreach</span> ($example <span style="color:#66d9ef">in</span> $examples)
     {
-        <span style="color:#75715e"># No commented-out code!</span>
-        <span style="color:#75715e"># Write-Verbose -Message $example</span>
+        <span style="color:#75715e"># No commented-out code!</span>
+        <span style="color:#75715e"># Write-Verbose -Message $example</span>
     }
 }
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyVariable
 {
-    <span style="color:#75715e"># This is a good comment</span>
+    <span style="color:#75715e"># This is a good comment</span>
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
 
-    <span style="color:#75715e"># This is a good comment</span>
+    <span style="color:#75715e"># This is a good comment</span>
     <span style="color:#66d9ef">foreach</span> ($example <span style="color:#66d9ef">in</span> $examples)
     {
-        <span style="color:#75715e"># This is a good comment</span>
+        <span style="color:#75715e"># This is a good comment</span>
         Write-Verbose -Message $example
     }
 }
@@ -619,25 +619,25 @@ hidden, <span style="color:#66d9ef">if</span>, <span style="color:#66d9ef">in</s
 <p>The latest list of PowerShell reserved keywords can also be found
 on <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_keywords?view=powershell-5.1">this page</a>.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Missing space after keyword and before open bracket</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Missing space after keyword and before open bracket</span>
 <span style="color:#66d9ef">foreach</span>($item <span style="color:#66d9ef">in</span> $list)
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Capital letters in keyword</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Capital letters in keyword</span>
 <span style="color:#66d9ef">BEGIN</span>
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Violates &#39;One Newline Before Braces&#39; guideline</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Violates &#39;One Newline Before Braces&#39; guideline</span>
 <span style="color:#66d9ef">begin</span> {
-    <span style="color:#75715e"># Do some work</span>
+    <span style="color:#75715e"># Do some work</span>
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Capital letters in &#39;in&#39; and &#39;foreach&#39; keyword</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Capital letters in &#39;in&#39; and &#39;foreach&#39; keyword</span>
 <span style="color:#66d9ef">ForEach</span> ($item <span style="color:#66d9ef">In</span> $list)
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">foreach</span> ($item <span style="color:#66d9ef">in</span> $list)
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">begin</span>
 {
-    <span style="color:#75715e"># Do some work</span>
+    <span style="color:#75715e"># Do some work</span>
 }
 </code></pre></div>
             <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/styleguidelines/markdown-files/" title="Markdown Files"><i class="ti-arrow-left mr-2"></i>Markdown Files</a>

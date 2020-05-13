@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Add Codecov Support to Repository</title>
 
-  <meta name="generator" content="Hugo 0.69.0" />
+  <meta name="generator" content="Hugo 0.70.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -226,7 +226,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-04-08</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-05-20</a>
             </li>
             <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
             </li>
@@ -306,7 +306,7 @@ with the encoding <code>UTF8 with BOM</code> which is the default on Windows, so
 we make sure to change the encoding to <code>ascii</code> that <a href="https://codecov.io">Codecov.io</a>
 accepts.</p>
 <p>Under the key <code>Pester</code> add the following keys.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">Pester:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Pester</span>:
   <span style="color:#66d9ef">CodeCoverageOutputFile</span>: JaCoCo_coverage.xml
   <span style="color:#66d9ef">CodeCoverageOutputFileEncoding</span>: ascii
 </code></pre></div><blockquote>
@@ -322,7 +322,7 @@ the test result files that ended up in the folder <code>output/testResults</code
 <h3 id="add-global-variables">Add global variables</h3>
 <p>At the top of the file, at the same level ass the key <code>trigger</code> add the
 following.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">variables:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">variables</span>:
   <span style="color:#66d9ef">buildFolderName</span>: output
   <span style="color:#66d9ef">buildArtifactName</span>: output
   <span style="color:#66d9ef">testResultFolderName</span>: testResults
@@ -340,13 +340,13 @@ stage)</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#66d9ef">job</span>: Test_Unit
         <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Unit&#39;</span>
-        pool:
+        <span style="color:#66d9ef">pool</span>:
           <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
         <span style="color:#66d9ef">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
-        steps:
+        <span style="color:#66d9ef">steps</span>:
           - <span style="color:#66d9ef">task</span>: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
             <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
-            inputs:
+            <span style="color:#66d9ef">inputs</span>:
               <span style="color:#66d9ef">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
               <span style="color:#66d9ef">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
               <span style="color:#66d9ef">artifactName</span>: $(buildArtifactName)
@@ -354,20 +354,20 @@ stage)</li>
           - <span style="color:#66d9ef">task</span>: PowerShell@<span style="color:#ae81ff">2</span>
             <span style="color:#66d9ef">name</span>: test
             <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Run Unit Test&#39;</span>
-            inputs:
+            <span style="color:#66d9ef">inputs</span>:
               <span style="color:#66d9ef">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
               <span style="color:#66d9ef">arguments</span>: <span style="color:#e6db74">&#34;-Tasks test -PesterScript &#39;tests/Unit&#39;&#34;</span>
               <span style="color:#66d9ef">pwsh</span>: <span style="color:#66d9ef">false</span>
           - <span style="color:#66d9ef">task</span>: PublishTestResults@<span style="color:#ae81ff">2</span>
             <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
             <span style="color:#66d9ef">condition</span>: succeededOrFailed()
-            inputs:
+            <span style="color:#66d9ef">inputs</span>:
               <span style="color:#66d9ef">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
               <span style="color:#66d9ef">testResultsFiles</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span>
               <span style="color:#66d9ef">testRunTitle</span>: <span style="color:#e6db74">&#39;Unit (Windows Server Core)&#39;</span>
           - <span style="color:#66d9ef">task</span>: PublishBuildArtifacts@<span style="color:#ae81ff">1</span>
             <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Artifact&#39;</span>
-            inputs:
+            <span style="color:#66d9ef">inputs</span>:
               <span style="color:#66d9ef">pathToPublish</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/&#39;</span>
               <span style="color:#66d9ef">artifactName</span>: $(testArtifactName)
               <span style="color:#66d9ef">publishLocation</span>: <span style="color:#e6db74">&#39;Container&#39;</span>
@@ -390,26 +390,26 @@ stage)</li>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#66d9ef">job</span>: Code_Coverage
         <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage&#39;</span>
         <span style="color:#66d9ef">dependsOn</span>: Test_Unit
-        pool:
+        <span style="color:#66d9ef">pool</span>:
           <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu 16.04&#39;</span>
         <span style="color:#66d9ef">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
-        steps:
+        <span style="color:#66d9ef">steps</span>:
           - <span style="color:#66d9ef">pwsh</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">              $repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split &#39;/&#39;</span>
+</span><span style="color:#e6db74">              $repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split &#39;/&#39;</span>
               echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryOwner;isOutput=true]$repositoryOwner&#34;</span>
               echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName&#34;</span>
             <span style="color:#66d9ef">name</span>: dscBuildVariable
             <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Set Environment Variables&#39;</span>
           - <span style="color:#66d9ef">task</span>: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
             <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
-            inputs:
+            <span style="color:#66d9ef">inputs</span>:
               <span style="color:#66d9ef">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
               <span style="color:#66d9ef">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
               <span style="color:#66d9ef">artifactName</span>: $(buildArtifactName)
               <span style="color:#66d9ef">downloadPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
           - <span style="color:#66d9ef">task</span>: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
             <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Download Test Artifact&#39;</span>
-            inputs:
+            <span style="color:#66d9ef">inputs</span>:
               <span style="color:#66d9ef">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
               <span style="color:#66d9ef">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
               <span style="color:#66d9ef">artifactName</span>: $(testArtifactName)
@@ -417,12 +417,12 @@ stage)</li>
           - <span style="color:#66d9ef">task</span>: PublishCodeCoverageResults@<span style="color:#ae81ff">1</span>
             <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Azure Code Coverage&#39;</span>
             <span style="color:#66d9ef">condition</span>: succeededOrFailed()
-            inputs:
+            <span style="color:#66d9ef">inputs</span>:
               <span style="color:#66d9ef">codeCoverageTool</span>: <span style="color:#e6db74">&#39;JaCoCo&#39;</span>
               <span style="color:#66d9ef">summaryFileLocation</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#39;</span>
               <span style="color:#66d9ef">pathToSources</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(dscBuildVariable.RepositoryName)&#39;</span>
           - <span style="color:#66d9ef">script</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">              bash &lt;(curl -s https://codecov.io/bash) -f &#34;./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#34;</span>
+</span><span style="color:#e6db74">              bash &lt;(curl -s https://codecov.io/bash) -f &#34;./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#34;</span>
             <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Upload to Codecov.io&#39;</span>
             <span style="color:#66d9ef">condition</span>: succeededOrFailed()
 </code></pre></div><h2 id="add-codecovyml">Add <code>codecov.yml</code></h2>
@@ -442,34 +442,34 @@ the JaCoCo XML file to the correct paths that <a href="https://codecov.io">Codec
 expects.</p>
 <p>See the <a href="https://docs.codecov.io/docs/codecovyml-reference">codecov.yml Reference</a>
 for more information about these settings.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">codecov:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">codecov</span>:
   <span style="color:#66d9ef">require_ci_to_pass</span>: no
-  <span style="color:#75715e"># master should be the baseline for reporting</span>
+  <span style="color:#75715e"># master should be the baseline for reporting</span>
   <span style="color:#66d9ef">branch</span>: master
 
-comment:
+<span style="color:#66d9ef">comment</span>:
   <span style="color:#66d9ef">layout</span>: <span style="color:#e6db74">&#39;reach, diff&#39;</span>
   <span style="color:#66d9ef">behavior</span>: default
 
-coverage:
+<span style="color:#66d9ef">coverage</span>:
   <span style="color:#66d9ef">range</span>: <span style="color:#ae81ff">50</span>..<span style="color:#ae81ff">80</span>
   <span style="color:#66d9ef">round</span>: down
   <span style="color:#66d9ef">precision</span>: <span style="color:#ae81ff">0</span>
 
-  status:
-    project:
-      default:
-        <span style="color:#75715e"># Set the overall project code coverage requirement to 70%</span>
+  <span style="color:#66d9ef">status</span>:
+    <span style="color:#66d9ef">project</span>:
+      <span style="color:#66d9ef">default</span>:
+        <span style="color:#75715e"># Set the overall project code coverage requirement to 70%</span>
         <span style="color:#66d9ef">target</span>: <span style="color:#ae81ff">70</span>
-    patch:
-      default:
-        <span style="color:#75715e"># Set the pull request requirement to not regress overall coverage by more than 5%</span>
-        <span style="color:#75715e"># and let codecov.io set the goal for the code changed in the patch.</span>
+    <span style="color:#66d9ef">patch</span>:
+      <span style="color:#66d9ef">default</span>:
+        <span style="color:#75715e"># Set the pull request requirement to not regress overall coverage by more than 5%</span>
+        <span style="color:#75715e"># and let codecov.io set the goal for the code changed in the patch.</span>
         <span style="color:#66d9ef">target</span>: auto
         <span style="color:#66d9ef">threshold</span>: <span style="color:#ae81ff">5</span>
 
-fixes:
-  - <span style="color:#e6db74">&#39;\d+\.\d+\.\d+\/::source/&#39;</span>  <span style="color:#75715e"># move path &#34;X.Y.Z/&#34; =&gt; &#34;source/&#34;</span>
+<span style="color:#66d9ef">fixes</span>:
+  - <span style="color:#e6db74">&#39;\d+\.\d+\.\d+\/::source/&#39;</span>  <span style="color:#75715e"># move path &#34;X.Y.Z/&#34; =&gt; &#34;source/&#34;</span>
 </code></pre></div><h2 id="add-status-badge-to-readmemd">Add status badge to <code>README.md</code></h2>
 <p>Finally we should add the status badge to the README.md. Replace
 <code>{repositoryName}</code> with the actual repository name, e.g. <code>ComputerManagementDsc</code>.</p>

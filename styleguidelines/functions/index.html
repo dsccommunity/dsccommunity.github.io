@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Functions</title>
 
-  <meta name="generator" content="Hugo 0.69.0" />
+  <meta name="generator" content="Hugo 0.70.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -226,7 +226,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-04-08</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-05-20</a>
             </li>
             <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
             </li>
@@ -289,43 +289,43 @@ if (!doNotTrack) {
 <p><strong>Bad:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> get-targetresource
 {
-    <span style="color:#75715e"># ...</span>
+    <span style="color:#75715e"># ...</span>
 }
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
-    <span style="color:#75715e"># ...</span>
+    <span style="color:#75715e"># ...</span>
 }
 </code></pre></div><h2 id="function-names-use-verb-noun-format">Function Names Use Verb-Noun Format</h2>
 <p>All function names must follow the standard PowerShell Verb-Noun format.</p>
 <p><strong>Bad:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> TargetResourceGetter
 {
-    <span style="color:#75715e"># ...</span>
+    <span style="color:#75715e"># ...</span>
 }
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
-    <span style="color:#75715e"># ...</span>
+    <span style="color:#75715e"># ...</span>
 }
 </code></pre></div><h2 id="function-names-use-approved-verbs">Function Names Use Approved Verbs</h2>
 <p>All function names must use <a href="https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx">approved verbs</a>.</p>
 <p><strong>Bad:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Normalize-String
 {
-    <span style="color:#75715e"># ...</span>
+    <span style="color:#75715e"># ...</span>
 }
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> ConvertTo-NormalizedString
 {
-    <span style="color:#75715e"># ...</span>
+    <span style="color:#75715e"># ...</span>
 }
 </code></pre></div><h2 id="functions-have-comment-based-help">Functions Have Comment-Based Help</h2>
 <p>All functions should have comment-based help with the correct syntax directly
 above the function. Comment-help should include at least the SYNOPSIS section and
 a PARAMETER section for each parameter.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Creates an event</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Creates an event</span>
 <span style="color:#66d9ef">function</span> New-Event
 {
     <span style="color:#66d9ef">param</span>
@@ -340,7 +340,7 @@ a PARAMETER section for each parameter.</p>
         <span style="color:#66d9ef">[String]</span>
         $Channel = <span style="color:#e6db74">&#39;operational&#39;</span>
     )
-    <span style="color:#75715e"># Implementation...</span>
+    <span style="color:#75715e"># Implementation...</span>
 }
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#
@@ -370,7 +370,7 @@ a PARAMETER section for each parameter.</p>
         <span style="color:#66d9ef">[String]</span>
         $Channel = <span style="color:#e6db74">&#39;operational&#39;</span>
     )
-    <span style="color:#75715e"># Implementation</span>
+    <span style="color:#75715e"># Implementation</span>
 }
 </code></pre></div><h2 id="parameter-block-at-top-of-function">Parameter Block at Top of Function</h2>
 <p>There must be a parameter block declared for every function.

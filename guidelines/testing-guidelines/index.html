@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Testing Guidelines</title>
 
-  <meta name="generator" content="Hugo 0.69.0" />
+  <meta name="generator" content="Hugo 0.70.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -226,7 +226,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-04-08</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-05-20</a>
             </li>
             <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
             </li>
@@ -341,12 +341,12 @@ Preferably you should opt-out from tests.</p>
 <li>Configuring the <code>build.yaml</code> with the tag <code>ExcludeTag</code> under either the
 key <code>Pester</code> or <code>DscTest</code> (JSON files override excludes for the key
 <code>DscTest</code>).
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">Pester:
-  ExcludeTag:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Pester</span>:
+  <span style="color:#66d9ef">ExcludeTag</span>:
     - <span style="color:#e6db74">&#39;TagOnUnitTest&#39;</span>
 
-DscTest:
-  ExcludeTag:
+<span style="color:#66d9ef">DscTest</span>:
+  <span style="color:#66d9ef">ExcludeTag</span>:
     - Common Tests - New Error-Level Script Analyzer Rules
     - Common Tests - Validate Example Files
     - Common Tests - Relative Path Length
@@ -357,8 +357,8 @@ DscTest:
 <p>This HQRM tests is opt-out by default since it tests the ScriptAnalyzer
 rules <code>PSDSCDscExamplesPresent</code> and <code>PSDSCDscTestsPresent</code> which does not
 currently work with the folder structure needed by CI pipeline.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">DscTest:
-    ExcludeTag:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">DscTest</span>:
+    <span style="color:#66d9ef">ExcludeTag</span>:
     - <span style="color:#e6db74">&#39;Common Tests - New Error-Level Script Analyzer Rules&#39;</span>
 </code></pre></div><p>Even if opt-out this test will still run. You opt-out from the test phase
 failing if there are any violations. Noteworthy is also that if there are
@@ -425,7 +425,7 @@ then to allow these functions to be tested by Pester, they must be contained
 in an <code>InModuleScope</code> Pester block:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">InModuleScope $script:dscResourceName {
     Describe <span style="color:#e6db74">&#34;</span>$($script:dscResourceName)<span style="color:#e6db74">\Get-FirewallRuleProperty&#34;</span> {
-        <span style="color:#75715e"># Test Get-FirewallRuleProperty private/non-exported function</span>
+        <span style="color:#75715e"># Test Get-FirewallRuleProperty private/non-exported function</span>
     }
 }
 </code></pre></div><p><em>Note: The core DSC Resource functions <code>Get-TargetResource</code>, <code>Set-TargetResource</code>
@@ -473,7 +473,7 @@ For example:</p>
     Status            = <span style="color:#e6db74">&#39;Up&#39;</span>
 }
 
-<span style="color:#75715e"># Create a mock</span>
+<span style="color:#75715e"># Create a mock</span>
 Mock `
     -CommandName Get-NetAdapter `
     -MockWith { <span style="color:#66d9ef">return</span> $MockNetAdapter }
@@ -488,7 +488,7 @@ block variable that contains the mocked object and then assign that to the Mock.
     }
 }
 
-<span style="color:#75715e"># Create a mock</span>
+<span style="color:#75715e"># Create a mock</span>
 Mock `
     -CommandName Get-NetAdapter `
     -ModuleName $script:ModuleName `
@@ -498,15 +498,15 @@ Mock `
 The goal of this pattern should be to describe the potential states a system could
 be in for each function.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">        Describe <span style="color:#e6db74">&#39;Get-TargetResource&#39;</span> {
-            <span style="color:#75715e"># TODO: Complete Get-TargetResource Tests...</span>
+            <span style="color:#75715e"># TODO: Complete Get-TargetResource Tests...</span>
         }
 
         Describe <span style="color:#e6db74">&#39;Set-TargetResource&#39;</span> {
-            <span style="color:#75715e"># TODO: Complete Set-TargetResource Tests...</span>
+            <span style="color:#75715e"># TODO: Complete Set-TargetResource Tests...</span>
         }
 
         Describe <span style="color:#e6db74">&#39;Test-TargetResource&#39;</span> {
-            <span style="color:#75715e"># TODO: Complete Test-TargetResource Tests...</span>
+            <span style="color:#75715e"># TODO: Complete Test-TargetResource Tests...</span>
         }
 </code></pre></div><p>Pattern 2:
 The goal of this pattern should be to describe the potential states a system
@@ -518,15 +518,15 @@ the DSC resource is designed to work with, below a simple &lsquo;is in desired s
 and &lsquo;is not in desired state&rsquo; are used, but there may be more complex combinations
 of factors, depending on how complex your resource is.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Describe <span style="color:#e6db74">&#39;The system is not in the desired state&#39;</span> {
-    <span style="color:#75715e">#TODO: Mock cmdlets here that represent the system not being in the desired state</span>
+    <span style="color:#75715e">#TODO: Mock cmdlets here that represent the system not being in the desired state</span>
 
-    <span style="color:#75715e">#TODO: Create a set of parameters to test your get/set/test methods in this state</span>
+    <span style="color:#75715e">#TODO: Create a set of parameters to test your get/set/test methods in this state</span>
     $testParameters = @{
         Property1 = <span style="color:#e6db74">&#39;value&#39;</span>
         Property2 = <span style="color:#e6db74">&#39;value&#39;</span>
     }
 
-    <span style="color:#75715e">#TODO: Update the assertions below to align with the expected results of this state</span>
+    <span style="color:#75715e">#TODO: Update the assertions below to align with the expected results of this state</span>
     It <span style="color:#e6db74">&#39;Should return something&#39;</span> {
         Get-TargetResource @testParameters | Should -Be <span style="color:#e6db74">&#39;something&#39;</span>
     }
@@ -538,21 +538,21 @@ of factors, depending on how complex your resource is.</p>
     It <span style="color:#e6db74">&#39;Should call Demo-CmdletName&#39;</span> {
         Set-TargetResource @testParameters
 
-        <span style="color:#75715e">#TODO: Assert that the appropriate cmdlets were called</span>
+        <span style="color:#75715e">#TODO: Assert that the appropriate cmdlets were called</span>
         Assert-MockCalled Demo-CmdletName
     }
 }
 
 Describe <span style="color:#e6db74">&#39;The system is in the desired state&#39;</span> {
-    <span style="color:#75715e">#TODO: Mock cmdlets here that represent the system being in the desired state</span>
+    <span style="color:#75715e">#TODO: Mock cmdlets here that represent the system being in the desired state</span>
 
-    <span style="color:#75715e">#TODO: Create a set of parameters to test your get/set/test methods in this state</span>
+    <span style="color:#75715e">#TODO: Create a set of parameters to test your get/set/test methods in this state</span>
     $testParameters = @{
         Property1 = <span style="color:#e6db74">&#39;value&#39;</span>
         Property2 = <span style="color:#e6db74">&#39;value&#39;</span>
     }
 
-    <span style="color:#75715e">#TODO: Update the assertions below to align with the expected results of this state</span>
+    <span style="color:#75715e">#TODO: Update the assertions below to align with the expected results of this state</span>
     It <span style="color:#e6db74">&#39;Should return something&#39;</span> {
         Get-TargetResource @testParameters | Should -Be <span style="color:#e6db74">&#39;something&#39;</span>
     }

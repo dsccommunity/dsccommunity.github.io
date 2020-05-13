@@ -7,21 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Mon, 03 Feb 2020 19:17:35 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Next Community Call 2020-04-08</title>
+      <title>Next Community Call 2020-05-20</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, April 8th, at 12 PM PST
+      <description>Next call will be on Wednesday, May 20th, at 12 PM PST
 Want to submit a question to discuss during the call? Just submit a Pull request to this file!
-Agenda  Quick update on activity Presentation by Raimund Andre: Less code in resource with Test-DscParameterState    Migration to Continuous Delivery Process (GitHub Board):
- Completed since last call  OfficeOnlineServerDsc xDhcpServer xHyper-V xDnsServer CertificateDsc xWindowsUpdate   In progress  StorageDsc   New modules  FileSystemDsc   Deprecated (will no longer be released)  xDismFeature xSystemSecurity (deprecated, use ComputerManagementDsc and FileSystemDsc instead)   Modules not yet converted but with PR activity within last 3 months (seen in AppVeyor)  JeaDsc SecurityPolicyDsc StorageDsc DfsDsc DscResource.</description>
+Agenda  Presentation by Bartek Bielawski: Class Based DSC Resources from the trenches Quick update on activity:  Migration to Continuous Delivery Process (GitHub Board):  Completed since last call  iSCSIDsc StorageDsc SecurityPolicyDsc ?   In progress  None   New modules  None   Modules not yet converted but with PR activity within last 4 months (seen in AppVeyor)  JeaDsc DfsDsc DscResource.</description>
     </item>
     
     <item>
@@ -160,7 +159,7 @@ There are several ways you can contribute.
       <description>Correct File Encoding Make sure all files are encoded using UTF-8 (not UTF-8 with BOM), except mof files which should be encoded using ASCII. You can use ConvertTo-UTF8 and ConvertTo-ASCII to convert a file to UTF-8 or ASCII.
 Descriptive Names Use descriptive, clear, and full names for all variables, parameters, and functions. All names must be at least more than 2 characters. No abbreviations should be used.
 Bad:
-$r = Get-RdsHostBad:</description>
+$r = Get-RdsHost Bad:</description>
     </item>
     
     <item>
@@ -224,11 +223,11 @@ Project maintainers who do not follow or enforce the Code of Conduct in good fai
       <guid>https://dsccommunity.org/styleguidelines/functions/</guid>
       <description>Function Names Use Pascal Case Function names must use PascalCase. This means that each concatenated word is capitalized.
 Bad:
-function get-targetresource{# ... }Good:
-function Get-TargetResource{# ... }Function Names Use Verb-Noun Format All function names must follow the standard PowerShell Verb-Noun format.
+function get-targetresource { # ... } Good:
+function Get-TargetResource { # ... } Function Names Use Verb-Noun Format All function names must follow the standard PowerShell Verb-Noun format.
 Bad:
-function TargetResourceGetter{# ... }Good:
-function Get-TargetResource{# ... }Function Names Use Approved Verbs All function names must use approved verbs.</description>
+function TargetResourceGetter { # ... } Good:
+function Get-TargetResource { # ... } Function Names Use Approved Verbs All function names must use approved verbs.</description>
     </item>
     
     <item>
@@ -264,7 +263,7 @@ function Get-TargetResource{# ... }Function Names Use Approved Verbs All fun
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/guidelines/testing-guidelines/</guid>
-      <description>General Rules  Tests are written using Pester. Preferably use the concept of test-driven development when writing tests. Each DSC module should contain the following Test folder structure:  tests|---Unit|---Integration The tests\Unit folder must contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.Tests.ps1. The tests\Integration folder should, whenever possible, contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.</description>
+      <description>General Rules  Tests are written using Pester. Preferably use the concept of test-driven development when writing tests. Each DSC module should contain the following Test folder structure:  tests |---Unit |---Integration  The tests\Unit folder must contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.Tests.ps1. The tests\Integration folder should, whenever possible, contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.</description>
     </item>
     
     <item>
@@ -296,9 +295,9 @@ All repositories should always be added with MIT licensing.
       <guid>https://dsccommunity.org/styleguidelines/variables/</guid>
       <description>Variable Names Use Camel Case Variable names should use camelCase.
 Bad:
-function Write-Log{$VerboseMessage = &amp;#39;New log message&amp;#39;Write-Verbose $VerboseMessage}Bad:
-function Write-Log{$verbosemessage = &amp;#39;New log message&amp;#39;Write-Verbose $verbosemessage}Good:
-function Write-Log{$verboseMessage = &amp;#39;New log message&amp;#39;Write-Verbose $verboseMessage}Script, Environment and Global Variable Names Include Scope Script, environment, and global variables must always include their scope in the variable name unless the &amp;lsquo;using&amp;rsquo; scope is needed.</description>
+function Write-Log { $VerboseMessage = &amp;#39;New log message&amp;#39; Write-Verbose $VerboseMessage } Bad:
+function Write-Log { $verbosemessage = &amp;#39;New log message&amp;#39; Write-Verbose $verbosemessage } Good:
+function Write-Log { $verboseMessage = &amp;#39;New log message&amp;#39; Write-Verbose $verboseMessage } Script, Environment and Global Variable Names Include Scope Script, environment, and global variables must always include their scope in the variable name unless the &amp;lsquo;using&amp;rsquo; scope is needed.</description>
     </item>
     
     <item>
@@ -320,8 +319,8 @@ Avoid Using ard coded Computer Name Using hard coded computer names exposes sens
       <guid>https://dsccommunity.org/styleguidelines/calling-functions/</guid>
       <description>Avoid Cmdlet Aliases When calling a function use the full command not an alias. You can get the full command an alias represents by calling Get-Alias.
 Bad:
-ls -File $root -Recurse | ? { @(&amp;#39;.gitignore&amp;#39;, &amp;#39;.mof&amp;#39;) -contains $_.Extension }Good:
-Get-ChildItem -File $root -Recurse | Where-Object -FilterScript {@(&amp;#39;.gitignore&amp;#39;, &amp;#39;.mof&amp;#39;) -contains $_.Extension}Avoid Invoke-Expression Invoke-Expression is vulnerable to string injection attacks. It should not be used in any DSC resources.</description>
+ls -File $root -Recurse | ? { @(&amp;#39;.gitignore&amp;#39;, &amp;#39;.mof&amp;#39;) -contains $_.Extension } Good:
+Get-ChildItem -File $root -Recurse | Where-Object -FilterScript { @(&amp;#39;.gitignore&amp;#39;, &amp;#39;.mof&amp;#39;) -contains $_.Extension } Avoid Invoke-Expression Invoke-Expression is vulnerable to string injection attacks. It should not be used in any DSC resources.</description>
     </item>
     
     <item>
@@ -332,8 +331,8 @@ Get-ChildItem -File $root -Recurse | Where-Object -FilterScript {@(&amp;#39;.gi
       <guid>https://dsccommunity.org/styleguidelines/writing-functions/</guid>
       <description>Avoid Default Values for Mandatory Parameters Default values for mandatory parameters will always be overwritten, thus they are never used and can cause confusion.
 Bad:
-function Get-Something{param([Parameter(Mandatory = $true)][String]$Name = &amp;#39;My Name&amp;#39;)...}Good:
-function Get-Something{param([Parameter(Mandatory = $true)][String]$Name)...}Avoid Default Values for Switch Parameters Switch parameters have 2 values - there or not there.</description>
+function Get-Something { param ( [Parameter(Mandatory = $true)] [String] $Name = &amp;#39;My Name&amp;#39; ) ... } Good:
+function Get-Something { param ( [Parameter(Mandatory = $true)] [String] $Name ) ... } Avoid Default Values for Switch Parameters Switch parameters have 2 values - there or not there.</description>
     </item>
     
     <item>
@@ -396,8 +395,8 @@ In each localization folder there should be a PowerShell data (.psd1) file named
       <guid>https://dsccommunity.org/styleguidelines/pester-tests/</guid>
       <description>Capitalized Pester Assertions Pester assertions should all start with capital letters. This makes code easier to read.
 Bad:
-it &amp;#39;Should return something&amp;#39; {get-targetresource @testParameters | should -be &amp;#39;something&amp;#39;}Good:
-It &amp;#39;Should return something&amp;#39; {Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39;}Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
+it &amp;#39;Should return something&amp;#39; { get-targetresource @testParameters | should -be &amp;#39;something&amp;#39; } Good:
+It &amp;#39;Should return something&amp;#39; { Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39; } Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
     </item>
     
     <item>

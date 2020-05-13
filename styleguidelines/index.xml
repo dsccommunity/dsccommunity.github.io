@@ -30,7 +30,7 @@
       <description>Correct File Encoding Make sure all files are encoded using UTF-8 (not UTF-8 with BOM), except mof files which should be encoded using ASCII. You can use ConvertTo-UTF8 and ConvertTo-ASCII to convert a file to UTF-8 or ASCII.
 Descriptive Names Use descriptive, clear, and full names for all variables, parameters, and functions. All names must be at least more than 2 characters. No abbreviations should be used.
 Bad:
-$r = Get-RdsHostBad:</description>
+$r = Get-RdsHost Bad:</description>
     </item>
     
     <item>
@@ -53,11 +53,11 @@ Newline Character Encoding Save newlines using CR+LF instead of CR. For interope
       <guid>https://dsccommunity.org/styleguidelines/functions/</guid>
       <description>Function Names Use Pascal Case Function names must use PascalCase. This means that each concatenated word is capitalized.
 Bad:
-function get-targetresource{# ... }Good:
-function Get-TargetResource{# ... }Function Names Use Verb-Noun Format All function names must follow the standard PowerShell Verb-Noun format.
+function get-targetresource { # ... } Good:
+function Get-TargetResource { # ... } Function Names Use Verb-Noun Format All function names must follow the standard PowerShell Verb-Noun format.
 Bad:
-function TargetResourceGetter{# ... }Good:
-function Get-TargetResource{# ... }Function Names Use Approved Verbs All function names must use approved verbs.</description>
+function TargetResourceGetter { # ... } Good:
+function Get-TargetResource { # ... } Function Names Use Approved Verbs All function names must use approved verbs.</description>
     </item>
     
     <item>
@@ -77,9 +77,9 @@ function Get-TargetResource{# ... }Function Names Use Approved Verbs All fun
       <guid>https://dsccommunity.org/styleguidelines/variables/</guid>
       <description>Variable Names Use Camel Case Variable names should use camelCase.
 Bad:
-function Write-Log{$VerboseMessage = &amp;#39;New log message&amp;#39;Write-Verbose $VerboseMessage}Bad:
-function Write-Log{$verbosemessage = &amp;#39;New log message&amp;#39;Write-Verbose $verbosemessage}Good:
-function Write-Log{$verboseMessage = &amp;#39;New log message&amp;#39;Write-Verbose $verboseMessage}Script, Environment and Global Variable Names Include Scope Script, environment, and global variables must always include their scope in the variable name unless the &amp;lsquo;using&amp;rsquo; scope is needed.</description>
+function Write-Log { $VerboseMessage = &amp;#39;New log message&amp;#39; Write-Verbose $VerboseMessage } Bad:
+function Write-Log { $verbosemessage = &amp;#39;New log message&amp;#39; Write-Verbose $verbosemessage } Good:
+function Write-Log { $verboseMessage = &amp;#39;New log message&amp;#39; Write-Verbose $verboseMessage } Script, Environment and Global Variable Names Include Scope Script, environment, and global variables must always include their scope in the variable name unless the &amp;lsquo;using&amp;rsquo; scope is needed.</description>
     </item>
     
     <item>
@@ -101,8 +101,8 @@ Avoid Using ard coded Computer Name Using hard coded computer names exposes sens
       <guid>https://dsccommunity.org/styleguidelines/calling-functions/</guid>
       <description>Avoid Cmdlet Aliases When calling a function use the full command not an alias. You can get the full command an alias represents by calling Get-Alias.
 Bad:
-ls -File $root -Recurse | ? { @(&amp;#39;.gitignore&amp;#39;, &amp;#39;.mof&amp;#39;) -contains $_.Extension }Good:
-Get-ChildItem -File $root -Recurse | Where-Object -FilterScript {@(&amp;#39;.gitignore&amp;#39;, &amp;#39;.mof&amp;#39;) -contains $_.Extension}Avoid Invoke-Expression Invoke-Expression is vulnerable to string injection attacks. It should not be used in any DSC resources.</description>
+ls -File $root -Recurse | ? { @(&amp;#39;.gitignore&amp;#39;, &amp;#39;.mof&amp;#39;) -contains $_.Extension } Good:
+Get-ChildItem -File $root -Recurse | Where-Object -FilterScript { @(&amp;#39;.gitignore&amp;#39;, &amp;#39;.mof&amp;#39;) -contains $_.Extension } Avoid Invoke-Expression Invoke-Expression is vulnerable to string injection attacks. It should not be used in any DSC resources.</description>
     </item>
     
     <item>
@@ -113,8 +113,8 @@ Get-ChildItem -File $root -Recurse | Where-Object -FilterScript {@(&amp;#39;.gi
       <guid>https://dsccommunity.org/styleguidelines/writing-functions/</guid>
       <description>Avoid Default Values for Mandatory Parameters Default values for mandatory parameters will always be overwritten, thus they are never used and can cause confusion.
 Bad:
-function Get-Something{param([Parameter(Mandatory = $true)][String]$Name = &amp;#39;My Name&amp;#39;)...}Good:
-function Get-Something{param([Parameter(Mandatory = $true)][String]$Name)...}Avoid Default Values for Switch Parameters Switch parameters have 2 values - there or not there.</description>
+function Get-Something { param ( [Parameter(Mandatory = $true)] [String] $Name = &amp;#39;My Name&amp;#39; ) ... } Good:
+function Get-Something { param ( [Parameter(Mandatory = $true)] [String] $Name ) ... } Avoid Default Values for Switch Parameters Switch parameters have 2 values - there or not there.</description>
     </item>
     
     <item>
@@ -166,8 +166,8 @@ In each localization folder there should be a PowerShell data (.psd1) file named
       <guid>https://dsccommunity.org/styleguidelines/pester-tests/</guid>
       <description>Capitalized Pester Assertions Pester assertions should all start with capital letters. This makes code easier to read.
 Bad:
-it &amp;#39;Should return something&amp;#39; {get-targetresource @testParameters | should -be &amp;#39;something&amp;#39;}Good:
-It &amp;#39;Should return something&amp;#39; {Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39;}Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
+it &amp;#39;Should return something&amp;#39; { get-targetresource @testParameters | should -be &amp;#39;something&amp;#39; } Good:
+It &amp;#39;Should return something&amp;#39; { Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39; } Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
     </item>
     
   </channel>

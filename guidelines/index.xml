@@ -62,7 +62,7 @@ As a maintainer you are allowed to review and merge your own code.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/guidelines/testing-guidelines/</guid>
-      <description>General Rules  Tests are written using Pester. Preferably use the concept of test-driven development when writing tests. Each DSC module should contain the following Test folder structure:  tests|---Unit|---Integration The tests\Unit folder must contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.Tests.ps1. The tests\Integration folder should, whenever possible, contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.</description>
+      <description>General Rules  Tests are written using Pester. Preferably use the concept of test-driven development when writing tests. Each DSC module should contain the following Test folder structure:  tests |---Unit |---Integration  The tests\Unit folder must contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.Tests.ps1. The tests\Integration folder should, whenever possible, contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.</description>
     </item>
     
     <item>

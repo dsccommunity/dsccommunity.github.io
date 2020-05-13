@@ -13,15 +13,14 @@
     
     
     <item>
-      <title>Next Community Call 2020-04-08</title>
+      <title>Next Community Call 2020-05-20</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, April 8th, at 12 PM PST
+      <description>Next call will be on Wednesday, May 20th, at 12 PM PST
 Want to submit a question to discuss during the call? Just submit a Pull request to this file!
-Agenda  Quick update on activity Presentation by Raimund Andre: Less code in resource with Test-DscParameterState    Migration to Continuous Delivery Process (GitHub Board):
- Completed since last call  OfficeOnlineServerDsc xDhcpServer xHyper-V xDnsServer CertificateDsc xWindowsUpdate   In progress  StorageDsc   New modules  FileSystemDsc   Deprecated (will no longer be released)  xDismFeature xSystemSecurity (deprecated, use ComputerManagementDsc and FileSystemDsc instead)   Modules not yet converted but with PR activity within last 3 months (seen in AppVeyor)  JeaDsc SecurityPolicyDsc StorageDsc DfsDsc DscResource.</description>
+Agenda  Presentation by Bartek Bielawski: Class Based DSC Resources from the trenches Quick update on activity:  Migration to Continuous Delivery Process (GitHub Board):  Completed since last call  iSCSIDsc StorageDsc SecurityPolicyDsc ?   In progress  None   New modules  None   Modules not yet converted but with PR activity within last 4 months (seen in AppVeyor)  JeaDsc DfsDsc DscResource.</description>
     </item>
     
     <item>
