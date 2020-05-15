@@ -19,8 +19,10 @@
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
       <description>Next call will be on Wednesday, May 20th, at 12 PM PST
+Discussions Topics or questions from the community (welcome at any point during the call)
+Talk to us on Virtual PowerShell User Group #DSC channel. For information on how to join, see https://dsccommunity.org/community/contact/
 Want to submit a question to discuss during the call? Just submit a Pull request to this file!
-Agenda  Presentation by Bartek Bielawski: Class Based DSC Resources from the trenches Quick update on activity:  Migration to Continuous Delivery Process (GitHub Board):  Completed since last call  iSCSIDsc StorageDsc SecurityPolicyDsc ?   In progress  None   New modules  None   Modules not yet converted but with PR activity within last 4 months (seen in AppVeyor)  JeaDsc DfsDsc DscResource.</description>
+Agenda  Presentation by Bartek Bielawski: Class Based DSC Resources from the trenches Quick update on activity:  Migration to Continuous Delivery Process (GitHub Board):  Completed since last call  iSCSIDsc StorageDsc SecurityPolicyDsc SChannelDsc xDscDiagnostics   In progress  None currently?</description>
     </item>
     
     <item>
