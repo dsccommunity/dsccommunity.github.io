@@ -24,11 +24,11 @@ But when you have installed hugo, forked the dsccommunity.org, and cloned your f
     </item>
     
     <item>
-      <title>Converting to Pester 5 from the trenches</title>
-      <link>https://dsccommunity.org/blog/converting-to-pester5-from-the-trenches/</link>
+      <title>Converting tests to Pester 5</title>
+      <link>https://dsccommunity.org/blog/converting-tests-to-pester5/</link>
       <pubDate>Sun, 17 May 2020 05:00:00 +0100</pubDate>
       
-      <guid>https://dsccommunity.org/blog/converting-to-pester5-from-the-trenches/</guid>
+      <guid>https://dsccommunity.org/blog/converting-tests-to-pester5/</guid>
       <description>If you have any questions or suggestions around this blog post then please reach out to @johlju in the Virtual PowerShell User Group #DSC channel.
 Pester Pester, the famous DSL and module in the PowerShell community, is used throughout the DSC modules and their common modules to ensure we maintain quality for all new contributions by testing any addition and verify they work with the rest of the code to avoid regression.</description>
     </item>
