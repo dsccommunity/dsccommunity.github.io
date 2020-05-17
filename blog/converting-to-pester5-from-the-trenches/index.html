@@ -1,0 +1,611 @@
+<head>
+  <meta charset="utf-8">
+  <title>Converting to Pester 5 from the trenches</title>
+
+  <meta name="generator" content="Hugo 0.70.0" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144465379-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/themify-icons/themify-icons.css">
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/highlight/hybrid.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+
+  <style>
+  :root{
+    --primary-color:#003366;
+    --secondary-color:#f9f9f9;
+    --text-color:#242738;
+    --text-color-dark:#000;
+    --white-color:#ffffff;
+  }
+  </style>
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://dsccommunity.org/css/style.min.css" integrity="" media="screen">
+
+  <!-- jquiry -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-1.12.4.js"></script>
+
+  <!-- jquary ui -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-ui.js"></script>
+
+  <!--Favicon-->
+  <link rel="icon" href="https://dsccommunity.org/images/favicon.png" type="image/x-icon">
+
+</head>
+
+<!-- navigation -->
+<header class="shadow-bottom sticky-top bg-white">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="https://dsccommunity.org/">DSC Community and Resource Kit</a>
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse text-center" id="navigation">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="https://dsccommunity.org/">Home</a>
+      </li>
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/code_of_conduct">Code of Conduct</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/community_calls">Community Calls</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/faq">Faq</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/help">help</a>
+      </li>
+      
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" >
+          
+          <a class="dropdown-item" href="/community">Community</a>
+          
+          <a class="dropdown-item" href="/resources">Resource Modules</a>
+          
+          <a class="dropdown-item" href="/guidelines">Guidelines</a>
+          
+          <a class="dropdown-item" href="/blog">Blog Posts</a>
+          
+          <a class="dropdown-item" href="/configmgt">Config. Management</a>
+          
+        </div>
+      </li>
+      
+      
+    </ul>
+    
+    <ul class="list-inline text-center mb-0">
+      
+    </ul>
+  </div>
+</nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<section class="single pt-5 bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="p-4 bg-white sticky-top top-100">
+            
+            <nav class="sidebar-menu">
+              <ul class="list-styled">
+            <li class=""><a href="/community/">Community</a>
+              <ul class="">
+            <li class=""><a href="/community/origin-story/">Origin Story</a>
+            </li>
+            <li class=""><a href="/community/ownership/">Ownership of DSC Resources</a>
+            </li>
+            <li class=""><a href="/community/committee/">DSC Community Committee</a>
+            </li>
+            <li class=""><a href="/community/maintainers/">Maintainers</a>
+            </li>
+            <li class=""><a href="/community/contact/">Join the Conversation</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/resources/">Resource Modules</a>
+            </li>
+            <li class=""><a href="/guidelines/">Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
+            </li>
+            <li class=""><a href="/guidelines/contributing/">Contributing</a>
+            </li>
+            <li class=""><a href="/guidelines/maintaining/">Maintaining</a>
+            </li>
+            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general/">General</a>
+            </li>
+            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
+            </li>
+            <li class=""><a href="/styleguidelines/functions/">Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
+            </li>
+            <li class=""><a href="/styleguidelines/variables/">Variables</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
+            </li></ul>
+              
+            </li>
+            <li class="parent d-block "><a href="/blog/">Blog Posts</a>
+              <ul class="sub-menu">
+            <li class=""><a href="/blog/create-an-article/">Create an Article</a>
+            </li>
+            <li class=" active "><a href="/blog/converting-to-pester5-from-the-trenches/">Converting to Pester 5 from the trenches</a>
+            </li>
+            <li class=""><a href="/blog/add-codecov-support-to-repository/">Add Codecov Support to Repository</a>
+            </li>
+            <li class=""><a href="/blog/use-dscresource-common-functions-in-module/">DscResource.Common functions in a DSC module</a>
+            </li>
+            <li class=""><a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a>
+            </li>
+            <li class=""><a href="/blog/how-to-use-dsc-logging/">How to Use Dsc Logging</a>
+            </li>
+            <li class=""><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
+            <li class=""><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/community_calls/">Community Calls</a>
+              <ul class="">
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-05-20</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-02-26-notes/">2020-02-26 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-01-22-notes/">2020-01-22 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-12-04-notes/">2019-12-04 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/code_of_conduct/">Code of Conduct</a>
+              <ul class="">
+            <li class=""><a href="/code_of_conduct/standards/">Our Standards</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/scope/">Scope</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/enforcement/">Enforcement</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/common_questions/">Common Questions</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/attribution/">Attribution</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/help/">Help</a>
+              <ul class="">
+            <li class=""><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
+            </li>
+            <li class=""><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/contributors/">Elements</a>
+            </li>
+            <li class=""><a href="/faq/">Frequently Asked Questions</a>
+            </li></ul>
+            </nav>
+
+            
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-5 bg-white">
+            <h2>Converting to Pester 5 from the trenches</h2>
+            <p>If you have any questions or suggestions around this blog post then please
+reach out to <code>@johlju</code> in the Virtual PowerShell User Group <a href="https://dsccommunity.org/community/contact/">#DSC channel</a>.</p>
+<h2 id="pester">Pester</h2>
+<p><a href="https://github.com/pester">Pester</a>, the famous DSL and module in the
+PowerShell community, is used throughout the DSC modules and their common
+modules to ensure we maintain quality for all new contributions by testing
+any addition and verify they work with the rest of the code to avoid
+regression.</p>
+<p>A new major version of Pester is about to be released, bringing improvements
+in some areas along with breaking changes compared to the previous v4
+versions. In this post I will explain what may be needed to convert your
+existing tests from v4 to v5. See the release note under <a href="https://github.com/pester/Pester/releases">Pester Releases</a>
+where for example the RC6 release notes contain documentation needed
+for converting.</p>
+<p>Pester is primarily maintained and developed by <a href="https://github.com/nohwnd">Jakub Jareš</a>.
+Pester 5 was made possible thanks to Jakub&rsquo;s hard work during many weekends,
+outside of his day job. If you have the means then consider <a href="https://github.com/sponsors/nohwnd">sponsoring Jakub</a>
+or <a href="https://opencollective.com/pester">sponsoring Pester</a> to show your
+appreciation for Jakub&rsquo;s dedication to the community and improving this
+OSS tool.</p>
+<h2 id="tests">Tests</h2>
+<p>I thought I&rsquo;d start with the module <em>SqlServerDsc.Common</em> that contains
+helper functions for the DSC resources in the SqlServerDsc module. I knew
+it used a lot of different techniques and also had older tests from before
+Pester 4. But after I started looking at the tests I realized that they
+have been refactor over the years to use modern Pester techniques such as
+having most setup and teardown done in <code>Before*</code>- and <code>After*</code>-blocks. So
+for these tests I needed to refactor just a few tests to use the <code>Before</code>-
+and <code>After</code>-block way.</p>
+<p>Even though the tests is doing setup and teardown in <code>Before*</code>- and
+<code>After*</code>-blocks, don&rsquo;t expect the tests to just run under Pester 5.
+It took me still over 8 hours to convert 175 test for 3000 lines of code.
+If the tests had not used the <code>Before*</code>- and <code>After*</code>-blocks as much as
+they did the conversion would have taken considerably longer.</p>
+<h2 id="converting">Converting</h2>
+<p>It took, and will take some time, to learn new practices around how Pester
+does <em><strong>Discovery</strong></em> and <em><strong>Run</strong></em> which is new to Pester 5, especially around
+<code>InModuleScope</code>-block.</p>
+<p>Pester 5 is mostly backward compatible with the syntax used in Pester v4,
+but it is recommended to use the new cmdlets name as backward compatibility
+is achieved with aliases in v5.</p>
+<p>What took most time was to understand the error messages that was
+outputted when running test that was not &ldquo;Pester 5 compatible&rdquo;. When the
+tests was wrongly written for Pester 5 it took some time to understand if
+the error was from Pester, bug in tests, or bug in the code being tested.
+99.9% of the time it was just the tests that needed to be slightly modified
+to accommodate Pester&rsquo;s new way of working.</p>
+<blockquote>
+<p>Converting to Pester 5 did help found a bug in the tests that we had
+missed with Pester 4. There was a need for mocking a line in the code
+that messed up the PowerShell session. That needed a change in the code
+being testing.</p>
+</blockquote>
+<p>After writing Pester tests in Pester 3 and 4 I was used to some error
+messages returned by Pester when messing up tests, the same will happen
+for Pester 5, eventually.</p>
+<p>I also had tremendous help from the community in the Virtual PowerShell
+User Group <a href="http://poshcode.org/">#testing channel</a> when doing this conversion.
+It is the same place where the <a href="https://dsccommunity.org/community/contact/">#DSC channel</a>
+is located.</p>
+<p>From the conversion there was changes to the unit tests that still worked
+in Pester 4. Those changes was merged into master, and the changes can be
+seen here:
+<a href="https://github.com/dsccommunity/SqlServerDsc/pull/1548/files#diff-05195506e4856646b3925b7788341a92">https://github.com/dsccommunity/SqlServerDsc/pull/1548/files#diff-05195506e4856646b3925b7788341a92</a></p>
+<p>And here is the PR so you can see the actually difference for the tests
+for them to run in Pester 5 (linking to reviewable since it has a better
+diff engine than GitHub):
+<a href="https://reviewable.io/reviews/dsccommunity/sqlserverdsc/1550">https://reviewable.io/reviews/dsccommunity/sqlserverdsc/1550</a></p>
+<p>Here you can find the resulting tests that passing in Pester 5:
+<a href="https://github.com/dsccommunity/SqlServerDsc/blob/9aff05501051e77e64b9a0081d2d16dabd562052/tests/Unit/SqlServerDsc.Common.Tests.ps1">https://github.com/dsccommunity/SqlServerDsc/blob/9aff05501051e77e64b9a0081d2d16dabd562052/tests/Unit/SqlServerDsc.Common.Tests.ps1</a></p>
+<h3 id="things-found-during-conversion">Things found during conversion</h3>
+<p>Please note that some of these might not actually be an issue or should
+be solved in some other way.</p>
+<ul>
+<li>Code inside a <code>Describe</code>- or <code>Context</code>-block should be inside a <code>It</code>-,
+<code>Before*</code>-, or <code>After*</code>-block. The exception to this is variables that
+contain test cases, those variables should be placed inside the
+<code>Describe</code>-block and before the <code>It</code>-block, but outside of the
+<code>Before*</code>-blocks.
+they must be outside Before*-blocks and It-blocks, but inside Describe-
+or Context-blocks.</li>
+<li><code>Should -Throw 'error message'</code> has a breaking change. It no longer
+uses <code>-contains</code> but instead <code>-like</code> which breaks some tests that depend
+on this when comparing error message strings. It possible to add wildcard
+to the error string to workaround this, e.g. <code>'error message*'</code>.
+<ul>
+<li>When using for example <code>New-InvalidOperationException</code> the expected
+message no longer compares correctly since the error message contain
+<code>'System.InvalidOperationException: error message'</code>. It can be solved
+by using wildcard as previously mentioned, but it can also be solved
+by adding the test helper function <a href="https://github.com/dsccommunity/SqlServerDsc/blob/7f14116514f2cfbe103d85d509ba0f74780fbe80/tests/TestHelpers/CommonTestHelper.psm1#L421-L468"><code>Get-InvalidOperationRecord</code></a>.
+Using this helper function will return the the same error message
+and no wildcard is needed.</li>
+</ul>
+</li>
+<li><code>Assert-MockCalled</code> is alias to <code>Should -Invoke</code> and uses the same
+parameters (backward compatible) so there is no need to replace
+<code>Assert-MockCalled</code> initially. But a suggestion is replace this as it
+is easy with a search and replace.</li>
+<li>If using <code>InModuleScope</code>-block outside of an It-block then the module
+<em>must</em> be loaded into the session outside the top <code>BeforeAll</code>-block.
+Read more about this in issue <a href="https://github.com/pester/Pester/issues/1543">pester/Pester#1543</a>.
+We use <code>InModuleScope</code>-block to reach the variable in the
+module scope that contain the localized strings (<code>$script:localizedData</code>).</li>
+<li><code>Should -Throw</code> should preferably be updated to <code>Should -Throw -ExpectedMessage</code>
+to use named parameters. But is is not a requirement for running the tests.</li>
+<li><code>Should -Throw $null</code> will pass even if the code being tested actually
+threw an exception. So if we get the expected error message from a localized
+string and that for some reason resultet in a $null value instead of the
+correct string the test will pass even if the code being test throw the
+wrong error message. To handle this the expected error message variable
+should be assert to contain a value.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">  $errorMessage = $script:localizedString.LocalizedErrorMessage
+  $errorMessage | Should <span style="color:#f92672">-Not</span> -BeNullOrEmpty
+  { Set-Something } | Should -Throw $errorMessage
+</code></pre></div></li>
+<li><code>BeforeEach</code> behaves differently (better) than Pester 4. In Pester 4
+if a mock was declared in a previous <code>BeforeAll</code>- or <code>BeforeEach</code>-block
+the <code>BeforeEach</code> block override the previous mock. That is not happening
+in Pester 5 meaning that the wrong mock could be called.
+It is more important to make <code>Context</code>-blocks self-sustaining and avoid
+inheriting test setup and or teardown.</li>
+<li>Mocks that uses a <code>param</code>-block inside a <code>-MockWith</code> should be removed.
+Se more information in issue <a href="https://github.com/pester/Pester/issues/1554">pester/Pester#1554</a>.</li>
+<li>The <code>foreach</code>-blocks that was used did not work since it didn&rsquo;t see the
+variable from the <code>foreach()</code> inside the <code>It</code>-block because the
+<code>foreach</code>-block was outside the <code>Before*</code>- and <code>It</code>-block.
+The <code>foreach</code>-blocks was removed and replaced with test cases.</li>
+<li>If the tests haven&rsquo;t moved from the Pester 3 syntax, e.g. <code>Should Be</code>
+and <code>Should Throw</code> (without dash), the tests are failing with the error
+message:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">ParameterBindingException: Parameter set cannot be resolved using the specified named parameters.
+One or more parameters issued cannot be used together or an insufficient number of parameters were provided.
+</code></pre></div></li>
+<li>If using test cases and have defined a parameter block and decorated the
+parameters with <code>[Parameter()]</code> the test will fail. Remove the decoration
+<code>[Parameter()]</code> and the tests work with both Pester 4 and 5. In Pester 5
+it is possible to remove the entire param-block, which is preferably but
+then there is not backward compatibility with Pester 4.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should...if value is &lt;ParameterValue&gt;&#39;</span> -TestCase @( ... ) {
+      <span style="color:#66d9ef">param</span>
+      (
+          <span style="color:#66d9ef">[System.String]</span>
+          $ParameterValue
+      )
+
+      Get-Something | Should -Be $ParameterValue
+}
+</code></pre></div></li>
+<li>In Pester 5 it is possible to use <code>Should -Invoke</code> (or alias <code>Assert-MockCalled</code>)
+without having declared a mock for the command. Then <code>Should -Invoke</code> is
+just ignored without any error that there was no mock declared as Pester 4
+did.</li>
+<li>There is a bug when using <code>$PSBoundParameters</code> in a <code>-ParameterFiler</code>
+for a <code>Should -Invoke</code>. This is being tracked in issue <a href="https://github.com/pester/Pester/issues/1542">pester/Pester#1542</a>
+and won&rsquo;t be fixed before 5.0.0 GA.</li>
+<li>If <code>Mock</code>'s are outside the <code>Before*</code>- or <code>It</code>-blocks then things are
+<em>not mocked</em> so make sure prior running the tests that all code is
+correctly placed! There is no check that you incorrectly placed a <code>Mock</code>
+where it serves no purpose.</li>
+</ul>
+<h3 id="pester-5-test-scaffolding">Pester 5 Test scaffolding</h3>
+<p>A Pester 5 test should basically look like this. All test code must be
+be inside <code>Before*</code>-, <code>After*</code>-, and <code>It</code>-blocks. There are an exception
+to the rule when it comes to test cases.</p>
+<p><em><strong>Note</strong>: This is just an example from me which may change in the future</em>
+<em>when new practices are learned and old habits are improved or replaced.</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#
+</span><span style="color:#75715e">    Import module if using InModuleScope. There are other possible solution for
+</span><span style="color:#75715e">    this, see issue https://github.com/pester/Pester/issues/1543.
+</span><span style="color:#75715e">#&gt;</span>
+Import-Module -Name <span style="color:#e6db74">&#39;.\output\SqlServerDsc\14.0.0\Modules\SqlServerDsc.Common&#39;</span>
+
+BeforeAll {
+    <span style="color:#75715e"># More initialization code like loading stub cmdlets or stub classes</span>
+}
+
+Describe <span style="color:#e6db74">&#39;SqlServerDsc.Common\Set-Something&#39;</span> {
+    Context <span style="color:#e6db74">&#39;When...&#39;</span> {
+        BeforeAll {
+            <span style="color:#75715e"># Test setup. Mock and mock variables as needed.</span>
+        }
+
+        BeforeEach {
+            <span style="color:#75715e"># Test setup per It-block. Mock and mock variable setup.</span>
+        }
+
+        AfterAll {
+            <span style="color:#75715e"># Test teardown.</span>
+        }
+
+        AfterEach {
+            <span style="color:#75715e"># Test teardown per It-block.</span>
+        }
+
+        It <span style="color:#e6db74">&#39;Should...&#39;</span> {
+            { Set-Something } | Should <span style="color:#f92672">-Not</span> -Throw
+
+            Should -Invoke -CommandName Get-Something -Exactly -Times 1 -Scope It
+        }
+    }
+
+    Context <span style="color:#e6db74">&#39;When...&#39;</span> {
+        <span style="color:#75715e"># Test cases can be added directly to the It-block.</span>
+        It <span style="color:#e6db74">&#39;Should...&#39;</span> -TestCases @(
+            {
+                MockVersion = <span style="color:#e6db74">&#39;11&#39;</span>
+            }
+            {
+                MockVersion = <span style="color:#e6db74">&#39;12&#39;</span>
+            }
+        ) {
+            { Set-Something -Version $MockVersion } | Should <span style="color:#f92672">-Not</span> -Throw
+
+            Should -Invoke -CommandName Get-Something -Exactly -Times 1 -Scope It
+        }
+
+        <span style="color:#75715e">&lt;#
+</span><span style="color:#75715e">            If test cases are defined in a variable then the variable
+</span><span style="color:#75715e">            is not allowed to be inside a Before*-block because then
+</span><span style="color:#75715e">            it is not executed during Discovery when the test cases are
+</span><span style="color:#75715e">            evaluated. Correct placement of these variables are inside
+</span><span style="color:#75715e">            the Describe-block and before the It-block, but outside of
+</span><span style="color:#75715e">            the Before*-blocks.
+</span><span style="color:#75715e">        #&gt;</span>
+        $testCases = @(
+            {
+                MockVersion = <span style="color:#e6db74">&#39;11&#39;</span>
+            }
+            {
+                MockVersion = <span style="color:#e6db74">&#39;12&#39;</span>
+            }
+        )
+
+        <span style="color:#75715e"># Test cases can be added directly like this to the It-block-</span>
+        It <span style="color:#e6db74">&#39;Should...&#39;</span> -TestCases $testCases {
+            { Set-Something -Version $MockVersion } | Should <span style="color:#f92672">-Not</span> -Throw
+
+            Should -Invoke -CommandName Get-Something -Exactly -Times 1 -Scope It
+        }
+
+    }
+
+    <span style="color:#75715e">&lt;#
+</span><span style="color:#75715e">        Write tests so you only need to have InModuleScope around as little
+</span><span style="color:#75715e">        code as possible, preferably only inside the It-block. But if the
+</span><span style="color:#75715e">        It-block needs variables in the test setup then that is not possible
+</span><span style="color:#75715e">        since those will not be able in the module scope.
+</span><span style="color:#75715e">        See issue https://github.com/pester/Pester/issues/1543.
+</span><span style="color:#75715e">    #&gt;</span>
+    InModuleScope $script:subModuleName {
+        Context <span style="color:#e6db74">&#39;When...&#39;</span> {
+            BeforeAll {
+                <span style="color:#75715e"># Test setup. Mock and mock variables as needed.</span>
+            }
+
+            BeforeEach {
+                <span style="color:#75715e"># Test setup per It-block. Mock and mock variable setup.</span>
+            }
+
+            AfterAll {
+                <span style="color:#75715e"># Test teardown.</span>
+            }
+
+            AfterEach {
+                <span style="color:#75715e"># Test teardown per It-block.</span>
+            }
+
+            It <span style="color:#e6db74">&#39;Should throw the correct error message&#39;</span> {
+                <span style="color:#75715e"># The variable $localizedData is coming from the module being tested.</span>
+                $mockErrorMessage = $localizedData.LocalizedErrorMessage
+
+                <span style="color:#75715e"># Assert that the localized string was fetched.</span>
+                $mockErrorMessage.Exception.Message | Should <span style="color:#f92672">-Not</span> -BeNullOrEmpty
+
+                <span style="color:#75715e"># Assert that the correct error message was thrown.</span>
+                {
+                    Set-Something
+                } | Should -Throw -ExpectedMessage $mockErrorMessage
+            }
+        }
+    }
+}
+</code></pre></div>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 17 May 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/create-an-article/" title="Create an Article"><i class="ti-arrow-left mr-2"></i>Create an Article</a>
+            <a class="nav nav-next" href="/blog/add-codecov-support-to-repository/" title="Add Codecov Support to Repository">Add Codecov Support to Repository<i class="ti-arrow-right ml-2"></i></a>
+            </nav></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- footer -->
+<footer class="section bg-gray pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+        <p>Copyright 2019 the dsccommunity.org contributors.</p> 
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://github.com/dsccommunity/"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/dsccommunity"><i class="ti-twitter-alt"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Bootstrap JS -->
+<script src="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- highlight -->
+<script src="https://dsccommunity.org/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Main Script -->
+
+<script src="https://dsccommunity.org/js/script.min.js"></script>
