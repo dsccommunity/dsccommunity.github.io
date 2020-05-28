@@ -13,16 +13,29 @@
     
     
     <item>
-      <title>Next Community Call 2020-05-20</title>
+      <title>Next Community Call 2020-07-01</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
       <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, May 20th, at 12 PM PST
+      <description>Next call will be on Wednesday, July 1st, at 12 PM PST
 Discussions Topics or questions from the community (welcome at any point during the call)
 Talk to us on Virtual PowerShell User Group #DSC channel. For information on how to join, see https://dsccommunity.org/community/contact/
 Want to submit a question to discuss during the call? Just submit a Pull request to this file!
-Agenda  Presentation by Bartek Bielawski: Class Based DSC Resources from the trenches Women in PowerShell/DevOps Virtual Event (Registration) Open discussion - SqlServerDsc: Renaming resources that contain &amp;lsquo;Server&amp;rsquo; https://github.</description>
+Agenda TBC</description>
+    </item>
+    
+    <item>
+      <title>2020-05-20 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2020-05-20-notes/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2020-05-20-notes/</guid>
+      <description>Next call will be on Wednesday, July 1st, at 12 PM PST
+Agenda   Presentation by Bartek Bielawski: Class Based DSC Resources from the trenches Meeting recording     Women in PowerShell/DevOps Virtual Event (Registration)
+  Open discussion - SqlServerDsc: Renaming resources that contain &amp;lsquo;Server&amp;rsquo; https://github.com/dsccommunity/SqlServerDsc/issues/1540
+  Quick update on activity:
+ Migration to Continuous Delivery Process (GitHub Board):  Completed since last call  iSCSIDsc StorageDsc SecurityPolicyDsc SChannelDsc xDscDiagnostics   In progress  FSRMDsc   New modules  SChannelDsc (from Yorick)   Modules not yet converted but with PR activity within last 4 months (seen in AppVeyor)  JeaDsc DfsDsc DscResource.</description>
     </item>
     
     <item>
