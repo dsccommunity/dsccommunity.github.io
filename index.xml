@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2020 23:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
@@ -106,6 +106,17 @@ But when you have installed hugo, forked the dsccommunity.org, and cloned your f
       
       <guid>https://dsccommunity.org/styleguidelines/markdown-files/</guid>
       <description>Line length not longer than 80 characters Rows longer than 80 characters should be split into multiple lines where appropriate. This helps make it easier for reviewers to make review comments and for the contributors to see where the requested changes are (without scrolling). It is also easier to see the lines in split view mode when the lines don&amp;rsquo;t wrap on the screen. It will also improve the readability when using git diff.</description>
+    </item>
+    
+    <item>
+      <title>DSC is Dead</title>
+      <link>https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/</link>
+      <pubDate>Sat, 30 May 2020 23:00:00 +0100</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/</guid>
+      <description>Hi PowerShell and DSC folks!
+I wanted to share the PSConfEU session Michael and myself have recorded on DSC and Guest Configuration.
+There will be a live Q&amp;amp;A on the Wednesday 3rd of June at 6PM CEST (9AM Pacific Time), so make sure you have watched and submit any further question. Tune-in as early as Tuesday 2nd of June 5PM CEST to watch the live Opening and Keynote with Tobias, Jeffrey Snover and Joey Aiello.</description>
     </item>
     
     <item>

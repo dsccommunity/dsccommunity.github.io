@@ -24,6 +24,17 @@ But when you have installed hugo, forked the dsccommunity.org, and cloned your f
     </item>
     
     <item>
+      <title>DSC is Dead</title>
+      <link>https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/</link>
+      <pubDate>Sat, 30 May 2020 23:00:00 +0100</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/</guid>
+      <description>Hi PowerShell and DSC folks!
+I wanted to share the PSConfEU session Michael and myself have recorded on DSC and Guest Configuration.
+There will be a live Q&amp;amp;A on the Wednesday 3rd of June at 6PM CEST (9AM Pacific Time), so make sure you have watched and submit any further question. Tune-in as early as Tuesday 2nd of June 5PM CEST to watch the live Opening and Keynote with Tobias, Jeffrey Snover and Joey Aiello.</description>
+    </item>
+    
+    <item>
       <title>Converting tests to Pester 5</title>
       <link>https://dsccommunity.org/blog/converting-tests-to-pester5/</link>
       <pubDate>Sun, 17 May 2020 05:00:00 +0100</pubDate>

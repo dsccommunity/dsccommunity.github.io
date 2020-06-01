@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Writing Functions</title>
+  <title>DSC is Dead</title>
 
   <meta name="generator" content="Hugo 0.72.0" />
 
@@ -172,8 +172,8 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class="parent d-block "><a href="/styleguidelines/">Style Guidelines</a>
-              <ul class="sub-menu">
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
             <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
             </li>
             <li class=""><a href="/styleguidelines/general/">General</a>
@@ -190,7 +190,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
             </li>
-            <li class="parent d-block  active "><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
             </li>
             <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
             </li>
@@ -202,11 +202,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class=""><a href="/blog/">Blog Posts</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/blog/">Blog Posts</a>
+              <ul class="sub-menu">
             <li class=""><a href="/blog/create-an-article/">Create an Article</a>
             </li>
-            <li class=""><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
+            <li class="parent d-block  active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
             </li>
             <li class=""><a href="/blog/converting-tests-to-pester5/">Converting tests to Pester 5</a>
             </li>
@@ -289,136 +289,45 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Writing Functions</h2>
-            <h2 id="avoid-default-values-for-mandatory-parameters">Avoid Default Values for Mandatory Parameters</h2>
-<p>Default values for mandatory parameters will always be overwritten, thus they are
-never used and can cause confusion.</p>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Something
-{
-    <span style="color:#66d9ef">param</span>
-    (
-        [<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span> = $true)]
-        <span style="color:#66d9ef">[String]</span>
-        $Name = <span style="color:#e6db74">&#39;My Name&#39;</span>
-    )
+            <h2>DSC is Dead</h2>
+            <p>Hi PowerShell and DSC folks!</p>
+<p>I wanted to share the <a href="https://psconf.eu">PSConfEU</a> session Michael and myself have recorded on DSC and Guest Configuration.</p>
+<p>There will be a live Q&amp;A on the Wednesday 3rd of June at 6PM CEST (9AM Pacific Time), so make sure you have watched and <a href="http://powershell.one/psconfeu/psconf.eu-2020/about#asking-questions-in-real-time">submit any further question</a>.
+Tune-in as early as Tuesday 2nd of June 5PM CEST to <a href="http://powershell.one/psconfeu/psconf.eu-2020/about#june-2-2020">watch the live Opening and Keynote</a> with Tobias, Jeffrey Snover and Joey Aiello.</p>
 
-    ...
-}
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Something
-{
-    <span style="color:#66d9ef">param</span>
-    (
-        [<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span> = $true)]
-        <span style="color:#66d9ef">[String]</span>
-        $Name
-    )
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/hXS-rzs3Hak" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
 
-    ...
-}
-</code></pre></div><h2 id="avoid-default-values-for-switch-parameters">Avoid Default Values for Switch Parameters</h2>
-<p>Switch parameters have 2 values - there or not there.
-The default value is automatically $false so it doesn&rsquo;t need to be declared.
-If you are tempted to set the default value to $true - don&rsquo;t - refactor your code
-instead.</p>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Something
-{
-    <span style="color:#66d9ef">param</span>
-    (
-        <span style="color:#66d9ef">[Switch]</span>
-        $MySwitch = $true
-    )
+<p>Here&rsquo;s a quick table of content for this session:</p>
+<ol>
+<li><a href="https://youtu.be/hXS-rzs3Hak?t=155">From PowerShell to DSC</a></li>
+<li><a href="https://youtu.be/hXS-rzs3Hak?t=945">MOF parsing one-liner</a> (Quick tip)</li>
+<li><a href="https://youtu.be/hXS-rzs3Hak?t=1122">DevOps and Infrastructure as Code</a></li>
+<li><a href="https://youtu.be/hXS-rzs3Hak?t=1627">Is DSC dead?</a></li>
+<li><a href="https://youtu.be/hXS-rzs3Hak?t=1843">Invoke-DscResource in PS5 &amp; PS7</a></li>
+<li><a href="https://youtu.be/hXS-rzs3Hak?t=3083">The DSC Community</a>
+<ul>
+<li><a href="https://youtu.be/hXS-rzs3Hak?t=3215">Katie</a></li>
+<li><a href="https://youtu.be/hXS-rzs3Hak?t=3353">Dan</a></li>
+<li><a href="https://youtu.be/hXS-rzs3Hak?t=3448">Johan</a></li>
+</ul>
+</li>
+<li><a href="https://youtu.be/hXS-rzs3Hak?t=3695">Guest Configuration</a></li>
+<li><a href="https://youtu.be/hXS-rzs3Hak?t=4064">Azure Arc</a></li>
+<li><a href="https://youtu.be/hXS-rzs3Hak?t=4590">Conclusion</a></li>
+</ol>
+<p>The main points we wanted to cover in this session are what the current situation was, answer some questions, and show you where the future might be.
+We know that if you&rsquo;re following what the DSC Community and maybe joined one of our Community call, you must have heard a good chunk.</p>
+<p>This is an attempt to address the questions we hear the most, regardless of your knowledge -or lack of- in the DSC technology, Configuration Management or Infrastructure as Code.</p>
+<p>We wanted to clear up some misunderstanding, present the humans behind the <a href="/community/committee/">DSC Community Committee</a>, and explain how the technology may relate to your job and your future. You can read more details about <a href="/origin-story/">the Origin Story online</a>.</p>
+<p>I hope that another time we will be able to introduce the <a href="/community/maintainers/">DSC Community Maintainers</a>, and show the awesome work they&rsquo;re doing, and how you can help them!</p>
+<p>If you still have unanswered questions, we would love to hear them.
+You&rsquo;ll find us on the <a href="https://aka.ms/psslack">PowerShell slack</a> or Discord, in the DSC channel.</p>
+<p>Check our <a href="/help/">Help</a> for more info.</p>
 
-    ...
-}
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Something
-{
-    <span style="color:#66d9ef">param</span>
-    (
-        <span style="color:#66d9ef">[Switch]</span>
-        $MySwitch
-    )
-
-    ...
-}
-</code></pre></div><h2 id="include-the-force-parameter-in-functions-with-the-shouldcontinue-attribute">Include the Force Parameter in Functions with the ShouldContinue Attribute</h2>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div><h3 id="use-shouldprocess-if-the-shouldprocess-attribute-is-defined">Use ShouldProcess if the ShouldProcess Attribute is Defined</h3>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div><h2 id="define-the-shouldprocess-attribute-if-the-function-calls-shouldprocess">Define the ShouldProcess Attribute if the Function Calls ShouldProcess</h2>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div><h2 id="avoid-redefining-reserved-parameters">Avoid Redefining Reserved Parameters</h2>
-<p><a href="https://msdn.microsoft.com/en-us/library/dd901844(v=vs.85).aspx">Reserved Parameters</a>
-such as Verbose, Debug, etc. are already added to the function at runtime so don&rsquo;t
-redefine them. Add the CmdletBinding attribute to include the reserved parameters
-in your function.</p>
-<h2 id="use-the-cmdletbinding-attribute-on-every-function">Use the CmdletBinding Attribute on Every Function</h2>
-<p>The CmdletBinding attribute adds the reserved parameters to your function which is
-always preferable.</p>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Property
-{
-    <span style="color:#66d9ef">param</span>
-    (
-        ...
-    )
-    ...
-}
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Property
-{
-    [<span style="color:#66d9ef">CmdletBinding</span>()]
-    <span style="color:#66d9ef">param</span>
-    (
-        ...
-    )
-    ...
-}
-</code></pre></div><h2 id="define-the-outputtype-attribute-for-all-functions-with-output">Define the OutputType Attribute for All Functions With Output</h2>
-<p>The OutputType attribute should be declared if the function has output so that
-the correct error messages get displayed if the function ever produces an incorrect
-output type.</p>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyBoolean
-{
-    [OutputType(<span style="color:#66d9ef">[Boolean]</span>)]
-    <span style="color:#66d9ef">param</span> ()
-
-    ...
-
-    <span style="color:#66d9ef">return</span> $myBoolean
-}
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyBoolean
-{
-    [<span style="color:#66d9ef">CmdletBinding</span>()]
-    [OutputType(<span style="color:#66d9ef">[Boolean]</span>)]
-    <span style="color:#66d9ef">param</span> ()
-
-    ...
-
-    <span style="color:#66d9ef">return</span> $myBoolean
-}
-</code></pre></div><h2 id="return-only-one-object-from-each-function">Return Only One Object From Each Function</h2>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div>
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/styleguidelines/calling-functions/" title="Calling Functions"><i class="ti-arrow-left mr-2"></i>Calling Functions</a>
-            <a class="nav nav-next" href="/styleguidelines/dsc-resource-functions/" title="Dsc Resource Functions">Dsc Resource Functions<i class="ti-arrow-right ml-2"></i></a>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 30 May 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/create-an-article/" title="Create an Article"><i class="ti-arrow-left mr-2"></i>Create an Article</a>
+            <a class="nav nav-next" href="/blog/converting-tests-to-pester5/" title="Converting tests to Pester 5">Converting tests to Pester 5<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>
