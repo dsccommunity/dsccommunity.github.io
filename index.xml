@@ -22,7 +22,7 @@
 Discussions Topics or questions from the community (welcome at any point during the call)
 Talk to us on Virtual PowerShell User Group #DSC channel. For information on how to join, see https://dsccommunity.org/community/contact/
 Want to submit a question to discuss during the call? Just submit a Pull request to this file!
-Agenda TBC</description>
+Agenda  Quick update on activity:  Migration to Continuous Delivery Process (GitHub Board):  Completed since last call  DfsDsc FileContentDsc   In progress  FSRMDsc   New modules Modules not yet converted but with PR activity within last 4 months (seen in AppVeyor)  JeaDsc DscResource.</description>
     </item>
     
     <item>
