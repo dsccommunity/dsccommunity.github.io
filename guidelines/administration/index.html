@@ -295,6 +295,37 @@ if (!doNotTrack) {
 access to DSC Community resources, for example your GitHub account and
 the account that access DSC Community Azure DevOps organization.</p>
 <h3 id="github">GitHub</h3>
+<h4 id="create-github-organization-team">Create GitHub organization Team</h4>
+<h5 id="repository-maintainer-team">Repository Maintainer Team</h5>
+<p>Each repository that is created in a DSC Community GitHub organization
+should have at least one team for maintainers. This team should be a child
+team of the GitHub organization team <a href="https://github.com/orgs/dsccommunity/teams/maintainers">Maintainers</a>.</p>
+<ol>
+<li>Browse to <a href="https://github.com/orgs/dsccommunity/teams/maintainers/teams">https://github.com/orgs/dsccommunity/teams/maintainers/teams</a>.</li>
+<li>Click on <em>Add a team</em>.</li>
+<li>In the search box, write the repository name and then click <em>Create team</em>.</li>
+<li>In the new team dialog:
+<ul>
+<li>In the field <em>Team name</em> write the repository name, e.g. <code>PasswordPolicyDsc</code>.</li>
+<li>In the <em>Description</em> field write the repository name followed by the word
+&ldquo;Maintainers&rdquo;, e.g. <code>PasswordPolicyDsc Maintainers</code>.</li>
+<li>Make sure the <em>Parent team</em> is set to <code>Maintainers</code> and <em>Team visibility</em>
+is set to <code>Visible</code>.</li>
+</ul>
+</li>
+<li>Click <em>Create team</em>.</li>
+<li>When the team is created, click on the <em>Members</em> tab.</li>
+</ol>
+<p>You should see yourself as a member since you created the team. Continue
+with the section <a href="#add-members-to-an-organization-team">Add members to an organization team</a>.</p>
+<h5 id="add-members-to-an-organization-team">Add members to an organization team</h5>
+<ol>
+<li>Browse to the team you want to add a member to;
+<a href="https://github.com/orgs/dsccommunity/teams/%7Brepository_name%7D/members">https://github.com/orgs/dsccommunity/teams/{repository_name}/members</a></li>
+<li>Click on <em>Add a member</em> to invite a new member to the Team.</li>
+<li>If the member becomes a maintainer of a DSC module then also update
+the <a href="https://github.com/dsccommunity/dsccommunity.org/blob/master/data/maintainers.json">Maintainers section for the DSC Community site</a>.</li>
+</ol>
 <h4 id="create-github-repository">Create GitHub repository</h4>
 <p>To create a new GitHub repository in the DSC Community organization, browse
 to <a href="https://github.com/dsccommunity">https://github.com/dsccommunity</a> and click on <em>New</em>.</p>
@@ -303,8 +334,19 @@ to <a href="https://github.com/dsccommunity">https://github.com/dsccommunity</a>
 <p><strong>NOTE:</strong> To be able create repositories you must be an owner of the
 GitHub DSC Community organization. See <a href="https://github.com/orgs/dsccommunity/people?query=role%3Aowner">GitHub DSC Community organizational owners</a>.</p>
 </blockquote>
-<h5 id="create-github-repository-team">Create GitHub repository Team</h5>
-<p>Not written yet.</p>
+<h5 id="connect-a-github-organization-team-to-a-repository">Connect a GitHub organization team to a repository</h5>
+<p>Each repository should have a DSC Community GitHub organization team
+connected to it to easily manage maintainers. See the section
+<a href="#repository-maintainer-team">Repository Maintainer Team</a> on how to create this team.</p>
+<ol>
+<li>Browse to repository access page: <a href="https://github.com/dsccommunity/%7Brepository_name%7D/settings/access">https://github.com/dsccommunity/{repository_name}/settings/access</a>.</li>
+<li>Click on <em>Invite teams or people</em>.</li>
+<li>In the searchbox write the repository name, e.g. <code>PasswordPolicyDsc</code>.</li>
+<li>Click on the organization team name to add it (the team name shows as
+<code>dsccommunity/passwordpolicydsc</code>)</li>
+<li>Choose the correct role for the team. The repository Maintainer team should
+have <code>Admin</code> as the role.</li>
+</ol>
 <h3 id="azure-devops-organization">Azure DevOps organization</h3>
 <p>DSC Community has its own Azure DevOps Organization; <a href="https://dev.azure.com/dsccommunity/">https://dev.azure.com/dsccommunity/</a>.</p>
 <h4 id="create-azure-devops-project">Create Azure DevOps project</h4>

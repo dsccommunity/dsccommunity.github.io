@@ -72,9 +72,7 @@ As a maintainer you are allowed to review and merge your own code.</description>
       
       <guid>https://dsccommunity.org/guidelines/administration/</guid>
       <description>Security To be administrator you must have 2FA enabled on accounts that give you access to DSC Community resources, for example your GitHub account and the account that access DSC Community Azure DevOps organization.
-GitHub Create GitHub repository To create a new GitHub repository in the DSC Community organization, browse to https://github.com/dsccommunity and click on New.
-All repositories should always be added with MIT licensing.
- NOTE: To be able create repositories you must be an owner of the GitHub DSC Community organization.</description>
+GitHub Create GitHub organization Team Repository Maintainer Team Each repository that is created in a DSC Community GitHub organization should have at least one team for maintainers. This team should be a child team of the GitHub organization team Maintainers.</description>
     </item>
     
   </channel>
