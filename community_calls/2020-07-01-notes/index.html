@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Manifest</title>
+  <title>Next Community Call 2020-07-01</title>
 
   <meta name="generator" content="Hugo 0.74.3" />
 
@@ -172,8 +172,8 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class="parent d-block "><a href="/styleguidelines/">Style Guidelines</a>
-              <ul class="sub-menu">
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
             <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
             </li>
             <li class=""><a href="/styleguidelines/general/">General</a>
@@ -194,7 +194,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
             </li>
-            <li class="parent d-block  active "><a href="/styleguidelines/manifest/">Manifest</a>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
             </li>
             <li class=""><a href="/styleguidelines/localization/">Localization</a>
             </li>
@@ -228,11 +228,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class=""><a href="/community_calls/">Community Calls</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
+              <ul class="sub-menu">
             <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-08-12</a>
             </li>
-            <li class=""><a href="/community_calls/2020-07-01-notes/">Next Community Call 2020-07-01</a>
+            <li class="parent d-block  active "><a href="/community_calls/2020-07-01-notes/">Next Community Call 2020-07-01</a>
             </li>
             <li class=""><a href="/community_calls/2020-05-20-notes/">2020-05-20 Notes</a>
             </li>
@@ -291,31 +291,78 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Manifest</h2>
-            <h2 id="avoid-using-deprecated-manifest-fields">Avoid Using Deprecated Manifest Fields</h2>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div><h2 id="ensure-manifest-contains-correct-fields">Ensure Manifest Contains Correct Fields</h2>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div><h2 id="do-not-use-nestedmodules-to-export-shared-commands">Do not use NestedModules to export shared commands</h2>
-<p>Since we don&rsquo;t use the <code>RootModule</code> key in the module manifest, we should not
-use the <code>NestedModules</code> key to add modules that export commands that are shared
-between resource modules.</p>
-<p>Normally, a single list in the <code>RootModule</code> key, can restrict what is
-exported using the cmdlet <code>Export-ModuleMember</code>. Since we don&rsquo;t use the <code>RootModule</code>
-key we can&rsquo;t restrict what is exported, so every nested module will export all the
-commands (or all the commands restricted by <code>Export-ModuleMember</code> in that
-individual nested module). If two resource modules were to use the <code>NestedModules</code>
-method, it would result in one of them being unable to install since they have
-conflicting exported commands.</p>
+            <h2>Next Community Call 2020-07-01</h2>
+            <p>Next call will be on Wednesday, July 1st, at 12 PM PST</p>
+<h3 id="join-the-call">Join the call</h3>
+<p><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OTc2YThjZGQtNWE4Yi00NDQyLTk5NTktYWIwYjdhMGZjNDRl%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%222fd83437-7fe6-4ee4-a109-828a19cb7bff%22%7d">Join using the Microsoft Teams app</a></p>
+<p><a href="https://dialin.teams.microsoft.com/8551f4c1-bea3-441a-8738-69aa517a91c5?id=50343176">Or click here to browse the list of available dial-in numbers to find one that is local to your region</a></p>
+<p>Conference ID:
+503 431 76#</p>
+<h3 id="discussions">Discussions</h3>
+<p>Topics or questions from the community (welcome at any point during the call)</p>
+<p>Talk to us on <strong>Virtual PowerShell User Group</strong> <em>#DSC</em> channel.
+For information on how to join, see <a href="https://dsccommunity.org/community/contact/">https://dsccommunity.org/community/contact/</a></p>
+<p>Want to submit a question to discuss during the call? Just <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md">submit a Pull request to this file</a>!</p>
+<h3 id="agenda">Agenda</h3>
+<ol>
+<li>Quick update on activity:
+<ul>
+<li>Migration to Continuous Delivery Process (<a href="https://github.com/orgs/dsccommunity/projects/1">GitHub Board</a>):
+<ul>
+<li>Completed since last call
+<ul>
+<li>DfsDsc</li>
+<li>FileContentDsc</li>
+</ul>
+</li>
+<li>In progress
+<ul>
+<li>FSRMDsc</li>
+</ul>
+</li>
+<li>New modules</li>
+<li>Modules not yet converted but with PR activity within last 4 months
+(seen in AppVeyor)
+<ul>
+<li>JeaDsc</li>
+<li>DscResource.Analysis</li>
+<li>xBitlocker</li>
+</ul>
+</li>
+<li>Completed
+<ul>
+<li>xSystemSecurity</li>
+<li>ComputerManagementDsc</li>
+<li>ActiveDirectoryDsc</li>
+<li>NetworkingDsc</li>
+<li>SharePointDsc</li>
+<li>SQLServerDsc</li>
+<li>WSManDsc</li>
+<li>xFailOverCluster</li>
+<li>xPSDesiredStateConfiguration</li>
+<li>xWebAdministration</li>
+<li>GPRegistryPolicyDsc</li>
+<li>UpdateServicesDsc</li>
+<li>ActiveDirectoryCSDsc</li>
+<li>xExchange</li>
+<li>FileSystemDsc</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Resources that have been released recently
+<ul>
+<li>Releases</li>
+<li>Preview release</li>
+<li>Modules</li>
+</ul>
+</li>
+</ol>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/styleguidelines/dsc-resource-functions/" title="Dsc Resource Functions"><i class="ti-arrow-left mr-2"></i>Dsc Resource Functions</a>
-            <a class="nav nav-next" href="/styleguidelines/localization/" title="Localization">Localization<i class="ti-arrow-right ml-2"></i></a>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 12 May 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/next_call/" title="Next Community Call 2020-08-12"><i class="ti-arrow-left mr-2"></i>Next Community Call 2020-08-12</a>
+            <a class="nav nav-next" href="/community_calls/2020-05-20-notes/" title="2020-05-20 Notes">2020-05-20 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

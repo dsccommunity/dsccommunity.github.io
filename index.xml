@@ -7,18 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Sat, 30 May 2020 23:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Next Community Call 2020-07-01</title>
+      <title>Next Community Call 2020-08-12</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, July 1st, at 12 PM PST
+      <description>Next call will be on Wednesday, August 12th, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
@@ -409,6 +409,20 @@ In each localization folder there should be a PowerShell data (.psd1) file named
 Bad:
 it &amp;#39;Should return something&amp;#39; { get-targetresource @testParameters | should -be &amp;#39;something&amp;#39; } Good:
 It &amp;#39;Should return something&amp;#39; { Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39; } Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
+    </item>
+    
+    <item>
+      <title>Next Community Call 2020-07-01</title>
+      <link>https://dsccommunity.org/community_calls/2020-07-01-notes/</link>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2020-07-01-notes/</guid>
+      <description>Next call will be on Wednesday, July 1st, at 12 PM PST
+Join the call Join using the Microsoft Teams app
+Or click here to browse the list of available dial-in numbers to find one that is local to your region
+Conference ID: 503 431 76#
+Discussions Topics or questions from the community (welcome at any point during the call)
+Talk to us on Virtual PowerShell User Group #DSC channel. For information on how to join, see https://dsccommunity.</description>
     </item>
     
     <item>
