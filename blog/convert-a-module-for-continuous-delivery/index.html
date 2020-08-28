@@ -454,15 +454,15 @@ folder. Overwrite any current file.</li>
 <h3 id="module-manifest">Module manifest</h3>
 <p>Change the module manifest in the source folder, e.g. <code>SqlServerDsc.psd1</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$moduleName = <span style="color:#e6db74">&#39;{ModuleName}&#39;</span>
-$powerShellVersion = <span style="color:#e6db74">&#39;5.1&#39;</span>
+
+$powerShellVersion = <span style="color:#e6db74">&#39;5.1&#39;</span> <span style="color:#75715e"># Must be 5.1 to support the property DscResourcesToExport. Change manually after.</span>
+
+<span style="color:#75715e"># Temporarily install the module from the PowerShell Gallery to get the DSC resource names.</span>
+Install-Module -Name $moduleName -Scope CurrentUser
+$dscResourcesToExport = (Get-DscResource -Module $moduleName).Name
+Uninstall-Module -Name $moduleName -Force
 
 $manifestPath = <span style="color:#e6db74">&#34;source\</span>$($moduleName)<span style="color:#e6db74">.psd1&#34;</span>
-
-<span style="color:#75715e"># Temporarily add the current directory to PSModulePath to allow Get-DscResource to run</span>
-$originalPSModulePath=$env:PSModulePath
-$env:PSModulePath+=<span style="color:#e6db74">&#39;;.\source&#39;</span>
-$dscResourcesToExport = (Get-DscResource -Module $moduleName).Name
-$env:PSModulePath=$originalPSModulePath
 
 $updateModuleManifestParameters = @{
     Author               = <span style="color:#e6db74">&#39;DSC Community&#39;</span>
@@ -472,7 +472,7 @@ $updateModuleManifestParameters = @{
     IconUri              = <span style="color:#e6db74">&#39;https://dsccommunity.org/images/DSC_Logo_300p.png&#39;</span>
     LicenseUri           = <span style="color:#e6db74">&#34;https://github.com/dsccommunity/$moduleName/blob/master/LICENSE&#34;</span>
     Path                 = $manifestPath
-    PreRelease           = <span style="color:#e6db74">&#39;N/A&#39;</span>
+    PreRelease           = <span style="color:#e6db74">&#39;preview&#39;</span>
     ProjectUri           = <span style="color:#e6db74">&#34;https://github.com/dsccommunity/$moduleName&#34;</span>
     ReleaseNotes         = <span style="color:#e6db74">&#39; &#39;</span>
     ModuleVersion        = <span style="color:#e6db74">&#39;0.0.1&#39;</span> <span style="color:#75715e"># Module Version is now controlled by GitVersion</span>
