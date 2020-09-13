@@ -509,8 +509,8 @@ the DSC Community Azure DevOps organization and look in the URL, e.g.
 <a href="https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&amp;_a=summary">https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&amp;_a=summary</a>
 <strong>You have to get back to this once the pipeline is configured!</strong></p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## {RepositoryName}
-</span><span style="color:#75715e"></span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"># {RepositoryName}
+
 [<span style="color:#f92672">![Build Status</span>](<span style="color:#a6e22e">https://dev.azure.com/dsccommunity/{repositoryName}/_apis/build/status/dsccommunity.{repositoryName}?branchName=master</span>)](https://dev.azure.com/dsccommunity/{repositoryName}/_build/latest?definitionId={definitionId}<span style="color:#960050;background-color:#1e0010">&amp;</span>branchName=master)
 ![<span style="color:#f92672">Azure DevOps coverage (branch)</span>](<span style="color:#a6e22e">https://img.shields.io/azure-devops/coverage/dsccommunity/{repositoryName}/{definitionId}/master</span>)
 [<span style="color:#f92672">![Azure DevOps tests</span>](<span style="color:#a6e22e">https://img.shields.io/azure-devops/tests/dsccommunity/{repositoryName}/{definitionId}/master</span>)](https://dsccommunity.visualstudio.com/{repositoryName}/_test/analytics?definitionId={definitionId}<span style="color:#960050;background-color:#1e0010">&amp;</span>contextType=build)
@@ -710,7 +710,7 @@ KEYWORDS
 <li>Uncomment the folder <code>Modules</code> if the folder exist under the source folder,
 or if there are any helper modules (which need to be moved to the <code>Modules</code>
 folder).
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">CopyDirectories</span>:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">CopyPaths</span>:
   - Modules
 </code></pre></div></li>
 <li>(Optional) Clear out any commented rows <em>(they can always be found in the</em>
