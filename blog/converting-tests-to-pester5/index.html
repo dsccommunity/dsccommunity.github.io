@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Converting tests to Pester 5</title>
 
-  <meta name="generator" content="Hugo 0.74.3" />
+  <meta name="generator" content="Hugo 0.75.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -230,7 +230,9 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-08-12</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-09-23</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-08-12-notes/">Next Community Call 2020-08-12</a>
             </li>
             <li class=""><a href="/community_calls/2020-07-01-notes/">2020-07-01 Notes</a>
             </li>
@@ -448,7 +450,7 @@ did.</li>
 <li>There is a bug when using <code>$PSBoundParameters</code> in a <code>-ParameterFiler</code>
 for a <code>Should -Invoke</code>. This is being tracked in issue <a href="https://github.com/pester/Pester/issues/1542">pester/Pester#1542</a>
 and won&rsquo;t be fixed before 5.0.0 GA.</li>
-<li>If <code>Mock</code>'s are outside the <code>Before*</code>- or <code>It</code>-blocks then things are
+<li>If <code>Mock</code>&rsquo;s are outside the <code>Before*</code>- or <code>It</code>-blocks then things are
 <em>not mocked</em> so make sure prior running the tests that all code is
 correctly placed! There is no check that you incorrectly placed a <code>Mock</code>
 where it serves no purpose.</li>

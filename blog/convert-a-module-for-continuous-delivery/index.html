@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Steps to convert a module for continuous delivery</title>
 
-  <meta name="generator" content="Hugo 0.74.3" />
+  <meta name="generator" content="Hugo 0.75.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -230,7 +230,9 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-08-12</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-09-23</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-08-12-notes/">Next Community Call 2020-08-12</a>
             </li>
             <li class=""><a href="/community_calls/2020-07-01-notes/">2020-07-01 Notes</a>
             </li>
@@ -710,8 +712,8 @@ KEYWORDS
 <li>Uncomment the folder <code>Modules</code> if the folder exist under the source folder,
 or if there are any helper modules (which need to be moved to the <code>Modules</code>
 folder).
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">CopyPaths</span>:
-  - Modules
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">CopyPaths</span>:
+  - <span style="color:#ae81ff">Modules</span>
 </code></pre></div></li>
 <li>(Optional) Clear out any commented rows <em>(they can always be found in the</em>
 <em>template if they are needed in the future)</em>.</li>
@@ -845,8 +847,8 @@ Get-ChildItem -Path <span style="color:#e6db74">&#39;.\source\Examples&#39;</spa
 <ol>
 <li>From the <code>test:</code> task, remove the activity <code>hqrmtest</code>.</li>
 <li>Under the key <code>Pester</code> update the key <code>Script</code> to this.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Script</span>:
-  - tests/Unit
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Script</span>:
+  - <span style="color:#ae81ff">tests/Unit</span>
 </code></pre></div></li>
 <li>Under the key <code>Pester</code> remove all the items from the key <code>ExcludeTag</code>.
 Remove these:
@@ -973,113 +975,113 @@ e.g.</p>
 <ol>
 <li>Replace the string <code>Build_artefact</code> with <code>Build</code> (in one locations).</li>
 <li>Replace the entire stage <code>test_module</code> with the following.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#66d9ef">stage</span>: Test
-  <span style="color:#66d9ef">dependsOn</span>: Build
-  <span style="color:#66d9ef">jobs</span>:
-    - <span style="color:#66d9ef">job</span>: Test_HQRM
-      <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;HQRM&#39;</span>
-      <span style="color:#66d9ef">pool</span>:
-        <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
-      <span style="color:#66d9ef">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
-      <span style="color:#66d9ef">steps</span>:
-        - <span style="color:#66d9ef">task</span>: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
-          <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
-          <span style="color:#66d9ef">inputs</span>:
-            <span style="color:#66d9ef">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-            <span style="color:#66d9ef">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
-            <span style="color:#66d9ef">artifactName</span>: <span style="color:#e6db74">&#39;output&#39;</span>
-            <span style="color:#66d9ef">downloadPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
-        - <span style="color:#66d9ef">task</span>: PowerShell@<span style="color:#ae81ff">2</span>
-          <span style="color:#66d9ef">name</span>: test
-          <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Run HQRM Test&#39;</span>
-          <span style="color:#66d9ef">inputs</span>:
-            <span style="color:#66d9ef">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
-            <span style="color:#66d9ef">arguments</span>: <span style="color:#e6db74">&#39;-Tasks hqrmtest&#39;</span>
-            <span style="color:#66d9ef">pwsh</span>: <span style="color:#66d9ef">false</span>
-        - <span style="color:#66d9ef">task</span>: PublishTestResults@<span style="color:#ae81ff">2</span>
-          <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
-          <span style="color:#66d9ef">condition</span>: succeededOrFailed()
-          <span style="color:#66d9ef">inputs</span>:
-            <span style="color:#66d9ef">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
-            <span style="color:#66d9ef">testResultsFiles</span>: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
-            <span style="color:#66d9ef">testRunTitle</span>: <span style="color:#e6db74">&#39;HQRM&#39;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Test</span>
+  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Build</span>
+  <span style="color:#f92672">jobs</span>:
+    - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Test_HQRM</span>
+      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;HQRM&#39;</span>
+      <span style="color:#f92672">pool</span>:
+        <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
+      <span style="color:#f92672">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
+      <span style="color:#f92672">steps</span>:
+        - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadBuildArtifacts@0</span>
+          <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
+          <span style="color:#f92672">inputs</span>:
+            <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
+            <span style="color:#f92672">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
+            <span style="color:#f92672">artifactName</span>: <span style="color:#e6db74">&#39;output&#39;</span>
+            <span style="color:#f92672">downloadPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
+        - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span>
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">test</span>
+          <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Run HQRM Test&#39;</span>
+          <span style="color:#f92672">inputs</span>:
+            <span style="color:#f92672">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
+            <span style="color:#f92672">arguments</span>: <span style="color:#e6db74">&#39;-Tasks hqrmtest&#39;</span>
+            <span style="color:#f92672">pwsh</span>: <span style="color:#66d9ef">false</span>
+        - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishTestResults@2</span>
+          <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
+          <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">succeededOrFailed()</span>
+          <span style="color:#f92672">inputs</span>:
+            <span style="color:#f92672">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
+            <span style="color:#f92672">testResultsFiles</span>: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
+            <span style="color:#f92672">testRunTitle</span>: <span style="color:#e6db74">&#39;HQRM&#39;</span>
 
-    - <span style="color:#66d9ef">job</span>: Test_Unit
-      <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Unit&#39;</span>
-      <span style="color:#66d9ef">pool</span>:
-        <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
-      <span style="color:#66d9ef">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
-      <span style="color:#66d9ef">steps</span>:
-        - <span style="color:#66d9ef">powershell</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">            $repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split &#39;/&#39;</span>
-            echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryOwner;isOutput=true]$repositoryOwner&#34;</span>
-            echo <span style="color:#e6db74">&#34;##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName&#34;</span>
-          <span style="color:#66d9ef">name</span>: dscBuildVariable
-          <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Set Environment Variables&#39;</span>
-        - <span style="color:#66d9ef">task</span>: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
-          <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
-          <span style="color:#66d9ef">inputs</span>:
-            <span style="color:#66d9ef">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-            <span style="color:#66d9ef">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
-            <span style="color:#66d9ef">artifactName</span>: <span style="color:#e6db74">&#39;output&#39;</span>
-            <span style="color:#66d9ef">downloadPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
-        - <span style="color:#66d9ef">task</span>: PowerShell@<span style="color:#ae81ff">2</span>
-          <span style="color:#66d9ef">name</span>: test
-          <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Run Unit Test&#39;</span>
-          <span style="color:#66d9ef">inputs</span>:
-            <span style="color:#66d9ef">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
-            <span style="color:#66d9ef">arguments</span>: <span style="color:#e6db74">&#34;-Tasks test -PesterScript &#39;tests/Unit&#39;&#34;</span>
-            <span style="color:#66d9ef">pwsh</span>: <span style="color:#66d9ef">false</span>
-        - <span style="color:#66d9ef">task</span>: PublishTestResults@<span style="color:#ae81ff">2</span>
-          <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
-          <span style="color:#66d9ef">condition</span>: succeededOrFailed()
-          <span style="color:#66d9ef">inputs</span>:
-            <span style="color:#66d9ef">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
-            <span style="color:#66d9ef">testResultsFiles</span>: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
-            <span style="color:#66d9ef">testRunTitle</span>: <span style="color:#e6db74">&#39;Unit (Windows Server Core)&#39;</span>
-        - <span style="color:#66d9ef">task</span>: PublishCodeCoverageResults@<span style="color:#ae81ff">1</span>
-          <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage&#39;</span>
-          <span style="color:#66d9ef">condition</span>: succeededOrFailed()
-          <span style="color:#66d9ef">inputs</span>:
-            <span style="color:#66d9ef">codeCoverageTool</span>: <span style="color:#e6db74">&#39;JaCoCo&#39;</span>
-            <span style="color:#66d9ef">summaryFileLocation</span>: <span style="color:#e6db74">&#39;output/testResults/CodeCov*.xml&#39;</span>
-            <span style="color:#66d9ef">pathToSources</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/output/$(dscBuildVariable.RepositoryName)&#39;</span>
-
-    - <span style="color:#66d9ef">job</span>: Test_Integration
-      <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Integration&#39;</span>
-      <span style="color:#66d9ef">pool</span>:
-        <span style="color:#66d9ef">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
-      <span style="color:#66d9ef">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
-      <span style="color:#66d9ef">steps</span>:
-        - <span style="color:#66d9ef">task</span>: DownloadBuildArtifacts@<span style="color:#ae81ff">0</span>
-          <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
-          <span style="color:#66d9ef">inputs</span>:
-            <span style="color:#66d9ef">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-            <span style="color:#66d9ef">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
-            <span style="color:#66d9ef">artifactName</span>: <span style="color:#e6db74">&#39;output&#39;</span>
-            <span style="color:#66d9ef">downloadPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
-        - <span style="color:#66d9ef">task</span>: PowerShell@<span style="color:#ae81ff">2</span>
-          <span style="color:#66d9ef">name</span>: configureWinRM
-          <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Configure WinRM&#39;</span>
-          <span style="color:#66d9ef">inputs</span>:
-            <span style="color:#66d9ef">targetType</span>: <span style="color:#e6db74">&#39;inline&#39;</span>
-            <span style="color:#66d9ef">script</span>: <span style="color:#e6db74">&#39;winrm quickconfig -quiet&#39;</span>
-            <span style="color:#66d9ef">pwsh</span>: <span style="color:#66d9ef">false</span>
-        - <span style="color:#66d9ef">task</span>: PowerShell@<span style="color:#ae81ff">2</span>
-          <span style="color:#66d9ef">name</span>: test
-          <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Run Integration Test&#39;</span>
-          <span style="color:#66d9ef">inputs</span>:
-            <span style="color:#66d9ef">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
-            <span style="color:#66d9ef">arguments</span>: <span style="color:#e6db74">&#34;-Tasks test -PesterScript &#39;tests/Integration&#39; -CodeCoverageThreshold 0&#34;</span>
-            <span style="color:#66d9ef">pwsh</span>: <span style="color:#66d9ef">false</span>
-        - <span style="color:#66d9ef">task</span>: PublishTestResults@<span style="color:#ae81ff">2</span>
-          <span style="color:#66d9ef">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
-          <span style="color:#66d9ef">condition</span>: succeededOrFailed()
-          <span style="color:#66d9ef">inputs</span>:
-            <span style="color:#66d9ef">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
-            <span style="color:#66d9ef">testResultsFiles</span>: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
-            <span style="color:#66d9ef">testRunTitle</span>: <span style="color:#e6db74">&#39;Integration (Windows Server Core)&#39;</span>
-</code></pre></div></li>
+    - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Test_Unit</span>
+      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Unit&#39;</span>
+      <span style="color:#f92672">pool</span>:
+        <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
+      <span style="color:#f92672">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
+      <span style="color:#f92672">steps</span>:
+        - <span style="color:#f92672">powershell</span>: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">            $repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split &#39;/&#39;
+</span><span style="color:#e6db74">            echo &#34;##vso[task.setvariable variable=RepositoryOwner;isOutput=true]$repositoryOwner&#34;
+</span><span style="color:#e6db74">            echo &#34;##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName&#34;
+</span><span style="color:#e6db74">          name: dscBuildVariable
+</span><span style="color:#e6db74">          displayName: &#39;Set Environment Variables&#39;
+</span><span style="color:#e6db74">        - task: DownloadBuildArtifacts@0
+</span><span style="color:#e6db74">          displayName: &#39;Download Build Artifact&#39;
+</span><span style="color:#e6db74">          inputs:
+</span><span style="color:#e6db74">            buildType: &#39;current&#39;
+</span><span style="color:#e6db74">            downloadType: &#39;single&#39;
+</span><span style="color:#e6db74">            artifactName: &#39;output&#39;
+</span><span style="color:#e6db74">            downloadPath: &#39;$(Build.SourcesDirectory)&#39;
+</span><span style="color:#e6db74">        - task: PowerShell@2
+</span><span style="color:#e6db74">          name: test
+</span><span style="color:#e6db74">          displayName: &#39;Run Unit Test&#39;
+</span><span style="color:#e6db74">          inputs:
+</span><span style="color:#e6db74">            filePath: &#39;./build.ps1&#39;
+</span><span style="color:#e6db74">            arguments: &#34;-Tasks test -PesterScript &#39;tests/Unit&#39;&#34;
+</span><span style="color:#e6db74">            pwsh: false
+</span><span style="color:#e6db74">        - task: PublishTestResults@2
+</span><span style="color:#e6db74">          displayName: &#39;Publish Test Results&#39;
+</span><span style="color:#e6db74">          condition: succeededOrFailed()
+</span><span style="color:#e6db74">          inputs:
+</span><span style="color:#e6db74">            testResultsFormat: &#39;NUnit&#39;
+</span><span style="color:#e6db74">            testResultsFiles: &#39;output/testResults/NUnit*.xml&#39;
+</span><span style="color:#e6db74">            testRunTitle: &#39;Unit (Windows Server Core)&#39;
+</span><span style="color:#e6db74">        - task: PublishCodeCoverageResults@1
+</span><span style="color:#e6db74">          displayName: &#39;Publish Code Coverage&#39;
+</span><span style="color:#e6db74">          condition: succeededOrFailed()
+</span><span style="color:#e6db74">          inputs:
+</span><span style="color:#e6db74">            codeCoverageTool: &#39;JaCoCo&#39;
+</span><span style="color:#e6db74">            summaryFileLocation: &#39;output/testResults/CodeCov*.xml&#39;
+</span><span style="color:#e6db74">            pathToSources: &#39;$(Build.SourcesDirectory)/output/$(dscBuildVariable.RepositoryName)&#39;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">    - job: Test_Integration
+</span><span style="color:#e6db74">      displayName: &#39;Integration&#39;
+</span><span style="color:#e6db74">      pool:
+</span><span style="color:#e6db74">        vmImage: &#39;windows-2019&#39;
+</span><span style="color:#e6db74">      timeoutInMinutes: 0
+</span><span style="color:#e6db74">      steps:
+</span><span style="color:#e6db74">        - task: DownloadBuildArtifacts@0
+</span><span style="color:#e6db74">          displayName: &#39;Download Build Artifact&#39;
+</span><span style="color:#e6db74">          inputs:
+</span><span style="color:#e6db74">            buildType: &#39;current&#39;
+</span><span style="color:#e6db74">            downloadType: &#39;single&#39;
+</span><span style="color:#e6db74">            artifactName: &#39;output&#39;
+</span><span style="color:#e6db74">            downloadPath: &#39;$(Build.SourcesDirectory)&#39;
+</span><span style="color:#e6db74">        - task: PowerShell@2
+</span><span style="color:#e6db74">          name: configureWinRM
+</span><span style="color:#e6db74">          displayName: &#39;Configure WinRM&#39;
+</span><span style="color:#e6db74">          inputs:
+</span><span style="color:#e6db74">            targetType: &#39;inline&#39;
+</span><span style="color:#e6db74">            script: &#39;winrm quickconfig -quiet&#39;
+</span><span style="color:#e6db74">            pwsh: false
+</span><span style="color:#e6db74">        - task: PowerShell@2
+</span><span style="color:#e6db74">          name: test
+</span><span style="color:#e6db74">          displayName: &#39;Run Integration Test&#39;
+</span><span style="color:#e6db74">          inputs:
+</span><span style="color:#e6db74">            filePath: &#39;./build.ps1&#39;
+</span><span style="color:#e6db74">            arguments: &#34;-Tasks test -PesterScript &#39;tests/Integration&#39; -CodeCoverageThreshold 0&#34;
+</span><span style="color:#e6db74">            pwsh: false
+</span><span style="color:#e6db74">        - task: PublishTestResults@2
+</span><span style="color:#e6db74">          displayName: &#39;Publish Test Results&#39;
+</span><span style="color:#e6db74">          condition: succeededOrFailed()
+</span><span style="color:#e6db74">          inputs:
+</span><span style="color:#e6db74">            testResultsFormat: &#39;NUnit&#39;
+</span><span style="color:#e6db74">            testResultsFiles: &#39;output/testResults/NUnit*.xml&#39;
+</span><span style="color:#e6db74">            testRunTitle: &#39;Integration (Windows Server Core)&#39;
+</span></code></pre></div></li>
 <li>On the stage <code>Deploy</code>.
 <ol>
 <li>Change the key <code>dependsOn</code> replace <code>test_module</code> to <code>Test</code>.</li>
@@ -1099,42 +1101,42 @@ key <code>vmImage</code> to a supported image listed in the section
 <li>(Optional) If needed, add anything that was specific to running tests that was
 part of the <code>appveyor.yml</code>. For example to install a feature, add this
 before the task <code>Test</code> in the job <code>Test_Integration</code>.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#66d9ef">powershell</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">    Install-WindowsFeature -IncludeAllSubFeature -IncludeManagementTools -Name &#39;Web-Server&#39;</span>
-  <span style="color:#66d9ef">name</span>: InstallWebServerFeature
-</code></pre></div></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#f92672">powershell</span>: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">    Install-WindowsFeature -IncludeAllSubFeature -IncludeManagementTools -Name &#39;Web-Server&#39;
+</span><span style="color:#e6db74">  name: InstallWebServerFeature
+</span></code></pre></div></li>
 <li>(Optional) If there are need to run integration tests in order (or
 prioritize specific tests) then specify the order in which the tests
 should run. <strong>This does not work if you call the pipeline using the</strong>
 <strong>parameter <code>PesterScript</code>, e.g. <code>./build.ps1 -Tasks test -PesterScript 'tests/Integration'</code>.</strong>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Pester</span>:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
   <span style="color:#75715e"># Run the script in order. First all of unit tests in no particular order,</span>
   <span style="color:#75715e"># and then all the integration tests in a specific group order.</span>
-  - tests/Unit
+  - <span style="color:#ae81ff">tests/Unit</span>
   <span style="color:#75715e"># Group 1</span>
-  - tests/Integration/MSFT_SqlSetup.Integration.Tests.ps1
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlSetup.Integration.Tests.ps1</span>
   <span style="color:#75715e"># Group 2</span>
-  - tests/Integration/MSFT_SqlAgentAlert.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlServerNetwork.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlServerLogin.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlServerEndPoint.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlServerDatabaseMail.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlRSSetup.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlDatabaseDefaultLocation.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlDatabase.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlAlwaysOnService.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlAgentOperator.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlServiceAccount.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlAgentFailsafe.Integration.Tests.ps1
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlAgentAlert.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlServerNetwork.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlServerLogin.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlServerEndPoint.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlServerDatabaseMail.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlRSSetup.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlDatabaseDefaultLocation.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlDatabase.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlAlwaysOnService.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlAgentOperator.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlServiceAccount.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlAgentFailsafe.Integration.Tests.ps1</span>
   <span style="color:#75715e"># Group 3</span>
-  - tests/Integration/MSFT_SqlServerRole.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlRS.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlDatabaseUser.Integration.Tests.ps1
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlServerRole.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlRS.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlDatabaseUser.Integration.Tests.ps1</span>
   <span style="color:#75715e"># Group 4</span>
-  - tests/Integration/MSFT_SqlScript.Integration.Tests.ps1
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlScript.Integration.Tests.ps1</span>
   <span style="color:#75715e"># Group 5</span>
-  - tests/Integration/MSFT_SqlServerSecureConnection.Integration.Tests.ps1
-  - tests/Integration/MSFT_SqlScriptQuery.Integration.Tests.ps1
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlServerSecureConnection.Integration.Tests.ps1</span>
+  - <span style="color:#ae81ff">tests/Integration/MSFT_SqlScriptQuery.Integration.Tests.ps1</span>
 </code></pre></div></li>
 </ol>
 <h3 id="optional-add-codecov-support-to-repository">(Optional) Add Codecov Support to Repository</h3>

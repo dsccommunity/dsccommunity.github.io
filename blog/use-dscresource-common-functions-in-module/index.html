@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>DscResource.Common functions in a DSC module</title>
 
-  <meta name="generator" content="Hugo 0.74.3" />
+  <meta name="generator" content="Hugo 0.75.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -230,7 +230,9 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-08-12</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-09-23</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-08-12-notes/">Next Community Call 2020-08-12</a>
             </li>
             <li class=""><a href="/community_calls/2020-07-01-notes/">2020-07-01 Notes</a>
             </li>
@@ -342,12 +344,12 @@ the folder <code>Modules</code> (which is the default for <a href="https://githu
 <span style="color:#75715e">#   ModuleBuilder Dependent Modules Configuration  #</span>
 <span style="color:#75715e">####################################################</span>
 
-<span style="color:#66d9ef">NestedModule</span>:
-  <span style="color:#66d9ef">DscResource.Common</span>:
-    <span style="color:#66d9ef">CopyOnly</span>: <span style="color:#66d9ef">true</span>
-    <span style="color:#66d9ef">Path</span>: ./output/RequiredModules/DscResource.Common
-    <span style="color:#66d9ef">AddToManifest</span>: <span style="color:#66d9ef">false</span>
-    <span style="color:#66d9ef">Exclude</span>: PSGetModuleInfo.xml
+<span style="color:#f92672">NestedModule</span>:
+  <span style="color:#f92672">DscResource.Common</span>:
+    <span style="color:#f92672">CopyOnly</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">Path</span>: <span style="color:#ae81ff">./output/RequiredModules/DscResource.Common</span>
+    <span style="color:#f92672">AddToManifest</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#f92672">Exclude</span>: <span style="color:#ae81ff">PSGetModuleInfo.xml</span>
 </code></pre></div><h5 id="exclude-nested-module-from-tests">Exclude nested module from tests</h5>
 <p>Next, you need to exclude this module from the CI pipeline tests phase.
 The module has already been tested in its own CI pipeline so no need
@@ -355,14 +357,14 @@ for you to test that again. It might also be that the repository has
 different quality assurances that DscResource.Common does not (like
 naming files differently).</p>
 <p>Under the key <code>Pester:</code> add an exclude from code coverage.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Pester</span>:
-  <span style="color:#66d9ef">ExcludeFromCodeCoverage</span>:
-    - Modules/DscResource.Common
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
+  <span style="color:#f92672">ExcludeFromCodeCoverage</span>:
+    - <span style="color:#ae81ff">Modules/DscResource.Common</span>
 </code></pre></div><p>Under the key <code>DscTest:</code> add an exclude to not run HQRM tests on the module
 files.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">DscTest</span>:
-  <span style="color:#66d9ef">ExcludeModuleFile</span>:
-    - Modules/DscResource.Common
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">DscTest</span>:
+  <span style="color:#f92672">ExcludeModuleFile</span>:
+    - <span style="color:#ae81ff">Modules/DscResource.Common</span>
 </code></pre></div><h4 id="update-dsc-resource-module-file">Update DSC resource module file</h4>
 <p>For each DSC resource module file that should use a helper function in
 the module DscResource.Common you must import the module.</p>

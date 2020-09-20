@@ -7,10 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Thu, 27 Dec 2018 09:10:27 +0600</lastBuildDate>
-    
-	<atom:link href="https://dsccommunity.org/contributors/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 27 Dec 2018 09:10:27 +0600</lastBuildDate><atom:link href="https://dsccommunity.org/contributors/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

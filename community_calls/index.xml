@@ -7,23 +7,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Sun, 28 Jul 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://dsccommunity.org/community_calls/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 28 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/community_calls/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2020-08-12</title>
+      <title>Next Community Call 2020-09-23</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, August 12th, at 12 PM PST
+      <description>Next call will be on Wednesday, September 23rd, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
 Discussions Topics or questions from the community (welcome at any point during the call)
-Talk to us on Virtual PowerShell User Group #DSC channel. For information on how to join, see https://dsccommunity.</description>
+We are also available on the Virtual PowerShell User Group #DSC channel.</description>
+    </item>
+    
+    <item>
+      <title>Next Community Call 2020-08-12</title>
+      <link>https://dsccommunity.org/community_calls/2020-08-12-notes/</link>
+      <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2020-08-12-notes/</guid>
+      <description>Next call will be on Wednesday, August 12th, at 12 PM PST
+Discussions Topics or questions from the community (welcome at any point during the call)
+Talk to us on Virtual PowerShell User Group #DSC channel. For information on how to join, see https://dsccommunity.org/community/contact/
+Want to submit a question to discuss during the call so others can prepare? Just submit a Pull request to this file!
+Agenda   Quick update on activity:</description>
     </item>
     
     <item>
@@ -33,11 +42,10 @@ Talk to us on Virtual PowerShell User Group #DSC channel. For information on how
       
       <guid>https://dsccommunity.org/community_calls/2020-07-01-notes/</guid>
       <description>Next call will be on Wednesday, July 1st, at 12 PM PST
-Join the call Join using the Microsoft Teams app
-Or click here to browse the list of available dial-in numbers to find one that is local to your region
-Conference ID: 503 431 76#
 Discussions Topics or questions from the community (welcome at any point during the call)
-Talk to us on Virtual PowerShell User Group #DSC channel. For information on how to join, see https://dsccommunity.</description>
+Talk to us on Virtual PowerShell User Group #DSC channel. For information on how to join, see https://dsccommunity.org/community/contact/
+Want to submit a question to discuss during the call? Just submit a Pull request to this file!
+Agenda  Quick update on activity:  Migration to Continuous Delivery Process (GitHub Board):  Completed since last call  DfsDsc FileContentDsc   In progress  FSRMDsc   New modules Modules not yet converted but with PR activity within last 4 months (seen in AppVeyor)  JeaDsc DscResource.</description>
     </item>
     
     <item>

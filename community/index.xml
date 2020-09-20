@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Fri, 28 Dec 2018 11:02:05 +0600</lastBuildDate>
-    
-	<atom:link href="https://dsccommunity.org/community/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 28 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://dsccommunity.org/community/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Origin Story</title>
       <link>https://dsccommunity.org/community/origin-story/</link>
