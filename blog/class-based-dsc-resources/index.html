@@ -1,0 +1,504 @@
+<head>
+  <meta charset="utf-8">
+  <title>Class Based DSC Resource only proposal</title>
+
+  <meta name="generator" content="Hugo 0.75.1" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144465379-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/themify-icons/themify-icons.css">
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/highlight/hybrid.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+
+  <style>
+  :root{
+    --primary-color:#003366;
+    --secondary-color:#f9f9f9;
+    --text-color:#242738;
+    --text-color-dark:#000;
+    --white-color:#ffffff;
+  }
+  </style>
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://dsccommunity.org/css/style.min.css" integrity="" media="screen">
+
+  <!-- jquiry -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-1.12.4.js"></script>
+
+  <!-- jquary ui -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-ui.js"></script>
+
+  <!--Favicon-->
+  <link rel="icon" href="https://dsccommunity.org/images/favicon.png" type="image/x-icon">
+
+</head>
+
+<!-- navigation -->
+<header class="shadow-bottom sticky-top bg-white">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="https://dsccommunity.org/">DSC Community and Resource Kit</a>
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse text-center" id="navigation">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="https://dsccommunity.org/">Home</a>
+      </li>
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/code_of_conduct">Code of Conduct</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/community_calls">Community Calls</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/faq">Faq</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/help">help</a>
+      </li>
+      
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" >
+          
+          <a class="dropdown-item" href="/community">Community</a>
+          
+          <a class="dropdown-item" href="/resources">Resource Modules</a>
+          
+          <a class="dropdown-item" href="/guidelines">Guidelines</a>
+          
+          <a class="dropdown-item" href="/blog">Blog Posts</a>
+          
+          <a class="dropdown-item" href="/configmgt">Config. Management</a>
+          
+        </div>
+      </li>
+      
+      
+    </ul>
+    
+    <ul class="list-inline text-center mb-0">
+      
+    </ul>
+  </div>
+</nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<section class="single pt-5 bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="p-4 bg-white sticky-top top-100">
+            
+            <nav class="sidebar-menu">
+              <ul class="list-styled">
+            <li class=""><a href="/community/">Community</a>
+              <ul class="">
+            <li class=""><a href="/community/origin-story/">Origin Story</a>
+            </li>
+            <li class=""><a href="/community/ownership/">Ownership of DSC Resources</a>
+            </li>
+            <li class=""><a href="/community/committee/">DSC Community Committee</a>
+            </li>
+            <li class=""><a href="/community/maintainers/">Maintainers</a>
+            </li>
+            <li class=""><a href="/community/contact/">Join the Conversation</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/resources/">Resource Modules</a>
+            </li>
+            <li class=""><a href="/guidelines/">Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
+            </li>
+            <li class=""><a href="/guidelines/contributing/">Contributing</a>
+            </li>
+            <li class=""><a href="/guidelines/maintaining/">Maintaining</a>
+            </li>
+            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general/">General</a>
+            </li>
+            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
+            </li>
+            <li class=""><a href="/styleguidelines/functions/">Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
+            </li>
+            <li class=""><a href="/styleguidelines/variables/">Variables</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
+            </li></ul>
+              
+            </li>
+            <li class="parent d-block "><a href="/blog/">Blog Posts</a>
+              <ul class="sub-menu">
+            <li class=""><a href="/blog/create-an-article/">Create an Article</a>
+            </li>
+            <li class=""><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
+            </li>
+            <li class="parent d-block  active "><a href="/blog/class-based-dsc-resources/">Class Based DSC Resource only proposal</a>
+            </li>
+            <li class=""><a href="/blog/converting-tests-to-pester5/">Converting tests to Pester 5</a>
+            </li>
+            <li class=""><a href="/blog/add-codecov-support-to-repository/">Add Codecov Support to Repository</a>
+            </li>
+            <li class=""><a href="/blog/use-dscresource-common-functions-in-module/">DscResource.Common functions in a DSC module</a>
+            </li>
+            <li class=""><a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a>
+            </li>
+            <li class=""><a href="/blog/how-to-use-dsc-logging/">How to Use Dsc Logging</a>
+            </li>
+            <li class=""><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
+            <li class=""><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/community_calls/">Community Calls</a>
+              <ul class="">
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-09-23</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-08-12-notes/">2020-08-12 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-07-01-notes/">2020-07-01 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-05-20-notes/">2020-05-20 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-02-26-notes/">2020-02-26 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-01-22-notes/">2020-01-22 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-12-04-notes/">2019-12-04 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/code_of_conduct/">Code of Conduct</a>
+              <ul class="">
+            <li class=""><a href="/code_of_conduct/standards/">Our Standards</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/scope/">Scope</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/enforcement/">Enforcement</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/common_questions/">Common Questions</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/attribution/">Attribution</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/help/">Help</a>
+              <ul class="">
+            <li class=""><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
+            </li>
+            <li class=""><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/contributors/">Elements</a>
+            </li>
+            <li class=""><a href="/faq/">Frequently Asked Questions</a>
+            </li></ul>
+            </nav>
+
+            
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-5 bg-white">
+            <h2>Class Based DSC Resource only proposal</h2>
+            <p>Recently, the PowerShell team announced <a href="https://github.com/PowerShell/PowerShell/issues/13359">plans to create a new JSON-based schema</a> so that <em>eventually</em> PowerShell Desired State Configuration (DSC) could get rid of its MOF/CIM dependencies, and the PowerShell code base could remove its deprecated Management Interface (MI) implementation (<code>Microsoft.Management.Infrastructure.CimProperty</code>, <code>Microsoft.Management.Infrastructure.CimInstance</code> and so on&hellip;).</p>
+<p>The suggested change was only for DSC Resources schema, and no changes to MOF compilations was announced for now. Removing the CIM/MI/MOF code and dependency is definitely an overarching goal for PowerShell, but it won&rsquo;t happen overnight.</p>
+<p>Let&rsquo;s add that when we mention change to PowerShell, it only affects the version 7.2 and up. <strong>Windows PowerShell 5.1 will (mostly) be untouched and unaffected</strong>.</p>
+<p>After discussing the matter with the community via the GitHub issues, Twitter, and the DSC Community Call, the Powershell team published a change of direction: they intend to <a href="https://github.com/PowerShell/PowerShell/issues/13731">start with supporting DSC Class based resources only</a> (but are still open for discussion).</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/toTwph350zY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h1 id="opinions">Opinions</h1>
+<p>Now that I&rsquo;ve explained the context for those just joining-in, I&rsquo;ll explain why I think it&rsquo;s a good move and one I&rsquo;ve advocated for.
+This is my opinion, and may not be shared by other DSC community members, maintainers, or within Microsoft.</p>
+<p>People use DSC in many ways. It can be done via the LCM in a push mode or via a pull server, calling <code>Invoke-DscResource</code> in scripts, Azure Policy Guest Configuration, Azure Automation DSC, or using other third party such as Puppet, Ansible, Chef, Salt and so on&hellip;</p>
+<p>DSC is a loaded term with multiple components, but here we&rsquo;re focusing on the PowerShell DSC Resources (those written in PowerShell), the most atomic component specific to DSC, that all consumption <em>models</em> leverage.</p>
+<p>We&rsquo;re excluding the ones witten in Native code, Python, or other languages.</p>
+<h2 id="backward-compatibility">Backward Compatibility</h2>
+<p>To understand why it impacts backward compatibility, it&rsquo;s good to review how we got there. Hang tight..</p>
+<h3 id="why-mof-and-cim-to-begin-with">Why MOF and CIM, to begin with?</h3>
+<p>Although I don&rsquo;t know the details behind that choice, it was a good idea at the time (at least the PS Team thought).
+Bear in mind that was more than 7 years ago, as WMF 4.0 was <a href="https://devblogs.microsoft.com/powershell/windows-management-framework-4-0-is-now-available/">released in October 2013</a>.</p>
+<p>MOF allowed serialization and deserialization of objects, using existing Microsoft (and I think DMTF) standard at the time: an agent could use that communication format, and I assume that there was a good understanding of the technology, it was supported, and helped avoid writing a new technology stack and libraries specific to DSC.</p>
+<p>The DSC resource construct, in its concept, has always been similar to a class, where it can have <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/resources/singleinstance?view=powershell-7">a single instance</a> (addressed by its key properties), and <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/resources/authoringresourceclass?view=powershell-7#declare-properties">some properties are read-only</a>.</p>
+<p>But with PowerShell 4 in WMF 4.0 Classes did not exist yet, so the metadata needed to be added somewhere, and the MOF schema was created.</p>
+<p>The role of that MOF file is to add the metadata about the properties, and describe how those objects should be serialized and deserialized (think about Credential objects for instance), for CIM. CIM has no knowledge or understanding of PowerShell.</p>
+<p>Mapping PowerShell Object to CIM using MOF wasn&rsquo;t great for non scalar types, and that&rsquo;s why we ended up with with things like <code>EmbeddedInstance(&quot;MSFT_Credential&quot;)</code> in the MOFs or <code>[Microsoft.Management.Infrastructure.CimInstance[]]</code> in your PowerShell code to represent a dictionary, that you <a href="https://powershell.org/forums/topic/hashtable-as-parameter-for-custom-dsc-resource/">then had to convert to a hashtable</a>.</p>
+<p>See Dave Wyatt&rsquo;s answer below (note, this one is not recursive, for brevity):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell"><span style="color:#66d9ef">function</span> Convert-CimInstancesToHashtable(<span style="color:#66d9ef">[Microsoft.Management.Infrastructure.CimInstance[]]</span> $Pairs)
+{
+    $hash = @{}
+    <span style="color:#66d9ef">foreach</span> ($pair <span style="color:#66d9ef">in</span> $Pairs)
+    {
+        $hash[$pair.Key] = $pair.Value
+    }
+ 
+    <span style="color:#66d9ef">return</span> $hash
+}
+</code></pre></div><p>You may also have came across DSC Resources that use <code>New-CimInstance</code> to <a href="https://github.com/dsccommunity/xHyper-V/blob/aff660f3a76edb6f60e243e7a8bc450b56340cc0/source/DSCResources/MSFT_xVhdFileDirectory/MSFT_xVhdFileDirectory.psm1#L78-L81">create an object that is added to the hashtable returned by the resource</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">New-CimInstance -ClassName MSFT_FileDirectoryConfiguration -Property @{
+                DestinationPath = $finalPath
+                Ensure = <span style="color:#e6db74">&#39;Absent&#39;</span>
+            } -Namespace <span style="color:#e6db74">&#39;root/microsoft/windows/desiredstateconfiguration&#39;</span> -ClientOnly
+</code></pre></div><p>Let me add that this is not trivial for people new to DSC, and moving away from CIM/MOF means we have a chance to <em>eventually</em> use the actual PowerShell types end to end, as we would not be limited by type mapping between CIM and PowerShell via MOF.</p>
+<p>This is particularly a problem for resources on Linux as the <code>CIM Cmdlets</code> do not exist there. Also the PowerShell team would like to clean up the CIM libraries in PowerShell, so <a href="https://github.com/dsccommunity/DscResource.Common/blob/master/source/Public/ConvertTo-CimInstance.ps1#L26">there would be no workaround like this</a>.</p>
+<p>Class-based DSC Resources do not need the MOF definition for the extra metadata, as we use the <code>[DscResource()]</code> and <code>[DscProperty()]</code> attributes for them, and property types can use Enum or a custom Class.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">[DscResource()]
+class ClassRsrcWithSubType2 {
+
+    [DscProperty(<span style="color:#66d9ef">Mandatory</span>)]
+    <span style="color:#66d9ef">[Ensure]</span> $Ensure
+
+    [DscProperty(Key)]
+    <span style="color:#66d9ef">[string]</span>$Name
+
+    [DscProperty()]
+    <span style="color:#66d9ef">[ClassSubType2]</span> $SubTypeProperty
+<span style="color:#75715e"># ...</span>
+</code></pre></div><p>That said, some limitations are similar because under the hood, the conversion still occurs from PowerShell to CIM, and back to PowerShell when the LCM is involved.</p>
+<p>But if we have a slightly different way to <strong>return</strong> the data between PS5.1 and PS7.2+, we can easily update the resources with an <code>if {} else {}</code> statement:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell"><span style="color:#66d9ef">if</span> ($PSVersionTable.PSVersion.Major <span style="color:#f92672">-ge</span> 7) {
+    <span style="color:#66d9ef">[MSFT_FileDirectoryConfiguration]</span>@{
+      Ensure = <span style="color:#e6db74">&#39;Absent&#39;</span>
+      DestinationPath = $finalPath
+    }
+}
+<span style="color:#66d9ef">else</span> {
+  New-CimInstance -ClassName MSFT_FileDirectoryConfiguration -Property @{
+                DestinationPath = $finalPath
+                Ensure = <span style="color:#e6db74">&#39;Absent&#39;</span>
+            } -Namespace <span style="color:#e6db74">&#39;root/microsoft/windows/desiredstateconfiguration&#39;</span> -ClientOnly
+}
+</code></pre></div><p>Fine when your resource returns data, but when you want to invoke with an embedded type (aka sub-type, nested type), you can&rsquo;t always change the code invoking it (say the LCM).<br>
+Bear in mind PS 5.1 is set in stone, so it won&rsquo;t get updated.</p>
+<p>And that leads us to <strong>the major flaw</strong>, in my opinion, for <a href="https://github.com/PowerShell/PowerShell/issues/13359">the former JSON-based DSC resource proposal</a>: We&rsquo;d have to replace the <code>[Microsoft.Management.Infrastructure.CimInstance[]]</code> with <code>[PSObject]</code>.</p>
+<blockquote>
+<p>With this change, embedded objects passed to Get/Set/Test will be PSObjects instead of CimInstances. Unless the script is explicitly checking that it is a CimInstance, existing code should work with PSObject.</p>
+</blockquote>
+<p>Doing so would <strong>break compatibility between PS 5.1 and PS 7+</strong> for any resource using such subtypes / embedded objects.</p>
+<p>Using class-based DSC resource, and the <code>if {} else {}</code> workaround I mentioned above, would support greater backward compatibility scenarios.</p>
+<p>Obviously, there&rsquo;s still a lot of differences between PS5.1 and PS7 which means for some resources it may not be possible to be used in PS7 anyway<br>
+The most common example could be because the supporting module is <em>still</em> a snap-in (looking at you, SharePoint), and/or some modules don&rsquo;t support PowerShell Core yet.</p>
+<p>And from there, there are some more legitimate questions to consider, keep reading.</p>
+<h2 id="dsc-community-does-not-use-class-based-resources">DSC Community does not use class-based resources</h2>
+<p>This is true, but it&rsquo;s somewhat accidental.</p>
+<p>Microsoft and the DSC community came up with the High Quality Resource Module (HQRM) guidelines years ago, and at that time it was important to support WMF 4.0 (aka DSCv1).</p>
+<p>Another argument was the difficulty to do Unit testing of PowerShell classes, which I&rsquo;ll cover further down.</p>
+<p>The DSC Community has re-evaluated its position (in the community calls) and concluded they do not see a strong case to spend time supporting Windows Server 2012 R2 and, even less, WMF 4.0.
+Older versions of the resource modules are still available in the gallery if needed.</p>
+<p>Now in the past few months we have discussed several times the pros and cons to moving to class based resources, and we agreed that there&rsquo;s a few sticky points:</p>
+<ul>
+<li>We value quality and consistency across our many repositories.</li>
+<li>We need to make it easy for contributors to use class based DSC Resources and testing it.</li>
+<li>Several ways exists for doing Class resource, only one is valid, and needs to be documented.</li>
+<li>We can only move all resource modules to Class resource when our tooling supports it (DscResource.Test, Sampler, DscResource.AnalyzerRules&hellip;).</li>
+<li>We needed more (community) experience.</li>
+</ul>
+<p>Since then we had a DSC Community call were Bartek Bielawski (<a href="https://twitter.com/bielawb?lang=en">@bielawb</a> on Twitter) came to <a href="https://youtu.be/r-eKNZ7iEfw?t=172">present on the class resources</a> that he&rsquo;s been using in production for a while (along with Daniel Both <a href="https://twitter.com/poshboth">@poshboth</a>).<br>
+We also got more experience with Class-based resource with <a href="https://github.com/dsccommunity/JeaDsc/tree/master/source/DSCClassResources"><code>JeaDsc</code></a>, although it&rsquo;s not the approach I would <em>recommend</em> today. Great experience nonetheless, and great work.</p>
+<p>We&rsquo;ve made several changes to our pipeline automation, and getting to a point (soon) where adding DSC Class Resource should be easier.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/bbpFBsl8K9k" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>I also had to dig a lot deeper when I worked on the <code>Invoke-DscResource</code> RFC with the PowerShell team for PowerShell 7.</p>
+<p>During this experimentation, and also following the <a href="https://puppetlabs.github.io/iac/news/roadmap/2020/09/21/dsc-release.html">great work done by Michael Lombardi at Puppet</a> to &ldquo;Puppetize&rdquo; DSC Resource modules, we identified some challenges in getting type information for DSC resources, and that Classes could make this easier.</p>
+<p>I also found that converting a MOF schema to a PowerShell Class, and then adding the content from the PSM1 of those Get/Set/Test functions to the created class, could be automated using AST.</p>
+<p>That&rsquo;s definitely a tool the DSC community would like to invest time on, as a matter of priority.</p>
+<p>So even if the DSC Community is not widely using Class-based resources, people in the community have been using them in production for quite some time already, with no extra issues over MOF based ones, as long as you do it a certain way, which I&rsquo;ll document another day (in short make the class parts of your main module&rsquo;s PSM1, no nested-module or DSCClassBasedResources nonsense ;) ).</p>
+<p>We&rsquo;ve also identified what we need to do, and we&rsquo;re working on it already, even before the PowerShell team made those plans.</p>
+<h2 id="unit-testing-classes-and-class-based-dsc-resources-is-hard">Unit Testing classes and Class-Based DSC Resources is hard</h2>
+<p>Yes, but no. Ok, maybe&hellip;</p>
+<p>When they came out, that was one of the original blocker, along with supporting WMF4.
+They were new, we had little experience with them, and <a href="https://github.com/pester/Pester/issues/706">the &ldquo;traditional&rdquo; way to mock them was not working</a>.</p>
+<p>Now, the way DSC uses PowerShell Classes is relatively <em>simple</em> and you can achieve something close to mocking by using different techniques, such as using script Method on your object.<br>
+This was well documented by Ben Gelens (<a href="https://twitter.com/bgelens">@bgelens</a>) back in his <a href="https://github.com/bgelens/DockerDsc/blob/Dev/Tests/Unit/DockerService.Tests.ps1#L84">DockerDsc module</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">$dockerDsc = <span style="color:#66d9ef">[DockerService]</span>::new()
+$dockerDsc.Ensure = <span style="color:#66d9ef">[Ensure]</span>::Present
+$dockerDsc = $dockerDsc | Add-Member -MemberType ScriptMethod `
+  -Name ResolveDockerDPath `
+  -Value { <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;TestDrive:\dockerd.exe&#39;</span> } `
+  -Force `
+  -PassThru
+
+Mock -CommandName Get-Service -MockWith {<span style="color:#66d9ef">[pscustomobject]</span>@{Name=<span style="color:#e6db74">&#39;Docker&#39;</span>}}
+</code></pre></div><p>Worth noting, Jakub Jares (<a href="https://twitter.com/nohwnd">@nohwnd</a>, the maintainer of Pester) is <a href="https://twitter.com/nohwnd/status/1308715571756912640?s=20">suggesting to build this in Pester 5</a> (go upvote now, please).</p>
+<blockquote>
+<p><a href="https://twitter.com/nohwnd/status/1308752521142435842?s=20"><em>@nowhnd:</em></a> The api would probably look like this:  Mock -Type ([DateTime]) -Property Now -Get <the value> But imho the final form is not that important. It does work on PowerShell  classes. In the end you should be able to use this to replace almost any method and property.</p>
+</blockquote>
+<p>Again, that&rsquo;s definitely something that we will work on and document, but I don&rsquo;t see this as a major obstacle.<br>
+We could also mock by inheriting the class and overridding that method.</p>
+<p>Now, I&rsquo;d like to slide-in another opinion, which might be unpopular, but your DSC Resource PSM1 or Class should not be thousands of lines long.<br>
+This subject is worth its own article (one day), but the DSC Resource is <strong>only</strong> an interface to PowerShell <strong>scripts</strong> (in a broad sense), where we think in terms of <strong>Resource</strong> (duh), and ensure <strong>idempotency</strong> (always converging to the same state regardless of initial application).</p>
+<p>That means, and that is what the brilliant <a href="https://www.manning.com/books/learn-powershell-toolmaking-in-a-month-of-lunches">ToolMaking in a Month of Lunches</a> by Don Jones (<a href="https://twitter.com/concentrateddon">@concentrateddon</a>) and Jeff Hicks (<a href="https://twitter.com/JeffHicks">@JeffHicks</a>) preach: if you build re-usable tools (hint, you should), then you should make re-usable components (functions / modules). And by extrapolating, the DSC Resource is just another interface to that, serving the purpose of adding idempotency and forcing the management of an atomic resource.</p>
+<p>The DSC sugar-coating is really for what&rsquo;s specific to thinking resource and idempotency, but the functionality should be available through a different interface, and in PowerShell world, that&rsquo;s a function.<br>
+And mocking function works.</p>
+<p>Yes I know that&rsquo;s not always (rarely?) the case in the DSC Community Resource modules, but we&rsquo;ve made good progress to make it easier to supplement a module of functions, with a specialised module focusing on the DSC interface, by <a href="https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/">embedding the module of functions</a>.<br>
+Another article worth to write&hellip;</p>
+<h2 id="classes-are-more-complex-for-non-dev">Classes are more complex for non-dev</h2>
+<p>Ah, that&rsquo;s a common argument and not totally unfounded.
+I&rsquo;ll try to go through different angles without getting stuck too much in the easy/hard argument, because it is subjective.</p>
+<h3 id="harder-to-pick-up">Harder to pick up</h3>
+<p>Classes are, as a concept of object oriented programming, harder to understand than procedural programming and functions, I give you that.</p>
+<p>That said, DSC Resource is in itself a concept harder than just functions, and if you mix-in the MOF format, the specific way you need to craft your MOF schema, how your functions parameters need to match that, and how you need consistency between different functions&hellip; it&rsquo;s a bit of a mess.</p>
+<p>The DSC Resource concept being so close to a concept of a class, and does not need extra associated files when part of your main module PSM1 (which I recommend), it has less moving parts.</p>
+<p>The intellisense experience is better in your IDE, it&rsquo;s easier to make edits, and you don&rsquo;t need to use tools such as the xDscResourceDesigner.</p>
+<h3 id="json-is-easier">JSON is easier</h3>
+<p>Than MOF? Yes, totally.
+I actually hope we&rsquo;ll eventually get a JSON compilation of DSC configurations in JSON instead of MOF, but that&rsquo;s not on the table yet.</p>
+<p>But when you&rsquo;re working with PowerShell, why would you need a separate schema anyway, whether JSON, MOF or other?</p>
+<p>The <code>[DscResource()]</code> and <code>[DscProperty()]</code> attributes could be re-used for the functions' parameters, and all your metadata would then be accessible via AST (no separate moving parts).</p>
+<p>But that would not be backward compatible with PS 5.1, nor would a JSON schema, as I&rsquo;ve explained earlier.</p>
+<h3 id="reduce-number-of-potential-contributors">Reduce number of (potential) contributors</h3>
+<p>By using Classes, and making it slightly harder to comprehend, we&rsquo;re reducing the number of contributors, or potential contributors</p>
+<p>That is a great point, and something we&rsquo;re all very cautious about.</p>
+<p>In our experience, looking at the existing contributors of the DSC Community, I don&rsquo;t think that would have any sensible impact (after we&rsquo;ve done the transition).</p>
+<p>Making the transition is a big job (mainly refactoring the Unit tests), but the <em>good</em> news is that we&rsquo;ve just done that with the switch to our new CI/CD pipeline model.<br>
+Tests are key, and it was good but painful to refactor them and pay back some of that debt we accumulated over the years.</p>
+<p>I think the main issues we&rsquo;re having is with less advanced contributors or potential contributors, but the main limiting facorsare the lack of content, examples and how-tos.</p>
+<p>Making the module template easier to use, creating video to show its usage, documenting our approaches, simplifying the DOCs should yield the best results to lower the bar to entry and get more contributors.<br>
+As a first milestone, in this context, I think that&rsquo;s another great reason to focus on classes for now.</p>
+<p>Obviously, ensuring DSC is felt as a safe investment, and having the PowerShell team focused in creating a great experience is also key to gaining new contributors.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>I&rsquo;m really happy with the current plan, and how the consultation was executed by the PowerShell team.<br>
+I&rsquo;m lucky to be working closely with them through my work with the Guest Configuration team, and I&rsquo;m grateful for that priviledge.</p>
+<p>In the GitHub issue Steve Lee clarifies that it&rsquo;s the initial intention, but if we (the community) feel that we&rsquo;re missing out or this initial plan is not enough, they can always re-consider adding the JSON schema to DSC Resources.</p>
+<p>This is a good (re)start and the DSC Community will do it&rsquo;s part to make the transition smoother.</p>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 02 Oct 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/dsc-is-dead-long-live-dsc/" title="DSC is Dead"><i class="ti-arrow-left mr-2"></i>DSC is Dead</a>
+            <a class="nav nav-next" href="/blog/converting-tests-to-pester5/" title="Converting tests to Pester 5">Converting tests to Pester 5<i class="ti-arrow-right ml-2"></i></a>
+            </nav></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- footer -->
+<footer class="section bg-gray pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+        <p>Copyright 2019 the dsccommunity.org contributors.</p> 
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://github.com/dsccommunity/"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/dsccommunity"><i class="ti-twitter-alt"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Bootstrap JS -->
+<script src="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- highlight -->
+<script src="https://dsccommunity.org/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Main Script -->
+
+<script src="https://dsccommunity.org/js/script.min.js"></script>

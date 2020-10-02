@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Sat, 19 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Oct 2020 10:00:00 +0200</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Next Community Call 2020-09-23</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
@@ -549,6 +549,16 @@ DSC Community Committee Read more about it here https://dsccommunity.</descripti
       
       <guid>https://dsccommunity.org/community_calls/2019-05-08-notes/</guid>
       <description>Resources to be released  TBC  Discussions  Topics or questions from the community (welcome at any point during the call) Celebrating new maintainers:  Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Jason Patton &amp;ndash;&amp;gt; xDnsServer Nehru Ali &amp;ndash;&amp;gt; xPendingReboot Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc) Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox   Waffle board will be closing, still looking into a replacement Moving off gitter to PoshCode slack: the #dsc channel in either Slack or Discord.</description>
+    </item>
+    
+    <item>
+      <title>Class Based DSC Resource only proposal</title>
+      <link>https://dsccommunity.org/blog/class-based-dsc-resources/</link>
+      <pubDate>Fri, 02 Oct 2020 10:00:00 +0200</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/class-based-dsc-resources/</guid>
+      <description>Recently, the PowerShell team announced plans to create a new JSON-based schema so that eventually PowerShell Desired State Configuration (DSC) could get rid of its MOF/CIM dependencies, and the PowerShell code base could remove its deprecated Management Interface (MI) implementation (Microsoft.Management.Infrastructure.CimProperty, Microsoft.Management.Infrastructure.CimInstance and so on&amp;hellip;).
+The suggested change was only for DSC Resources schema, and no changes to MOF compilations was announced for now. Removing the CIM/MI/MOF code and dependency is definitely an overarching goal for PowerShell, but it won&amp;rsquo;t happen overnight.</description>
     </item>
     
     <item>

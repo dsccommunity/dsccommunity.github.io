@@ -31,6 +31,16 @@ There will be a live Q&amp;amp;A on the Wednesday 3rd of June at 6PM CEST (9AM P
     </item>
     
     <item>
+      <title>Class Based DSC Resource only proposal</title>
+      <link>https://dsccommunity.org/blog/class-based-dsc-resources/</link>
+      <pubDate>Fri, 02 Oct 2020 10:00:00 +0200</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/class-based-dsc-resources/</guid>
+      <description>Recently, the PowerShell team announced plans to create a new JSON-based schema so that eventually PowerShell Desired State Configuration (DSC) could get rid of its MOF/CIM dependencies, and the PowerShell code base could remove its deprecated Management Interface (MI) implementation (Microsoft.Management.Infrastructure.CimProperty, Microsoft.Management.Infrastructure.CimInstance and so on&amp;hellip;).
+The suggested change was only for DSC Resources schema, and no changes to MOF compilations was announced for now. Removing the CIM/MI/MOF code and dependency is definitely an overarching goal for PowerShell, but it won&amp;rsquo;t happen overnight.</description>
+    </item>
+    
+    <item>
       <title>Converting tests to Pester 5</title>
       <link>https://dsccommunity.org/blog/converting-tests-to-pester5/</link>
       <pubDate>Sun, 17 May 2020 05:00:00 +0100</pubDate>
