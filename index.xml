@@ -606,7 +606,7 @@ Before you start, here&amp;rsquo;s an overview of what the new CI looks like:   
     </item>
     
     <item>
-      <title>How to Use Dsc Logging</title>
+      <title>How to Use DSC Logging</title>
       <link>https://dsccommunity.org/blog/how-to-use-dsc-logging/</link>
       <pubDate>Tue, 24 Sep 2019 16:37:42 +0200</pubDate>
       
@@ -622,6 +622,17 @@ This log contains various events that were generated during a DSC job, it is how
       
       <guid>https://dsccommunity.org/blog/dsc-maintenance-windows/</guid>
       <description>Introduction Since 2017 I have been involved in a number of DSC projects in medium to very large enterprises. It has not been easy to implement DSC for a number of reasons. For some companies, the reason why DSC was not an option is the lack of support for maintenance windows. DSC runs whenever an internal timer expires. This is fine for some enterprises but not for all. This article summarizes the ideas and technical implementation I have worked on with two large enterprises.</description>
+    </item>
+    
+    <item>
+      <title>Steps to rename master branch to main for a DSC Community resource</title>
+      <link>https://dsccommunity.org/blog/convert-master-to-main/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/convert-master-to-main/</guid>
+      <description>You are welcome to share any comments or issues you having around this process in the Discord or Slack #DSC channel.
+On the 1st of October 2020, GitHub announced that the default branch name for new repositories was changing from master to main.
+This post describes the process required to rename master branch to main for a DSC community resource module. It is up to individual maintainers if they wish to rename master to main on their repositories</description>
     </item>
     
   </channel>

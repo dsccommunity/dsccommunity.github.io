@@ -1,0 +1,761 @@
+<head>
+  <meta charset="utf-8">
+  <title>Steps to rename master branch to main for a DSC Community resource</title>
+
+  <meta name="generator" content="Hugo 0.79.1" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144465379-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/themify-icons/themify-icons.css">
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/highlight/hybrid.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+
+  <style>
+  :root{
+    --primary-color:#003366;
+    --secondary-color:#f9f9f9;
+    --text-color:#242738;
+    --text-color-dark:#000;
+    --white-color:#ffffff;
+  }
+  </style>
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://dsccommunity.org/css/style.min.css" integrity="" media="screen">
+
+  <!-- jquiry -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-1.12.4.js"></script>
+
+  <!-- jquary ui -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-ui.js"></script>
+
+  <!--Favicon-->
+  <link rel="icon" href="https://dsccommunity.org/images/favicon.png" type="image/x-icon">
+
+</head>
+
+<!-- navigation -->
+<header class="shadow-bottom sticky-top bg-white">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="https://dsccommunity.org/">DSC Community and Resource Kit</a>
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse text-center" id="navigation">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="https://dsccommunity.org/">Home</a>
+      </li>
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/code_of_conduct">Code of Conduct</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/community_calls">Community Calls</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/faq">Faq</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/help">help</a>
+      </li>
+      
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" >
+          
+          <a class="dropdown-item" href="/community">Community</a>
+          
+          <a class="dropdown-item" href="/resources">Resource Modules</a>
+          
+          <a class="dropdown-item" href="/guidelines">Guidelines</a>
+          
+          <a class="dropdown-item" href="/blog">Blog Posts</a>
+          
+          <a class="dropdown-item" href="/configmgt">Config. Management</a>
+          
+        </div>
+      </li>
+      
+      
+    </ul>
+    
+    <ul class="list-inline text-center mb-0">
+      
+    </ul>
+  </div>
+</nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<section class="single pt-5 bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="p-4 bg-white sticky-top top-100">
+            
+            <nav class="sidebar-menu">
+              <ul class="list-styled">
+            <li class=""><a href="/community/">Community</a>
+              <ul class="">
+            <li class=""><a href="/community/origin-story/">Origin Story</a>
+            </li>
+            <li class=""><a href="/community/ownership/">Ownership of DSC Resources</a>
+            </li>
+            <li class=""><a href="/community/committee/">DSC Community Committee</a>
+            </li>
+            <li class=""><a href="/community/maintainers/">Maintainers</a>
+            </li>
+            <li class=""><a href="/community/contact/">Join the Conversation</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/resources/">Resource Modules</a>
+            </li>
+            <li class=""><a href="/guidelines/">Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
+            </li>
+            <li class=""><a href="/guidelines/contributing/">Contributing</a>
+            </li>
+            <li class=""><a href="/guidelines/maintaining/">Maintaining</a>
+            </li>
+            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general/">General</a>
+            </li>
+            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
+            </li>
+            <li class=""><a href="/styleguidelines/functions/">Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
+            </li>
+            <li class=""><a href="/styleguidelines/variables/">Variables</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
+            </li></ul>
+              
+            </li>
+            <li class="parent d-block "><a href="/blog/">Blog Posts</a>
+              <ul class="sub-menu">
+            <li class=""><a href="/blog/create-an-article/">Create an Article</a>
+            </li>
+            <li class=""><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
+            </li>
+            <li class=""><a href="/blog/class-based-dsc-resources/">Class Based DSC Resource only proposal</a>
+            </li>
+            <li class=""><a href="/blog/converting-tests-to-pester5/">Converting tests to Pester 5</a>
+            </li>
+            <li class=""><a href="/blog/add-codecov-support-to-repository/">Add Codecov Support to Repository</a>
+            </li>
+            <li class=""><a href="/blog/use-dscresource-common-functions-in-module/">DscResource.Common functions in a DSC module</a>
+            </li>
+            <li class=""><a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a>
+            </li>
+            <li class=""><a href="/blog/how-to-use-dsc-logging/">How to Use DSC Logging</a>
+            </li>
+            <li class=""><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
+            </li>
+            <li class="parent d-block  active "><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
+            <li class=""><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/community_calls/">Community Calls</a>
+              <ul class="">
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-12-16</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-09-23-notes/">2020-09-23 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-08-12-notes/">2020-08-12 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-07-01-notes/">2020-07-01 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-05-20-notes/">2020-05-20 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-02-26-notes/">2020-02-26 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-01-22-notes/">2020-01-22 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-12-04-notes/">2019-12-04 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/code_of_conduct/">Code of Conduct</a>
+              <ul class="">
+            <li class=""><a href="/code_of_conduct/standards/">Our Standards</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/scope/">Scope</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/enforcement/">Enforcement</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/common_questions/">Common Questions</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/attribution/">Attribution</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/help/">Help</a>
+              <ul class="">
+            <li class=""><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
+            </li>
+            <li class=""><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/contributors/">Elements</a>
+            </li>
+            <li class=""><a href="/faq/">Frequently Asked Questions</a>
+            </li></ul>
+            </nav>
+
+            
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-5 bg-white">
+            <h2>Steps to rename master branch to main for a DSC Community resource</h2>
+            <p>You are welcome to share any comments or issues you having around this
+process in the <a href="https://dsccommunity.org/community/contact/">Discord or Slack #DSC channel</a>.</p>
+<p>On the 1st of October 2020, <a href="https://github.blog/changelog/2020-10-01-the-default-branch-for-newly-created-repositories-is-now-main/">GitHub announced</a>
+that the default branch name for new repositories was changing from <code>master</code>
+to <code>main</code>.</p>
+<p>This post describes the process required to rename <code>master</code> branch to <code>main</code>
+for a DSC community resource module. It is up to individual maintainers if they
+wish to rename <code>master</code> to <code>main</code> on their repositories</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>It is assumed that the DSC module repository is already using
+the DSC module Plaster template in the <a href="https://github.com/gaelcolas/Sampler">Sampler</a>
+project, or has been converted to use the new CI pipeline using the steps
+mentioned in <a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a>.</p>
+<p>This blog post focuses on resources hosted in the <a href="https://github.com/dsccommunity">dsccommunity.org</a>,
+GitHub organization, so many of the steps will refer to this location. However,
+this process may still work with resources that are not located in this GitHub
+organization.</p>
+<h2 id="requirements">Requirements</h2>
+<p>To perform the rename of a <code>master</code> branch to <code>main</code> for a DSC community
+resource the following are required:</p>
+<ol>
+<li>GitHub <code>Admin</code> access to the repository in <a href="https://github.com/dsccommunity">dsccommunity.org</a>.</li>
+<li>Azure DevOps <code>administrator</code> access to the <a href="https://dev.azure.com/dsccommunity/">DSC Community CI pipeline</a>
+for the repository being converted.</li>
+<li>You have a fork of the upstream DSC Community repository in your
+GitHub account.</li>
+<li>You have cloned your fork of the upstream DSC Community repository to
+a local folder on your machine.</li>
+<li><strong>Your local clone should have two remotes:</strong>
+<ul>
+<li><code>origin</code> refers to the upstream DSC Community repository.</li>
+<li><code>my</code> refers to <em>your fork</em> of the DSC community repository.</li>
+</ul>
+</li>
+</ol>
+<h2 id="summary">Summary</h2>
+<p>The following is a summary of the steps that needs to occur to rename master
+to main:</p>
+<ol>
+<li>Update <em>your fork</em> of the repository from the upstream origin.</li>
+<li>Rename the <code>master</code> branch to <code>main</code> in <em>your fork</em>.</li>
+<li>Update the GitHub Default branch in <em>your fork</em> to <code>main</code>.</li>
+<li>Optional: Delete the old <code>master</code> branch in <em>your fork</em>.</li>
+<li>Update the pipeline files in the <code>main</code> branch of <em>your fork</em>.</li>
+<li>Optional: If you have an Azure DevOps pipeline connected to <em>your fork</em>
+update it to refer to <code>main</code>.</li>
+<li>Optional: Validate that the pipeline works correctly.</li>
+<li>Submit a pull request from <code>main</code> in <em>your fork</em> to <code>master</code> in the
+<em>upstream DSC Community repository</em>.</li>
+<li>Merge the pull request to <code>master</code>, <strong>even though the CI will fail</strong>.</li>
+<li>Create the new <code>main</code> branch in the <em>upstream DSC Community</em> repository.</li>
+<li>Re-target any open pull requests to <code>main</code>.</li>
+<li>Update the GitHub Default branch in the <em>upstream DSC Community
+repository</em> to <code>main</code>.</li>
+<li>Update the Azure DevOps pipeline connected to <em>upstream DSC Community
+repository</em> to <code>main</code>.</li>
+<li>Validate that the pipeline works correctly.</li>
+<li>Delete the GitHub <code>master</code> branch policy in the <em>upstream DSC Community
+repository</em>.</li>
+<li>Create the GitHub <code>main</code> branch policy in the <em>upstream DSC Community
+repository</em>.</li>
+<li>Optional: Delete the old <code>master</code> branch in the <em>upstream DSC Community
+repository</em>.</li>
+</ol>
+<h2 id="steps">Steps</h2>
+<h3 id="step-1---update-your-fork-of-the-repository-from-the-upstream-origin">Step 1 - Update your fork of the repository from the upstream origin</h3>
+<p>Update your fork from the upstream origin repository master branch by running
+the following commands:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Move to the local repo</span>
+cd c:\source\{repositoryFolder}
+
+<span style="color:#75715e"># Make sure you have the remote names to upstream and fork.</span>
+<span style="color:#75715e"># &#39;origin&#39; should refer to the upstream DSC Community repository.</span>
+<span style="color:#75715e"># &#39;my&#39; should refer to your fork of the repository.</span>
+git remote -v
+
+<span style="color:#75715e"># Get latest changes so we get all commits and tags</span>
+git checkout master
+git fetch origin master <span style="color:#75715e"># origin is the remote pointing to upstream DSC Community repository.</span>
+git rebase origin/master
+git fetch origin --tags <span style="color:#75715e"># get any (new) tags from origin/master</span>
+git push my master --force <span style="color:#75715e"># my is the remote pointing to fork</span>
+git push my --tags <span style="color:#75715e"># push any (new) tags to my/master</span>
+</code></pre></div><h3 id="step-2---rename-the-master-branch-to-main-in-your-fork">Step 2 - Rename the master branch to main in your fork</h3>
+<p>Rename the master branch to main in your fork by running the following
+commands:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git branch -m master main
+git push -u my main
+</code></pre></div><h3 id="step-3---update-the-github-default-branch-in-your-fork-to-main">Step 3 - Update the GitHub Default branch in your fork to main</h3>
+<p>In your web browser:</p>
+<ol>
+<li>Open <a href="https://github.com/">GitHub</a>.</li>
+<li>Navigate to <em>your fork</em> of the DSC repository.</li>
+<li>Select the <code>Settings</code> tab.</li>
+<li>Select <code>Branches</code>.</li>
+<li>Change Default Branch to <code>main</code>.</li>
+<li>Click <code>Update</code>.</li>
+<li>Confirm the update to the default branch.</li>
+</ol>
+<h3 id="step-4---optional-delete-the-old-master-branch-in-your-fork">Step 4 - Optional: Delete the old master branch in your fork</h3>
+<p>This step is optional and will delete your old <code>master</code> branch. You
+can leave your old <code>master</code> branch if you wish.</p>
+<p>You can now delete the old master branch by running the following command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git push my <span style="color:#960050;background-color:#1e0010">:</span>master
+</code></pre></div><h3 id="step-5---update-the-pipeline-files-in-the-main-branch-of-your-fork">Step 5 - Update the pipeline files in the main branch of your fork</h3>
+<blockquote>
+<p>Note: If you have an Azure DevOps pipeline linked to your fork of the
+repository then you should be able to validate that these changes work.</p>
+</blockquote>
+<p>At this point in the process the Azure DevOps pipeline will start
+failing. To fix this, some of the pipeline files in the main branch will
+need to be updated. To update these files:</p>
+<h4 id="update-changelogmd">Update: CHANGELOG.md</h4>
+<p>Add a new entry to the <code>### Changed</code> section under <code>## [Unreleased]</code> in
+the CHANGELOG.md:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">- Renamed `master` branch to `main` - Fixes [Issue #{issue number}](https://github.com/dsccommunity/{repository}/issues/{issue number}).
+</code></pre></div><h4 id="update-gitversionyml">Update: GitVersion.yml</h4>
+<p>Replace the <code>branches</code> section in the <code>GitVersion.yml</code> file with:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">branches</span>:
+  <span style="color:#f92672">master</span>:
+    <span style="color:#f92672">tag</span>: <span style="color:#ae81ff">preview</span>
+    <span style="color:#f92672">regex</span>: <span style="color:#ae81ff">^main$</span>
+  <span style="color:#f92672">pull-request</span>:
+    <span style="color:#f92672">tag</span>: <span style="color:#ae81ff">PR</span>
+  <span style="color:#f92672">feature</span>:
+    <span style="color:#f92672">tag</span>: <span style="color:#ae81ff">useBranchName</span>
+    <span style="color:#f92672">increment</span>: <span style="color:#ae81ff">Minor</span>
+    <span style="color:#f92672">regex</span>: <span style="color:#ae81ff">f(eature(s)?)?[\/-]</span>
+    <span style="color:#f92672">source-branches</span>: [<span style="color:#e6db74">&#39;main&#39;</span>]
+  <span style="color:#f92672">hotfix</span>:
+    <span style="color:#f92672">tag</span>: <span style="color:#ae81ff">fix</span>
+    <span style="color:#f92672">increment</span>: <span style="color:#ae81ff">Patch</span>
+    <span style="color:#f92672">regex</span>: <span style="color:#ae81ff">(hot)?fix(es)?[\/-]</span>
+    <span style="color:#f92672">source-branches</span>: [<span style="color:#e6db74">&#39;main&#39;</span>]
+</code></pre></div><h4 id="update-readmemd">Update: README.md</h4>
+<p>Replace the <code>master</code> with <code>main</code> in the build badges and anywhere else
+that refers to the <code>master</code> branch in this repository.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">[![Build Status](https://dev.azure.com/dsccommunity/WsManDsc/_apis/build/status/dsccommunity.WSManDsc?branchName=main)](https://dev.azure.com/dsccommunity/WsManDsc/_build/latest?definitionId=6&amp;branchName=main)
+![Code Coverage](https://img.shields.io/azure-devops/coverage/dsccommunity/WSManDsc/6/main)
+[![Azure DevOps tests](https://img.shields.io/azure-devops/tests/dsccommunity/WSManDsc/6/main)](https://dsccommunity.visualstudio.com/WSManDsc/_test/analytics?definitionId=6&amp;contextType=build)
+
+</code></pre></div><blockquote>
+<p>Note: Care should be taken to not change URLs that refer to files
+in the master branch of other respositories that have not been updated
+to use <code>main</code>.</p>
+</blockquote>
+<h4 id="update-azure-pipelinesyml">Update: azure-pipelines.yml</h4>
+<ol>
+<li>Update the <code>trigger\branches\include</code> section to be <code>main</code></li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">trigger</span>:
+  <span style="color:#f92672">branches</span>:
+    <span style="color:#f92672">include</span>:
+    - <span style="color:#ae81ff">main</span>
+</code></pre></div><ol>
+<li>Add the following environment variables to the <code>env</code> section of the <code>publish_release</code>
+and the <code>send_changelog_PR</code> tasks of the <code>Deploy</code> stage.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">ReleaseBranch</span>: <span style="color:#ae81ff">main</span>
+<span style="color:#f92672">MainGitBranch</span>: <span style="color:#ae81ff">main</span>
+</code></pre></div><p>For example, this is what the <code>publish_release</code> and <code>send_changelog_PR</code> tasks
+should look like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span>
+            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">publish_release</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Release&#39;</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
+              <span style="color:#f92672">arguments</span>: <span style="color:#e6db74">&#39;-tasks publish&#39;</span>
+              <span style="color:#f92672">pwsh</span>: <span style="color:#66d9ef">true</span>
+            <span style="color:#f92672">env</span>:
+              <span style="color:#f92672">GitHubToken</span>: <span style="color:#ae81ff">$(GitHubToken)</span>
+              <span style="color:#f92672">GalleryApiToken</span>: <span style="color:#ae81ff">$(GalleryApiToken)</span>
+              <span style="color:#f92672">ReleaseBranch</span>: <span style="color:#ae81ff">main</span>
+              <span style="color:#f92672">MainGitBranch</span>: <span style="color:#ae81ff">main</span>
+
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span>
+            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">send_changelog_PR</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Send CHANGELOG PR&#39;</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
+              <span style="color:#f92672">arguments</span>: <span style="color:#e6db74">&#39;-tasks Create_ChangeLog_GitHub_PR&#39;</span>
+              <span style="color:#f92672">pwsh</span>: <span style="color:#66d9ef">true</span>
+            <span style="color:#f92672">env</span>:
+              <span style="color:#f92672">GitHubToken</span>: <span style="color:#ae81ff">$(GitHubToken)</span>
+              <span style="color:#f92672">ReleaseBranch</span>: <span style="color:#ae81ff">main</span>
+              <span style="color:#f92672">MainGitBranch</span>: <span style="color:#ae81ff">main</span>
+</code></pre></div><blockquote>
+<p>Important: It is possible that there will be additional tasks that require
+these values to be set. If that is the case then it is also likely that
+adjustments will also need to be made to <a href="https://github.com/gaelcolas/Sampler">Sampler</a>.
+Please <a href="https://github.com/gaelcolas/Sampler/issues">raise an issue over in the Sampler repository</a>
+if you have a Sampler task that needs to be notified of the change to the
+name of <code>master</code> branch.</p>
+</blockquote>
+<ol>
+<li>Update the <code>deploy</code> stage <code>condition</code> by changing the
+<code>refs/heads/master</code> to <code>refs/heads/main</code>:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">  - <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Deploy</span>
+    <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Test</span>
+    <span style="color:#f92672">condition</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">      and(
+</span><span style="color:#e6db74">        succeeded(),
+</span><span style="color:#e6db74">        or(
+</span><span style="color:#e6db74">          eq(variables[&#39;Build.SourceBranch&#39;], &#39;refs/heads/main&#39;),
+</span><span style="color:#e6db74">          startsWith(variables[&#39;Build.SourceBranch&#39;], &#39;refs/tags/&#39;)
+</span><span style="color:#e6db74">        ),
+</span><span style="color:#e6db74">        contains(variables[&#39;System.TeamFoundationCollectionUri&#39;], &#39;dsccommunity&#39;)
+</span><span style="color:#e6db74">      )</span>      
+</code></pre></div><h4 id="update-buildyml">Update: build.yml</h4>
+<p>In the <code>build.yml</code> file in the <code>DscTest</code> section add the line:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">MainGitBranch</span>: <span style="color:#ae81ff">main</span>
+</code></pre></div><h4 id="update-sourcepsd1">Update: source/*.psd1</h4>
+<p>Update the <code>master</code> to <code>main</code> in the license URI in the module manifest:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">LicenseUri   = &#39;https://github.com/dsccommunity/WSManDsc/blob/main/LICENSE&#39;
+</code></pre></div><h4 id="update-optional-sourceexamplesresourcesps1">Update (Optional): source/Examples/Resources/**/*.ps1</h4>
+<p>If the module is configured with automated generation of wiki documentation then
+update any references for <code>master</code> to <code>main</code> in the examples:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">.LICENSEURI https://github.com/dsccommunity/WSManDsc/blob/main/LICENSE
+</code></pre></div><h4 id="update-optional-sourcewikisourcehomemd">Update (Optional): source/wikiSource/Home.md</h4>
+<p>If the module is configured with automated generation of wiki documentation then
+update any references for <code>master</code> to <code>main</code>.</p>
+<h4 id="update-optional-codecovyml">Update (Optional): codecov.yml</h4>
+<p>If the module is configured to send code coverage results to <a href="https://codecov.io">codecov.io</a>
+then you should also update the <code>codecov</code> <code>branch:</code> in <code>codecov.yml</code> file to
+<code>main</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">codecov</span>:
+  <span style="color:#75715e"># main should be the baseline for reporting</span>
+  <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">main</span>
+</code></pre></div><h4 id="commit-and-push-the-updated-pipeline-files">Commit and push the updated pipeline files</h4>
+<p>Run the following git commands to commit your changes:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git add .
+git commit -m <span style="color:#e6db74">&#39;Updated pipeline files to support change of master to main&#39;</span>
+git push my main
+</code></pre></div><h3 id="step-6---optional-update-azure-devops-pipeline-connected-to-your-fork">Step 6 - Optional: Update Azure DevOps pipeline connected to your fork</h3>
+<p>If you have an Azure DevOps pipeline connected to <em>your fork</em> you
+should update the &lsquo;Default branch for manual and scheduled builds&rsquo; setting
+from <code>master</code> to <code>main</code>:</p>
+<ol>
+<li>Open Azure DevOps and navigate to the Pipeline.
+<img src="../../images/convert-master-to-main/azure-devops-pipeline.png" alt="Azure DevOps Pipeline" style="width:425px;" /></li>
+<li>Click <code>Edit</code> to edit the pipeline.</li>
+<li>Select <code>Triggers</code> from the elipsis menu.
+<img src="../../images/convert-master-to-main/azure-devops-pipeline-edit-triggers.png" alt="Azure DevOps Pipeline Edit Triggers" style="width:425px;" /></li>
+<li>Select the <code>YAML</code> tab.</li>
+<li>Click <code>Get Sources</code>.</li>
+<li>Change the <code>Default branch for manual and scheduled builds</code> to <code>main</code>.
+<img src="../../images/convert-master-to-main/azure-devops-pipeline-set-default-branch.png" alt="Azure DevOps Pipeline set Default branch for manual and scheduled builds" style="width:425px;" /></li>
+<li>Click the <code>Save &amp; Queue</code> button.</li>
+</ol>
+<h3 id="step-7---optional-validate-that-the-pipeline-works-correctly">Step 7 - Optional: Validate that the pipeline works correctly</h3>
+<p>If you have an Azure DevOps pipeline connected to <em>your fork</em> the pipeline
+should have automatically run in Step 5 and/or step 6. However, if it did not
+then you can run the pipeline manually to validate that it works correctly.</p>
+<p><img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" /></p>
+<h3 id="step-8---submit-a-pull-request-from-main-in-your-fork-to-master-in-the-upstream-dsc-community-repository">Step 8 - Submit a pull request from main in your fork to master in the upstream DSC Community repository</h3>
+<p>The updated pipeline changes need to be submitted to the upstream
+DSC Community repository <code>master</code> branch via a Pull Request.</p>
+<p>In your web browser:</p>
+<ol>
+<li>Open <a href="https://github.com/">GitHub</a>.</li>
+<li>Navigate to <em>your fork</em> of the DSC repository.</li>
+<li>Select the <code>Pull requests</code> tab.</li>
+<li>Click <code>New pull request</code>.</li>
+<li>Ensure the <code>base repository</code> is set to the <em>upstream DSC Community</em>
+repository <code>master</code> branch.</li>
+<li>Ensure the <code>head repository</code> is set to <em>your fork</em> repository <code>main</code>
+branch.
+<img src="../../images/convert-master-to-main/github-create-pull-request.png" alt="GitHub create pull request" style="width:425px;" /></li>
+<li>Click <code>Create pull request</code>.</li>
+<li>Complete the details of the pull request.</li>
+<li>Click <code>Create pull request</code>.</li>
+</ol>
+<h3 id="step-9---merge-the-pull-request-to-master">Step 9 - Merge the pull request to master</h3>
+<p>The pull request should be reviewed by a maintainer or other community
+member.</p>
+<p><img src="../../images/convert-master-to-main/github-merge-pull-request.png" alt="GitHub merge pull request" style="width:425px;" /></p>
+<blockquote>
+<p>Important: The Azure DevOps CI pipeline will fail for this pull request.
+The failures will usually occur in the &lsquo;Run HQRM Test&rsquo; task in the &lsquo;HQRM&rsquo;
+stage. This is expected behavior and is unavoidable at this point. This
+pull request will need to be merged in the next step regardless of the
+build failures which will be fixed in subsequent steps.</p>
+</blockquote>
+<p>A maintainer with admin privileges will need to merge this pull request:</p>
+<p><img src="../../images/convert-master-to-main/github-merge-pull-request-use-admin-privs.png" alt="GitHub merge pull request using administrator privileges" style="width:425px;" /></p>
+<blockquote>
+<p>Note: Using a merge commit or rebase merge are both acceptable. A
+squash merge is not required.</p>
+</blockquote>
+<h3 id="step-10---create-the-new-main-branch-in-the-upstream-dsc-community-repository">Step 10 - Create the new main branch in the upstream DSC Community repository</h3>
+<blockquote>
+<p>Important: This step can only be performed by a maintainer with admin
+privileges on the <em>upstream DSC Community</em> repository.</p>
+</blockquote>
+<p>Create a new <code>main</code> branch from <code>master</code> in the <em>upstream DSC Community</em>
+repository by running the following commands:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Must be in this local branch</span>
+git checkout main
+
+<span style="color:#75715e"># Get and rebase changes from fork</span>
+git fetch my/main
+git rebase my/main
+
+<span style="color:#75715e"># Get and rebase changes from upstream</span>
+git fetch origin/master
+git rebase origin/master
+
+<span style="color:#75715e"># Overwrite fork with all commits from upstream</span>
+git push my main --force
+
+<span style="color:#75715e"># Push your fork main branch as main branch</span>
+git push -u origin main
+</code></pre></div><h3 id="step-11---re-target-any-open-pull-requests-to-main">Step 11 - Re-target any open pull requests to main</h3>
+<p>If the <em>upstream DSC Community</em> repository has any open pull requests
+that target <code>master</code>, these will need to be updated to <code>main</code>:</p>
+<p><img src="../../images/convert-master-to-main/github-update-pull-request-target.png" alt="GitHub re-target pull request" style="width:425px;" /></p>
+<h4 id="step-12---update-the-github-default-branch-in-upstream-dsc-community-repository-to-main">Step 12 - Update the GitHub Default branch in upstream DSC Community repository to main</h4>
+<p>In your web browser:</p>
+<ol>
+<li>Open <a href="https://github.com/">GitHub</a>.</li>
+<li>Navigate to <em>upstream DSC Community</em> repository.</li>
+<li>Select the <code>Settings</code> tab.</li>
+<li>Select <code>Branches</code>.</li>
+<li>Change Default Branch to <code>main</code>.</li>
+<li>Click <code>Update</code>.</li>
+<li>Confirm the update to the default branch.</li>
+</ol>
+<p><img src="../../images/convert-master-to-main/github-update-default-branch.png" alt="GitHub update default branch" style="width:425px;" /></p>
+<h3 id="step-13---update-the-azure-devops-pipeline-connected-to-upstream-dsc-community-repository-to-main">Step 13 - Update the Azure DevOps pipeline connected to upstream DSC Community repository to main</h3>
+<p>Update the &lsquo;Default branch for manual and scheduled builds&rsquo; setting
+from <code>master</code> to <code>main</code>:</p>
+<ol>
+<li>Open Azure DevOps and navigate to the Pipeline.
+<img src="../../images/convert-master-to-main/azure-devops-pipeline-community.png" alt="Azure DevOps Pipeline" style="width:425px;" /></li>
+<li>Click <code>Edit</code> to edit the pipeline.</li>
+<li>Select <code>Triggers</code> from the elipsis menu.
+<img src="../../images/convert-master-to-main/azure-devops-pipeline-edit-triggers.png" alt="Azure DevOps Pipeline Edit Triggers" style="width:425px;" /></li>
+<li>Select the <code>YAML</code> tab.</li>
+<li>Click <code>Get Sources</code>.</li>
+<li>Change the <code>Default branch for manual and scheduled builds</code> to <code>main</code>.
+<img src="../../images/convert-master-to-main/azure-devops-pipeline-set-default-branch-community.png" alt="Azure DevOps Pipeline set Default branch for manual and scheduled builds" style="width:425px;" /></li>
+<li>Click the <code>Save &amp; Queue</code> button.</li>
+</ol>
+<h3 id="step-14---validate-that-the-pipeline-works-correctly">Step 14 - Validate that the pipeline works correctly</h3>
+<p>The Azure DevOps pipeline should have been run by Step 13. Validate that
+it has completed successfully:</p>
+<p><img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" /></p>
+<h3 id="step-15---delete-the-github-master-branch-policy-in-the-upstream-dsc-community-repository">Step 15 - Delete the GitHub master branch policy in the upstream DSC Community repository</h3>
+<p>In your web browser:</p>
+<ol>
+<li>
+<p>Open <a href="https://github.com/">GitHub</a>.</p>
+</li>
+<li>
+<p>Navigate to <em>upstream DSC Community</em> repository.</p>
+</li>
+<li>
+<p>Select the <code>Settings</code> tab.</p>
+</li>
+<li>
+<p>Select <code>Branches</code>.</p>
+</li>
+<li>
+<p>Click the <code>Delete</code> button next to the <code>master</code> branch policy</p>
+<p><img src="../../images/convert-master-to-main/github-delete-master-branch-policy.png" alt="GitHub delete master branch policy" style="width:425px;" /></p>
+</li>
+<li>
+<p>Enter your GitHub password, if required.</p>
+</li>
+</ol>
+<h3 id="step-16---create-the-github-main-branch-policy-in-the-upstream-dsc-community-repository">Step 16 - Create the GitHub main branch policy in the upstream DSC Community repository</h3>
+<p>In your web browser:</p>
+<ol>
+<li>
+<p>Open <a href="https://github.com/">GitHub</a>.</p>
+</li>
+<li>
+<p>Navigate to <em>upstream DSC Community</em> repository.</p>
+</li>
+<li>
+<p>Select the <code>Settings</code> tab.</p>
+</li>
+<li>
+<p>Select <code>Branches</code>.</p>
+</li>
+<li>
+<p>Click the <code>Add rule</code> button.</p>
+</li>
+<li>
+<p>Enter &lsquo;main&rsquo; in the <code>Branch name pattern</code> field.</p>
+</li>
+<li>
+<p>Tick <code>Require pull request reviews before merging</code>.</p>
+</li>
+<li>
+<p>Tick <code>Require status checks to pass before merging</code>.</p>
+</li>
+<li>
+<p>Tick <code>Require branches to be up to date before merging</code>.</p>
+</li>
+<li>
+<p>Tick the status checks that are required to pass.</p>
+</li>
+<li>
+<p>Tick <code>Restrict who can push to matching branches</code>.</p>
+<p><img src="../../images/convert-master-to-main/github-create-branch-policy.png" alt="GitHub create main branch policy" style="width:425px;" /></p>
+</li>
+<li>
+<p>Click the <code>Create</code> button.</p>
+</li>
+</ol>
+<h3 id="step-17---optional-delete-the-old-master-branch-in-the-upstream-dsc-community-repository">Step 17 - Optional: Delete the old master branch in the upstream DSC Community repository</h3>
+<p>Delete the old <code>master</code> branch from the <em>upstream DSC community</em> repository by
+running:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git push origin <span style="color:#960050;background-color:#1e0010">:</span>master
+</code></pre></div><h2 id="rename-complete">Rename Complete</h2>
+<p>Once all steps are complete then the repository <code>master</code> branch has been
+successfully renamed to <code>main</code>.</p>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 01 Jan 0001</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/dsc-maintenance-windows/" title="Realizing maintenance windows with DSC"><i class="ti-arrow-left mr-2"></i>Realizing maintenance windows with DSC</a>
+            <a class="nav nav-next" href="/configmgt/" title="Configuration Management">Configuration Management<i class="ti-arrow-right ml-2"></i></a>
+            </nav></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- footer -->
+<footer class="section bg-gray pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+        <p>Copyright 2019 the dsccommunity.org contributors.</p> 
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://github.com/dsccommunity/"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/dsccommunity"><i class="ti-twitter-alt"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Bootstrap JS -->
+<script src="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- highlight -->
+<script src="https://dsccommunity.org/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Main Script -->
+
+<script src="https://dsccommunity.org/js/script.min.js"></script>
