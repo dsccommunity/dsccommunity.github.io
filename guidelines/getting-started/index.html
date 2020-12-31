@@ -415,13 +415,64 @@ have it installed already.</p>
 <p><strong>NOTE:</strong> You must be an elevated administrator to run <code>choco install</code>.</p>
 </blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">choco install GitVersion.Portable
-</code></pre></div><h4 id="macos-and-linux">macOS and Linux</h4>
-<p>You install <a href="https://gitversion.net/docs/">GitVersion</a> using the following</p>
+</code></pre></div><h4 id="macos">macOS</h4>
+<p>You install <a href="https://gitversion.net/docs/">GitVersion</a> using the following:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install gitversion
 </code></pre></div><blockquote>
 <p><strong>NOTE:</strong> You need install <a href="https://brew.sh/">Homebrew</a> first if you do
 not have it installed already.</p>
 </blockquote>
+<h4 id="linux-or-docker">Linux (or Docker)</h4>
+<h5 id="using-homebrew">Using Homebrew</h5>
+<p>You install <a href="https://gitversion.net/docs/">GitVersion</a> using the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install gitversion
+</code></pre></div><blockquote>
+<p><strong>NOTE:</strong> You need install <a href="https://brew.sh/">Homebrew</a> first, if you do
+not have it installed already.</p>
+</blockquote>
+<h5 id="using-release-package">Using release package</h5>
+<p>If you don&rsquo;t have or don&rsquo;t want to use Homebrew, it is possible to install
+it from a release package directly.</p>
+<ol>
+<li>See if there are any prerequisites for the distribution you are using
+in <a href="https://github.com/GitTools/GitVersion/blob/master/src/Docker/linux%20deps.md">Linux dependencies</a></li>
+<li>Get the package name and version to the correct release for the distribution
+you are using at <a href="https://github.com/GitTools/GitVersion/releases">GitVersion releases</a></li>
+<li>Run the commands below and replace with the correct package name and
+version from previous step.</li>
+</ol>
+<blockquote>
+<p><strong>NOTE:</strong> These steps have been verified in Ubuntu 16.04 and Ubuntu 20.04.
+In other distributions the folders and steps might vary.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># Create a new folder under current user home folder</span>
+cd ~
+mkdir gitversion
+cd ~/gitversion
+
+version<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;5.6.0&#34;</span>
+release<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gitversion-ubuntu.16.04-x64-5.6.0.tar.gz&#34;</span>
+
+wget https://github.com/GitTools/GitVersion/releases/download/$version/$release
+
+tar -xvf ./$release
+
+<span style="color:#75715e"># Make the gitversion file executable</span>
+chmod +x gitversion
+
+<span style="color:#75715e"># Create a soft link to be able to run it from anywhere</span>
+<span style="color:#75715e">#  - Ubuntu 16.04:</span>
+sudo ln -sf <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>/gitversion /usr/local/bin/gitversion
+<span style="color:#75715e">#  - Ubuntu 20.04 (might need to replace $(pwd) with full path):</span>
+sudo ln -s <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>/gitversion /usr/local/bin/
+
+<span style="color:#75715e"># Now gitversion should work</span>
+cd /tmp
+gitversion
+</code></pre></div><p>If it returns <code>Cannot find the .git directory</code> then it has executed correctly.
+The first time it executes it can take a while.</p>
 <h3 id="clone-repository-from-github">Clone repository from GitHub</h3>
 <p>To clone a repository from GitHub you need the owner of the repository
 and the repository name. The owner for DSC Community repositories are
