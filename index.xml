@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Fri, 02 Oct 2020 10:00:00 +0200</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Dec 2020 00:00:00 +0200</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Next Community Call 2020-12-16</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
@@ -554,6 +554,17 @@ DSC Community Committee Read more about it here https://dsccommunity.</descripti
     </item>
     
     <item>
+      <title>Convert tests to Pester 5 for a DSC Community repository</title>
+      <link>https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/</link>
+      <pubDate>Mon, 28 Dec 2020 00:00:00 +0200</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/</guid>
+      <description>This blog post will guide you on how to convert existing tests in a DSC Community DSC resource module repository using a new pattern that is better suited for Pester 5.
+You are welcome to share any comments or issues you having around this process in the Discord or Slack #DSC channel.
+This previous blog post Converting tests to Pester 5 covered an early version of Pester 5 and the patterns that should be used have been improved (and are still being improved).</description>
+    </item>
+    
+    <item>
       <title>Class Based DSC Resource only proposal</title>
       <link>https://dsccommunity.org/blog/class-based-dsc-resources/</link>
       <pubDate>Fri, 02 Oct 2020 10:00:00 +0200</pubDate>
@@ -570,6 +581,7 @@ The suggested change was only for DSC Resources schema, and no changes to MOF co
       
       <guid>https://dsccommunity.org/blog/converting-tests-to-pester5/</guid>
       <description>If you have any questions or suggestions around this blog post then please reach out to @johlju in the Virtual PowerShell User Group #DSC channel.
+UPDATE: To convert tests for a repository in DSC Community also see the blog Convert tests to Pester 5 for a DSC Community repository
 Pester Pester, the famous DSL and module in the PowerShell community, is used throughout the DSC modules and their common modules to ensure we maintain quality for all new contributions by testing any addition and verify they work with the rest of the code to avoid regression.</description>
     </item>
     

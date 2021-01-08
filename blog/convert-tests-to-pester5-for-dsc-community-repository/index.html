@@ -1,0 +1,1491 @@
+<head>
+  <meta charset="utf-8">
+  <title>Convert tests to Pester 5 for a DSC Community repository</title>
+
+  <meta name="generator" content="Hugo 0.80.0" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144465379-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/themify-icons/themify-icons.css">
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/highlight/hybrid.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+
+  <style>
+  :root{
+    --primary-color:#003366;
+    --secondary-color:#f9f9f9;
+    --text-color:#242738;
+    --text-color-dark:#000;
+    --white-color:#ffffff;
+  }
+  </style>
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://dsccommunity.org/css/style.min.css" integrity="" media="screen">
+
+  <!-- jquiry -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-1.12.4.js"></script>
+
+  <!-- jquary ui -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-ui.js"></script>
+
+  <!--Favicon-->
+  <link rel="icon" href="https://dsccommunity.org/images/favicon.png" type="image/x-icon">
+
+</head>
+
+<!-- navigation -->
+<header class="shadow-bottom sticky-top bg-white">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="https://dsccommunity.org/">DSC Community and Resource Kit</a>
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse text-center" id="navigation">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="https://dsccommunity.org/">Home</a>
+      </li>
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/code_of_conduct">Code of Conduct</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/community_calls">Community Calls</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/faq">Faq</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/help">help</a>
+      </li>
+      
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" >
+          
+          <a class="dropdown-item" href="/community">Community</a>
+          
+          <a class="dropdown-item" href="/resources">Resource Modules</a>
+          
+          <a class="dropdown-item" href="/guidelines">Guidelines</a>
+          
+          <a class="dropdown-item" href="/blog">Blog Posts</a>
+          
+          <a class="dropdown-item" href="/configmgt">Config. Management</a>
+          
+        </div>
+      </li>
+      
+      
+    </ul>
+    
+    <ul class="list-inline text-center mb-0">
+      
+    </ul>
+  </div>
+</nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<section class="single pt-5 bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="p-4 bg-white sticky-top top-100">
+            
+            <nav class="sidebar-menu">
+              <ul class="list-styled">
+            <li class=""><a href="/community/">Community</a>
+              <ul class="">
+            <li class=""><a href="/community/origin-story/">Origin Story</a>
+            </li>
+            <li class=""><a href="/community/ownership/">Ownership of DSC Resources</a>
+            </li>
+            <li class=""><a href="/community/committee/">DSC Community Committee</a>
+            </li>
+            <li class=""><a href="/community/maintainers/">Maintainers</a>
+            </li>
+            <li class=""><a href="/community/contact/">Join the Conversation</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/resources/">Resource Modules</a>
+            </li>
+            <li class=""><a href="/guidelines/">Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
+            </li>
+            <li class=""><a href="/guidelines/contributing/">Contributing</a>
+            </li>
+            <li class=""><a href="/guidelines/maintaining/">Maintaining</a>
+            </li>
+            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
+            </li>
+            <li class=""><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
+            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general/">General</a>
+            </li>
+            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
+            </li>
+            <li class=""><a href="/styleguidelines/functions/">Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
+            </li>
+            <li class=""><a href="/styleguidelines/variables/">Variables</a>
+            </li>
+            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
+            </li></ul>
+              
+            </li>
+            <li class="parent d-block "><a href="/blog/">Blog Posts</a>
+              <ul class="sub-menu">
+            <li class=""><a href="/blog/create-an-article/">Create an Article</a>
+            </li>
+            <li class=""><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
+            </li>
+            <li class="parent d-block  active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
+            </li>
+            <li class=""><a href="/blog/class-based-dsc-resources/">Class Based DSC Resource only proposal</a>
+            </li>
+            <li class=""><a href="/blog/converting-tests-to-pester5/">Converting tests to Pester 5</a>
+            </li>
+            <li class=""><a href="/blog/add-codecov-support-to-repository/">Add Codecov Support to Repository</a>
+            </li>
+            <li class=""><a href="/blog/use-dscresource-common-functions-in-module/">DscResource.Common functions in a DSC module</a>
+            </li>
+            <li class=""><a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a>
+            </li>
+            <li class=""><a href="/blog/how-to-use-dsc-logging/">How to Use DSC Logging</a>
+            </li>
+            <li class=""><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
+            </li>
+            <li class=""><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
+            <li class=""><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/community_calls/">Community Calls</a>
+              <ul class="">
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2020-12-16</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-09-23-notes/">2020-09-23 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-08-12-notes/">2020-08-12 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-07-01-notes/">2020-07-01 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-05-20-notes/">2020-05-20 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-02-26-notes/">2020-02-26 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2020-01-22-notes/">2020-01-22 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-12-04-notes/">2019-12-04 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
+            </li>
+            <li class=""><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/code_of_conduct/">Code of Conduct</a>
+              <ul class="">
+            <li class=""><a href="/code_of_conduct/standards/">Our Standards</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/scope/">Scope</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/enforcement/">Enforcement</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/common_questions/">Common Questions</a>
+            </li>
+            <li class=""><a href="/code_of_conduct/attribution/">Attribution</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/help/">Help</a>
+              <ul class="">
+            <li class=""><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
+            </li>
+            <li class=""><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
+            </li></ul>
+              
+            </li>
+            <li class=""><a href="/contributors/">Elements</a>
+            </li>
+            <li class=""><a href="/faq/">Frequently Asked Questions</a>
+            </li></ul>
+            </nav>
+
+            
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-5 bg-white">
+            <h2>Convert tests to Pester 5 for a DSC Community repository</h2>
+            <p>This blog post will guide you on how to convert existing tests in a
+DSC Community DSC resource module repository using a new pattern that is
+better suited for Pester 5.</p>
+<p>You are welcome to share any comments or issues you having around this
+process in the <a href="https://dsccommunity.org/community/contact/">Discord or Slack #DSC channel</a>.</p>
+<p>This previous blog post <a href="https://dsccommunity.org/blog/converting-tests-to-pester5/">Converting tests to Pester 5</a>
+covered an early version of Pester 5 and the patterns that should be used
+have been improved (and are still being improved).</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#before-we-start-a-note-about-self-contained-tests">Before we start, a note about self-contained tests</a></li>
+<li><a href="#guideline-for-converting-tests-in-a-dsc-community-repository">Guideline for converting tests in a DSC Community repository</a>
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#rules">Rules</a></li>
+<li><a href="#fixture-setup-and-teardown">Fixture setup and teardown</a>
+<ul>
+<li><a href="#mof-dsc-resource">MOF DSC Resource</a></li>
+<li><a href="#dsc-resource-common-module">DSC Resource Common Module</a></li>
+</ul>
+</li>
+<li><a href="#using-stub-powershell-module">Using stub PowerShell module</a>
+<ul>
+<li><a href="#how-to-use-stub-module-in-tests">How to use stub module in tests</a></li>
+</ul>
+</li>
+<li><a href="#mocking">Mocking</a></li>
+<li><a href="#calling-function-to-be-tested">Calling function to be tested</a></li>
+<li><a href="#using-variables">Using variables</a>
+<ul>
+<li><a href="#setting-variables-in-the-modules-scope">Setting variables in the module&rsquo;s scope</a></li>
+<li><a href="#passing-variables-into-the-modules-scope">Passing variables into the module&rsquo;s scope</a></li>
+</ul>
+</li>
+<li><a href="#asserting">Asserting</a>
+<ul>
+<li><a href="#assert-result-from-called-function">Assert result from called function</a>
+<ul>
+<li><a href="#assert-result-in-the-it-block">Assert result in the <code>It</code>-block</a></li>
+<li><a href="#assert-result-in-the-aftereach-block">Assert result in the <code>AfterEach</code>-block</a></li>
+<li><a href="#assert-result-in-the-afterall-block">Assert result in the <code>AfterAll</code>-block</a></li>
+</ul>
+</li>
+<li><a href="#assert-called-mocks">Assert called mocks</a>
+<ul>
+<li><a href="#assert-called-mocks-in-the-it-block">Assert called mocks in the <code>It</code>-block</a></li>
+<li><a href="#assert-called-mocks-in-the-aftereach-block">Assert called mocks in the <code>AfterEach</code>-block</a></li>
+<li><a href="#assert-called-mocks-in-the-afterall-block">Assert called mocks in the <code>AfterAll</code>-block</a></li>
+</ul>
+</li>
+<li><a href="#asserting-verifiable-mocks">Asserting verifiable mocks</a>
+<ul>
+<li><a href="#verifiable-mock-in-beforeall-block">Verifiable mock in <code>BeforeAll</code>-block</a></li>
+<li><a href="#verifiable-mock-in-beforeeach-block-or-it-block">Verifiable mock in <code>BeforeEach</code>-block or <code>It</code>-block</a></li>
+</ul>
+</li>
+<li><a href="#assert-thrown-exception-messages">Assert thrown exception messages</a>
+<ul>
+<li><a href="#assert-thrown-exception-messages-for-private-functions">Assert thrown exception messages for private functions</a></li>
+<li><a href="#assert-thrown-exception-messages-for-public-functions">Assert thrown exception messages for public functions</a></li>
+</ul>
+</li>
+<li><a href="#using-because-in-assert">Using <code>Because</code> in assert</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="before-we-start-a-note-about-self-contained-tests">Before we start, a note about self-contained tests</h2>
+<p>We developers have a number one rule that it is bad to duplicate code and
+instead code should be reused (the <a href="https://www.digitalocean.com/community/tutorials/what-is-dry-development">DRY principle</a>).
+It is normally good to reuse code, but when it comes to writing Pester tests
+this can be bad thing. Reusing code leads to tests not being self-contained
+and tests can become very complex for even seasoned contributors to contribute
+to (I know, I been there myself).</p>
+<p>I have seen the need, both as a contributor and maintainer helping contributors
+with Pester tests, to simplify the tests. Both so that contributors
+themselves can update tests, secondly so that maintainers can more
+easily give pointers to contributors on how tests can be improved.</p>
+<p><strong>In my experience the number one reason for pull request to be abandoned</strong>
+<strong>is because tests are too hard to learn to write, which leads us to the other</strong>
+<strong>challenge&hellip; bandwidth for both contributor and maintainer.</strong></p>
+<p>So what is a self-contained test? I would like to describe it as where
+the mocks, the call to the function being tested, and the asserts of the
+result are contained in a self-contained atomic code block, usually a
+<code>Context</code>-block. This will help new contributors to read the test code
+without needing to scroll up and down in the code. It will be easy for
+contributors to find the right test to modify for the change they are
+making by just reading one or two pages of code. This means not being
+afraid to duplicate code! You may think that the code will be slower to
+run if there is more code, but in reality it can be faster than having a
+very complex test that reuses code. Pester does not really care (speed
+wise) if the test is 1000 rows or 2000 rows. It doesn&rsquo;t even compare to
+the effectiveness of enabling contributors to more easily write tests.</p>
+<p>Take for example the following two tests. The code for the mock of
+<code>Get-ServerProtocolObject</code> could be easily moved out from each test and
+moved into a separate <code>BeforeAll</code>-block in a parent <code>Context</code>-block. This
+is what developers instinctively want to do. But what happens if we
+do that? Say a contributor contributes a change that needs a new test. The
+contributor must then browse the code to make sure how it works, secondly
+the contributor must scroll through the test to see if there are other
+mocks that might mess up the change to the test the contributor is trying
+to make. Consider if we have reused code similar throughout the tests in
+that file (which could end up being 5000 rows long), that is a lot of code
+for the contributor to read just to make a small change.</p>
+<blockquote>
+<p><strong>NOTE:</strong> There are still complex tests in SqlServerDsc today that are
+<em>very</em> slow due to old bad practices. There are also examples of where
+these <em>very</em> slow tests have been rewritten to be self-contained (which
+duplicates code) and become <em>extremely</em> fast in comparison!</p>
+</blockquote>
+<p>By having self-contained test the contributor now only needs to find a
+<code>Context</code>-block similar to what their change needs, duplicate that and
+modify the mocks and asserts accordingly. They do not need to worry about
+code in parent blocks messes up their new test.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Describe <span style="color:#e6db74">&#39;SqlProtocol\Set-TargetResource&#39;</span> -Tag <span style="color:#e6db74">&#39;Set&#39;</span> {
+    Context <span style="color:#e6db74">&#39;When the system is not in the desired state&#39;</span> {
+        Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
+            Context <span style="color:#e6db74">&#39;When enabling and setting all the protocol properties&#39;</span> {
+                BeforeAll {
+                    InModuleScope -ScriptBlock {
+                        $script:mockInstanceName = <span style="color:#e6db74">&#39;DSCTEST&#39;</span>
+                    }
+
+                    Mock -CommandName Restart-SqlService
+                    Mock -CommandName Compare-TargetResourceState -MockWith {
+                        <span style="color:#66d9ef">return</span> @(
+                            @{
+                                ParameterName  = <span style="color:#e6db74">&#39;Enabled&#39;</span>
+                                Actual         = $false
+                                Expected       = $true
+                                InDesiredState = $false
+                            }
+                            @{
+                                ParameterName  = <span style="color:#e6db74">&#39;ListenOnAllIpAddresses&#39;</span>
+                                Actual         = $false
+                                Expected       = $true
+                                InDesiredState = $false
+                            }
+                            @{
+                                ParameterName  = <span style="color:#e6db74">&#39;KeepAlive&#39;</span>
+                                Actual         = 30000
+                                Expected       = 50000
+                                InDesiredState = $false
+                            }
+                        )
+                    }
+
+                    Mock -CommandName Get-ServerProtocolObject -MockWith {
+                        <span style="color:#66d9ef">return</span> New-Object -TypeName PSObject |
+                            Add-Member -MemberType NoteProperty -Name <span style="color:#e6db74">&#39;IsEnabled&#39;</span> -Value $false -PassThru |
+                            Add-Member -MemberType ScriptProperty -Name <span style="color:#e6db74">&#39;ProtocolProperties&#39;</span> -Value {
+                                <span style="color:#66d9ef">return</span> @{
+                                    ListenOnAllIPs = New-Object -TypeName PSObject |
+                                        Add-Member -MemberType NoteProperty -Name <span style="color:#e6db74">&#39;Value&#39;</span> -Value $false -PassThru -Force
+                                        KeepAlive  = New-Object -TypeName PSObject |
+                                            Add-Member -MemberType NoteProperty -Name <span style="color:#e6db74">&#39;Value&#39;</span> -Value 30000 -PassThru -Force
+                                        }
+                                    } -PassThru |
+                                    Add-Member -MemberType ScriptMethod -Name <span style="color:#e6db74">&#39;Alter&#39;</span> -Value {
+                                        <span style="color:#75715e"># This is used to verify so that method Alter() is actually called or not.</span>
+                                        InModuleScope -ScriptBlock {
+                                            $script:wasMethodAlterCalled = $true
+                                        }
+                                    } -PassThru -Force
+                    }
+                }
+
+                It <span style="color:#e6db74">&#39;Should set the desired values and restart the SQL Server service&#39;</span> {
+                    InModuleScope -ScriptBlock {
+                        Set-StrictMode -Version 1.0
+
+                        $script:wasMethodAlterCalled = $false
+
+                        $setTargetResourceParameters = @{
+                            InstanceName           = $mockInstanceName
+                            ProtocolName           = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+                            ListenOnAllIpAddresses = $true
+                            KeepAlive              = 50000
+                            Enabled                = $true
+                        }
+
+                        { Set-TargetResource @setTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+
+                        $script:wasMethodAlterCalled | Should -BeTrue
+                    }
+
+                    Should -Invoke -CommandName Restart-SqlService -Exactly -Times 1 -Scope It
+                }
+            }
+
+            Context <span style="color:#e6db74">&#39;When enabling the protocol and leaving the rest of the properties set to their default value&#39;</span> {
+                BeforeAll {
+                    InModuleScope -ScriptBlock {
+                        $script:mockInstanceName = <span style="color:#e6db74">&#39;DSCTEST&#39;</span>
+                    }
+
+                    Mock -CommandName Restart-SqlService
+                    Mock -CommandName Compare-TargetResourceState -MockWith {
+                        <span style="color:#66d9ef">return</span> @(
+                            @{
+                                ParameterName  = <span style="color:#e6db74">&#39;Enabled&#39;</span>
+                                Actual         = $false
+                                Expected       = $true
+                                InDesiredState = $false
+                            }
+                        )
+                    }
+
+                    Mock -CommandName Get-ServerProtocolObject -MockWith {
+                        <span style="color:#66d9ef">return</span> New-Object -TypeName PSObject |
+                            Add-Member -MemberType NoteProperty -Name <span style="color:#e6db74">&#39;IsEnabled&#39;</span> -Value $false -PassThru |
+                            Add-Member -MemberType ScriptProperty -Name <span style="color:#e6db74">&#39;ProtocolProperties&#39;</span> -Value {
+                                <span style="color:#66d9ef">return</span> @{
+                                    ListenOnAllIPs = New-Object -TypeName PSObject |
+                                        Add-Member -MemberType NoteProperty -Name <span style="color:#e6db74">&#39;Value&#39;</span> -Value $false -PassThru -Force
+                                        KeepAlive  = New-Object -TypeName PSObject |
+                                            Add-Member -MemberType NoteProperty -Name <span style="color:#e6db74">&#39;Value&#39;</span> -Value 30000 -PassThru -Force
+                                        }
+                                    } -PassThru |
+                                    Add-Member -MemberType ScriptMethod -Name <span style="color:#e6db74">&#39;Alter&#39;</span> -Value {
+                                        <span style="color:#75715e"># This is used to verify so that method Alter() is actually called or not.</span>
+                                        InModuleScope -ScriptBlock {
+                                            $script:wasMethodAlterCalled = $true
+                                        }
+                                    } -PassThru -Force
+                    }
+                }
+
+                It <span style="color:#e6db74">&#39;Should set the desired values and restart the SQL Server service&#39;</span> {
+                    InModuleScope -ScriptBlock {
+                        Set-StrictMode -Version 1.0
+
+                        $script:wasMethodAlterCalled = $false
+
+                        $setTargetResourceParameters = @{
+                            InstanceName = $mockInstanceName
+                            ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+                            Enabled      = $true
+                        }
+
+                        { Set-TargetResource @setTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+
+                        $script:wasMethodAlterCalled | Should -BeTrue
+                    }
+
+                    Should -Invoke -CommandName Restart-SqlService -Exactly -Times 1 -Scope It
+                }
+            }
+        }
+    }
+}
+</code></pre></div><h2 id="guideline-for-converting-tests-in-a-dsc-community-repository">Guideline for converting tests in a DSC Community repository</h2>
+<h3 id="requirements">Requirements</h3>
+<p>For the pattern explained here to work, the <code>Export-ModuleMember</code> must be
+removed from the DSC resource code. This is an old pattern that is no
+longer needed for MOF DSC resources. Removing the <code>Export-ModuleMember</code>
+will enable Pester 5 to see all exposed helper functions when using
+<code>InModuleScope</code>. It will expose the private helper functions that are
+defined in the module, but also the helper functions that the resource
+imports into the DSC resource&rsquo;s own module scope.</p>
+<blockquote>
+<p><strong>NOTE:</strong> The exposed helper functions will not be available in the
+PowerShell session were Pester runs, only through Pesters command
+<code>InModuleScope</code>. It is not the same as the helper functions would be
+exported through the module manifest.</p>
+</blockquote>
+<h3 id="rules">Rules</h3>
+<p>Let us go over some rules that we should try to obey. These rules are to
+help us follow the pattern set by Pester 5 and will also help us move
+away from patterns used in earlier versions of Pester. These rules are
+meant to optimize what in Pester terms is called <em>Discovery</em> and <em>Run</em>.
+It also helps the tests be more intuitive and easier to read.</p>
+<p>There might be circumstances where there will be a need to break one rule
+or more, but for most tests these should be followed. If a rule needs to
+be broken then this should be clearly documented in the test code.</p>
+<ul>
+<li>Code that setup mocks (<code>Mock</code>) must only be inside an <code>It</code>-block,
+or inside a <code>BeforeAll</code>- or <code>BeforeEach</code>-block.</li>
+<li>Code that is calling the function being tested must only be inside an
+<code>It</code>-block.</li>
+<li>Code that asserts the result (<code>Should</code>) must only be inside an <code>It</code>-block,
+or inside a <code>AfterAll</code> or <code>AfterEach</code>-block.</li>
+<li>When testing a DSC resource module&rsquo;s functions <code>Get-TargetResource</code>,
+<code>Set-TargetResource</code>, <code>Test-TargetResource</code>, or other private functions
+the code inside the <code>It</code>-block must be wrapped inside an <code>InModuleScope</code>-block.</li>
+<li>When testing a DSC resource common module (module for general helper
+functions) then <code>InModuleScope</code> should only be used to test private
+functions, never when testing public functions.</li>
+<li><code>foreach</code> or <code>ForEach-Object</code> must not be used. Instead use parameter <code>ForEach</code>
+on <code>Context</code>- and <code>It</code>-blocks.</li>
+<li><code>try</code>-<code>catch</code>-<code>finally</code>-block must not be used outside of an <code>It</code>-block.
+The exception is in the script level <code>BeforeAll</code>- or <code>AfterAll</code>-block.</li>
+<li>Test fixture setup and teardown must always be done in a <code>BeforeAll</code>- and
+<code>AfterAll</code>-block at the script level. For example importing and removing
+the module being tested.</li>
+<li>The module being tested or helper modules that are imported in the script
+level <code>BeforeAll</code>-block must always be removed in the script level
+<code>AfterAll</code>-block. This is to prevent spill-over to other tests that
+are run.</li>
+<li>Tests that uses stub C# classes must load those in the script level
+<code>BeforeAll</code>-block so it is clear they are imported into the session
+and will spill-over to other tests. <em>If possible tests that loads stub</em>
+<em>C# classes should be run last (after other tests) to minimize spill-over</em>.</li>
+<li>Only mock cmdlets (functions) in the first level of the code being tested.</li>
+</ul>
+<blockquote>
+<p><strong>NOTE:</strong> Spill-over to another test means that things that were made
+available for one test can spill-over to the next test and make it work
+(or not work) when run together, but not when run individually.</p>
+</blockquote>
+<h3 id="fixture-setup-and-teardown">Fixture setup and teardown</h3>
+<p>At the top of the test file there should a <code>BeforeAll</code>-block that sets up
+everything needed to be able to run test. Also there should be a
+<code>AfterAll</code>-block that tears down everything that was imported into the
+session in the <code>BeforeAll</code>-block to prevent spill-over to next test that
+is run.</p>
+<h4 id="mof-dsc-resource">MOF DSC Resource</h4>
+<p>The script level <code>BeforeAll</code>-block setups:</p>
+<ul>
+<li>the test environment and imports the DSC resource module into the session</li>
+<li>the local helper module <em>CommonTestHelper</em> by importing it into the session
+(the module contains generic functions to help write tests)</li>
+<li>the default parameter <code>ModuleName</code> for the <code>InModuleScope</code>-blocks</li>
+</ul>
+<blockquote>
+<p><strong>NOTE:</strong> The functions in the helper module <em>CommonTestHelper</em> would be
+better suited to be moved into a generic module like <em>DscResource.Test</em>
+in the future.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">BeforeAll {
+    <span style="color:#75715e"># Define the DSC module and DSC resource being tested.</span>
+    $script:dscModuleName = <span style="color:#e6db74">&#39;SqlServerDsc&#39;</span>
+    $script:dscResourceName = <span style="color:#e6db74">&#39;DSC_SqlProtocol&#39;</span>
+
+    <span style="color:#75715e"># Import the test pipeline code.</span>
+    <span style="color:#66d9ef">try</span>
+    {
+        Import-Module -Name DscResource.Test -Force -ErrorAction <span style="color:#e6db74">&#39;Stop&#39;</span>
+    }
+    <span style="color:#66d9ef">catch</span> <span style="color:#66d9ef">[System.IO.FileNotFoundException]</span>
+    {
+        <span style="color:#66d9ef">throw</span> <span style="color:#e6db74">&#39;DscResource.Test module dependency not found. Please run &#34;.\build.ps1 -Tasks build&#34; first.&#39;</span>
+    }
+
+    <span style="color:#75715e"># Setup test environment and imports the DSC resource being tested.</span>
+    $script:testEnvironment = Initialize-TestEnvironment `
+        -DSCModuleName $script:dscModuleName `
+        -DSCResourceName $script:dscResourceName `
+        -ResourceType <span style="color:#e6db74">&#39;Mof&#39;</span> `
+        -TestType <span style="color:#e6db74">&#39;Unit&#39;</span>
+
+    <span style="color:#75715e"># Import the test helper module.</span>
+    Import-Module -Name (Join-Path -Path $PSScriptRoot -ChildPath <span style="color:#e6db74">&#39;..\TestHelpers\CommonTestHelper.psm1&#39;</span>)
+
+    <span style="color:#75715e"># Sets the default value for parameter ModuleName for the InModuleScope-blocks</span>
+    $PSDefaultParameterValues[<span style="color:#e6db74">&#39;InModuleScope:ModuleName&#39;</span>] = $script:dscResourceName
+}
+</code></pre></div><p>The script level <code>AfterAll</code>-block teardown:</p>
+<ul>
+<li>the default parameter <code>ModuleName</code> for the <code>InModuleScope</code>-blocks.</li>
+<li>the test environment</li>
+<li>the DSC resource module from the session</li>
+<li>the local helper module <em>CommonTestHelper</em></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">AfterAll {
+    <span style="color:#75715e"># Remove default parameter value.</span>
+    $PSDefaultParameterValues.Remove(<span style="color:#e6db74">&#39;InModuleScope:ModuleName&#39;</span>)
+
+    <span style="color:#75715e"># Teardown test environment.</span>
+    Restore-TestEnvironment -TestEnvironment $script:testEnvironment
+
+    <span style="color:#75715e"># Unload the module being tested so that it doesn&#39;t impact any other tests.</span>
+    Get-Module -Name $script:dscResourceName -All | Remove-Module -Force
+
+    <span style="color:#75715e"># Remove module common test helper.</span>
+    Get-Module -Name <span style="color:#e6db74">&#39;CommonTestHelper&#39;</span> -All | Remove-Module -Force
+}
+</code></pre></div><h4 id="dsc-resource-common-module">DSC Resource Common Module</h4>
+<p>The script level <code>BeforeAll</code>-block setups:</p>
+<ul>
+<li>the common module by importing it into the session</li>
+<li>the local helper module <em>CommonTestHelper</em> by importing it into the session
+(the module contains generic functions to help write tests)</li>
+<li>(optionally) loads the C# class stubs into the session.</li>
+<li>the default parameter <code>ModuleName</code> for the <code>InModuleScope</code>-blocks</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">BeforeAll {
+    <span style="color:#75715e"># Define the DSC module and common module being tested.</span>
+    $script:dscModuleName = <span style="color:#e6db74">&#39;SqlServerDsc&#39;</span>
+    $script:subModuleName = <span style="color:#e6db74">&#39;SqlServerDsc.Common&#39;</span>
+
+    $script:parentModule = Get-Module -Name $script:dscModuleName -ListAvailable | Select-Object -First 1
+    $script:subModulesFolder = Join-Path -Path $script:parentModule.ModuleBase -ChildPath <span style="color:#e6db74">&#39;Modules&#39;</span>
+    $script:subModulePath = Join-Path -Path $script:subModulesFolder -ChildPath $script:subModuleName
+
+    <span style="color:#75715e">&lt;#
+</span><span style="color:#75715e">        Import the common module into the session. The path $script:subModulePath
+</span><span style="color:#75715e">        points to the folder of the common module so that the module manifest is
+</span><span style="color:#75715e">        used when importing the module. This is so done to test that the functions
+</span><span style="color:#75715e">        are exported as expected.
+</span><span style="color:#75715e">    #&gt;</span>
+    Import-Module -Name $script:subModulePath -Force -ErrorAction <span style="color:#e6db74">&#39;Stop&#39;</span>
+
+    <span style="color:#75715e"># Import the test helper module.</span>
+    Import-Module -Name (Join-Path -Path $PSScriptRoot -ChildPath <span style="color:#e6db74">&#39;..\TestHelpers\CommonTestHelper.psm1&#39;</span>)
+
+    <span style="color:#75715e"># Loading SMO (SQL Server Management Object) C# class stubs.</span>
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> (<span style="color:#e6db74">&#39;Microsoft.SqlServer.Management.Smo.Server&#39;</span> <span style="color:#f92672">-as</span> <span style="color:#66d9ef">[Type]</span>))
+    {
+        Add-Type -Path (Join-Path -Path (Join-Path -Path $PSScriptRoot -ChildPath <span style="color:#e6db74">&#39;Stubs&#39;</span>) -ChildPath <span style="color:#e6db74">&#39;SMO.cs&#39;</span>)
+    }
+
+    <span style="color:#75715e"># Sets the default value for parameter ModuleName for the InModuleScope-blocks</span>
+    $PSDefaultParameterValues[<span style="color:#e6db74">&#39;InModuleScope:ModuleName&#39;</span>] = $script:subModuleName
+}
+</code></pre></div><p>The script level <code>AfterAll</code>-block teardown:</p>
+<ul>
+<li>the default parameter <code>ModuleName</code> for the <code>InModuleScope</code>-blocks.</li>
+<li>the common module from the session</li>
+<li>the local helper module <em>CommonTestHelper</em></li>
+</ul>
+<blockquote>
+<p><strong>NOTE:</strong> In the above example the SMO (SQL Server Management Object) C#
+class stubs were loaded into the session. Since assemblies cannot be
+unloaded yet in this example this test file should be run last to avoid
+spill-over.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">AfterAll {
+    $PSDefaultParameterValues.Remove(<span style="color:#e6db74">&#39;InModuleScope:ModuleName&#39;</span>)
+
+    <span style="color:#75715e"># Unload the module being tested so that it doesn&#39;t impact any other tests.</span>
+    Get-Module -Name $script:subModuleName -All | Remove-Module -Force
+
+    <span style="color:#75715e"># Remove module common test helper.</span>
+    Get-Module -Name <span style="color:#e6db74">&#39;CommonTestHelper&#39;</span> -All | Remove-Module -Force
+}
+</code></pre></div><h3 id="using-stub-powershell-module">Using stub PowerShell module</h3>
+<p>To be able to run unit tests on a development machine that does not have
+a certain component installed it is good to use stub PowerShell module.
+For example the DSC resource module <em>SqlServerDsc</em> is using a stub module
+to mimic the PowerShell module <em>SqlServer</em> and <em>SQLPS</em> when running unit
+tests.</p>
+<p>A stub PowerShell module is a module that has stubs of the actual cmdlets
+to mimic the name of the cmdlets and their parameters.
+This is an example of a stub function in the stub module <code>SqlServerStub</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Convert-UrnToPath {
+    [<span style="color:#66d9ef">CmdletBinding</span>()]
+    <span style="color:#66d9ef">param</span>
+    (
+        [<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span>=$true, <span style="color:#66d9ef">Position</span>=1, <span style="color:#66d9ef">ValueFromPipeline</span>=$true, <span style="color:#66d9ef">ValueFromPipelineByPropertyName</span>=$true)]
+        [ValidateNotNullOrEmpty()]
+        <span style="color:#66d9ef">[System.String]</span>
+        ${Urn}
+   )
+
+    <span style="color:#66d9ef">throw</span> <span style="color:#e6db74">&#39;{0}: StubNotImplemented&#39;</span> <span style="color:#f92672">-f</span> $MyInvocation.MyCommand
+}
+</code></pre></div><blockquote>
+<p><strong>NOTE:</strong> A more advanced version of stub modules that use classes
+for the types and how to create it can be found in the DSC resource module
+<a href="https://github.com/dsccommunity/ActiveDirectoryDsc/tree/master/tests/Unit/Stubs"><em>ActiveDirectoryDsc</em> Stubs folder</a>.</p>
+</blockquote>
+<h4 id="how-to-use-stub-module-in-tests">How to use stub module in tests</h4>
+<p>Preferably, the stub module should only be imported when it is needed and
+then be directly removed to minimize spill-over to other tests. The stub
+module should be imported in an <code>BeforeAll</code>-block and removed in an
+<code>AfterAll</code>-block.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When Invoke-SqlScript is invoked with credentials&#39;</span> {
+    BeforeAll {
+        <span style="color:#75715e"># Import PowerShell module SqlServer stub cmdlets.</span>
+        Import-Module -Name <span style="color:#e6db74">&#39;.\Stubs\SqlServerStubs.psm1&#39;</span>
+
+        Mock -CommandName Invoke-Sqlcmd
+    }
+
+    AfterAll {
+        <span style="color:#75715e"># Remove PowerShell module SqlServer stub cmdlets.</span>
+        Get-Module -Name <span style="color:#e6db74">&#39;SqlServerStubs&#39;</span> -All | Remove-Module -Force
+    }
+
+    It <span style="color:#e6db74">&#39;Should call Invoke-SqlScript without throwing&#39;</span> {
+        { Invoke-SqlScript @invokeScriptFileParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+
+        Should -Invoke -CommandName Invoke-Sqlcmd -Times 1 -Exactly -Scope It
+    }
+}
+</code></pre></div><h3 id="mocking">Mocking</h3>
+<p>Mocking must only be inside an <code>It</code>-block, or inside a <code>BeforeAll</code>- or
+<code>BeforeEach</code>-block. Preferably the mock is made in a <code>BeforeAll</code>- or
+<code>BeforeEach</code>-block to separate those from calling the function and the
+asserts.</p>
+<p>The <code>Mock</code> should not be wrapped inside an <code>InModuleScope</code>-block.</p>
+<p>When mocking try to make the mock in a <code>BeforeAll</code>- or <code>BeforeEach</code>-block
+that is as close to the <code>It</code>-block as possible. The test should preferably
+be wrapped in a <code>Context</code>-block to separate the test and make it
+self-contained. Only mock what is necessary for the individual test to
+work.</p>
+<p>It is a good rule to try to simplify tests by mocking just the calls to
+the other functions within the function under test. Let say the function
+under test is <code>Test-TargetResource</code>. Assume the function <code>Test-TargetResource</code>
+calls <code>Get-TargetResource</code> which in turn call the cmdlet <code>Get-Something</code>,
+then the mock should be for <code>Get-TargetResource</code>, not <code>Get-Something</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">Test-TargetResource -&gt; Get-TargetResource -&gt; Get-Something
+      ↑                         ↑
+      |--- If testing this      |--- Mock this
+</code></pre></div><blockquote>
+<p>Mocking too deeply slowed down Pester 4. I&rsquo;m not sure if it is a problem in
+Pester 5, but it is a good rule to simplify tests.</p>
+</blockquote>
+<p>It is possible to mock cmdlets from the common modules without scoping them
+to the module&rsquo;s scope since they are imported by the module that is being
+tested. This only works if there are no <code>Export-ModuleMember</code> in the DSC
+resource code that limits what is seen by Pester.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When ... a code path does something...&#39;</span> {
+    BeforeAll {
+        Mock -CommandName Get-Something
+        Mock -CommandName Test-Something -MockWith {
+            <span style="color:#66d9ef">return</span> @(
+                <span style="color:#e6db74">&#39;Value1&#39;</span>
+            )
+        }
+    }
+
+    It <span style="color:#e6db74">&#39;Should ...do this...&#39;</span> {
+        InModuleScope -ScriptBlock {
+            <span style="color:#75715e"># Call the function test and assert.</span>
+        }
+    }
+}
+</code></pre></div><p>It is possible to use the parameter <code>Verifiable</code> on mocks, but special
+consideration must be made when asserting verifiable mocks. More on that
+in the section <a href="#asserting">Asserting</a>.</p>
+<h3 id="calling-function-to-be-tested">Calling function to be tested</h3>
+<p>When testing the DSC resources functions <code>Get-TargetResource</code>, <code>Test-TargetResource</code>,
+<code>Set-TargetResource</code>, and other private functions in a DSC resource or
+a common module, the <code>InModuleScope</code> must be used. When testing public
+functions in a common module the <code>InModuleScope</code> must be omitted to
+correctly test that the public functions are exported.</p>
+<p>The <code>InModuleScope</code> is used for <code>Get-TargetResource</code>, <code>Test-TargetResource</code>,
+and <code>Set-TargetResource</code> to explicitly define what functions are tested
+if several DSC resources have been (wrongly) imported into the session.
+All those DSC resources will have the same exported function names (<code>Get-TargetResource</code>,
+<code>Test-TargetResource</code>, and <code>Set-TargetResource</code>).</p>
+<p>Below we also use <code>Set-StrictMode -Version 1.0</code>. This can optionally be
+used to test that functions align with a certain strict mode, when that
+is not something that should be enforced during runtime in a user environment.
+This enables strict mode in the module&rsquo;s scope when the specific <code>It</code>-block
+runs.</p>
+<p>Since we are in the DSC resource module&rsquo;s scope it is also possible to
+use the helper functions in the test. For example below the cmdlet
+<code>Get-ComputerName</code> is used from <em>DscResource.Common</em> to return the current
+computer name instead of using <code>$env:COMPUTERNAME</code> which is not available
+cross-plattform.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is not in the desired state&#39;</span> {
+    Context <span style="color:#e6db74">&#39;When something does not exist&#39;</span> {
+        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                <span style="color:#75715e"># ServerName is not set, the default value is used within the resource.</span>
+                $getTargetResourceParameters = @{
+                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
+                }
+
+                $getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
+
+                $getTargetResourceResult.InstanceName | Should -Be <span style="color:#e6db74">&#39;TEST&#39;</span>
+                $getTargetResourceResult.SuppressRestart | Should -BeFalse
+                $getTargetResourceResult.RestartTimeout | Should -Be 120
+
+                <span style="color:#75715e"># Use the helper function from inside the module (DscResource.Common).</span>
+                $getTargetResourceResult.ServerName | Should -Be (Get-ComputerName)
+            }
+        }
+    }
+}
+</code></pre></div><h3 id="using-variables">Using variables</h3>
+<h4 id="setting-variables-in-the-modules-scope">Setting variables in the module&rsquo;s scope</h4>
+<p>When using reusable variables in the module scope they must be declared
+using the <code>$script</code>-scope, they must also be prefixed or suffixed
+with something unique so the declaration does not override a real variable
+inside any of the module&rsquo;s functions. In this case the variable is prefixed
+with &lsquo;mock&rsquo;, e.g. <code>$script:mockInstanceName</code>.</p>
+<p>Below the variable <code>$mockInstanceName</code> is passed in the <code>BeforeAll</code>-block
+using <code>InModuleScope</code> and declared using <code>$script</code>-scope. This makes it
+available when the hashtable <code>$getTargetResourceParameters</code> is declared.
+It also used to assert that the <code>Get-TargetResource</code> returns the correct
+value. Note that there is no need to use <code>$script</code>-scope when using the
+value of the variable.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is not in the desired state&#39;</span> {
+    Context <span style="color:#e6db74">&#39;When something does not exist&#39;</span> {
+        BeforeAll {
+            InModuleScope -ScriptBlock {
+                $script:mockInstanceName = <span style="color:#e6db74">&#39;DSCTEST&#39;</span>
+            }
+        }
+
+        It <span style="color:#e6db74">&#39;Should return the same value as passed for InstanceName&#39;</span> {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = $mockInstanceName
+                }
+
+                $getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
+
+                $getTargetResourceResult.InstanceName | Should -Be $mockInstanceName
+            }
+        }
+    }
+}
+</code></pre></div><h4 id="passing-variables-into-the-modules-scope">Passing variables into the module&rsquo;s scope</h4>
+<p>If the test has variables that need to be used both for the mocks and
+in the test when calling the function being tested or asserting a value,
+it is possible to pass parameters into the <code>InModuleScope</code>-block.</p>
+<p>Below the variable <code>$mockPipeName</code> in the test&rsquo;s scope is passed into the
+module&rsquo;s scope using the parameter <code>Parameters</code> of the <code>InModuleScope</code>.
+The value of parameter <code>Parameters</code> must be a hashtable, and each key
+in the hashtable must have a corresponding parameter inside the
+<code>InModuleScope</code>. Note that the parameter is using upper-case &lsquo;M&rsquo; on the
+word &lsquo;Mock&rsquo; (<code>$MockPipeName</code>) to match the hashtable.</p>
+<blockquote>
+<p>Currently it is not possible to used advanced parameters (<code>[Parameter()]</code>)
+in the <code>param</code>-block. To simplify these parameters it is (for now) easiest
+to write them as a simple parameter with no type.
+The need to specify a <code>param</code>-block inside the <code>InModuleScope</code> will
+hopefully be removed in a future version of Pester.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the desired protocol is Named Pipes&#39;</span> {
+    BeforeAll {
+        $mockPipeName = <span style="color:#e6db74">&#39;\\.\pipe\$$\TESTCLU01A\MSSQL$SQL2014\sql\query&#39;</span>
+
+        Mock -CommandName Get-PipeName -MockWith {
+            <span style="color:#66d9ef">return</span> $mockPipeName
+        }
+    }
+
+    It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+        $inModuleScopeParameters = @{
+            MockPipeName = $mockPipeName
+        }
+
+        InModuleScope -Parameters $inModuleScopeParameters -ScriptBlock {
+            <span style="color:#75715e"># The need for this will hopefully be removed in a future version of Pester.</span>
+            <span style="color:#66d9ef">param</span>
+            (
+                $MockPipeName
+            )
+
+            Set-StrictMode -Version 1.0
+
+            $getTargetResourceResult = Get-TargetResource -ProtocolName <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+
+            $getTargetResourceResult.PipeName | Should -Be $MockPipeName
+        }
+    }
+}
+</code></pre></div><h3 id="asserting">Asserting</h3>
+<h4 id="assert-result-from-called-function">Assert result from called function</h4>
+<p>The result from the called function should be asserted (using <code>Should</code>)
+inside an <code>InModuleScope</code>-block which is inside either an <code>It</code>-block or
+a <code>AfterAll</code>- or <code>AfterEach</code>-block. The assert needs to be written differently
+depending on where the assert happens. The exception is when testing public
+functions in a common module, then <code>InModuleScope</code> should not be used.</p>
+<p>When testing a public function in a common module, then <code>InModuleScope</code>
+should not be used.</p>
+<h5 id="assert-result-in-the-it-block">Assert result in the <code>It</code>-block</h5>
+<p>The most straight forward way is to assert (using <code>Should</code>) directly inside an
+<code>InModuleScope</code>-block inside the <code>It</code>-block.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
+        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
+                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+                }
+
+                $getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
+
+                $getTargetResourceResult.InstanceName | Should -Be <span style="color:#e6db74">&#39;TEST&#39;</span>
+            }
+        }
+    }
+}
+</code></pre></div><h5 id="assert-result-in-the-aftereach-block">Assert result in the <code>AfterEach</code>-block</h5>
+<p>Contrary to an <code>AfterAll</code>-block, asserting (using <code>Should</code>) in an
+<code>AfterEach</code>-block is more widely used. It can be used for example when
+there are several <code>It</code>-blocks that should assert the same property. Still,
+keep in mind to try to make the test self-contained and avoid doing such
+assert to far away from the actual test.</p>
+<p>To be able to assert in the <code>AfterEach</code>-block the variable that holds the
+result must be declared in the script scope using <code>$script:</code>, e.g.
+<code>$script:getTargetResourceResult</code>. Then it possible to assert the value
+in the variable in an <code>AfterEach</code>-block. There is no need to reference
+the variable using the <code>script:</code> scope. But to make the test more readable
+it is worth to explicitly say that it is the value of the variable in the
+script scope we are asserting.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+    AfterEach {
+        InModuleScope -ScriptBlock {
+            $script:getTargetResourceResult.InstanceName | Should -Be <span style="color:#e6db74">&#39;TEST&#39;</span>
+        }
+    }
+
+    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
+        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
+                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+                }
+
+                $script:getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
+
+                $script:getTargetResourceResult.ProtocolName | Should -Be <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+            }
+        }
+    }
+
+    Context <span style="color:#e6db74">&#39;When the desired protocol is Named Pipes&#39;</span> {
+        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
+                    ProtocolName = <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+                }
+
+                $script:getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
+
+                $script:getTargetResourceResult.ProtocolName | Should -Be <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+            }
+        }
+    }
+}
+</code></pre></div><h5 id="assert-result-in-the-afterall-block">Assert result in the <code>AfterAll</code>-block</h5>
+<p>It is really an edge case to assert the result (using <code>Should</code>) in an
+<code>AfterAll</code>-block. If it has ever been used, it is used extremely rarely.
+More likely is that it is used to assert called mocks. More on that in
+another section.</p>
+<p>There could be a reason to assert in an <code>AfterAll</code>-block, for example if
+there a several <code>It</code>-blocks inside the same <code>Context</code>-block that return
+different results and they should for some reason be asserted at the same
+time. But as mentioned before, this is really an edge case.</p>
+<p>To be able to assert in the <code>AfterAll</code>-block the variable that holds the
+result must be declared in the script scope using <code>$script:</code>, e.g.
+<code>$script:getTargetResourceResult</code>. Then it is possible to assert the value
+in the variable in an <code>AfterAll</code>-block. There is no need to reference
+the variable using the <code>script:</code> scope. But to make the test more readable
+it is worth explicitly declaring the value of the variable in the
+script scope we are asserting.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+    BeforeAll {
+        Mock -CommandName Get-ServerProtocolObject
+    }
+
+    AfterAll {
+        InModuleScope -ScriptBlock {
+            $script:getTargetResourceResult1.InstanceName | Should -Be <span style="color:#e6db74">&#39;TEST1&#39;</span>
+            $script:getTargetResourceResult2.InstanceName | Should -Be <span style="color:#e6db74">&#39;TEST2&#39;</span>
+        }
+    }
+
+    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
+        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = <span style="color:#e6db74">&#39;TEST1&#39;</span>
+                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+                }
+
+                $script:getTargetResourceResult1 = Get-TargetResource @getTargetResourceParameters
+
+                $script:getTargetResourceResult1.ProtocolName | Should -Be <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+            }
+        }
+    }
+
+    Context <span style="color:#e6db74">&#39;When the desired protocol is Named Pipes&#39;</span> {
+        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = <span style="color:#e6db74">&#39;TEST2&#39;</span>
+                    ProtocolName = <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+                }
+
+                $script:getTargetResourceResult2 = Get-TargetResource @getTargetResourceParameters
+
+                $script:getTargetResourceResult2.ProtocolName | Should -Be <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+            }
+        }
+    }
+}
+</code></pre></div><h4 id="assert-called-mocks">Assert called mocks</h4>
+<h5 id="assert-called-mocks-in-the-it-block">Assert called mocks in the <code>It</code>-block</h5>
+<p>When asserting if a mock was called in an <code>It</code>-block the
+<code>Should -Invoke</code> must use the value <code>It</code> for the parameter <code>Scope</code>.</p>
+<p>The <code>Should -Invoke</code> should not be wrapped inside an <code>InModuleScope</code>-block,
+but be called after the <code>InModuleScope</code>-block.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+    BeforeAll {
+        Mock -CommandName Get-ServerProtocolObject
+    }
+
+    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
+        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
+                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+                }
+
+                { Get-TargetResource @getTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+            }
+
+            Should -Invoke -CommandName Get-ServerProtocolObject -Exactly -Times 1 -Scope It
+        }
+    }
+}
+</code></pre></div><h5 id="assert-called-mocks-in-the-aftereach-block">Assert called mocks in the <code>AfterEach</code>-block</h5>
+<p>When asserting if a mock was called in an <code>AfterEach</code>-block the
+<code>Should -Invoke</code> must use the value <code>It</code> for the parameter <code>Scope</code>.</p>
+<p>The <code>Should -Invoke</code> should not be wrapped inside an <code>InModuleScope</code>-block.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+    BeforeAll {
+        Mock -CommandName Get-ServerProtocolObject
+    }
+
+    AfterEach {
+        Should -Invoke -CommandName Get-ServerProtocolObject -Exactly -Times 1 -Scope It
+    }
+
+    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
+        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
+                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+                }
+
+                { Get-TargetResource @getTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+            }
+        }
+    }
+
+    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
+        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
+                    ProtocolName = <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+                }
+
+                { Get-TargetResource @getTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+            }
+        }
+    }
+}
+</code></pre></div><h5 id="assert-called-mocks-in-the-afterall-block">Assert called mocks in the <code>AfterAll</code>-block</h5>
+<p>Asserting called mocks in an <code>AfterAll</code>-block should be used sparingly
+since the scope the assert happens in can lead to a mock being hit
+countless times. Consider using <code>AfterEach</code>-block instead.</p>
+<p>We should use the parameter <code>Exactly</code> together with the
+parameter <code>Times</code> of the <code>Should -Invoke</code>. But even so when having the
+parameter <code>Times</code> set to <code>8</code> doesn&rsquo;t really say if it was the correct
+amount of calls or not. We want to be precise to what the actual number
+of calls should be. Let&rsquo;s assume we have 3 <code>It</code>-blocks and the number of
+calls is set to <code>8</code>, then there is no way to tell if that is the correct
+number of calls throughout all the <code>It</code>-blocks. Was it 8 calls from one
+<code>It</code>-block or was it 2 calls from two <code>It</code>-blocks, and is one
+<code>It</code>-block doing 3 calls. Why is that, if the other ones don&rsquo;t? Is that
+correct? Any value other than <code>1</code> could be misleading to what the actual
+number of expected number of hits should be. Use this wisely, and make use
+of the parameter <code>ParameterFilter</code> where possible to split up the asserts.
+If that is not possible consider adding a unique helper function for each
+call that could be better asserted or as mentioned before, consider using
+<code>AfterEach</code>-block instead.</p>
+<p>When asserting if a mock was called in an <code>AfterAll</code>-block the
+<code>Should -Invoke</code> must use the value <code>Context</code> for the parameter <code>Scope</code>.</p>
+<p>The <code>Should -Invoke</code> should not be wrapped inside an <code>InModuleScope</code>-block.</p>
+<blockquote>
+<p><strong>NOTE:</strong> It is possible to use the <code>AfterAll</code>-block at the <code>Describe</code>-level
+but that should be avoided since the mocks also must be at the <code>Describe</code>-level.
+When asserting if a mock was called in an <code>AfterAll</code>-block use it inside
+a <code>Context</code>-block.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+    BeforeAll {
+        Mock -CommandName Get-ServerProtocolObject
+    }
+
+    AfterAll {
+        Should -Invoke -CommandName Get-ServerProtocolObject -Exactly -Times 2 -Scope Context
+    }
+
+    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
+        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
+                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+                }
+
+                { Get-TargetResource @getTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+            }
+        }
+    }
+
+    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
+        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
+                    ProtocolName = <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+                }
+
+                { Get-TargetResource @getTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+            }
+        }
+    }
+}
+</code></pre></div><h4 id="asserting-verifiable-mocks">Asserting verifiable mocks</h4>
+<p>A verifiable mock can be used to assert that the mock must be hit at least
+once. For a mock to be verifiable the <code>Mock</code> must use the parameter <code>Verifiable</code>.</p>
+<p>When asserting if a verifiable mock was called it is important where to
+assert the verifiable mocks. The call to <code>Should -InvokeVerifiable</code> must
+be at the same level as the mocks being verified. It is not possible to
+add <code>Should -InvokeVerifiable</code> at the end of the <code>Describe</code>-block which
+is shown below.</p>
+<blockquote>
+<p><strong>NOTE:</strong> With the current implementation of <code>Should -InvokeVerifiable</code>
+it sees verifiable mocks in parent <code>Context</code>-blocks as well, so take care
+how mocks are used and where you put <code>Should -InvokeVerifiable</code>.</p>
+</blockquote>
+<p>In this example there are two <code>Should -InvokeVerifiable</code>. One at the
+<code>Context</code>-level and the other at the <code>Describe</code>-level.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Describe <span style="color:#e6db74">&#39;VerifiableMocks&#39;</span> {
+    Context <span style="color:#e6db74">&#39;When some code path is executed&#39;</span> {
+        BeforeAll {
+            Mock -CommandName Get-Process -Verifiable
+        }
+
+        It <span style="color:#e6db74">&#39;Should call all verifiable mocks&#39;</span> {
+            Should -InvokeVerifiable
+        }
+    }
+
+    It <span style="color:#e6db74">&#39;Should call all verifiable mocks&#39;</span> {
+        Should -InvokeVerifiable
+    }
+}
+</code></pre></div><p>In the result below we can see that the <code>Should -InvokeVerifiable</code> at the
+<code>Context</code>-level is returning that the mock was not called, but the other
+at the <code>Describe</code>-level passes even though the mock was never called which
+gives a false positive.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">Describing VerifiableMocks
+ Context When some code path is executed
+   [-] Should call all verifiable mocks 5ms (2ms|2ms)
+     Expected Get-Process to be called with
+    at Should -InvokeVerifiable, C:\Users\johan.ljunggren\Desktop\VerifiableMocks.ps1:8
+    at &lt;ScriptBlock&gt;, C:\Users\johan.ljunggren\Desktop\VerifiableMocks.ps1:8
+  [+] Should call all verifiable mocks 2ms (1ms|1ms)
+Tests completed in 263ms
+Tests Passed: 1, Failed: 1, Skipped: 0 NotRun: 0
+</code></pre></div><h5 id="verifiable-mock-in-beforeall-block">Verifiable mock in <code>BeforeAll</code>-block</h5>
+<p>The <code>Should -InvokeVerifiable</code> must be inside an <code>It</code>-block, but should
+not be wrapped inside an <code>InModuleScope</code>-block.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+    BeforeAll {
+        Mock -CommandName Get-ServerProtocolObject -Verifiable
+    }
+
+    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
+        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
+                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+                }
+
+                { Get-TargetResource @getTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+            }
+        }
+    }
+
+    It <span style="color:#e6db74">&#39;Should call all verifiable mocks&#39;</span> {
+        Should -InvokeVerifiable
+    }
+}
+</code></pre></div><h5 id="verifiable-mock-in-beforeeach-block-or-it-block">Verifiable mock in <code>BeforeEach</code>-block or <code>It</code>-block</h5>
+<p>If the mock is setup in a <code>BeforeEach</code>-block or an <code>It</code>-block then the
+<code>Should -InvokeVerifiable</code> must be inside the <code>It</code>-block that is calling
+the function being tested.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Describe <span style="color:#e6db74">&#39;VerifiableMocks&#39;</span> {
+    Context <span style="color:#e6db74">&#39;When some code path is executed&#39;</span> {
+        BeforeEach {
+            Mock -CommandName Get-Process -Verifiable
+        }
+
+        It <span style="color:#e6db74">&#39;Should call all verifiable mocks&#39;</span> {
+            { Get-Process } | Should <span style="color:#f92672">-Not</span> -Throw
+
+            Should -InvokeVerifiable
+        }
+    }
+}
+</code></pre></div><h4 id="assert-thrown-exception-messages">Assert thrown exception messages</h4>
+<p>To assert an exception message it is important to actually assert the correct
+(expected) exception message. It is not enough to just assert that an exception
+occurred, because the exception that was thrown can be due to any other
+reason than what we expected. To assert the correct error message we should
+use the localized message string from the function being tested. This will
+also make the test pass when the resource is run in other languages.</p>
+<p>To help achieve this there are two helper functions <code>Get-InvalidOperationRecord</code>
+and <code>Get-InvalidResultRecord</code>. There is also an alias <code>Get-ObjectNotFoundRecord</code>
+which is an alias for the function <code>Get-InvalidResultRecord</code>. These together
+will help create error records for the three most used exceptions.</p>
+<ul>
+<li>ObjectNotFound</li>
+<li>InvalidOperation</li>
+<li>InvalidResult</li>
+</ul>
+<blockquote>
+<p><strong>NOTE:</strong> New test helper functions might be added to the module
+<em>DscResource.Test</em>, or be available in the individual DSC resource modules.
+Most test helper functions will be available in the module <em>DscResource.Test</em>
+(but it is a work in progress).</p>
+</blockquote>
+<p>In addition to the helper functions, to get the expected exception message
+that the code is throwing the variable <code>$script:localizedData</code> in the
+module&rsquo;s scope should be used.</p>
+<blockquote>
+<p><strong>NOTE:</strong> Normally it is enough to just assert that the localized string
+exception message was thrown, but if there is a need to assert the inner
+exceptions then different logic need to be added in-place of using the
+test helper functions.</p>
+</blockquote>
+<h5 id="assert-thrown-exception-messages-for-private-functions">Assert thrown exception messages for private functions</h5>
+<p>For the functions <code>Get-TargetResource</code>, <code>Test-TargetResource</code>,
+<code>Set-TargetResource</code>, and other private functions the assertion of thrown
+exceptions should be done in the module&rsquo;s scope. In the module&rsquo;s scope we
+have the variable <code>$script:localizedData</code> available.</p>
+<p>This shows how to assert the correct (expected) exception message by using
+the test helper function <code>Get-InvalidOperationRecord</code>. The helper function
+<code>Get-InvalidOperationRecord</code> returns an error record similar to the one that
+is thrown by, in this example, the function <code>Set-TargetResource</code>. Then we
+assert that the expected message is what is thrown. The wildcard character
+<code>*</code> is added due to that Pester 5 does a <code>-like</code> comparison on the text
+string as opposed to Pester 4 that did a <code>-contains</code>. The reason we need
+to add the wildcard character is because the inner exceptions (stack trace)
+are not the same between the helper functions and the error record that is
+thrown.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should throw the correct error&#39;</span> {
+    InModuleScope -ScriptBlock {
+        Set-StrictMode -Version 1.0
+
+        $mockErrorRecord = Get-InvalidOperationRecord -Message (
+            $script:localizedData.FailedToGetSqlServerProtocol <span style="color:#f92672">-f</span> <span style="color:#e6db74">&#39;Variable1&#39;</span>, <span style="color:#e6db74">&#39;Variable2&#39;</span>
+        )
+
+        $setTargetResourceParameters = @{
+            InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
+        }
+
+        { Set-TargetResource @setTargetResourceParameters } |
+            Should -Throw -ExpectedMessage ($mockErrorRecord.Exception.Message + <span style="color:#e6db74">&#39;*&#39;</span>)
+    }
+}
+</code></pre></div><h5 id="assert-thrown-exception-messages-for-public-functions">Assert thrown exception messages for public functions</h5>
+<p>For the public functions we should use <code>$script:localizedData</code> to get the
+expected localized exception message. In the module&rsquo;s scope we have the
+variable <code>$script:localizedData</code> available.</p>
+<p>This shows how to assert the correct (expected) exception message by using
+the test helper function <code>Get-InvalidOperationRecord</code>. First we need to
+reach into the module&rsquo;s scope to return the localized string and assign
+it to a local variable in the test&rsquo;s scope. Then we use that local variable
+to build the error record similar to what is thrown by using the helper
+function <code>Get-InvalidOperationRecord</code>. Lastly we assert that the expected
+message is what is thrown. The wildcard character <code>*</code> is added due to that
+Pester 5 does a <code>-like</code> comparison on the text string as opposed to
+Pester 4 that did a <code>-contains</code>. The reason we need to add the wildcard
+character is because the inner exceptions (stack trace) are not the same
+between the helper functions and the error record that is thrown.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should throw the correct error message&#39;</span> {
+    $mockGetServerProtocolObjectParameters = @{
+        Instance     = <span style="color:#e6db74">&#39;TEST&#39;</span>
+    }
+
+    $mockLocalizedString = InModuleScope -ScriptBlock {
+        $script:localizedData.FailedToObtainServerInstance
+    }
+
+    $mockErrorRecord = Get-InvalidOperationRecord -Message (
+        $mockLocalizedString <span style="color:#f92672">-f</span> $mockGetServerProtocolObjectParameters.Instance
+    )
+
+    { Get-ServerProtocolObject @mockGetServerProtocolObjectParameters } |
+        Should -Throw -ExpectedMessage ($mockErrorRecord.Exception.Message + <span style="color:#e6db74">&#39;*&#39;</span>)
+}
+</code></pre></div><h4 id="using-because-in-assert">Using <code>Because</code> in assert</h4>
+<p>When using the parameter <code>Because</code> in the assert it should give more information
+than what the <code>It</code>-block description already gives, it should add more
+value. Also, when using parameter <code>Because</code> the text should be phrased so
+it reads correctly in the Pester output.</p>
+<p>For example if the <code>It</code>-block description would be the following
+&ldquo;<em>Should not throw and return the correct values for the properties</em>&rdquo; then
+the following would not really add more value.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should not throw and return the correct values for the properties&#39;</span> {
+    $result | Should -Be <span style="color:#e6db74">&#39;MyAlertName2&#39;</span> -Because <span style="color:#e6db74">&#39;the correct alert name must be returned&#39;</span>
+}
+</code></pre></div><p>In this case, the parameter <code>Because</code> should be used to add more information
+to why the value must be correct. An example would be:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should not throw and return the correct values for the properties&#39;</span> {
+    $result | Should -Be <span style="color:#e6db74">&#39;MyAlertName2&#39;</span> -Because <span style="color:#e6db74">&#39;the correct alert name must be returned when the alert does not exist so user knows what alert failed&#39;</span>
+}
+</code></pre></div><p>It would result in the following output from Pester:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">[-] Should not throw and return the correct values for the properties 9ms (7ms|2ms)
+ Expected strings to be the same, because the correct alert name must be returned when the alert does not exist so user knows what alert failed, but they were different.
+ Expected length: 12
+ Actual length:   11
+ Strings differ at index 11.
+ Expected: &#39;MyAlertName2&#39;
+ But was:  &#39;MyAlertName&#39;
+</code></pre></div>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Dec 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/dsc-is-dead-long-live-dsc/" title="DSC is Dead"><i class="ti-arrow-left mr-2"></i>DSC is Dead</a>
+            <a class="nav nav-next" href="/blog/class-based-dsc-resources/" title="Class Based DSC Resource only proposal">Class Based DSC Resource only proposal<i class="ti-arrow-right ml-2"></i></a>
+            </nav></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- footer -->
+<footer class="section bg-gray pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+        <p>Copyright 2019 the dsccommunity.org contributors.</p> 
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://github.com/dsccommunity/"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/dsccommunity"><i class="ti-twitter-alt"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Bootstrap JS -->
+<script src="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- highlight -->
+<script src="https://dsccommunity.org/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Main Script -->
+
+<script src="https://dsccommunity.org/js/script.min.js"></script>
