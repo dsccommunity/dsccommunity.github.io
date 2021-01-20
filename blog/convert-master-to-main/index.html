@@ -342,29 +342,21 @@ a local folder on your machine.</li>
 to main:</p>
 <ol>
 <li>Update <em>your fork</em> of the repository from the upstream origin.</li>
-<li>Rename the <code>master</code> branch to <code>main</code> in <em>your fork</em>.</li>
-<li>Update the GitHub Default branch in <em>your fork</em> to <code>main</code>.</li>
-<li>Optional: Delete the old <code>master</code> branch in <em>your fork</em>.</li>
 <li>Update the pipeline files in the <code>main</code> branch of <em>your fork</em>.</li>
+<li>Rename the GitHub default branch in <em>your fork</em> to main.</li>
 <li>Optional: If you have an Azure DevOps pipeline connected to <em>your fork</em>
 update it to refer to <code>main</code>.</li>
 <li>Optional: Validate that the pipeline works correctly.</li>
 <li>Submit a pull request from <code>main</code> in <em>your fork</em> to <code>master</code> in the
 <em>upstream DSC Community repository</em>.</li>
 <li>Merge the pull request to <code>master</code>, <strong>even though the CI will fail</strong>.</li>
-<li>Create the new <code>main</code> branch in the <em>upstream DSC Community</em> repository.</li>
-<li>Re-target any open pull requests to <code>main</code>.</li>
-<li>Update the GitHub Default branch in the <em>upstream DSC Community
-repository</em> to <code>main</code>.</li>
+<li>Rename the GitHub Default branch in upstream DSC Community repository to main</li>
+<li>Verify the GitHub <code>main</code> branch policy in the <em>upstream DSC Community
+repository</em>.</li>
 <li>Update the Azure DevOps pipeline connected to <em>upstream DSC Community
 repository</em> to <code>main</code>.</li>
 <li>Validate that the pipeline works correctly.</li>
-<li>Delete the GitHub <code>master</code> branch policy in the <em>upstream DSC Community
-repository</em>.</li>
-<li>Create the GitHub <code>main</code> branch policy in the <em>upstream DSC Community
-repository</em>.</li>
-<li>Optional: Delete the old <code>master</code> branch in the <em>upstream DSC Community
-repository</em>.</li>
+<li>Optional: Update local clone.</li>
 </ol>
 <h2 id="steps">Steps</h2>
 <h3 id="step-1---update-your-fork-of-the-repository-from-the-upstream-origin">Step 1 - Update your fork of the repository from the upstream origin</h3>
@@ -385,35 +377,13 @@ git rebase origin/master
 git fetch origin --tags <span style="color:#75715e"># get any (new) tags from origin/master</span>
 git push my master --force <span style="color:#75715e"># my is the remote pointing to fork</span>
 git push my --tags <span style="color:#75715e"># push any (new) tags to my/master</span>
-</code></pre></div><h3 id="step-2---rename-the-master-branch-to-main-in-your-fork">Step 2 - Rename the master branch to main in your fork</h3>
-<p>Rename the master branch to main in your fork by running the following
-commands:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git branch -m master main
-git push -u my main
-</code></pre></div><h3 id="step-3---update-the-github-default-branch-in-your-fork-to-main">Step 3 - Update the GitHub Default branch in your fork to main</h3>
-<p>In your web browser:</p>
-<ol>
-<li>Open <a href="https://github.com/">GitHub</a>.</li>
-<li>Navigate to <em>your fork</em> of the DSC repository.</li>
-<li>Select the <code>Settings</code> tab.</li>
-<li>Select <code>Branches</code>.</li>
-<li>Change Default Branch to <code>main</code>.</li>
-<li>Click <code>Update</code>.</li>
-<li>Confirm the update to the default branch.</li>
-</ol>
-<h3 id="step-4---optional-delete-the-old-master-branch-in-your-fork">Step 4 - Optional: Delete the old master branch in your fork</h3>
-<p>This step is optional and will delete your old <code>master</code> branch. You
-can leave your old <code>master</code> branch if you wish.</p>
-<p>You can now delete the old master branch by running the following command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git push my <span style="color:#960050;background-color:#1e0010">:</span>master
-</code></pre></div><h3 id="step-5---update-the-pipeline-files-in-the-main-branch-of-your-fork">Step 5 - Update the pipeline files in the main branch of your fork</h3>
+</code></pre></div><h3 id="step-2---update-the-pipeline-files-in-the-main-branch-of-your-fork">Step 2 - Update the pipeline files in the main branch of your fork</h3>
 <blockquote>
 <p>Note: If you have an Azure DevOps pipeline linked to your fork of the
 repository then you should be able to validate that these changes work.</p>
 </blockquote>
-<p>At this point in the process the Azure DevOps pipeline will start
-failing. To fix this, some of the pipeline files in the main branch will
-need to be updated. To update these files:</p>
+<p>Some of the pipeline files in the default branch will need to be updated
+to support the new default branch name &lsquo;main&rsquo;. To update these files:</p>
 <h4 id="update-changelogmd">Update: CHANGELOG.md</h4>
 <p>Add a new entry to the <code>### Changed</code> section under <code>## [Unreleased]</code> in
 the CHANGELOG.md:</p>
@@ -430,12 +400,12 @@ the CHANGELOG.md:</p>
     <span style="color:#f92672">tag</span>: <span style="color:#ae81ff">useBranchName</span>
     <span style="color:#f92672">increment</span>: <span style="color:#ae81ff">Minor</span>
     <span style="color:#f92672">regex</span>: <span style="color:#ae81ff">f(eature(s)?)?[\/-]</span>
-    <span style="color:#f92672">source-branches</span>: [<span style="color:#e6db74">&#39;main&#39;</span>]
+    <span style="color:#f92672">source-branches</span>: [<span style="color:#e6db74">&#39;master&#39;</span>]
   <span style="color:#f92672">hotfix</span>:
     <span style="color:#f92672">tag</span>: <span style="color:#ae81ff">fix</span>
     <span style="color:#f92672">increment</span>: <span style="color:#ae81ff">Patch</span>
     <span style="color:#f92672">regex</span>: <span style="color:#ae81ff">(hot)?fix(es)?[\/-]</span>
-    <span style="color:#f92672">source-branches</span>: [<span style="color:#e6db74">&#39;main&#39;</span>]
+    <span style="color:#f92672">source-branches</span>: [<span style="color:#e6db74">&#39;master&#39;</span>]
 </code></pre></div><h4 id="update-readmemd">Update: README.md</h4>
 <p>Replace the <code>master</code> with <code>main</code> in the build badges and anywhere else
 that refers to the <code>master</code> branch in this repository.</p>
@@ -445,7 +415,7 @@ that refers to the <code>master</code> branch in this repository.</p>
 
 </code></pre></div><blockquote>
 <p>Note: Care should be taken to not change URLs that refer to files
-in the master branch of other respositories that have not been updated
+in the master branch of other repositories that have not been updated
 to use <code>main</code>.</p>
 </blockquote>
 <h4 id="update-azure-pipelinesyml">Update: azure-pipelines.yml</h4>
@@ -535,8 +505,30 @@ then you should also update the <code>codecov</code> <code>branch:</code> in <co
 <p>Run the following git commands to commit your changes:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git add .
 git commit -m <span style="color:#e6db74">&#39;Updated pipeline files to support change of master to main&#39;</span>
-git push my main
-</code></pre></div><h3 id="step-6---optional-update-azure-devops-pipeline-connected-to-your-fork">Step 6 - Optional: Update Azure DevOps pipeline connected to your fork</h3>
+git push my master
+</code></pre></div><p>At this point in the process the pipeline will start failing until we
+rename the default branch in the next step.</p>
+<blockquote>
+<p><strong>NOTE:</strong> Due to Azure DevOps is using an older version of GitVersion
+it could seem that the pipeline will still work, but running
+<code>.\build.ps -Task build</code> locally with GitVersion v5.6 or higher installed
+will fail the pipeline. This is resolved in the next step.</p>
+</blockquote>
+<h3 id="step-3---rename-the-github-default-branch-in-your-fork-to-main">Step 3 - Rename the GitHub default branch in your fork to main</h3>
+<p>In your web browser:</p>
+<ol>
+<li>Open <a href="https://github.com/">GitHub</a>.</li>
+<li>Navigate to <em>your fork</em> of the DSC repository.</li>
+<li>Select the <code>Settings</code> tab.</li>
+<li>Select <code>Branches</code>.</li>
+<li>Rename Default Branch to <code>main</code>.</li>
+<li>Click <code>Rename branch</code>.</li>
+<li>Confirm the rename of the default branch.</li>
+</ol>
+<p>If you have an Azure DevOps pipeline connected to <em>your fork</em> this should
+have triggered a new build on the renamed branch (<code>main</code>), if not we
+can trigger it manually in the next optional step by choosing &ldquo;Save &amp; Queue&rdquo;.</p>
+<h3 id="step-4---optional-update-azure-devops-pipeline-connected-to-your-fork">Step 4 - Optional: Update Azure DevOps pipeline connected to your fork</h3>
 <p>If you have an Azure DevOps pipeline connected to <em>your fork</em> you
 should update the &lsquo;Default branch for manual and scheduled builds&rsquo; setting
 from <code>master</code> to <code>main</code>:</p>
@@ -544,7 +536,7 @@ from <code>master</code> to <code>main</code>:</p>
 <li>Open Azure DevOps and navigate to the Pipeline.
 <img src="../../images/convert-master-to-main/azure-devops-pipeline.png" alt="Azure DevOps Pipeline" style="width:425px;" /></li>
 <li>Click <code>Edit</code> to edit the pipeline.</li>
-<li>Select <code>Triggers</code> from the elipsis menu.
+<li>Select <code>Triggers</code> from the ellipsis menu.
 <img src="../../images/convert-master-to-main/azure-devops-pipeline-edit-triggers.png" alt="Azure DevOps Pipeline Edit Triggers" style="width:425px;" /></li>
 <li>Select the <code>YAML</code> tab.</li>
 <li>Click <code>Get Sources</code>.</li>
@@ -552,12 +544,12 @@ from <code>master</code> to <code>main</code>:</p>
 <img src="../../images/convert-master-to-main/azure-devops-pipeline-set-default-branch.png" alt="Azure DevOps Pipeline set Default branch for manual and scheduled builds" style="width:425px;" /></li>
 <li>Click the <code>Save &amp; Queue</code> button.</li>
 </ol>
-<h3 id="step-7---optional-validate-that-the-pipeline-works-correctly">Step 7 - Optional: Validate that the pipeline works correctly</h3>
+<h3 id="step-5---optional-validate-that-the-pipeline-works-correctly">Step 5 - Optional: Validate that the pipeline works correctly</h3>
 <p>If you have an Azure DevOps pipeline connected to <em>your fork</em> the pipeline
-should have automatically run in Step 5 and/or step 6. However, if it did not
+should have automatically run in Step 2 and/or step 3. However, if it did not
 then you can run the pipeline manually to validate that it works correctly.</p>
 <p><img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" /></p>
-<h3 id="step-8---submit-a-pull-request-from-main-in-your-fork-to-master-in-the-upstream-dsc-community-repository">Step 8 - Submit a pull request from main in your fork to master in the upstream DSC Community repository</h3>
+<h3 id="step-6---submit-a-pull-request-from-main-in-your-fork-to-master-in-the-upstream-dsc-community-repository">Step 6 - Submit a pull request from main in your fork to master in the upstream DSC Community repository</h3>
 <p>The updated pipeline changes need to be submitted to the upstream
 DSC Community repository <code>master</code> branch via a Pull Request.</p>
 <p>In your web browser:</p>
@@ -575,7 +567,7 @@ branch.
 <li>Complete the details of the pull request.</li>
 <li>Click <code>Create pull request</code>.</li>
 </ol>
-<h3 id="step-9---merge-the-pull-request-to-master">Step 9 - Merge the pull request to master</h3>
+<h3 id="step-7---merge-the-pull-request-to-master">Step 7 - Merge the pull request to master</h3>
 <p>The pull request should be reviewed by a maintainer or other community
 member.</p>
 <p><img src="../../images/convert-master-to-main/github-merge-pull-request.png" alt="GitHub merge pull request" style="width:425px;" /></p>
@@ -592,65 +584,20 @@ build failures which will be fixed in subsequent steps.</p>
 <p>Note: Using a merge commit or rebase merge are both acceptable. A
 squash merge is not required.</p>
 </blockquote>
-<h3 id="step-10---create-the-new-main-branch-in-the-upstream-dsc-community-repository">Step 10 - Create the new main branch in the upstream DSC Community repository</h3>
-<blockquote>
-<p>Important: This step can only be performed by a maintainer with admin
-privileges on the <em>upstream DSC Community</em> repository.</p>
-</blockquote>
-<p>Create a new <code>main</code> branch from <code>master</code> in the <em>upstream DSC Community</em>
-repository by running the following commands:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Must be in this local branch</span>
-git checkout main
-
-<span style="color:#75715e"># Get and rebase changes from fork</span>
-git fetch my main
-git rebase my/main
-
-<span style="color:#75715e"># Get and rebase changes from upstream</span>
-git fetch origin master
-git rebase origin/master
-
-<span style="color:#75715e"># Overwrite fork with all commits from upstream</span>
-git push my main --force
-
-<span style="color:#75715e"># Push your fork main branch as main branch</span>
-git push -u origin main
-</code></pre></div><h3 id="step-11---re-target-any-open-pull-requests-to-main">Step 11 - Re-target any open pull requests to main</h3>
-<p>If the <em>upstream DSC Community</em> repository has any open pull requests
-that target <code>master</code>, these will need to be updated to <code>main</code>:</p>
-<p><img src="../../images/convert-master-to-main/github-update-pull-request-target.png" alt="GitHub re-target pull request" style="width:425px;" /></p>
-<h4 id="step-12---update-the-github-default-branch-in-upstream-dsc-community-repository-to-main">Step 12 - Update the GitHub Default branch in upstream DSC Community repository to main</h4>
+<h4 id="step-8---rename-the-github-default-branch-in-upstream-dsc-community-repository-to-main">Step 8 - Rename the GitHub Default branch in upstream DSC Community repository to main</h4>
 <p>In your web browser:</p>
 <ol>
 <li>Open <a href="https://github.com/">GitHub</a>.</li>
 <li>Navigate to <em>upstream DSC Community</em> repository.</li>
 <li>Select the <code>Settings</code> tab.</li>
 <li>Select <code>Branches</code>.</li>
-<li>Change Default Branch to <code>main</code>.</li>
-<li>Click <code>Update</code>.</li>
-<li>Confirm the update to the default branch.</li>
+<li>Rename Default Branch to <code>main</code>.</li>
+<li>Click <code>Rename branch</code>.</li>
+<li>Confirm the rename of the default branch.</li>
 </ol>
-<p><img src="../../images/convert-master-to-main/github-update-default-branch.png" alt="GitHub update default branch" style="width:425px;" /></p>
-<h3 id="step-13---update-the-azure-devops-pipeline-connected-to-upstream-dsc-community-repository-to-main">Step 13 - Update the Azure DevOps pipeline connected to upstream DSC Community repository to main</h3>
-<p>Update the &lsquo;Default branch for manual and scheduled builds&rsquo; setting
-from <code>master</code> to <code>main</code>:</p>
-<ol>
-<li>Open Azure DevOps and navigate to the Pipeline.
-<img src="../../images/convert-master-to-main/azure-devops-pipeline-community.png" alt="Azure DevOps Pipeline" style="width:425px;" /></li>
-<li>Click <code>Edit</code> to edit the pipeline.</li>
-<li>Select <code>Triggers</code> from the elipsis menu.
-<img src="../../images/convert-master-to-main/azure-devops-pipeline-edit-triggers.png" alt="Azure DevOps Pipeline Edit Triggers" style="width:425px;" /></li>
-<li>Select the <code>YAML</code> tab.</li>
-<li>Click <code>Get Sources</code>.</li>
-<li>Change the <code>Default branch for manual and scheduled builds</code> to <code>main</code>.
-<img src="../../images/convert-master-to-main/azure-devops-pipeline-set-default-branch-community.png" alt="Azure DevOps Pipeline set Default branch for manual and scheduled builds" style="width:425px;" /></li>
-<li>Click the <code>Save &amp; Queue</code> button.</li>
-</ol>
-<h3 id="step-14---validate-that-the-pipeline-works-correctly">Step 14 - Validate that the pipeline works correctly</h3>
-<p>The Azure DevOps pipeline should have been run by Step 13. Validate that
-it has completed successfully:</p>
-<p><img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" /></p>
-<h3 id="step-15---delete-the-github-master-branch-policy-in-the-upstream-dsc-community-repository">Step 15 - Delete the GitHub master branch policy in the upstream DSC Community repository</h3>
+<p>This should have triggered a new build on the renamed branch (<code>main</code>), if
+not we can trigger it manually in Step 10 by choosing &ldquo;Save &amp; Queue&rdquo;.</p>
+<h3 id="step-9---verify-the-github-main-branch-policy-in-the-upstream-dsc-community-repository">Step 9 - Verify the GitHub main branch policy in the upstream DSC Community repository</h3>
 <p>In your web browser:</p>
 <ol>
 <li>
@@ -666,30 +613,7 @@ it has completed successfully:</p>
 <p>Select <code>Branches</code>.</p>
 </li>
 <li>
-<p>Click the <code>Delete</code> button next to the <code>master</code> branch policy</p>
-<p><img src="../../images/convert-master-to-main/github-delete-master-branch-policy.png" alt="GitHub delete master branch policy" style="width:425px;" /></p>
-</li>
-<li>
-<p>Enter your GitHub password, if required.</p>
-</li>
-</ol>
-<h3 id="step-16---create-the-github-main-branch-policy-in-the-upstream-dsc-community-repository">Step 16 - Create the GitHub main branch policy in the upstream DSC Community repository</h3>
-<p>In your web browser:</p>
-<ol>
-<li>
-<p>Open <a href="https://github.com/">GitHub</a>.</p>
-</li>
-<li>
-<p>Navigate to <em>upstream DSC Community</em> repository.</p>
-</li>
-<li>
-<p>Select the <code>Settings</code> tab.</p>
-</li>
-<li>
-<p>Select <code>Branches</code>.</p>
-</li>
-<li>
-<p>Click the <code>Add rule</code> button.</p>
+<p>Click the <code>Edit</code> button on the branch protection rule for &lsquo;main&rsquo;.</p>
 </li>
 <li>
 <p>Enter &lsquo;main&rsquo; in the <code>Branch name pattern</code> field.</p>
@@ -711,13 +635,43 @@ it has completed successfully:</p>
 <p><img src="../../images/convert-master-to-main/github-create-branch-policy.png" alt="GitHub create main branch policy" style="width:425px;" /></p>
 </li>
 <li>
-<p>Click the <code>Create</code> button.</p>
+<p>Click the <code>Save changes</code> button.</p>
+</li>
+<li>
+<p>Enter your GitHub password, if required.</p>
 </li>
 </ol>
-<h3 id="step-17---optional-delete-the-old-master-branch-in-the-upstream-dsc-community-repository">Step 17 - Optional: Delete the old master branch in the upstream DSC Community repository</h3>
-<p>Delete the old <code>master</code> branch from the <em>upstream DSC community</em> repository by
-running:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git push origin <span style="color:#960050;background-color:#1e0010">:</span>master
+<h3 id="step-10---update-the-azure-devops-pipeline-connected-to-upstream-dsc-community-repository-to-main">Step 10 - Update the Azure DevOps pipeline connected to upstream DSC Community repository to main</h3>
+<p>Update the &lsquo;Default branch for manual and scheduled builds&rsquo; setting
+from <code>master</code> to <code>main</code>:</p>
+<ol>
+<li>Open Azure DevOps and navigate to the Pipeline.
+<img src="../../images/convert-master-to-main/azure-devops-pipeline-community.png" alt="Azure DevOps Pipeline" style="width:425px;" /></li>
+<li>Click <code>Edit</code> to edit the pipeline.</li>
+<li>Select <code>Triggers</code> from the ellipsis menu.
+<img src="../../images/convert-master-to-main/azure-devops-pipeline-edit-triggers.png" alt="Azure DevOps Pipeline Edit Triggers" style="width:425px;" /></li>
+<li>Select the <code>YAML</code> tab.</li>
+<li>Click <code>Get Sources</code>.</li>
+<li>Change the <code>Default branch for manual and scheduled builds</code> to <code>main</code>.
+<img src="../../images/convert-master-to-main/azure-devops-pipeline-set-default-branch-community.png" alt="Azure DevOps Pipeline set Default branch for manual and scheduled builds" style="width:425px;" /></li>
+<li>Click the <code>Save &amp; Queue</code> button.</li>
+</ol>
+<h3 id="step-11---validate-that-the-pipeline-works-correctly">Step 11 - Validate that the pipeline works correctly</h3>
+<p>The Azure DevOps pipeline should have been run by Step 8 or Step 9. However,
+if it did not then you can run the pipeline manually to validate that it works
+correctly. Validate that it has completed successfully:</p>
+<p><img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" /></p>
+<h3 id="step-12---optional-update-local-clone">Step 12 - Optional: Update local clone</h3>
+<p>Run the following in the local repository to rename the default branch in
+the local clone, and update it with all the commits in the upstream branch
+and finally force push that to the fork&rsquo;s default branch.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git checkout master
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git rebase origin/main
+git fetch my
+git push my --force
 </code></pre></div><h2 id="rename-complete">Rename Complete</h2>
 <p>Once all steps are complete then the repository <code>master</code> branch has been
 successfully renamed to <code>main</code>.</p>
