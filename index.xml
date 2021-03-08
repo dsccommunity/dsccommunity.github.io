@@ -7,14 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Thu, 21 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2021-01-27</title>
+      <title>Next Community Call 2021-03-10</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Thu, 21 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, January 27th, at 12 PM PST
+      <description>Next call will be on Wednesday, March 10th, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
@@ -408,11 +408,22 @@ It &amp;#39;Should return something&amp;#39; { Get-TargetResource @testParameter
     </item>
     
     <item>
+      <title>2021-01-27 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2021-01-27-notes/</link>
+      <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2021-01-27-notes/</guid>
+      <description>Recording   Agenda Quick update on activity Move to new pipeline Currently active repositories have moved to the new pipeline. Holding off on the rest of the repositories, migrating as needed.
+Rename default branch Work in progress to rename default branch to main. See blog post Steps to rename master branch to main for a DSC Community resource how to update the pipeline to support the rename.
+Finished so far:</description>
+    </item>
+    
+    <item>
       <title>2020-12-16 Notes</title>
-      <link>https://dsccommunity.org/community_calls/2021-12-16-notes/</link>
+      <link>https://dsccommunity.org/community_calls/2020-12-16-notes/</link>
       <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://dsccommunity.org/community_calls/2021-12-16-notes/</guid>
+      <guid>https://dsccommunity.org/community_calls/2020-12-16-notes/</guid>
       <description>Recording   Notes  Quick update on activity: DSC resource modules that have been released recently News recap Class Based DSC Resources &amp;ldquo;Reasons&amp;rdquo; in DSC Resources Compare-DscParameterState and JeaDsc Next Community Call (27th of January)  Suggestions for talks are welcomed.    </description>
     </item>
     

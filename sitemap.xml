@@ -1,368 +1,225 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://dsccommunity.org/community_calls/next_call/</loc>
-    <lastmod>2021-01-25T20:05:04+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-03-08T18:49:22+01:00</lastmod>
+  </url><url>
     <loc>https://dsccommunity.org/configmgt/future-of-config-mgt/</loc>
     <lastmod>2019-07-31T17:27:19+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community/origin-story/</loc>
     <lastmod>2019-07-31T21:15:19+12:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/help/what-is-dsc/</loc>
     <lastmod>2019-07-31T17:27:19+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community/ownership/</loc>
     <lastmod>2019-07-26T17:29:57+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/blog/create-an-article/</loc>
     <lastmod>2019-07-31T17:30:39+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/code_of_conduct/standards/</loc>
     <lastmod>2019-07-19T11:21:36+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/guidelines/getting-started/</loc>
     <lastmod>2020-12-31T21:58:19+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/markdown-files/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/</loc>
     <lastmod>2020-06-01T16:15:09+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community/committee/</loc>
     <lastmod>2020-01-17T20:40:12+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/help/what-future-for-dsc/</loc>
     <lastmod>2019-07-31T19:29:32+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/code_of_conduct/responsibilities/</loc>
     <lastmod>2019-07-19T11:21:36+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/guidelines/contributing/</loc>
     <lastmod>2020-01-19T20:51:56+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/general/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community/</loc>
     <lastmod>2019-07-31T21:15:19+12:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/resources/</loc>
     <lastmod>2019-07-17T17:42:35+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community/maintainers/</loc>
     <lastmod>2019-07-26T17:29:57+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/code_of_conduct/scope/</loc>
     <lastmod>2019-07-19T11:21:36+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/guidelines/maintaining/</loc>
     <lastmod>2020-02-19T20:34:50+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/whitespace/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/guidelines/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/code_of_conduct/enforcement/</loc>
     <lastmod>2019-07-19T11:21:36+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/functions/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/guidelines/style-guidelines/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/blog/</loc>
     <lastmod>2019-07-19T10:52:34+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/code_of_conduct/common_questions/</loc>
     <lastmod>2019-07-19T11:21:36+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/parameters/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/configmgt/</loc>
     <lastmod>2019-07-31T17:27:19+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/guidelines/testing-guidelines/</loc>
     <lastmod>2020-02-18T13:28:55-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/guidelines/administration/</loc>
     <lastmod>2020-07-15T08:09:21+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/</loc>
     <lastmod>2020-01-25T05:16:59+13:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/code_of_conduct/attribution/</loc>
     <lastmod>2019-07-27T04:00:03+12:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/variables/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/general-best-practices/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/calling-functions/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/writing-functions/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community/contact/</loc>
     <lastmod>2019-07-27T04:00:03+12:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/dsc-resource-functions/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/manifest/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/localization/</loc>
     <lastmod>2020-01-24T22:37:59+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/styleguidelines/pester-tests/</loc>
     <lastmod>2019-12-28T12:37:02+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dsccommunity.org/community_calls/2021-12-16-notes/</loc>
-    <lastmod>2021-01-24T14:10:38+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://dsccommunity.org/community_calls/2021-01-27-notes/</loc>
+    <lastmod>2021-03-08T18:44:25+01:00</lastmod>
+  </url><url>
+    <loc>https://dsccommunity.org/community_calls/2020-12-16-notes/</loc>
+    <lastmod>2021-03-08T18:42:41+01:00</lastmod>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/2020-09-23-notes/</loc>
     <lastmod>2020-10-12T13:56:23+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/2020-08-12-notes/</loc>
     <lastmod>2020-10-12T10:32:20+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/2020-07-01-notes/</loc>
     <lastmod>2020-10-12T10:32:20+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/2020-05-20-notes/</loc>
     <lastmod>2020-10-12T10:32:20+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/2020-04-08-notes/</loc>
     <lastmod>2020-05-13T09:54:59+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/2020-02-26-notes/</loc>
     <lastmod>2020-04-08T13:41:25+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/2020-01-22-notes/</loc>
     <lastmod>2020-04-08T13:41:25+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/2019-12-04-notes/</loc>
     <lastmod>2020-01-17T20:47:53+13:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/2019-10-23-notes/</loc>
     <lastmod>2020-01-17T20:47:53+13:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/2019-09-11-notes/</loc>
     <lastmod>2019-11-26T23:44:49+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/2019-07-31-notes/</loc>
     <lastmod>2019-08-08T08:55:32+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/2019-06-19-notes/</loc>
     <lastmod>2019-07-29T09:40:53+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/community_calls/2019-05-08-notes/</loc>
     <lastmod>2019-07-29T09:40:53+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/</loc>
-    <lastmod>2021-01-25T20:05:04+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-03-08T18:49:22+01:00</lastmod>
+  </url><url>
     <loc>https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/</loc>
     <lastmod>2021-01-08T09:32:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/blog/class-based-dsc-resources/</loc>
     <lastmod>2020-10-02T21:26:47+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/blog/converting-tests-to-pester5/</loc>
     <lastmod>2021-01-08T09:32:39+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/blog/add-codecov-support-to-repository/</loc>
     <lastmod>2020-02-06T21:48:14+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/</loc>
     <lastmod>2020-01-14T05:29:02+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/</loc>
     <lastmod>2020-09-13T20:16:59+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/blog/how-to-use-dsc-logging/</loc>
     <lastmod>2020-12-30T20:13:18+13:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/blog/dsc-maintenance-windows/</loc>
     <lastmod>2020-05-28T09:47:45+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/code_of_conduct/</loc>
     <lastmod>2019-07-29T09:48:32+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/help/</loc>
     <lastmod>2020-06-01T16:15:09+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/contributors/</loc>
     <lastmod>2019-07-17T17:42:35+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/faq/</loc>
     <lastmod>2019-07-22T21:55:27+12:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/blog/convert-master-to-main/</loc>
     <lastmod>2021-01-20T08:10:37+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dsccommunity.org/tags/</loc>
   </url>
-  
 </urlset>
