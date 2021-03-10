@@ -657,6 +657,16 @@ This log contains various events that were generated during a DSC job, it is how
     </item>
     
     <item>
+      <title>Convert tests to Pester 5 for a DSC Community repository</title>
+      <link>https://dsccommunity.org/blog/updating-sampler-github-tasks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/blog/updating-sampler-github-tasks/</guid>
+      <description>A lot of improvements have been made to the Sampler module and templates in the last couple of weeks, and it&amp;rsquo;s a (small) breaking change that needs a manual update to your repos.
+We knew for a long time that Sampler was needed some refactor to make it more testable and maintainable. A while ago, we took some shortcuts we knew we&amp;rsquo;d have to refactor at some point, and we finally did it!</description>
+    </item>
+    
+    <item>
       <title>Steps to rename master branch to main for a DSC Community resource</title>
       <link>https://dsccommunity.org/blog/convert-master-to-main/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
