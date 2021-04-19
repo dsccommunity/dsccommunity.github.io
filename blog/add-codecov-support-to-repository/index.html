@@ -1,8 +1,8 @@
 <head>
   <meta charset="utf-8">
-  <title>Add Codecov Support to Repository</title>
+  <title>Add Code Coverage Support to Repository</title>
 
-  <meta name="generator" content="Hugo 0.81.0" />
+  <meta name="generator" content="Hugo 0.82.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   <!-- ** Plugins Needed for the Project ** -->
   <!-- Bootstrap -->
@@ -214,7 +213,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/blog/converting-tests-to-pester5/">Converting tests to Pester 5</a>
             </li>
-            <li class="parent d-block  active "><a href="/blog/add-codecov-support-to-repository/">Add Codecov Support to Repository</a>
+            <li class="parent d-block  active "><a href="/blog/add-codecov-support-to-repository/">Add Code Coverage Support to Repository</a>
             </li>
             <li class=""><a href="/blog/use-dscresource-common-functions-in-module/">DscResource.Common functions in a DSC module</a>
             </li>
@@ -307,109 +306,192 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Add Codecov Support to Repository</h2>
+            <h2>Add Code Coverage Support to Repository</h2>
             <p><em>This assumes the repository is using the pattern from the <a href="https://github.com/gaelcolas/Sampler">Sampler</a></em>
-<em>project.</em></p>
+<em>project. Also make sure you have updated the repository to the latest pipeline.</em></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#not-building-module-just-copying-files">Not building module, just copying files</a></li>
+<li><a href="#building-whole-or-part-of-module">Building whole or part of module</a></li>
+<li><a href="#code-coverage-for-multiple-jobs">Code coverage for multiple jobs</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
 <p>With the release of <a href="https://www.powershellgallery.com/packages/Pester/4.10.0">Pester v4.10</a>
-it is now possible to upload the Pester generated JoCoCo file to <a href="https://codecov.io">Codecov.io</a>.
-This is the same file that is used to upload code coverage to Azure Pipelines.
-Codecov.io needed missing attributes to be part of the JaCoCo XML file.
-Those attributes that were missing were ignored by Azure Pipelines.</p>
+it is now possible to upload the Pester generated JoCoCo file.
+The same file is used to upload code coverage to both Azure Pipelines and
+to <a href="https://codecov.io">Codecov.io</a>.</p>
 <p>The DSC Community GitHub organization has already added the Codecov GitHub
-App on all existing repositories in the organization. Also any new repository
-will have the Codecov GitHub App added automatically.</p>
-<p>To upload code coverage to Codecov.io we need to change the <code>build.yaml</code>,
-add a <code>codecov.yml</code>, and change the stage <code>Test</code> in the file <code>azure-pipelines.yml</code>
-by modifying the existing unit test job and adding a new job that uploads
-the coverage.</p>
-<h2 id="modify-buildyaml">Modify <code>build.yaml</code></h2>
+App on all existing repositories in the organization so that existing and
+any new repository will have the Codecov GitHub App added automatically.
+There is nothing that needs to be added to use code coverage in Azure Pipelines.</p>
+<blockquote>
+<p><strong>Information:</strong> Due to how Pester generates the JaCoCo code coverage file Azure
+Pipelines code coverage will not find source files in certain circumstances.
+When a repository is using the pattern from the <a href="https://github.com/gaelcolas/Sampler">Sampler</a>
+project then sometimes the paths are just copied (not built) from source by
+ModuleBuilder. For example MOF-resources do show coverage for the entire file,
+but not on individual code lines since the source file can not be found by the
+task <em>PublishCodeCoverageResults@1</em>. Azure Pipelines code coverage expects the
+full relative path to be in the <code>&lt;sourcefile&gt;</code> element, relative from the
+path specified in argument <code>pathToSources</code> of the pipeline task
+<em>PublishCodeCoverageResults@1</em>. Pester does not do this. Codecov.io is
+smarter in that sense and builds the relative path from both the <code>&lt;package&gt;</code>
+and <code>&lt;sourcefile&gt;</code> element, and Codecov.io expects the <code>&lt;package&gt;</code> and
+<code>&lt;sourcefile&gt;</code> element to together match the source folder structure in
+the GitHub repository (at the commit). Azure Pipelines code coverage
+generate source files form the code that are available in the pipeline,
+and it can only be a single path, and that single path does not support
+pattern matching.</p>
+</blockquote>
+<p>To upload code coverage we need to:</p>
+<ul>
+<li>change the <code>build.yaml</code></li>
+<li>add a <code>codecov.yml</code> (if Codecov.io should be used)</li>
+<li>change the stage <code>Test</code> in the file <code>azure-pipelines.yml</code> by modifying
+the existing unit test job</li>
+<li>add a new job that uploads the coverage.</li>
+</ul>
+<p>There are additional steps if code coverage should be gathered from multiple
+jobs, see section <a href="#code-coverage-for-multiple-jobs">Code coverage for multiple jobs</a>.</p>
+<h2 id="not-building-module-just-copying-files">Not building module, just copying files</h2>
+<p>If the repository is not building any part of the module, that is <em>not</em>
+using the <em>ModuleBuilder</em> pattern of <code>Private</code>, <code>Public</code>, <code>Classes</code> and or
+<code>Enum</code>. E.g. the repository is only using MOF-based resources that are
+copied by <em>ModuleBuilder</em>.</p>
+<h3 id="modify-buildyaml">Modify <code>build.yaml</code></h3>
 <p>Because <a href="https://codecov.io">Codecov.io</a> expects the file that is uploaded
 to be prefixed with <code>JaCoCo</code> we have to change the filename of the JaCoCo
-test results file that Pester is creating. The file cannot be created
-with the encoding <code>UTF8 with BOM</code> which is the default on Windows, so
-we make sure to change the encoding to <code>ascii</code> that <a href="https://codecov.io">Codecov.io</a>
-accepts.</p>
-<p>Under the key <code>Pester</code> add the following keys.</p>
+test results file that Pester is creating. The file must also be created
+with the encoding <code>UTF8</code> (<em>without BOM</em>) so that Codecov.io can accept it,
+so we make sure to change the encoding to <code>ascii</code>.</p>
+<p>Under the key <code>Pester</code>, add the keyword <code>CodeCoverageThreshold</code>. <code>CodeCoverageOutputFile</code>,
+and <code>CodeCoverageOutputFileEncoding</code>. They keyword <code>CodeCoverageThreshold</code>
+must be set to a value between <code>1</code> and <code>100</code>. Normally the value <code>80</code> (80%)
+is a good value if the repository have enough coverage, lower the value if
+it doesn&rsquo;t.</p>
+<p>It can look something like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
+  <span style="color:#f92672">OutputFormat</span>: <span style="color:#ae81ff">NUnitXML</span>
+  <span style="color:#f92672">ExcludeFromCodeCoverage</span>:
+    - <span style="color:#ae81ff">Modules/DscResource.Common</span>
+  <span style="color:#f92672">Script</span>:
+    - <span style="color:#ae81ff">tests/Unit</span>
+  <span style="color:#f92672">ExcludeTag</span>:
+  <span style="color:#f92672">Tag</span>:
+  <span style="color:#f92672">CodeCoverageThreshold</span>: <span style="color:#ae81ff">80</span>
   <span style="color:#f92672">CodeCoverageOutputFile</span>: <span style="color:#ae81ff">JaCoCo_coverage.xml</span>
   <span style="color:#f92672">CodeCoverageOutputFileEncoding</span>: <span style="color:#ae81ff">ascii</span>
 </code></pre></div><blockquote>
 <p><em>NOTE:</em> the filename can be anything after the prefix <code>JaCoCo</code>, for example
-it is possible to use this <code>JaCoCo_$OsShortName.xml</code> which results in
-the filename <code>JaCoCO_MacOs.xml</code> when the test task is run on macOS.</p>
+it is possible to use <code>JaCoCo_$OsShortName.xml</code> which results in
+the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</p>
 </blockquote>
-<h2 id="modify-azure-pipelinesyml">Modify <code>azure-pipelines.yml</code></h2>
+<h3 id="modify-azure-pipelinesyml">Modify <code>azure-pipelines.yml</code></h3>
 <p>From the job <code>Test_Unit</code> we can remove the task <code>Set Environment Variables</code>
 and the task <code>Publish Code Coverage</code>. Those two task will be moved to the
 new job. Instead we add the task <code>Publish Test Artifact</code> which uploads
 the test result files that ended up in the folder <code>output/testResults</code>.</p>
-<h3 id="add-global-variables">Add global variables</h3>
-<p>At the top of the file, at the same level ass the key <code>trigger</code> add the
+<h4 id="add-global-variables">Add global variables</h4>
+<p>At the top of the file, at the same level as the key <code>trigger</code> add the
 following.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">variables</span>:
   <span style="color:#f92672">buildFolderName</span>: <span style="color:#ae81ff">output</span>
   <span style="color:#f92672">buildArtifactName</span>: <span style="color:#ae81ff">output</span>
   <span style="color:#f92672">testResultFolderName</span>: <span style="color:#ae81ff">testResults</span>
   <span style="color:#f92672">testArtifactName</span>: <span style="color:#ae81ff">testResults</span>
-</code></pre></div><p>Then do a search and replace to change <code>artifactName: 'output'</code> to
-<code>artifactName: $(buildArtifactName)</code>.</p>
-<h3 id="job-test_unit">Job <code>Test_Unit</code></h3>
-<p>The tasks of this job are:</p>
+  <span style="color:#f92672">sourceFolderName</span>: <span style="color:#ae81ff">source</span>
+</code></pre></div><p>It should look something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">trigger</span>:
+  <span style="color:#f92672">branches</span>:
+    <span style="color:#f92672">include</span>:
+    - <span style="color:#ae81ff">main</span>
+  <span style="color:#f92672">paths</span>:
+    <span style="color:#f92672">include</span>:
+    - <span style="color:#ae81ff">source/*</span>
+  <span style="color:#f92672">tags</span>:
+    <span style="color:#f92672">include</span>:
+    - <span style="color:#e6db74">&#34;v*&#34;</span>
+    <span style="color:#f92672">exclude</span>:
+    - <span style="color:#e6db74">&#34;*-*&#34;</span>
+
+<span style="color:#f92672">variables</span>:
+  <span style="color:#f92672">buildFolderName</span>: <span style="color:#ae81ff">output</span>
+  <span style="color:#f92672">buildArtifactName</span>: <span style="color:#ae81ff">output</span>
+  <span style="color:#f92672">testResultFolderName</span>: <span style="color:#ae81ff">testResults</span>
+  <span style="color:#f92672">testArtifactName</span>: <span style="color:#ae81ff">testResults</span>
+  <span style="color:#f92672">sourceFolderName</span>: <span style="color:#ae81ff">source</span>
+</code></pre></div><h4 id="update-job-test_unit">Update job <code>Test_Unit</code></h4>
+<p>The main tasks of this job must be:</p>
 <ul>
-<li>Download the build artifact (<code>output</code> that was uploaded by the <code>Build</code>
-stage)</li>
-<li>Run the unit tests (which generates the JaCoCo XML file in the folder
-<code>output/testResults</code>)</li>
-<li>Uploads the <code>output/testResults</code> folder to the artifact <code>testResults</code>.</li>
+<li>Download the build artifact using task <code>DownloadPipelineArtifact@2</code> (or
+use the same task that <code>Build</code> stage used)</li>
+<li>Run the unit tests which generates the JaCoCo XML file in the folder
+<code>output/testResults</code> (make sure <code>CodeCoverageThreshold</code> has a value
+higher than <code>0</code>)</li>
+<li>Uploads the <code>output/testResults</code> folder to the artifact <code>testResults</code>
+using the task <code>PublishPipelineArtifact@1</code>.</li>
 </ul>
+<p>Most important here is the task <em>Publish Test Artifact</em> is updated to
+use <code>PublishPipelineArtifact@1</code>, which is expected to be able to download
+the artifact in the code coverage job (see next section). The
+<em>Publish Test Artifact</em> must be run after the test task.</p>
+<p>The arguments for the task <em>Run Unit Test</em> can differ depending on repository.
+But most important is if the <code>CodeCoverageThreshold</code> argument is used to
+override the value in <code>build.yaml</code> then the value for <code>CodeCoverageThreshold</code>
+may not be set to <code>0</code>. The value <code>0</code> means that no coverage is gathered.</p>
+<p>This is how it can look like:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Test_Unit</span>
         <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Unit&#39;</span>
         <span style="color:#f92672">pool</span>:
           <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
         <span style="color:#f92672">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
         <span style="color:#f92672">steps</span>:
-          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadBuildArtifacts@0</span>
-            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span> <span style="color:#75715e"># Must be present for build task to work.</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Pipeline Artifact&#39;</span>
             <span style="color:#f92672">inputs</span>:
               <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-              <span style="color:#f92672">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
               <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(buildArtifactName)</span>
-              <span style="color:#f92672">downloadPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
-          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span>
+              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span> <span style="color:#75715e"># Runs the tests, and generates code coverage.</span>
             <span style="color:#f92672">name</span>: <span style="color:#ae81ff">test</span>
             <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Run Unit Test&#39;</span>
             <span style="color:#f92672">inputs</span>:
               <span style="color:#f92672">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
-              <span style="color:#f92672">arguments</span>: <span style="color:#e6db74">&#34;-Tasks test -PesterScript &#39;tests/Unit&#39;&#34;</span>
+              <span style="color:#f92672">arguments</span>: <span style="color:#e6db74">&#34;-Tasks test -PesterScript &#39;tests/Unit&#39;&#34;</span> <span style="color:#75715e"># &lt;--- Arguments can differ depending on repository.</span>
               <span style="color:#f92672">pwsh</span>: <span style="color:#66d9ef">false</span>
-          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishTestResults@2</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishTestResults@2</span> <span style="color:#75715e"># &lt;--- Task optional, not necessary for code coverage.</span>
             <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
             <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">succeededOrFailed()</span>
             <span style="color:#f92672">inputs</span>:
               <span style="color:#f92672">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
               <span style="color:#f92672">testResultsFiles</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span>
-              <span style="color:#f92672">testRunTitle</span>: <span style="color:#e6db74">&#39;Unit (Windows Server Core)&#39;</span>
-          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishBuildArtifacts@1</span>
+              <span style="color:#f92672">testRunTitle</span>: <span style="color:#e6db74">&#39;Unit&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishPipelineArtifact@1 </span> <span style="color:#75715e"># &lt;--- This task is most important.</span>
             <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Artifact&#39;</span>
             <span style="color:#f92672">inputs</span>:
-              <span style="color:#f92672">pathToPublish</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/&#39;</span>
+              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/&#39;</span>
               <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(testArtifactName)</span>
-              <span style="color:#f92672">publishLocation</span>: <span style="color:#e6db74">&#39;Container&#39;</span>
-</code></pre></div><h3 id="job-codecoverage">Job <code>CodeCoverage</code></h3>
-<p>Then we add a new job that depends on the job <code>Test_Unit</code> since we must
-wait for the JaCoCo XML file to exist. The reason for having a separate job
-is that we need (or at least it is easiest) to run the <a href="https://codecov.io">Codecov.io</a>
-upload task in a Linux build worker.</p>
-<p>The tasks of this job are:</p>
+              <span style="color:#f92672">parallel</span>: <span style="color:#66d9ef">true</span>
+</code></pre></div><h4 id="update-job-codecoverage">Update job <code>CodeCoverage</code></h4>
+<p>Add a new job that depends on the job <code>Test_Unit</code> (see previous section)
+since we must wait for the JaCoCo XML file to exist. The reason for having
+a separate job is that we need (or at least it is easiest) to run the
+<a href="https://codecov.io">Codecov.io</a> upload task in a Linux build worker.</p>
+<p>The tasks of this job must be:</p>
 <ul>
 <li>Set environment variables (needed for the upload of Azure Pipelines code
 coverage)</li>
-<li>Download the build artifact (<code>output</code> that was uploaded by the <code>Build</code>
-stage)</li>
+<li>Download the build artifact using task <code>DownloadPipelineArtifact@2</code> (or
+use the same task that <code>Build</code> stage used)</li>
 <li>Download the test artifact (<code>testResults</code> that was upload by the job
-<code>Test_Unit</code>)</li>
+in the previous section)</li>
+<li>Upload coverage to one or both services:
+<ul>
 <li>Publish code coverage to Azure Pipelines (Azure DevOps)</li>
 <li>Publish code coverage to Codecov.io</li>
+</ul>
+</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Code_Coverage</span>
         <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage&#39;</span>
@@ -424,55 +506,62 @@ stage)</li>
 </span><span style="color:#e6db74">              echo &#34;##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName&#34;</span>              
             <span style="color:#f92672">name</span>: <span style="color:#ae81ff">dscBuildVariable</span>
             <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Set Environment Variables&#39;</span>
-          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadBuildArtifacts@0</span>
-            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Build Artifact&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Pipeline Artifact&#39;</span>
             <span style="color:#f92672">inputs</span>:
               <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-              <span style="color:#f92672">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
               <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(buildArtifactName)</span>
-              <span style="color:#f92672">downloadPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)&#39;</span>
-          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadBuildArtifacts@0</span>
+              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span>
             <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Test Artifact&#39;</span>
             <span style="color:#f92672">inputs</span>:
               <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-              <span style="color:#f92672">downloadType</span>: <span style="color:#e6db74">&#39;single&#39;</span>
               <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(testArtifactName)</span>
-              <span style="color:#f92672">downloadPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)&#39;</span>
+              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)&#39;</span>
           - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishCodeCoverageResults@1</span>
-            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Azure Code Coverage&#39;</span>
-            <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">succeededOrFailed()</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage to Azure DevOps&#39;</span>
             <span style="color:#f92672">inputs</span>:
               <span style="color:#f92672">codeCoverageTool</span>: <span style="color:#e6db74">&#39;JaCoCo&#39;</span>
-              <span style="color:#f92672">summaryFileLocation</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#39;</span>
-              <span style="color:#f92672">pathToSources</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(dscBuildVariable.RepositoryName)&#39;</span>
+              <span style="color:#f92672">summaryFileLocation</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#39;</span>
+              <span style="color:#f92672">pathToSources</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(sourceFolderName)/&#39;</span>
           - <span style="color:#f92672">script</span>: |<span style="color:#e6db74">
 </span><span style="color:#e6db74">              </span>              <span style="color:#ae81ff">bash &lt;(curl -s https://codecov.io/bash) -f &#34;./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#34;</span>
-            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Upload to Codecov.io&#39;</span>
-            <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">succeededOrFailed()</span>
-</code></pre></div><h2 id="add-codecovyml">Add <code>codecov.yml</code></h2>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage to Codecov.io&#39;</span>
+</code></pre></div><h3 id="add-codecovyml">Add <code>codecov.yml</code></h3>
+<p>This file is not necessary if Codecov.io is not used.</p>
+<blockquote>
+<p><strong>NOTE:</strong> Make sure to update the default branch name in the Codecov.io
+project site if the default branch name is renamed.</p>
+</blockquote>
 <blockquote>
 <p><strong>NOTE:</strong> If this file exist and starts with a full stop <code>.</code>, e.g. <code>.codecov.yml</code>,
 then please rename it to <code>codecov.yml</code>. See this FAQ for more information
 <a href="https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml">https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml</a></p>
 </blockquote>
-<p>These settings can be set as wanted, but the below is the default values
-that we have used in the DSC modules.</p>
+<p>These settings can be set as desired, but the values below are what are used
+by default in the DSC Community repositories.</p>
 <p>The important part is the key <code>fixes</code>. <a href="https://codecov.io">Codecov.io</a>
 is expecting the paths in the JaCoCo file to match the folder structure in
-the GitHub repository. Since the <a href="https://github.com/gaelcolas/Sampler">Sampler</a>
-project runs tests against the built module in the <code>output</code> folder, the paths
-do not match those of the repository. The key <code>fixes</code> converts the paths in
+the GitHub repository. Make sure to change the part <code>::source</code> to the name
+of the source folder in the repository. Normally this is <code>source</code>, but the
+repository can also use <code>src</code> or a folder name with the same name as the
+module name.</p>
+<p>Since the <a href="https://github.com/gaelcolas/Sampler">Sampler</a> project runs
+tests against the built module in the <code>output</code> folder, the paths do not
+match those of the repository. The key <code>fixes</code> converts the paths in
 the JaCoCo XML file to the correct paths that <a href="https://codecov.io">Codecov.io</a>
 expects.</p>
+<blockquote>
 <p>See the <a href="https://docs.codecov.io/docs/codecovyml-reference">codecov.yml Reference</a>
 for more information about these settings.</p>
+</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">codecov</span>:
   <span style="color:#f92672">require_ci_to_pass</span>: <span style="color:#66d9ef">no</span>
-  <span style="color:#75715e"># master should be the baseline for reporting</span>
-  <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">master</span>
+  <span style="color:#75715e"># main should be the baseline for reporting</span>
+  <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">main</span>
 
 <span style="color:#f92672">comment</span>:
-  <span style="color:#f92672">layout</span>: <span style="color:#e6db74">&#39;reach, diff&#39;</span>
+  <span style="color:#f92672">layout</span>: <span style="color:#e6db74">&#34;reach, diff, flags, files&#34;</span>
   <span style="color:#f92672">behavior</span>: <span style="color:#ae81ff">default</span>
 
 <span style="color:#f92672">coverage</span>:
@@ -493,11 +582,349 @@ for more information about these settings.</p>
         <span style="color:#f92672">threshold</span>: <span style="color:#ae81ff">5</span>
 
 <span style="color:#f92672">fixes</span>:
-  - <span style="color:#e6db74">&#39;\d+\.\d+\.\d+\/::source/&#39;</span>  <span style="color:#75715e"># move path &#34;X.Y.Z/&#34; =&gt; &#34;source/&#34;</span>
-</code></pre></div><h2 id="add-status-badge-to-readmemd">Add status badge to <code>README.md</code></h2>
-<p>Finally we should add the status badge to the README.md. Replace
-<code>{repositoryName}</code> with the actual repository name, e.g. <code>ComputerManagementDsc</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">[<span style="color:#f92672">![codecov</span>](<span style="color:#a6e22e">https://codecov.io/gh/dsccommunity/{repositoryName}/branch/master/graph/badge.svg</span>)](https://codecov.io/gh/dsccommunity/{repositoryName})
+  - <span style="color:#e6db74">&#39;^\d+\.\d+\.\d+::source&#39;</span>  <span style="color:#75715e"># move path &#34;X.Y.Z&#34; =&gt; &#34;source&#34;</span>
+</code></pre></div><h3 id="add-status-badge-to-readmemd">Add status badge to <code>README.md</code></h3>
+<p>Finally we should add the status badges to the README.md. Replace
+<code>{repositoryName}</code> with the actual repository name, e.g. <code>ComputerManagementDsc</code>.
+Also replace <code>{defaultbranch}</code> to the name of the default branch, e.g. <code>main</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">[<span style="color:#f92672">![codecov</span>](<span style="color:#a6e22e">https://codecov.io/gh/dsccommunity/{repositoryName}/branch/{defaultbranch}/graph/badge.svg</span>)](https://codecov.io/gh/dsccommunity/{repositoryName})
+![<span style="color:#f92672">Azure DevOps coverage (branch)</span>](<span style="color:#a6e22e">https://img.shields.io/azure-devops/coverage/dsccommunity/{repositoryName}/14/{defaultbranch}</span>)
+</code></pre></div><h2 id="building-whole-or-part-of-module">Building whole or part of module</h2>
+<p>If the repository is building all or just part of the module using the ModuleBuilder&rsquo;s
+pattern of <code>Private</code>, <code>Public</code>, <code>Classes</code> and/or <code>Enum</code>. E.g. combination of
+class-based and MOF-based resources, and/or public/private functions.</p>
+<h3 id="modify-buildyaml-1">Modify <code>build.yaml</code></h3>
+<ol>
+<li>
+<p>Update <code>build.yml</code> the same way as in the section <a href="#modify-build.yaml">Modify build.yaml</a>
+in <a href="#not-building-module-just-copies-files">Not building module, just copies files</a>.</p>
+</li>
+<li>
+<p>Add the task <em>Convert_Pester_Coverage</em> to the build
+task <code>test</code>. This task will convert the line numbers from the built module
+to the correlating line in the specific source file. The task will generate
+a new coverage file that is then merged with the original file that Pester
+generated.</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">  <span style="color:#f92672">test</span>:
+    - <span style="color:#ae81ff">Pester_Tests_Stop_On_Fail</span>
+    - <span style="color:#ae81ff">Convert_Pester_Coverage</span>
+    - <span style="color:#ae81ff">Pester_if_Code_Coverage_Under_Threshold</span>
+</code></pre></div><h3 id="modify-azure-pipelinesyml-1">Modify <code>azure-pipelines.yml</code></h3>
+<p>Update <code>azure-pipelines.yml</code> exactly the same way as in the section <a href="#modify-azure-pipelines.yml">Modify azure-pipelines.yml</a>
+in <a href="#not-building-module-just-copies-files">Not building module, just copies files</a>.</p>
+<h3 id="add-codecovyml-1">Add <code>codecov.yml</code></h3>
+<p>Read more about this file in the section <a href="#add-codecov.yml">Add codecov.yml</a>
+in <a href="#not-building-module-just-copies-files">Not building module, just copies files</a>.</p>
+<p>This file is not necessary if Codecov.io is not used.</p>
+<p>The build task <em>Convert_Pester_Coverage</em> will update the coverage file with
+the correct name of the source folder. So when using build task <em>Convert_Pester_Coverage</em>
+the <code>covecov.yml</code> should look like below. Note that the main difference
+(from <a href="#not-building-module-just-copying-files">Not building module, just copying files</a>)
+is that it is not using <code>fixes</code> keyword as the task <em>Convert_Pester_Coverage</em>
+will do that for us.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">codecov</span>:
+  <span style="color:#f92672">require_ci_to_pass</span>: <span style="color:#66d9ef">no</span>
+  <span style="color:#75715e"># main should be the baseline for reporting</span>
+  <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">main</span>
+
+<span style="color:#f92672">comment</span>:
+  <span style="color:#f92672">layout</span>: <span style="color:#e6db74">&#34;reach, diff, flags, files&#34;</span>
+  <span style="color:#f92672">behavior</span>: <span style="color:#ae81ff">default</span>
+
+<span style="color:#f92672">coverage</span>:
+  <span style="color:#f92672">range</span>: <span style="color:#ae81ff">50</span><span style="color:#ae81ff">..80</span>
+  <span style="color:#f92672">round</span>: <span style="color:#ae81ff">down</span>
+  <span style="color:#f92672">precision</span>: <span style="color:#ae81ff">0</span>
+
+  <span style="color:#f92672">status</span>:
+    <span style="color:#f92672">project</span>:
+      <span style="color:#f92672">default</span>:
+        <span style="color:#75715e"># Set the overall project code coverage requirement to 70%</span>
+        <span style="color:#f92672">target</span>: <span style="color:#ae81ff">70</span>
+    <span style="color:#f92672">patch</span>:
+      <span style="color:#f92672">default</span>:
+        <span style="color:#75715e"># Set the pull request requirement to not regress overall coverage by more than 5%</span>
+        <span style="color:#75715e"># and let codecov.io set the goal for the code changed in the patch.</span>
+        <span style="color:#f92672">target</span>: <span style="color:#ae81ff">auto</span>
+        <span style="color:#f92672">threshold</span>: <span style="color:#ae81ff">5</span>
+</code></pre></div><h3 id="add-status-badge-to-readmemd-1">Add status badge to <code>README.md</code></h3>
+<p>Update <code>README.md</code> exactly the same way as in the section <a href="#add-status-badge-to-README.md">Add status badge to <code>README.md</code></a>
+in <a href="#not-building-module-just-copies-files">Not building module, just copies files</a>.</p>
+<h2 id="code-coverage-for-multiple-jobs">Code coverage for multiple jobs</h2>
+<p>If a repository needs to gather code coverage from more than one job,
+the code coverage files need to be merged before publishing them to either
+or both services Azure DevOps or Codecov.io.</p>
+<p>For example, unit tests or integration tests are run on multiple operating
+systems and/or target multiple versions of an application. It might be that
+some functions can only be tested on a certain version/operating system
+while other functions can only be tested on a different version/operating
+system.</p>
+<p>Start of by implementing the steps in either <a href="#not-building-module-just-copying-files">Not building module, just copying files</a>
+or <a href="#building-whole-or-part-of-module">Building whole or part of module</a>
+depending on the repository&rsquo;s need.</p>
+<h3 id="modify-buildyaml-2">Modify <code>build.yaml</code></h3>
+<p>The filename <code>JaCoCo_coverage.xml</code> that has been used in the previous section
+cannot be used for Pester when we need to gather coverage from multiple jobs.
+There are two options:</p>
+<ul>
+<li>either remove they keyword <code>CodeCoverageOutputFile</code> entirely so that the
+default value is used. The default value names the files using the PowerShell
+version and operating system (Linux, macOS, Windows) and with the prefix <code>Codecov_</code>
+(short for &lsquo;Code Coverage&rsquo;).</li>
+<li>or add a different specific filename, which will be used for all jobs,
+for example, &lsquo;JaCoCo_Merge.xml&rsquo;.</li>
+</ul>
+<p>Depending on your choice, the code coverage job in Azure Pipelines needs to
+take account for it. More on that later.</p>
+<p>If you choose to use a specific filename the <code>Pester</code> section can look like
+this:</p>
+<blockquote>
+<p><em>NOTE:</em> the filename can be anything after the prefix <code>JaCoCo</code>, for example
+it is possible to use <code>JaCoCo_$OsShortName.xml</code> which results in
+the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
+  <span style="color:#f92672">OutputFormat</span>: <span style="color:#ae81ff">NUnitXML</span>
+  <span style="color:#f92672">ExcludeFromCodeCoverage</span>:
+    - <span style="color:#ae81ff">Modules/DscResource.Common</span>
+  <span style="color:#f92672">Script</span>:
+    - <span style="color:#ae81ff">tests/Unit</span>
+  <span style="color:#f92672">ExcludeTag</span>:
+  <span style="color:#f92672">Tag</span>:
+  <span style="color:#f92672">CodeCoverageThreshold</span>: <span style="color:#ae81ff">80</span>
+  <span style="color:#f92672">CodeCoverageOutputFile</span>: <span style="color:#ae81ff">JaCoCo_Merge.xml</span>
+  <span style="color:#f92672">CodeCoverageOutputFileEncoding</span>: <span style="color:#ae81ff">ascii</span>
+</code></pre></div><p>If you choose to remove <code>CodeCoverageOutputFile</code> keyword, the <code>Pester</code> section
+can look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
+  <span style="color:#f92672">OutputFormat</span>: <span style="color:#ae81ff">NUnitXML</span>
+  <span style="color:#f92672">ExcludeFromCodeCoverage</span>:
+    - <span style="color:#ae81ff">Modules/DscResource.Common</span>
+  <span style="color:#f92672">Script</span>:
+    - <span style="color:#ae81ff">tests/Unit</span>
+  <span style="color:#f92672">ExcludeTag</span>:
+  <span style="color:#f92672">Tag</span>:
+  <span style="color:#f92672">CodeCoverageThreshold</span>: <span style="color:#ae81ff">80</span>
+  <span style="color:#f92672">CodeCoverageOutputFileEncoding</span>: <span style="color:#ae81ff">ascii</span>
+</code></pre></div><p>We also need to add a new build task that we call <code>merge</code> that will run
+the task <em>Merge_CodeCoverage_Files</em>. This task should be added under the
+keyword <code>BuildWorkflow:</code>.</p>
+<p>It can look something like this:</p>
+<pre><code>BuildWorkflow:
+  '.':
+    - build
+    - test
+
+  merge:
+    - Merge_CodeCoverage_Files
+</code></pre><p>The task <em>Merge_CodeCoverage_Files</em> also needs to have the keyword
+<code>CodeCoverageMergedOutputFile</code> and <code>CodeCoverageFilePattern</code> settings
+defined in the build.yaml file.</p>
+<p>The keyword <code>CodeCoverageMergedOutputFile</code> should be set to the filename
+that the task <em>Merge_CodeCoverage_Files</em> will generate and is the file
+that will be uploaded to the code coverage services.</p>
+<blockquote>
+<p><strong>NOTE:</strong> For the service Codecov.io the filename must be prefixed with
+&lsquo;JaCoCo&rsquo;.</p>
+</blockquote>
+<p>The keyword <code>CodeCoverageFilePattern</code> is the pattern to recursively look
+for under the <code>output/testResults</code> folder. It should use a pattern that
+can recognize the JaCoCo files that the test jobs generate.</p>
+<p>If using the default filenames it can look something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">CodeCoverage</span>:
+  <span style="color:#f92672">CodeCoverageMergedOutputFile</span>: <span style="color:#ae81ff">JaCoCo_coverage.xml</span>
+  <span style="color:#f92672">CodeCoverageFilePattern</span>: <span style="color:#ae81ff">Codecov*.xml</span>
+</code></pre></div><p>If a specific filename was used it can look something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">CodeCoverage</span>:
+  <span style="color:#f92672">CodeCoverageMergedOutputFile</span>: <span style="color:#ae81ff">JaCoCo_coverage.xml</span>
+  <span style="color:#f92672">CodeCoverageFilePattern</span>: <span style="color:#ae81ff">JaCoCo_Merge.xml</span>
+</code></pre></div><h3 id="modify-azure-pipelinesyml-2">Modify <code>azure-pipelines.yml</code></h3>
+<p>From the job <code>Test_Unit</code> we can remove the task <code>Set Environment Variables</code>
+and the task <code>Publish Code Coverage</code>. Those two tasks will be moved to the
+new job. Instead we add the task <code>Publish Test Artifact</code> which uploads
+the test result files that ended up in the folder <code>output/testResults</code>.</p>
+<h4 id="remove-global-variable">Remove global variable</h4>
+<p>We can remove the global variable <code>testArtifactName</code> since it will not be used.</p>
+<p>After removing the global variable it should look something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">trigger</span>:
+  <span style="color:#f92672">branches</span>:
+    <span style="color:#f92672">include</span>:
+    - <span style="color:#ae81ff">main</span>
+  <span style="color:#f92672">paths</span>:
+    <span style="color:#f92672">include</span>:
+    - <span style="color:#ae81ff">source/*</span>
+  <span style="color:#f92672">tags</span>:
+    <span style="color:#f92672">include</span>:
+    - <span style="color:#e6db74">&#34;v*&#34;</span>
+    <span style="color:#f92672">exclude</span>:
+    - <span style="color:#e6db74">&#34;*-*&#34;</span>
+
+<span style="color:#f92672">variables</span>:
+  <span style="color:#f92672">buildFolderName</span>: <span style="color:#ae81ff">output</span>
+  <span style="color:#f92672">buildArtifactName</span>: <span style="color:#ae81ff">output</span>
+  <span style="color:#f92672">testResultFolderName</span>: <span style="color:#ae81ff">testResults</span>
+  <span style="color:#f92672">sourceFolderName</span>: <span style="color:#ae81ff">source</span>
+</code></pre></div><h4 id="update-test-tasks">Update test tasks</h4>
+<p>At least two test tasks must be used. The main tasks for each job must be:</p>
+<ul>
+<li>Download the build artifact using task <code>DownloadPipelineArtifact@2</code> (or
+use the same task that <code>Build</code> stage used)</li>
+<li>Run the unit tests which generates the JaCoCo XML file in the folder
+<code>output/testResults</code> (make sure <code>CodeCoverageThreshold</code> has a value
+higher than <code>0</code>)</li>
+<li>Uploads the <code>output/testResults</code> folder to a, for each job, unique artifact
+name using the task <code>PublishPipelineArtifact@1</code>.</li>
+</ul>
+<p>Most important here is the task <em>Publish Test Artifact</em> is updated to
+use <code>PublishPipelineArtifact@1</code>, which is expected to be able to download
+the artifact in the code coverage job (see next section). The
+<em>Publish Test Artifact</em> must be run after the test task. The artifact name
+must be unique for each test job.</p>
+<p>The arguments for the task <em>Run Unit Test</em> can differ depending on repository.
+But most important is if the <code>CodeCoverageThreshold</code> argument is used to
+override the value in <code>build.yaml</code> then the value for <code>CodeCoverageThreshold</code>
+may not be set to <code>0</code>. The value <code>0</code> means that no coverage is gathered.</p>
+<p>This is how it can look like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">test_windows_core</span> <span style="color:#75715e"># Run tests in PowerShell 7 on Windows</span>
+        <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Windows (PowerShell Core)&#39;</span>
+        <span style="color:#f92672">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
+        <span style="color:#f92672">pool</span>:
+          <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
+        <span style="color:#f92672">steps</span>:
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span> <span style="color:#75715e"># Download build artifact.</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Pipeline Artifact&#39;</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
+              <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(buildArtifactName)</span>
+              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span> <span style="color:#75715e"># Run tests and gather code coverage.</span>
+            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">test</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Run Tests&#39;</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
+              <span style="color:#f92672">arguments</span>: <span style="color:#e6db74">&#39;-tasks test&#39;</span>
+              <span style="color:#f92672">pwsh</span>: <span style="color:#66d9ef">true</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishTestResults@2</span> <span style="color:#75715e"># Optional. Publish test results.</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
+            <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">succeededOrFailed()</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
+              <span style="color:#f92672">testResultsFiles</span>: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
+              <span style="color:#f92672">testRunTitle</span>: <span style="color:#e6db74">&#39;Windows Server Core (PowerShell Core)&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishPipelineArtifact@1</span> <span style="color:#75715e"># Publish test artifact with unique name for this job.</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Artifact&#39;</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/&#39;</span>
+              <span style="color:#f92672">artifactName</span>: <span style="color:#e6db74">&#39;CodeCoverageWinPS7&#39;</span> <span style="color:#75715e"># An unique artifact name.</span>
+              <span style="color:#f92672">parallel</span>: <span style="color:#66d9ef">true</span>
+
+      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">test_linux</span> <span style="color:#75715e"># Run tests in PowerShell 7 on Linux</span>
+        <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Linux&#39;</span>
+        <span style="color:#f92672">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
+        <span style="color:#f92672">pool</span>:
+          <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu 16.04&#39;</span>
+        <span style="color:#f92672">steps</span>:
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span> <span style="color:#75715e"># Download build artifact.</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Pipeline Artifact&#39;</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
+              <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(buildArtifactName)</span>
+              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span> <span style="color:#75715e"># Run tests and gather code coverage.</span>
+            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">test</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Run Tests&#39;</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
+              <span style="color:#f92672">arguments</span>: <span style="color:#e6db74">&#39;-tasks test&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishTestResults@2</span> <span style="color:#75715e"># Optional. Publish test results.</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
+            <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">succeededOrFailed()</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
+              <span style="color:#f92672">testResultsFiles</span>: <span style="color:#e6db74">&#39;output/testResults/NUnit*.xml&#39;</span>
+              <span style="color:#f92672">testRunTitle</span>: <span style="color:#e6db74">&#39;Linux&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishPipelineArtifact@1</span> <span style="color:#75715e"># Publish test artifact with unique name for this job.</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Artifact&#39;</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/&#39;</span>
+              <span style="color:#f92672">artifactName</span>: <span style="color:#e6db74">&#39;CodeCoverageLinux&#39;</span> <span style="color:#75715e"># An unique artifact name.</span>
+              <span style="color:#f92672">parallel</span>: <span style="color:#66d9ef">true</span>
+
+</code></pre></div><h4 id="update-job-codecoverage-1">Update job <code>CodeCoverage</code></h4>
+<p>Add a new job that depends on all the test jobs (see previous section) since
+we must wait for all of the JaCoCo XML files to exist.</p>
+<p>The tasks of this job must be:</p>
+<ul>
+<li>Set environment variables (needed for the upload of Azure Pipelines code
+coverage)</li>
+<li>Download the build artifact using task <code>DownloadPipelineArtifact@2</code> (or
+use the same task that <code>Build</code> stage used)</li>
+<li>Download each of the unique test artifacts (that was upload by the test
+jobs in the previous section)</li>
+<li>Run the build task to merge all the code coverage files.</li>
+<li>Upload coverage to one or both services:
+<ul>
+<li>Publish code coverage to Azure Pipelines (Azure DevOps)</li>
+<li>Publish code coverage to Codecov.io</li>
+</ul>
+</li>
+</ul>
+<p>If each test job is using that same filename (specified in the <code>build.yaml</code>),
+or that there is a risk that the default filename might not be unique, then
+we need to specify specific folders where the test artifacts are downloaded.</p>
+<p>The publishing tasks must specify the filename that was specified in the
+keyword <code>CodeCoverageMergedOutputFile</code> in the <code>build.yaml</code> file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Code_Coverage</span>
+        <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage&#39;</span>
+        <span style="color:#f92672">dependsOn</span>:
+          - <span style="color:#ae81ff">test_windows_core</span>
+          - <span style="color:#ae81ff">test_linux</span>
+        <span style="color:#f92672">pool</span>:
+          <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu 16.04&#39;</span>
+        <span style="color:#f92672">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
+        <span style="color:#f92672">steps</span>:
+          - <span style="color:#f92672">pwsh</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">              $repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split &#39;/&#39;
+</span><span style="color:#e6db74">              echo &#34;##vso[task.setvariable variable=RepositoryOwner;isOutput=true]$repositoryOwner&#34;
+</span><span style="color:#e6db74">              echo &#34;##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName&#34;</span>              
+            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">dscBuildVariable</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Set Environment Variables&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Pipeline Artifact&#39;</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
+              <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(buildArtifactName)</span>
+              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span> <span style="color:#75715e"># Downloads the artifact &#39;CodeCoverageLinux&#39;.</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Test Artifact Linux&#39;</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
+              <span style="color:#f92672">artifactName</span>: <span style="color:#e6db74">&#39;CodeCoverageLinux&#39;</span>
+              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span> <span style="color:#75715e"># Downloads the artifact &#39;CodeCoverageWinPS7&#39;.</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Test Artifact Windows (PS7)&#39;</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
+              <span style="color:#f92672">artifactName</span>: <span style="color:#e6db74">&#39;CodeCoverageWinPS7&#39;</span>
+              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)&#39;</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span> <span style="color:#75715e"># Merge the code coverage files.</span>
+            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">merge</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Merge Code Coverage files&#39;</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
+              <span style="color:#f92672">arguments</span>: <span style="color:#e6db74">&#39;-tasks merge&#39;</span>
+              <span style="color:#f92672">pwsh</span>: <span style="color:#66d9ef">true</span>
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishCodeCoverageResults@1</span> <span style="color:#75715e"># Must specify the file specified in the `CodeCoverageMergedOutputFile`</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage to Azure DevOps&#39;</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">codeCoverageTool</span>: <span style="color:#e6db74">&#39;JaCoCo&#39;</span>
+              <span style="color:#f92672">summaryFileLocation</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#39;</span>
+              <span style="color:#f92672">pathToSources</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(sourceFolderName)/&#39;</span>
+          - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">|</span> <span style="color:#75715e"># Must specify the file specified in the `CodeCoverageMergedOutputFile`</span>
+              <span style="color:#ae81ff">bash &lt;(curl -s https://codecov.io/bash) -f &#34;./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#34;</span>
+            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage to Codecov.io&#39;</span>
 </code></pre></div>
             <p class="post-meta border-bottom pb-3 mb-0">Updated on 03 Feb 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/converting-tests-to-pester5/" title="Converting tests to Pester 5"><i class="ti-arrow-left mr-2"></i>Converting tests to Pester 5</a>
             <a class="nav nav-next" href="/blog/use-dscresource-common-functions-in-module/" title="DscResource.Common functions in a DSC module">DscResource.Common functions in a DSC module<i class="ti-arrow-right ml-2"></i></a>
