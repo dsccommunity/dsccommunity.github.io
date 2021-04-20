@@ -465,7 +465,7 @@ may not be set to <code>0</code>. The value <code>0</code> means that no coverag
             <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">succeededOrFailed()</span>
             <span style="color:#f92672">inputs</span>:
               <span style="color:#f92672">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
-              <span style="color:#f92672">testResultsFiles</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span>
+              <span style="color:#f92672">testResultsFiles</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span>
               <span style="color:#f92672">testRunTitle</span>: <span style="color:#e6db74">&#39;Unit&#39;</span>
           - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishPipelineArtifact@1 </span> <span style="color:#75715e"># &lt;--- This task is most important.</span>
             <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Artifact&#39;</span>
@@ -805,7 +805,7 @@ may not be set to <code>0</code>. The value <code>0</code> means that no coverag
             <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">succeededOrFailed()</span>
             <span style="color:#f92672">inputs</span>:
               <span style="color:#f92672">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
-              <span style="color:#f92672">testResultsFiles</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span>
+              <span style="color:#f92672">testResultsFiles</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span>
               <span style="color:#f92672">testRunTitle</span>: <span style="color:#e6db74">&#39;Windows Server Core (PowerShell Core)&#39;</span>
           - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishPipelineArtifact@1</span> <span style="color:#75715e"># Publish test artifact with unique name for this job.</span>
             <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Artifact&#39;</span>
@@ -837,7 +837,7 @@ may not be set to <code>0</code>. The value <code>0</code> means that no coverag
             <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">succeededOrFailed()</span>
             <span style="color:#f92672">inputs</span>:
               <span style="color:#f92672">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
-              <span style="color:#f92672">testResultsFiles</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span>
+              <span style="color:#f92672">testResultsFiles</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span>
               <span style="color:#f92672">testRunTitle</span>: <span style="color:#e6db74">&#39;Linux&#39;</span>
           - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishPipelineArtifact@1</span> <span style="color:#75715e"># Publish test artifact with unique name for this job.</span>
             <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Artifact&#39;</span>
