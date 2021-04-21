@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>2019-09-11 Notes</title>
+  <title>2021-03-10 Notes</title>
 
   <meta name="generator" content="Hugo 0.82.1" />
 
@@ -239,7 +239,7 @@ if (!doNotTrack) {
               <ul class="sub-menu">
             <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-04-21</a>
             </li>
-            <li class=""><a href="/community_calls/2021-03-10-notes/">2021-03-10 Notes</a>
+            <li class="parent d-block  active "><a href="/community_calls/2021-03-10-notes/">2021-03-10 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2021-01-27-notes/">2021-01-27 Notes</a>
             </li>
@@ -263,7 +263,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
             </li>
-            <li class="parent d-block  active "><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
+            <li class=""><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
             </li>
@@ -308,115 +308,84 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>2019-09-11 Notes</h2>
-            <p>Read the <a href="https://devblogs.microsoft.com/powershell/dsc-resource-kit-release-september-2019/">DSC Resource Kit Release September 2019</a>
-Blog post, on PowerShell&rsquo;s blog.</p>
-<h4 id="resources-released">Resources released</h4>
-<ul>
-<li>ActiveDirectoryDsc</li>
-<li>ComputerManagementDsc (BREAKING CHANGE - ScheduleTask)</li>
-<li>DFSDsc (Fix to get the examples to be published)</li>
-<li>NetworkingDsc</li>
-<li>SharePointDsc (might not be released)</li>
-<li>StorageDsc</li>
-<li>WmiNamespaceSecurityDsc (former WmiNamespaceSecurity)</li>
-<li>xDnsServer</li>
-<li>xFailOverCluster</li>
-<li>xHyper-V</li>
-<li>xPSDesiredStateConfiguration</li>
-<li>xRemoteDesktopSessionHost</li>
-<li>xSCSMA</li>
-<li>xWebAdministration</li>
-</ul>
-<h5 id="deprecated">Deprecated</h5>
-<ul>
-<li>xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet)</li>
-<li>xPendingReboot (moved to ComputerManagementDsc)</li>
-</ul>
-<h4 id="should-leaving-unsupported-os-be-treated-as-breaking-change">Should leaving unsupported OS be treated as breaking change</h4>
-<p>No, it&rsquo;s not a breaking change but it should be clearly noted in release notes
-when conscious decision is made.</p>
-<p>In many cases DSC Resources modules already have Resources not compatible,
-and already mention it.</p>
-<h4 id="gallery-account-for-dsc-community">Gallery account for DSC Community</h4>
-<p>We should setup a gallery account so we can release repos.
-Most likely the DSC Committee will own the PSGallery account,
-and will generate a key per modules with specific rights.</p>
-<h3 id="discussions">Discussions</h3>
-<p>Topics or questions from the community (welcome at any point during the call)</p>
-<p>Talk to us on <strong>Virtual PowerShell User Group</strong> <em>#DSC</em> channel.
-For information on how to join, see <a href="https://dsccommunity.org/community/contact/">https://dsccommunity.org/community/contact/</a></p>
-<h4 id="releasing-vnext">Releasing vNext</h4>
-<p>Goal is to have a scripted pipeline that works identically on your local machine,
-on appVeyor and Azure (DevOps) Pipelines.</p>
-<ul>
-<li>
-<p>Create a Module template to Create, build &amp; Release module (the template should
-be able to just come on top of existing module, and suggesting to remove/edit
-some code)
-The build/release process should, on merge to Master:</p>
-<ul>
-<li>Download the Required Modules needed for the Build, test, release process</li>
-<li>Build the module (update PSD1, changelog, version &amp; all)</li>
-<li>Validate the compiled module against Style Guidelines (&amp; PSSA)</li>
-<li>Validate the compiled modules against Unit &amp; Integration tests</li>
-<li>Validate the compiled module against Quality Standards (test Coverage, help
-&amp; Documentation)</li>
-<li>Validate the compiled module against Release Standards (Changelog, version)</li>
-<li>[sign package, eventually]</li>
-<li>[Create GitHub Release]</li>
-<li>Publish the compiled module to the Gallery as a Pre-release</li>
-<li>Save the Test results as Artefacts</li>
-</ul>
-</li>
-<li>
-<p>When we tag a pre-released version, we should release the pre-released package
-as Full Release:</p>
-<ul>
-<li>Download the Required Modules needed for the Build, test, release process</li>
-<li>Extract the module</li>
-<li>Update the Module Manifest (remove pre-release, update Changelog)</li>
-<li>Re-test the newly compiled package</li>
-<li>[re-sign package, eventually]</li>
-<li>[Create GitHub Release]</li>
-<li>Release to gallery</li>
-<li>Save the Test results as Artefacts</li>
-</ul>
-</li>
-</ul>
-<p>Normal release (from Tag), could be initiated by a DSC Committee member to
-improve trust.
-We need to make sure the release process can be trusted, we&rsquo;ll detail and ask
-for comment soon.
-We&rsquo;re considering moving to AzDO (but mainly having most of the pipeline scripted
-so it works on both AppVeyor &amp; AzDO)</p>
-<p>To do so we should change:</p>
-<ul>
-<li>
-<p>How SubModules are used:</p>
-<ul>
-<li>DscResource.Common (which can be common to all DSC Resource Modules) should
-be a module released idependently, &lsquo;nested&rsquo; at build time (but not added
-to nestedModules manifest)</li>
-<li>We should version modules using SemVer, via the nuget-compliant string (that
-means {major}.{minor}.{patch} and pre-release tags &amp; metadata) Maybe using
-GitVersion to track that consistently for us (means no extra effort)</li>
-</ul>
-</li>
-<li>
-<p>How we do test:</p>
-<ul>
-<li>Decouple DscResource.tests &amp; PSSA custom rules from other parts</li>
-<li>Release DscResource.Tests as module released/versioned idependently.
-It should be saved/installed and run tests against compiled module (no more
-git clone on the fly)</li>
-<li>[eventually do more integration testing]</li>
-</ul>
-</li>
-</ul>
+            <h2>2021-03-10 Notes</h2>
+            <h2 id="recording">Recording</h2>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 01 Aug 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/2019-10-23-notes/" title="2019-10-23 Notes"><i class="ti-arrow-left mr-2"></i>2019-10-23 Notes</a>
-            <a class="nav nav-next" href="/community_calls/2019-07-31-notes/" title="2019-07-31 Notes">2019-07-31 Notes<i class="ti-arrow-right ml-2"></i></a>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/0C_j2smg6FU" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="agenda">Agenda</h3>
+<h4 id="quick-update-on-activity">Quick update on activity</h4>
+<h5 id="rename-default-branch">Rename default branch</h5>
+<p>Work in progress to rename default branch to <code>main</code>. See blog post
+<a href="https://dsccommunity.org/blog/convert-master-to-main/">Steps to rename <code>master</code> branch to <code>main</code> for a DSC Community resource</a>
+how to update the pipeline to support the rename.</p>
+<h4 id="dsc-resource-modules-that-have-been-released-recently">DSC resource modules that have been released recently</h4>
+<ul>
+<li>Releases
+<ul>
+<li>SharePointDsc v4.5.1</li>
+<li>SqlServerDsc v15.1.1</li>
+<li>xFailOverCluster v1.15.0</li>
+</ul>
+</li>
+<li>Preview releases (many due to renaming the default branch)
+<ul>
+<li>ActiveDirectoryDsc v6.2.0-preview0001</li>
+<li>SqlServerDsc v16.0.0-preview0001 (<strong>This release will soon be unlisted as it wrongly bumped major version, and re-release with correct versioning</strong>)</li>
+<li>ComputerManagementDsc v8.4.1-preview0003</li>
+<li>CertificateDsc v5.1.0-preview0002</li>
+<li>xDnsServer v2.0.0-preview0008</li>
+<li>FileSystemDsc v1.2.0-preview0002</li>
+<li>NetworkingDsc v8.3.0-preview0001</li>
+<li>ConfigMgrCBDsc v0.2.0-preview0035</li>
+</ul>
+</li>
+</ul>
+<h4 id="tooling-modules-that-have-been-released-recently">Tooling modules that have been released recently</h4>
+<p>Make sure to update to the new pipeline files in the new Sampler release
+if not done so for a long while. It is required to rename the default branch.</p>
+<ul>
+<li>Releases
+<ul>
+<li>DscResource.DocGenerator v0.8.0</li>
+<li>DscResource.Test v0.15.0</li>
+<li>Sampler v0.109.4</li>
+<li>Sampler.GitHubTasks v0.2.2</li>
+</ul>
+</li>
+<li>Preview releases
+<ul>
+<li>DscResource.Test v0.15.1-preview0001</li>
+<li>Sampler v0.109.5-preview0001</li>
+</ul>
+</li>
+</ul>
+<h3 id="support-for-pester-5">Support for Pester 5</h3>
+<p>We&rsquo;re working in making the pipeline and tools (such as <code>DscResource.Test</code>)
+to work with Pester 4 AND 5.</p>
+<p>If you want to convert one repo, give us a heads up and we can show you how to get started. We&rsquo;d appreciate feedback and bug reports if any!</p>
+<h4 id="showing-sampler-in-action">Showing Sampler in action</h4>
+<p>As a fair bit of work has happened on the Sampler module, let&rsquo;s talk about it.
+Today, Gael will present how the DSC Community templates and build pipeline work,
+and how you can use it for your personal or public project.</p>
+<p>We&rsquo;ll show how to use it for DSC Resources, and explain some of its feature and
+capabilities.</p>
+<p>We&rsquo;ll see:</p>
+<ul>
+<li>How to contribute to an existing Module.</li>
+<li>How to create a New module for the DSC Community following the standards.</li>
+<li>How to Add elements to an existing Sampler project.</li>
+<li>How to update files in your repository when we ask you to.</li>
+<li>How to re-use or build nested Modules in your Module.</li>
+</ul>
+<p>The talk will go very quickly through the basics to advanced feature so that
+you know what&rsquo;s there.
+A basic to intermediate understanding of how PowerShell Module works is recommended (exported functions, dot sourcing, Required Modules, scope).</p>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 10 Mar 2021</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/next_call/" title="Next Community Call 2021-04-21"><i class="ti-arrow-left mr-2"></i>Next Community Call 2021-04-21</a>
+            <a class="nav nav-next" href="/community_calls/2021-01-27-notes/" title="2021-01-27 Notes">2021-01-27 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

@@ -9,17 +9,27 @@
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Sun, 28 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/community_calls/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2021-03-10</title>
+      <title>Next Community Call 2021-04-21</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, March 10th, at 12 PM PST
+      <description>Next call will be on Wednesday, April 21th, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
 Discussions Topics or questions from the community (welcome at any point during the call)
 We are also available on the Virtual PowerShell User Group #DSC channel.</description>
+    </item>
+    
+    <item>
+      <title>2021-03-10 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2021-03-10-notes/</link>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2021-03-10-notes/</guid>
+      <description>Recording   Agenda Quick update on activity Rename default branch Work in progress to rename default branch to main. See blog post Steps to rename master branch to main for a DSC Community resource how to update the pipeline to support the rename.
+DSC resource modules that have been released recently  Releases  SharePointDsc v4.5.1 SqlServerDsc v15.1.1 xFailOverCluster v1.15.0   Preview releases (many due to renaming the default branch)  ActiveDirectoryDsc v6.</description>
     </item>
     
     <item>
