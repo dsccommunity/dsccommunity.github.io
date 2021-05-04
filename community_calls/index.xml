@@ -9,17 +9,27 @@
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Sun, 28 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/community_calls/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2021-04-21</title>
+      <title>Next Community Call 2021-06-02</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 03 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, April 21th, at 12 PM PST
+      <description>Next call will be on Wednesday, June 2nd, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
 Discussions Topics or questions from the community (welcome at any point during the call)
 We are also available on the Virtual PowerShell User Group #DSC channel.</description>
+    </item>
+    
+    <item>
+      <title>2021-04-21 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2021-04-21-notes/</link>
+      <pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2021-04-21-notes/</guid>
+      <description>Recording   Agenda Quick update on activity Updated blog post on how to enable code coverage for built-modules. https://dsccommunity.org/blog/add-codecov-support-to-repository/
+DSC resource modules that have been released recently  Releases  xFailOverCluster 1.16.0 xDnsServer 2.0.0 (DEPRECATED -&amp;gt; Move to DnsServerDsc v3.0.0 once released) SharePointDsc v4.6.0   Preview releases (many due to adding support for code coverage)  SharePointDsc v4.6.1-preview0003 StorageDsc v5.1.0-preview0001 ComputerManagementDsc v8.5.0-preview0001 xPSDesiredStateConfiguration v9.2.0-preview0004 SqlServerDsc v15.2.0-preview0002 DFSDsc v4.5.0-preview0001 WSManDsc v3.</description>
     </item>
     
     <item>

@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>General Best Practices</title>
 
-  <meta name="generator" content="Hugo 0.82.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,9 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-04-21</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-06-02</a>
+            </li>
+            <li class=""><a href="/community_calls/2021-04-21-notes/">2021-04-21 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2021-03-10-notes/">2021-03-10 Notes</a>
             </li>
@@ -408,7 +410,7 @@ PowerShell best practices may say differently, but this is our preferred format
 for readability.</p>
 <p><strong>Bad:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-Objects | Where-Object { $_.Propery <span style="color:#f92672">-ieq</span> <span style="color:#e6db74">&#39;Valid&#39;</span> } | Set-ObjectValue `
-    -Value <span style="color:#e6db74">&#39;Invalid&#39;</span> | <span style="color:#66d9ef">Foreach</span>-Object { Write-Output $_ }
+    -Value <span style="color:#e6db74">&#39;Invalid&#39;</span> | Foreach-Object { Write-Output $_ }
 </code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$validPropertyObjects = Get-Objects | Where-Object { $_.Property <span style="color:#f92672">-ieq</span> <span style="color:#e6db74">&#39;Valid&#39;</span> }
 
