@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>2019-05-08 Notes</title>
+  <title>2021-06-02 Notes</title>
 
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -239,7 +239,7 @@ if (!doNotTrack) {
               <ul class="sub-menu">
             <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
             </li>
-            <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
+            <li class="parent d-block  active "><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2021-04-21-notes/">2021-04-21 Notes</a>
             </li>
@@ -273,7 +273,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
             </li>
-            <li class="parent d-block  active "><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
+            <li class=""><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
             </li></ul>
               
             </li>
@@ -312,44 +312,60 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>2019-05-08 Notes</h2>
-            <h3 id="resources-to-be-released">Resources to be released</h3>
-<ul>
-<li>TBC</li>
-</ul>
-<h3 id="discussions">Discussions</h3>
-<ul>
-<li>Topics or questions from the community (welcome at any point during the call)</li>
-<li>Celebrating new maintainers:
-<ul>
-<li>Brian Wilhite &ndash;&gt; xPendingReboot</li>
-<li>Jason Patton &ndash;&gt; xDnsServer</li>
-<li>Nehru Ali &ndash;&gt; xPendingReboot</li>
-<li>Brian Wilhite &ndash;&gt; xPendingReboot</li>
-<li>Johan Ljunggren &ndash;&gt; xSmbShare (this resource is being moved to ComputerManagementDsc)</li>
-<li>Jason Ryberg &ndash;&gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure</li>
-<li>Mike Beggs &ndash;&gt; NetworkingDsc and xDhcpServer</li>
-<li>Ryan Christman &ndash;&gt; xActiveDirectory</li>
-<li>Jan-Hendrik Peters &ndash;&gt; xActiveDirectory and xSCVMM</li>
-<li>Chase Wilson &ndash;&gt; xAzure and xFirefox</li>
-</ul>
-</li>
-<li>Waffle board will be closing, still looking into a replacement</li>
-<li>Moving off gitter to PoshCode slack: the #dsc channel in either <a href="https://powershell.slack.com">Slack</a> or <a href="https://discordapp.com/channels/180528040881815552/447475636487979008">Discord</a>. <em>The form on the page <a href="http://slack.poshcode.org/">http://slack.poshcode.org/</a> does not work, though there is a link in the text on that page that works. Joel has said that the form is meant to be removed</em>.
-<ul>
-<li>Join through Slack: <a href="https://j.mp/psslack">https://j.mp/psslack</a></li>
-<li>Join through Discord: <a href="https://j.mp/psdiscord">https://j.mp/psdiscord</a></li>
-</ul>
-</li>
-<li>New module submissions (if the module submission is not ready, the item is moved to next community call)
-<ul>
-<li>Office365Dsc</li>
-</ul>
-</li>
-</ul>
+            <h2>2021-06-02 Notes</h2>
+            <h3 id="recording">Recording</h3>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jul 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/2019-06-19-notes/" title="2019-06-19 Notes"><i class="ti-arrow-left mr-2"></i>2019-06-19 Notes</a>
-            <a class="nav nav-next" href="/code_of_conduct/" title="Code of Conduct">Code of Conduct<i class="ti-arrow-right ml-2"></i></a>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/FdYtaImtj6Y" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="agenda">Agenda</h3>
+<h4 id="main-session-guest-configuration">Main Session: Guest Configuration</h4>
+<p>Michael Greene, Program Manager for Azure Policy Guest Configuration, and
+Gael Colas will present what Guest Configuration is, and what you can do
+with it.</p>
+<p>In this presentation we&rsquo;ll demo ways you can create your own packages
+leveraging DSC Resources, test them whether on Windows or Linux, and see
+how you can use them through Azure Policy.</p>
+<h4 id="quick-update-on-activity">Quick update on activity</h4>
+<p>Updated blog post on how to enable code coverage for built-modules.
+<a href="https://dsccommunity.org/blog/add-codecov-support-to-repository/">https://dsccommunity.org/blog/add-codecov-support-to-repository/</a></p>
+<h4 id="dsc-resource-modules-that-have-been-released-recently">DSC resource modules that have been released recently</h4>
+<ul>
+<li>Releases
+<ul>
+<li>DnsServerDsc v3.0.0</li>
+<li>ConfigMgrCBDsc v2.0.0</li>
+</ul>
+</li>
+<li>Preview releases
+<ul>
+<li>xPSDesiredStateConfiguration v9.2.0-preview0005</li>
+<li>FileContentDsc v2.0.0-preview0004</li>
+<li>iSCSIDsc v2.0.0-preview0004</li>
+<li>SecurityPolicyDsc v3.0.0-preview0006</li>
+<li>NetworkingDsc v8.3.0-preview0004</li>
+<li>FileSystemDsc v1.2.0-preview0003 (only pipeline changes, support Pester 5)</li>
+</ul>
+</li>
+</ul>
+<h4 id="tooling-modules-that-have-been-released-recently">Tooling modules that have been released recently</h4>
+<ul>
+<li>Releases
+<ul>
+<li>Sampler v0.111.3</li>
+</ul>
+</li>
+<li>Preview releases
+<ul>
+<li>DscResource.Common v0.10.3-preview0001</li>
+</ul>
+</li>
+</ul>
+<h4 id="next-community-call">Next Community Call</h4>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 02 Jun 2021</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/next_call/" title="Next Community Call 2021-07-14"><i class="ti-arrow-left mr-2"></i>Next Community Call 2021-07-14</a>
+            <a class="nav nav-next" href="/community_calls/2021-04-21-notes/" title="2021-04-21 Notes">2021-04-21 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

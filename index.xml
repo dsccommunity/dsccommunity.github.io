@@ -7,14 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Mon, 03 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2021-06-02</title>
+      <title>Next Community Call 2021-07-14</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Mon, 03 May 2021 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 02 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, June 2nd, at 12 PM PST
+      <description>Next call will be on Wednesday, July 14th, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
@@ -405,6 +405,17 @@ In each localization folder there should be a PowerShell data (.psd1) file named
 Bad:
 it &amp;#39;Should return something&amp;#39; { get-targetresource @testParameters | should -be &amp;#39;something&amp;#39; } Good:
 It &amp;#39;Should return something&amp;#39; { Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39; } Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
+    </item>
+    
+    <item>
+      <title>2021-06-02 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2021-06-02-notes/</link>
+      <pubDate>Wed, 02 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2021-06-02-notes/</guid>
+      <description>Recording   Agenda Main Session: Guest Configuration Michael Greene, Program Manager for Azure Policy Guest Configuration, and Gael Colas will present what Guest Configuration is, and what you can do with it.
+In this presentation we&amp;rsquo;ll demo ways you can create your own packages leveraging DSC Resources, test them whether on Windows or Linux, and see how you can use them through Azure Policy.
+Quick update on activity Updated blog post on how to enable code coverage for built-modules.</description>
     </item>
     
     <item>
