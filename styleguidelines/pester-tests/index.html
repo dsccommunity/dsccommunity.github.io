@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Pester Tests</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -317,11 +317,11 @@ if (!doNotTrack) {
 <p>Pester assertions should all start with capital letters. This makes code easier
 to read.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">it <span style="color:#e6db74">&#39;Should return something&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">it <span style="color:#e6db74">&#39;Should return something&#39;</span> {
     get-targetresource @testParameters | should -be <span style="color:#e6db74">&#39;something&#39;</span>
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should return something&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should return something&#39;</span> {
     Get-TargetResource @testParameters | Should -Be <span style="color:#e6db74">&#39;something&#39;</span>
 }
 </code></pre></div><h2 id="assertion-messages-start-with-should">Assertion Messages Start with Should</h2>
@@ -329,17 +329,17 @@ to read.</p>
 test results read more naturally as well as helping to indentify assertion messages
 that aren&rsquo;t making assertions.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># This is not an assertive message</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># This is not an assertive message</span>
 It <span style="color:#e6db74">&#39;When calling Get-TargetResource&#39;</span> {
     Get-TargetResource @testParameters | Should -Be <span style="color:#e6db74">&#39;something&#39;</span>
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># This does not start with &#39;Should&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># This does not start with &#39;Should&#39;</span>
 It <span style="color:#e6db74">&#39;Something is returned&#39;</span> {
     Get-TargetResource @testParameters | Should -Be <span style="color:#e6db74">&#39;something&#39;</span>
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should return something&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should return something&#39;</span> {
     Get-TargetResource @testParameters | Should -Be <span style="color:#e6db74">&#39;something&#39;</span>
 }
 </code></pre></div><h2 id="context-block-messages-start-with-when">Context Block Messages Start with When</h2>
@@ -347,14 +347,14 @@ It <span style="color:#e6db74">&#39;Something is returned&#39;</span> {
 &lsquo;When&rsquo;. This is to ensure the test results read more naturally as well as helping
 to indentify context messages that aren&rsquo;t defining context.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Context block not using &#39;When&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Context block not using &#39;When&#39;</span>
 Context <span style="color:#e6db74">&#39;Calling Get-TargetResource with default parameters&#39;</span>
     It <span style="color:#e6db74">&#39;Should return something&#39;</span> {
         Get-TargetResource @testParameters | Should -Be <span style="color:#e6db74">&#39;something&#39;</span>
     }
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When calling Get-TargetResource&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When calling Get-TargetResource&#39;</span>
     <span style="color:#75715e"># Inner context block not using &#39;When&#39;</span>
     Context <span style="color:#e6db74">&#39;With default parameters&#39;</span>
         It <span style="color:#e6db74">&#39;Should return something&#39;</span> {
@@ -363,13 +363,13 @@ Context <span style="color:#e6db74">&#39;Calling Get-TargetResource with default
     }
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When Get-TargetResource is called with default parameters&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When Get-TargetResource is called with default parameters&#39;</span>
     It <span style="color:#e6db74">&#39;Should return something&#39;</span> {
         Get-TargetResource @testParameters | Should -Be <span style="color:#e6db74">&#39;something&#39;</span>
     }
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When Get-TargetResource is called&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When Get-TargetResource is called&#39;</span>
     Context <span style="color:#e6db74">&#39;When passing default parameters&#39;</span>
         It <span style="color:#e6db74">&#39;Should return something&#39;</span> {
             Get-TargetResource @testParameters | Should -Be <span style="color:#e6db74">&#39;something&#39;</span>

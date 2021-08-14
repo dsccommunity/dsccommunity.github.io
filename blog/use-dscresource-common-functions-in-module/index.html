@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>DscResource.Common functions in a DSC module</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -344,14 +344,14 @@ mentioned in <a href="/blog/convert-a-module-for-continuous-delivery/">Steps to 
 <p>Add a new entry to the file <code>RequiredModuled.psd1</code> letting the CI pipeline
 know which module and version to download. You should pin the version here
 so that breaking changes in the upstream does not affect you.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">@{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">@{
     <span style="color:#75715e"># ...Previous required modules...</span>
 
     <span style="color:#75715e"># Build dependent modules</span>
     <span style="color:#e6db74">&#39;DscResource.Common&#39;</span> = <span style="color:#e6db74">&#39;0.2.0&#39;</span>
 }
 </code></pre></div><p>Then resolve CI pipeline dependencies.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">./build.ps1 -ResolveDependency -task noop
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">./build.ps1 -ResolveDependency -task noop
 </code></pre></div><h4 id="update-file-buildyaml">Update file <code>Build.yaml</code></h4>
 <h5 id="add-a-nested-module">Add a nested module</h5>
 <p>You should add a nested module configuration to the file <code>build.yaml</code>
@@ -359,7 +359,7 @@ so that the module is copied from the folder <code>output/RequiredModules</code>
 at build time. Important to note here that we are not adding it as a
 nested module in the module manifest, it will just copy the module to
 the folder <code>Modules</code> (which is the default for <a href="https://github.com/PoshCode/ModuleBuilder">ModuleBuilder</a>).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">####################################################</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">####################################################</span>
 <span style="color:#75715e">#   ModuleBuilder Dependent Modules Configuration  #</span>
 <span style="color:#75715e">####################################################</span>
 
@@ -376,12 +376,12 @@ for you to test that again. It might also be that the repository has
 different quality assurances that DscResource.Common does not (like
 naming files differently).</p>
 <p>Under the key <code>Pester:</code> add an exclude from code coverage.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
   <span style="color:#f92672">ExcludeFromCodeCoverage</span>:
     - <span style="color:#ae81ff">Modules/DscResource.Common</span>
 </code></pre></div><p>Under the key <code>DscTest:</code> add an exclude to not run HQRM tests on the module
 files.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">DscTest</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">DscTest</span>:
   <span style="color:#f92672">ExcludeModuleFile</span>:
     - <span style="color:#ae81ff">Modules/DscResource.Common</span>
 </code></pre></div><h4 id="update-dsc-resource-module-file">Update DSC resource module file</h4>
@@ -392,14 +392,14 @@ The built in functionality of <code>Import-Module</code> is used to find the mod
 manifest. The module is copied using the version number folder
 structure, and adding a absolut path to it here would break when you update
 to a newer version of the module <code>DscResource.Common</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$script:resourceHelperModulePath = Join-Path -Path $PSScriptRoot -ChildPath <span style="color:#e6db74">&#39;..\..\Modules\DscResource.Common&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$script:resourceHelperModulePath = Join-Path -Path $PSScriptRoot -ChildPath <span style="color:#e6db74">&#39;..\..\Modules\DscResource.Common&#39;</span>
 
 Import-Module -Name $script:resourceHelperModulePath
 </code></pre></div><h4 id="use-the-common-functions">Use the common functions</h4>
 <p>An example of using the common functions is to import localized strings
 using <code>Get-LocalizedData</code>.</p>
 <p>To import the localized strings for the resource add the code below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$script:localizedData = Get-LocalizedData -DefaultUICulture <span style="color:#e6db74">&#39;en-US&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$script:localizedData = Get-LocalizedData -DefaultUICulture <span style="color:#e6db74">&#39;en-US&#39;</span>
 </code></pre></div><p>To further see how to use localization see the
 <a href="/styleguidelines/localization/">Localization section of the style guidelines</a>
 and to see how to use the common functions see the documentation in the

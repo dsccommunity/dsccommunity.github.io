@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Converting tests to Pester 5</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -427,7 +427,7 @@ string and that for some reason resultet in a $null value instead of the
 correct string the test will pass even if the code being test throw the
 wrong error message. To handle this the expected error message variable
 should be assert to contain a value.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">  $errorMessage = $script:localizedString.LocalizedErrorMessage
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">  $errorMessage = $script:localizedString.LocalizedErrorMessage
   $errorMessage | Should <span style="color:#f92672">-Not</span> -BeNullOrEmpty
   { Set-Something } | Should -Throw $errorMessage
 </code></pre></div></li>
@@ -446,7 +446,7 @@ The <code>foreach</code>-blocks was removed and replaced with test cases.</li>
 <li>If the tests haven&rsquo;t moved from the Pester 3 syntax, e.g. <code>Should Be</code>
 and <code>Should Throw</code> (without dash), the tests are failing with the error
 message:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">ParameterBindingException: Parameter set cannot be resolved using the specified named parameters.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">ParameterBindingException: Parameter set cannot be resolved using the specified named parameters.
 One or more parameters issued cannot be used together or an insufficient number of parameters were provided.
 </code></pre></div></li>
 <li>If using test cases and have defined a parameter block and decorated the
@@ -454,7 +454,7 @@ parameters with <code>[Parameter()]</code> the test will fail. Remove the decora
 <code>[Parameter()]</code> and the tests work with both Pester 4 and 5. In Pester 5
 it is possible to remove the entire param-block, which is preferably but
 then there is not backward compatibility with Pester 4.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should...if value is &lt;ParameterValue&gt;&#39;</span> -TestCase @( ... ) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should...if value is &lt;ParameterValue&gt;&#39;</span> -TestCase @( ... ) {
       <span style="color:#66d9ef">param</span>
       (
           <span style="color:#66d9ef">[System.String]</span>
@@ -482,7 +482,7 @@ be inside <code>Before*</code>-, <code>After*</code>-, and <code>It</code>-block
 to the rule when it comes to test cases.</p>
 <p><em><strong>Note</strong>: This is just an example from me which may change in the future</em>
 <em>when new practices are learned and old habits are improved or replaced.</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#
 </span><span style="color:#75715e">    Import module if using InModuleScope. There are other possible solution for
 </span><span style="color:#75715e">    this, see issue https://github.com/pester/Pester/issues/1543.
 </span><span style="color:#75715e">#&gt;</span>

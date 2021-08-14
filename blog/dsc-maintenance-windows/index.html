@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Realizing maintenance windows with DSC</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -345,7 +345,7 @@ We gain efficiency, flexibility and scalability by converting all common require
 </blockquote>
 <h2 id="technical-implementation-and-details">Technical implementation and details</h2>
 <p>Now let’s get back to maintenance windows. Maintenance windows should be configured on every business-critical server. DSC should only do changes to a computer if in maintenance window. However monitoring the computer should be done all the time. It makes sense to provide maintenance windows and the &ldquo;new LCM behavior&rdquo; as configurations, so one can assign them to a role like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Configurations</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Configurations</span>:
   - <span style="color:#ae81ff">DscLcmController</span>
   - <span style="color:#ae81ff">DscLcmMaintenanceWindows</span>
 
@@ -445,7 +445,7 @@ TaskPath         TaskName                          State
 </code></pre><h4 id="lcm-controller--new-lcm-trigger">LCM Controller / new LCM trigger</h4>
 <p>The first important step is to disable the LCM default trigger. The LCM does not offer a switch to do that, so we have to find a workaround. The workaround is a scheduled task that runs regularly and sets the LCM&rsquo;s ConfigurationModeFrequencyMins to the max value (31 days or 44640 minutes) using Set-DscLocalConfigurationManager. The next time the job runs it set the ConfigurationModeFrequencyMins to the max value -1 minute. This ensures that the LCM never starts automatically if there is no external trigger.
 This code snippet is part of one scheduled job that the <a href="https://github.com/dsccommunity/CommonTasks/blob/dev/CommonTasks/DscResources/DscLcmController/DscLcmController.schema.psm1">DscLcmController</a> configuration is creating.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">$maxConsistencyCheckInterval = <span style="color:#66d9ef">if</span> ($currentLcmSettings.ConfigurationModeFrequencyMins <span style="color:#f92672">-eq</span> 30) { <span style="color:#75715e">#44640)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">$maxConsistencyCheckInterval = <span style="color:#66d9ef">if</span> ($currentLcmSettings.ConfigurationModeFrequencyMins <span style="color:#f92672">-eq</span> 30) { <span style="color:#75715e">#44640)</span>
     44639 <span style="color:#75715e">#value must be changed in order to reset the LCM timer</span>
 }
 <span style="color:#66d9ef">else</span> {

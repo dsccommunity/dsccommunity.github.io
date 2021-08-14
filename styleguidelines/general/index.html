@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>General</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -323,16 +323,16 @@ UTF-8 or ASCII.</p>
 All names must be at least more than <strong>2</strong> characters.
 No abbreviations should be used.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$r = Get-RdsHost
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$r = Get-RdsHost
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$frtytw = 42
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$frtytw = 42
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Thing
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Thing
 {
     ...
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Set-ServerName
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Set-ServerName
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -341,16 +341,16 @@ No abbreviations should be used.</p>
     ...
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$remoteDesktopSessionHost = Get-RemoteDesktopSessionHost
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$remoteDesktopSessionHost = Get-RemoteDesktopSessionHost
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$fileCharacterLimit = 42
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$fileCharacterLimit = 42
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-ArchiveFileHandle
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-ArchiveFileHandle
 {
     ...
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Set-ServerName
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Set-ServerName
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -371,11 +371,11 @@ More help on splatting can be found in the article
 and the proper indentation.</p>
 <p><strong>Bad:</strong></p>
 <p>Not using named parameters.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-ChildItem C:\Documents *.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-ChildItem C:\Documents *.md
 </code></pre></div><p><strong>Bad:</strong></p>
 <p>The call is very long and will wrap a lot in the review tool when the code is
 viewed by the reviewer during the review process of the PR.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$mySuperLongHashtableParameter = @{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$mySuperLongHashtableParameter = @{
     MySuperLongKey1 = <span style="color:#e6db74">&#39;MySuperLongValue1&#39;</span>
     MySuperLongKey2 = <span style="color:#e6db74">&#39;MySuperLongValue2&#39;</span>
 }
@@ -383,21 +383,21 @@ viewed by the reviewer during the review process of the PR.</p>
 $superLongVariableName = Get-MySuperLongVariablePlease -MySuperLongHashtableParameter  $mySuperLongHashtableParameter -MySuperLongStringParameter <span style="color:#e6db74">&#39;123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890&#39;</span> -Verbose
 </code></pre></div><p><strong>Bad:</strong></p>
 <p>Hashtable is not following <a href="https://github.com/PowerShell/DscResources/blob/master/StyleGuidelines.md#correct-format-for-hashtables-or-objects">Correct Format for Hashtables or Objects</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$superLongVariableName = Get-MySuperLongVariablePlease -MySuperLongHashtableParameter @{ MySuperLongKey1 = <span style="color:#e6db74">&#39;MySuperLongValue1&#39;</span>; MySuperLongKey2 = <span style="color:#e6db74">&#39;MySuperLongValue2&#39;</span> } -MySuperLongStringParameter <span style="color:#e6db74">&#39;123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890&#39;</span> -Verbose
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$superLongVariableName = Get-MySuperLongVariablePlease -MySuperLongHashtableParameter @{ MySuperLongKey1 = <span style="color:#e6db74">&#39;MySuperLongValue1&#39;</span>; MySuperLongKey2 = <span style="color:#e6db74">&#39;MySuperLongValue2&#39;</span> } -MySuperLongStringParameter <span style="color:#e6db74">&#39;123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890&#39;</span> -Verbose
 </code></pre></div><p><strong>Bad:</strong></p>
 <p>Hashtable is not following <a href="https://github.com/PowerShell/DscResources/blob/master/StyleGuidelines.md#correct-format-for-hashtables-or-objects">Correct Format for Hashtables or Objects</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$superLongVariableName = Get-MySuperLongVariablePlease -MySuperLongHashtableParameter @{ MySuperLongKey1 = <span style="color:#e6db74">&#39;MySuperLongValue1&#39;</span>; MySuperLongKey2 = <span style="color:#e6db74">&#39;MySuperLongValue2&#39;</span> } `
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$superLongVariableName = Get-MySuperLongVariablePlease -MySuperLongHashtableParameter @{ MySuperLongKey1 = <span style="color:#e6db74">&#39;MySuperLongValue1&#39;</span>; MySuperLongKey2 = <span style="color:#e6db74">&#39;MySuperLongValue2&#39;</span> } `
                                                        -MySuperLongStringParameter <span style="color:#e6db74">&#39;123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890&#39;</span> `
                                                        -Verbose
 </code></pre></div><p><strong>Bad:</strong></p>
 <p>Hashtable is not following <a href="https://github.com/PowerShell/DscResources/blob/master/StyleGuidelines.md#correct-format-for-hashtables-or-objects">Correct Format for Hashtables or Objects</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$superLongVariableName = Get-MySuperLongVariablePlease `
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$superLongVariableName = Get-MySuperLongVariablePlease `
     -MySuperLongHashtableParameter @{ MySuperLongKey1 = <span style="color:#e6db74">&#39;MySuperLongValue1&#39;</span>; MySuperLongKey2 = <span style="color:#e6db74">&#39;MySuperLongValue2&#39;</span> } `
     -MySuperLongStringParameter <span style="color:#e6db74">&#39;123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890&#39;</span> `
     -Verbose
 </code></pre></div><p><strong>Bad:</strong></p>
 <p>Passing parameter (<code>Verbose</code>) outside of the splat.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$getMySuperLongVariablePleaseParameters = @{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$getMySuperLongVariablePleaseParameters = @{
     MySuperLongHashtableParameter = @{
         MySuperLongKey1 = <span style="color:#e6db74">&#39;MySuperLongValue1&#39;</span>
         MySuperLongKey2 = <span style="color:#e6db74">&#39;MySuperLongValue2&#39;</span>
@@ -407,13 +407,13 @@ $superLongVariableName = Get-MySuperLongVariablePlease -MySuperLongHashtablePara
 
 $superLongVariableName = Get-MySuperLongVariablePlease @getMySuperLongVariablePleaseParameters -Verbose
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-ChildItem -Path C:\Documents -Filter *.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-ChildItem -Path C:\Documents -Filter *.md
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$superLongVariableName = Get-MyVariablePlease -MyStringParameter <span style="color:#e6db74">&#39;123456789012349012345678901234567890&#39;</span> -Verbose
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$superLongVariableName = Get-MyVariablePlease -MyStringParameter <span style="color:#e6db74">&#39;123456789012349012345678901234567890&#39;</span> -Verbose
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$superLongVariableName = Get-MyVariablePlease -MyString1 <span style="color:#e6db74">&#39;1234567890&#39;</span> -MyString2 <span style="color:#e6db74">&#39;1234567890&#39;</span> -MyString3 <span style="color:#e6db74">&#39;1234567890&#39;</span> -Verbose
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$superLongVariableName = Get-MyVariablePlease -MyString1 <span style="color:#e6db74">&#39;1234567890&#39;</span> -MyString2 <span style="color:#e6db74">&#39;1234567890&#39;</span> -MyString3 <span style="color:#e6db74">&#39;1234567890&#39;</span> -Verbose
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$mySuperLongHashtableParameter = @{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$mySuperLongHashtableParameter = @{
     MySuperLongKey1 = <span style="color:#e6db74">&#39;MySuperLongValue1&#39;</span>
     MySuperLongKey2 = <span style="color:#e6db74">&#39;MySuperLongValue2&#39;</span>
 }
@@ -421,7 +421,7 @@ $superLongVariableName = Get-MySuperLongVariablePlease @getMySuperLongVariablePl
 $superLongVariableName = Get-MySuperLongVariablePlease -MySuperLongHashtableParameter $mySuperLongHashtableParameter -Verbose
 </code></pre></div><p><strong>Good:</strong></p>
 <p>Splatting all parameters.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$getMySuperLongVariablePleaseParameters = @{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$getMySuperLongVariablePleaseParameters = @{
     MySuperLongHashtableParameter = @{
         MySuperLongKey1 = <span style="color:#e6db74">&#39;MySuperLongValue1&#39;</span>
         MySuperLongKey2 = <span style="color:#e6db74">&#39;MySuperLongValue2&#39;</span>
@@ -432,7 +432,7 @@ $superLongVariableName = Get-MySuperLongVariablePlease -MySuperLongHashtablePara
 
 $superLongVariableName = Get-MySuperLongVariablePlease @getMySuperLongVariablePleaseParameters
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$superLongVariableName = Get-MySuperLongVariablePlease `
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$superLongVariableName = Get-MySuperLongVariablePlease `
     -MySuperLongHashtableParameter @{
         MySuperLongKey1 = <span style="color:#e6db74">&#39;MySuperLongValue1&#39;</span>
         MySuperLongKey2 = <span style="color:#e6db74">&#39;MySuperLongValue2&#39;</span>
@@ -446,55 +446,55 @@ between each element in the array. If arrays written on a single line tend to be
 long, please consider using one of the alternative ways of writing the array.</p>
 <p><strong>Bad:</strong></p>
 <p>Array elements are not format consistently.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @( <span style="color:#e6db74">&#39;one&#39;</span>, `
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @( <span style="color:#e6db74">&#39;one&#39;</span>, `
 <span style="color:#e6db74">&#39;two&#39;</span>, `
 <span style="color:#e6db74">&#39;three&#39;</span>
 )
 </code></pre></div><p><strong>Bad:</strong></p>
 <p>There are no single space beetween the elements in the array.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @(<span style="color:#e6db74">&#39;one&#39;</span>,<span style="color:#e6db74">&#39;two&#39;</span>,<span style="color:#e6db74">&#39;three&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @(<span style="color:#e6db74">&#39;one&#39;</span>,<span style="color:#e6db74">&#39;two&#39;</span>,<span style="color:#e6db74">&#39;three&#39;</span>)
 </code></pre></div><p><strong>Bad:</strong></p>
 <p>There are multiple array elements on the same row.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @(
     <span style="color:#e6db74">&#39;one&#39;</span>, <span style="color:#e6db74">&#39;two&#39;</span>, `
     <span style="color:#e6db74">&#39;my long string example&#39;</span>, `
     <span style="color:#e6db74">&#39;three&#39;</span>, <span style="color:#e6db74">&#39;four&#39;</span>
 )
 </code></pre></div><p><strong>Bad:</strong></p>
 <p>Hashtable is not following <a href="https://github.com/PowerShell/DscResources/blob/master/StyleGuidelines.md#correct-format-for-hashtables-or-objects">Correct Format for Hashtables or Objects</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @(
     <span style="color:#e6db74">&#39;one&#39;</span>,
     @{MyKey = <span style="color:#e6db74">&#39;MyValue&#39;</span>},
     <span style="color:#e6db74">&#39;three&#39;</span>
 )
 </code></pre></div><p><strong>Bad:</strong></p>
 <p>Hashtables are not following <a href="https://github.com/PowerShell/DscResources/blob/master/StyleGuidelines.md#correct-format-for-hashtables-or-objects">Correct Format for Hashtables or Objects</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$myArray = @(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$myArray = @(
     @{Key1 = Value1;Key2 = Value2},
     @{Key1 = Value1;Key2 = Value2}
 )
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @(<span style="color:#e6db74">&#39;one&#39;</span>, <span style="color:#e6db74">&#39;two&#39;</span>, <span style="color:#e6db74">&#39;three&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @(<span style="color:#e6db74">&#39;one&#39;</span>, <span style="color:#e6db74">&#39;two&#39;</span>, <span style="color:#e6db74">&#39;three&#39;</span>)
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @(
     <span style="color:#e6db74">&#39;one&#39;</span>,
     <span style="color:#e6db74">&#39;two&#39;</span>,
     <span style="color:#e6db74">&#39;three&#39;</span>
 )
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$array = @(
     <span style="color:#e6db74">&#39;one&#39;</span>
     <span style="color:#e6db74">&#39;two&#39;</span>
     <span style="color:#e6db74">&#39;three&#39;</span>
 )
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{
     Key = <span style="color:#e6db74">&#34;Value&#34;</span>
 }
 
 $array = @( <span style="color:#e6db74">&#39;one&#39;</span>, <span style="color:#e6db74">&#39;two&#39;</span>, <span style="color:#e6db74">&#39;three&#39;</span>, $hashtable )
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{
     Key = <span style="color:#e6db74">&#34;Value&#34;</span>
 }
 
@@ -505,7 +505,7 @@ $array = @(
     $hashtable
 )
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$myArray = @(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$myArray = @(
     @{
         Key1 = Value1
         Key2 = Value2
@@ -520,24 +520,24 @@ $array = @(
 Each property should be on its own line indented once.
 There should be no space between the brackets of an empty hashtable.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{Key1 = <span style="color:#e6db74">&#39;Value1&#39;</span>;Key2 = 2;Key3 = <span style="color:#e6db74">&#39;3&#39;</span>}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{Key1 = <span style="color:#e6db74">&#39;Value1&#39;</span>;Key2 = 2;Key3 = <span style="color:#e6db74">&#39;3&#39;</span>}
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{ Key1 = <span style="color:#e6db74">&#39;Value1&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{ Key1 = <span style="color:#e6db74">&#39;Value1&#39;</span>
 Key2 = 2
 Key3 = <span style="color:#e6db74">&#39;3&#39;</span> }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{}
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{
     Key1 = <span style="color:#e6db74">&#39;Value1&#39;</span>
     Key2 = 2
     Key3 = <span style="color:#e6db74">&#39;3&#39;</span>
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtable = @{
     Key1 = <span style="color:#e6db74">&#39;Value1&#39;</span>
     Key2 = 2
     Key3 = @{
@@ -550,19 +550,19 @@ Key3 = <span style="color:#e6db74">&#39;3&#39;</span> }
 Double quoted string literals may only be used when it contains ($) expressions
 that need to be evaluated.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;String that do not evaluate variable&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;String that do not evaluate variable&#34;</span>
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;String that evaluate variable {0}&#34;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;String that evaluate variable {0}&#34;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#39;String that do not evaluate variable&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#39;String that do not evaluate variable&#39;</span>
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#39;String that evaluate variable {0}&#39;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#39;String that evaluate variable {0}&#39;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;String that evaluate variable </span>$($SomeObject.SomeProperty)<span style="color:#e6db74">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;String that evaluate variable </span>$($SomeObject.SomeProperty)<span style="color:#e6db74">&#34;</span>
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#39;String that evaluate variable &#39;&#39;{0}&#39;&#39;&#39;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#39;String that evaluate variable &#39;&#39;{0}&#39;&#39;&#39;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;String that evaluate variable &#39;{0}&#39;&#34;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$string = <span style="color:#e6db74">&#34;String that evaluate variable &#39;{0}&#39;&#34;</span> <span style="color:#f92672">-f</span> $SomeObject.SomeProperty
 </code></pre></div><h2 id="correct-format-for-comments">Correct Format for Comments</h2>
 <p>There should not be any commented-out code in checked-in files.
 The first letter of the comment should be capitalized.</p>
@@ -577,7 +577,7 @@ of code.</p>
 <p>Formatting help-comments for functions has a few more specific rules that can be
 found <a href="#all-functions-must-have-comment-based-help">here</a>.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyVariable
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyVariable
 {<span style="color:#75715e">#this is a bad comment</span>
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
@@ -588,7 +588,7 @@ found <a href="#all-functions-must-have-comment-based-help">here</a>.</p>
     }
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyVariable
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyVariable
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
@@ -602,7 +602,7 @@ found <a href="#all-functions-must-have-comment-based-help">here</a>.</p>
     }
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyVariable
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyVariable
 {
     <span style="color:#75715e"># This is a good comment</span>
     [<span style="color:#66d9ef">CmdletBinding</span>()]
@@ -616,7 +616,7 @@ found <a href="#all-functions-must-have-comment-based-help">here</a>.</p>
     }
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyVariable
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyVariable
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
@@ -640,7 +640,7 @@ curly brace should also follow the <a href="#one-newline-before-braces">One Newl
 guideline.</p>
 <p>The following is the current list of PowerShell reserved keywords in
 PowerShell 5.1:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">begin</span>, <span style="color:#66d9ef">break</span>, <span style="color:#66d9ef">catch</span>, class, <span style="color:#66d9ef">continue</span>, data, define <span style="color:#66d9ef">do</span>, <span style="color:#66d9ef">dynamicparam</span>, <span style="color:#66d9ef">else</span>,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">begin</span>, <span style="color:#66d9ef">break</span>, <span style="color:#66d9ef">catch</span>, class, <span style="color:#66d9ef">continue</span>, data, define <span style="color:#66d9ef">do</span>, <span style="color:#66d9ef">dynamicparam</span>, <span style="color:#66d9ef">else</span>,
 <span style="color:#66d9ef">elseif</span>, <span style="color:#66d9ef">end</span>, enum, exit, <span style="color:#66d9ef">filter</span>, <span style="color:#66d9ef">finally</span>, <span style="color:#66d9ef">for</span>, <span style="color:#66d9ef">foreach</span>, from, <span style="color:#66d9ef">function</span>
 hidden, <span style="color:#66d9ef">if</span>, <span style="color:#66d9ef">in</span>, inlinescript, <span style="color:#66d9ef">param</span>, <span style="color:#66d9ef">process</span>, <span style="color:#66d9ef">return</span>, static, <span style="color:#66d9ef">switch</span>,
 <span style="color:#66d9ef">throw</span>, <span style="color:#66d9ef">trap</span>, <span style="color:#66d9ef">try</span>, <span style="color:#66d9ef">until</span>, using, var, <span style="color:#66d9ef">while</span>
@@ -648,23 +648,23 @@ hidden, <span style="color:#66d9ef">if</span>, <span style="color:#66d9ef">in</s
 <p>The latest list of PowerShell reserved keywords can also be found
 on <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_keywords?view=powershell-5.1">this page</a>.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Missing space after keyword and before open bracket</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Missing space after keyword and before open bracket</span>
 <span style="color:#66d9ef">foreach</span>($item <span style="color:#66d9ef">in</span> $list)
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Capital letters in keyword</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Capital letters in keyword</span>
 <span style="color:#66d9ef">BEGIN</span>
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Violates &#39;One Newline Before Braces&#39; guideline</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Violates &#39;One Newline Before Braces&#39; guideline</span>
 <span style="color:#66d9ef">begin</span> {
     <span style="color:#75715e"># Do some work</span>
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Capital letters in &#39;in&#39; and &#39;foreach&#39; keyword</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Capital letters in &#39;in&#39; and &#39;foreach&#39; keyword</span>
 <span style="color:#66d9ef">ForEach</span> ($item <span style="color:#66d9ef">In</span> $list)
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">foreach</span> ($item <span style="color:#66d9ef">in</span> $list)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">foreach</span> ($item <span style="color:#66d9ef">in</span> $list)
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">begin</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">begin</span>
 {
     <span style="color:#75715e"># Do some work</span>
 }

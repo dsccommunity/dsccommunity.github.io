@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Steps to convert a module for continuous delivery</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -342,7 +342,7 @@ the release notes for that release.</p>
 <h3 id="re-create-all-old-tags">Re-create all old tags</h3>
 <p>You can use the script <a href="https://gist.github.com/PlagueHO/40d80a7f3747c18594e63584f7745cbc">Convert-GitTagForDsc.ps1</a>
 to re-create all existing tags. You run it with the following.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Move to the local repo</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Move to the local repo</span>
 cd c:\source\{repositoryFolder}
 
 <span style="color:#75715e"># Make sure you have the remote names to upstream and fork.</span>
@@ -385,12 +385,12 @@ something like <code>Merge pull request #xxxx from PowerShell/dev</code>).</li>
 <li>For each SHA run the following (in release ascending order). The
 following shows how to tag <code>v13.1.0</code> on the specific
 commit and adding a descriptive text on the tag.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git tag -a v13.1.0 596ff25a61099b312a6f9e2eb2c6dccc9597ac28 -m <span style="color:#e6db74">&#34;Release of version 13.1.0.0 of {RepositoryName}&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git tag -a v13.1.0 596ff25a61099b312a6f9e2eb2c6dccc9597ac28 -m <span style="color:#e6db74">&#34;Release of version 13.1.0.0 of {RepositoryName}&#34;</span>
 </code></pre></div></li>
 <li>Running <code>git tag</code> should list the new tags, and running <code>git show v13.1.0</code>
 would show a specific tag.</li>
 <li>Push the new tags to the upstream repository by running.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git push origin --tags <span style="color:#75715e"># origin is the remote pointing to upstream</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git push origin --tags <span style="color:#75715e"># origin is the remote pointing to upstream</span>
 git push my --tags <span style="color:#75715e"># my is the remote pointing to fork</span>
 </code></pre></div></li>
 </ol>
@@ -414,12 +414,12 @@ paste in the change log entries.</li>
 about GitVersion on the their website <a href="https://gitversion.readthedocs.io/en/latest/">https://gitversion.readthedocs.io/en/latest/</a>
 <em>NOTE: You must have Chocolatey installed prior to running this command,</em>
 <em>see <a href="https://chocolatey.org/install">https://chocolatey.org/install</a> on how to install Chocolatey.</em>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">choco install GitVersion.Portable
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">choco install GitVersion.Portable
 </code></pre></div></li>
 </ol>
 <h2 id="create-a-new-working-branch">Create a new working branch</h2>
 <p>Create a new working branch based on dev branch.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd c:<span style="color:#ae81ff">\s</span>ource<span style="color:#ae81ff">\{</span>repositoryName<span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd c:<span style="color:#ae81ff">\s</span>ource<span style="color:#ae81ff">\{</span>repositoryName<span style="color:#f92672">}</span>
 git checkout dev
 git fetch origin dev <span style="color:#75715e"># origin is the remote pointing to upstream</span>
 git rebase origin/dev
@@ -433,7 +433,7 @@ need to covert the module.</p>
 <p>Overwrite any files it suggest, then check the <code>git</code> diff if you need to
 keep anything. Remove any .bak files that are created if they ar no longer
 needed.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd C:\source\{RepositoryName}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd C:\source\{RepositoryName}
 
 Install-Module -Name <span style="color:#e6db74">&#39;Sampler&#39;</span> -Scope <span style="color:#e6db74">&#39;CurrentUser&#39;</span>
 $samplerModule = Import-Module -Name Sampler -PassThru
@@ -459,7 +459,7 @@ the build and automatic release.</p>
 </ul>
 </li>
 <li>Rename the folder <code>Tests</code> to lower-case <code>tests</code>.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git mv Tests tests2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git mv Tests tests2
 git mv tests2 tests
 </code></pre></div></li>
 <li>Remove DscResource.Tests from the local repository if it was previously
@@ -474,7 +474,7 @@ folder. Overwrite any current file.</li>
 <h2 id="update-repository-and-module-files">Update repository and module files</h2>
 <h3 id="module-manifest">Module manifest</h3>
 <p>Change the module manifest in the source folder, e.g. <code>SqlServerDsc.psd1</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$moduleName = <span style="color:#e6db74">&#39;{ModuleName}&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$moduleName = <span style="color:#e6db74">&#39;{ModuleName}&#39;</span>
 
 $powerShellVersion = <span style="color:#e6db74">&#39;5.1&#39;</span> <span style="color:#75715e"># Must be 5.1 to support the property DscResourcesToExport. Change manually after.</span>
 
@@ -505,7 +505,7 @@ Update-ModuleManifest @updateModuleManifestParameters
 <li>Having the export properties set to <code>'*'</code> is not optimal. Update or
 add the export properties to optimize discovery. <em>If any of these are</em>
 <em>already exporting objects then leave that export property as is.</em>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Functions to export from this module</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Functions to export from this module</span>
 FunctionsToExport = @()
 
 <span style="color:#75715e"># Cmdlets to export from this module</span>
@@ -530,7 +530,7 @@ the DSC Community Azure DevOps organization and look in the URL, e.g.
 <a href="https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&amp;_a=summary">https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&amp;_a=summary</a>
 <strong>You have to get back to this once the pipeline is configured!</strong></p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"># {RepositoryName}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"># {RepositoryName}
 
 [<span style="color:#f92672">![Build Status</span>](<span style="color:#a6e22e">https://dev.azure.com/dsccommunity/{repositoryName}/_apis/build/status/dsccommunity.{repositoryName}?branchName=master</span>)](https://dev.azure.com/dsccommunity/{repositoryName}/_build/latest?definitionId={definitionId}<span style="color:#960050;background-color:#1e0010">&amp;</span>branchName=master)
 ![<span style="color:#f92672">Azure DevOps coverage (branch)</span>](<span style="color:#a6e22e">https://img.shields.io/azure-devops/coverage/dsccommunity/{repositoryName}/{definitionId}/master</span>)
@@ -540,12 +540,12 @@ the DSC Community Azure DevOps organization and look in the URL, e.g.
 </code></pre></div></li>
 <li>Replace the text referencing the code of conduct with this new section
 instead.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## Code of Conduct
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## Code of Conduct
 </span><span style="color:#75715e"></span>
 This project has adopted this [<span style="color:#f92672">Code of Conduct</span>](<span style="color:#a6e22e">CODE_OF_CONDUCT.md</span>).
 </code></pre></div></li>
 <li>Add a <em>Releases</em> section after the <em>Code of Conduct</em> section.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## Releases
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## Releases
 </span><span style="color:#75715e"></span>
 For each merge to the branch <span style="color:#e6db74">`master`</span> a preview release will be
 deployed to [<span style="color:#f92672">PowerShell Gallery</span>](<span style="color:#a6e22e">https://www.powershellgallery.com/</span>).
@@ -573,7 +573,7 @@ so we need to change the changelog accordingly.</p>
 or copy the CHANGELOG.md from the base folder if the old change log does
 not need to be retained. <em>The example change log below is somewhat</em>
 *changed from the CHANGELOG.md in base folder.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"># Change log for {RepositoryName}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"># Change log for {RepositoryName}
 
 The format is based on and uses the types of changes according to [<span style="color:#f92672">Keep a Changelog</span>](<span style="color:#a6e22e">https://keepachangelog.com/en/1.0.0/</span>),
 and this project adheres to [<span style="color:#f92672">Semantic Versioning</span>](<span style="color:#a6e22e">https://semver.org/spec/v2.0.0.html</span>).
@@ -616,9 +616,9 @@ change log format, see example in the Sampled repository
 <a href="https://github.com/gaelcolas/Sampler/blob/master/CHANGELOG.md">https://github.com/gaelcolas/Sampler/blob/master/CHANGELOG.md</a>.
 You can get the date for each tag (release) by running this, or
 check releases in the PowerShell Gallery.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git log --tags --simplify-by-decoration --pretty<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;format:%ai %d&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git log --tags --simplify-by-decoration --pretty<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;format:%ai %d&#34;</span>
 </code></pre></div><p>Example of log entry</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## [13.2.0.0] - 2019-09-18
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## [13.2.0.0] - 2019-09-18
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">### Changed
 </span><span style="color:#75715e"></span>
@@ -633,7 +633,7 @@ check releases in the PowerShell Gallery.
 <h3 id="file-githubpull_request_templatemd">File <code>.github/PULL_REQUEST_TEMPLATE.md</code></h3>
 <p>Make sure this file is updated to reflect having a CHANGELOG.md. The
 following is a proposed file but can changed to reflected other needs.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">&lt;!--
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">&lt;!--
 </span><span style="color:#75715e">    Thanks for submitting a Pull Request (PR) to this project. Your contribution to this project
 </span><span style="color:#75715e">    is greatly appreciated!
 </span><span style="color:#75715e">
@@ -688,7 +688,7 @@ following is a proposed file but can changed to reflected other needs.</p>
 </code></pre></div><h3 id="file-githubissue_templateproblem_with_resourcemd">File <code>.github/ISSUE_TEMPLATE/Problem_with_resource.md</code></h3>
 <p>Change the last line to the following, removing the sentence within the
 parenthesis.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">#### Version of the DSC module that was used
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">#### Version of the DSC module that was used
 </span></code></pre></div><h3 id="other-repository-files">Other repository files</h3>
 <ol>
 <li>Remove the file <code>.MetaTestOptIn.json</code> since it is no longer used.
@@ -698,7 +698,7 @@ parenthesis.</p>
 <code>Copyright (c) DSC Community contributors.</code></li>
 <li>Update the contents of the conceptual help file under <code>./source/en-US</code>
 to describe the module. Change as necessary, like module name. E.g.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">TOPIC
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">TOPIC
     about_{RepositoryName}
 
 SHORT DESCRIPTION
@@ -731,7 +731,7 @@ KEYWORDS
 <li>Uncomment the folder <code>Modules</code> if the folder exist under the source folder,
 or if there are any helper modules (which need to be moved to the <code>Modules</code>
 folder).
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">CopyPaths</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">CopyPaths</span>:
   - <span style="color:#ae81ff">Modules</span>
 </code></pre></div></li>
 <li>(Optional) Clear out any commented rows <em>(they can always be found in the</em>
@@ -750,7 +750,7 @@ versions the CI pipeline will se duplicate modules due to the folder
 structure the CI pipeline is using when building the pipeline.
 E.g. paths used <code>\output\;\output\RequiredModules</code>.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Prerequisites modules needed for examples and integration tests of</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Prerequisites modules needed for examples and integration tests of</span>
 <span style="color:#75715e"># the {RepositoryName} module.</span>
 PSDscResources = <span style="color:#e6db74">&#39;2.12.0.0&#39;</span>
 StorageDsc     = <span style="color:#e6db74">&#39;4.9.0.0&#39;</span>
@@ -779,7 +779,7 @@ helper module these steps should be done.</p>
 <li>Any helper module is required to have a module manifest.
 Create one using <code>New-ModuleManifest</code>, e.g.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$helperModuleName = <span style="color:#e6db74">&#39;{HelperModuleName}&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$helperModuleName = <span style="color:#e6db74">&#39;{HelperModuleName}&#39;</span>
 
 <span style="color:#75715e"># Need the full path to work with WriteAllText().</span>
 $helperModulePath = <span style="color:#e6db74">&#34;$PWD\source\Modules\$helperModuleName&#34;</span>
@@ -816,7 +816,7 @@ $content = Get-Content -Path $manifestFile -Encoding <span style="color:#e6db74"
 must use a pinned version. The pinned version must be the same version that
 was pinned in the file <code>RequiredModules.psd1</code> (or make sure to pin the same
 version there too). Example of pinning a version in the configuration file.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Import-DscResource -ModuleName <span style="color:#e6db74">&#39;PSDscResources&#39;</span> -ModuleVersion <span style="color:#e6db74">&#39;2.12.0.0&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Import-DscResource -ModuleName <span style="color:#e6db74">&#39;PSDscResources&#39;</span> -ModuleVersion <span style="color:#e6db74">&#39;2.12.0.0&#39;</span>
 Import-DscResource -ModuleName <span style="color:#e6db74">&#39;StorageDsc&#39;</span> -ModuleVersion <span style="color:#e6db74">&#39;4.9.0.0&#39;</span>
 </code></pre></div><h2 id="resolve-build-dependencies">Resolve build dependencies</h2>
 <p>This requires that all steps above have been done. Running this command
@@ -829,14 +829,14 @@ or if there are new releases of external modules listed in the file
 <p><strong>NOTE:</strong> This does not install anything, it downloads the prerequisites
 into the <code>output</code> folder.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -ResolveDependency -Tasks noop
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -ResolveDependency -Tasks noop
 </code></pre></div><h2 id="run-a-build">Run a build</h2>
 <p>This builds the module after which for example tests can be run on the built
 module. The built module will look the same as the one that is release.
 <code>GitVersion</code> is used to determine the next version if it is installed.</p>
 <p><strong>This must be run each time changes have been made to files in the source</strong>
 <strong>folder.</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks build
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks build
 </code></pre></div><h2 id="examples-files-if-publishing-to-gallery">Examples files (if publishing to Gallery)</h2>
 <p>For examples that are published to the Gallery the <em>Script File Information</em>
 section need to be changed. This script must be run after the build task
@@ -849,7 +849,7 @@ they need to be present in a <code>$PSModulePath</code>. If not you will get a p
 error. Dependent modules should have already been pinned in the file
 <code>RequiredModules.psd1</code> and in each example file.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$moduleName = <span style="color:#e6db74">&#39;&lt;repositoryName&gt;&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$moduleName = <span style="color:#e6db74">&#39;&lt;repositoryName&gt;&#39;</span>
 Get-ChildItem -Path <span style="color:#e6db74">&#39;.\source\Examples&#39;</span> -Filter <span style="color:#e6db74">&#39;*.ps1&#39;</span> -Recurse | % {
     Update-ScriptFileInfo -Path $_.FullName `
         -Version <span style="color:#e6db74">&#39;1.0.1&#39;</span> `
@@ -866,12 +866,12 @@ Get-ChildItem -Path <span style="color:#e6db74">&#39;.\source\Examples&#39;</spa
 <ol>
 <li>From the <code>test:</code> task, remove the activity <code>hqrmtest</code>.</li>
 <li>Under the key <code>Pester</code> update the key <code>Script</code> to this.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Script</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Script</span>:
   - <span style="color:#ae81ff">tests/Unit</span>
 </code></pre></div></li>
 <li>Under the key <code>Pester</code> remove all the items from the key <code>ExcludeTag</code>.
 Remove these:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#66d9ef">-</span> helpQuality
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#66d9ef">-</span> helpQuality
 <span style="color:#66d9ef">-</span> FunctionalQuality
 <span style="color:#66d9ef">-</span> TestQuality
 </code></pre></div></li>
@@ -883,7 +883,7 @@ of the previous test framework. Everything between and including
 any helper modules, that need to be imported). Replace it with the following code,
 add the code inside the function <code>Invoke-TestSetup</code>. Also update the function
 <code>Invoke-TestCleanup</code>. Make sure the <code>Invoke-TestSetup</code> is called outside the <code>try</code>-block.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Invoke-TestSetup
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Invoke-TestSetup
 {
     <span style="color:#66d9ef">try</span>
     {
@@ -924,7 +924,7 @@ of the previous test framework. Everything between and including
 <code>#region HEADER</code> and <code>#endregion HEADER</code>. Replace it with the following
 code. Make sure to change the parameter of the cmdlet <code>Restore-TestEnvironment</code>
 at the end of the file too.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">try</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">try</span>
 {
     Import-Module -Name DscResource.Test -Force -ErrorAction <span style="color:#e6db74">&#39;Stop&#39;</span>
 }
@@ -940,7 +940,7 @@ $script:testEnvironment = Initialize-TestEnvironment `
     -TestType <span style="color:#e6db74">&#39;Integration&#39;</span>
 </code></pre></div><p>Change the parameter of the cmdlet <code>Restore-TestEnvironment</code> at the end
 of the file.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">finally</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">finally</span>
 {
     Restore-TestEnvironment -TestEnvironment $script:testEnvironment
 }
@@ -949,12 +949,12 @@ that module must use a pinned version. The pinned version must be the same
 version that was pinned in the file <code>RequiredModules.psd1</code> (or make sure to
 pin the same version there too). Example of pinning a version in the
 configuration file.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Import-DscResource -ModuleName <span style="color:#e6db74">&#39;PSDscResources&#39;</span> -ModuleVersion <span style="color:#e6db74">&#39;2.12.0.0&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Import-DscResource -ModuleName <span style="color:#e6db74">&#39;PSDscResources&#39;</span> -ModuleVersion <span style="color:#e6db74">&#39;2.12.0.0&#39;</span>
 Import-DscResource -ModuleName <span style="color:#e6db74">&#39;StorageDsc&#39;</span> -ModuleVersion <span style="color:#e6db74">&#39;4.9.0.0&#39;</span>
 </code></pre></div><h3 id="unit-tests-for-helper-modules">Unit tests for helper modules</h3>
 <p>For any helper modules, add this to each unit test (and remove any
 other code that imported the helper module previously).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">#region HEADER</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">#region HEADER</span>
 $script:projectPath = <span style="color:#e6db74">&#34;$PSScriptRoot\..\..&#34;</span> | Convert-Path
 $script:projectName = (Get-ChildItem -Path <span style="color:#e6db74">&#34;$script:projectPath\*\*.psd1&#34;</span> | Where-Object -FilterScript {
         ($_.Directory.Name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#39;source|src&#39;</span> <span style="color:#f92672">-or</span> $_.Directory.Name <span style="color:#f92672">-eq</span> $_.BaseName) <span style="color:#f92672">-and</span>
@@ -981,12 +981,12 @@ This runs all the unit tests for the module. <em>It runs the tests that are</em>
 <em><code>build.yaml</code>.</em></p>
 <p><strong>Remember to run the build task if any file has been changed in the source</strong>
 <strong>folder.</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks hqrmtest
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks hqrmtest
 .\build.ps1 -Tasks test
 </code></pre></div><blockquote>
 <p>To run the integration tests you will need to add the parameter <code>PesterScript</code>,
 e.g.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks test -PesterScript <span style="color:#e6db74">&#39;tests/Integration&#39;</span>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks test -PesterScript <span style="color:#e6db74">&#39;tests/Integration&#39;</span>.
 </code></pre></div><p><strong>Only do this in a lab environment or CI environment.</strong></p>
 </blockquote>
 <h2 id="configure-ci-test-pipeline">Configure CI test pipeline</h2>
@@ -994,7 +994,7 @@ e.g.</p>
 <ol>
 <li>Replace the string <code>Build_artefact</code> with <code>Build</code> (in one locations).</li>
 <li>Replace the entire stage <code>test_module</code> with the following.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Test</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Test</span>
   <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Build</span>
   <span style="color:#f92672">jobs</span>:
     - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Test_HQRM</span>
@@ -1120,7 +1120,7 @@ key <code>vmImage</code> to a supported image listed in the section
 <li>(Optional) If needed, add anything that was specific to running tests that was
 part of the <code>appveyor.yml</code>. For example to install a feature, add this
 before the task <code>Test</code> in the job <code>Test_Integration</code>.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#f92672">powershell</span>: |<span style="color:#e6db74">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#f92672">powershell</span>: |<span style="color:#e6db74">
 </span><span style="color:#e6db74">    </span>    <span style="color:#ae81ff">Install-WindowsFeature -IncludeAllSubFeature -IncludeManagementTools -Name &#39;Web-Server&#39;</span>
   <span style="color:#f92672">name</span>: <span style="color:#ae81ff">InstallWebServerFeature</span>
 </code></pre></div></li>
@@ -1128,7 +1128,7 @@ before the task <code>Test</code> in the job <code>Test_Integration</code>.
 prioritize specific tests) then specify the order in which the tests
 should run. <strong>This does not work if you call the pipeline using the</strong>
 <strong>parameter <code>PesterScript</code>, e.g. <code>./build.ps1 -Tasks test -PesterScript 'tests/Integration'</code>.</strong>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
   <span style="color:#75715e"># Run the script in order. First all of unit tests in no particular order,</span>
   <span style="color:#75715e"># and then all the integration tests in a specific group order.</span>
   - <span style="color:#ae81ff">tests/Unit</span>
@@ -1348,7 +1348,7 @@ at <a href="https://github.com/dsccommunity/%7Brepository%7D/settings/branches">
 <li>Get the linear commit history of upstream branch <code>master</code> into the upstream
 branch <code>dev</code>. <em>This must be done to keep the commits that us used by the</em>
 <em>tags.</em>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout dev
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout dev
 <span style="color:#75715e"># get latest changes from upstream dev into local branch dev</span>
 git fetch origin dev
 git rebase origin/dev
@@ -1369,7 +1369,7 @@ a new release version tag. Important to have the correct format <code>vX.Y.Z</co
 e.g. <code>v1.14.1</code>.</p>
 <p>Assuming &lsquo;origin&rsquo; is the remote name pointing the upstream repository, if
 not then change appropriately.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Make sure to get the latest history, use rebase to retain the linear</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Make sure to get the latest history, use rebase to retain the linear</span>
 <span style="color:#75715e"># commit history.</span>
 git checkout master
 git fetch origin master
@@ -1400,7 +1400,7 @@ repository at <a href="https://ci.appveyor.com/projects">https://ci.appveyor.com
 <li>Change the default branch to <code>master</code> in the <em>forked</em> repository.</li>
 <li>Remove branch <code>dev</code> from the <em>forked</em> repository.</li>
 <li>Update the branch <code>master</code> in the <em>forked</em> repository.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout master
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout master
 git fetch origin master
 git rebase origin/master
 git push my --force

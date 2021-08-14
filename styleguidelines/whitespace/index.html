@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Whitespace</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -328,7 +328,7 @@ when installing Git on Windows so that newlines saved to GitHub are simply CRs.<
 <p>Code should not contain more than two consecutive newlines unless they are contained
 in a here-string.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
 {
     Write-Verbose -Message <span style="color:#e6db74">&#39;Getting MyValue&#39;</span>
 
@@ -336,7 +336,7 @@ in a here-string.</p>
     <span style="color:#66d9ef">return</span> $MyValue
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
 {
     Write-Verbose -Message <span style="color:#e6db74">&#39;Getting MyValue&#39;</span>
     <span style="color:#66d9ef">return</span> $MyValue
@@ -347,13 +347,13 @@ in a here-string.</p>
     Write-Verbose -Message <span style="color:#e6db74">&#39;Logging...&#39;</span>
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
 {
     Write-Verbose -Message <span style="color:#e6db74">&#39;Getting MyValue&#39;</span>
     <span style="color:#66d9ef">return</span> $MyValue
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
 {
     Write-Verbose -Message <span style="color:#e6db74">&#39;Getting MyValue&#39;</span>
     <span style="color:#66d9ef">return</span> $MyValue
@@ -366,40 +366,40 @@ in a here-string.</p>
 </code></pre></div><h2 id="one-newline-before-braces">One Newline Before Braces</h2>
 <p>Each curly brace should be preceded by a newline unless assigning to a variable.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">if</span> ($booleanValue) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">if</span> ($booleanValue) {
     Write-Verbose -Message <span style="color:#e6db74">&#34;Boolean is $booleanValue&#34;</span>
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">if</span> ($booleanValue)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">if</span> ($booleanValue)
 {
     Write-Verbose -Message <span style="color:#e6db74">&#34;Boolean is $booleanValue&#34;</span>
 }
 </code></pre></div><p>When assigning to a variable, opening curly braces should be on the same line as
 the assignment operator.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$scriptBlockVariable =
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$scriptBlockVariable =
 {
     Write-Verbose -Message <span style="color:#e6db74">&#39;Executing script block&#39;</span>
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtableVariable =
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtableVariable =
 @{
     Key1 = <span style="color:#e6db74">&#39;Value1&#39;</span>
     Key2 = <span style="color:#e6db74">&#39;Value2&#39;</span>
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$scriptBlockVariable = {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$scriptBlockVariable = {
     Write-Verbose -Message <span style="color:#e6db74">&#39;Executing script block&#39;</span>
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtableVariable = @{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$hashtableVariable = @{
     Key1 = <span style="color:#e6db74">&#39;Value1&#39;</span>
     Key2 = <span style="color:#e6db74">&#39;Value2&#39;</span>
 }
 </code></pre></div><h2 id="one-newline-after-opening-brace">One Newline After Opening Brace</h2>
 <p>Each opening curly brace should be followed by only one newline.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
 {
 
     Write-Verbose -Message <span style="color:#e6db74">&#39;Getting MyValue&#39;</span>
@@ -407,13 +407,13 @@ the assignment operator.</p>
     <span style="color:#66d9ef">return</span> $MyValue
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
 { Write-Verbose -Message <span style="color:#e6db74">&#39;Getting MyValue&#39;</span>
 
     <span style="color:#66d9ef">return</span> $MyValue
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
 {
     Write-Verbose -Message <span style="color:#e6db74">&#39;Getting MyValue&#39;</span>
     <span style="color:#66d9ef">return</span> $MyValue
@@ -425,13 +425,13 @@ closing brace. If the closing brace is followed by another closing brace or cont
 a conditional or switch block, there should be only one newline after the closing
 brace.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
 {
     Write-Verbose -Message <span style="color:#e6db74">&#39;Getting MyValue&#39;</span>
     <span style="color:#66d9ef">return</span> $MyValue
 } Get-MyValue
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
 { Write-Verbose -Message <span style="color:#e6db74">&#39;Getting MyValue&#39;</span>
 
     <span style="color:#66d9ef">if</span> ($myBoolean)
@@ -447,7 +447,7 @@ brace.</p>
 }
 Get-MyValue
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyValue
 {
     Write-Verbose -Message <span style="color:#e6db74">&#39;Getting MyValue&#39;</span>
 
@@ -466,7 +466,7 @@ Get-MyValue
 <p>If you must declare a variable type, type declarations should be separated from
 the variable name by a single space.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
@@ -474,7 +474,7 @@ the variable name by a single space.</p>
     <span style="color:#66d9ef">[Int]</span>$number = 2
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
@@ -484,7 +484,7 @@ the variable name by a single space.</p>
 </code></pre></div><h2 id="one-space-on-either-side-of-operators">One Space on Either Side of Operators</h2>
 <p>There should be one blank space on either side of all operators.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
@@ -492,7 +492,7 @@ the variable name by a single space.</p>
     $number=2+4-5*9/6
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
@@ -503,7 +503,7 @@ the variable name by a single space.</p>
     }
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
@@ -511,7 +511,7 @@ the variable name by a single space.</p>
     $number = 2 + 4 - 5 * 9 / 6
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
@@ -525,7 +525,7 @@ the variable name by a single space.</p>
 <p>If a keyword is followed by a parenthesis, there should be single space between
 the keyword and the parenthesis.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()
@@ -541,7 +541,7 @@ the keyword and the parenthesis.</p>
     }
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span> ()

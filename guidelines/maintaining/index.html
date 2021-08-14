@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Maintaining</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -371,7 +371,7 @@ a new release version tag. Important to have the correct format <code>vX.Y.Z</co
 e.g. <code>v1.14.1</code>.</p>
 <p>Assuming &lsquo;origin&rsquo; is the remote name pointing the upstream repository, if
 not then change appropriately.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Make sure to get the latest history, use rebase to retain the linear</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Make sure to get the latest history, use rebase to retain the linear</span>
 <span style="color:#75715e"># commit history.</span>
 git checkout master
 git fetch origin master
@@ -398,7 +398,7 @@ to learn how to update the list of resource modules.</p>
 <code>nuget.exe</code> must be updated so that it is not outdated. If it is outdated
 you can run into the issue <a href="https://github.com/PowerShell/PowerShellGet/issues/295">PowerShell/PowerShellGet#295</a>.</p>
 <p>To update run the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Non-admin</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Non-admin</span>
 Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile <span style="color:#e6db74">&#34;</span>$env<span style="color:#e6db74">:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe&#34;</span>
 
 <span style="color:#75715e"># Admin</span>

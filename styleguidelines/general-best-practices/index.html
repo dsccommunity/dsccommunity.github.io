@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>General Best Practices</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -323,22 +323,22 @@ Use a parameter or environment variable instead if a computer name is necessary.
 This comes from <a href="https://github.com/PowerShell/PSScriptAnalyzer/blob/development/RuleDocumentation/AvoidUsingComputerNameHardcoded.md">this</a>
 PS Script Analyzer rule.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Invoke-Command -Port 0 -ComputerName <span style="color:#e6db74">&#39;hardcodedName&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Invoke-Command -Port 0 -ComputerName <span style="color:#e6db74">&#39;hardcodedName&#39;</span>
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Invoke-Command -Port 0 -ComputerName $env:computerName
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Invoke-Command -Port 0 -ComputerName $env:computerName
 </code></pre></div><h2 id="avoid-empty-catch-blocks">Avoid Empty Catch Blocks</h2>
 <p>Empty catch blocks are not necessary.
 Most errors should be thrown or at least acted upon in some way.
 If you really don&rsquo;t want an error to be thrown or logged at all, use the ErrorAction
 parameter with the SilentlyContinue value instead.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">try</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">try</span>
 {
     Get-Command -Name Invoke-NotACommand
 }
 <span style="color:#66d9ef">catch</span> {}
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-Command -Name Invoke-NotACommand -ErrorAction SilentlyContinue
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-Command -Name Invoke-NotACommand -ErrorAction SilentlyContinue
 </code></pre></div><h2 id="ensure-null-is-on-left-side-of-comparisons">Ensure Null is on Left Side of Comparisons</h2>
 <p>When comparing a value to <code>$null</code>, <code>$null</code> should be on the left side of
 the comparison.
@@ -349,12 +349,12 @@ it against happens to be a collection, PowerShell will return true if the collec
 Even if you are sure your variable will never be a collection, for consistency,
 please ensure that <code>$null</code> is on the left side of all comparisons.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">if</span> ($myArray <span style="color:#f92672">-eq</span> $null)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">if</span> ($myArray <span style="color:#f92672">-eq</span> $null)
 {
     Remove-AllItems
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">if</span> ($null <span style="color:#f92672">-eq</span> $myArray)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">if</span> ($null <span style="color:#f92672">-eq</span> $myArray)
 {
     Remove-AllItems
 }
@@ -370,11 +370,11 @@ variables instead.</p>
 machine from a DSC resource.</li>
 </ul>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$global:configurationName = <span style="color:#e6db74">&#39;MyConfigurationName&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$global:configurationName = <span style="color:#e6db74">&#39;MyConfigurationName&#39;</span>
 ...
 Set-MyConfiguration -ConfigurationName $global:configurationName
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$script:configurationName = <span style="color:#e6db74">&#39;MyConfigurationName&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$script:configurationName = <span style="color:#e6db74">&#39;MyConfigurationName&#39;</span>
 ...
 Set-MyConfiguration -ConfigurationName $script:configurationName
 </code></pre></div><h2 id="use-declared-local-and-script-variables-more-than-once">Use Declared Local and Script Variables More Than Once</h2>
@@ -383,7 +383,7 @@ This creates excess code that isn&rsquo;t needed</p>
 <h2 id="use-pscredential-for-all-credentials">Use PSCredential for All Credentials</h2>
 <p>PSCredentials are more secure than using plaintext username and passwords.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Settings
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Settings
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -396,7 +396,7 @@ This creates excess code that isn&rsquo;t needed</p>
     ...
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Settings
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Settings
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -411,10 +411,10 @@ more than 1 pipe in a line. This rule is specific to the DSC Resource Kit - othe
 PowerShell best practices may say differently, but this is our preferred format
 for readability.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-Objects | Where-Object { $_.Propery <span style="color:#f92672">-ieq</span> <span style="color:#e6db74">&#39;Valid&#39;</span> } | Set-ObjectValue `
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-Objects | Where-Object { $_.Propery <span style="color:#f92672">-ieq</span> <span style="color:#e6db74">&#39;Valid&#39;</span> } | Set-ObjectValue `
     -Value <span style="color:#e6db74">&#39;Invalid&#39;</span> | Foreach-Object { Write-Output $_ }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$validPropertyObjects = Get-Objects | Where-Object { $_.Property <span style="color:#f92672">-ieq</span> <span style="color:#e6db74">&#39;Valid&#39;</span> }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$validPropertyObjects = Get-Objects | Where-Object { $_.Property <span style="color:#f92672">-ieq</span> <span style="color:#e6db74">&#39;Valid&#39;</span> }
 
 <span style="color:#66d9ef">foreach</span> ($validPropertyObject <span style="color:#66d9ef">in</span> $validPropertyObjects)
 {
@@ -425,13 +425,13 @@ for readability.</p>
 <p>If it is clear what type a variable is then it is not necessary to explicitly
 declare its type. Extra type declarations can clutter the code.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">[String]</span> $myString = <span style="color:#e6db74">&#39;My String&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">[String]</span> $myString = <span style="color:#e6db74">&#39;My String&#39;</span>
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">[System.Boolean]</span> $myBoolean = $true
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">[System.Boolean]</span> $myBoolean = $true
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$myString = <span style="color:#e6db74">&#39;My String&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$myString = <span style="color:#e6db74">&#39;My String&#39;</span>
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$myBoolean = $true
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$myBoolean = $true
 </code></pre></div>
             <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/styleguidelines/variables/" title="Variables"><i class="ti-arrow-left mr-2"></i>Variables</a>
             <a class="nav nav-next" href="/styleguidelines/calling-functions/" title="Calling Functions">Calling Functions<i class="ti-arrow-right ml-2"></i></a>

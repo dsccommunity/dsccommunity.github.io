@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Convert tests to Pester 5 for a DSC Community repository</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -428,7 +428,7 @@ duplicates code) and become <em>extremely</em> fast in comparison!</p>
 <code>Context</code>-block similar to what their change needs, duplicate that and
 modify the mocks and asserts accordingly. They do not need to worry about
 code in parent blocks messes up their new test.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Describe <span style="color:#e6db74">&#39;SqlProtocol\Set-TargetResource&#39;</span> -Tag <span style="color:#e6db74">&#39;Set&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Describe <span style="color:#e6db74">&#39;SqlProtocol\Set-TargetResource&#39;</span> -Tag <span style="color:#e6db74">&#39;Set&#39;</span> {
     Context <span style="color:#e6db74">&#39;When the system is not in the desired state&#39;</span> {
         Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
             Context <span style="color:#e6db74">&#39;When enabling and setting all the protocol properties&#39;</span> {
@@ -643,7 +643,7 @@ is run.</p>
 better suited to be moved into a generic module like <em>DscResource.Test</em>
 in the future.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">BeforeAll {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">BeforeAll {
     <span style="color:#75715e"># Define the DSC module and DSC resource being tested.</span>
     $script:dscModuleName = <span style="color:#e6db74">&#39;SqlServerDsc&#39;</span>
     $script:dscResourceName = <span style="color:#e6db74">&#39;DSC_SqlProtocol&#39;</span>
@@ -678,7 +678,7 @@ in the future.</p>
 <li>the DSC resource module from the session</li>
 <li>the local helper module <em>CommonTestHelper</em></li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">AfterAll {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">AfterAll {
     <span style="color:#75715e"># Remove default parameter value.</span>
     $PSDefaultParameterValues.Remove(<span style="color:#e6db74">&#39;InModuleScope:ModuleName&#39;</span>)
 
@@ -700,7 +700,7 @@ in the future.</p>
 <li>(optionally) loads the C# class stubs into the session.</li>
 <li>the default parameter <code>ModuleName</code> for the <code>InModuleScope</code>-blocks</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">BeforeAll {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">BeforeAll {
     <span style="color:#75715e"># Define the DSC module and common module being tested.</span>
     $script:dscModuleName = <span style="color:#e6db74">&#39;SqlServerDsc&#39;</span>
     $script:subModuleName = <span style="color:#e6db74">&#39;SqlServerDsc.Common&#39;</span>
@@ -741,7 +741,7 @@ class stubs were loaded into the session. Since assemblies cannot be
 unloaded yet in this example this test file should be run last to avoid
 spill-over.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">AfterAll {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">AfterAll {
     $PSDefaultParameterValues.Remove(<span style="color:#e6db74">&#39;InModuleScope:ModuleName&#39;</span>)
 
     <span style="color:#75715e"># Unload the module being tested so that it doesn&#39;t impact any other tests.</span>
@@ -759,7 +759,7 @@ tests.</p>
 <p>A stub PowerShell module is a module that has stubs of the actual cmdlets
 to mimic the name of the cmdlets and their parameters.
 This is an example of a stub function in the stub module <code>SqlServerStub</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Convert-UrnToPath {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Convert-UrnToPath {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span>
     (
@@ -781,7 +781,7 @@ for the types and how to create it can be found in the DSC resource module
 then be directly removed to minimize spill-over to other tests. The stub
 module should be imported in an <code>BeforeAll</code>-block and removed in an
 <code>AfterAll</code>-block.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When Invoke-SqlScript is invoked with credentials&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When Invoke-SqlScript is invoked with credentials&#39;</span> {
     BeforeAll {
         <span style="color:#75715e"># Import PowerShell module SqlServer stub cmdlets.</span>
         Import-Module -Name <span style="color:#e6db74">&#39;.\Stubs\SqlServerStubs.psm1&#39;</span>
@@ -816,7 +816,7 @@ the other functions within the function under test. Let say the function
 under test is <code>Test-TargetResource</code>. Assume the function <code>Test-TargetResource</code>
 calls <code>Get-TargetResource</code> which in turn call the cmdlet <code>Get-Something</code>,
 then the mock should be for <code>Get-TargetResource</code>, not <code>Get-Something</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">Test-TargetResource -&gt; Get-TargetResource -&gt; Get-Something
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">Test-TargetResource -&gt; Get-TargetResource -&gt; Get-Something
       ↑                         ↑
       |--- If testing this      |--- Mock this
 </code></pre></div><blockquote>
@@ -827,7 +827,7 @@ Pester 5, but it is a good rule to simplify tests.</p>
 to the module&rsquo;s scope since they are imported by the module that is being
 tested. This only works if there are no <code>Export-ModuleMember</code> in the DSC
 resource code that limits what is seen by Pester.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When ... a code path does something...&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When ... a code path does something...&#39;</span> {
     BeforeAll {
         Mock -CommandName Get-Something
         Mock -CommandName Test-Something -MockWith {
@@ -867,7 +867,7 @@ use the helper functions in the test. For example below the cmdlet
 <code>Get-ComputerName</code> is used from <em>DscResource.Common</em> to return the current
 computer name instead of using <code>$env:COMPUTERNAME</code> which is not available
 cross-plattform.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is not in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is not in the desired state&#39;</span> {
     Context <span style="color:#e6db74">&#39;When something does not exist&#39;</span> {
         It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
             InModuleScope -ScriptBlock {
@@ -903,7 +903,7 @@ available when the hashtable <code>$getTargetResourceParameters</code> is declar
 It also used to assert that the <code>Get-TargetResource</code> returns the correct
 value. Note that there is no need to use <code>$script</code>-scope when using the
 value of the variable.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is not in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is not in the desired state&#39;</span> {
     Context <span style="color:#e6db74">&#39;When something does not exist&#39;</span> {
         BeforeAll {
             InModuleScope -ScriptBlock {
@@ -943,7 +943,7 @@ to write them as a simple parameter with no type.
 The need to specify a <code>param</code>-block inside the <code>InModuleScope</code> will
 hopefully be removed in a future version of Pester.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the desired protocol is Named Pipes&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the desired protocol is Named Pipes&#39;</span> {
     BeforeAll {
         $mockPipeName = <span style="color:#e6db74">&#39;\\.\pipe\$$\TESTCLU01A\MSSQL$SQL2014\sql\query&#39;</span>
 
@@ -984,7 +984,7 @@ should not be used.</p>
 <h5 id="assert-result-in-the-it-block">Assert result in the <code>It</code>-block</h5>
 <p>The most straight forward way is to assert (using <code>Should</code>) directly inside an
 <code>InModuleScope</code>-block inside the <code>It</code>-block.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
     Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
         It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
             InModuleScope -ScriptBlock {
@@ -1015,7 +1015,7 @@ in the variable in an <code>AfterEach</code>-block. There is no need to referenc
 the variable using the <code>script:</code> scope. But to make the test more readable
 it is worth to explicitly say that it is the value of the variable in the
 script scope we are asserting.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
     AfterEach {
         InModuleScope -ScriptBlock {
             $script:getTargetResourceResult.InstanceName | Should -Be <span style="color:#e6db74">&#39;TEST&#39;</span>
@@ -1072,7 +1072,7 @@ in the variable in an <code>AfterAll</code>-block. There is no need to reference
 the variable using the <code>script:</code> scope. But to make the test more readable
 it is worth explicitly declaring the value of the variable in the
 script scope we are asserting.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
     BeforeAll {
         Mock -CommandName Get-ServerProtocolObject
     }
@@ -1124,7 +1124,7 @@ script scope we are asserting.</p>
 <code>Should -Invoke</code> must use the value <code>It</code> for the parameter <code>Scope</code>.</p>
 <p>The <code>Should -Invoke</code> should not be wrapped inside an <code>InModuleScope</code>-block,
 but be called after the <code>InModuleScope</code>-block.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
     BeforeAll {
         Mock -CommandName Get-ServerProtocolObject
     }
@@ -1150,7 +1150,7 @@ but be called after the <code>InModuleScope</code>-block.</p>
 <p>When asserting if a mock was called in an <code>AfterEach</code>-block the
 <code>Should -Invoke</code> must use the value <code>It</code> for the parameter <code>Scope</code>.</p>
 <p>The <code>Should -Invoke</code> should not be wrapped inside an <code>InModuleScope</code>-block.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
     BeforeAll {
         Mock -CommandName Get-ServerProtocolObject
     }
@@ -1217,7 +1217,7 @@ but that should be avoided since the mocks also must be at the <code>Describe</c
 When asserting if a mock was called in an <code>AfterAll</code>-block use it inside
 a <code>Context</code>-block.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
     BeforeAll {
         Mock -CommandName Get-ServerProtocolObject
     }
@@ -1271,7 +1271,7 @@ how mocks are used and where you put <code>Should -InvokeVerifiable</code>.</p>
 </blockquote>
 <p>In this example there are two <code>Should -InvokeVerifiable</code>. One at the
 <code>Context</code>-level and the other at the <code>Describe</code>-level.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Describe <span style="color:#e6db74">&#39;VerifiableMocks&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Describe <span style="color:#e6db74">&#39;VerifiableMocks&#39;</span> {
     Context <span style="color:#e6db74">&#39;When some code path is executed&#39;</span> {
         BeforeAll {
             Mock -CommandName Get-Process -Verifiable
@@ -1290,7 +1290,7 @@ how mocks are used and where you put <code>Should -InvokeVerifiable</code>.</p>
 <code>Context</code>-level is returning that the mock was not called, but the other
 at the <code>Describe</code>-level passes even though the mock was never called which
 gives a false positive.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">Describing VerifiableMocks
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">Describing VerifiableMocks
  Context When some code path is executed
    [-] Should call all verifiable mocks 5ms (2ms|2ms)
      Expected Get-Process to be called with
@@ -1302,7 +1302,7 @@ Tests Passed: 1, Failed: 1, Skipped: 0 NotRun: 0
 </code></pre></div><h5 id="verifiable-mock-in-beforeall-block">Verifiable mock in <code>BeforeAll</code>-block</h5>
 <p>The <code>Should -InvokeVerifiable</code> must be inside an <code>It</code>-block, but should
 not be wrapped inside an <code>InModuleScope</code>-block.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
     BeforeAll {
         Mock -CommandName Get-ServerProtocolObject -Verifiable
     }
@@ -1330,7 +1330,7 @@ not be wrapped inside an <code>InModuleScope</code>-block.</p>
 <p>If the mock is setup in a <code>BeforeEach</code>-block or an <code>It</code>-block then the
 <code>Should -InvokeVerifiable</code> must be inside the <code>It</code>-block that is calling
 the function being tested.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Describe <span style="color:#e6db74">&#39;VerifiableMocks&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Describe <span style="color:#e6db74">&#39;VerifiableMocks&#39;</span> {
     Context <span style="color:#e6db74">&#39;When some code path is executed&#39;</span> {
         BeforeEach {
             Mock -CommandName Get-Process -Verifiable
@@ -1389,7 +1389,7 @@ string as opposed to Pester 4 that did a <code>-contains</code>. The reason we n
 to add the wildcard character is because the inner exceptions (stack trace)
 are not the same between the helper functions and the error record that is
 thrown.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should throw the correct error&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should throw the correct error&#39;</span> {
     InModuleScope -ScriptBlock {
         Set-StrictMode -Version 1.0
 
@@ -1420,7 +1420,7 @@ Pester 5 does a <code>-like</code> comparison on the text string as opposed to
 Pester 4 that did a <code>-contains</code>. The reason we need to add the wildcard
 character is because the inner exceptions (stack trace) are not the same
 between the helper functions and the error record that is thrown.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should throw the correct error message&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should throw the correct error message&#39;</span> {
     $mockGetServerProtocolObjectParameters = @{
         Instance     = <span style="color:#e6db74">&#39;TEST&#39;</span>
     }
@@ -1444,16 +1444,16 @@ it reads correctly in the Pester output.</p>
 <p>For example if the <code>It</code>-block description would be the following
 &ldquo;<em>Should not throw and return the correct values for the properties</em>&rdquo; then
 the following would not really add more value.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should not throw and return the correct values for the properties&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should not throw and return the correct values for the properties&#39;</span> {
     $result | Should -Be <span style="color:#e6db74">&#39;MyAlertName2&#39;</span> -Because <span style="color:#e6db74">&#39;the correct alert name must be returned&#39;</span>
 }
 </code></pre></div><p>In this case, the parameter <code>Because</code> should be used to add more information
 to why the value must be correct. An example would be:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should not throw and return the correct values for the properties&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should not throw and return the correct values for the properties&#39;</span> {
     $result | Should -Be <span style="color:#e6db74">&#39;MyAlertName2&#39;</span> -Because <span style="color:#e6db74">&#39;the correct alert name must be returned when the alert does not exist so user knows what alert failed&#39;</span>
 }
 </code></pre></div><p>It would result in the following output from Pester:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">[-] Should not throw and return the correct values for the properties 9ms (7ms|2ms)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">[-] Should not throw and return the correct values for the properties 9ms (7ms|2ms)
  Expected strings to be the same, because the correct alert name must be returned when the alert does not exist so user knows what alert failed, but they were different.
  Expected length: 12
  Actual length:   11

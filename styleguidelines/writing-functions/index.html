@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Writing Functions</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -317,7 +317,7 @@ if (!doNotTrack) {
 <p>Default values for mandatory parameters will always be overwritten, thus they are
 never used and can cause confusion.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Something
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Something
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -329,7 +329,7 @@ never used and can cause confusion.</p>
     ...
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Something
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Something
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -346,7 +346,7 @@ The default value is automatically $false so it doesn&rsquo;t need to be declare
 If you are tempted to set the default value to $true - don&rsquo;t - refactor your code
 instead.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Something
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Something
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -357,7 +357,7 @@ instead.</p>
     ...
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Something
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Something
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -369,19 +369,19 @@ instead.</p>
 }
 </code></pre></div><h2 id="include-the-force-parameter-in-functions-with-the-shouldcontinue-attribute">Include the Force Parameter in Functions with the ShouldContinue Attribute</h2>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
 </code></pre></div><h3 id="use-shouldprocess-if-the-shouldprocess-attribute-is-defined">Use ShouldProcess if the ShouldProcess Attribute is Defined</h3>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
 </code></pre></div><h2 id="define-the-shouldprocess-attribute-if-the-function-calls-shouldprocess">Define the ShouldProcess Attribute if the Function Calls ShouldProcess</h2>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
 </code></pre></div><h2 id="avoid-redefining-reserved-parameters">Avoid Redefining Reserved Parameters</h2>
 <p><a href="https://msdn.microsoft.com/en-us/library/dd901844(v=vs.85).aspx">Reserved Parameters</a>
 such as Verbose, Debug, etc. are already added to the function at runtime so don&rsquo;t
@@ -391,7 +391,7 @@ in your function.</p>
 <p>The CmdletBinding attribute adds the reserved parameters to your function which is
 always preferable.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Property
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Property
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -400,7 +400,7 @@ always preferable.</p>
     ...
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Property
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-Property
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span>
@@ -414,7 +414,7 @@ always preferable.</p>
 the correct error messages get displayed if the function ever produces an incorrect
 output type.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyBoolean
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyBoolean
 {
     [OutputType(<span style="color:#66d9ef">[Boolean]</span>)]
     <span style="color:#66d9ef">param</span> ()
@@ -424,7 +424,7 @@ output type.</p>
     <span style="color:#66d9ef">return</span> $myBoolean
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyBoolean
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-MyBoolean
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     [OutputType(<span style="color:#66d9ef">[Boolean]</span>)]
@@ -436,9 +436,9 @@ output type.</p>
 }
 </code></pre></div><h2 id="return-only-one-object-from-each-function">Return Only One Object From Each Function</h2>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
 </code></pre></div>
             <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/styleguidelines/calling-functions/" title="Calling Functions"><i class="ti-arrow-left mr-2"></i>Calling Functions</a>
             <a class="nav nav-next" href="/styleguidelines/dsc-resource-functions/" title="Dsc Resource Functions">Dsc Resource Functions<i class="ti-arrow-right ml-2"></i></a>

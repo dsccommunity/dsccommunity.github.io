@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Localization</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -324,7 +324,7 @@ There is also the list of
 Each localized string file should contain the following with the correct
 localization key and accompanying localization string value (the example uses
 the friendly resource name of &lsquo;Folder&rsquo;).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Localized resources for Folder</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Localized resources for Folder</span>
 
 ConvertFrom-StringData <span style="color:#e6db74">@&#39;
 </span><span style="color:#e6db74">    CreateFolder = Creating folder at path &#39;{0}&#39;. (F0001)
@@ -334,7 +334,7 @@ ConvertFrom-StringData <span style="color:#e6db74">@&#39;
 </span><span style="color:#e6db74">&#39;@</span>
 </code></pre></div><p>When using the previous example, the folder structure would look like the
 following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">DSCResources\DSC_Folder\en-US\DSC_Folder.strings.psd1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">DSCResources\DSC_Folder\en-US\DSC_Folder.strings.psd1
 DSCResources\DSC_Folder\es-ES\DSC_Folder.strings.psd1
 </code></pre></div><p>To use the localization strings in a resource, then localization strings are
 imported at the top of each resource PowerShell module script file (.psm1). The
@@ -421,10 +421,10 @@ every word in the resource friendly name.</li>
 <p>See example of localized strings under <a href="#localization">Localization</a>.</p>
 <h2 id="using-localization-string-in-code">Using localization string in code</h2>
 <p>This is an example of how to write localized verbose messages.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Write-Verbose -Message `
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Write-Verbose -Message `
     ($script:localizedData.RetrievingFolderInformation <span style="color:#f92672">-f</span> $path)
 </code></pre></div><p>This is an example of how to write localized warning messages.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Write-Warning -Message `
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Write-Warning -Message `
     ($script:localizedData.ProblemAccessFolder <span style="color:#f92672">-f</span> $path)
 </code></pre></div><p>This is an example of how to throw localized error messages, but the
 <a href="#helper-functions-for-localization">helper functions</a>
@@ -433,7 +433,7 @@ every word in the resource friendly name.</li>
 <a href="#new-objectnotfoundexception"><code>New-ObjectNotFoundException</code></a> and
 <a href="#new-invalidresultexception"><code>New-InvalidResultException</code></a>
 should preferably be used whenever possible.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">throw</span> ($script:localizedData.FailedToReadProperties <span style="color:#f92672">-f</span> $property, $path)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">throw</span> ($script:localizedData.FailedToReadProperties <span style="color:#f92672">-f</span> $property, $path)
 </code></pre></div><h3 id="cmdlets-for-localization">Cmdlets for localization</h3>
 <p>The module <a href="https://github.com/dsccommunity/DscResource.Common">DscResource.Common</a>
 has cmdlets that help with localization. See the <a href="https://github.com/dsccommunity/DscResource.Common#cmdlet">cmdlet documentation</a>

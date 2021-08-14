@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Contributing</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -425,7 +425,7 @@ you provide, the easier it will be for the community to help you with your
 issue.</p>
 <p><em>This example does not provide much context. It has also been shortened</em>
 <em>for the sake of brevity.</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">    #### Details of the scenario you tried and the problem that is occurring
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">    #### Details of the scenario you tried and the problem that is occurring
     It cannot find the power plan when I...
     The issue #11, #72, and PowerShell/xPSDesiredStateConfiguration#160
     is related
@@ -577,7 +577,7 @@ are:</p>
 <li><code>### Security</code> - in case of vulnerabilities.</li>
 </ul>
 <p>Example of the <em>Unreleased</em> section of the file <code>CHANGELOG.md</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## [Unreleased]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## [Unreleased]
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">### Added
 </span><span style="color:#75715e"></span>
@@ -789,7 +789,7 @@ instructions in our <a href="GettingStartedWithGitHub.md">guide to getting start
 listed in the file <code>RequiredModules.psd1</code>.</p>
 <p>Running this command will make sure the dependencies are resolved and to
 prepare the build and test environment.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -ResolveDependency -Tasks noop
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -ResolveDependency -Tasks noop
 </code></pre></div><blockquote>
 <p><strong>NOTE:</strong> This does not install anything, it downloads the prerequisites
 into the <code>output</code> folder.</p>
@@ -809,7 +809,7 @@ module. The built module will have the same structure as the one that is
 released.</p>
 <p><strong>This must be run each time changes have been made to files in the source</strong>
 <strong>folder.</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks build
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks build
 </code></pre></div><blockquote>
 <p>The application GitVersion is used in the pipeline to determine
 the next version if it is installed. If <code>gitversion</code> is not installed
@@ -942,7 +942,7 @@ accordingly.</p>
 </blockquote>
 <h4 id="1-rebase-the-local-branch-master-from-the-base-branch-master">1. Rebase the local branch <code>master</code> from the base branch <code>master</code></h4>
 <p>In a PowerShell prompt, you need to do the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">cd &lt;path to cloned repository&gt;      # This is the path to your cloned repository. I.e. cd C:\Source\ComputerManagementDsc
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">cd &lt;path to cloned repository&gt;      # This is the path to your cloned repository. I.e. cd C:\Source\ComputerManagementDsc
 git checkout master                 # Checkout (move) to your local master branch.
 git fetch origin master             # Get all changes from origin/master (and branch information).
 git rebase origin/master            # Rebase changes from origin/master into your local master branch.
@@ -954,10 +954,10 @@ branch, you can skip to step 3 to learn how to resolve the merge conflicts.</p>
 </blockquote>
 <p>Force push to your fork&rsquo;s <code>master</code> branch to your forked repository.
 <em>Make sure there were no conflicts before running this command.</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git push my master --force
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git push my master --force
 </code></pre></div><h4 id="2-rebase-your-working-branch">2. Rebase your working branch</h4>
 <p>In a PowerShell prompt, you need to do the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">cd &lt;path to cloned repository&gt;      # This is the path to your cloned repository. I.e. cd C:\Source\ComputerManagementDsc.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">cd &lt;path to cloned repository&gt;      # This is the path to your cloned repository. I.e. cd C:\Source\ComputerManagementDsc.
 git checkout &lt;your PR branch&gt;       # Checkout (move) to your working branch, i.e git checkout awesome_feature.
 git rebase my/master                # This will rebase your working branch from your forks master branch.
 </code></pre></div><p><strong>NOTE! At this point you will most likely get merge conflicts that need to be
@@ -970,13 +970,13 @@ Below there is a conflict between the <code>master</code> branch and your pull r
 for the file <code>README.md</code>.
 You can read more about how to resolve a merge conflict on the
 <a href="https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/">GitHub help page</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">Auto-merging README.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">Auto-merging README.md
 CONFLICT (content): Merge conflict in README.md
 error: Failed to merge in the changes.
 </code></pre></div><p>To fix this you need to manually open the file in an editor of your choosing and
 find the conflict. You find the conflict by searching for seven equals
 sign: <code>=======</code>. Below is an example of how it could look like.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">...
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">...
 ### Unreleased
 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 * Added tests for resources
@@ -999,7 +999,7 @@ commit being replayed.</li>
 in any way you need to solve the conflict.
 <em>Note: You must remove the lines <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>, <code>========</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/master</code>.</em></p>
 <p>After resolving the conflict, <code>README.md</code> could look like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">...
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">...
 ### Unreleased
 * Added resources
   - xSQLServerReplication
@@ -1015,7 +1015,7 @@ there was more merge conflicts.
 <strong>Only when all the merge conflicts are resolved can you continue with the rebase.</strong></p>
 <p>To continue with the rebase. In the same PowerShell prompt as you started the
 rebase, you need to do the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git status            # (optional) If you unsure of the name, you can use this to see the files that was in conflict.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git status            # (optional) If you unsure of the name, you can use this to see the files that was in conflict.
 git add &lt;file&gt;        # Do this for each file that you fixed merged conflicts in. I.e &#39;git add README.md&#39;. This stages the file for commit. You could also use &#39;git add *&#39; to stage all files at once.
 git rebase --continue
 </code></pre></div><p><strong>You may now get more merge conflicts.</strong> If so, then you have to resolve those
@@ -1027,7 +1027,7 @@ resolve (and no longer need to run the command <code>rebase --continue</code>).<
 <p>Force push to your branch in your forked repository. The pull request will then
 be updated automatically by GitHub.
 <em>Force push &ldquo;overwrites&rdquo; the branch in the fork, and is always needed after rebase.</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git push my &lt;pull request branch&gt; --force     # I.e git push my awesome_feature --force
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git push my &lt;pull request branch&gt; --force     # I.e git push my awesome_feature --force
 </code></pre></div><h3 id="how-to-continue-working-on-a-pull-request-pr-when-an-author-contributor-is-unable-to-complete-it">How to continue working on a pull request (PR) when an author (contributor) is unable to complete it</h3>
 <p>Anyone in the community is allowed to continue the work on pull requests (PR&rsquo;s)
 if either of these are true.</p>
@@ -1053,44 +1053,44 @@ much the same as when you have to resolve merge conflicts.</p>
 <ol>
 <li>
 <p>Create a new working branch in your fork.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">cd &lt;path to cloned repository&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">cd &lt;path to cloned repository&gt;
 git checkout -b changes-from-PR#&lt;number&gt;  # Change to the PR number, i.e. git checkout -b changes-from-PR#34
 </code></pre></div></li>
 <li>
 <p>Add a remote to the original contributors fork. <em>In this example we use the users name as the remotes name.</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git remote add &lt;username&gt; &lt;url&gt;           # I.e git remote add johlju https://github.com/johlju/xSQLServer.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git remote add &lt;username&gt; &lt;url&gt;           # I.e git remote add johlju https://github.com/johlju/xSQLServer.git
 </code></pre></div></li>
 <li>
 <p>Rebase your working branch using the fork and branch from the original contributor.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git fetch &lt;username&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git fetch &lt;username&gt;
 git rebase &lt;username&gt;/&lt;branch&gt;
 </code></pre></div></li>
 <li>
 <p>Fix conflicts and when all conflicts are resolved stage all files and continue
 with the rebase.
 <em>This step might have to be done several times until all conflicts are resolved</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git add &lt;file&gt;                            # i.e git add README.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git add &lt;file&gt;                            # i.e git add README.md
 git rebase --continue
 </code></pre></div></li>
 <li>
 <p>Push changes to your forked repository</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git push my changes-from-PR#&lt;number&gt; --force  # Change to the PR number, i.e. git push my changes-from-PR#34 --force
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git push my changes-from-PR#&lt;number&gt; --force  # Change to the PR number, i.e. git push my changes-from-PR#34 --force
 </code></pre></div></li>
 <li>
 <p>Now we rebase again, this time against <code>my/master</code> (which should already be rebased
 against <code>origin/master</code>, see section Resolving merge conflicts on how to do that).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git rebase `my/master`
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git rebase `my/master`
 </code></pre></div></li>
 <li>
 <p>Again, fix conflicts and when all conflicts are resolved stage all files and
 continue with the rebase.
 <em>This step might have to be done several times until all conflicts are resolved</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git add &lt;file&gt;                            # i.e git add README.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git add &lt;file&gt;                            # i.e git add README.md
 git rebase --continue
 </code></pre></div></li>
 <li>
 <p>Push to your forked repository again</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git push my changes-from-PR#&lt;number&gt; --force  # Change to the PR number, i.e. git push my changes-from-PR#34 --force
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">git push my changes-from-PR#&lt;number&gt; --force  # Change to the PR number, i.e. git push my changes-from-PR#34 --force
 </code></pre></div></li>
 <li>
 <p>Now, go to you forked repository on GitHub and create the pull request the

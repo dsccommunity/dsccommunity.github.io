@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Parameters</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -328,7 +328,7 @@ whether the attribute requires decoration or not.</li>
 in the <code>[Parameter()]</code>.</li>
 </ul>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Nothing
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Nothing
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -338,7 +338,7 @@ in the <code>[Parameter()]</code>.</li>
     Write-Verbose -Message <span style="color:#e6db74">&#39;Nothing&#39;</span>
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Text
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Text
 {
     <span style="color:#66d9ef">param</span>([<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span> = $true)]
 [ValidateNotNullOrEmpty()]
@@ -347,7 +347,7 @@ in the <code>[Parameter()]</code>.</li>
     Write-Verbose -Message $Text
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Text
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Text
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -375,14 +375,14 @@ in the <code>[Parameter()]</code>.</li>
     }
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Nothing
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Nothing
 {
     <span style="color:#66d9ef">param</span> ()
 
     Write-Verbose -Message <span style="color:#e6db74">&#39;Nothing&#39;</span>
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Text
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Text
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -395,7 +395,7 @@ in the <code>[Parameter()]</code>.</li>
     Write-Verbose -Message $Text
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Text
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Write-Text
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -426,7 +426,7 @@ in the <code>[Parameter()]</code>.</li>
 </code></pre></div><h2 id="parameter-names-use-pascal-case">Parameter Names Use Pascal Case</h2>
 <p>All parameters must use PascalCase.  This means that each concatenated word is capitalized.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span>
@@ -435,7 +435,7 @@ in the <code>[Parameter()]</code>.</li>
     )
 }
 </code></pre></div><p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span>
@@ -444,7 +444,7 @@ in the <code>[Parameter()]</code>.</li>
     )
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span>
@@ -456,7 +456,7 @@ in the <code>[Parameter()]</code>.</li>
 </code></pre></div><h2 id="parameters-separated-by-one-line">Parameters Separated by One Line</h2>
 <p>Parameters must be separated by a single, blank line.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> New-Event
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> New-Event
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -470,7 +470,7 @@ in the <code>[Parameter()]</code>.</li>
     )
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> New-Event
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> New-Event
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -490,7 +490,7 @@ in the <code>[Parameter()]</code>.</li>
 If an attribute needs to follow the type, it should also have its own line between
 the parameter type and the parameter name.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span>
@@ -499,7 +499,7 @@ the parameter type and the parameter name.</p>
     )
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span>
@@ -510,7 +510,7 @@ the parameter type and the parameter name.</p>
     )
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> Get-TargetResource
 {
     [<span style="color:#66d9ef">CmdletBinding</span>()]
     <span style="color:#66d9ef">param</span>
@@ -522,7 +522,7 @@ the parameter type and the parameter name.</p>
     )
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> New-Event
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> New-Event
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -542,7 +542,7 @@ the parameter type and the parameter name.</p>
 All attributes should go above the parameter type, except those that <em>must</em> be
 between the type and the name.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> New-Event
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> New-Event
 {
     <span style="color:#66d9ef">param</span>
     (
@@ -554,7 +554,7 @@ between the type and the name.</p>
     )
 }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> New-Event
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">function</span> New-Event
 {
     <span style="color:#66d9ef">param</span>
     (

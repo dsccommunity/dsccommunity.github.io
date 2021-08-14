@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Add Code Coverage Support to Repository</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -377,7 +377,7 @@ must be set to a value between <code>1</code> and <code>100</code>. Normally the
 is a good value if the repository have enough coverage, lower the value if
 it doesn&rsquo;t.</p>
 <p>It can look something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
   <span style="color:#f92672">OutputFormat</span>: <span style="color:#ae81ff">NUnitXML</span>
   <span style="color:#f92672">ExcludeFromCodeCoverage</span>:
     - <span style="color:#ae81ff">Modules/DscResource.Common</span>
@@ -401,14 +401,14 @@ the test result files that ended up in the folder <code>output/testResults</code
 <h4 id="add-global-variables">Add global variables</h4>
 <p>At the top of the file, at the same level as the key <code>trigger</code> add the
 following.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">variables</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">variables</span>:
   <span style="color:#f92672">buildFolderName</span>: <span style="color:#ae81ff">output</span>
   <span style="color:#f92672">buildArtifactName</span>: <span style="color:#ae81ff">output</span>
   <span style="color:#f92672">testResultFolderName</span>: <span style="color:#ae81ff">testResults</span>
   <span style="color:#f92672">testArtifactName</span>: <span style="color:#ae81ff">testResults</span>
   <span style="color:#f92672">sourceFolderName</span>: <span style="color:#ae81ff">source</span>
 </code></pre></div><p>It should look something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">trigger</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">trigger</span>:
   <span style="color:#f92672">branches</span>:
     <span style="color:#f92672">include</span>:
     - <span style="color:#ae81ff">main</span>
@@ -447,7 +447,7 @@ But most important is if the <code>CodeCoverageThreshold</code> argument is used
 override the value in <code>build.yaml</code> then the value for <code>CodeCoverageThreshold</code>
 may not be set to <code>0</code>. The value <code>0</code> means that no coverage is gathered.</p>
 <p>This is how it can look like:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Test_Unit</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Test_Unit</span>
         <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Unit&#39;</span>
         <span style="color:#f92672">pool</span>:
           <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
@@ -499,7 +499,7 @@ in the previous section)</li>
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Code_Coverage</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Code_Coverage</span>
         <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage&#39;</span>
         <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Test_Unit</span>
         <span style="color:#f92672">pool</span>:
@@ -555,7 +555,7 @@ expects.</p>
 <p>See the <a href="https://docs.codecov.io/docs/codecovyml-reference">codecov.yml Reference</a>
 for more information about these settings.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">codecov</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">codecov</span>:
   <span style="color:#f92672">require_ci_to_pass</span>: <span style="color:#66d9ef">no</span>
   <span style="color:#75715e"># main should be the baseline for reporting</span>
   <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">main</span>
@@ -587,7 +587,7 @@ for more information about these settings.</p>
 <p>Finally we should add the status badges to the README.md. Replace
 <code>{repositoryName}</code> with the actual repository name, e.g. <code>ComputerManagementDsc</code>.
 Also replace <code>{defaultbranch}</code> to the name of the default branch, e.g. <code>main</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">[<span style="color:#f92672">![codecov</span>](<span style="color:#a6e22e">https://codecov.io/gh/dsccommunity/{repositoryName}/branch/{defaultbranch}/graph/badge.svg</span>)](https://codecov.io/gh/dsccommunity/{repositoryName})
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">[<span style="color:#f92672">![codecov</span>](<span style="color:#a6e22e">https://codecov.io/gh/dsccommunity/{repositoryName}/branch/{defaultbranch}/graph/badge.svg</span>)](https://codecov.io/gh/dsccommunity/{repositoryName})
 ![<span style="color:#f92672">Azure DevOps coverage (branch)</span>](<span style="color:#a6e22e">https://img.shields.io/azure-devops/coverage/dsccommunity/{repositoryName}/14/{defaultbranch}</span>)
 </code></pre></div><h2 id="building-whole-or-part-of-module">Building whole or part of module</h2>
 <p>If the repository is building all or just part of the module using the ModuleBuilder&rsquo;s
@@ -607,7 +607,7 @@ a new coverage file that is then merged with the original file that Pester
 generated.</p>
 </li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">  <span style="color:#f92672">test</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">  <span style="color:#f92672">test</span>:
     - <span style="color:#ae81ff">Pester_Tests_Stop_On_Fail</span>
     - <span style="color:#ae81ff">Convert_Pester_Coverage</span>
     - <span style="color:#ae81ff">Pester_if_Code_Coverage_Under_Threshold</span>
@@ -624,7 +624,7 @@ the <code>covecov.yml</code> should look like below. Note that the main differen
 (from <a href="#not-building-module-just-copying-files">Not building module, just copying files</a>)
 is that it is not using <code>fixes</code> keyword as the task <em>Convert_Pester_Coverage</em>
 will do that for us.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">codecov</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">codecov</span>:
   <span style="color:#f92672">require_ci_to_pass</span>: <span style="color:#66d9ef">no</span>
   <span style="color:#75715e"># main should be the baseline for reporting</span>
   <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">main</span>
@@ -685,7 +685,7 @@ this:</p>
 it is possible to use <code>JaCoCo_$OsShortName.xml</code> which results in
 the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
   <span style="color:#f92672">OutputFormat</span>: <span style="color:#ae81ff">NUnitXML</span>
   <span style="color:#f92672">ExcludeFromCodeCoverage</span>:
     - <span style="color:#ae81ff">Modules/DscResource.Common</span>
@@ -698,7 +698,7 @@ the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</
   <span style="color:#f92672">CodeCoverageOutputFileEncoding</span>: <span style="color:#ae81ff">ascii</span>
 </code></pre></div><p>If you choose to remove <code>CodeCoverageOutputFile</code> keyword, the <code>Pester</code> section
 can look like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Pester</span>:
   <span style="color:#f92672">OutputFormat</span>: <span style="color:#ae81ff">NUnitXML</span>
   <span style="color:#f92672">ExcludeFromCodeCoverage</span>:
     - <span style="color:#ae81ff">Modules/DscResource.Common</span>
@@ -733,11 +733,11 @@ that will be uploaded to the code coverage services.</p>
 for under the <code>output/testResults</code> folder. It should use a pattern that
 can recognize the JaCoCo files that the test jobs generate.</p>
 <p>If using the default filenames it can look something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">CodeCoverage</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">CodeCoverage</span>:
   <span style="color:#f92672">CodeCoverageMergedOutputFile</span>: <span style="color:#ae81ff">JaCoCo_coverage.xml</span>
   <span style="color:#f92672">CodeCoverageFilePattern</span>: <span style="color:#ae81ff">Codecov*.xml</span>
 </code></pre></div><p>If a specific filename was used it can look something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">CodeCoverage</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">CodeCoverage</span>:
   <span style="color:#f92672">CodeCoverageMergedOutputFile</span>: <span style="color:#ae81ff">JaCoCo_coverage.xml</span>
   <span style="color:#f92672">CodeCoverageFilePattern</span>: <span style="color:#ae81ff">JaCoCo_Merge.xml</span>
 </code></pre></div><h3 id="modify-azure-pipelinesyml-2">Modify <code>azure-pipelines.yml</code></h3>
@@ -748,7 +748,7 @@ the test result files that ended up in the folder <code>output/testResults</code
 <h4 id="remove-global-variable">Remove global variable</h4>
 <p>We can remove the global variable <code>testArtifactName</code> since it will not be used.</p>
 <p>After removing the global variable it should look something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">trigger</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">trigger</span>:
   <span style="color:#f92672">branches</span>:
     <span style="color:#f92672">include</span>:
     - <span style="color:#ae81ff">main</span>
@@ -787,7 +787,7 @@ But most important is if the <code>CodeCoverageThreshold</code> argument is used
 override the value in <code>build.yaml</code> then the value for <code>CodeCoverageThreshold</code>
 may not be set to <code>0</code>. The value <code>0</code> means that no coverage is gathered.</p>
 <p>This is how it can look like:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">test_windows_core</span> <span style="color:#75715e"># Run tests in PowerShell 7 on Windows</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">test_windows_core</span> <span style="color:#75715e"># Run tests in PowerShell 7 on Windows</span>
         <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Windows (PowerShell Core)&#39;</span>
         <span style="color:#f92672">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
         <span style="color:#f92672">pool</span>:
@@ -876,7 +876,7 @@ or that there is a risk that the default filename might not be unique, then
 we need to specify specific folders where the test artifacts are downloaded.</p>
 <p>The publishing tasks must specify the filename that was specified in the
 keyword <code>CodeCoverageMergedOutputFile</code> in the <code>build.yaml</code> file.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Code_Coverage</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Code_Coverage</span>
         <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage&#39;</span>
         <span style="color:#f92672">dependsOn</span>:
           - <span style="color:#ae81ff">test_windows_core</span>

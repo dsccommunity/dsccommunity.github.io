@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Steps to rename master branch to main for a DSC Community resource</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -373,7 +373,7 @@ repository</em> to <code>main</code>.</li>
 <h3 id="step-1---update-your-fork-of-the-repository-from-the-upstream-origin">Step 1 - Update your fork of the repository from the upstream origin</h3>
 <p>Update your fork from the upstream origin repository master branch by running
 the following commands:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Move to the local repo</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Move to the local repo</span>
 cd c:\source\{repositoryFolder}
 
 <span style="color:#75715e"># Make sure you have the remote names to upstream and fork.</span>
@@ -398,10 +398,10 @@ to support the new default branch name &lsquo;main&rsquo;. To update these files
 <h4 id="update-changelogmd">Update: CHANGELOG.md</h4>
 <p>Add a new entry to the <code>### Changed</code> section under <code>## [Unreleased]</code> in
 the CHANGELOG.md:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">- Renamed `master` branch to `main` - Fixes [Issue #{issue number}](https://github.com/dsccommunity/{repository}/issues/{issue number}).
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">- Renamed `master` branch to `main` - Fixes [Issue #{issue number}](https://github.com/dsccommunity/{repository}/issues/{issue number}).
 </code></pre></div><h4 id="update-gitversionyml">Update: GitVersion.yml</h4>
 <p>Replace the <code>branches</code> section in the <code>GitVersion.yml</code> file with:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">branches</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">branches</span>:
   <span style="color:#f92672">master</span>:
     <span style="color:#f92672">tag</span>: <span style="color:#ae81ff">preview</span>
     <span style="color:#f92672">regex</span>: <span style="color:#ae81ff">^main$</span>
@@ -420,7 +420,7 @@ the CHANGELOG.md:</p>
 </code></pre></div><h4 id="update-readmemd">Update: README.md</h4>
 <p>Replace the <code>master</code> with <code>main</code> in the build badges and anywhere else
 that refers to the <code>master</code> branch in this repository.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">[![Build Status](https://dev.azure.com/dsccommunity/WsManDsc/_apis/build/status/dsccommunity.WSManDsc?branchName=main)](https://dev.azure.com/dsccommunity/WsManDsc/_build/latest?definitionId=6&amp;branchName=main)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">[![Build Status](https://dev.azure.com/dsccommunity/WsManDsc/_apis/build/status/dsccommunity.WSManDsc?branchName=main)](https://dev.azure.com/dsccommunity/WsManDsc/_build/latest?definitionId=6&amp;branchName=main)
 ![Code Coverage](https://img.shields.io/azure-devops/coverage/dsccommunity/WSManDsc/6/main)
 [![Azure DevOps tests](https://img.shields.io/azure-devops/tests/dsccommunity/WSManDsc/6/main)](https://dsccommunity.visualstudio.com/WSManDsc/_test/analytics?definitionId=6&amp;contextType=build)
 
@@ -433,7 +433,7 @@ to use <code>main</code>.</p>
 <ol>
 <li>Update the <code>trigger\branches\include</code> section to be <code>main</code></li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">trigger</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">trigger</span>:
   <span style="color:#f92672">branches</span>:
     <span style="color:#f92672">include</span>:
     - <span style="color:#ae81ff">main</span>
@@ -441,11 +441,11 @@ to use <code>main</code>.</p>
 <li>Add the following environment variables to the <code>env</code> section of the <code>publish_release</code>
 and the <code>send_changelog_PR</code> tasks of the <code>Deploy</code> stage.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">ReleaseBranch</span>: <span style="color:#ae81ff">main</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">ReleaseBranch</span>: <span style="color:#ae81ff">main</span>
 <span style="color:#f92672">MainGitBranch</span>: <span style="color:#ae81ff">main</span>
 </code></pre></div><p>For example, this is what the <code>publish_release</code> and <code>send_changelog_PR</code> tasks
 should look like:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span>
             <span style="color:#f92672">name</span>: <span style="color:#ae81ff">publish_release</span>
             <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Release&#39;</span>
             <span style="color:#f92672">inputs</span>:
@@ -481,7 +481,7 @@ name of <code>master</code> branch.</p>
 <li>Update the <code>deploy</code> stage <code>condition</code> by changing the
 <code>refs/heads/master</code> to <code>refs/heads/main</code>:</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">  - <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Deploy</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">  - <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Deploy</span>
     <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Test</span>
     <span style="color:#f92672">condition</span>: |<span style="color:#e6db74">
 </span><span style="color:#e6db74">      and(
@@ -494,14 +494,14 @@ name of <code>master</code> branch.</p>
 </span><span style="color:#e6db74">      )</span>      
 </code></pre></div><h4 id="update-buildyml">Update: build.yml</h4>
 <p>In the <code>build.yml</code> file in the <code>DscTest</code> section add the line:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">MainGitBranch</span>: <span style="color:#ae81ff">main</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">MainGitBranch</span>: <span style="color:#ae81ff">main</span>
 </code></pre></div><h4 id="update-sourcepsd1">Update: source/*.psd1</h4>
 <p>Update the <code>master</code> to <code>main</code> in the license URI in the module manifest:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">LicenseUri   = &#39;https://github.com/dsccommunity/WSManDsc/blob/main/LICENSE&#39;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">LicenseUri   = &#39;https://github.com/dsccommunity/WSManDsc/blob/main/LICENSE&#39;
 </code></pre></div><h4 id="update-optional-sourceexamplesresourcesps1">Update (Optional): source/Examples/Resources/**/*.ps1</h4>
 <p>If the module is configured with automated generation of wiki documentation then
 update any references for <code>master</code> to <code>main</code> in the examples:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">.LICENSEURI https://github.com/dsccommunity/WSManDsc/blob/main/LICENSE
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">.LICENSEURI https://github.com/dsccommunity/WSManDsc/blob/main/LICENSE
 </code></pre></div><h4 id="update-optional-sourcewikisourcehomemd">Update (Optional): source/wikiSource/Home.md</h4>
 <p>If the module is configured with automated generation of wiki documentation then
 update any references for <code>master</code> to <code>main</code>.</p>
@@ -509,12 +509,12 @@ update any references for <code>master</code> to <code>main</code>.</p>
 <p>If the module is configured to send code coverage results to <a href="https://codecov.io">codecov.io</a>
 then you should also update the <code>codecov</code> <code>branch:</code> in <code>codecov.yml</code> file to
 <code>main</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">codecov</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">codecov</span>:
   <span style="color:#75715e"># main should be the baseline for reporting</span>
   <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">main</span>
 </code></pre></div><h4 id="commit-and-push-the-updated-pipeline-files">Commit and push the updated pipeline files</h4>
 <p>Run the following git commands to commit your changes:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git add .
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git add .
 git commit -m <span style="color:#e6db74">&#39;Updated pipeline files to support change of master to main&#39;</span>
 git push my master
 </code></pre></div><p>At this point in the process the pipeline will start failing until we
@@ -676,7 +676,7 @@ correctly. Validate that it has completed successfully:</p>
 <p>Run the following in the local repository to rename the default branch in
 the local clone, and update it with all the commits in the upstream branch
 and finally force push that to the fork&rsquo;s default branch.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git checkout master
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git checkout master
 git branch -m master main
 git fetch origin
 git branch -u origin/main main

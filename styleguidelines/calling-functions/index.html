@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Calling Functions</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -317,49 +317,49 @@ if (!doNotTrack) {
 <p>When calling a function use the full command not an alias.
 You can get the full command an alias represents by calling <code>Get-Alias</code>.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">ls <span style="color:#f92672">-File</span> $root -Recurse | ? { @(<span style="color:#e6db74">&#39;.gitignore&#39;</span>, <span style="color:#e6db74">&#39;.mof&#39;</span>) <span style="color:#f92672">-contains</span> $_.Extension }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">ls <span style="color:#f92672">-File</span> $root -Recurse | ? { @(<span style="color:#e6db74">&#39;.gitignore&#39;</span>, <span style="color:#e6db74">&#39;.mof&#39;</span>) <span style="color:#f92672">-contains</span> $_.Extension }
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Powershell" data-lang="Powershell">Get-ChildItem <span style="color:#f92672">-File</span> $root -Recurse | Where-Object -FilterScript {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Powershell" data-lang="Powershell">Get-ChildItem <span style="color:#f92672">-File</span> $root -Recurse | Where-Object -FilterScript {
     @(<span style="color:#e6db74">&#39;.gitignore&#39;</span>, <span style="color:#e6db74">&#39;.mof&#39;</span>) <span style="color:#f92672">-contains</span> $_.Extension
 }
 </code></pre></div><h3 id="avoid-invoke-expression">Avoid Invoke-Expression</h3>
 <p>Invoke-Expression is vulnerable to string injection attacks.
 It should not be used in any DSC resources.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Invoke-Expression -Command <span style="color:#e6db74">&#34;Test-$DSCResourceName&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Invoke-Expression -Command <span style="color:#e6db74">&#34;Test-$DSCResourceName&#34;</span>
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">&amp; <span style="color:#e6db74">&#34;Test-$DSCResourceName&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">&amp; <span style="color:#e6db74">&#34;Test-$DSCResourceName&#34;</span>
 </code></pre></div><h2 id="use-the-force-parameter-with-calls-to-shouldcontinue">Use the Force Parameter with Calls to ShouldContinue</h2>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
 </code></pre></div><h2 id="avoid-the-wmi-cmdlets">Avoid the WMI Cmdlets</h2>
 <p>The WMI cmdlets can all be replaced by CIM cmdlets.
 Use the CIM cmdlets instead because they align with industry standards.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-WMIInstance -ClassName Win32_Process
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-WMIInstance -ClassName Win32_Process
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-CIMInstance -ClassName Win32_Process
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-CIMInstance -ClassName Win32_Process
 </code></pre></div><h2 id="avoid-write-host">Avoid Write-Host</h2>
 <p><a href="http://www.jsnover.com/blog/2013/12/07/write-host-considered-harmful/">Write-Host is harmful</a>.
 Use alternatives such as Write-Verbose, Write-Output, Write-Debug, etc.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Write-Host <span style="color:#e6db74">&#39;Setting the variable to a value.&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Write-Host <span style="color:#e6db74">&#39;Setting the variable to a value.&#39;</span>
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Write-Verbose -Message <span style="color:#e6db74">&#39;Setting the variable to a value.&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Write-Verbose -Message <span style="color:#e6db74">&#39;Setting the variable to a value.&#39;</span>
 </code></pre></div><h2 id="avoid-convertto-securestring-with-asplaintext">Avoid ConvertTo-SecureString with AsPlainText</h2>
 <p>SecureStrings should be encrypted. When using ConvertTo-SecureString with the
 <code>AsPlainText</code> parameter specified the SecureString text is not encrypted and thus
 not secure. This is allowed in tests/examples when needed, but never in the actual
 resources.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">ConvertTo-SecureString -String <span style="color:#e6db74">&#39;mySecret&#39;</span> -AsPlainText -Force
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">ConvertTo-SecureString -String <span style="color:#e6db74">&#39;mySecret&#39;</span> -AsPlainText -Force
 </code></pre></div><h2 id="assign-function-results-to-variables-rather-than-extensive-inline-calls">Assign Function Results to Variables Rather Than Extensive Inline Calls</h2>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Set-Background -Color (Get-Color -Name ((Get-Settings -User (Get-CurrentUser)).ColorName))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Set-Background -Color (Get-Color -Name ((Get-Settings -User (Get-CurrentUser)).ColorName))
 </code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$currentUser = Get-CurrentUser
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$currentUser = Get-CurrentUser
 $userSettings = Get-Settings -User $currentUser
 $backgroundColor = Get-Color -Name $userSettings.ColorName
 

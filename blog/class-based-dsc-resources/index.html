@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Class Based DSC Resource only proposal</title>
 
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-07-14</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -339,7 +339,7 @@ Bear in mind that was more than 7 years ago, as WMF 4.0 was <a href="https://dev
 <p>The role of that MOF file is to add the metadata about the properties, and describe how those objects should be serialized and deserialized (think about Credential objects for instance), for CIM. CIM has no knowledge or understanding of PowerShell.</p>
 <p>Mapping PowerShell Object to CIM using MOF wasn&rsquo;t great for non scalar types, and that&rsquo;s why we ended up with with things like <code>EmbeddedInstance(&quot;MSFT_Credential&quot;)</code> in the MOFs or <code>[Microsoft.Management.Infrastructure.CimInstance[]]</code> in your PowerShell code to represent a dictionary, that you <a href="https://powershell.org/forums/topic/hashtable-as-parameter-for-custom-dsc-resource/">then had to convert to a hashtable</a>.</p>
 <p>See Dave Wyatt&rsquo;s answer below (note, this one is not recursive, for brevity):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell"><span style="color:#66d9ef">function</span> Convert-CimInstancesToHashtable(<span style="color:#66d9ef">[Microsoft.Management.Infrastructure.CimInstance[]]</span> $Pairs)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell"><span style="color:#66d9ef">function</span> Convert-CimInstancesToHashtable(<span style="color:#66d9ef">[Microsoft.Management.Infrastructure.CimInstance[]]</span> $Pairs)
 {
     $hash = @{}
     <span style="color:#66d9ef">foreach</span> ($pair <span style="color:#66d9ef">in</span> $Pairs)
@@ -350,14 +350,14 @@ Bear in mind that was more than 7 years ago, as WMF 4.0 was <a href="https://dev
     <span style="color:#66d9ef">return</span> $hash
 }
 </code></pre></div><p>You may also have came across DSC Resources that use <code>New-CimInstance</code> to <a href="https://github.com/dsccommunity/xHyper-V/blob/aff660f3a76edb6f60e243e7a8bc450b56340cc0/source/DSCResources/MSFT_xVhdFileDirectory/MSFT_xVhdFileDirectory.psm1#L78-L81">create an object that is added to the hashtable returned by the resource</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">New-CimInstance -ClassName MSFT_FileDirectoryConfiguration -Property @{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">New-CimInstance -ClassName MSFT_FileDirectoryConfiguration -Property @{
                 DestinationPath = $finalPath
                 Ensure = <span style="color:#e6db74">&#39;Absent&#39;</span>
             } -Namespace <span style="color:#e6db74">&#39;root/microsoft/windows/desiredstateconfiguration&#39;</span> -ClientOnly
 </code></pre></div><p>Let me add that this is not trivial for people new to DSC, and moving away from CIM/MOF means we have a chance to <em>eventually</em> use the actual PowerShell types end to end, as we would not be limited by type mapping between CIM and PowerShell via MOF.</p>
 <p>This is particularly a problem for resources on Linux as the <code>CIM Cmdlets</code> do not exist there. Also the PowerShell team would like to clean up the CIM libraries in PowerShell, so <a href="https://github.com/dsccommunity/DscResource.Common/blob/master/source/Public/ConvertTo-CimInstance.ps1#L26">there would be no workaround like this</a>.</p>
 <p>Class-based DSC Resources do not need the MOF definition for the extra metadata, as we use the <code>[DscResource()]</code> and <code>[DscProperty()]</code> attributes for them, and property types can use Enum or a custom Class.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">[DscResource()]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">[DscResource()]
 class ClassRsrcWithSubType2 {
 
     [DscProperty(<span style="color:#66d9ef">Mandatory</span>)]
@@ -371,7 +371,7 @@ class ClassRsrcWithSubType2 {
 <span style="color:#75715e"># ...</span>
 </code></pre></div><p>That said, some limitations are similar because under the hood, the conversion still occurs from PowerShell to CIM, and back to PowerShell when the LCM is involved.</p>
 <p>But if we have a slightly different way to <strong>return</strong> the data between PS5.1 and PS7.2+, we can easily update the resources with an <code>if {} else {}</code> statement:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell"><span style="color:#66d9ef">if</span> ($PSVersionTable.PSVersion.Major <span style="color:#f92672">-ge</span> 7) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell"><span style="color:#66d9ef">if</span> ($PSVersionTable.PSVersion.Major <span style="color:#f92672">-ge</span> 7) {
     <span style="color:#66d9ef">[MSFT_FileDirectoryConfiguration]</span>@{
       Ensure = <span style="color:#e6db74">&#39;Absent&#39;</span>
       DestinationPath = $finalPath
@@ -428,7 +428,7 @@ We also got more experience with Class-based resource with <a href="https://gith
 They were new, we had little experience with them, and <a href="https://github.com/pester/Pester/issues/706">the &ldquo;traditional&rdquo; way to mock them was not working</a>.</p>
 <p>Now, the way DSC uses PowerShell Classes is relatively <em>simple</em> and you can achieve something close to mocking by using different techniques, such as using script Method on your object.<br>
 This was well documented by Ben Gelens (<a href="https://twitter.com/bgelens">@bgelens</a>) back in his <a href="https://github.com/bgelens/DockerDsc/blob/Dev/Tests/Unit/DockerService.Tests.ps1#L84">DockerDsc module</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">$dockerDsc = <span style="color:#66d9ef">[DockerService]</span>::new()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">$dockerDsc = <span style="color:#66d9ef">[DockerService]</span>::new()
 $dockerDsc.Ensure = <span style="color:#66d9ef">[Ensure]</span>::Present
 $dockerDsc = $dockerDsc | Add-Member -MemberType ScriptMethod `
   -Name ResolveDockerDPath `
