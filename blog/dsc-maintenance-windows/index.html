@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Realizing maintenance windows with DSC</title>
 
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,9 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-10-06</a>
+            </li>
+            <li class=""><a href="/community_calls/2021-08-25-notes/">2021-08-25 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -377,7 +379,7 @@ We gain efficiency, flexibility and scalability by converting all common require
 <p>This YAML is taken from the file <a href="https://github.com/dsccommunity/DscWorkshop/blob/dev/DSC/DscConfigData/Roles/DscBaseline.yml">DscBaseline.yml</a> part of the DscWorkshop’s configuration data. The configurations section defines that a node having the DscBaseline role assigned, applies the configuration DscLcmController and DscLcmMaintenanceWindows. The rest of the YAML are the parameters to these configurations. There will be an extra post about the config management in the DscWorkshop project.</p>
 <h3 id="dsclcmmaintenancewindows-configuration">DscLcmMaintenanceWindows configuration</h3>
 <p>The configuration &ldquo;DscLcmMaintenanceWindows&rdquo; only writes some registry keys according to the configuration data (the parameters) you hand over to it. In the previous YAML there are 2 maintenance windows defined, and this is what we can find in the registry after DSC has applied the config:</p>
-<pre><code class="language-none" data-lang="none">PS C:\&gt; dir -Path HKLM:\SOFTWARE\DscLcmController\MaintenanceWindows\
+<pre tabindex="0"><code class="language-none" data-lang="none">PS C:\&gt; dir -Path HKLM:\SOFTWARE\DscLcmController\MaintenanceWindows\
 
     Hive: HKEY_LOCAL_MACHINE\SOFTWARE\DscLcmController\MaintenanceWindows
 
@@ -399,7 +401,7 @@ SundayAllDay                   StartTime : 00:00:00
 </ul>
 <p>In the case described above, changes will only be applied on each first Wednesday from 00:30 to 02:30 and on Sunday the whole day. If in maintenance windows, the LCM will be invoked every 10 minutes to apply the configuration in case there is a drift. If not in a maintenance window, each 5 minutes the configuration is monitored and a report sent to the pull server.</p>
 <p>This is what the DscLcmController configuration writes to the registry:</p>
-<pre><code class="language-none" data-lang="none">PS C:\&gt; dir -Path HKLM:\SOFTWARE\ | Where-Object Name -like *LcmController
+<pre tabindex="0"><code class="language-none" data-lang="none">PS C:\&gt; dir -Path HKLM:\SOFTWARE\ | Where-Object Name -like *LcmController
 
     Hive: HKEY_LOCAL_MACHINE\SOFTWARE
 
@@ -437,7 +439,7 @@ DscLcmController               MaintenanceWindowMode       : AutoCorrect
 <li><code>LastMonitor</code>: This value is written by the DscLcmController scheduled task to remember when the last Monitor was triggered.</li>
 </ul>
 <p>The actual work is done by a single scheduled task that is also created and controlled by the DscLcmController configuration:</p>
-<pre><code class="language-none" data-lang="none">PS C:\&gt; Get-ScheduledTask -TaskPath \DscController\
+<pre tabindex="0"><code class="language-none" data-lang="none">PS C:\&gt; Get-ScheduledTask -TaskPath \DscController\
 
 TaskPath         TaskName                          State
 --------         --------                          -----
@@ -459,7 +461,7 @@ This code snippet is part of one scheduled job that the <a href="https://github.
 Let’s jump to August 10, 2019. This is a Wednesday and it is 01:00 in the morning. This time is in the maintenance window &ldquo;WednesdayNight&rdquo; so the DscLcmController script will move forward. It then checks the timestamp stored in &ldquo;LastAutoCorrect&rdquo;. Let’s assume the value is &ldquo;08/04/2019 22:42:13&rdquo; which makes sense, as August 4 was a Sunday and the server was in maintenance the whole day. The &ldquo;AutoCorrectInterval&rdquo; is set to 2 hours. As much more time than 2 hours has passed since the last run of the LCM, the DscLcmController script will trigger the LCM. This will happen just once on Wednesday as the maintenance window on Wednesday night is only 1,5 hours and the &ldquo;AutoCorrectInterval&rdquo; is 2 hours. The LCM will not be triggered until Sunday August 11.</p>
 <h3 id="logging">Logging</h3>
 <p>For troubleshooting purposes, the maintenance window implementation writes a couple of very small logs in the directory &ldquo;C:\ProgramData\Dsc\LcmController&rdquo;.</p>
-<pre><code class="language-none" data-lang="none">PS C:\ProgramData\Dsc\LcmController&gt; dir
+<pre tabindex="0"><code class="language-none" data-lang="none">PS C:\ProgramData\Dsc\LcmController&gt; dir
 
     Directory: C:\ProgramData\Dsc\LcmController
 
@@ -482,7 +484,7 @@ d-----         8/5/2019   5:38 PM                MetaMof
 </blockquote>
 <h4 id="lcmcontrolsummerytxt">LcmControlSummery.txt</h4>
 <p>This file shows the decision matrix the DscLcmContoller script has done. It stores the data as CSV for human readability:</p>
-<pre><code class="language-none" data-lang="none">PS C:\ProgramData\Dsc\LcmController&gt; Import-Csv -Path .\LcmControllerSummery.txt | Format-Table -Property *
+<pre tabindex="0"><code class="language-none" data-lang="none">PS C:\ProgramData\Dsc\LcmController&gt; Import-Csv -Path .\LcmControllerSummery.txt | Format-Table -Property *
 
 
 CurrentTime           InMaintenanceWindow DoAutoCorrect DoMonitor DoRefresh LastAutoCorrect       LastMonitor

@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>How to Use DSC Logging</title>
 
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,9 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
+            <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-10-06</a>
+            </li>
+            <li class=""><a href="/community_calls/2021-08-25-notes/">2021-08-25 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -344,7 +346,7 @@ the results of the DSC job.</p>
 <p>If you want to know the job id of a specific DSC job, the cmdlet Get-DscConfigurationStatus
 is your best friend. Without parameters this cmdlet will only retrieve the most recent
 job and show you the details:</p>
-<pre><code class="language-none" data-lang="none">PS C:\&gt; Get-DscConfigurationStatus | fl
+<pre tabindex="0"><code class="language-none" data-lang="none">PS C:\&gt; Get-DscConfigurationStatus | fl
 
 JobID                      : {CB285D33-E069-11E9-B86F-B4AE2BDC70C4}
 HostName                   : SERVER
@@ -368,7 +370,7 @@ ResourcesNotInDesiredState : {[SChannelSettings]ConfigureSChannel}
 PSComputerName             :
 </code></pre><p>If you want to know which DSC jobs have ran in the past period, you can add the -All
 parameter, which outputs all executed jobs:</p>
-<pre><code class="language-none" data-lang="none">PS C:\&gt; Get-DscConfigurationStatus -All
+<pre tabindex="0"><code class="language-none" data-lang="none">PS C:\&gt; Get-DscConfigurationStatus -All
 
 Status     StartDate                 Type            Mode  RebootRequested      NumberOfResources
 ------     ---------                 ----            ----  ---------------      -----------------

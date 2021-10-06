@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Updating repo with Sampler.GitHubTasks</title>
+  <title>2021-08-25 Notes</title>
 
   <meta name="generator" content="Hugo 0.88.1" />
 
@@ -201,8 +201,8 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class="parent d-block "><a href="/blog/">Blog Posts</a>
-              <ul class="sub-menu">
+            <li class=""><a href="/blog/">Blog Posts</a>
+              <ul class="">
             <li class=""><a href="/blog/create-an-article/">Create an Article</a>
             </li>
             <li class=""><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
@@ -225,7 +225,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
             </li>
-            <li class="parent d-block  active "><a href="/blog/updating-sampler-github-tasks/">Updating repo with Sampler.GitHubTasks</a>
+            <li class=""><a href="/blog/updating-sampler-github-tasks/">Updating repo with Sampler.GitHubTasks</a>
             </li></ul>
               
             </li>
@@ -235,11 +235,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class=""><a href="/community_calls/">Community Calls</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
+              <ul class="sub-menu">
             <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-10-06</a>
             </li>
-            <li class=""><a href="/community_calls/2021-08-25-notes/">2021-08-25 Notes</a>
+            <li class="parent d-block  active "><a href="/community_calls/2021-08-25-notes/">2021-08-25 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -314,80 +314,65 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Updating repo with Sampler.GitHubTasks</h2>
-            <p>A lot of improvements have been made to the Sampler module and templates in the last couple 
-of weeks, and it&rsquo;s a (small) breaking change that needs a manual update to your repos.</p>
-<p>We knew for a long time that Sampler was needed some refactor to make it more testable and
-maintainable. A while ago, we took some shortcuts we knew we&rsquo;d have to refactor
-at some point, and we finally did it!</p>
-<p>In the last few updates we&rsquo;ve re-organised the templates, moved some helper functions into Private/Public folders, and extracted into a new module the tasks that publish releases to
-GitHub and create Pull requests with the updated changelog after a release.</p>
-<p>One of the benefit is that the tasks now uses the PowerShellForGitHub module produced by
-Microsoft instead of some modified fork we had to maintain, and it&rsquo;s decoupled from the core
-of Sampler so that if you use Sampler in something else than GitHub, you don&rsquo;t have to pull those dependencies.</p>
-<p>As you may know, Sampler has stayed in <a href="https://semver.org/#spec-item-4">development phase</a> 
-until now (v0.x.x) because we knew those refactor and breaking changes would come.</p>
-<p>That big milestone being done, we&rsquo;ll soon be promoting the release to <code>v1.x.x</code>.</p>
-<h2 id="what-has-changed">What has changed</h2>
-<p>In short, the GitHub tasks are now packaged in the <code>Sampler.GitHubTasks</code> module which depends upon the <a href="https://github.com/microsoft/PowerShellForGitHub/">PowerShellForGitHub</a> module.</p>
-<p>To be able to use them in your pipeline, you know have to:</p>
+            <h2>2021-08-25 Notes</h2>
+            <h3 id="recording">Recording</h3>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/jGyH81Llhp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="agenda">Agenda</h3>
+<h4 id="quick-update-on-activity">Quick update on activity</h4>
 <ul>
-<li>Declare <code>Sampler.GitHubTasks</code> as a Required Module in your <code>RequiredModules.psd1</code>.</li>
-<li>Tell <code>build.yaml</code> to Import the tasks from this module (on top of importing those from sampler).</li>
-<li>Tell your BuildWorkflow in <code>build.yaml</code> to use the <code>Publish_Release_To_GitHub</code>
-for your <code>publish</code> task if it&rsquo;s not already present.</li>
+<li>DscResource.DocGenerator&rsquo;s Wiki generation
+<ul>
+<li>now handles properties in parent classes</li>
+<li>now generate docs for composite resources</li>
 </ul>
-<h3 id="requiredmodules">RequiredModules</h3>
-<p>The <code>RequiredModules.psd1</code> needs to have <code>Sampler.GitHubTasks</code> added like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">@{
-    PSDependOptions             = @{
-        AddToPath  = $true
-        Target     = <span style="color:#e6db74">&#39;output\RequiredModules&#39;</span>
-        Parameters = @{}
-    }
+</li>
+<li>DscResource.Common and FileSystemDsc tests runs using Pester 5.</li>
+</ul>
+<h4 id="dsc-resource-modules-that-have-been-released-recently">DSC resource modules that have been released recently</h4>
+<ul>
+<li>Releases
+<ul>
+<li>SharePointDSC 4.7.0</li>
+</ul>
+</li>
+<li>Preview releases
+<ul>
+<li>SqlServerDsc 15.2.0-preview0004</li>
+<li>NetworkingDsc 9.0.0-preview0001</li>
+<li>SharePointDSC 4.8.0-preview0002</li>
+<li>DnsServerDsc 3.0.1-preview0002</li>
+<li>ConfigMgrCBDsc 2.1.0-preview0003</li>
+</ul>
+</li>
+</ul>
+<h4 id="tooling-modules-that-have-been-released-recently">Tooling modules that have been released recently</h4>
+<ul>
+<li>Releases
+<ul>
+<li>DscResource.Common 0.10.3</li>
+<li>DscResource.DocGenerator 0.10.0</li>
+<li>Sampler 0.111.8</li>
+</ul>
+</li>
+<li>Preview releases
+<ul>
+<li>DscResource.Test 0.15.2-preview0001</li>
+<li>DscResource.DocGenerator 0.10.1-preview0002</li>
+</ul>
+</li>
+</ul>
+<h4 id="community-questions">Community questions</h4>
+<p><em>Submit your questions, or raise them directly in the call.</em></p>
+<h4 id="next-community-call">Next Community Call</h4>
+<p>Next community call is on the 6th of October.
+Suggestions for talks are welcomed.</p>
 
-    InvokeBuild                 = <span style="color:#e6db74">&#39;latest&#39;</span>
-    PSScriptAnalyzer            = <span style="color:#e6db74">&#39;1.19.0&#39;</span>
-    Pester                      = <span style="color:#e6db74">&#39;4.10.1&#39;</span>
-    Plaster                     = <span style="color:#e6db74">&#39;latest&#39;</span>
-    Sampler                     = <span style="color:#e6db74">&#39;latest&#39;</span>
-
-    <span style="color:#e6db74">&#39;Sampler.GitHubTasks&#39;</span>       = <span style="color:#e6db74">&#39;latest&#39;</span>
-
-    ModuleBuilder               = <span style="color:#e6db74">&#39;latest&#39;</span>
-    MarkdownLinkCheck           = <span style="color:#e6db74">&#39;latest&#39;</span>
-    ChangelogManagement         = <span style="color:#e6db74">&#39;latest&#39;</span>
-    PowerShellForGitHub         = <span style="color:#e6db74">&#39;latest&#39;</span>
-    <span style="color:#e6db74">&#39;DscResource.Test&#39;</span>          = <span style="color:#e6db74">&#39;latest&#39;</span>
-    <span style="color:#e6db74">&#39;DscResource.AnalyzerRules&#39;</span> = <span style="color:#e6db74">&#39;latest&#39;</span>
-    xDscResourceDesigner        = <span style="color:#e6db74">&#39;latest&#39;</span>
-}
-
-</code></pre></div><p>This will instruct <code>PSDepend</code> to pull this module and its dependencies.
-As <code>PowerShellForGitHub</code> is listed in <code>Sampler.GitHubTasks</code>&rsquo;s RequiredModules,
-PSDepend will automatically pull this dependency for your build.</p>
-<p>If you want to update your local cache for this repository, remember to call
-<code>build.ps1 -ResolveDependency</code> once after changing the <code>RequiredModules.psd1</code>.</p>
-<h3 id="buildyaml">Build.yaml</h3>
-<p>In your <code>Build.yaml</code> file, you need to tell the build pipeline to load the tasks from
-this <code>Sampler.GitHubTasks</code> module.<br>
-This can be done by making sure the key <code>ModuleBuildTasks:</code> has the following subkey:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">ModuleBuildTasks</span>:
-  <span style="color:#f92672">Sampler.GitHubTasks</span>:
-    - <span style="color:#e6db74">&#39;*.ib.tasks&#39;</span>
-</code></pre></div><p>Also, make sure the <code>BuildWorkflow:</code> key has the right tasks
-defined for <code>publish</code> (but it should already be correct).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">BuildWorkflow</span>:
-<span style="color:#75715e"># [...]</span>
-  <span style="color:#f92672">publish</span>:
-    <span style="color:#75715e">#- publish_nupkg_to_gallery  # Deploy using Nuget</span>
-    - <span style="color:#ae81ff">publish_module_to_gallery</span> <span style="color:#75715e"># Deploy using cmdlet Publish-Module</span>
-    - <span style="color:#ae81ff">Publish_release_to_GitHub</span>
-</code></pre></div><p>Alternatively, if you don&rsquo;t want to use the GitHub integration, you now know what to remove.</p>
-<p>As always, if you need help, come in the <a href="https://aka.ms/PSSLACK">PowerShell Slack</a>, <code>#dsc</code> channel and ask for help!</p>
-
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 01 Jan 0001</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/convert-master-to-main/" title="Steps to rename master branch to main for a DSC Community resource"><i class="ti-arrow-left mr-2"></i>Steps to rename master branch to main for a DSC Community resource</a>
-            <a class="nav nav-next" href="/configmgt/" title="Configuration Management">Configuration Management<i class="ti-arrow-right ml-2"></i></a>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 25 Aug 2021</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/next_call/" title="Next Community Call 2021-10-06"><i class="ti-arrow-left mr-2"></i>Next Community Call 2021-10-06</a>
+            <a class="nav nav-next" href="/community_calls/2021-06-02-notes/" title="2021-06-02 Notes">2021-06-02 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

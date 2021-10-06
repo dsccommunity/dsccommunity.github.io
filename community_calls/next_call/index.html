@@ -1,8 +1,8 @@
 <head>
   <meta charset="utf-8">
-  <title>Next Community Call 2021-08-25</title>
+  <title>Next Community Call 2021-10-06</title>
 
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,7 +237,9 @@ if (!doNotTrack) {
             </li>
             <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
               <ul class="sub-menu">
-            <li class="parent d-block  active "><a href="/community_calls/next_call/">Next Community Call 2021-08-25</a>
+            <li class="parent d-block  active "><a href="/community_calls/next_call/">Next Community Call 2021-10-06</a>
+            </li>
+            <li class=""><a href="/community_calls/2021-08-25-notes/">2021-08-25 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
@@ -312,8 +314,8 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Next Community Call 2021-08-25</h2>
-            <p>Next call will be on Wednesday, August 25th, at 12 PM PST</p>
+            <h2>Next Community Call 2021-10-06</h2>
+            <p>Next call will be on Wednesday, October 6th, at 12 PM PST</p>
 <h3 id="join-the-call">Join the call</h3>
 <p><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OTc2YThjZGQtNWE4Yi00NDQyLTk5NTktYWIwYjdhMGZjNDRl%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%222fd83437-7fe6-4ee4-a109-828a19cb7bff%22%7d">Join using the Microsoft Teams app</a></p>
 <p><a href="https://dialin.teams.microsoft.com/8551f4c1-bea3-441a-8738-69aa517a91c5?id=50343176">Or click here to browse the list of available dial-in numbers to find one that is local to your region</a></p>
@@ -326,30 +328,53 @@ For information on how to join, see <a href="https://dsccommunity.org/community/
 <p>Want to submit a question to discuss during the call so others can prepare?
 Just <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md">submit a Pull request to this file</a>!</p>
 <h3 id="agenda">Agenda</h3>
+<ul>
+<li>Steve and Andrew from the PowerShell team join us to discuss the recent
+changes to PowerShell DSC.</li>
+</ul>
 <h4 id="quick-update-on-activity">Quick update on activity</h4>
 <ul>
-<li>DscResource.DocGenerator&rsquo;s Wiki generation
+<li>xPSDesiredStateConfiguration has now be moved to auto documentation,
+using GitHub Repository Wiki. <em>(though need another merge for it to publish)</em></li>
+<li>xExchange
 <ul>
-<li>now handles properties in parent classes</li>
-<li>now generate docs for composite resources</li>
+<li>We unblocked contributors in xExchange.</li>
+<li>Working on fixing the pipeline that blocking releases (PR is in review)</li>
+<li><strong>Since Mike no longer have time to maintain xExchange the community need a
+new maintainer for that repository. Please reach out in #dsc channel
+if you are interested!</strong></li>
 </ul>
 </li>
-<li>DscResource.Common and FileSystemDsc tests runs using Pester 5.</li>
+<li>SqlServerDsc
+<ul>
+<li>Review PR&rsquo;s to unblock contributors.</li>
+<li>Still working on the Pester 5 tests for this repo.</li>
 </ul>
+</li>
+<li>Codecov.io has deprecated their bash uploader. The bash uploader recently
+broke. It can no longer publish coverage since the bash uploader does not
+detect the &ldquo;repository information&rdquo; when run in Azure Pipelines.
+<ul>
+<li>All repos that uses Codecov.io need to be moved to new uploader.
+See <a href="https://community.codecov.com/t/public-repositories-can-no-longer-upload-coverage-with-error-unable-to-locate-build-via-azure-api/3242/2">https://community.codecov.com/t/public-repositories-can-no-longer-upload-coverage-with-error-unable-to-locate-build-via-azure-api/3242/2</a></li>
+</ul>
+</li>
+</ul>
+<p>Do the community have any other activity updates?</p>
 <h4 id="dsc-resource-modules-that-have-been-released-recently">DSC resource modules that have been released recently</h4>
 <ul>
 <li>Releases
 <ul>
-<li>SharePointDSC 4.7.0</li>
+<li>SharePointDsc 4.8.0</li>
+<li>SqlServerDsc 15.2.0</li>
+<li>ComputerManagementDsc 8.5.0</li>
 </ul>
 </li>
 <li>Preview releases
 <ul>
-<li>SqlServerDsc 15.2.0-preview0004</li>
-<li>NetworkingDsc 9.0.0-preview0001</li>
-<li>SharePointDSC 4.8.0-preview0002</li>
-<li>DnsServerDsc 3.0.1-preview0002</li>
-<li>ConfigMgrCBDsc 2.1.0-preview0003</li>
+<li>ConfigMgrCBDsc 2.1.0-preview0007</li>
+<li>xPSDesiredStateConfiguration 9.2.0-preview0007</li>
+<li>SharePointDSC 4.8.1-preview0001</li>
 </ul>
 </li>
 </ul>
@@ -357,15 +382,14 @@ Just <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/conte
 <ul>
 <li>Releases
 <ul>
-<li>DscResource.Common 0.10.3</li>
-<li>DscResource.DocGenerator 0.10.0</li>
-<li>Sampler 0.111.8</li>
+<li>Sampler 0.112.0</li>
+<li>DscResource.Test 0.16.0</li>
 </ul>
 </li>
 <li>Preview releases
 <ul>
-<li>DscResource.Test 0.15.2-preview0001</li>
-<li>DscResource.DocGenerator 0.10.1-preview0002</li>
+<li>Sampler 0.112.1-preview0001</li>
+<li>DscResource.Common 0.11.0-preview0001</li>
 </ul>
 </li>
 </ul>
@@ -375,8 +399,8 @@ Just <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/conte
 <p>Next community call is on the 6th of October.
 Suggestions for talks are welcomed.</p>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 13 Aug 2021</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/" title="Community Calls"><i class="ti-arrow-left mr-2"></i>Community Calls</a>
-            <a class="nav nav-next" href="/community_calls/2021-06-02-notes/" title="2021-06-02 Notes">2021-06-02 Notes<i class="ti-arrow-right ml-2"></i></a>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 05 Oct 2021</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/" title="Community Calls"><i class="ti-arrow-left mr-2"></i>Community Calls</a>
+            <a class="nav nav-next" href="/community_calls/2021-08-25-notes/" title="2021-08-25 Notes">2021-08-25 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

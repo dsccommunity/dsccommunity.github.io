@@ -7,14 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Fri, 13 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2021-08-25</title>
+      <title>Next Community Call 2021-10-06</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, August 25th, at 12 PM PST
+      <description>Next call will be on Wednesday, October 6th, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
@@ -405,6 +405,15 @@ In each localization folder there should be a PowerShell data (.psd1) file named
 Bad:
 it &amp;#39;Should return something&amp;#39; { get-targetresource @testParameters | should -be &amp;#39;something&amp;#39; } Good:
 It &amp;#39;Should return something&amp;#39; { Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39; } Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
+    </item>
+    
+    <item>
+      <title>2021-08-25 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2021-08-25-notes/</link>
+      <pubDate>Wed, 25 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2021-08-25-notes/</guid>
+      <description>Recording   Agenda Quick update on activity  DscResource.DocGenerator&amp;rsquo;s Wiki generation  now handles properties in parent classes now generate docs for composite resources   DscResource.Common and FileSystemDsc tests runs using Pester 5.  DSC resource modules that have been released recently  Releases  SharePointDSC 4.7.0   Preview releases  SqlServerDsc 15.2.0-preview0004 NetworkingDsc 9.0.0-preview0001 SharePointDSC 4.8.0-preview0002 DnsServerDsc 3.0.1-preview0002 ConfigMgrCBDsc 2.1.0-preview0003    Tooling modules that have been released recently  Releases  DscResource.</description>
     </item>
     
     <item>
