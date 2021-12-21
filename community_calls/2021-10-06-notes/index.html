@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>What is Desired State Configuration</title>
+  <title>2021-10-06 Notes</title>
 
   <meta name="generator" content="Hugo 0.88.1" />
 
@@ -235,11 +235,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class=""><a href="/community_calls/">Community Calls</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
+              <ul class="sub-menu">
             <li class=""><a href="/community_calls/next_call/">Next Community Call 2021-10-17</a>
             </li>
-            <li class=""><a href="/community_calls/2021-10-06-notes/">2021-10-06 Notes</a>
+            <li class="parent d-block  active "><a href="/community_calls/2021-10-06-notes/">2021-10-06 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2021-08-25-notes/">2021-08-25 Notes</a>
             </li>
@@ -297,9 +297,9 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class="parent d-block "><a href="/help/">Help</a>
-              <ul class="sub-menu">
-            <li class="parent d-block  active "><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
+            <li class=""><a href="/help/">Help</a>
+              <ul class="">
+            <li class=""><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
             </li>
             <li class=""><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
             </li></ul>
@@ -316,66 +316,86 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>What is Desired State Configuration</h2>
-            <p>As per <a href="https://docs.microsoft.com/en-us/powershell/dsc/overview/overview">the official documentation</a>,
-Desired State Configuration (DSC) is a management platform in PowerShell.</p>
-<p>It is built around different components:</p>
-<ul>
-<li><strong>DSC DSL</strong>: The <strong>Domain Specific Language</strong> of DSC with the <code>Configuration</code> keyword.</li>
-<li><strong>DSC LCM</strong>: The <strong>Local Configuration Manager (LCM)</strong>, that can be seen as the
-agent enacting the configurations on the managed nodes.</li>
-<li><strong>DSC Resources</strong>: A rich ecosystem of modules exposing a declarative and
-idempotent interface to imperative code configuring resources.</li>
-<li><strong>DSC Pull Server</strong>: External component implementing the <a href="https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-dscpm/ea744c01-51a2-4000-9ef2-312711dcc8c9">MS-DSCPM protocol</a>
-to register nodes, offer configuration, gather reporting from the LCM</li>
-</ul>
-<p>The <strong>DSL</strong> is what allows us to use the Declarative Syntax within PowerShell
-to define the configuration policy of your systems, and compiles (or serialize)
-into MOF Documents.
-The <strong>LCM</strong> is the agent what enacts those MOF documents, whether on demand or
-periodically when using the Pull model.</p>
-<p>The <strong>pull server</strong> is a glorified File server that implements the MS-DSCPM protocol
-to talk to the LCM. The <strong>Report server</strong> is a data collector aggregating the
-results of each DSC runs in its database.</p>
-<p>The <strong>DSC resources</strong> are some sorts of interfaces enabling idempotent
-characteristics to scripts configuring atomic resources, or a composition
-of different resources. The most populars are written for the Windows LCM
-supporting PowerShell 5.1, but some exists for Linux and can be written in Python
-or pretty much any language.</p>
-<h2 id="what-is-it-used-for">What is it used for</h2>
-<p>DSC is a platform enabling <strong>idempotent</strong> and <strong>declarative</strong> configuration,
-that helps managing complexity of an infrastructure when
-used within a <a href="https://aka.ms/TRPM"><strong>Release Pipeline</strong></a>.</p>
-<p>It is best used for <strong>Policy-Driven infrastructure</strong>, where version-controlled
-<strong>documents</strong> describing the unique source of human intent, drive and deliver
-the configuration of the infrastructure components, automatically.</p>
-<p>In essence, it&rsquo;s <a href="https://devopscollective.org/maybe-infrastructure-as-code-isnt-the-right-way/">Infrastructure <em>from</em> code</a>,
-whatever the code is, including YAML, and whatever the automation is in the
-pipeline, including Chef, Puppet, a DIY DSC solution or
-other Configuration Management solutions.</p>
-<p>It is those concepts—and many more—that the industry often refer to when
-talking about <strong>Infrastructure As Code</strong> (and
-<a href="https://info.thoughtworks.com/Infrastructure-as-Code-Kief-Morris.html">the book from Kief Morris is a great read</a>).</p>
-<h2 id="platform-not-solution">Platform not solution</h2>
-<p>Since its apparition with Windows 2012 R2, DSC has been announced as a platform
-not a solution, but what does that mean?</p>
-<p>DSC was created to provide the bricks you need to help create
-Infrastructure as Code solutions for Windows, based on
-PowerShell (and later, cross platform, and with other languages).
-It&rsquo;s aimed at you, individuals and organizations building a Do-it-yourself
-solution, or other solutions to integrate and tap into the PowerShell and
-DSC community and ecosystem.</p>
-<p>The solutions, such as Microsoft&rsquo;s Azure Automation DSC now Azure State
-Configuration, can leverage any and all of those components, and enhance them.
-Others, like Puppet or Chef, might only integrate the resources
-and execute them from their agent.</p>
-<p>So when you look solely at DSC and documentation, you&rsquo;ll see many missing bits
-and pieces you would expect if you think about turn-key solutions: Visualization,
-Reporting, certificate management, Configuration Data management&hellip;
-Some of those have been solved by the community, or are available in those solutions.</p>
+            <h2>2021-10-06 Notes</h2>
+            <h3 id="recording">Recording</h3>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 30 Jul 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/help/" title="Help"><i class="ti-arrow-left mr-2"></i>Help</a>
-            <a class="nav nav-next" href="/help/what-future-for-dsc/" title="What Future for Dsc">What Future for Dsc<i class="ti-arrow-right ml-2"></i></a>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/TrrSvisNUhk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="agenda">Agenda</h3>
+<ul>
+<li>Steve and Andrew from the PowerShell team join us to discuss the recent
+changes to PowerShell DSC.</li>
+</ul>
+<h4 id="quick-update-on-activity">Quick update on activity</h4>
+<ul>
+<li>xPSDesiredStateConfiguration has now be moved to auto documentation,
+using GitHub Repository Wiki. <em>(though need another merge for it to publish)</em></li>
+<li>xExchange
+<ul>
+<li>We unblocked contributors in xExchange.</li>
+<li>Working on fixing the pipeline that blocking releases (PR is in review)</li>
+<li><strong>Since Mike no longer have time to maintain xExchange the community need a
+new maintainer for that repository. Please reach out in #dsc channel
+if you are interested!</strong></li>
+</ul>
+</li>
+<li>SqlServerDsc
+<ul>
+<li>Review PR&rsquo;s to unblock contributors.</li>
+<li>Still working on the Pester 5 tests for this repo.</li>
+</ul>
+</li>
+<li>Codecov.io has deprecated their bash uploader. The bash uploader recently
+broke. It can no longer publish coverage since the bash uploader does not
+detect the &ldquo;repository information&rdquo; when run in Azure Pipelines.
+<ul>
+<li>All repos that uses Codecov.io need to be moved to new uploader.
+See <a href="https://community.codecov.com/t/public-repositories-can-no-longer-upload-coverage-with-error-unable-to-locate-build-via-azure-api/3242/2">https://community.codecov.com/t/public-repositories-can-no-longer-upload-coverage-with-error-unable-to-locate-build-via-azure-api/3242/2</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="dsc-resource-modules-that-have-been-released-recently">DSC resource modules that have been released recently</h4>
+<ul>
+<li>Releases
+<ul>
+<li>SharePointDsc 4.8.0</li>
+<li>SqlServerDsc 15.2.0</li>
+<li>ComputerManagementDsc 8.5.0</li>
+</ul>
+</li>
+<li>Preview releases
+<ul>
+<li>ConfigMgrCBDsc 2.1.0-preview0007</li>
+<li>xPSDesiredStateConfiguration 9.2.0-preview0007</li>
+<li>SharePointDSC 4.8.1-preview0001</li>
+</ul>
+</li>
+</ul>
+<h4 id="tooling-modules-that-have-been-released-recently">Tooling modules that have been released recently</h4>
+<ul>
+<li>Releases
+<ul>
+<li>Sampler 0.112.0</li>
+<li>DscResource.Test 0.16.0</li>
+</ul>
+</li>
+<li>Preview releases
+<ul>
+<li>Sampler 0.112.1-preview0001</li>
+<li>DscResource.Common 0.11.0-preview0001</li>
+</ul>
+</li>
+</ul>
+<h4 id="community-questions">Community questions</h4>
+<p><em>Submit your questions, or raise them directly in the call.</em></p>
+<h4 id="next-community-call">Next Community Call</h4>
+<p>Next community call is on the 17th of November.
+Suggestions for talks are welcomed.</p>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 06 Oct 2021</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/next_call/" title="Next Community Call 2021-10-17"><i class="ti-arrow-left mr-2"></i>Next Community Call 2021-10-17</a>
+            <a class="nav nav-next" href="/community_calls/2021-08-25-notes/" title="2021-08-25 Notes">2021-08-25 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

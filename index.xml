@@ -7,14 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Tue, 05 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2021-10-06</title>
+      <title>Next Community Call 2021-10-17</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 16 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, October 6th, at 12 PM PST
+      <description>Next call will be on Wednesday, November 17th, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
@@ -405,6 +405,15 @@ In each localization folder there should be a PowerShell data (.psd1) file named
 Bad:
 it &amp;#39;Should return something&amp;#39; { get-targetresource @testParameters | should -be &amp;#39;something&amp;#39; } Good:
 It &amp;#39;Should return something&amp;#39; { Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39; } Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
+    </item>
+    
+    <item>
+      <title>2021-10-06 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2021-10-06-notes/</link>
+      <pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2021-10-06-notes/</guid>
+      <description>Recording   Agenda  Steve and Andrew from the PowerShell team join us to discuss the recent changes to PowerShell DSC.  Quick update on activity  xPSDesiredStateConfiguration has now be moved to auto documentation, using GitHub Repository Wiki. (though need another merge for it to publish) xExchange  We unblocked contributors in xExchange. Working on fixing the pipeline that blocking releases (PR is in review) Since Mike no longer have time to maintain xExchange the community need a new maintainer for that repository.</description>
     </item>
     
     <item>
