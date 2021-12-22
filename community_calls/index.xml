@@ -9,17 +9,26 @@
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Sun, 28 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/community_calls/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2021-10-17</title>
+      <title>Next Community Call 2022-02-09</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Sat, 16 Oct 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, November 17th, at 12 PM PST
+      <description>Next call will be on Wednesday, February 9th, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
 Discussions Topics or questions from the community (welcome at any point during the call)
 We are also available on the Virtual PowerShell User Group #DSC channel.</description>
+    </item>
+    
+    <item>
+      <title>2021-11-17 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2021-11-17-notes/</link>
+      <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2021-11-17-notes/</guid>
+      <description>Recording   Quick update on activity  Azure DevOps has removed the build worker Ubuntu 16.04. Repos using it in the pipeline (well, all of them) need to change to &amp;lsquo;ubuntu-latest&amp;rsquo;. Example: https://github.com/dsccommunity/SqlServerDsc/pull/1733/files Azure Devops has deprecated the build worker Windows Server 2016 (&amp;lsquo;windows-2016&amp;rsquo;). Repos using that for unit test or integration tests need to move to &amp;lsquo;windows-2019&amp;rsquo;, &amp;lsquo;windows-2022&amp;rsquo;, or &amp;lsquo;windows-latest&amp;rsquo; before March 2022. This may cause problems with assuring support on older operating systems.</description>
     </item>
     
     <item>
