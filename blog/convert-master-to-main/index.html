@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Steps to rename master branch to main for a DSC Community resource</title>
 
-  <meta name="generator" content="Hugo 0.88.1" />
+  <meta name="generator" content="Hugo 0.92.2" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -565,7 +565,7 @@ from <code>master</code> to <code>main</code>:</p>
 <p>If you have an Azure DevOps pipeline connected to <em>your fork</em> the pipeline
 should have automatically run in Step 2 and/or step 3. However, if it did not
 then you can run the pipeline manually to validate that it works correctly.</p>
-<p><img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" /></p>
+<img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" />
 <h3 id="step-6---submit-a-pull-request-from-main-in-your-fork-to-master-in-the-upstream-dsc-community-repository">Step 6 - Submit a pull request from main in your fork to master in the upstream DSC Community repository</h3>
 <p>The updated pipeline changes need to be submitted to the upstream
 DSC Community repository <code>master</code> branch via a Pull Request.</p>
@@ -587,7 +587,7 @@ branch.
 <h3 id="step-7---merge-the-pull-request-to-master">Step 7 - Merge the pull request to master</h3>
 <p>The pull request should be reviewed by a maintainer or other community
 member.</p>
-<p><img src="../../images/convert-master-to-main/github-merge-pull-request.png" alt="GitHub merge pull request" style="width:425px;" /></p>
+<img src="../../images/convert-master-to-main/github-merge-pull-request.png" alt="GitHub merge pull request" style="width:425px;" />
 <blockquote>
 <p>Important: The Azure DevOps CI pipeline will fail for this pull request.
 The failures will usually occur in the &lsquo;Run HQRM Test&rsquo; task in the &lsquo;HQRM&rsquo;
@@ -596,7 +596,7 @@ pull request will need to be merged in the next step regardless of the
 build failures which will be fixed in subsequent steps.</p>
 </blockquote>
 <p>A maintainer with admin privileges will need to merge this pull request:</p>
-<p><img src="../../images/convert-master-to-main/github-merge-pull-request-use-admin-privs.png" alt="GitHub merge pull request using administrator privileges" style="width:425px;" /></p>
+<img src="../../images/convert-master-to-main/github-merge-pull-request-use-admin-privs.png" alt="GitHub merge pull request using administrator privileges" style="width:425px;" />
 <blockquote>
 <p>Note: Using a merge commit or rebase merge are both acceptable. A
 squash merge is not required.</p>
@@ -649,7 +649,7 @@ not we can trigger it manually in Step 10 by choosing &ldquo;Save &amp; Queue&rd
 </li>
 <li>
 <p>Tick <code>Restrict who can push to matching branches</code>.</p>
-<p><img src="../../images/convert-master-to-main/github-create-branch-policy.png" alt="GitHub create main branch policy" style="width:425px;" /></p>
+<img src="../../images/convert-master-to-main/github-create-branch-policy.png" alt="GitHub create main branch policy" style="width:425px;" />
 </li>
 <li>
 <p>Click the <code>Save changes</code> button.</p>
@@ -677,7 +677,7 @@ from <code>master</code> to <code>main</code>:</p>
 <p>The Azure DevOps pipeline should have been run by Step 8 or Step 9. However,
 if it did not then you can run the pipeline manually to validate that it works
 correctly. Validate that it has completed successfully:</p>
-<p><img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" /></p>
+<img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" />
 <h3 id="step-12---optional-update-local-clone">Step 12 - Optional: Update local clone</h3>
 <p>Run the following in the local repository to rename the default branch in
 the local clone, and update it with all the commits in the upstream branch

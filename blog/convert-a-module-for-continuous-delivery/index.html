@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Steps to convert a module for continuous delivery</title>
 
-  <meta name="generator" content="Hugo 0.88.1" />
+  <meta name="generator" content="Hugo 0.92.2" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -623,7 +623,7 @@ change log format, see example in the Sampled repository
 You can get the date for each tag (release) by running this, or
 check releases in the PowerShell Gallery.
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git log --tags --simplify-by-decoration --pretty<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;format:%ai %d&#34;</span>
-</code></pre></div><p>Example of log entry</p>
+</code></pre></div>Example of log entry
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#75715e">## [13.2.0.0] - 2019-09-18
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">### Changed
@@ -1191,7 +1191,7 @@ browse the marketplace and search for <em>GitVersion</em>.</li>
 </ol>
 </li>
 <li>Create a new project with the same name as the <em>GitHub repository name</em>*,
-make sure to set visibility to **public**.</li>
+make sure to set visibility to <strong>public</strong>.</li>
 <li>In the new project under Pipelines, create a new pipeline and choose
 GitHub as where the source resides, choose the the fork of the repository,
 e.g. johlju/SqlServerDsc. You will need to authenticate Azure DevOps
@@ -1270,7 +1270,7 @@ the upstream repository since we need to have access to the file
 <ol>
 <li>Create a new project at <a href="https://dev.azure.com/dsccommunity/">https://dev.azure.com/dsccommunity/</a> with the
 same name as the <em>GitHub repository name</em>*, make sure to set visibility
-to **public**.</li>
+to <strong>public</strong>.</li>
 <li>In the new project under Pipelines, create a new pipeline and choose
 GitHub as where the source resides
 <ol>
