@@ -23,6 +23,15 @@ We are also available on the Virtual PowerShell User Group #DSC channel.</descri
     </item>
     
     <item>
+      <title>2022-02-16 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2022-02-16-notes/</link>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2022-02-16-notes/</guid>
+      <description>Recording   Quick update on activity  DscCommunity.org pipeline is fixed (using a workaround) - still waiting on the fix that makes us use the latest version of Hugo. Upcoming talks to PS Summit NA and PSConfEU Gael demo&amp;rsquo;d Sampler.DscPipeline  DSC resource modules that have been released recently  Releases  SChannelDsc v1.3.0 ConfigMgrCBDsc v3.0.0 SharePointDsc v5.0.0   Preview releases  SqlServerDsc v16.0.0-preview0003 SharePointDsc v5.1.0-preview0003    Tooling modules that have been released recently  Releases  Sampler v0.</description>
+    </item>
+    
+    <item>
       <title>2021-11-17 Notes</title>
       <link>https://dsccommunity.org/community_calls/2021-11-17-notes/</link>
       <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
