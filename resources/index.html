@@ -699,16 +699,16 @@ if (!doNotTrack) {
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">5.0.0</span>
+                    <span class="badge badge-success">5.0.1-preview0002</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2020-06-20 23:17</span>
+                    <span class="badge badge-success">2020-12-30 20:22</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 08:26</span>
+                      <span class="badge badge-secondary">2022-05-02 21:21</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/ActiveDirectoryCSDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -752,6 +752,20 @@ if (!doNotTrack) {
                     
                     <span class="badge badge-warning">AdscTemplate</span>
                     
+                    <span class="badge badge-warning">DSC_AdcsAuthorityInformationAccess</span>
+                    
+                    <span class="badge badge-warning">DSC_AdcsCertificationAuthority</span>
+                    
+                    <span class="badge badge-warning">DSC_AdcsCertificationAuthoritySettings</span>
+                    
+                    <span class="badge badge-warning">DSC_AdcsEnrollmentPolicyWebService</span>
+                    
+                    <span class="badge badge-warning">DSC_AdcsOnlineResponder</span>
+                    
+                    <span class="badge badge-warning">DSC_AdcsTemplate</span>
+                    
+                    <span class="badge badge-warning">DSC_AdcsWebEnrollment</span>
+                    
                   </div>
                 </div>
                 <!-- description -->
@@ -769,50 +783,15 @@ if (!doNotTrack) {
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-ActiveDirectoryCSDsc" role="tabpanel" aria-labelledby="nav-rn-tab-ActiveDirectoryCSDsc">
-                          <div class="card card-body border-top-0"><h2 id="500---2020-06-20">[5.0.0] - 2020-06-20</h2>
+                          <div class="card card-body border-top-0"><h2 id="501-preview0002---2020-12-30">[5.0.1-preview0002] - 2020-12-30</h2>
 <h3 id="changed">Changed</h3>
 <ul>
-<li>Updated common function <code>Test-DscParameterState</code> to support ordered comparison
-of arrays by copying function and tests from <code>ComputerManagementDsc</code>.</li>
-<li>Added new resource AdcsAuthorityInformationAccess - see
-<a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/101">Issue #101</a>.</li>
-<li>BREAKING CHANGE: Deprecate AdcsOcspExtension. This has been superceeded by
-AdcsAuthorityInformationAccess.</li>
-<li>AdcsCertificateAuthoritySettings:
+<li>ActiveDirectoryCSDsc
 <ul>
-<li>Correct types returned by <code>CRLPeriodUnits</code> and <code>AuditFilter</code> properties
-from Get-TargetResource.</li>
+<li>Automatically publish documentation to GitHub Wiki - Fixes <a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/122">Issue #122</a>.</li>
 </ul>
 </li>
-<li>Updated module ownership to DSC Community.</li>
-<li>BREAKING CHANGE: Changed resource prefix from MSFT to DSC.</li>
-<li>Updated to use continuous delivery pattern using Azure DevOps - Fixes
-<a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/105">Issue #105</a>.</li>
-<li>Fixed build badge IDs - Fixes <a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/108">Issue #108</a>.</li>
-<li>Corrected MOF formatting of <code>DSC_AdcsAuthorityInformationAccess.schema.mof</code>
-to fix issue with auto documentation generation.</li>
-<li>Updated CI pipeline files.</li>
-<li>No longer run integration tests when running the build task <code>test</code>, e.g.
-<code>.\build.ps1 -Task test</code>. To manually run integration tests, run the
-following:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks test -PesterScript <span style="color:#e6db74">&#39;tests/Integration&#39;</span> -CodeCoverageThreshold 0
-</code></pre></div></li>
-<li>Removed unused files repository - Fixes <a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/112">Issue #112</a>.</li>
-<li>Change Azure DevOps Pipeline definition to include <code>source/*</code> - Fixes <a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/114">Issue #114</a>.</li>
-<li>Updated pipeline to use <code>latest</code> version of <code>ModuleBuilder</code> - Fixes <a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/115">Issue #115</a>.</li>
-<li>Merge <code>HISTORIC_CHANGELOG.md</code> into <code>CHANGELOG.md</code> - Fixes <a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/115">Issue #115</a>.</li>
-<li>Fixed build failures caused by changes in <code>ModuleBuilder</code> module v1.7.0
-by changing <code>CopyDirectories</code> to <code>CopyPaths</code> - Fixes <a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/119">Issue #119</a>.</li>
-<li>Updated to use the common module <em>DscResource.Common</em> - Fixes <a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/117">Issue #117</a>.</li>
-<li>Pin <code>Pester</code> module to 4.10.1 because Pester 5.0 is missing code
-coverage - Fixes <a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/118">Issue #118</a>.</li>
-</ul>
-<h3 id="added">Added</h3>
-<ul>
-<li>Added build task <code>Generate_Conceptual_Help</code> to generate conceptual help
-for the DSC resource.</li>
-<li>Added build task <code>Generate_Wiki_Content</code> to generate the wiki content
-that can be used to update the GitHub Wiki.</li>
+<li>Renamed <code>master</code> branch to <code>main</code> - Fixes <a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/124">Issue #124</a>.</li>
 </ul>
 </div>
                       </div>
@@ -846,7 +825,7 @@ that can be used to update the GitHub Wiki.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:57</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/ActiveDirectoryDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -866,60 +845,6 @@ that can be used to update the GitHub Wiki.</li>
                     
                     <span class="badge badge-pill badge-info">PSModule</span>
                     
-                    <span class="badge badge-pill badge-info">PSFunction_Find-DomainController</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Find-DomainController</span>
-                    
-                    <span class="badge badge-pill badge-info">PSIncludes_Function</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADComputer</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADDomain</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADDomainController</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADDomainControllerProperties</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADDomainDefaultPasswordPolicy</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADDomainFunctionalLevel</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADDomainTrust</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADFineGrainedPasswordPolicy</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADForestFunctionalLevel</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADForestProperties</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADGroup</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADKDSKey</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADManagedServiceAccount</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADObjectEnabledState</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADObjectPermissionEntry</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADOptionalFeature</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADOrganizationalUnit</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADReplicationSite</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADReplicationSiteLink</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADServicePrincipalName</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADUser</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_WaitForADDomain</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_ADReplicationSubnet</span>
-                    
-                    <span class="badge badge-pill badge-info">PSIncludes_DscResource</span>
-                    
                   </div>
                 </div>
 
@@ -928,7 +853,51 @@ that can be used to update the GitHub Wiki.</li>
                   <div style="padding:10px">
                     <strong>DSC Resources:</strong>
                     
-                    <span class="badge badge-warning"></span>
+                    <span class="badge badge-warning">ADComputer</span>
+                    
+                    <span class="badge badge-warning">ADDomain</span>
+                    
+                    <span class="badge badge-warning">ADDomainController</span>
+                    
+                    <span class="badge badge-warning">ADDomainControllerProperties</span>
+                    
+                    <span class="badge badge-warning">ADDomainDefaultPasswordPolicy</span>
+                    
+                    <span class="badge badge-warning">ADDomainFunctionalLevel</span>
+                    
+                    <span class="badge badge-warning">ADDomainTrust</span>
+                    
+                    <span class="badge badge-warning">ADFineGrainedPasswordPolicy</span>
+                    
+                    <span class="badge badge-warning">ADForestFunctionalLevel</span>
+                    
+                    <span class="badge badge-warning">ADForestProperties</span>
+                    
+                    <span class="badge badge-warning">ADGroup</span>
+                    
+                    <span class="badge badge-warning">ADKDSKey</span>
+                    
+                    <span class="badge badge-warning">ADManagedServiceAccount</span>
+                    
+                    <span class="badge badge-warning">ADObjectEnabledState</span>
+                    
+                    <span class="badge badge-warning">ADObjectPermissionEntry</span>
+                    
+                    <span class="badge badge-warning">ADOptionalFeature</span>
+                    
+                    <span class="badge badge-warning">ADOrganizationalUnit</span>
+                    
+                    <span class="badge badge-warning">ADReplicationSite</span>
+                    
+                    <span class="badge badge-warning">ADReplicationSiteLink</span>
+                    
+                    <span class="badge badge-warning">ADServicePrincipalName</span>
+                    
+                    <span class="badge badge-warning">ADUser</span>
+                    
+                    <span class="badge badge-warning">WaitForADDomain</span>
+                    
+                    <span class="badge badge-warning">ADReplicationSubnet</span>
                     
                   </div>
                 </div>
@@ -981,7 +950,7 @@ These DSC resources allow you to configure new domains, child domains, and high 
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:57</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/AuditPolicyDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1071,7 +1040,7 @@ These DSC resources allow you to configure new domains, child domains, and high 
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:57</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/CertificateDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1538,7 +1507,7 @@ runs on PowerShell Core/7.x.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:57</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/ComputerManagementDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1697,19 +1666,19 @@ Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/350"
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">4.4.0.0</span>
+                    <span class="badge badge-success">4.5.0-preview0001</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2019-09-19 02:29</span>
+                    <span class="badge badge-success">2021-04-20 12:15</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 08:26</span>
+                      <span class="badge badge-secondary">2022-04-13 12:21</span>
                       <br />
                   </div>
-                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/DFSDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
+                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/DFSDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
                 </div>
                 <!-- Tags -->
                 <div class="row">
@@ -1720,13 +1689,15 @@ Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/350"
                     
                     <span class="badge badge-pill badge-info">DesiredStateConfiguration</span>
                     
-                    <span class="badge badge-pill badge-info">DSCResourceKit</span>
-                    
                     <span class="badge badge-pill badge-info">DSCResource</span>
                     
                     <span class="badge badge-pill badge-info">DFS</span>
                     
                     <span class="badge badge-pill badge-info">DistributedFileSystem</span>
+                    
+                    <span class="badge badge-pill badge-info">Replication</span>
+                    
+                    <span class="badge badge-pill badge-info">Namespace</span>
                     
                     <span class="badge badge-pill badge-info">PSModule</span>
                     
@@ -1769,10 +1740,40 @@ Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/350"
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-DFSDsc" role="tabpanel" aria-labelledby="nav-rn-tab-DFSDsc">
-                          <div class="card card-body border-top-0"><ul>
-<li>Fix example publish to PowerShell Gallery by adding <code>gallery_api</code>
-environment variable to <code>AppVeyor.yml</code> - fixes <a href="https://github.com/PowerShell/DfsDsc/issues/91">Issue 91</a>.</li>
-<li>Fix minor style issues in statement case.</li>
+                          <div class="card card-body border-top-0"><h2 id="450-preview0001---2021-04-20">[4.5.0-preview0001] - 2021-04-20</h2>
+<h3 id="changed">Changed</h3>
+<ul>
+<li>BREAKING CHANGE: Changed resource prefix from MSFT to DSC.</li>
+<li>Updated to use continuous delivery pattern using Azure DevOps - fixes
+<a href="https://github.com/dsccommunity/DFSDsc/issues/98">Issue #41</a>.</li>
+<li>Updated build badges in README.MD.</li>
+<li>Renamed <code>DFSDsc.ResourceHelper</code> module to <code>DFSDsc.Common</code> to align to
+other modules.</li>
+<li>Correct case of localization folder names.</li>
+<li>Update build badges in <code>README.md</code> with correct build IDs.</li>
+<li>DFSDsc
+<ul>
+<li>Updated to use the common module <em>DscResource.Common</em> - Fixes <a href="https://github.com/dsccommunity/DFSDsc/issues/102">Issue #102</a>.</li>
+<li>Fixed build failures caused by changes in <code>ModuleBuilder</code> module v1.7.0
+by changing <code>CopyDirectories</code> to <code>CopyPaths</code> - Fixes <a href="https://github.com/dsccommunity/DFSDsc/issues/103">Issue #103</a>.</li>
+<li>Pin <code>Pester</code> module to 4.10.1 because Pester 5.0 is missing code
+coverage - Fixes <a href="https://github.com/dsccommunity/DFSDsc/issues/105">Issue #105</a>.</li>
+</ul>
+</li>
+<li>Renamed <code>master</code> branch to <code>main</code> - Fixes <a href="https://github.com/dsccommunity/DFSDsc/issues/108">Issue #108</a>.</li>
+<li>Corrected build badge URLs in README.md.</li>
+<li>Minor corrections to pipeline files and examples after renaming <code>master</code>
+branch to <code>main</code>.</li>
+<li>DFSDsc
+<ul>
+<li>Automatically publish documentation to GitHub Wiki - Fixes <a href="https://github.com/dsccommunity/DFSDsc/issues/109">Issue #109</a>.</li>
+</ul>
+</li>
+<li>Updated <code>GitVersion.yml</code> to latest pattern - Fixes <a href="https://github.com/dsccommunity/DFSDsc/issues/113">Issue #113</a>.</li>
+<li>Updated build to use <code>Sampler.GitHubTasks</code> - Fixes <a href="https://github.com/dsccommunity/DFSDsc/issues/116">Issue #116</a>.</li>
+<li>Added support for publishing code coverage to <code>CodeCov.io</code> and
+Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/DFSDsc/issues/115">Issue #115</a>.</li>
+<li>Removed duplicate code coverage badge.</li>
 </ul>
 </div>
                       </div>
@@ -1797,16 +1798,16 @@ environment variable to <code>AppVeyor.yml</code> - fixes <a href="https://githu
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">2.5.0</span>
+                    <span class="badge badge-success">2.5.1-preview0002</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2020-06-20 23:17</span>
+                    <span class="badge badge-success">2021-01-21 06:00</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-04-27 00:32</span>
+                      <span class="badge badge-secondary">2022-04-19 09:06</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/FSRMDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1885,24 +1886,15 @@ environment variable to <code>AppVeyor.yml</code> - fixes <a href="https://githu
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-FSRMDsc" role="tabpanel" aria-labelledby="nav-rn-tab-FSRMDsc">
-                          <div class="card card-body border-top-0"><h2 id="250---2020-06-20">[2.5.0] - 2020-06-20</h2>
+                          <div class="card card-body border-top-0"><h2 id="251-preview0002---2021-01-21">[2.5.1-preview0002] - 2021-01-21</h2>
 <h3 id="changed">Changed</h3>
 <ul>
-<li>Transferred ownership to DSCCommunity.org - Fixes <a href="https://github.com/dsccommunity/FSRMDsc/issues/33">Issue #33</a>.</li>
-<li>Added .gitattributes file to fix bug publishing examples - Fixes <a href="https://github.com/PlagueHO/FSRMDsc/issues/23">Issue #23</a>.</li>
-<li>Combined all <code>FSRMDsc.ResourceHelper</code> module functions into
-<code>FSRMDsc.Common</code> module and renamed to <code>FSRMDsc.CommonHelper</code>
-module.</li>
-<li>Opted into Common Tests &lsquo;Common Tests - Validate Localization&rsquo; -
-fixes <a href="https://github.com/PowerShell/FSRMDsc/issues/27">Issue #82</a>.</li>
-<li>Minor style fixes to ensure new PSSA rules pass.</li>
-<li>Fix minor style issues in statement case.</li>
-<li>Fix minor style issues in hashtable layout.</li>
-<li>Updated to use the common module <em>DscResource.Common</em> - Fixes <a href="https://github.com/dsccommunity/FSRMDsc/issues/36">Issue #36</a>.</li>
-<li>BREAKING CHANGE: Changed resource prefix from MSFT to DSC.</li>
-<li>Updated to use continuous delivery pattern using Azure DevOps - Fixes
-<a href="https://github.com/dsccommunity/FSRMDsc/issues/35">Issue #35</a>.</li>
-<li>Updated build badges in README.MD.</li>
+<li>FSRMDsc
+<ul>
+<li>Automatically publish documentation to GitHub Wiki - Fixes <a href="https://github.com/dsccommunity/FSRMDsc/issues/41">Issue #41</a>.</li>
+</ul>
+</li>
+<li>Renamed <code>master</code> branch to <code>main</code> - Fixes <a href="https://github.com/dsccommunity/FSRMDsc/issues/43">Issue #43</a>.</li>
 </ul>
 </div>
                       </div>
@@ -1927,19 +1919,19 @@ fixes <a href="https://github.com/PowerShell/FSRMDsc/issues/27">Issue #82</a>.</
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">1.3.0.151</span>
+                    <span class="badge badge-success">2.0.0-preview0003</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2019-07-20 20:48</span>
+                    <span class="badge badge-success">2020-12-30 00:58</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 06:46</span>
+                      <span class="badge badge-secondary">2022-04-27 21:05</span>
                       <br />
                   </div>
-                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PlagueHO/FileContentDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
+                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/FileContentDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
                 </div>
                 <!-- Tags -->
                 <div class="row">
@@ -1950,9 +1942,9 @@ fixes <a href="https://github.com/PowerShell/FSRMDsc/issues/27">Issue #82</a>.</
                     
                     <span class="badge badge-pill badge-info">DSC</span>
                     
-                    <span class="badge badge-pill badge-info">DSCResourceKit</span>
-                    
                     <span class="badge badge-pill badge-info">DSCResource</span>
+                    
+                    <span class="badge badge-pill badge-info">FileContent</span>
                     
                     <span class="badge badge-pill badge-info">PSModule</span>
                     
@@ -1970,6 +1962,12 @@ fixes <a href="https://github.com/PowerShell/FSRMDsc/issues/27">Issue #82</a>.</
                     
                     <span class="badge badge-warning">IniSettingsFile</span>
                     
+                    <span class="badge badge-warning">DSC_IniSettingsFile</span>
+                    
+                    <span class="badge badge-warning">DSC_KeyValuePairFile</span>
+                    
+                    <span class="badge badge-warning">DSC_ReplaceText</span>
+                    
                   </div>
                 </div>
                 <!-- description -->
@@ -1983,11 +1981,31 @@ fixes <a href="https://github.com/PowerShell/FSRMDsc/issues/27">Issue #82</a>.</
                     </nav>
                     <div class="tab-content border-top-0" id="nav-tabContent-FileContentDsc">
                       <div class="tab-pane fade show active border-top-0" id="nav-desc-FileContentDsc" role="tabpanel" aria-labelledby="nav-desc-tab-FileContentDsc">
-                        <div class="card card-body border-top-0">This module contains the DSC resources for manipulating the content of text files.</div>
+                        <div class="card card-body border-top-0">DSC resources for for manipulating the content of text files.</div>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-FileContentDsc" role="tabpanel" aria-labelledby="nav-rn-tab-FileContentDsc">
-                          <div class="card card-body border-top-0">Initial release of FileContentDsc</div>
+                          <div class="card card-body border-top-0"><h2 id="200-preview0003---2020-12-30">[2.0.0-preview0003] - 2020-12-30</h2>
+<h3 id="changed">Changed</h3>
+<ul>
+<li>Transferred ownership to DSCCommunity.org -
+fixes <a href="https://github.com/dsccommunity/FileContentDsc/issues/39">Issue #31</a>.</li>
+<li>BREAKING CHANGE: Changed resource prefix from MSFT to DSC.</li>
+<li>Updated to use continuous delivery pattern using Azure DevOps - fixes
+<a href="https://github.com/dsccommunity/FileContentDsc/issues/41">Issue #41</a>.</li>
+<li>Updated build badges in README.MD.</li>
+<li>Change Azure DevOps Pipeline definition to include <code>source/*</code> - Fixes <a href="https://github.com/dsccommunity/FileContentDsc/issues/45">Issue #45</a>.</li>
+<li>Updated pipeline to use <code>latest</code> version of <code>ModuleBuilder</code> - Fixes <a href="https://github.com/dsccommunity/FileContentDsc/issues/45">Issue #45</a>.</li>
+<li>Merge <code>HISTORIC_CHANGELOG.md</code> into <code>CHANGELOG.md</code> - Fixes <a href="https://github.com/dsccommunity/FileContentDsc/issues/46">Issue #46</a>.</li>
+<li>Fixed build failures caused by changes in <code>ModuleBuilder</code> module v1.7.0
+by changing <code>CopyDirectories</code> to <code>CopyPaths</code> - Fixes <a href="https://github.com/dsccommunity/FileContentDsc/issues/49">Issue #49</a>.</li>
+<li>Updated to use the common module <em>DscResource.Common</em> - Fixes <a href="https://github.com/dsccommunity/FileContentDsc/issues/48">Issue #48</a>.</li>
+<li>Pin <code>Pester</code> module to 4.10.1 because Pester 5.0 is missing code
+coverage - Fixes <a href="https://github.com/dsccommunity/FileContentDsc/issues/50">Issue #50</a>.</li>
+<li>Automatically publish documentation to GitHub Wiki - Fixes <a href="https://github.com/dsccommunity/FileContentDsc/issues/51">Issue #51</a>.</li>
+<li>Renamed <code>master</code> branch to <code>main</code> - Fixes <a href="https://github.com/dsccommunity/FileContentDsc/issues/53">Issue #53</a>.</li>
+</ul>
+</div>
                       </div>
                       
                     </div>
@@ -2019,7 +2037,7 @@ fixes <a href="https://github.com/PowerShell/FSRMDsc/issues/27">Issue #82</a>.</
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 08:52</span>
+                      <span class="badge badge-secondary">2022-05-03 09:52</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/GPRegistryPolicyDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2137,16 +2155,16 @@ fixes <a href="https://github.com/PowerShell/FSRMDsc/issues/27">Issue #82</a>.</
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">0.7.2</span>
+                    <span class="badge badge-success">0.8.0-preview0002</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2020-09-29 10:28</span>
+                    <span class="badge badge-success">2020-11-18 17:19</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 08:26</span>
+                      <span class="badge badge-secondary">2022-04-12 10:40</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/JeaDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2197,10 +2215,24 @@ fixes <a href="https://github.com/PowerShell/FSRMDsc/issues/27">Issue #82</a>.</
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-JeaDsc" role="tabpanel" aria-labelledby="nav-rn-tab-JeaDsc">
-                          <div class="card card-body border-top-0"><h2 id="072---2020-09-29">[0.7.2] - 2020-09-29</h2>
+                          <div class="card card-body border-top-0"><h2 id="080-preview0002---2020-11-18">[0.8.0-preview0002] - 2020-11-18</h2>
+<h3 id="added">Added</h3>
+<ul>
+<li>Adding herited classes that contains helper methods.</li>
+<li>Adding Reason class.</li>
+<li>Adding Reasons property in JeaSessionConfiguration and JeaRoleCapabilities resources.
+It&rsquo;s a requirement of <a href="https://docs.microsoft.com/en-us/azure/governance/policy/how-to/guest-configuration-create#get-targetresource-requirements">Guest Configuration</a></li>
+<li>Adding pester tests to check Reasons property.</li>
+</ul>
 <h3 id="changed">Changed</h3>
 <ul>
-<li>Moving code from constructor to separate method.</li>
+<li>Moving the class based resources from nested modules to root module.</li>
+<li>Moving LocalizedData of class based resources in .strings.psd1 files.
+Based on <a href="https://dsccommunity.org/styleguidelines/localization/">stylesguidelines</a> of DscCommunity.</li>
+</ul>
+<h3 id="removed">Removed</h3>
+<ul>
+<li>Removing dummy object</li>
 </ul>
 </div>
                       </div>
@@ -2225,16 +2257,16 @@ fixes <a href="https://github.com/PowerShell/FSRMDsc/issues/27">Issue #82</a>.</
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">8.2.0</span>
+                    <span class="badge badge-success">9.0.0-preview0002</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2020-10-16 06:23</span>
+                    <span class="badge badge-success">2022-04-12 08:32</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:37</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/NetworkingDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2312,6 +2344,18 @@ fixes <a href="https://github.com/PowerShell/FSRMDsc/issues/27">Issue #82</a>.</
                     
                     <span class="badge badge-warning">WINSSetting</span>
                     
+                    <span class="badge badge-warning">DnsServerAddress</span>
+                    
+                    <span class="badge badge-warning">NetAdapterRdma</span>
+                    
+                    <span class="badge badge-warning">NetBios</span>
+                    
+                    <span class="badge badge-warning">WaitForNetworkTeam</span>
+                    
+                    <span class="badge badge-warning">WinsServerAddress</span>
+                    
+                    <span class="badge badge-warning">WinsSetting</span>
+                    
                   </div>
                 </div>
                 <!-- description -->
@@ -2329,36 +2373,7 @@ fixes <a href="https://github.com/PowerShell/FSRMDsc/issues/27">Issue #82</a>.</
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-NetworkingDsc" role="tabpanel" aria-labelledby="nav-rn-tab-NetworkingDsc">
-                          <div class="card card-body border-top-0"><h2 id="820---2020-10-16">[8.2.0] - 2020-10-16</h2>
-<h3 id="changed">Changed</h3>
-<ul>
-<li>IPAddress
-<ul>
-<li>Improved integration test structure.</li>
-</ul>
-</li>
-</ul>
-<h3 id="added">Added</h3>
-<ul>
-<li>NetIPInterface
-<ul>
-<li>Added <code>InterfaceMetric</code> parameter- fixes <a href="https://github.com/PowerShell/xNetworking/issues/473">Issue #473</a>.</li>
-</ul>
-</li>
-</ul>
-<h3 id="fixed">Fixed</h3>
-<ul>
-<li>NetIPInterface
-<ul>
-<li>Fix &lsquo;type mismatch for property&rsquo; issue when setting &lsquo;AdvertiseDefaultRoute&rsquo;,
-&lsquo;Advertising&rsquo;, &lsquo;AutomaticMetric&rsquo;, &lsquo;Dhcp&rsquo;, &lsquo;DirectedMacWolPattern&rsquo;, &lsquo;EcnMarking&rsquo;,
-&lsquo;ForceArpNdWolPattern&rsquo;, &lsquo;Forwarding&rsquo;, &lsquo;IgnoreDefaultRoutes&rsquo;, &lsquo;ManagedAddressConfiguration&rsquo;,
-&lsquo;NeighborUnreachabilityDetection&rsquo;, &lsquo;OtherStatefulConfiguration&rsquo;, &lsquo;RouterDiscovery&rsquo;,
-&lsquo;WeakHostReceive&rsquo; or &lsquo;WeakHostSend&rsquo; - Fixes <a href="https://github.com/dsccommunity/NetworkingDsc/issues/470">Issue #470</a>.</li>
-</ul>
-</li>
-</ul>
-</div>
+                          <div class="card card-body border-top-0"></div>
                       </div>
                       
                     </div>
@@ -2536,7 +2551,7 @@ for farm join, especially with the new ProductUpdate resource.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:57</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/PSDscResources" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2741,16 +2756,16 @@ Specifically fixes
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">2.2.5</span>
+                    <span class="badge badge-success">3.0.12-beta</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2020-09-22 22:42</span>
+                    <span class="badge badge-success">2021-12-09 18:19</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:52</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://go.microsoft.com/fwlink/?LinkId=828955" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2760,9 +2775,7 @@ Specifically fixes
                   <div style="padding:10px">
                     <strong>Tags:</strong>
                     
-                    <span class="badge badge-pill badge-info">Packagemanagement</span>
-                    
-                    <span class="badge badge-pill badge-info">Provider</span>
+                    <span class="badge badge-pill badge-info">PackageManagement</span>
                     
                     <span class="badge badge-pill badge-info">PSEdition_Desktop</span>
                     
@@ -2772,119 +2785,9 @@ Specifically fixes
                     
                     <span class="badge badge-pill badge-info">Mac</span>
                     
+                    <span class="badge badge-pill badge-info">Windows</span>
+                    
                     <span class="badge badge-pill badge-info">PSModule</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Find-Command</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Find-Command</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Find-DSCResource</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Find-DSCResource</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Find-Module</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Find-Module</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Find-RoleCapability</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Find-RoleCapability</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Find-Script</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Find-Script</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Get-CredsFromCredentialProvider</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Get-CredsFromCredentialProvider</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Get-InstalledModule</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Get-InstalledModule</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Get-InstalledScript</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Get-InstalledScript</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Get-PSRepository</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Get-PSRepository</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Install-Module</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Install-Module</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Install-Script</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Install-Script</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_New-ScriptFileInfo</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_New-ScriptFileInfo</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Publish-Module</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Publish-Module</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Publish-Script</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Publish-Script</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Register-PSRepository</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Register-PSRepository</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Save-Module</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Save-Module</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Save-Script</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Save-Script</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Set-PSRepository</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Set-PSRepository</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Test-ScriptFileInfo</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Test-ScriptFileInfo</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Uninstall-Module</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Uninstall-Module</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Uninstall-Script</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Uninstall-Script</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Unregister-PSRepository</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Unregister-PSRepository</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Update-Module</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Update-Module</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Update-ModuleManifest</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Update-ModuleManifest</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Update-Script</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Update-Script</span>
-                    
-                    <span class="badge badge-pill badge-info">PSFunction_Update-ScriptFileInfo</span>
-                    
-                    <span class="badge badge-pill badge-info">PSCommand_Update-ScriptFileInfo</span>
-                    
-                    <span class="badge badge-pill badge-info">PSIncludes_Function</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_PSModule</span>
-                    
-                    <span class="badge badge-pill badge-info">PSDscResource_PSRepository</span>
-                    
-                    <span class="badge badge-pill badge-info">PSIncludes_DscResource</span>
                     
                   </div>
                 </div>
@@ -2909,265 +2812,12 @@ Specifically fixes
                     </nav>
                     <div class="tab-content border-top-0" id="nav-tabContent-PowerShellGet">
                       <div class="tab-pane fade show active border-top-0" id="nav-desc-PowerShellGet" role="tabpanel" aria-labelledby="nav-desc-tab-PowerShellGet">
-                        <div class="card card-body border-top-0">PowerShell module with commands for discovering, installing, updating and publishing the PowerShell artifacts like Modules, DSC Resources, Role Capabilities and Scripts.</div>
+                        <div class="card card-body border-top-0">PowerShell module with commands for discovering, installing, updating and publishing the PowerShell artifacts like Modules, Scripts, and DSC Resources.</div>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-PowerShellGet" role="tabpanel" aria-labelledby="nav-rn-tab-PowerShellGet">
-                          <div class="card card-body border-top-0"><h3 id="225">2.2.5</h3>
-<ul>
-<li>Security patch for code injection bug</li>
-</ul>
-<h3 id="2241">2.2.4.1</h3>
-<ul>
-<li>Remove catalog file</li>
-</ul>
-<h3 id="223">2.2.3</h3>
-<ul>
-<li>Update <code>HelpInfoUri</code> to point to the latest content (#560)</li>
-<li>Improve discovery of usable nuget.exe binary (Thanks bwright86!) (#558)</li>
-</ul>
-<h3 id="222">2.2.2</h3>
-<p>Bug Fix</p>
-<ul>
-<li>Update casing of DscResources output</li>
-</ul>
-<h3 id="221">2.2.1</h3>
-<p>Bug Fix</p>
-<ul>
-<li>Allow DscResources to work on case sensitive platforms (#521)</li>
-<li>Fix for failure to return credential provider when using private feeds (#521)</li>
-</ul>
-<h2 id="22">2.2</h2>
-<p>Bug Fix</p>
-<ul>
-<li>Fix for prompting for credentials when passing in -Credential parameter when using Register-PSRepository</li>
-</ul>
-<h2 id="215">2.1.5</h2>
-<p>New Features</p>
-<ul>
-<li>Add and remove nuget based repositories as a nuget source when nuget client tool is installed (#498)</li>
-</ul>
-<p>Bug Fix</p>
-<ul>
-<li>Fix for &lsquo;Failed to publish module&rsquo; error thrown when publishing modules (#497)</li>
-</ul>
-<h2 id="214">2.1.4</h2>
-<ul>
-<li>Fixed hang while publishing some packages (#478)</li>
-</ul>
-<h2 id="213">2.1.3</h2>
-<p>New Features</p>
-<ul>
-<li>Added -Scope parameter to Update-Module (Thanks @lwajswaj!) (#471)</li>
-<li>Added -Exclude parameter to Publish-Module (Thanks @Benny1007!) (#191)</li>
-<li>Added -SkipAutomaticTags parameter to Publish-Module (Thanks @awickham10!) (#452)</li>
-</ul>
-<p>Bug Fix</p>
-<ul>
-<li>Fixed issue with finding modules using macOS and .NET Core 3.0</li>
-</ul>
-<h2 id="212">2.1.2</h2>
-<p>New Feature</p>
-<ul>
-<li>Added support for registering repositories with special characters</li>
-</ul>
-<h2 id="211">2.1.1</h2>
-<ul>
-<li>Fix DSC resource folder structure</li>
-</ul>
-<h2 id="210">2.1.0</h2>
-<p>Breaking Change</p>
-<ul>
-<li>Default installation scope for Update-Module and Update-Script has changed to match Install-Module and Install-Script. For Windows PowerShell (version 5.1 or below), the default scope is AllUsers when running in an elevated session, and CurrentUser at all other times.
-For PowerShell version 6.0.0 and above, the default installation scope is always CurrentUser. (#421)</li>
-</ul>
-<p>Bug Fixes</p>
-<ul>
-<li>Update-ModuleManifest no longer clears FunctionsToExport, AliasesToExport, nor NestModules (#415 &amp; #425) (Thanks @pougetat and @tnieto88!)</li>
-<li>Update-Module no longer changes repository URL (#407)</li>
-<li>Update-ModuleManifest no longer preprends &lsquo;PSGet_&rsquo; to module name (#403) (Thanks @ThePoShWolf)</li>
-<li>Update-ModuleManifest now throws error and fails to update when provided invalid entries (#398) (Thanks @pougetat!)</li>
-<li>Ignore files no longer being included when uploading modules (#396)</li>
-</ul>
-<p>New Features</p>
-<ul>
-<li>New DSC resource, PSRepository (#426) (Thanks @johlju!)</li>
-<li>Piping of PS respositories (#420)</li>
-<li>utf8 support for .nuspec (#419)</li>
-</ul>
-<h2 id="204">2.0.4</h2>
-<p>Bug Fix</p>
-<ul>
-<li>Remove PSGallery availability checks (#374)</li>
-</ul>
-<h2 id="203">2.0.3</h2>
-<p>Bug fixes and Improvements</p>
-<ul>
-<li>Fix CommandAlreadyAvailable error for PackageManagement module (#333)</li>
-<li>Remove trailing whitespace when value is not provided for Get-PSScriptInfoString (#337) (Thanks @thomasrayner)</li>
-<li>Expanded aliases for improved readability (#338) (Thanks @lazywinadmin)</li>
-<li>Improvements for Catalog tests (#343)</li>
-<li>Fix Update-ScriptInfoFile to preserve PrivateData (#346) (Thanks @tnieto88)</li>
-<li>Import modules with many commands faster (#351)</li>
-</ul>
-<p>New Features</p>
-<ul>
-<li>Tab completion for -Repository parameter (#339) and for Publish-Module -Name (#359) (Thanks @matt9ucci)</li>
-</ul>
-<h2 id="201">2.0.1</h2>
-<p>Bug fixes</p>
-<ul>
-<li>Resolved Publish-Module doesn&rsquo;t report error but fails to publish module (#316)</li>
-<li>Resolved CommandAlreadyAvailable error while installing the latest version of PackageManagement module (#333)</li>
-</ul>
-<h2 id="200">2.0.0</h2>
-<p>Breaking Change</p>
-<ul>
-<li>Default installation scope for Install-Module, Install-Script, and Install-Package has changed. For Windows PowerShell (version 5.1 or below), the default scope is AllUsers when running in an elevated session, and CurrentUser at all other times.
-For PowerShell version 6.0.0 and above, the default installation scope is always CurrentUser.</li>
-</ul>
-<h2 id="167">1.6.7</h2>
-<p>Bug fixes</p>
-<ul>
-<li>Resolved Install/Save-Module error in PSCore 6.1.0-preview.4 on Ubuntu 18.04 OS (WSL/Azure) (#313)</li>
-<li>Updated error message in Save-Module cmdlet when the specified path is not accessible (#313)</li>
-<li>Added few additional verbose messages (#313)</li>
-</ul>
-<h2 id="166">1.6.6</h2>
-<p>Dependency Updates</p>
-<ul>
-<li>Add dependency on version 4.1.0 or newer of NuGet.exe</li>
-<li>Update NuGet.exe bootstrap URL to <a href="https://aka.ms/psget-nugetexe">https://aka.ms/psget-nugetexe</a></li>
-</ul>
-<p>Build and Code Cleanup Improvements</p>
-<ul>
-<li>Improved error handling in network connectivity tests.</li>
-</ul>
-<p>Bug fixes</p>
-<ul>
-<li>Change Update-ModuleManifest so that prefix is not added to CmdletsToExport.</li>
-<li>Change Update-ModuleManifest so that parameters will not reset to default values.</li>
-<li>Specify AllowPrereleseVersions provider option only when AllowPrerelease is specified on the PowerShellGet cmdlets.</li>
-</ul>
-<h2 id="165">1.6.5</h2>
-<p>New features</p>
-<ul>
-<li>Allow Pester/PSReadline installation when signed by non-Microsoft certificate (#258)
-<ul>
-<li>Whitelist installation of non-Microsoft signed Pester and PSReadline over Microsoft signed Pester and PSReadline.</li>
-</ul>
-</li>
-</ul>
-<p>Build and Code Cleanup Improvements</p>
-<ul>
-<li>
-<p>Splitting of functions (#229) (Thanks @Benny1007)</p>
-<ul>
-<li>Moves private functions into respective private folder.</li>
-<li>Moves public functions as defined in PSModule.psd1 into respective public folder.</li>
-<li>Removes all functions from PSModule.psm1 file.</li>
-<li>Dot sources the functions from PSModule.psm1 file.</li>
-<li>Uses Export-ModuleMember to export the public functions from PSModule.psm1 file.</li>
-</ul>
-</li>
-<li>
-<p>Add build step to construct a single .psm1 file (#242) (Thanks @Benny1007)</p>
-<ul>
-<li>Merged public and private functions into one .psm1 file to increase load time performance.</li>
-</ul>
-</li>
-</ul>
-<p>Bug fixes</p>
-<ul>
-<li>Fix null parameter error caused by MinimumVersion in Publish-PackageUtility (#201)</li>
-<li>Change .ExternalHelp link from PSGet.psm1-help.xml to PSModule-help.xml in PSModule.psm1 file (#215)</li>
-<li>Change Publish-* to allow version comparison instead of string comparison (#219)</li>
-<li>Ensure Get-InstalledScript -RequiredVersion works when versions have a leading 0 (#260)</li>
-<li>Add positional path to Save-Module and Save-Script (#264, #266)</li>
-<li>Ensure that Get-AuthenticodePublisher verifies publisher and that installing or updating a module checks for approprite catalog signature (#272)</li>
-<li>Update HelpInfoURI to &lsquo;<a href="http://go.microsoft.com/fwlink/?linkid=855963'">http://go.microsoft.com/fwlink/?linkid=855963'</a> (#274)</li>
-</ul>
-<h2 id="160">1.6.0</h2>
-<p>New features</p>
-<ul>
-<li>
-<p>Prerelease Version Support (#185)</p>
-<ul>
-<li>Implemented prerelease versions functionality in PowerShellGet cmdlets.</li>
-<li>Enables publishing, discovering, and installing the prerelease versions of modules and scripts from the PowerShell Gallery.</li>
-<li><a href="https://docs.microsoft.com/en-us/powershell/gallery/psget/module/PrereleaseModule">Documentation</a></li>
-</ul>
-</li>
-<li>
-<p>Enabled publish cmdlets on PWSH and Nano Server (#196)</p>
-<ul>
-<li>Dotnet command version 2.0.0 or newer should be installed by the user prior to using the publish cmdlets on PWSH and Windows Nano Server.</li>
-<li>Users can install the dotnet command by following the instructions specified at <a href="https://aka.ms/dotnet-install-script">https://aka.ms/dotnet-install-script</a>.</li>
-<li>On Windows, users can install the dotnet command by running <em>Invoke-WebRequest -Uri &lsquo;<a href="https://dot.net/v1/dotnet-install.ps1'">https://dot.net/v1/dotnet-install.ps1'</a> -OutFile &lsquo;.\dotnet-install.ps1&rsquo;; &amp; &lsquo;.\dotnet-install.ps1&rsquo; -Channel Current -Version &lsquo;2.0.0&rsquo;</em></li>
-<li>Publish cmdlets on Windows PowerShell supports using the dotnet command for publishing operations.</li>
-</ul>
-</li>
-</ul>
-<p>Breaking Change</p>
-<ul>
-<li>PWSH: Changed the installation location of AllUsers scope to the parent of $PSHOME instead of $PSHOME. It is the SHARED_MODULES folder on PWSH.</li>
-</ul>
-<p>Bug fixes</p>
-<ul>
-<li>Update HelpInfoURI to &lsquo;<a href="https://go.microsoft.com/fwlink/?linkid=855963'">https://go.microsoft.com/fwlink/?linkid=855963'</a> (#195)</li>
-<li>Ensure MyDocumentsPSPath path is correct (#179) (Thanks @lwsrbrts)</li>
-</ul>
-<h2 id="1500">1.5.0.0</h2>
-<p>New features</p>
-<ul>
-<li>
-<p>Added support for modules requiring license acceptance (#150)</p>
-<ul>
-<li><a href="https://docs.microsoft.com/en-us/powershell/gallery/psget/module/RequireLicenseAcceptance">Documentation</a></li>
-</ul>
-</li>
-<li>
-<p>Added version for REQUIREDSCRIPTS (#162)</p>
-<ul>
-<li>Enabled following scenarios for REQUIREDSCRIPTS
-<ul>
-<li>[1.0] - RequiredVersion</li>
-<li>[1.0,2.0] - Min and Max Version</li>
-<li>(,1.0] - Max Version</li>
-<li>1.0 - Min Version</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>Bug fixes</p>
-<ul>
-<li>Fixed empty version value in nuspec (#157)</li>
-</ul>
-<h2 id="1132">1.1.3.2</h2>
-<ul>
-<li>Disabled PowerShellGet Telemetry on PS Core as PowerShell Telemetry APIs got removed in PowerShell Core beta builds. (#153)</li>
-<li>Fixed for DateTime format serialization issue. (#141)</li>
-<li>Update-ModuleManifest should add ExternalModuleDependencies value as a collection. (#129)</li>
-</ul>
-<h2 id="1131">1.1.3.1</h2>
-<p>New features</p>
-<ul>
-<li>Added <code>PrivateData</code> field to ScriptFileInfo. (#119)</li>
-</ul>
-<p>Bug fixes</p>
-<h2 id="1120">1.1.2.0</h2>
-<p>Bug fixes</p>
-<h2 id="1110">1.1.1.0</h2>
-<p>Bug fixes</p>
-<h2 id="1100">1.1.0.0</h2>
-<ul>
-<li>Initial release from GitHub.</li>
-<li>PowerShellCore support.</li>
-</ul>
-<h2 id="for-full-history-of-release-notes-see-changelog">For full history of release notes see changelog:</h2>
-<p><a href="https://github.com/PowerShell/PowerShellGet/blob/master/CHANGELOG.md">https://github.com/PowerShell/PowerShellGet/blob/master/CHANGELOG.md</a></p>
-</div>
+                          <div class="card card-body border-top-0"><h3 id="3012-beta-release">3.0.12 beta release</h3>
+<p>See change log (CHANGELOG.md) at <a href="https://github.com/PowerShell/PowerShellGet">https://github.com/PowerShell/PowerShellGet</a></div>
                       </div>
                       
                     </div>
@@ -3281,19 +2931,19 @@ For PowerShell version 6.0.0 and above, the default installation scope is always
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">2.10.0.0</span>
+                    <span class="badge badge-success">3.0.0-preview0006</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2019-09-19 02:32</span>
+                    <span class="badge badge-success">2021-05-21 11:00</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:07</span>
+                      <span class="badge badge-secondary">2022-05-03 00:01</span>
                       <br />
                   </div>
-                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/SecurityPolicyDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
+                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/SecurityPolicyDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
                 </div>
                 <!-- Tags -->
                 <div class="row">
@@ -3347,25 +2997,63 @@ For PowerShell version 6.0.0 and above, the default installation scope is always
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-SecurityPolicyDsc" role="tabpanel" aria-labelledby="nav-rn-tab-SecurityPolicyDsc">
-                          <div class="card card-body border-top-0"><ul>
-<li>Changes to SecurityPolicyDsc
+                          <div class="card card-body border-top-0"><h2 id="300-preview0006---2021-05-21">[3.0.0-preview0006] - 2021-05-21</h2>
+<h3 id="added">Added</h3>
 <ul>
-<li>Opt-in to the following DSC Resource Common Meta Tests:
+<li>SecurityPolicyDsc:
 <ul>
-<li>Common Tests - Validate Module Files</li>
-<li>Common Tests - Validate Script Files</li>
-<li>Common Tests - Validate Markdown Files</li>
-<li>Common Tests - Required Script Analyzer Rules</li>
-<li>Common Tests - Flagged Script Analyzer Rules</li>
-<li>Common Tests - New Error-Level Script Analyzer Rules</li>
-<li>Common Tests - Custom Script Analyzer Rules</li>
-<li>Common Tests - Validate Markdown Links</li>
-<li>Common Tests - Relative Path Length</li>
-<li>Common Tests - Validate Example Files</li>
-<li>Common Tests - Validate Example Files To Be Published</li>
+<li>Added automatic release with a new CI pipeline.
+<a href="https://github.com/dsccommunity/SecurityPolicyDsc/issues/143">Issue #143</a>.</li>
 </ul>
 </li>
-<li>Fix keywords to lower-case to align with guideline.</li>
+</ul>
+<h3 id="changed">Changed</h3>
+<ul>
+<li>Updated pipeline with <code>Sampler.GitHubTasks</code> tasks.</li>
+<li>SecurityPolicyDsc:
+<ul>
+<li>AccountPolicy/SecurityOption:
+<ul>
+<li>BREAKING: Introduced support for PowerShell v7 (Invoke-DscResource).
+With this change, we start using Import-PowerShellDataFile, which is only available from PowerShell v5. 
+This means Windows PowerShell 4 (WMF 4) is no longer supported.</li>
+</ul>
+</li>
+<li>Resolved custom Script Analyzer rules that was added to the test framework.</li>
+<li>Moved change log to CHANGELOG.md.</li>
+<li>Added support for more SDDL SID constants
+<a href="https://github.com/dsccommunity/SecurityPolicyDsc/issues/126">Issue #126</a>.
+<ul>
+<li>Added functions to convert identity to and from SDDL SID constants.</li>
+<li>Changed Format-RestrictedRemoteSAM to use new function to create strings with additional SDDL SID constants.</li>
+<li>Changed ConvertTo-CimRestrictedRemoteSam to use new function to accept more possible SDDL SID constants.</li>
+<li>Changed ConvertTo-CimRestrictedRemoteSam to skip CimInstance creation if no valid Identity was found.</li>
+</ul>
+</li>
+<li>Added schema descriptions for all properties and update README.</li>
+<li>Added PowerShell Dsc Resource Help Files.</li>
+</ul>
+</li>
+<li>AccountPolicy:
+<ul>
+<li>Improved and updated unit tests to Pester v4 format.</li>
+</ul>
+</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>AccountPolicy:
+<ul>
+<li>Ensure <code>Get</code> method returns the specified <code>Name</code> property.</li>
+<li>Fix applying Account_lockout_duration to zero
+<a href="https://github.com/dsccommunity/SecurityPolicyDsc/issues/140">Issue #140</a>.</li>
+</ul>
+</li>
+<li>SecurityPolicy:
+<ul>
+<li>Ensure <code>Get</code> method returns the specified <code>Name</code> property.
+-SecurityOption</li>
+<li>&lsquo;Network_access_Remotely_accessible_registry_paths&rsquo; and &lsquo;Network_access_Remotely_accessible_registry_paths_and_subpaths&rsquo; use null char as a delimiter</li>
 </ul>
 </li>
 </ul>
@@ -3392,16 +3080,16 @@ For PowerShell version 6.0.0 and above, the default installation scope is always
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">5.1.0</span>
+                    <span class="badge badge-success">5.2.0-preview0002</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2022-02-24 12:25</span>
+                    <span class="badge badge-success">2022-04-01 12:57</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 08:56</span>
+                      <span class="badge badge-secondary">2022-04-26 21:41</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/SharePointDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3731,16 +3419,16 @@ For PowerShell version 6.0.0 and above, the default installation scope is always
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">15.2.0</span>
+                    <span class="badge badge-success">16.0.0-preview0005</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2021-09-01 13:39</span>
+                    <span class="badge badge-success">2022-04-26 21:04</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-04-29 07:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/SqlServerDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3842,14 +3530,6 @@ For PowerShell version 6.0.0 and above, the default installation scope is always
                     
                     <span class="badge badge-warning">SqlWindowsFirewall</span>
                     
-                    <span class="badge badge-warning">SqlDatabaseOwner</span>
-                    
-                    <span class="badge badge-warning">SqlDatabaseRecoveryModel</span>
-                    
-                    <span class="badge badge-warning">SqlServerEndpointState</span>
-                    
-                    <span class="badge badge-warning">SqlServerNetwork</span>
-                    
                   </div>
                 </div>
                 <!-- description -->
@@ -3867,110 +3547,7 @@ For PowerShell version 6.0.0 and above, the default installation scope is always
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-SqlServerDsc" role="tabpanel" aria-labelledby="nav-rn-tab-SqlServerDsc">
-                          <div class="card card-body border-top-0"><h2 id="1520---2021-09-01">[15.2.0] - 2021-09-01</h2>
-<h3 id="changed">Changed</h3>
-<ul>
-<li>SqlServerDsc
-<ul>
-<li>Changed to the new GitHub deploy tasks that is required for the latest
-version of the Sampler module.</li>
-<li>Updated pipeline configuration to align with the latest changes in <a href="https://github.com/gaelcolas/Sampler">Sampler</a>.</li>
-<li>Update codecov.yml to support carry forward flags.</li>
-<li>Updated pipelines files to latest from Sampler project.</li>
-<li>Updated GitHub issue templates.</li>
-<li>Remove pipeline jobs <code>Test_Integration_SQL2016</code>, <code>Test_Integration_SQL2017</code>,
-and <code>Test_Integration_SQL2019</code> and raplaced with a single job
-<code>Test_Integration</code> (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/1713">issue #1713</a>).</li>
-<li>Update HQRM tests to run on the VM image <code>windows-2022</code>.</li>
-<li>Update unit tests to run on the VM image <code>windows-2022</code>.</li>
-<li>Update integration tests to run both on Windows Server 2019 and Windows
-Server 2022 (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/1713">issue #1713</a>).</li>
-</ul>
-</li>
-<li>SqlSetup
-<ul>
-<li>The helper function <code>Connect-SqlAnalysis</code> was using <code>LoadWithPartial()</code>
-to load the assembly <em>Microsoft.AnalysisServices</em>. On a node where multiple
-instances with different versions of SQL Server (regardless of features)
-is installed, this will result in the first assembly found in the
-GAC will be loaded into the session, not taking versions into account.
-This can result in an assembly version being loaded that is not compatible
-with the version of SQL Server it was meant to be used with.
-A new method of loading the assembly <em>Microsoft.AnalysisServices</em> was
-introduced under a feature flag; <code>'AnalysisServicesConnection'</code>.
-This new functionality depends on the <a href="https://www.powershellgallery.com/packages/SqlServer">SqlServer</a>
-module, and must be present on the node. The <a href="https://www.powershellgallery.com/packages/SqlServer">SqlServer</a>
-module can be installed on the node by leveraging the new DSC resource
-<code>PSModule</code> in the <a href="https://www.powershellgallery.com/packages/PowerShellGet/2.1.2">PowerShellGet</a>
-module (v2.1.2 and higher). This new method does not work with the
-SQLPS module due to the SQLPS module does not load the correct assembly,
-while <a href="https://www.powershellgallery.com/packages/SqlServer">SqlServer</a>
-module (v21.1.18080 and above) does. The new functionality is used
-when the parameter <code>FeatureFlag</code> is set to <code>'AnalysisServicesConnection'</code>.
-This functionality will be the default in a future breaking release.</li>
-<li>Under a feature flag <code>'AnalysisServicesConnection'</code>. The detection of
-a successful connection to the SQL Server Analysis Services has also been
-changed. Now it actually evaluates the property <code>Connected</code> of the returned
-<code>Microsoft.AnalysisServices.Server</code> object. The new functionality is used
-when the parameter <code>FeatureFlag</code> is set to <code>'AnalysisServicesConnection'</code>.
-This functionality will be the default in a future breaking release.</li>
-</ul>
-</li>
-<li>SqlAgentAlert
-<ul>
-<li>Switched README file with SqlAgentFailsafe (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/1397">issue #1709</a>).</li>
-</ul>
-</li>
-<li>SqlAgentFailsafe
-<ul>
-<li>Switched README file with SqlAgentAlert (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/1397">issue #1709</a>).</li>
-</ul>
-</li>
-</ul>
-<h3 id="added">Added</h3>
-<ul>
-<li>SqlMemory
-<ul>
-<li>Added two new optional parameters MinMemoryPercent and MaxMemoryPercent.
-Provides the ability to set the minimum and/or maximum buffer pool used by
-the SQL Server instance as a percentage of total server memory.
-(<a href="https://github.com/dsccommunity/SqlServerDsc/issues/1397">issue #1397</a>).</li>
-</ul>
-</li>
-<li>SqlRSSetup
-<ul>
-<li>Integration tests now install <em>Microsoft SQL Server 2019 Reporting Services</em>
-(<a href="https://github.com/dsccommunity/SqlServerDsc/issues/1717">issue #1717</a>).</li>
-</ul>
-</li>
-<li>SqlRS
-<ul>
-<li>Integration tests now configures <em>Microsoft SQL Server 2019 Reporting Services</em>.</li>
-</ul>
-</li>
-</ul>
-<h3 id="fixed">Fixed</h3>
-<ul>
-<li>SqlSetup
-<ul>
-<li>Fixed integration tests for SQL Server 2016 and SQL Server 2017.</li>
-</ul>
-</li>
-<li>SqlServerDsc.Common
-<ul>
-<li>Fixed so that <em>CredScan</em> no longer reports a password false-positive
-(<a href="https://github.com/dsccommunity/SqlServerDsc/issues/1712">issue #1712</a>).</li>
-</ul>
-</li>
-<li>SqlRS
-<ul>
-<li>Fixed SSRS 2019 initialization (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/1509">issue #1509</a>).</li>
-<li>Fix a problem that did not correctly evaluate the <code>UseSSL</code> property against
-the current state.</li>
-</ul>
-</li>
-</ul>
-</div>
+                          <div class="card card-body border-top-0"></div>
                       </div>
                       
                     </div>
@@ -3993,16 +3570,16 @@ the current state.</li>
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">5.0.1</span>
+                    <span class="badge badge-success">5.1.0-preview0001</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2020-08-03 07:02</span>
+                    <span class="badge badge-success">2021-04-10 14:59</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:07</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/StorageDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4065,35 +3642,23 @@ the current state.</li>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-StorageDsc" role="tabpanel" aria-labelledby="nav-rn-tab-StorageDsc">
-                          <div class="card card-body border-top-0"><h2 id="501---2020-08-03">[5.0.1] - 2020-08-03</h2>
+                          <div class="card card-body border-top-0"><h2 id="510-preview0001---2021-04-10">[5.1.0-preview0001] - 2021-04-10</h2>
 <h3 id="changed">Changed</h3>
 <ul>
-<li>Fixed build failures caused by changes in <code>ModuleBuilder</code> module v1.7.0
-by changing <code>CopyDirectories</code> to <code>CopyPaths</code> - Fixes <a href="https://github.com/dsccommunity/StorageDsc/issues/237">Issue #237</a>.</li>
-<li>Updated to use the common module <em>DscResource.Common</em> - Fixes <a href="https://github.com/dsccommunity/StorageDsc/issues/234">Issue #234</a>.</li>
-<li>Pin <code>Pester</code> module to 4.10.1 because Pester 5.0 is missing code
-coverage - Fixes <a href="https://github.com/dsccommunity/StorageDsc/issues/238">Issue #238</a>.</li>
-<li>OpticalDiskDriveLetter:
-<ul>
-<li>Removed integration test that tests when a disk is not in the
-system as it is not a useful test, does not work correctly
-and is covered by unit tests - Fixes <a href="https://github.com/dsccommunity/StorageDsc/issues/240">Issue #240</a>.</li>
-</ul>
-</li>
-<li>StorageDsc
-<ul>
-<li>Automatically publish documentation to GitHub Wiki - Fixes <a href="https://github.com/dsccommunity/StorageDsc/issues/241">Issue #241</a>.</li>
-</ul>
-</li>
+<li>Renamed <code>master</code> branch to <code>main</code> - Fixes <a href="https://github.com/dsccommunity/StorageDsc/issues/250">Issue #250</a>.</li>
+<li>Added support for publishing code coverage to <code>CodeCov.io</code> and
+Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/StorageDsc/issues/255">Issue #255</a>.</li>
+<li>Updated build to use <code>Sampler.GitHubTasks</code> - Fixes <a href="https://github.com/dsccommunity/StorageDsc/issues/254">Issue #254</a>.</li>
 </ul>
 <h3 id="fixed">Fixed</h3>
 <ul>
-<li>Disk:
+<li>MountImage:
 <ul>
-<li>Fix bug when multiple partitions with the same drive letter are
-reported by the disk subsystem - Fixes <a href="https://github.com/dsccommunity/StorageDsc/issues/210">Issue #210</a>.</li>
+<li>Corrected example <code>1-MountImage_DismountISO.ps1</code> for dismounting
+ISO - Fixes <a href="https://github.com/dsccommunity/StorageDsc/issues/221">Issue #221</a>.</li>
 </ul>
 </li>
+<li>Updated <code>GitVersion.yml</code> to latest pattern - Fixes <a href="https://github.com/dsccommunity/StorageDsc/issues/252">Issue #252</a>.</li>
 </ul>
 </div>
                       </div>
@@ -4304,16 +3869,16 @@ files to be formatted as per the DSC Resource kit style guidelines.</li>
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">3.1.1</span>
+                    <span class="badge badge-success">3.2.0-preview0004</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2020-01-31 21:37</span>
+                    <span class="badge badge-success">2021-04-21 10:42</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-02 01:01</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/WSManDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4364,90 +3929,47 @@ files to be formatted as per the DSC Resource kit style guidelines.</li>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-WSManDsc" role="tabpanel" aria-labelledby="nav-rn-tab-WSManDsc">
-                          <div class="card card-body border-top-0"><h1 id="change-log-for-wsmandsc">Change log for WSManDsc</h1>
-<p>The format is based on and uses the types of changes according to <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,
-and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
-<h2 id="unreleased">[Unreleased]</h2>
-<h3 id="changed">Changed</h3>
-<ul>
-<li>Changed CI pipeline HQRM Test image to use <code>windows-2019</code> Azure DevOps hosted
-image - fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/69">issue #69</a></li>
-<li>Changed CI pipeline Unit Test image to use <code>vs2017-win2016</code> Azure
-DevOps hosted image - fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/69">issue #69</a></li>
-<li>Added CI pipeline stages for running Integration and Unit tests on
-Windows Server 2016 and Windows Server 2019 respectively.</li>
-</ul>
-<h2 id="310---2020-01-15">[3.1.0] - 2020-01-15</h2>
+                          <div class="card card-body border-top-0"><h2 id="320-preview0004---2021-04-21">[3.2.0-preview0004] - 2021-04-21</h2>
 <h3 id="added">Added</h3>
 <ul>
+<li>Added build task <code>Generate_Conceptual_Help</code> to generate conceptual help
+for the DSC resource.</li>
+<li>Added build task <code>Generate_Wiki_Content</code> to generate the wiki content
+that can be used to update the GitHub Wiki.</li>
+</ul>
+<h3 id="changed">Changed</h3>
+<ul>
+<li>Updated CI pipeline files.</li>
+<li>No longer run integration tests when running the build task <code>test</code>, e.g.
+<code>.\build.ps1 -Task test</code>. To manually run integration tests, run the
+following:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks test -PesterScript <span style="color:#e6db74">&#39;tests/Integration&#39;</span> -CodeCoverageThreshold 0
+</code></pre></div></li>
+<li>Change Azure DevOps Pipeline definition to include <code>source/*</code> - fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/75">Issue #75</a>.</li>
+<li>Updated pipeline to use <code>latest</code> version of <code>ModuleBuilder</code> - fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/75">Issue #75</a>.</li>
+<li>Merge <code>HISTORIC_CHANGELOG.md</code> into <code>CHANGELOG.md</code> - fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/76">Issue #76</a>.</li>
 <li>WSManDsc
 <ul>
-<li>Added automatic release with a new CI pipeline.</li>
+<li>Updated to use the common module <em>DscResource.Common</em> - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/78">Issue #78</a>.</li>
+<li>Fixed build failures caused by changes in <code>ModuleBuilder</code> module v1.7.0
+by changing <code>CopyDirectories</code> to <code>CopyPaths</code> - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/79">Issue #79</a>.</li>
+<li>Pin <code>Pester</code> module to 4.10.1 because Pester 5.0 is missing code
+coverage - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/78">Issue #78</a>.</li>
 </ul>
 </li>
-</ul>
-<h3 id="changed-1">Changed</h3>
-<ul>
 <li>WSManDsc
 <ul>
-<li>Transferred ownership to DSCCommunity.org.</li>
-<li>Added missing resource to README.MD.</li>
-<li>BREAKING CHANGE: Changed resource prefix from DSR to DSC.</li>
-<li>Renamed module <code>WSManDsc.ResourceHelper</code> to <code>WSManDsc.Common</code> and updated
-to use standard functions.</li>
-<li>Pinned <code>ModuleBuilder</code> to v1.0.0.</li>
-<li>Updated build badges in README.MD.</li>
-<li>Remove unused localization strings.</li>
-<li>Adopt DSC Community Code of Conduct.</li>
-<li>Fix Code Coverage generation.</li>
-<li>Updated the CI pipeline files to the latest template.</li>
-<li>Changed unit tests to handle missing DscResource.Test better.</li>
-<li>Changed <code>azure-pipeline.yml</code> to match current pattern (<a href="https://github.com/dsccommunity/WSManDsc/issues/59">Issue #59</a>).</li>
+<li>Automatically publish documentation to GitHub Wiki - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/82">Issue #82</a>.</li>
 </ul>
 </li>
-<li>Set <code>testRunTitle</code> for PublishTestResults steps so that a helpful name is
-displayed in Azure DevOps for each test run.</li>
-<li>Set a display name on all the jobs and tasks in the CI
-pipeline - fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/63">issue #63</a></li>
-</ul>
-<h3 id="deprecated">Deprecated</h3>
-<ul>
-<li>None</li>
-</ul>
-<h3 id="removed">Removed</h3>
-<ul>
-<li>WSManDsc
-<ul>
-<li>Removed unused file <code>.codecov.yml</code>.</li>
-<li>Removed the file <code>Deploy.PSDeploy.ps1</code> since it is not longer used by
-the build pipeline.</li>
-</ul>
-</li>
-</ul>
-<h3 id="fixed">Fixed</h3>
-<ul>
-<li>WSManDsc
-<ul>
-<li>Added CODE_OF_CONDUCT.md file, and a &lsquo;Code of Conduct&rsquo; section in the
-README.md.</li>
-</ul>
-</li>
-<li>WSManListener
-<ul>
-<li>Fix Find-Certificate Verbose Messages <a href="https://github.com/dsccommunity/WSManDsc/issues/49">Issue #49</a>.</li>
-</ul>
-</li>
-<li>Fixed <code>GitVersion.yml</code> feature and fix Regex - fixes
-<a href="https://github.com/dsccommunity/WSManDsc/issues/62">issue #62</a>.</li>
-<li>Fix import statement in all tests, making sure it throws if module
-DscResource.Test cannot be imported - fixes
-<a href="https://github.com/dsccommunity/WSManDsc/issues/67">issue #67</a>.</li>
-<li>Fix deploy stage in CI pipeline to prevent it executing against forks
-of the repository - fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/66">issue #66</a>.</li>
-</ul>
-<h3 id="security">Security</h3>
-<ul>
-<li>None</li>
+<li>Renamed <code>master</code> branch to <code>main</code> - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/82">Issue #82</a>.</li>
+<li>Minor corrections to pipeline files and examples after renaming <code>master</code>
+branch to <code>main</code>.</li>
+<li>Updated <code>GitVersion.yml</code> to latest pattern - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/87">Issue #87</a>.</li>
+<li>Updated build to use <code>Sampler.GitHubTasks</code> - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/90">Issue #90</a>.</li>
+<li>Added support for publishing code coverage to <code>CodeCov.io</code> and
+Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/91">Issue #91</a>.</li>
+<li>Build pipeline: Removed unused <code>dscBuildVariable</code> tasks.</li>
 </ul>
 </div>
                       </div>
@@ -4481,7 +4003,7 @@ of the repository - fixes <a href="https://github.com/dsccommunity/WSManDsc/issu
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:57</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/SNikalaichyk/cNtfsAccessControl" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4567,34 +4089,38 @@ of the repository - fixes <a href="https://github.com/dsccommunity/WSManDsc/issu
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">1.5.0.41</span>
+                    <span class="badge badge-success">2.0.0-preview0004</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2017-09-02 02:13</span>
+                    <span class="badge badge-success">2021-04-25 17:32</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 05:46</span>
+                      <span class="badge badge-secondary">2022-03-16 20:46</span>
                       <br />
                   </div>
-                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PlagueHO/iSCSIDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
+                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/iSCSIDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
                 </div>
                 <!-- Tags -->
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Tags:</strong>
                     
+                    <span class="badge badge-pill badge-info">DesiredStateConfiguration</span>
+                    
                     <span class="badge badge-pill badge-info">DSC</span>
                     
-                    <span class="badge badge-pill badge-info">DesiredStateConfiguration</span>
+                    <span class="badge badge-pill badge-info">DSCResource</span>
                     
                     <span class="badge badge-pill badge-info">iSCSI</span>
                     
                     <span class="badge badge-pill badge-info">Target</span>
                     
                     <span class="badge badge-pill badge-info">Initiator</span>
+                    
+                    <span class="badge badge-pill badge-info">PSModule</span>
                     
                   </div>
                 </div>
@@ -4627,7 +4153,59 @@ of the repository - fixes <a href="https://github.com/dsccommunity/WSManDsc/issu
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-iSCSIDsc" role="tabpanel" aria-labelledby="nav-rn-tab-iSCSIDsc">
-                          <div class="card card-body border-top-0"></div>
+                          <div class="card card-body border-top-0"><h2 id="200-preview0004---2021-04-25">[2.0.0-preview0004] - 2021-04-25</h2>
+<h3 id="changed">Changed</h3>
+<ul>
+<li>Transferred ownership to DSCCommunity.org - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues/50">Issue #50</a>.</li>
+<li>Fix hash table style guideline violations.</li>
+<li>Added .gitattributes file to fix bug publishing examples - Fixes <a href="https://github.com/PlagueHO/iSCSIDsc/issues/40">Issue #40</a>.</li>
+<li>Opted into Common Tests &lsquo;Common Tests - Validate Localization&rsquo; - Fixes <a href="https://github.com/PlagueHO/iSCSIDsc/issues/44">Issue #44</a>.</li>
+<li>Renamed <code>iSCSIDsc.ResourceHelpers</code> module to <code>iSCSIDsc.Common</code>
+to align to other modules.</li>
+<li>Renamed all localization strings so that they are detected by
+&lsquo;Common Tests - Validate Localization&rsquo;.</li>
+<li>Fixed issues with mismatched localization strings.</li>
+<li>Replaced <code>iSCSIDsc.Common</code> module with the latest version from
+<a href="https://github.com/PowerShell/DSCResource.Template">DSCResource.Template</a>.</li>
+<li>Fix minor style issues in statement case.</li>
+<li>Fix minor style issues in hashtable layout.</li>
+<li>Correct other minor style issues.</li>
+<li>Enabled PSSA rule violations to fail build - Fixes <a href="https://github.com/PlagueHO/iSCSIDsc/issues/27">Issue #27</a>.</li>
+<li>Updated tests to meet Pester v4 standard.</li>
+<li>Added Open Code of Conduct.</li>
+<li>Refactored module folder structure to move resource
+to root folder of repository and remove test harness - Fixes <a href="https://github.com/PlagueHO/iSCSIDsc/issues/36">Issue #36</a>.</li>
+<li>Converted Examples to support format for publishing to PowerShell
+Gallery.</li>
+<li>Opted into common tests:
+<ul>
+<li>Common Tests - Validate Example Files To Be Published</li>
+<li>Common Tests - Validate Markdown Links</li>
+<li>Common Tests - Relative Path Length</li>
+<li>Common Tests - Relative Path Length</li>
+</ul>
+</li>
+<li>Update to new format LICENSE.</li>
+<li>Added .VSCode settings for applying DSC PSSA rules - fixes <a href="https://github.com/PlagueHO/iSCSIDsc/issues/37">Issue #37</a>.</li>
+<li>BREAKING CHANGE: Changed resource prefix from MSFT to DSC.</li>
+<li>Updated to use continuous delivery pattern using Azure DevOps - fixes
+<a href="https://github.com/dsccommunity/iSCSIDsc/issues/52">Issue #52</a>.</li>
+<li>Update build badges in <code>README.md</code> with correct build IDs.</li>
+<li>Removed unused test helper function <code>New-VDisk</code>.</li>
+<li>Added test helper function <code>Assert-CanRunIntegrationTest</code> to validate if
+integration tests can be successfully run on a machine.</li>
+<li>Fixed build failures caused by changes in <code>ModuleBuilder</code> module v1.7.0
+by changing <code>CopyDirectories</code> to <code>CopyPaths</code> - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues/58">Issue #58</a>.</li>
+<li>Updated to use the common module <em>DscResource.Common</em> - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues/53">Issue #53</a>.</li>
+<li>Pin <code>Pester</code> module to 4.10.1 because Pester 5.0 is missing code
+coverage - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues/60">Issue #60</a>.</li>
+<li>Automatically publish documentation to GitHub Wiki - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues/61">Issue #61</a>.</li>
+<li>Renamed <code>master</code> branch to <code>main</code> - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues/63">Issue #63</a>.</li>
+<li>Updated build to use <code>Sampler.GitHubTasks</code> - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues/65">Issue #65</a>.</li>
+<li>Added support for publishing code coverage to <code>CodeCov.io</code> and
+Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues/66">Issue #66</a>.</li>
+</ul>
+</div>
                       </div>
                       
                     </div>
@@ -4650,19 +4228,19 @@ of the repository - fixes <a href="https://github.com/dsccommunity/WSManDsc/issu
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">0.2.0</span>
+                    <span class="badge badge-success">0.3.0-preview0001</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2021-05-25 19:06</span>
+                    <span class="badge badge-success">2022-03-22 23:18</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-01 12:16</span>
+                      <span class="badge badge-secondary">2022-04-19 21:51</span>
                       <br />
                   </div>
-                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/SynEdgy/nxtools/" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
+                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/Azure/nxtools/" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
                 </div>
                 <!-- Tags -->
                 <div class="row">
@@ -4687,13 +4265,29 @@ of the repository - fixes <a href="https://github.com/dsccommunity/WSManDsc/issu
                   <div style="padding:10px">
                     <strong>DSC Resources:</strong>
                     
+                    <span class="badge badge-warning">GC_LinuxGroup</span>
+                    
+                    <span class="badge badge-warning">GC_msid110</span>
+                    
+                    <span class="badge badge-warning">GC_msid121</span>
+                    
+                    <span class="badge badge-warning">GC_msid232</span>
+                    
+                    <span class="badge badge-warning">GC_InstalledApplicationLinux</span>
+                    
+                    <span class="badge badge-warning">GC_NotInstalledApplicationLinux</span>
+                    
+                    <span class="badge badge-warning">GC_LinuxLogAnalyticsAgent</span>
+                    
                     <span class="badge badge-warning">nxFile</span>
                     
                     <span class="badge badge-warning">nxGroup</span>
                     
                     <span class="badge badge-warning">nxUser</span>
                     
-                    <span class="badge badge-warning">GC_LinuxGroup</span>
+                    <span class="badge badge-warning">nxFileLine</span>
+                    
+                    <span class="badge badge-warning">nxFileContentReplace</span>
                     
                   </div>
                 </div>
@@ -4712,72 +4306,7 @@ of the repository - fixes <a href="https://github.com/dsccommunity/WSManDsc/issu
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-nxtools" role="tabpanel" aria-labelledby="nav-rn-tab-nxtools">
-                          <div class="card card-body border-top-0"><h2 id="020---2021-05-25">[0.2.0] - 2021-05-25</h2>
-<h3 id="added">Added</h3>
-<ul>
-<li>
-<p>Initial addition of commandd:</p>
-<ul>
-<li><code>Get-nxKernelInfo</code>: A simple wrapper around <code>uname -a</code>.</li>
-<li><code>Get-nxLinuxStandardBaseRelease</code>: A quick wrap of <code>lsb_release -a</code> command (this <code>lsb_release</code> must be present on the system).</li>
-<li><code>Get-nxDistributionInfo</code>: Parsing information found in <code>/etc/*-release</code>.</li>
-<li><code>Get-nxItem</code>: Similar to Get-Item for file system provider but on Linux using <code>ls -d</code>.</li>
-<li><code>Get-nxChildItem</code>: Similar to Get-ChildItem for the FileSystem provider but on Linux, this will use the <code>ls</code> command.</li>
-<li><code>Compare-nxFileSystemMode</code>: An easy way to compare two sets of unix file system permissions.<br>
-You can use a Symbolic notation (<code>rwxrwxrwx</code>), or the numericla permission (<code>777</code> or <code>0777</code>).</li>
-<li><code>Get-nxLocalUser</code>: Read and parse local users from <code>/etc/passwd</code>.</li>
-<li><code>New-nxLocalUser</code>: Create a new Local User using <code>useradd</code>.</li>
-<li><code>Set-nxLocalUser</code>: Set the properties of a Local User using <code>usermod</code>.</li>
-<li><code>New-nxLocalGroup</code>: Create a new Local Group using <code>groupadd</code>.</li>
-<li><code>Get-nxLocalGroup</code>: Read and parse local groups from <code>/etc/group</code>.</li>
-<li><code>Set-nxLocalGroup</code>: Set the properties of an existing local group using <code>gpasswd</code>.</li>
-<li><code>Get-nxLocalUserMemberOf</code>: Get the groups (<code>[nxLocalGroup[]]</code>) a Local user is member of.</li>
-<li><code>Add-nxLocalGroupMember</code>: Add users to a group using <code>gpasswd</code>.</li>
-<li><code>Set-nxGroupOwnership</code>: Set the group owning the files and folders using <code>chgrp</code>.</li>
-<li><code>Add-nxLocalUserToGroup</code>: Add user to groups using <code>usermod</code>.</li>
-<li><code>Set-nxMode</code>: Set files and folder mode (permisisons) using <code>chmod</code>.</li>
-<li><code>Set-nxOwner</code>: Set the owner for files and folders (and optionally the group ownership) using <code>chown</code>.</li>
-<li><code>Set-nxLocalGroupMember</code>: Set (and replace) the members of an existing group using <code>gpasswd</code>.</li>
-<li><code>Remove-nxLocalUser</code>: Delete a Local user using <code>userdel</code>.</li>
-<li><code>Remove-nxLocalGroupMember</code>: Removes users from a local group using <code>gpasswd</code>.</li>
-<li><code>Remove-nxLocalGroup</code>: Delete a local group using <code>groupdel</code>.</li>
-<li><code>Get-nxEtcShadow</code>: Get a user&rsquo;s <code>/etc/shadow</code> entry if it exists.</li>
-<li><code>Disable-nxLocalUser</code>: Lock a user&rsquo;s password, Expire its account and replace its Shell to <code>/sbin/nologin</code>.</li>
-<li><code>Enable-nxLocalUser</code>: Unlock a user&rsquo;s password, can set the ExpireOn date and replace the Shell from a value from <code>/etc/shells</code>.</li>
-<li><code>Compress-nxArchive</code>: Compress files and folders using the <code>tar</code> command.</li>
-<li><code>Expand-nxArchive</code>: Uncompress or read files and folder from an archive using the <code>tar</code> command.</li>
-</ul>
-</li>
-<li>
-<p>Supporting Enums and Classes for File System permissions.</p>
-<ul>
-<li>In order to make interpretation, Comparison, and manipulation of File system permissions easier,
-the module implements a few classes and enum to make that work.</li>
-</ul>
-</li>
-<li>
-<p>DscResource:</p>
-<ul>
-<li><code>nxUser</code>: Simple resource to manage [nxLocalUser] accounts.</li>
-<li><code>nxGroup</code>: Simple resource to manage [nxLocalGroup] and group members.</li>
-<li><code>nxFile</code>: Simple resource to manage [nxItem] (file or directory).</li>
-</ul>
-</li>
-</ul>
-<h3 id="changed">Changed</h3>
-<ul>
-<li>Moved source in subfolders per categories (File/Folders, User/Groups).</li>
-<li>Testing using Git Tools task (the new GitVersion).</li>
-</ul>
-<h3 id="fixed">Fixed</h3>
-<ul>
-<li>Fixed the main branch to release from to be <code>main</code> instead of <code>master</code>.</li>
-<li>Removing the &lsquo;Configure winrm&rsquo; tasks (as we&rsquo;re only running on linux).</li>
-<li>Added the DocGenerator tasks to build.yaml.</li>
-<li>Fixed casing to <code>nxtools</code> because I can&rsquo;t change PSGallery package casing.</li>
-<li>Removing dupplicate files.</li>
-</ul>
-</div>
+                          <div class="card card-body border-top-0"></div>
                       </div>
                       
                     </div>
@@ -4988,19 +4517,19 @@ the module implements a few classes and enum to make that work.</li>
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">1.4.0.0</span>
+                    <span class="badge badge-success">1.5.1-preview0001</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2019-01-10 00:22</span>
+                    <span class="badge badge-success">2020-09-11 15:11</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 08:22</span>
+                      <span class="badge badge-secondary">2022-05-03 06:31</span>
                       <br />
                   </div>
-                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xBitlocker" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
+                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xBitlocker" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
                 </div>
                 <!-- Tags -->
                 <div class="row">
@@ -5048,12 +4577,14 @@ the module implements a few classes and enum to make that work.</li>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-xBitlocker" role="tabpanel" aria-labelledby="nav-rn-tab-xBitlocker">
-                          <div class="card card-body border-top-0"><ul>
-<li>Change double quoted string literals to single quotes</li>
-<li>Add spaces between array members</li>
-<li>Add spaces between variable types and variable names</li>
-<li>Add spaces between comment hashtag and comments</li>
-<li>Explicitly removed extra hidden files from release package</li>
+                          <div class="card card-body border-top-0"><h2 id="151-preview0001---2020-09-11">[1.5.1-preview0001] - 2020-09-11</h2>
+<h3 id="added">Added</h3>
+<ul>
+<li>Updated to a new CI/CD pipeline (<a href="https://github.com/dsccommunity/xBitlocker/issues/54">issue #54)</a>.</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>Fix hashtables according to the style guideline.</li>
 </ul>
 </div>
                       </div>
@@ -6347,7 +5878,7 @@ so we need to pin 4.10.1.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:57</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xFailOverCluster" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6535,19 +6066,19 @@ memory caching in MB (<a href="https://github.com/dsccommunity/xFailOverCluster/
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">3.17.0.0</span>
+                    <span class="badge badge-success">3.18.0-preview0001</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2019-10-30 19:17</span>
+                    <span class="badge badge-success">2020-03-19 17:35</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 08:26</span>
+                      <span class="badge badge-secondary">2022-05-01 22:21</span>
                       <br />
                   </div>
-                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xHyper-V" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
+                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xHyper-V" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
                 </div>
                 <!-- Tags -->
                 <div class="row">
@@ -6572,27 +6103,25 @@ memory caching in MB (<a href="https://github.com/dsccommunity/xFailOverCluster/
                   <div style="padding:10px">
                     <strong>DSC Resources:</strong>
                     
-                    <span class="badge badge-warning">HyperVCommon</span>
+                    <span class="badge badge-warning">xVHD</span>
                     
-                    <span class="badge badge-warning">MSFT_xVHD</span>
+                    <span class="badge badge-warning">xVhdFile</span>
                     
-                    <span class="badge badge-warning">MSFT_xVhdFileDirectory</span>
+                    <span class="badge badge-warning">xVMDvdDrive</span>
                     
-                    <span class="badge badge-warning">MSFT_xVMDvdDrive</span>
+                    <span class="badge badge-warning">xVMHardDiskDrive</span>
                     
-                    <span class="badge badge-warning">MSFT_xVMHardDiskDrive</span>
+                    <span class="badge badge-warning">xVMHost</span>
                     
-                    <span class="badge badge-warning">MSFT_xVMHost</span>
+                    <span class="badge badge-warning">xVMHyperV</span>
                     
-                    <span class="badge badge-warning">MSFT_xVMHyperV</span>
+                    <span class="badge badge-warning">xVMNetworkAdapter</span>
                     
-                    <span class="badge badge-warning">MSFT_xVMNetworkAdapter</span>
+                    <span class="badge badge-warning">xVMProcessor</span>
                     
-                    <span class="badge badge-warning">MSFT_xVMProcessor</span>
+                    <span class="badge badge-warning">xVMScsiController</span>
                     
-                    <span class="badge badge-warning">MSFT_xVMScsiController</span>
-                    
-                    <span class="badge badge-warning">MSFT_xVMSwitch</span>
+                    <span class="badge badge-warning">xVMSwitch</span>
                     
                   </div>
                 </div>
@@ -6607,15 +6136,62 @@ memory caching in MB (<a href="https://github.com/dsccommunity/xFailOverCluster/
                     </nav>
                     <div class="tab-content border-top-0" id="nav-tabContent-xHyper-V">
                       <div class="tab-pane fade show active border-top-0" id="nav-desc-xHyper-V" role="tabpanel" aria-labelledby="nav-desc-tab-xHyper-V">
-                        <div class="card card-body border-top-0">Module with DSC Resources for Hyper-V area</div>
+                        <div class="card card-body border-top-0">This module contains DSC resources for deployment and configuration of Microsoft Hyper-V.</div>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-xHyper-V" role="tabpanel" aria-labelledby="nav-rn-tab-xHyper-V">
-                          <div class="card card-body border-top-0"><ul>
-<li>MSFT_xVMNetworkAdapter:
+                          <div class="card card-body border-top-0"><h2 id="3180-preview0001---2020-03-19">[3.18.0-preview0001] - 2020-03-19</h2>
+<h3 id="added">Added</h3>
 <ul>
-<li>Added NetworkSettings to be able to statically set IPAddress.</li>
-<li>Added option for Vlan tagging. You can now setup a Network Adapeter as an access switch on a specific Vlan.</li>
+<li>xHyper-V
+<ul>
+<li>Added automatic release with a new CI pipeline.</li>
+<li>Added stubs for the powershell module Hyper-V that are used for
+all unit tests.</li>
+</ul>
+</li>
+<li>xVhdFileDirectory
+<ul>
+<li>Added initial set of unit tests</li>
+</ul>
+</li>
+</ul>
+<h3 id="deprecated">Deprecated</h3>
+<ul>
+<li>xHyper-V
+<ul>
+<li>The resource will not be tested for Windows Server 2008 R2 since
+that operating system has reach end-of-life.</li>
+</ul>
+</li>
+</ul>
+<h3 id="removed">Removed</h3>
+<ul>
+<li>xVMSwitch
+<ul>
+<li>Removed the unit test that simulated functionality on Windows Server 2008 R2
+since that operating system has reach end-of-life. No functionality was
+removed from the resource, but in a future release the resource might stop
+working for Windows Server 2008 R2.</li>
+</ul>
+</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>xVMDvdDrive
+<ul>
+<li>Fixed VMName property in example.</li>
+</ul>
+</li>
+<li>xVMNetworkAdapter
+<ul>
+<li>Fixed MacAddress sample data.</li>
+</ul>
+</li>
+<li>xVMSwitch
+<ul>
+<li>Correctly return the state as <code>$true</code> or <code>$false</code> depending on the
+<code>Ensure</code> property when the switch does not exist.</li>
 </ul>
 </li>
 </ul>
@@ -6879,16 +6455,16 @@ memory caching in MB (<a href="https://github.com/dsccommunity/xFailOverCluster/
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">9.1.0</span>
+                    <span class="badge badge-success">9.2.0-preview0007</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2020-02-19 21:11</span>
+                    <span class="badge badge-success">2021-09-26 13:10</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 05:26</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xPSDesiredStateConfiguration" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6965,175 +6541,73 @@ memory caching in MB (<a href="https://github.com/dsccommunity/xFailOverCluster/
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-xPSDesiredStateConfiguration" role="tabpanel" aria-labelledby="nav-rn-tab-xPSDesiredStateConfiguration">
-                          <div class="card card-body border-top-0"><h2 id="910---2020-02-19">[9.1.0] - 2020-02-19</h2>
-<h3 id="changed">Changed</h3>
+                          <div class="card card-body border-top-0"><h2 id="920-preview0007---2021-09-26">[9.2.0-preview0007] - 2021-09-26</h2>
 <ul>
-<li>Examples
+<li>xPackage
 <ul>
-<li>Removed the version number of the xPSDesiredStateConfiguration module from the #Requires headers. -
-<a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/653">issue #653</a></li>
+<li>Fixed a bug not allowing using the file hash of an installer <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/702">Issue #702</a>.</li>
 </ul>
 </li>
 </ul>
 <h3 id="fixed">Fixed</h3>
 <ul>
-<li>
-<p>xPSDesiredStateConfiguration</p>
+<li>xRemoteFile
 <ul>
-<li>Export <code>Publish-*</code> functions in DscPullServerSetup module - Fixes
-<a href="https://github.com/PowerShell/PSDscResources/issues/673">issue #673</a>.</li>
+<li>Fixed message inconsistencies in <code>DSC_xRemoteFile.strings.psd1</code> - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/716">Issue #716</a>.</li>
 </ul>
 </li>
-<li>
-<p>DSC_xRegistryResource</p>
+<li>xPSDesiredStateConfiguration
 <ul>
-<li>Fixed an issue that failed to create a registry with &ldquo;:&rdquo; in the path.
-<a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/671">issue #671</a></li>
+<li>Fixed build failures caused by changes in <code>ModuleBuilder</code> module v1.7.0
+by changing <code>CopyDirectories</code> to <code>CopyPaths</code> - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/687">Issue #687</a>.</li>
+<li>Pin <code>Pester</code> module to 4.10.1 because Pester 5.0 is missing code
+coverage - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/688">Issue #688</a>.</li>
+</ul>
+</li>
+<li>xArchive
+<ul>
+<li>Removed <code>Invoke-NewPSDrive</code> function because it is no longer needed as
+Pester issue has been resolved - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/698">Issue #698</a>.</li>
+</ul>
+</li>
+<li>xGroup
+<ul>
+<li>Ensure group membership is always returned as an array - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/353">Issue #353</a>.</li>
 </ul>
 </li>
 </ul>
-<h2 id="900---2020-01-15">[9.0.0] - 2020-01-15</h2>
-<h3 id="added">Added</h3>
+<h3 id="changed">Changed</h3>
 <ul>
 <li>xPSDesiredStateConfiguration
 <ul>
-<li>Added support for Checksum on xRemoteFile - <a href="https://github.com/PowerShell/PSDscResources/issues/423">issue #423</a></li>
-<li>Added <code>Test-DscParameterState</code> support function to <code>xPSDesiredStateConfiguration.Common.psm1</code>.</li>
-<li>Added standard unit tests for <code>xPSDesiredStateConfiguration.Common.psm1</code>.</li>
-<li>Added automatic release with a new CI pipeline.</li>
+<li>Updated to use the common module <em>DscResource.Common</em> - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/685">Issue #685</a>.
+<ul>
+<li>Improved integration test reliability by resetting the DSC LCM
+before executing each test using the <code>Reset-DscLcm</code>
+function - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/686">Issue #686</a>.</li>
 </ul>
 </li>
-</ul>
-<h3 id="changed-1">Changed</h3>
-<ul>
-<li>xPSDesiredStateConfiguration
-<ul>
-<li>PublishModulesAndMofsToPullServer.psm1:
-<ul>
-<li>Fixes issue in Publish-MOFToPullServer that incorrectly tries to create a
-new MOF file instead of reading the existing one.
-<a href="https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/575">issue #575</a></li>
+<li>Added build task <code>Generate_Conceptual_Help</code> to generate conceptual help
+for the DSC resource - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/677">Issue #677</a>.</li>
+<li>Added build task <code>Generate_Wiki_Content</code> to generate the wiki content
+that can be used to update the GitHub Wiki - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/677">Issue #677</a>.</li>
 </ul>
 </li>
-<li>Fix minor style issues with missing spaces between <code>param</code> statements and &lsquo;(&rsquo;.</li>
-<li>MSFT_xDSCWebService:
+<li>xDSCWebService:
 <ul>
-<li>Removal of commented out code.</li>
-<li>Updated to meet HQRM style guidelines - Fixes <a href="https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/623">issue #623</a></li>
-<li>Added MOF descriptions.</li>
+<li>Moved strings into localization file - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/622">Issue #622</a>.</li>
+<li>Corrected case of <code>CertificateThumbPrint</code> to <code>CertificateThumbprint</code>.</li>
 </ul>
 </li>
-<li>Corrected minor style issues.</li>
-<li>Fix minor style issues in hashtable layout.</li>
-<li>Shared modules moved to <code>source/Module</code> folder and renamed:
-<ul>
-<li><code>CommonResourceHelper.psm1</code> -&gt; <code>xPSDesiredStateConfiguration.Common.psm1</code></li>
-</ul>
-</li>
-<li>Moved functions from <code>ResourceSetHelper.psm1</code> into
-<code>xPSDesiredStateConfiguration.Common.psm1</code>.</li>
-<li>BREAKING CHANGE: Changed resource prefix from MSFT to DSC.</li>
-<li>Pinned <code>ModuleBuilder</code> to v1.0.0.</li>
-<li>Updated build badges in README.MD.</li>
-<li>Remove unused localization strings.</li>
-<li>Adopt DSC Community Code of Conduct.</li>
-<li>DSC_xPSSessionConfiguration:
-<ul>
-<li>Moved strings to localization file.</li>
-</ul>
-</li>
-<li>DSC_xScriptResource
-<ul>
-<li>Updated parameter descriptions to match MOF file.</li>
-</ul>
-</li>
-<li>Correct miscellaneous style issues.</li>
-<li>DSC_xWindowsOptionalFeature
-<ul>
-<li>Fix localization strings.</li>
-</ul>
-</li>
-<li>DSC_xEnvironmentResource
-<ul>
-<li>Remove unused localization strings.</li>
-</ul>
-</li>
-<li>DSC_xRemoteFile
-<ul>
-<li>Updated end-to-end tests to use the same pattern as the other end-to-end
-tests in this module.</li>
-</ul>
-</li>
-<li>DSC_xDSCWebService
-<ul>
-<li>Moved <code>PSWSIISEndpoint.psm1</code> module into <code>xPSDesiredStateConfiguration.PSWSIIS</code>.</li>
-<li>Moved <code>Firewall.psm1</code> module into <code>xPSDesiredStateConfiguration.Firewall</code>.</li>
-<li>Moved <code>SecureTLSProtocols.psm1</code> and <code>UseSecurityBestPractices.psm1</code> module
-into <code>xPSDesiredStateConfiguration.Security</code>.</li>
-<li>Fix issue with <code>Get-TargetResource</code> when a DSC Pull Server website is not
-installed.</li>
-</ul>
-</li>
-<li>DSC_xWindowsFeature
-<ul>
-<li>Changed tests to be able to run on machines without <code>*-WindowsFeature</code> cmdlets.</li>
-<li>Changed <code>Assert-SingleInstanceOfFeature</code> to accept an array.</li>
-</ul>
-</li>
-<li>BREAKING CHANGE: Renamed <code>PublishModulesAndMofsToPullServer</code> module to
-<code>DscPullServerSetup</code> and moved to Modules folder.</li>
-<li>Moved test helper modules into <code>tests\TestHelpers</code> folder.</li>
-</ul>
-</li>
-<li>DSCPullServerSetup
-<ul>
-<li>Fixed markdown errors in README.MD.</li>
-<li>Moved strings to Localization file.</li>
-<li>Corrected style violations.</li>
-</ul>
-</li>
-<li>Updated build badges to reflect correct Azure DevOps build Definition Id - fixes
-<a href="https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/656">issue #656</a>.</li>
-<li>Set <code>testRunTitle</code> for PublishTestResults steps so that a helpful name is
-displayed in Azure DevOps for each test run.</li>
-<li>Set a display name on all the jobs and tasks in the CI
-pipeline - fixes <a href="https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/663">issue #663</a>.</li>
-</ul>
-<h3 id="deprecated">Deprecated</h3>
-<ul>
-<li>None</li>
-</ul>
-<h3 id="removed">Removed</h3>
-<ul>
-<li>xPSDesiredStateConfiguration
-<ul>
-<li>Removed files no longer required by new CI process.</li>
-</ul>
-</li>
-</ul>
-<h3 id="fixed-1">Fixed</h3>
-<ul>
-<li>MSFT_xRegistryResource
-<ul>
-<li>Fixes issue that the <code>Set-TargetResource</code> does not determine
-the type of registry value correctly.
-<a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/436">issue #436</a></li>
-</ul>
-</li>
-<li>Fixed Pull Server example links in <code>README.MD</code> - fixes
-<a href="https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/659">issue #659</a>.</li>
-<li>Fixed <code>GitVersion.yml</code> feature and fix Regex - fixes
-<a href="https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/660">issue #660</a>.</li>
-<li>Fix import statement in all tests, making sure it throws if module
-DscResource.Test cannot be imported - fixes
-<a href="https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/666">issue #666</a>.</li>
-<li>Fix deploy stage in CI pipeline to prevent it executing against forks
-of the repository - fixes <a href="https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/665">issue #665</a>.</li>
-<li>Fix deploy fork detection in CI pipeline - fixes <a href="https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/668">issue #668</a>.</li>
-</ul>
-<h3 id="security">Security</h3>
-<ul>
-<li>None</li>
+<li>Renamed <code>master</code> branch to <code>main</code> - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/696">Issue #696</a>.</li>
+<li>Updated <code>GitVersion.yml</code> to latest pattern - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/707">Issue #707</a>.</li>
+<li>Updated build to use <code>Sampler.GitHubTasks</code> - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/711">Issue #711</a>.</li>
+<li>Added support for publishing code coverage to <code>CodeCov.io</code> and
+Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/711">Issue #711</a>.</li>
+<li>Updated vmImage used for build stage of CI to use <code>Windows-2019</code> to resolve
+issues with Wiki Generation of <code>xUploadFile</code> composite resource on Linux agents.</li>
+<li>Added <code>Publish_GitHub_Wiki_Content</code> task to <code>publish</code> stage of build
+pipeline - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfiguration/issues/729">Issue #729</a>.</li>
 </ul>
 </div>
                       </div>
@@ -7167,7 +6641,7 @@ of the repository - fixes <a href="https://github.com/PowerShell/xPSDesiredState
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:47</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xPendingReboot" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7440,6 +6914,10 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                     
                     <span class="badge badge-pill badge-info">PSModule</span>
                     
+                    <span class="badge badge-pill badge-info">PSDscResource_xRemoteDesktopAdmin</span>
+                    
+                    <span class="badge badge-pill badge-info">PSIncludes_DscResource</span>
+                    
                   </div>
                 </div>
 
@@ -7448,7 +6926,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   <div style="padding:10px">
                     <strong>DSC Resources:</strong>
                     
-                    <span class="badge badge-warning">xRemoteDesktopAdmin</span>
+                    <span class="badge badge-warning"></span>
                     
                   </div>
                 </div>
@@ -8261,7 +7739,7 @@ the same server. (Issue #62)</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 00:21</span>
+                      <span class="badge badge-secondary">2022-05-03 09:37</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xSCVMM-PowerShell-Desired-0025abcc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8423,7 +7901,7 @@ the same server. (Issue #62)</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:57</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xSmbShare" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8773,7 +8251,7 @@ Chocolatey.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:47</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xTimeZone" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8847,16 +8325,16 @@ Chocolatey.</li>
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">3.2.0</span>
+                    <span class="badge badge-success">3.2.1-preview0002</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2020-08-06 17:36</span>
+                    <span class="badge badge-success">2021-01-07 19:51</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-02 13:46</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xWebAdministration" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8888,7 +8366,7 @@ Chocolatey.</li>
                     
                     <span class="badge badge-warning">xIisFeatureDelegation</span>
                     
-                    <span class="badge badge-warning">xIIsHandler</span>
+                    <span class="badge badge-warning">xIisHandler</span>
                     
                     <span class="badge badge-warning">xIisLogging</span>
                     
@@ -8933,64 +8411,21 @@ Chocolatey.</li>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-xWebAdministration" role="tabpanel" aria-labelledby="nav-rn-tab-xWebAdministration">
-                          <div class="card card-body border-top-0"><h2 id="320---2020-08-06">[3.2.0] - 2020-08-06</h2>
-<h3 id="added">Added</h3>
-<ul>
-<li>xWebAdminstration
-<ul>
-<li>Integration tests are running on more Microsoft-hosted agents to
-test all possible operating systems (<a href="https://github.com/PowerShell/xWebAdministration/issues/550">issue #550</a>).</li>
-<li>Fix a few lingering bugs in CICD (<a href="https://github.com/PowerShell/xWebAdministration/issues/567">issue #567</a>)</li>
-<li>Remove an image from testing that MS will be deprecating soon (<a href="https://github.com/PowerShell/xWebAdministration/issues/567">issue #565</a>)</li>
-</ul>
-</li>
-</ul>
+                          <div class="card card-body border-top-0"><h2 id="321-preview0002---2021-01-07">[3.2.1-preview0002] - 2021-01-07</h2>
 <h3 id="changed">Changed</h3>
 <ul>
-<li>xWebAdminstration
-<ul>
-<li>Module was wrongly bumped to <code>4.0.0</code> (there a no merged breaking changes)
-so the versions <code>4.0.0-preview1</code> to <code>4.0.0-preview5</code> have been unlisted
-from the Gallery and removed as GitHub releases. The latest release is
-<code>3.2.0</code>.</li>
-<li>Azure Pipelines will no longer trigger on changes to just the CHANGELOG.md
-(when merging to master).</li>
-<li>The deploy step is no longer run if the Azure DevOps organization URL
-does not contain &lsquo;dsccommunity&rsquo;.</li>
-<li>Changed the VS Code project settings to trim trailing whitespace for
-markdown files too.</li>
-<li>Update pipeline to use NuGetVersionV2 from <code>GitVersion</code>.</li>
-<li>Pinned PowerShell module Pester to v4.10.1 in the pipeline due to
-tests is not yet compatible with Pester 5.</li>
-<li>Using latest version of the PowerShell module ModuleBuilder.
-<ul>
-<li>Updated build.yaml to use the correct values.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>xWebSite
-<ul>
-<li>Ensure that Test-TargetResource in xWebSite tests all properties before
-returning true or false, and that it uses a consistent style (<a href="https://github.com/PowerShell/xWebAdministration/issues/550">issue #221</a>).</li>
-</ul>
-</li>
-<li>xIisMimeTypeMapping
-<ul>
-<li>Update misleading localization strings</li>
-</ul>
-</li>
-<li>xIisLogging
-<ul>
-<li>Add Ensure to LogCustomFields. (<a href="https://github.com/dsccommunity/xWebAdministration/issues/571">issue #571</a>)</li>
-</ul>
-</li>
+<li>Renamed <code>master</code> branch to <code>main</code> (<a href="https://github.com/PowerShell/xWebAdministration/issues/591">issue #591</a>).</li>
+<li>The pipeline will now update the module manifest property <code>DscResourcesToExport</code>
+automatically.</li>
+<li>Only run the CI/CD pipeline on branch <em>main</em> when there are changes to files
+inside the <code>source</code> folder.</li>
 </ul>
 <h3 id="fixed">Fixed</h3>
 <ul>
-<li>WebApplicationHandler
+<li>xIisLogging
 <ul>
-<li>Integration test should no longer fail intermittent (<a href="https://github.com/PowerShell/xWebAdministration/issues/558">issue #558</a>).</li>
+<li>Fixed the descriptions for SourceType and SourceName which were incorrectly
+switched around in the <code>README.md</code>.</li>
 </ul>
 </li>
 </ul>
@@ -9026,7 +8461,7 @@ returning true or false, and that it uses a consistent style (<a href="https://g
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 09:17</span>
+                      <span class="badge badge-secondary">2022-05-03 09:57</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xWebDeploy" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -9345,19 +8780,19 @@ Please use the &ldquo;WinEventLog&rdquo; resource in ComputerManagementDsc inste
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">2.8.0.0</span>
+                    <span class="badge badge-success">3.0.0-preview0001</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2019-04-03 22:53</span>
+                    <span class="badge badge-success">2020-03-21 06:08</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-05-03 07:41</span>
+                      <span class="badge badge-secondary">2022-05-02 03:31</span>
                       <br />
                   </div>
-                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xWindowsUpdate" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
+                  <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xWindowsUpdate" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
                 </div>
                 <!-- Tags -->
                 <div class="row">
@@ -9382,9 +8817,7 @@ Please use the &ldquo;WinEventLog&rdquo; resource in ComputerManagementDsc inste
                   <div style="padding:10px">
                     <strong>DSC Resources:</strong>
                     
-                    <span class="badge badge-warning">xHotfix</span>
-                    
-                    <span class="badge badge-warning">xMicrosoftUpdate</span>
+                    <span class="badge badge-warning">xHotFix</span>
                     
                     <span class="badge badge-warning">xWindowsUpdateAgent</span>
                     
@@ -9401,20 +8834,108 @@ Please use the &ldquo;WinEventLog&rdquo; resource in ComputerManagementDsc inste
                     </nav>
                     <div class="tab-content border-top-0" id="nav-tabContent-xWindowsUpdate">
                       <div class="tab-pane fade show active border-top-0" id="nav-desc-xWindowsUpdate" role="tabpanel" aria-labelledby="nav-desc-tab-xWindowsUpdate">
-                        <div class="card card-body border-top-0">Module with DSC Resources for Windows Update</div>
+                        <div class="card card-body border-top-0">This module contains DSC resources for configuration of Microsoft Windows Update and installing Windows updates.</div>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-xWindowsUpdate" role="tabpanel" aria-labelledby="nav-rn-tab-xWindowsUpdate">
-                          <div class="card card-body border-top-0"><ul>
+                          <div class="card card-body border-top-0"><h2 id="300-preview0001---2020-03-21">[3.0.0-preview0001] - 2020-03-21</h2>
+<h3 id="added">Added</h3>
+<ul>
+<li>xWindowsUpdate
+<ul>
+<li>Added automatic release with a new CI pipeline.</li>
+</ul>
+</li>
+<li>xWindowsUpdateAgent
+<ul>
+<li>Added Retry logic to known transient errors (<a href="https://github.com/dsccommunity/xWindowsUpdate/issues/24">issue #24</a>).</li>
+</ul>
+</li>
+</ul>
+<h3 id="changed">Changed</h3>
+<ul>
+<li>xWindowsUpdate
+<ul>
+<li>Moved the <code>Set-StrictMode</code> so that it is used during testing only and
+not during runtime.</li>
+<li>Removed the helper function <code>Trace-Message</code> and using the <code>Write-Verbose</code>
+directly instead.</li>
+<li>The helper function <code>New-InvalidArgumentException</code> was replaced by
+its equivalent in the module DscResource.Common.</li>
+</ul>
+</li>
+<li>xWindowsUpdateAgent
+<ul>
+<li>Removed the <code>$PSCmdlet.ShouldProcess</code> calls from code since DSC does not
+support interactive actions.</li>
+<li>No longer defaults to output verbose messages.</li>
+</ul>
+</li>
+</ul>
+<h3 id="removed">Removed</h3>
+<ul>
+<li>xWindowsUpdate
+<ul>
+<li>BREAKING CHANGE: Removed the deprecated resource <code>xMicrosoftUpdate</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="2800---2019-04-03">[2.8.0.0] - 2019-04-03</h2>
+<ul>
 <li>xWindowsUpdateAgent: Fixed verbose statement returning incorrect variable</li>
 <li>Tests no longer fail on <code>Assert-VerifiableMocks</code>, these are now renamed
 to <code>Assert-VerifiableMock</code> (breaking change in Pester v4).</li>
 <li>README.md has been updated with correct description of the resources
-(<a href="https://github.com/PowerShell/xWindowsUpdate/issues/58">issue 58</a>).</li>
+(<a href="https://github.com/dsccommunity/xWindowsUpdate/issues/58">issue #58</a>).</li>
 <li>Updated appveyor.yml to use the correct parameters to call the test framework.</li>
 <li>Update appveyor.yml to use the default template.</li>
 <li>Added default template files .gitattributes, and .gitignore, and
 .vscode folder.</li>
+</ul>
+<h2 id="2700---2017-07-12">[2.7.0.0] - 2017-07-12</h2>
+<ul>
+<li>xWindowsUpdateAgent: Fix Get-TargetResource returning incorrect key</li>
+</ul>
+<h2 id="2600---2017-03-08">[2.6.0.0] - 2017-03-08</h2>
+<ul>
+<li>Converted appveyor.yml to install Pester from PSGallery instead of from
+Chocolatey.</li>
+<li>Fixed PSScriptAnalyzer issues.</li>
+<li>Fixed common test breaks (markdown style, and example style).</li>
+<li>Added CodeCov.io reporting</li>
+<li>Deprecated xMicrosoftUpdate as it&rsquo;s functionality is replaced by
+xWindowsUpdateAgent</li>
+</ul>
+<h2 id="2500---2016-05-18">[2.5.0.0] - 2016-05-18</h2>
+<ul>
+<li>Added xWindowsUpdateAgent</li>
+</ul>
+<h2 id="2400---2016-03-30">[2.4.0.0] - 2016-03-30</h2>
+<ul>
+<li>Fixed PSScriptAnalyzer error in examples</li>
+</ul>
+<h2 id="2300---2016-02-02">[2.3.0.0] - 2016-02-02</h2>
+<ul>
+<li>MSFT_xWindowsUpdate: Fixed an issue in the Get-TargetResource function,
+resulting in the Get-DscConfiguration cmdlet now working appropriately
+when the resource is applied.</li>
+<li>MSFT_xWindowsUpdate: Fixed an issue in the Set-TargetResource function
+that was causing the function to fail when the installation of a hotfix
+did not provide an exit code.</li>
+</ul>
+<h2 id="2200---2015-09-11">[2.2.0.0] - 2015-09-11</h2>
+<ul>
+<li>Minor fixes</li>
+</ul>
+<h2 id="2100---2015-07-24">[2.1.0.0] - 2015-07-24</h2>
+<ul>
+<li>Added xMicrosoftUpdate DSC resource which can be used to enable/disable
+Microsoft Update in the Windows Update Settings.</li>
+</ul>
+<h1 id="heading"></h1>
+<h2 id="2000---2015-04-23">[2.0.0.0] - 2015-04-23</h2>
+<ul>
+<li>Initial release with the xHotfix resource</li>
 </ul>
 </div>
                       </div>
