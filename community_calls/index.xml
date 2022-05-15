@@ -9,17 +9,13 @@
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Sun, 28 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/community_calls/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2022-05-04</title>
-      <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Tue, 22 Mar 2022 00:00:00 +0000</pubDate>
+      <title>2022-05-04 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2022-05-04-notes/</link>
+      <pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, May 4th, at 12 PM PST
-Join the call Join using the Microsoft Teams app
-Or click here to browse the list of available dial-in numbers to find one that is local to your region
-Conference ID: 503 431 76#
-Discussions Topics or questions from the community (welcome at any point during the call)
-We are also available on the Virtual PowerShell User Group #DSC channel.</description>
+      <guid>https://dsccommunity.org/community_calls/2022-05-04-notes/</guid>
+      <description>Recording   Agenda Quick update on activity  PowerShell DevOps Global Summit 2022  Special Guests &amp;amp; Announcement The PowerShell Desired State Configuration module is now open sourced!!!:
+ Jodi Boone, Program Manager for Guest Configuration Jason Helmick, Program Manager for PowerShell (including PowerShell DSC) Michael Greene, Principal Program Manager for PowerShell and Guest Configuration  Code contributions are not considered at this time, except for tests. Issues and discussions are welcome.</description>
     </item>
     
     <item>

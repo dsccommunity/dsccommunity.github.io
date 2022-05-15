@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>2020-04-08 Notes</title>
+  <title>2022-05-04 Notes</title>
 
   <meta name="generator" content="Hugo 0.92.2" />
 
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
               <ul class="sub-menu">
-            <li class=""><a href="/community_calls/2022-05-04-notes/">2022-05-04 Notes</a>
+            <li class="parent d-block  active "><a href="/community_calls/2022-05-04-notes/">2022-05-04 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2022-03-23-notes/">2022-03-23 Notes</a>
             </li>
@@ -267,7 +267,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/community_calls/2020-05-20-notes/">2020-05-20 Notes</a>
             </li>
-            <li class="parent d-block  active "><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
+            <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2020-02-26-notes/">2020-02-26 Notes</a>
             </li>
@@ -322,89 +322,105 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>2020-04-08 Notes</h2>
-            <p><a href="..">How to join</a></p>
-<h3 id="recording">Recording</h3>
-<p>Waiting to be published</p>
-<!-- [Meeting recording](https://youtu.be/gZqWw_ePhxs)
+            <h2>2022-05-04 Notes</h2>
+            <h3 id="recording">Recording</h3>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/gZqWw_ePhxs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+  <iframe src="https://www.youtube.com/embed/VBTY2JG6mmM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
- -->
-<h3 id="agenda">Agenda</h3>
-<ol>
-<li>Quick update on activity</li>
-<li>Presentation by Raimund Andre: Less code in resource with Test-DscParameterState</li>
-</ol>
-<ul>
-<li>
-<p>Migration to Continuous Delivery Process:</p>
-<ul>
-<li>
-<p>Completed since last call</p>
-<ul>
-<li>OfficeOnlineServerDsc</li>
-<li>xDhcpServer</li>
-<li>xHyper-V</li>
-<li>xDnsServer</li>
-</ul>
-</li>
-<li>
-<p>Completed</p>
-<ul>
-<li>xSystemSecurity</li>
-<li>ComputerManagementDsc</li>
-<li>ActiveDirectoryDsc</li>
-<li>NetworkingDsc</li>
-<li>SharePointDsc</li>
-<li>SQLServerDsc</li>
-<li>WSManDsc</li>
-<li>xFailOverCluster</li>
-<li>xPSDesiredStateConfiguration</li>
-<li>xWebAdministration</li>
-<li>GPRegistryPolicyDsc</li>
-<li>UpdateServicesDsc</li>
-<li>ActiveDirectoryCSDsc</li>
-<li>xExchange</li>
-<li>OfficeOnlineServerDsc</li>
-</ul>
-</li>
-<li>
-<h2 id="in-progress">In progress:</h2>
-<ul>
-<li>Others?</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>These repositories have moved under DSC Community.</p>
-<ul>
-<li><a href="https://github.com/dsccommunity/DscWorkshop">https://github.com/dsccommunity/DscWorkshop</a></li>
-<li><a href="https://github.com/dsccommunity/CommonTasks">https://github.com/dsccommunity/CommonTasks</a></li>
-</ul>
-</li>
-<li>
-<p>Raimund Andree presents: Test-DscParameterState</p>
-<ul>
-<li>Some resources have a huge overlap in Test() and Get() which is a pain for maintenance and testing. The SharePointDsc resource was the first that started with a generic way to compare the current with the desired state. This pattern has been extended and covers almost any type now: string, int, scriptblock, hashtable, CimInstance and PSCredential. Want to do a reverse check as well or handle sorting? Then let’s have a look at Test-DscParameterState.</li>
-</ul>
-</li>
-<li>
-<p>Feel free to <a href="https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md">send a PR to this file</a>
-if there&rsquo;s something you&rsquo;d like to be added to the agenda (or just ask
-during the call)</p>
-</li>
-</ul>
-<h4 id="resources-that-have-been-released-recently">Resources that have been released recently</h4>
-<h3 id="discussions">Discussions</h3>
-<p>Topics or questions from the community (welcome at any point during the call)</p>
-<p>Talk to us on <strong>Virtual PowerShell User Group</strong> <em>#DSC</em> channel.
-For information on how to join, see <a href="https://dsccommunity.org/community/contact/">https://dsccommunity.org/community/contact/</a></p>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 17 Jan 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/2020-05-20-notes/" title="2020-05-20 Notes"><i class="ti-arrow-left mr-2"></i>2020-05-20 Notes</a>
-            <a class="nav nav-next" href="/community_calls/2020-02-26-notes/" title="2020-02-26 Notes">2020-02-26 Notes<i class="ti-arrow-right ml-2"></i></a>
+<h3 id="agenda">Agenda</h3>
+<h4 id="quick-update-on-activity">Quick update on activity</h4>
+<ul>
+<li><a href="https://powershell.org/summit/">PowerShell DevOps Global Summit 2022</a></li>
+</ul>
+<h4 id="special-guests--announcement">Special Guests &amp; Announcement</h4>
+<p>The PowerShell Desired State Configuration module is <a href="https://github.com/powershell/PSDesiredStateConfiguration">now open sourced</a>!!!:</p>
+<ul>
+<li><a href="https://twitter.com/jodi_boone_">Jodi Boone</a>, Program Manager for Guest Configuration</li>
+<li><a href="https://twitter.com/TheJasonHelmick">Jason Helmick</a>, Program Manager for PowerShell (including PowerShell DSC)</li>
+<li><a href="https://twitter.com/migreene">Michael Greene</a>, Principal Program Manager for PowerShell and Guest Configuration</li>
+</ul>
+<p>Code contributions are not considered at this time, except for tests.
+Issues and discussions are welcome.</p>
+<p>Also presenting the Microsoft technical writers:</p>
+<ul>
+<li><a href="https://twitter.com/swsamwa">Sean Wheeler</a></li>
+<li><a href="https://twitter.com/BigFnMikey">Mikey Lombardi</a></li>
+<li><a href="https://twitter.com/mikefrobbins">Mike F. Robbins</a></li>
+</ul>
+<p>Key points, copied from <a href="https://twitter.com/PowerShellMich1">@PowerShellMich1</a>&rsquo;s notes (thank you Sir!):</p>
+<ul>
+<li>
+<p>Follow a big push for DSC to be Open Source</p>
+</li>
+<li>
+<p><a href="https://github.com/powershell/psdesiredstateconfiguration">PSDesiredStateConfigurationModule</a></p>
+</li>
+<li>
+<p>Current work for the PowerShell Team on PSDSC V3 is support of Azure Guest Configuration.</p>
+</li>
+<li>
+<p>No Roadmap yet except some bug fixes with a planned PSDSC v2.0.6 version. Updates to the DSC Documentation, reviewing/considering work items to be planned.</p>
+</li>
+<li>
+<p>PSDSC is used by Azure Guest Configuration:</p>
+<ul>
+<li>PSDSC does not mean agent/pull server bits, just the Compilation, DSC Resource ecosystem, Composite (TBD) and invocation of resources.</li>
+<li>Announcements about Guest Configuration. Audit is GA, Set (~DSC remediation) is preview and should become GA <em>soon</em>.</li>
+<li>No more dependency of Resources modules, the Guest Configuration package embed the MOF <em>AND</em> required modules.</li>
+</ul>
+</li>
+<li>
+<p>Azure Guest Configuration Started as a cloud <em>governance</em> product. However it now extends to enact custom DSC Configuration.</p>
+<ul>
+<li>Remediating non-compliance.</li>
+<li>Soon go GA to use SET scenarios.</li>
+</ul>
+</li>
+<li>
+<p>The different versions of PSDSC Module:</p>
+<ul>
+<li>DSC v1 is the existing version of DSC.</li>
+<li>DSC 2.0 will decouple with a LCM. You bring your own LCM.</li>
+<li>DSC 3.0 is the xplat version supporting only class based to deprecate CIM/MOF/MI. Here, Microsoft&rsquo;s new LCM equivalent will be Azure Guest Configuration.</li>
+</ul>
+</li>
+<li>
+<p>Guest Config Considerations:</p>
+<ul>
+<li>Reviewing means of existing Script Based Resources to miagrate to Class Based Resources.</li>
+<li>Azure Guest Configuration Agent functions as a LCM and could be run side-by-side with windows LCM.</li>
+<li>Azure Guest Configuration functions by being able to run simultaneous configurations.</li>
+<li>Different ways of managing modules and supporting modules.</li>
+<li>Logging is better.</li>
+<li>Azure Guest Policy Management uses a singlular source artifact zip file.</li>
+<li>Use a build script to create and deploy the artifact zip file to azure.</li>
+<li>Tags are the best way of grouping and deploying configuration within Guest Config.</li>
+</ul>
+</li>
+<li>
+<p>From a docs point of view, we still need to:</p>
+<ul>
+<li>Update to the DSC Terminalology.</li>
+<li>Updates to the DSC Documentation. Re-writing documentation, that&rsquo;s why Mikey joined the MSFT doc team.</li>
+</ul>
+</li>
+<li>
+<p>While the Guest Config scenarios is focussing on Azure, and the PowerShell team is focused on this first customer for the PowerShell DSC platform (the PSDSC Module), the goal is to make the platform open and reusable.</p>
+</li>
+</ul>
+<h4 id="tooling-modules-that-have-been-released-recently">Tooling modules that have been released recently</h4>
+<ul>
+<li>Releases
+<ul>
+<li>Sampler v0.112.3 (<em>templates install GitVersion using <code>dotnet tool install</code></em>)</li>
+</ul>
+</li>
+</ul>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 04 May 2022</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/" title="Community Calls"><i class="ti-arrow-left mr-2"></i>Community Calls</a>
+            <a class="nav nav-next" href="/community_calls/2022-03-23-notes/" title="2022-03-23 Notes">2022-03-23 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>
