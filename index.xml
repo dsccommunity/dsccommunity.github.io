@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Wed, 04 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Next Community Call 2022-06-15</title>
+      <link>https://dsccommunity.org/community_calls/next_call/</link>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/next_call/</guid>
+      <description>Next call will be on Wednesday, June 15th, at 12 PM PST
+Join the call Join using the Microsoft Teams app
+Or click here to browse the list of available dial-in numbers to find one that is local to your region
+Conference ID: 503 431 76#
+Discussions Topics or questions from the community (welcome at any point during the call)
+We are also available on the Virtual PowerShell User Group #DSC channel.</description>
+    </item>
+    
     <item>
       <title>Future of Configuration Management</title>
       <link>https://dsccommunity.org/configmgt/future-of-config-mgt/</link>
