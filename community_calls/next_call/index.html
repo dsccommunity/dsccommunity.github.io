@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Next Community Call 2022-06-15</title>
+  <title>Next Community Call 2022-07-27</title>
 
   <meta name="generator" content="Hugo 0.92.2" />
 
@@ -237,7 +237,7 @@ if (!doNotTrack) {
             </li>
             <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
               <ul class="sub-menu">
-            <li class="parent d-block  active "><a href="/community_calls/next_call/">Next Community Call 2022-06-15</a>
+            <li class="parent d-block  active "><a href="/community_calls/next_call/">Next Community Call 2022-07-27</a>
             </li>
             <li class=""><a href="/community_calls/2022-05-04-notes/">2022-05-04 Notes</a>
             </li>
@@ -324,8 +324,8 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Next Community Call 2022-06-15</h2>
-            <p>Next call will be on Wednesday, June 15th, at 12 PM PST</p>
+            <h2>Next Community Call 2022-07-27</h2>
+            <p>Next call will be on Wednesday, July 27th, at 12 PM PST</p>
 <h3 id="join-the-call">Join the call</h3>
 <p><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OTc2YThjZGQtNWE4Yi00NDQyLTk5NTktYWIwYjdhMGZjNDRl%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%222fd83437-7fe6-4ee4-a109-828a19cb7bff%22%7d">Join using the Microsoft Teams app</a></p>
 <p><a href="https://dialin.teams.microsoft.com/8551f4c1-bea3-441a-8738-69aa517a91c5?id=50343176">Or click here to browse the list of available dial-in numbers to find one that is local to your region</a></p>
@@ -340,7 +340,8 @@ Just <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/conte
 <h3 id="agenda">Agenda</h3>
 <h4 id="community-presentation">Community Presentation</h4>
 <ul>
-<li><a href="https://twitter.com/chagerCOC">Constantin Hager</a> presents Azure Automation DSC &amp; Azure VM extension. How do they work together?</li>
+<li><a href="https://twitter.com/chagerCOC">Constantin Hager</a> presents Azure Automation
+DSC &amp; Azure VM extension. How do they work together?</li>
 </ul>
 <h4 id="quick-update-on-activity">Quick update on activity</h4>
 <ul>
@@ -352,12 +353,28 @@ Just <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/conte
 <ul>
 <li>Releases
 <ul>
-<li>TBC</li>
+<li>xHyper-V v3.18.0 (deprecated - move to HyperVDsc)</li>
+<li>xWebAdministration v3.3.0 (deprecated - move to WebAdministrationDsc)</li>
+<li>NetworkingDsc v9.0.0</li>
+<li>xFailOverCluster v1.16.1 (deprecated - move to FailoverClusterDsc)</li>
+<li>FailoverClusterDsc v2.0.0</li>
+<li>SChannelDsc v1.4.0</li>
+<li>SharePointDsc v5.2.0</li>
+<li>xDhcpServer v3.1.0</li>
+<li>ActiveDirectoryDsc v6.2.0</li>
 </ul>
 </li>
 <li>Preview releases
 <ul>
 <li>UpdateServicesDsc v1.3.0-preview0002</li>
+<li>HyperVDsc v4.0.0-preview0004</li>
+<li>FailoverClusterDsc v2.0.1-preview0003</li>
+<li>SqlServerDsc v16.0.0-preview0009 (now using Pester 5 in the pipeline)</li>
+<li>ComputerManagementDsc v8.6.0-preview0002</li>
+<li>ActiveDirectoryDsc v6.3.0-preview0002</li>
+<li>xExchange v1.33.1-preview0001</li>
+<li>JeaDsc v4.0.0-preview0003</li>
+<li>ConfigMgrCBDsc v3.0.1-preview0001</li>
 </ul>
 </li>
 </ul>
@@ -365,7 +382,34 @@ Just <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/conte
 <ul>
 <li>Releases
 <ul>
-<li>Sampler v0.114.0 (First full release in a while)</li>
+<li>Sampler v0.115.0 (First full release in a while)
+<ul>
+<li>New tasks for creating git tag, and creating changelog branch</li>
+</ul>
+</li>
+<li>Sampler.AzureDevOpsTasks v0.1.1
+<ul>
+<li>Task for creating a PR from a source branch (for Azure Repos)</li>
+</ul>
+</li>
+<li>DscResource.DocGenerator v0.11.0
+<ul>
+<li>Various bug fixes, and most notable it is now possible to use property
+<code>BuiltModuleSubdirectory</code> with the Sampler pipeline (it was the last
+one that needed to be fixed).</li>
+</ul>
+</li>
+<li>DscResource.Test v0.16.1
+<ul>
+<li>Fix so that if Pester 5 testing fails on discovery, pipeline fails.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Preview releases
+<ul>
+<li>Sampler.GitHubTasks v0.3.5-preview0002</li>
+<li>Sampler.DscPipeline v0.2.0-preview0002</li>
 </ul>
 </li>
 </ul>
