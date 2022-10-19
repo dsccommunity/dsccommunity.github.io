@@ -729,7 +729,7 @@ if (!doNotTrack) {
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:17</span>
+                      <span class="badge badge-secondary">2022-10-19 05:07</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/ActiveDirectoryCSDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -846,7 +846,7 @@ if (!doNotTrack) {
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:17</span>
+                      <span class="badge badge-secondary">2022-10-19 09:22</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/ActiveDirectoryDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1006,7 +1006,7 @@ required for ModuleBuilder to work.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:57</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/AuditPolicyDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1096,7 +1096,7 @@ required for ModuleBuilder to work.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:57</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/CertificateDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1213,16 +1213,16 @@ runs on PowerShell Core/7.x.</li>
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">0.8.1-preview0001</span>
+                    <span class="badge badge-success">0.8.1-preview0004</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2022-09-06 12:40</span>
+                    <span class="badge badge-success">2022-10-10 08:42</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 12:40</span>
+                      <span class="badge badge-secondary">2022-10-18 14:07</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/CommonTasks" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1295,6 +1295,8 @@ runs on PowerShell Core/7.x.</li>
                     <span class="badge badge-warning">ConfigurationManagerConfiguration</span>
                     
                     <span class="badge badge-warning">ConfigurationManagerDeployment</span>
+                    
+                    <span class="badge badge-warning">ConfigurationManagerDistributionGroups</span>
                     
                     <span class="badge badge-warning">DfsNamespaces</span>
                     
@@ -1547,7 +1549,7 @@ runs on PowerShell Core/7.x.</li>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-CommonTasks" role="tabpanel" aria-labelledby="nav-rn-tab-CommonTasks">
-                          <div class="card card-body border-top-0"><h2 id="081-preview0001---2022-09-06">[0.8.1-preview0001] - 2022-09-06</h2>
+                          <div class="card card-body border-top-0"><h2 id="081-preview0004---2022-10-10">[0.8.1-preview0004] - 2022-10-10</h2>
 <h3 id="added">Added</h3>
 <ul>
 <li><code>PowershellExecutionPolicies</code> Composite for managing Powershell execution policies.</li>
@@ -1569,6 +1571,7 @@ runs on PowerShell Core/7.x.</li>
 <li><code>ScomManagementPacks</code> Composite to import SCOM management packs from file or via inline XML</li>
 <li><code>ScomSettings</code> Composite to set all available SCOM settings</li>
 <li><code>CertificateRequest</code> Composite to request certificates from a certificate authority, includes automatic wait for ADCS to become available</li>
+<li><code>ConfigurationManagerDistributionGroup</code> Composite to configure one or more distribution point groups</li>
 </ul>
 <h3 id="changed">Changed</h3>
 <ul>
@@ -1616,26 +1619,29 @@ runs on PowerShell Core/7.x.</li>
 <li>Fixed issue with quotation marks in &lsquo;SqlServer&rsquo; resource.</li>
 <li>Fixed issue with inter-configuration DependsOn by removing DependsOn inside configurations</li>
 <li>Added remote desktop control to &lsquo;ComputerSettings&rsquo;.</li>
-<li>Fixed an issue with DscLcmController, the RebootNodeIfNeeded property is not
+<li>Fixed an issue with DscLcmController, the RebootNodeIfNeeded property is not.
 set to false before the first execution of maintenance window.</li>
 <li>Fixed issue with DscLcmController, The RebootNodeIfNeeded property is not
 set to true when the LCM is already in ApplyAndAutoCorrect mode.</li>
 <li>Fixed GitVersion depreciated version in azurepipeline.</li>
 <li>Fixed issue #156, switch plublish task to &lsquo;unbuntu-latest&rsquo; vmimage.</li>
-<li>WindowsEventForwarding - replace localized system user names by SID to avoid problems on none english Windows systems</li>
-<li>Documentation update</li>
-<li>Removed DependsOn in ComputerSettings to ensure cross-configuration dependencies</li>
-<li>Migration of tests to Pester 5</li>
-<li>Added support for CimInstance parameters</li>
-<li>Fixed issue with Cluster composite ignoring the IgnoreNetwork parameter</li>
-<li>Fix #172 - RegistryPolicies: Error when Key or ValueName parameters contain bracket &ldquo;()&rdquo;</li>
-<li>ConfigurationManagerDeployment updated to allow Windows feature installation
+<li>WindowsEventForwarding - replace localized system user names by SID to avoid problems on none english Windows systems.</li>
+<li>Documentation update.</li>
+<li>Removed DependsOn in ComputerSettings to ensure cross-configuration dependencies.</li>
+<li>Migration of tests to Pester 5.</li>
+<li>Added support for CimInstance parameters.</li>
+<li>Fixed issue with Cluster composite ignoring the IgnoreNetwork parameter.</li>
+<li>Fix #172 - RegistryPolicies: Error when Key or ValueName parameters contain bracket &ldquo;()&rdquo;.</li>
+<li>ConfigurationManagerDeployment updated to allow Windows feature installation.
 <ul>
-<li>InstallWindowsFeatures could create duplicate resource issues if WindowsFeatures composite is used as well</li>
+<li>InstallWindowsFeatures could create duplicate resource issues if WindowsFeatures composite is used as well.</li>
 </ul>
 </li>
-<li>ConfigurationManagerDeployment now has configurable Product Key</li>
-<li>Made reading binary files in FilesAndFolders and CertificateImports more robust</li>
+<li>ConfigurationManagerDeployment now has configurable Product Key.</li>
+<li>Made reading binary files in FilesAndFolders and CertificateImports more robust.</li>
+<li>Updated to latest version of &lsquo;PackageManagement&rsquo; to fix module discovery error.</li>
+<li>WindowsServices: fix support of absent services (Ensure: Absent)</li>
+<li>HyperV: fix support of absent switches and VMs (Ensure: Absent)</li>
 </ul>
 </div>
                       </div>
@@ -1669,7 +1675,7 @@ set to true when the LCM is already in ApplyAndAutoCorrect mode.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 10:52</span>
+                      <span class="badge badge-secondary">2022-10-19 05:32</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/ComputerManagementDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1687,6 +1693,40 @@ set to true when the LCM is already in ApplyAndAutoCorrect mode.</li>
                     
                     <span class="badge badge-pill badge-info">PSModule</span>
                     
+                    <span class="badge badge-pill badge-info">PSDscResource_Computer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_OfflineDomainJoin</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_PendingReboot</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_PowerPlan</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_PowerShellExecutionPolicy</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_RemoteDesktopAdmin</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_ScheduledTask</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SmbServerConfiguration</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SmbShare</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SystemLocale</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_TimeZone</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_VirtualMemory</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_WindowsEventLog</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_WindowsCapability</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_IEEnhancedSecurityConfiguration</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_UserAccountControl</span>
+                    
+                    <span class="badge badge-pill badge-info">PSIncludes_DscResource</span>
+                    
                   </div>
                 </div>
 
@@ -1695,37 +1735,7 @@ set to true when the LCM is already in ApplyAndAutoCorrect mode.</li>
                   <div style="padding:10px">
                     <strong>DSC Resources:</strong>
                     
-                    <span class="badge badge-warning">Computer</span>
-                    
-                    <span class="badge badge-warning">OfflineDomainJoin</span>
-                    
-                    <span class="badge badge-warning">PendingReboot</span>
-                    
-                    <span class="badge badge-warning">PowerPlan</span>
-                    
-                    <span class="badge badge-warning">PowerShellExecutionPolicy</span>
-                    
-                    <span class="badge badge-warning">RemoteDesktopAdmin</span>
-                    
-                    <span class="badge badge-warning">ScheduledTask</span>
-                    
-                    <span class="badge badge-warning">SmbServerConfiguration</span>
-                    
-                    <span class="badge badge-warning">SmbShare</span>
-                    
-                    <span class="badge badge-warning">SystemLocale</span>
-                    
-                    <span class="badge badge-warning">TimeZone</span>
-                    
-                    <span class="badge badge-warning">VirtualMemory</span>
-                    
-                    <span class="badge badge-warning">WindowsEventLog</span>
-                    
-                    <span class="badge badge-warning">WindowsCapability</span>
-                    
-                    <span class="badge badge-warning">IEEnhancedSecurityConfiguration</span>
-                    
-                    <span class="badge badge-warning">UserAccountControl</span>
+                    <span class="badge badge-warning"></span>
                     
                   </div>
                 </div>
@@ -1786,7 +1796,7 @@ set to true when the LCM is already in ApplyAndAutoCorrect mode.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-07-28 21:09</span>
+                      <span class="badge badge-secondary">2022-10-13 15:57</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/DFSDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1918,7 +1928,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/DFSDsc/issues/1
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-04 23:51</span>
+                      <span class="badge badge-secondary">2022-10-18 21:52</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/FSRMDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2039,7 +2049,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/DFSDsc/issues/1
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-08-30 10:38</span>
+                      <span class="badge badge-secondary">2022-10-17 19:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/FileContentDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2059,6 +2069,20 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/DFSDsc/issues/1
                     
                     <span class="badge badge-pill badge-info">PSModule</span>
                     
+                    <span class="badge badge-pill badge-info">PSDscResource_ReplaceText</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_KeyValuePairFile</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_IniSettingsFile</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_DSC_IniSettingsFile</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_DSC_KeyValuePairFile</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_DSC_ReplaceText</span>
+                    
+                    <span class="badge badge-pill badge-info">PSIncludes_DscResource</span>
+                    
                   </div>
                 </div>
 
@@ -2067,17 +2091,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/DFSDsc/issues/1
                   <div style="padding:10px">
                     <strong>DSC Resources:</strong>
                     
-                    <span class="badge badge-warning">ReplaceText</span>
-                    
-                    <span class="badge badge-warning">KeyValuePairFile</span>
-                    
-                    <span class="badge badge-warning">IniSettingsFile</span>
-                    
-                    <span class="badge badge-warning">DSC_IniSettingsFile</span>
-                    
-                    <span class="badge badge-warning">DSC_KeyValuePairFile</span>
-                    
-                    <span class="badge badge-warning">DSC_ReplaceText</span>
+                    <span class="badge badge-warning"></span>
                     
                   </div>
                 </div>
@@ -2148,7 +2162,7 @@ coverage - Fixes <a href="https://github.com/dsccommunity/FileContentDsc/issues/
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:57</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/GPRegistryPolicyDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2275,7 +2289,7 @@ coverage - Fixes <a href="https://github.com/dsccommunity/FileContentDsc/issues/
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:32</span>
+                      <span class="badge badge-secondary">2022-10-07 08:40</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/JeaDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2358,7 +2372,7 @@ coverage - Fixes <a href="https://github.com/dsccommunity/FileContentDsc/issues/
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:57</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/NetworkingDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2570,7 +2584,7 @@ with NDIS version 6 or greater is not available.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:32</span>
+                      <span class="badge badge-secondary">2022-10-19 05:12</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/OfficeOnlineServerDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2716,7 +2730,7 @@ for farm join, especially with the new ProductUpdate resource.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:57</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/PSDscResources" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2738,6 +2752,42 @@ for farm join, especially with the new ProductUpdate resource.</li>
                     
                     <span class="badge badge-pill badge-info">PSModule</span>
                     
+                    <span class="badge badge-pill badge-info">PSDscResource_Archive</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_Environment</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_Group</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_GroupSet</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_MsiPackage</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_Registry</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_Script</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_Service</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_ServiceSet</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_User</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_WindowsFeature</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_WindowsFeatureSet</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_WindowsOptionalFeature</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_WindowsOptionalFeatureSet</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_WindowsPackageCab</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_WindowsProcess</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_ProcessSet</span>
+                    
+                    <span class="badge badge-pill badge-info">PSIncludes_DscResource</span>
+                    
                   </div>
                 </div>
 
@@ -2746,39 +2796,7 @@ for farm join, especially with the new ProductUpdate resource.</li>
                   <div style="padding:10px">
                     <strong>DSC Resources:</strong>
                     
-                    <span class="badge badge-warning">Archive</span>
-                    
-                    <span class="badge badge-warning">Environment</span>
-                    
-                    <span class="badge badge-warning">Group</span>
-                    
-                    <span class="badge badge-warning">GroupSet</span>
-                    
-                    <span class="badge badge-warning">MsiPackage</span>
-                    
-                    <span class="badge badge-warning">Registry</span>
-                    
-                    <span class="badge badge-warning">Script</span>
-                    
-                    <span class="badge badge-warning">Service</span>
-                    
-                    <span class="badge badge-warning">ServiceSet</span>
-                    
-                    <span class="badge badge-warning">User</span>
-                    
-                    <span class="badge badge-warning">WindowsFeature</span>
-                    
-                    <span class="badge badge-warning">WindowsFeatureSet</span>
-                    
-                    <span class="badge badge-warning">WindowsOptionalFeature</span>
-                    
-                    <span class="badge badge-warning">WindowsOptionalFeatureSet</span>
-                    
-                    <span class="badge badge-warning">WindowsPackageCab</span>
-                    
-                    <span class="badge badge-warning">WindowsProcess</span>
-                    
-                    <span class="badge badge-warning">ProcessSet</span>
+                    <span class="badge badge-warning"></span>
                     
                   </div>
                 </div>
@@ -2859,7 +2877,7 @@ Specifically fixes
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-08-26 22:03</span>
+                      <span class="badge badge-secondary">2022-10-06 08:34</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2921,16 +2939,16 @@ Specifically fixes
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">3.0.16-beta16</span>
+                    <span class="badge badge-success">3.0.17-beta17</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2022-07-28 17:33</span>
+                    <span class="badge badge-success">2022-09-09 19:49</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:57</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://go.microsoft.com/fwlink/?LinkId=828955" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2981,35 +2999,58 @@ Specifically fixes
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-PowerShellGet" role="tabpanel" aria-labelledby="nav-rn-tab-PowerShellGet">
-                          <div class="card card-body border-top-0"><h2 id="3016-beta16">3.0.16-beta16</h2>
+                          <div class="card card-body border-top-0"><h2 id="3017-beta17">3.0.17-beta17</h2>
+<h3 id="new-features">New Features</h3>
+<ul>
+<li>Add -TemporaryPath parameter to Install-PSResource, Save-PSResource, and Update-PSResource (#763)</li>
+<li>Add String and SecureString as credential types in PSCredentialInfo (#764)</li>
+<li>Add a warning for when the script installation path is not in Path variable (#750)</li>
+<li>Expand acceptable paths for Publish-PSResource (Module root directory, module manifest file, script file)(#704)</li>
+<li>Add -Force parameter to Register-PSResourceRepository cmdlet, to override an existing repository (#717)</li>
+</ul>
 <h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Change casing of -IncludeXML to -IncludeXml (#739)</li>
+<li>Update priority range for PSResourceRepository to 0-100 (#741)</li>
+<li>Editorial pass on cmdlet reference (#743)</li>
+<li>Fix issue when PSScriptInfo has no empty lines (#744)</li>
+<li>Make ConfirmImpact low for Register-PSResourceRepository and Save-PSResource (#745)</li>
+<li>Fix -PassThru for Set-PSResourceRepository cmdlet to return all properties (#748)</li>
+<li>Rename -FilePath parameter to -Path for PSScriptFileInfo cmdlets (#765)</li>
+<li>Fix RequiredModules description and add Find example to docs (#769)</li>
+<li>Remove unneeded inheritance in InstallHelper.cs (#773)</li>
+<li>Make -Path a required parameter for Save-PSResource cmdlet (#780)</li>
+<li>Improve script validation for publishing and installing (#781)</li>
+</ul>
+<h2 id="3016-beta16">3.0.16-beta16</h2>
+<h3 id="bug-fixes-1">Bug Fixes</h3>
 <ul>
 <li>Update NuGet dependency packages for security vulnerabilities (#733)</li>
 </ul>
 <h2 id="3015-beta15">3.0.15-beta15</h2>
-<h3 id="new-features">New Features</h3>
+<h3 id="new-features-1">New Features</h3>
 <ul>
 <li>Implementation of New-ScriptFileInfo, Update-ScriptFileInfo, and Test-ScriptFileInfo cmdlets (#708)</li>
 <li>Implementation of Update-ModuleManifest cmdlet (#677)</li>
 <li>Implentation of Authenticode validation via -AuthenticodeCheck for Install-PSResource (#632)</li>
 </ul>
-<h3 id="bug-fixes-1">Bug Fixes</h3>
+<h3 id="bug-fixes-2">Bug Fixes</h3>
 <ul>
 <li>Bug fix for installing modules with manifests that contain dynamic script blocks (#681)</li>
 </ul>
 <h2 id="3014-beta14">3.0.14-beta14</h2>
-<h3 id="bug-fixes-2">Bug Fixes</h3>
+<h3 id="bug-fixes-3">Bug Fixes</h3>
 <ul>
 <li>Bug fix for repository store (#661)</li>
 </ul>
 <h2 id="3013-beta">3.0.13-beta</h2>
-<h3 id="new-features-1">New Features</h3>
+<h3 id="new-features-2">New Features</h3>
 <ul>
 <li>Implementation of -RequiredResourceFile and -RequiredResource parameters for Install-PSResource (#610, #592)</li>
 <li>Scope parameters for Get-PSResource and Uninstall-PSResource (#639)</li>
 <li>Support for credential persistence (#480 Thanks @cansuerdogan!)</li>
 </ul>
-<h3 id="bug-fixes-3">Bug Fixes</h3>
+<h3 id="bug-fixes-4">Bug Fixes</h3>
 <ul>
 <li>Bug fix for publishing scripts (#642)</li>
 <li>Bug fix for publishing modules with &lsquo;RequiredModules&rsquo; specified in the module manifest (#640)</li>
@@ -3055,7 +3096,7 @@ Specifically fixes
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:27</span>
+                      <span class="badge badge-secondary">2022-10-18 22:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/SChannelDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3173,7 +3214,7 @@ even if only one value is set in the current state (<a href="https://github.com/
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:37</span>
+                      <span class="badge badge-secondary">2022-10-17 13:32</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/gaelcolas/Sampler" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3309,16 +3350,16 @@ from the mentioned commands.</li>
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">0.2.0-preview0002</span>
+                    <span class="badge badge-success">0.2.0-preview0003</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2022-04-14 09:35</span>
+                    <span class="badge badge-success">2022-09-07 12:13</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:27</span>
+                      <span class="badge badge-secondary">2022-10-18 14:07</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/SynEdgy/Sampler.DscPipeline" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3365,7 +3406,29 @@ from the mentioned commands.</li>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-Sampler.DscPipeline" role="tabpanel" aria-labelledby="nav-rn-tab-Sampler.DscPipeline">
-                          <div class="card card-body border-top-0"></div>
+                          <div class="card card-body border-top-0"><h2 id="020-preview0003---2022-09-07">[0.2.0-preview0003] - 2022-09-07</h2>
+<h3 id="added">Added</h3>
+<ul>
+<li>Adding pipeline tasks and commands from DSC Workshop.</li>
+<li>Small changes to support easier deployment for individual environments.</li>
+<li>Added scripts for compiling MOF and Meta MOF files without the need for the <code>rootConfig.ps1</code> script. It is now a self-contained task that takes parameters from the <code>Build.yml</code>.</li>
+<li>Having modules available more than once results in: ImportCimAndScriptKeywordsFromModule : &ldquo;A second CIM class definition
+for &lsquo;MSFT_PSRepository&rsquo; was found while processing the schema file&rdquo;. Fixed that by using function &lsquo;Get-DscResourceFromModuleInFolder&rsquo;.
+This usually happens with &lsquo;PackageManagement&rsquo; and &lsquo;PowerShellGet&rsquo;</li>
+<li>The handling of the DSC MOF compilation has changed. The file &lsquo;RootConfiguration.ps1&rsquo; is still used when present in the source of
+the DSC project that uses &lsquo;Sampler.DscPipeline&rsquo;. Same applies to the Meta MOF compilation script &lsquo;RootMetaMof.ps1&rsquo;. If these
+files don&rsquo;t exist, &lsquo;Sampler.DscPipeline&rsquo; uses the scripts in &lsquo;ModuleRoot\Scripts&rsquo;. To control which DSC composite and resource modules should be imported within the DSC configuration, add the section &lsquo;Sampler.DscPipeline&rsquo; to the &lsquo;build.yml&rsquo; as described
+on top of the file &lsquo;CompileRootConfiguration.ps1&rsquo;.</li>
+<li>Added error handling discovering &lsquo;CompileRootConfiguration.ps1&rsquo; and &lsquo;RootMetaMof.ps1&rsquo;</li>
+<li>Test cases updated to Pester 5.</li>
+<li>Fixing issue with ZipFile class not being present</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>Fixed regex for commit message <code>--Added new node</code></li>
+<li>Fixed task <code>Compress_Artifact_Collections</code> fails when node is filtered</li>
+</ul>
+</div>
                       </div>
                       
                     </div>
@@ -3397,7 +3460,7 @@ from the mentioned commands.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:37</span>
+                      <span class="badge badge-secondary">2022-10-18 14:07</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/gaelcolas/Sampler.GitHubTasks" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3515,7 +3578,7 @@ if <code>$VerbosePreference</code> says so.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-05 13:51</span>
+                      <span class="badge badge-secondary">2022-10-18 15:27</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/SecurityPolicyDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3664,7 +3727,7 @@ This means Windows PowerShell 4 (WMF 4) is no longer supported.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:47</span>
+                      <span class="badge badge-secondary">2022-10-19 05:12</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/SharePointDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3996,16 +4059,16 @@ This means Windows PowerShell 4 (WMF 4) is no longer supported.</li>
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">16.0.0-preview0013</span>
+                    <span class="badge badge-success">16.0.0</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2022-08-21 06:57</span>
+                    <span class="badge badge-success">2022-09-09 07:12</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 09:12</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/SqlServerDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4126,7 +4189,7 @@ This means Windows PowerShell 4 (WMF 4) is no longer supported.</li>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-SqlServerDsc" role="tabpanel" aria-labelledby="nav-rn-tab-SqlServerDsc">
-                          <div class="card card-body border-top-0"><h2 id="1600-preview0013---2022-08-20">[16.0.0-preview0013] - 2022-08-20</h2>
+                          <div class="card card-body border-top-0"><h2 id="1600---2022-09-06">[16.0.0] - 2022-09-06</h2>
 <h3 id="removed">Removed</h3>
 <ul>
 <li>The deprecated DSC resource SqlDatabaseOwner have been removed <em>(and replaced</em>
@@ -4361,7 +4424,8 @@ be either Mixed or Normal, prio it just stated Mixed.</li>
 </li>
 <li>SqlSecureConnection
 <ul>
-<li>BREAKING CHANGE: Now <code>Get-TargetResource</code> returns the value `&lsquo;Em</li>
+<li>BREAKING CHANGE: Now <code>Get-TargetResource</code> returns the value <code>'Empty'</code>
+f</li>
 </ul>
 </li>
 </ul>
@@ -4397,7 +4461,7 @@ be either Mixed or Normal, prio it just stated Mixed.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:42</span>
+                      <span class="badge badge-secondary">2022-10-18 14:12</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/StorageDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4510,7 +4574,7 @@ ISO - Fixes <a href="https://github.com/dsccommunity/StorageDsc/issues/221">Issu
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:22</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/SystemLocaleDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4610,7 +4674,7 @@ files to be formatted as per the DSC Resource kit style guidelines.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-05 14:26</span>
+                      <span class="badge badge-secondary">2022-10-17 09:52</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/UpdateServicesDsc/" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4691,7 +4755,7 @@ files to be formatted as per the DSC Resource kit style guidelines.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-05 15:31</span>
+                      <span class="badge badge-secondary">2022-10-17 19:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/WSManDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4816,7 +4880,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:57</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/SNikalaichyk/cNtfsAccessControl" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4911,7 +4975,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-08-04 09:36</span>
+                      <span class="badge badge-secondary">2022-10-10 10:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/iSCSIDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5050,7 +5114,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-08-24 15:33</span>
+                      <span class="badge badge-secondary">2022-10-04 14:14</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/Azure/nxtools/" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5151,7 +5215,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:17</span>
+                      <span class="badge badge-secondary">2022-10-19 05:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xAzure" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5246,7 +5310,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:22</span>
+                      <span class="badge badge-secondary">2022-10-19 05:22</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xAzurePack" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5339,7 +5403,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-02 03:10</span>
+                      <span class="badge badge-secondary">2022-10-04 13:49</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xBitlocker" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5431,7 +5495,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:52</span>
+                      <span class="badge badge-secondary">2022-10-19 08:57</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xChrome" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5513,7 +5577,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 12:27</span>
+                      <span class="badge badge-secondary">2022-10-19 05:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xCredSSP" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5595,7 +5659,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:22</span>
+                      <span class="badge badge-secondary">2022-10-19 05:22</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xDatabase" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5687,7 +5751,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 08:37</span>
+                      <span class="badge badge-secondary">2022-10-19 05:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xDefender" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5764,7 +5828,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 10:22</span>
+                      <span class="badge badge-secondary">2022-10-19 05:12</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xDhcpServer" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5863,7 +5927,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/iSCSIDsc/issues
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 06:17</span>
+                      <span class="badge badge-secondary">2022-10-19 05:12</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xDisk-Module-PowerShell-6b7870ed" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5948,7 +6012,7 @@ All of the resources in the DSC Resource Kit are provided AS IS, and are not sup
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:17</span>
+                      <span class="badge badge-secondary">2022-10-19 05:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xDismFeature" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6031,7 +6095,7 @@ All of the resources in the DSC Resource Kit are provided AS IS, and are not sup
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:57</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xDnsServer" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6437,7 +6501,7 @@ values are not available through that cmdlet.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-08-22 09:18</span>
+                      <span class="badge badge-secondary">2022-09-23 17:34</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xExchange" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6622,7 +6686,7 @@ values are not available through that cmdlet.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:42</span>
+                      <span class="badge badge-secondary">2022-10-19 08:47</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xFailOverCluster" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6723,7 +6787,7 @@ to the new module. The prefix &lsquo;x&rsquo; will be removed from all resources
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:22</span>
+                      <span class="badge badge-secondary">2022-10-19 05:22</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xFirefox" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6811,7 +6875,7 @@ to the new module. The prefix &lsquo;x&rsquo; will be removed from all resources
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 10:42</span>
+                      <span class="badge badge-secondary">2022-10-19 08:57</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xHyper-V" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6974,7 +7038,7 @@ working for Windows Server 2008 R2.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:07</span>
+                      <span class="badge badge-secondary">2022-10-19 05:07</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xInternetExplorerHomePage-8dd59db2" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7051,7 +7115,7 @@ working for Windows Server 2008 R2.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-04 12:31</span>
+                      <span class="badge badge-secondary">2022-10-19 08:37</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7124,7 +7188,7 @@ working for Windows Server 2008 R2.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:22</span>
+                      <span class="badge badge-secondary">2022-10-19 05:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xMySql" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7211,7 +7275,7 @@ working for Windows Server 2008 R2.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 08:37</span>
+                      <span class="badge badge-secondary">2022-10-19 07:47</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xPSDesiredStateConfiguration" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7388,7 +7452,7 @@ pipeline - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfigu
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:57</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xPendingReboot" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7473,7 +7537,7 @@ pipeline - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfigu
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:22</span>
+                      <span class="badge badge-secondary">2022-10-19 05:22</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xPhp" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7560,7 +7624,7 @@ pipeline - Fixes <a href="https://github.com/dsccommunity/xPSDesiredStateConfigu
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 12:42</span>
+                      <span class="badge badge-secondary">2022-10-19 08:07</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xPowerShellExecutionPolicy" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7643,7 +7707,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:42</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xRemoteDesktopAdmin" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7720,7 +7784,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:47</span>
+                      <span class="badge badge-secondary">2022-10-19 08:57</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xRemoteDesktopSessionHost" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7853,7 +7917,7 @@ collections are returned instead of a single collection.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:37</span>
+                      <span class="badge badge-secondary">2022-10-19 05:37</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xRobocopy" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7939,7 +8003,7 @@ collections are returned instead of a single collection.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:17</span>
+                      <span class="badge badge-secondary">2022-10-19 05:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xSCDPM-PowerShell-Desired-f86f6777" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8020,7 +8084,7 @@ collections are returned instead of a single collection.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:17</span>
+                      <span class="badge badge-secondary">2022-10-19 05:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xSCOM-PowerShell-Desired-052fc73c" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8113,7 +8177,7 @@ collections are returned instead of a single collection.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:22</span>
+                      <span class="badge badge-secondary">2022-10-19 05:22</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xSCSMA" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8209,7 +8273,7 @@ collections are returned instead of a single collection.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:17</span>
+                      <span class="badge badge-secondary">2022-10-19 05:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xSCSPF-PowerShell-Desired-128739a5" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8294,7 +8358,7 @@ collections are returned instead of a single collection.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:17</span>
+                      <span class="badge badge-secondary">2022-10-19 05:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xSCSR-PowerShell-Desired-195ad3c3" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8373,7 +8437,7 @@ collections are returned instead of a single collection.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:17</span>
+                      <span class="badge badge-secondary">2022-10-19 05:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xSCVMM-PowerShell-Desired-0025abcc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8460,7 +8524,7 @@ collections are returned instead of a single collection.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:12</span>
+                      <span class="badge badge-secondary">2022-10-19 05:12</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="http://gallery.technet.microsoft.com/scriptcenter/xSafeHarbor-Module-bd705379" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8535,7 +8599,7 @@ collections are returned instead of a single collection.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:02</span>
+                      <span class="badge badge-secondary">2022-10-19 09:37</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xSmbShare" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8626,7 +8690,7 @@ collections are returned instead of a single collection.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:22</span>
+                      <span class="badge badge-secondary">2022-10-19 05:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xSqlPs" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8719,7 +8783,7 @@ collections are returned instead of a single collection.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:12</span>
+                      <span class="badge badge-secondary">2022-10-19 09:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xSystemSecurity" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8885,7 +8949,7 @@ Chocolatey.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:22</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xTimeZone" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8968,7 +9032,7 @@ Chocolatey.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:57</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xWebAdministration" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -9127,7 +9191,7 @@ switched around in the <code>README.md</code>.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:47</span>
+                      <span class="badge badge-secondary">2022-10-19 09:42</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xWebDeploy" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -9211,7 +9275,7 @@ switched around in the <code>README.md</code>.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:12</span>
+                      <span class="badge badge-secondary">2022-10-19 05:12</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xWinEventLog" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -9297,7 +9361,7 @@ Please use the &ldquo;WinEventLog&rdquo; resource in ComputerManagementDsc inste
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 13:42</span>
+                      <span class="badge badge-secondary">2022-10-19 05:37</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xWindowsEventForwarding" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -9376,7 +9440,7 @@ Please use the &ldquo;WinEventLog&rdquo; resource in ComputerManagementDsc inste
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 05:17</span>
+                      <span class="badge badge-secondary">2022-10-19 05:17</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xWindowsRestore-PowerShell-3cef691b" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -9455,7 +9519,7 @@ Please use the &ldquo;WinEventLog&rdquo; resource in ComputerManagementDsc inste
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2022-09-06 07:17</span>
+                      <span class="badge badge-secondary">2022-10-19 02:22</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xWindowsUpdate" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
