@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Calling Functions</title>
+  <title>2022-10-19 Notes</title>
 
   <meta name="generator" content="Hugo 0.92.2" />
 
@@ -171,8 +171,8 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class="parent d-block "><a href="/styleguidelines/">Style Guidelines</a>
-              <ul class="sub-menu">
+            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
             <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
             </li>
             <li class=""><a href="/styleguidelines/general/">General</a>
@@ -187,7 +187,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
             </li>
-            <li class="parent d-block  active "><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
             </li>
             <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
             </li>
@@ -235,11 +235,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class=""><a href="/community_calls/">Community Calls</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
+              <ul class="sub-menu">
             <li class=""><a href="/community_calls/next_call/">Next Community Call 2022-11-30</a>
             </li>
-            <li class=""><a href="/community_calls/2022-10-19-notes/">2022-10-19 Notes</a>
+            <li class="parent d-block  active "><a href="/community_calls/2022-10-19-notes/">2022-10-19 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2022-05-04-notes/">2022-05-04 Notes</a>
             </li>
@@ -328,61 +328,52 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Calling Functions</h2>
-            <h2 id="avoid-cmdlet-aliases">Avoid Cmdlet Aliases</h2>
-<p>When calling a function use the full command not an alias.
-You can get the full command an alias represents by calling <code>Get-Alias</code>.</p>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">ls <span style="color:#f92672">-File</span> $root -Recurse | ? { @(<span style="color:#e6db74">&#39;.gitignore&#39;</span>, <span style="color:#e6db74">&#39;.mof&#39;</span>) <span style="color:#f92672">-contains</span> $_.Extension }
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Powershell" data-lang="Powershell">Get-ChildItem <span style="color:#f92672">-File</span> $root -Recurse | Where-Object -FilterScript {
-    @(<span style="color:#e6db74">&#39;.gitignore&#39;</span>, <span style="color:#e6db74">&#39;.mof&#39;</span>) <span style="color:#f92672">-contains</span> $_.Extension
-}
-</code></pre></div><h3 id="avoid-invoke-expression">Avoid Invoke-Expression</h3>
-<p>Invoke-Expression is vulnerable to string injection attacks.
-It should not be used in any DSC resources.</p>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Invoke-Expression -Command <span style="color:#e6db74">&#34;Test-$DSCResourceName&#34;</span>
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">&amp; <span style="color:#e6db74">&#34;Test-$DSCResourceName&#34;</span>
-</code></pre></div><h2 id="use-the-force-parameter-with-calls-to-shouldcontinue">Use the Force Parameter with Calls to ShouldContinue</h2>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
-</code></pre></div><h2 id="avoid-the-wmi-cmdlets">Avoid the WMI Cmdlets</h2>
-<p>The WMI cmdlets can all be replaced by CIM cmdlets.
-Use the CIM cmdlets instead because they align with industry standards.</p>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-WMIInstance -ClassName Win32_Process
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-CIMInstance -ClassName Win32_Process
-</code></pre></div><h2 id="avoid-write-host">Avoid Write-Host</h2>
-<p><a href="http://www.jsnover.com/blog/2013/12/07/write-host-considered-harmful/">Write-Host is harmful</a>.
-Use alternatives such as Write-Verbose, Write-Output, Write-Debug, etc.</p>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Write-Host <span style="color:#e6db74">&#39;Setting the variable to a value.&#39;</span>
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Write-Verbose -Message <span style="color:#e6db74">&#39;Setting the variable to a value.&#39;</span>
-</code></pre></div><h2 id="avoid-convertto-securestring-with-asplaintext">Avoid ConvertTo-SecureString with AsPlainText</h2>
-<p>SecureStrings should be encrypted. When using ConvertTo-SecureString with the
-<code>AsPlainText</code> parameter specified the SecureString text is not encrypted and thus
-not secure. This is allowed in tests/examples when needed, but never in the actual
-resources.</p>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">ConvertTo-SecureString -String <span style="color:#e6db74">&#39;mySecret&#39;</span> -AsPlainText -Force
-</code></pre></div><h2 id="assign-function-results-to-variables-rather-than-extensive-inline-calls">Assign Function Results to Variables Rather Than Extensive Inline Calls</h2>
-<p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Set-Background -Color (Get-Color -Name ((Get-Settings -User (Get-CurrentUser)).ColorName))
-</code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$currentUser = Get-CurrentUser
-$userSettings = Get-Settings -User $currentUser
-$backgroundColor = Get-Color -Name $userSettings.ColorName
+            <h2>2022-10-19 Notes</h2>
+            <h3 id="recording">Recording</h3>
 
-Set-Background -Color $backgroundColor
-</code></pre></div>
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/styleguidelines/general-best-practices/" title="General Best Practices"><i class="ti-arrow-left mr-2"></i>General Best Practices</a>
-            <a class="nav nav-next" href="/styleguidelines/writing-functions/" title="Writing Functions">Writing Functions<i class="ti-arrow-right ml-2"></i></a>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/sFANse2fz6U" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="agenda">Agenda</h3>
+<h4 id="community-presentation">Community Presentation</h4>
+<ul>
+<li>Constantin Hager: Azure Automation DSC and the Azure VM DSC Extension. How do they work together?</li>
+</ul>
+<p>In this presentation you will see how to deploy Azure Automation State configuration (DSC).
+We will deploy DSC Configurations and assign them to Azure VMs .
+I will also show how you can deploy a DSC Configuration without Azure Automation State Configuration (DSC).</p>
+<p>Everything will all happen with Azure DevOps and a CI / CD Process.</p>
+<h4 id="quick-update-on-activity">Quick update on activity</h4>
+<ul>
+<li>Machine Config is GA!</li>
+<li>Check the Updated DSCv2 Docs: <a href="https://learn.microsoft.com/en-us/powershell/dsc/overview?view=dsc-2.0">https://learn.microsoft.com/en-us/powershell/dsc/overview?view=dsc-2.0</a></li>
+<li><a href="https://psconf.eu">PSConfEU</a> Call for Speakers is open and tickets are on sale!</li>
+</ul>
+<h4 id="dsc-resource-modules-that-have-been-released-recently">DSC resource modules that have been released recently</h4>
+<ul>
+<li>Releases
+<ul>
+<li>WebAdministrationDsc v4.0.0 (Removed &lsquo;x&rsquo;. Thanks PowerShell team for transferring the package to DSC Community!)</li>
+</ul>
+</li>
+<li>Preview
+<ul>
+<li>ConfigMgrCBDsc v3.1.0-preview0002</li>
+</ul>
+</li>
+</ul>
+<h4 id="tooling-modules-that-have-been-released-recently">Tooling modules that have been released recently</h4>
+<ul>
+<li>Releases
+<ul>
+<li>Sampler.DscPipeline v0.2.0-preview0003</li>
+</ul>
+</li>
+</ul>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 04 May 2022</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/next_call/" title="Next Community Call 2022-11-30"><i class="ti-arrow-left mr-2"></i>Next Community Call 2022-11-30</a>
+            <a class="nav nav-next" href="/community_calls/2022-05-04-notes/" title="2022-05-04 Notes">2022-05-04 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

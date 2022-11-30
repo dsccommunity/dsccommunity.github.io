@@ -9,17 +9,27 @@
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Sun, 28 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/community_calls/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2022-10-19</title>
+      <title>Next Community Call 2022-11-30</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, October 19th, at 12 PM PST
+      <description>Next call will be on Wednesday, November 30th, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
 Discussions Topics or questions from the community (welcome at any point during the call)
 We are also available on the Virtual PowerShell User Group #DSC channel.</description>
+    </item>
+    
+    <item>
+      <title>2022-10-19 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2022-10-19-notes/</link>
+      <pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2022-10-19-notes/</guid>
+      <description>Recording   Agenda Community Presentation  Constantin Hager: Azure Automation DSC and the Azure VM DSC Extension. How do they work together?  In this presentation you will see how to deploy Azure Automation State configuration (DSC). We will deploy DSC Configurations and assign them to Azure VMs . I will also show how you can deploy a DSC Configuration without Azure Automation State Configuration (DSC).
+Everything will all happen with Azure DevOps and a CI / CD Process.</description>
     </item>
     
     <item>

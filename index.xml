@@ -7,14 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2022-10-19</title>
+      <title>Next Community Call 2022-11-30</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, October 19th, at 12 PM PST
+      <description>Next call will be on Wednesday, November 30th, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
@@ -405,6 +405,16 @@ In each localization folder there should be a PowerShell data (.psd1) file named
 Bad:
 it &amp;#39;Should return something&amp;#39; { get-targetresource @testParameters | should -be &amp;#39;something&amp;#39; } Good:
 It &amp;#39;Should return something&amp;#39; { Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39; } Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
+    </item>
+    
+    <item>
+      <title>2022-10-19 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2022-10-19-notes/</link>
+      <pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2022-10-19-notes/</guid>
+      <description>Recording   Agenda Community Presentation  Constantin Hager: Azure Automation DSC and the Azure VM DSC Extension. How do they work together?  In this presentation you will see how to deploy Azure Automation State configuration (DSC). We will deploy DSC Configurations and assign them to Azure VMs . I will also show how you can deploy a DSC Configuration without Azure Automation State Configuration (DSC).
+Everything will all happen with Azure DevOps and a CI / CD Process.</description>
     </item>
     
     <item>
