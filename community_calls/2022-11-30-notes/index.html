@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Future of Configuration Management</title>
+  <title>2022-11-30 Notes</title>
 
   <meta name="generator" content="Hugo 0.92.2" />
 
@@ -229,17 +229,17 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class="parent d-block "><a href="/configmgt/">Configuration Management</a>
-              <ul class="sub-menu">
-            <li class="parent d-block  active "><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
+            <li class=""><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
+            <li class=""><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
             </li></ul>
               
             </li>
-            <li class=""><a href="/community_calls/">Community Calls</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
+              <ul class="sub-menu">
             <li class=""><a href="/community_calls/next_call/">Next Community Call 2022-01-11</a>
             </li>
-            <li class=""><a href="/community_calls/2022-11-30-notes/">2022-11-30 Notes</a>
+            <li class="parent d-block  active "><a href="/community_calls/2022-11-30-notes/">2022-11-30 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2022-10-19-notes/">2022-10-19 Notes</a>
             </li>
@@ -330,73 +330,38 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Future of Configuration Management</h2>
-            <p>It&rsquo;s good to make sure we understand the world in which
-DSC evolves, so I thought of writing this post below.
-Unfortunately, the future is not something we can predict, so this is
-just a personal opinion, which I hope you&rsquo;ll find useful.</p>
-<h2 id="configuration-management-evolution">Configuration Management evolution</h2>
-<p>Some like to classify different configuration management models,
-but I prefer to show them as an evolution of similar principles,
-that happened with the evolution of technology and principles.</p>
-<table class="table">
-<thead>
-<tr>
-<th>version</th>
-<th>Name</th>
-<th>Concepts</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0.0</td>
-<td>GUI-driven</td>
-<td>Changes and abstractions are GUI-Driven</td>
-</tr>
-<tr>
-<td>0.5</td>
-<td>Scripted Transform</td>
-<td>Code, Deployment Scripts, Imperative, Transformations assume a starting state</td>
-</tr>
-<tr>
-<td>1.0</td>
-<td>Policy-Driven Convergence</td>
-<td>Declarative Intent, Change Pipeline, Idempotency, drift management, Operation Validation</td>
-</tr>
-<tr>
-<td>2.0</td>
-<td>Container Model</td>
-<td>Artefact everything, Immutability, microservices</td>
-</tr>
-</tbody>
-</table>
-<h2 id="unpopular-opinion">Unpopular opinion</h2>
-<p>It might not be a popular opinion, but I don&rsquo;t think Configuration Management
-as we know it—Managing configuration drift—will be prevalent in the future.
-It is not relevant for ephemeral infrastructure, or serverless. However many
-principles, such as artifact managements that are managed in release pipelines,
-are transferable to other management models, and are valuable lessons for the future.</p>
-<p>That said, not all workload are cloud-native ready, and while the companies
-transform or give way to competition, many administrators and systems engineer
-will benefit from improving their practices when it comes to managing VM.
-Let&rsquo;s be honest here, although we strongly recommend companies to really invest in
-their transformation to stay competitive, we know it will take a while—and
-a duration no-one can predict—for all industry to change decades
-of practices and habits.</p>
-<p>The <strong>DSC ecosystem</strong> is a great option when you manage a great chunk of Windows
-systems (not exclusively), whether <strong>on-prem</strong> or in a <strong>cloud environment</strong>, and
-even more when you&rsquo;re <strong>transitioning to a cloud model</strong> or having a <strong>hybrid approach</strong>.</p>
-<p>The <strong>solution</strong> you use, however, may differ greatly depending on your
-team&rsquo;s preference, skills, need, and business constraints.</p>
-<p>If you need to take away anything from this article is that the clock is ticking,
-and both at a personal and company level you need to work towards the future.</p>
-<p>Being bogged down in old ways because one tool may not be doing things you need
-on paper is foolish, we all know that in practice any solution will not
-do things we initially thought it would.
-Just start now, adapt, and learn!</p>
+            <h2>2022-11-30 Notes</h2>
+            <h3 id="recording">Recording</h3>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 31 Jul 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/configmgt/" title="Configuration Management"><i class="ti-arrow-left mr-2"></i>Configuration Management</a>
-            <a class="nav nav-next" href="/community_calls/" title="Community Calls">Community Calls<i class="ti-arrow-right ml-2"></i></a>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="agenda">Agenda</h3>
+<ul>
+<li>Floor is open for the community - questions or if someone want to show something</li>
+</ul>
+<h4 id="dsc-resource-modules-that-have-been-released-recently">DSC resource modules that have been released recently</h4>
+<ul>
+<li>Releases
+<ul>
+<li>SharePointDsc v5.3.0 (support SharePoint subscription Edition)</li>
+<li>xCredSSP 1.4.0 (moved to new pipeline to solve semantic versioning)</li>
+</ul>
+</li>
+<li>Preview
+<ul>
+<li>WebAdministrationDsc v4.1.0-preview0001 (fix bug that broke <code>WebApplication</code> after module rename)</li>
+<li>ComputerManagementDsc v8.6.0-preview0004 (<code>Computer</code> now handles joining to domain when computer account already exist)</li>
+<li>SqlServerDsc v16.1.0-preview0002 (Almost support SQL Server 2022 - module SqlServer breaks some resources)</li>
+</ul>
+</li>
+</ul>
+<h4 id="tooling-modules-that-have-been-released-recently">Tooling modules that have been released recently</h4>
+<p>None.</p>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 30 Nov 2022</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/next_call/" title="Next Community Call 2022-01-11"><i class="ti-arrow-left mr-2"></i>Next Community Call 2022-01-11</a>
+            <a class="nav nav-next" href="/community_calls/2022-10-19-notes/" title="2022-10-19 Notes">2022-10-19 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

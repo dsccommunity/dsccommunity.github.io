@@ -9,17 +9,26 @@
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Sun, 28 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/community_calls/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2022-11-30</title>
+      <title>Next Community Call 2022-01-11</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, November 30th, at 12 PM PST
+      <description>Next call will be on Wednesday, January 11th, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
 Discussions Topics or questions from the community (welcome at any point during the call)
 We are also available on the Virtual PowerShell User Group #DSC channel.</description>
+    </item>
+    
+    <item>
+      <title>2022-11-30 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2022-11-30-notes/</link>
+      <pubDate>Wed, 30 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2022-11-30-notes/</guid>
+      <description>Recording   Agenda  Floor is open for the community - questions or if someone want to show something  DSC resource modules that have been released recently  Releases  SharePointDsc v5.3.0 (support SharePoint subscription Edition) xCredSSP 1.4.0 (moved to new pipeline to solve semantic versioning)   Preview  WebAdministrationDsc v4.1.0-preview0001 (fix bug that broke WebApplication after module rename) ComputerManagementDsc v8.6.0-preview0004 (Computer now handles joining to domain when computer account already exist) SqlServerDsc v16.</description>
     </item>
     
     <item>

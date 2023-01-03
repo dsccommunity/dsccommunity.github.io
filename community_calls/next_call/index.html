@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Next Community Call 2022-11-30</title>
+  <title>Next Community Call 2022-01-11</title>
 
   <meta name="generator" content="Hugo 0.92.2" />
 
@@ -237,7 +237,9 @@ if (!doNotTrack) {
             </li>
             <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
               <ul class="sub-menu">
-            <li class="parent d-block  active "><a href="/community_calls/next_call/">Next Community Call 2022-11-30</a>
+            <li class="parent d-block  active "><a href="/community_calls/next_call/">Next Community Call 2022-01-11</a>
+            </li>
+            <li class=""><a href="/community_calls/2022-11-30-notes/">2022-11-30 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2022-10-19-notes/">2022-10-19 Notes</a>
             </li>
@@ -328,8 +330,8 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Next Community Call 2022-11-30</h2>
-            <p>Next call will be on Wednesday, November 30th, at 12 PM PST</p>
+            <h2>Next Community Call 2022-01-11</h2>
+            <p>Next call will be on Wednesday, January 11th, at 12 PM PST</p>
 <h3 id="join-the-call">Join the call</h3>
 <p><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OTc2YThjZGQtNWE4Yi00NDQyLTk5NTktYWIwYjdhMGZjNDRl%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%222fd83437-7fe6-4ee4-a109-828a19cb7bff%22%7d">Join using the Microsoft Teams app</a></p>
 <p><a href="https://dialin.teams.microsoft.com/8551f4c1-bea3-441a-8738-69aa517a91c5?id=50343176">Or click here to browse the list of available dial-in numbers to find one that is local to your region</a></p>
@@ -342,36 +344,53 @@ For information on how to join, see <a href="https://dsccommunity.org/community/
 <p>Want to submit a question to discuss during the call so others can prepare?
 Just <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md">submit a Pull request to this file</a>!</p>
 <h3 id="agenda">Agenda</h3>
+<h4 id="community-presentation">Community presentation</h4>
 <ul>
-<li>Floor is open for the community - questions or if someone want to show something</li>
+<li>Yorick Kuijs: &ldquo;Microsoft365DSC is a DSC module like any other, or is it?&rdquo;</li>
 </ul>
+<p>How is <a href="https://www.powershellgallery.com/packages/Microsoft365DSC">Microsoft365DSC</a>
+different compared to &ldquo;normal&rdquo; DSC modules? What challenges did we have to overcome?
+And how we made it even more awesome!</p>
 <h4 id="dsc-resource-modules-that-have-been-released-recently">DSC resource modules that have been released recently</h4>
 <ul>
 <li>Releases
 <ul>
-<li>SharePointDsc v5.3.0 (support SharePoint subscription Edition)</li>
-<li>xCredSSP 1.4.0 (moved to new pipeline to solve semantic versioning)</li>
+<li>WebAdministrationDsc v4.1.0</li>
 </ul>
 </li>
 <li>Preview
 <ul>
-<li>WebAdministrationDsc v4.1.0-preview0001 (fix bug that broke <code>WebApplication</code> after module rename)</li>
-<li>ComputerManagementDsc v8.6.0-preview0004 (<code>Computer</code> now handles joining to domain when computer account already exist)</li>
-<li>SqlServerDsc v16.1.0-preview0002 (Almost support SQL Server 2022 - module SqlServer breaks some resources)</li>
+<li>SqlServerDsc v16.1.0-preview0008 - A lot of cleanup of existing code since last time, been in preview since last Community Call, we should release</li>
+<li>CertificateDsc v6.0.0-preview0001 - BREAKING CHANGE in CertReq, FriendlyName is now mandatory (Thanks to @uw-dc)</li>
+<li>ComputerManagementDsc v9.0.0-preview001 - BREAKING CHANGE: Requires WMF 5.0 since we added first class-based resource <code>PSResourceRepository</code> (Thanks to @nickgw)</li>
+<li>xRemoteDesktopSessionHost v2.1.1-preview0001 - New resource <code>xRDConnectionBrokerHAMode</code> that is used to configure HA mode on connection broker (Thanks to @nyanhp)</li>
 </ul>
 </li>
 </ul>
 <h4 id="tooling-modules-that-have-been-released-recently">Tooling modules that have been released recently</h4>
-<p>None.</p>
+<ul>
+<li>Releases
+<ul>
+<li>DscResource.DocGenerator v0.11.2 - Fixes a edge case bug for class-based resources.</li>
+<li>DscResource.Base v1.0.0 - Helps in (an opinionated way) development of class-based resources (used by SqlServerDsc, and hopefully soon ComputerManagementDsc)</li>
+<li>DscResource.Common v0.14.0 - Added various new commands that can be used for class-based DSC resources (used by ComputerManagementDsc and SqlServerDsc)</li>
+</ul>
+</li>
+<li>Preview
+<ul>
+<li>None.</li>
+</ul>
+</li>
+</ul>
 <h4 id="community-questions">Community questions</h4>
 <p><em>Submit your questions, or raise them directly in the call.</em></p>
 <h4 id="next-community-call">Next Community Call</h4>
-<p>Next community call is on the 11th of January.
+<p>Next community call is on the 22nd of February.
 Suggestions for talks are welcomed, we have <a href="https://sessionize.com/dsc-community">Call for speakers</a>
 open.</p>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 10 Oct 2022</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/" title="Community Calls"><i class="ti-arrow-left mr-2"></i>Community Calls</a>
-            <a class="nav nav-next" href="/community_calls/2022-10-19-notes/" title="2022-10-19 Notes">2022-10-19 Notes<i class="ti-arrow-right ml-2"></i></a>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 01 Jan 2023</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/" title="Community Calls"><i class="ti-arrow-left mr-2"></i>Community Calls</a>
+            <a class="nav nav-next" href="/community_calls/2022-11-30-notes/" title="2022-11-30 Notes">2022-11-30 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>
