@@ -9,15 +9,29 @@
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Sun, 28 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/community_calls/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2022-01-11</title>
+      <title>Next Community Call 2023-02-22</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, January 11th, at 12 PM PST
-Join the call We will have the DSC Community Call at the HerShell Pub in PSWorld (a digital space using Gather). Join PSWorld and start mingle at the pub before the event, join PSWorld here: https://app.gather.town/events/hWF235u-R3CYCOFYJfQT
-Also, see below for other events that happens in PSWorld, on the same day as the DSC Community Call!
-When it is time for the DSC Community call go to track 3 (the door to the right, between the British flags) and take a seat.</description>
+      <description>Next call will be on Wednesday, February 22th, at 12 PM PST
+Join the call Join using the Microsoft Teams app
+Or click here to browse the list of available dial-in numbers to find one that is local to your region
+Conference ID: 503 431 76#
+Agenda Community presentation &amp;ldquo;WinGet and DSC Resources&amp;rdquo; presented by Demetrius Nelon.
+Community questions Submit your questions, or raise them directly in the call.
+Want to submit a question to discuss during the call so others can prepare?</description>
+    </item>
+    
+    <item>
+      <title>2023-01-11 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2023-01-11-notes/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2023-01-11-notes/</guid>
+      <description>Recording   Agenda Community presentation &amp;ldquo;Microsoft365DSC is a DSC module like any other, or is it?&amp;quot; presented by Yorick Kuijs.
+How is Microsoft365DSC different compared to &amp;ldquo;normal&amp;rdquo; DSC modules? What challenges did we have to overcome? And how we made it even more awesome!
+DSC resource modules that have been released recently  Releases  WebAdministrationDsc v4.1.0   Preview  SqlServerDsc v16.1.0-preview0008 - A lot of cleanup of existing code since last time, been in preview since last Community Call, we should release CertificateDsc v6.</description>
     </item>
     
     <item>

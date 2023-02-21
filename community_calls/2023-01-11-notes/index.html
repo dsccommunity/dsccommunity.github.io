@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Attribution</title>
+  <title>2023-01-11 Notes</title>
 
   <meta name="generator" content="Hugo 0.92.2" />
 
@@ -235,11 +235,11 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class=""><a href="/community_calls/">Community Calls</a>
-              <ul class="">
+            <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
+              <ul class="sub-menu">
             <li class=""><a href="/community_calls/next_call/">Next Community Call 2023-02-22</a>
             </li>
-            <li class=""><a href="/community_calls/2023-01-11-notes/">2023-01-11 Notes</a>
+            <li class="parent d-block  active "><a href="/community_calls/2023-01-11-notes/">2023-01-11 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2022-11-30-notes/">2022-11-30 Notes</a>
             </li>
@@ -297,8 +297,8 @@ if (!doNotTrack) {
             </li></ul>
               
             </li>
-            <li class="parent d-block "><a href="/code_of_conduct/">Code of Conduct</a>
-              <ul class="sub-menu">
+            <li class=""><a href="/code_of_conduct/">Code of Conduct</a>
+              <ul class="">
             <li class=""><a href="/code_of_conduct/standards/">Our Standards</a>
             </li>
             <li class=""><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
@@ -309,7 +309,7 @@ if (!doNotTrack) {
             </li>
             <li class=""><a href="/code_of_conduct/common_questions/">Common Questions</a>
             </li>
-            <li class="parent d-block  active "><a href="/code_of_conduct/attribution/">Attribution</a>
+            <li class=""><a href="/code_of_conduct/attribution/">Attribution</a>
             </li></ul>
               
             </li>
@@ -332,12 +332,53 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Attribution</h2>
-            <p>This Code of Conduct is adapted from the <a href="https://www.contributor-covenant.org">Contributor Covenant</a>,
-version 1.4, available at <a href="https://www.contributor-covenant.org/version/1/4/code-of-conduct.html">https://www.contributor-covenant.org/version/1/4/code-of-conduct.html</a></p>
+            <h2>2023-01-11 Notes</h2>
+            <h3 id="recording">Recording</h3>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 29 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/code_of_conduct/common_questions/" title="Common Questions"><i class="ti-arrow-left mr-2"></i>Common Questions</a>
-            <a class="nav nav-next" href="/help/" title="Help">Help<i class="ti-arrow-right ml-2"></i></a>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/MDj3u2VeYus" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="agenda">Agenda</h3>
+<h4 id="community-presentation">Community presentation</h4>
+<p><strong>&ldquo;Microsoft365DSC is a DSC module like any other, or is it?&quot;</strong> presented by Yorick Kuijs.</p>
+<p>How is <a href="https://www.powershellgallery.com/packages/Microsoft365DSC">Microsoft365DSC</a>
+different compared to &ldquo;normal&rdquo; DSC modules? What challenges did we have to overcome?
+And how we made it even more awesome!</p>
+<h3 id="dsc-resource-modules-that-have-been-released-recently">DSC resource modules that have been released recently</h3>
+<ul>
+<li>Releases
+<ul>
+<li>WebAdministrationDsc v4.1.0</li>
+</ul>
+</li>
+<li>Preview
+<ul>
+<li>SqlServerDsc v16.1.0-preview0008 - A lot of cleanup of existing code since last time, been in preview since last Community Call, we should release</li>
+<li>CertificateDsc v6.0.0-preview0001 - BREAKING CHANGE in CertReq, FriendlyName is now mandatory (Thanks to @uw-dc)</li>
+<li>ComputerManagementDsc v9.0.0-preview001 - BREAKING CHANGE: Requires WMF 5.0 since we added first class-based resource <code>PSResourceRepository</code> (Thanks to @nickgw)</li>
+<li>xRemoteDesktopSessionHost v2.1.1-preview0001 - New resource <code>xRDConnectionBrokerHAMode</code> that is used to configure HA mode on connection broker (Thanks to @nyanhp)</li>
+</ul>
+</li>
+</ul>
+<h4 id="tooling-modules-that-have-been-released-recently">Tooling modules that have been released recently</h4>
+<ul>
+<li>Releases
+<ul>
+<li>DscResource.DocGenerator v0.11.2 - Fixes a edge case bug for class-based resources.</li>
+<li>DscResource.Base v1.0.0 - Helps in (an opinionated way) development of class-based resources (used by SqlServerDsc, and hopefully soon ComputerManagementDsc)</li>
+<li>DscResource.Common v0.14.0 - Added various new commands that can be used for class-based DSC resources (used by ComputerManagementDsc and SqlServerDsc)</li>
+</ul>
+</li>
+<li>Preview
+<ul>
+<li>None.</li>
+</ul>
+</li>
+</ul>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 01 Jan 2023</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/next_call/" title="Next Community Call 2023-02-22"><i class="ti-arrow-left mr-2"></i>Next Community Call 2023-02-22</a>
+            <a class="nav nav-next" href="/community_calls/2022-11-30-notes/" title="2022-11-30 Notes">2022-11-30 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>
