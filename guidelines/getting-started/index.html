@@ -337,12 +337,12 @@ if (!doNotTrack) {
 aspects of what is described here, but this article will focus on a
 simple way to get started using the workflow we use for DSC modules and
 DSC resources within the DSC Community.</p>
-<blockquote>
 <p>After you read through this guide, then please continue with the guide
-<a href="/guidelines/contributing">Contributor</a>.</p>
-</blockquote>
+<a href="/guidelines/contributing">Contributor</a>, especially the section
+<a href="/guidelines/contributing#understand-the-coding-workflow">Understand the coding workflow</a>.</p>
 <h3 id="table-of-contents">Table of Contents</h3>
 <ul>
+<li><a href="#quick-steps">Quick steps</a></li>
 <li><a href="#create-free-github-account">Create free GitHub account</a></li>
 <li><a href="#install-visual-studio-code">Install Visual Studio Code</a></li>
 <li><a href="#install-visual-studio-code-powershell-extension">Install Visual Studio Code PowerShell Extension</a></li>
@@ -358,6 +358,58 @@ DSC resources within the DSC Community.</p>
 <li><a href="#switch-between-local-working-branches">Switch between local working branches</a></li>
 <li><a href="#delete-a-branch">Delete a branch</a></li>
 </ul>
+<h3 id="quick-steps">Quick steps</h3>
+<p>Here are some quick steps to get started building and testing a project.
+The detailed steps in the rest of this guide are required for contributing.</p>
+<h4 id="windows">Windows</h4>
+<p>This assumes a clean installation of <em>Windows</em> 11 release 22H2 Feb 2023
+or later with only <em>Windows PowerShell</em> available.</p>
+<ol>
+<li>Install <em>App Installer</em> (by Microsoft) from the <a href="https://www.microsoft.com/store/productId/9NBLGGH4NNS1">Microsoft Store</a>
+(to get <code>winget</code>).
+<blockquote>
+<p><strong>NOTE:</strong> Newer versions of Windows have WinGet preinstalled, then this
+step is not required.</p>
+</blockquote>
+</li>
+<li>Install Git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">winget install Git.Git
+</code></pre></div></li>
+<li>Allow execution of scripts.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+</code></pre></div></li>
+<li>Make a local folder for cloning projects
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">mkdir c:/source
+cd c:/source
+</code></pre></div></li>
+<li>Clone the git repo (change URI as needed)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git clone https<span style="color:#960050;background-color:#1e0010">:</span>//github.com/dsccommunity/SqlServerDsc
+</code></pre></div></li>
+<li>Move into the local repository folder
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd ./SqlServerDsc
+</code></pre></div></li>
+<li>Get informative messaged (optional)
+<pre tabindex="0"><code>$InformationPreference = 'Continue'
+</code></pre></li>
+<li>Resolve dependencies. This will install the required NuGet package provider,
+with all other dependencies being saved into the project&rsquo;s <code>output</code> folder.
+<blockquote>
+<p>NOTE: If the project is dependent on pre-releases and the error
+<code>Find-Module: A parameter cannot be found that matches parameter name 'AllowPrereleaseVersions'</code> is thrown, restart the <em>Windows PowerShell</em>
+session and run the command again. This is due to the old version of
+module <em>PackageManagement</em> is still available in the session (even when
+we remove it) so <em>PowerShellGet</em> calls the wrong version of the command
+<code>Find-Package</code>.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -ResolveDependency -Tasks noop
+</code></pre></div></li>
+<li>Build the project.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks build
+</code></pre></div></li>
+<li>Test the project.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\build.ps1 -Tasks test
+</code></pre></div></li>
+</ol>
 <h3 id="create-free-github-account">Create free GitHub account</h3>
 <p>Create a free GitHub account by browsing to <a href="https://github.com">GitHub</a>
 and clicking on the <strong>Sign up</strong> button.</p>
@@ -371,23 +423,44 @@ Visual Studio Code. Using Visual Studio Code when working on DSC Resource
 modules has added benefits such as being able to detect and highlight some
 style guideline violations.</p>
 <p>To install Visual Studio code visit the official site <a href="https://code.visualstudio.com">code.visualstudio.com</a>.</p>
-<h4 id="windows">Windows</h4>
+<h4 id="windows-1">Windows</h4>
+<p>To install using:</p>
+<ul>
+<li><a href="#official-package">Official package</a></li>
+<li><a href="#chocolatey">Chocolatey</a></li>
+<li><a href="#winget">WinGet</a></li>
+</ul>
 <h5 id="official-package">Official package</h5>
 <p>The installation is straightforward using a wizard type of installation.
 Normally all defaults values suggested by the wizard can be used.</p>
 <h5 id="chocolatey">Chocolatey</h5>
-<p>It is possible to install using <a href="https://chocolatey.org">Chocolatey</a>.</p>
+<p>See <a href="https://chocolatey.org">Chocolatey</a> for prerequisites to use <code>choco</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">choco install vscode
+</code></pre></div><h5 id="winget">WinGet</h5>
+<p>Newer versions of Windows have WinGet preinstalled. If it is not installed
+make sure to install <em>App Installer</em> (by Microsoft) from the <a href="https://www.microsoft.com/store/productId/9NBLGGH4NNS1">Microsoft Store</a>
+to use <code>winget</code>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> To use <code>code</code> from command-line you might need to logout and login
+again after installation for environment variable <code>PATH</code> to be updated.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">winget install vscode
 </code></pre></div><h3 id="install-visual-studio-code-powershell-extension">Install Visual Studio Code PowerShell Extension</h3>
 <p>To be able to write PowerShell code in Visual Studio Code the extension
 need to be installed.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">code --install-extension ms-vscode.PowerShell
 </code></pre></div><blockquote>
-<p>This step is only relevant if Visual Studio Code was installed in the
+<p><strong>NOTE:</strong> This step is only relevant if Visual Studio Code was installed in the
 previous step.</p>
 </blockquote>
 <h3 id="install-git">Install Git</h3>
-<h4 id="windows-1">Windows</h4>
+<h4 id="windows-2">Windows</h4>
+<p>To install using:</p>
+<ul>
+<li><a href="#official-package-1">Official package</a></li>
+<li><a href="#chocolatey-1">Chocolatey</a></li>
+<li><a href="#winget-1">WinGet</a></li>
+</ul>
 <h5 id="official-package-1">Official package</h5>
 <p>Download and install <strong>Git for Windows</strong> from the official site
 <a href="https://git-scm.com">git-scm.com</a>.</p>
@@ -413,8 +486,13 @@ connect using your GitHub credentials. It will popup the first time
 your credentials are needed, for example when pushing to a repository on
 GitHub.</p>
 <h5 id="chocolatey-1">Chocolatey</h5>
-<p>It is possible to install using <a href="https://chocolatey.org">Chocolatey</a>.</p>
+<p>See <a href="https://chocolatey.org">Chocolatey</a> for prerequisites to use <code>choco</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">choco install git
+</code></pre></div><h5 id="winget-1">WinGet</h5>
+<p>Newer versions of Windows have WinGet preinstalled. If it is not installed
+make sure to install <em>App Installer</em> (by Microsoft) from the <a href="https://www.microsoft.com/store/productId/9NBLGGH4NNS1">Microsoft Store</a>
+to use <code>winget</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">winget install Git.Git
 </code></pre></div><h3 id="configure-git">Configure Git</h3>
 <p>Now you need to setup your name and e-mail in the global settings. This
 is used when you commit and push changes to a repository.</p>
@@ -440,14 +518,39 @@ automatically increase the version in the build pipeline. It is optional,
 if it is not installed the build version will always show as <code>0.0.1</code> when
 running the build locally, but it is still possible to contribute without
 this installed.</p>
-<h4 id="windows-2">Windows</h4>
-<p>You need install <a href="https://chocolatey.org">Chocolatey</a> first if you do not
-have it installed already.</p>
-<p>When you have Chocolatey installed you install GitVersion using the following:</p>
+<h4 id="windows-3">Windows</h4>
+<p>To install using:</p>
+<ul>
+<li><a href="#chocolatey-2">Chocolatey</a></li>
+<li><a href="#dotnet">DotNet</a></li>
+</ul>
+<h5 id="chocolatey-2">Chocolatey</h5>
+<p>See <a href="https://chocolatey.org">Chocolatey</a> for prerequisites to use <code>choco</code>.</p>
+<p>Once you have Chocolatey installed you can install GitVersion using the following:</p>
 <blockquote>
 <p><strong>NOTE:</strong> You must be an elevated administrator to run <code>choco install</code>.</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">choco install GitVersion.Portable
+</code></pre></div><h5 id="dotnet">DotNet</h5>
+<p>To be able to install <em>GitVersion</em> the command <code>dotnet</code> must first be installed
+using WinGet.</p>
+<blockquote>
+<p><strong>NOTE</strong>: Newer versions of Windows have WinGet preinstalled. If it is not installed
+make sure to install <em>App Installer</em> (by Microsoft) from the <a href="https://www.microsoft.com/store/%3EproductId/9NBLGGH4NNS1">Microsoft Store</a>
+to use <code>winget</code>.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">winget install dotnet-sdk-6
+</code></pre></div><p>Make sure there is a Nuget source listed by running:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dotnet nuget list source
+</code></pre></div><p>If it does not return any Nuget source, add the <a href="https://api.nuget.org/v3/index.json">Nuget.org source</a>
+by running the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
+</code></pre></div><p>Then we install <em>GitVersion</em> using <code>dotnet</code>.</p>
+<blockquote>
+<p>Note: To use <code>dotnet</code> from command-line you might need to logout and login
+again after installation for environment variable <code>PATH</code> to be updated.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dotnet tool install --global GitVersion.Tool
 </code></pre></div><h4 id="macos">macOS</h4>
 <p>You install <a href="https://gitversion.net/docs/">GitVersion</a> using the following:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install gitversion
@@ -468,7 +571,7 @@ not have it installed already.</p>
 it from a release package directly.</p>
 <ol>
 <li>See if there are any prerequisites for the distribution you are using
-in <a href="https://github.com/GitTools/GitVersion/blob/master/src/Docker/linux%20deps.md">Linux dependencies</a></li>
+in <a href="https://github.com/GitTools/GitVersion/blob/main/src/Docker/prerequisites.md">Linux dependencies</a></li>
 <li>Get the package name and version to the correct release for the distribution
 you are using at <a href="https://github.com/GitTools/GitVersion/releases">GitVersion releases</a></li>
 <li>Run the commands below and replace with the correct package name and
@@ -524,8 +627,8 @@ is called the <strong>local repository</strong>.</p>
 the local repository folder.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">PS&gt; cd c:<span style="color:#ae81ff">\s</span>ource<span style="color:#ae81ff">\C</span>omputerManagementDsc
 PS&gt; git status
-On branch master
-Your branch is up to date with <span style="color:#e6db74">&#39;origin/master&#39;</span>.
+On branch main
+Your branch is up to date with <span style="color:#e6db74">&#39;origin/main&#39;</span>.
 
 nothing to commit, working tree clean
 </code></pre></div><h3 id="forking-a-repository-on-github">Forking a repository on GitHub</h3>
@@ -567,27 +670,27 @@ origin  https://github.com/dsccommunity/ComputerManagementDsc <span style="color
 <li>The remote name <strong>my</strong> pointing to your <strong>fork</strong> of the <strong>upstream repository</strong>.</li>
 </ul>
 <h3 id="making-changes-and-pushing-them-to-the-fork">Making changes and pushing them to the fork</h3>
-<p>To make changes you should always use another branch than <code>master</code> to add
+<p>To make changes you should always use another branch than <code>main</code> to add
 those changes, let us call it the working branch. A working branch should
-normally be based on the branch <code>master</code> so that you can easily work on
+normally be based on the branch <code>main</code> so that you can easily work on
 several other branches during the same period.</p>
 <blockquote>
-<p>Creating a working branch separate from the default <code>master</code> branch will
-allow you to create other working branches off of branch <code>master</code> later
+<p>Creating a working branch separate from the default <code>main</code> branch will
+allow you to create other working branches off of branch <code>main</code> later
 while your other working branches is still open for code reviews.</p>
 <p>Limiting your current working branch to a single issue will also both
 streamline the code review and reduce the possibility of merge conflicts.</p>
 </blockquote>
 <p>You create a new working branch using the following command
-<code>git checkout -b &lt;working-branch-name&gt; my/master</code>. You should also
-track the branch <code>master</code> in your fork, e.g. <code>my/master</code> so that you
+<code>git checkout -b &lt;working-branch-name&gt; my/main</code>. You should also
+track the branch <code>main</code> in your fork, e.g. <code>my/main</code> so that you
 will better see if the branch is behind or ahead in commits.</p>
 <p>This will create a new local working branch in the local repository of
-<em>ComputerManagementDsc</em>, start tracking your fork&rsquo;s master branch and
+<em>ComputerManagementDsc</em>, start tracking your fork&rsquo;s main branch and
 then checkout (move) to the new branch.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd c:<span style="color:#ae81ff">\s</span>ource<span style="color:#ae81ff">\C</span>omputerManagementDsc
-git checkout master
-git checkout -b my-working-branch my/master
+git checkout main
+git checkout -b my-working-branch my/main
 </code></pre></div><p>You can now start making changes in your local branch. You can easily start
 Visual Studio Code and get it to automatically load the folder by running</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd c:<span style="color:#ae81ff">\s</span>ource<span style="color:#ae81ff">\C</span>omputerManagementDsc
@@ -652,7 +755,7 @@ the upstream repository you can delete the working branch. It is no longer
 needed at that point, any further work requires a new working branch.</p>
 <p>To delete your branch follow these steps:</p>
 <ol>
-<li>Run <code>git checkout master</code> in the command prompt. This ensures that you
+<li>Run <code>git checkout main</code> in the command prompt. This ensures that you
 aren&rsquo;t in the branch to be deleted (which isn&rsquo;t allowed).</li>
 <li>Next, type <code>git branch -d branch-name</code> in the command prompt. This will
 delete the branch on your local machine only if it has been successfully

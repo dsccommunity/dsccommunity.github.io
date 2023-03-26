@@ -93,8 +93,8 @@ But when you have installed hugo, forked the dsccommunity.org, and cloned your f
       
       <guid>https://dsccommunity.org/guidelines/getting-started/</guid>
       <description>There are a lot of guides on the Internet that will show different aspects of what is described here, but this article will focus on a simple way to get started using the workflow we use for DSC modules and DSC resources within the DSC Community.
- After you read through this guide, then please continue with the guide Contributor.
- Table of Contents  Create free GitHub account Install Visual Studio Code Install Visual Studio Code PowerShell Extension Install Git Configure Git Install PowerShell Module posh-git Install GitVersion Clone repository from GitHub Forking a repository on GitHub Adding the fork as a remote in the local repository Making changes and pushing them to the fork Make changes to an existing pull request of yours Switch between local working branches Delete a branch  Create free GitHub account Create a free GitHub account by browsing to GitHub and clicking on the Sign up button.</description>
+After you read through this guide, then please continue with the guide Contributor, especially the section Understand the coding workflow.
+Table of Contents  Quick steps Create free GitHub account Install Visual Studio Code Install Visual Studio Code PowerShell Extension Install Git Configure Git Install PowerShell Module posh-git Install GitVersion Clone repository from GitHub Forking a repository on GitHub Adding the fork as a remote in the local repository Making changes and pushing them to the fork Make changes to an existing pull request of yours Switch between local working branches Delete a branch  Quick steps Here are some quick steps to get started building and testing a project.</description>
     </item>
     
     <item>
