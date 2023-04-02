@@ -7,20 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Wed, 01 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2023-02-22</title>
+      <title>Next Community Call 2023-04-05</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Mar 2023 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, February 22th, at 12 PM PST
+      <description>Next call will be on Wednesday, April 5th, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
-Agenda Community presentation &amp;ldquo;WinGet and DSC Resources&amp;rdquo; presented by Demetrius Nelon.
-Community questions Submit your questions, or raise them directly in the call.
-Want to submit a question to discuss during the call so others can prepare?</description>
+Agenda TBD. Suggestions for talks are welcomed, we have Call for speakers open.
+Community questions Submit your questions, or raise them directly in the call.</description>
     </item>
     
     <item>
@@ -406,6 +405,16 @@ In each localization folder there should be a PowerShell data (.psd1) file named
 Bad:
 it &amp;#39;Should return something&amp;#39; { get-targetresource @testParameters | should -be &amp;#39;something&amp;#39; } Good:
 It &amp;#39;Should return something&amp;#39; { Get-TargetResource @testParameters | Should -Be &amp;#39;something&amp;#39; } Assertion Messages Start with Should Pester assertions should always start with the word &amp;lsquo;Should&amp;rsquo;. This is to ensure the test results read more naturally as well as helping to indentify assertion messages that aren&amp;rsquo;t making assertions.</description>
+    </item>
+    
+    <item>
+      <title>2023-02-22 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2023-02-22-notes/</link>
+      <pubDate>Mon, 20 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2023-02-22-notes/</guid>
+      <description>Recording   Agenda Community presentation &amp;ldquo;WinGet and DSC Resources&amp;rdquo; presented by Demetrius Nelon.
+DSC resource modules that have been released recently  Releases  ConfigMgrCBDsc v4.0.0 - New resources CMClientSettingsComputerRestart and CMHierarchySetting   Preview  SqlServerDsc v16.1.0-preview0017 - SQL Server 2022 support + New public commands in preparation for new class-based resources UpdateServicesDsc v1.3.0-preview0003 - Various fixes and changes StorageDsc v5.1.0-preview0003 - support to use disk SerialNumber as a disk identifer    Tooling modules that have been released recently  Releases  None.</description>
     </item>
     
     <item>

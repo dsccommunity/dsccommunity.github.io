@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Next Community Call 2023-02-22</title>
+  <title>Next Community Call 2023-04-05</title>
 
   <meta name="generator" content="Hugo 0.92.2" />
 
@@ -237,7 +237,9 @@ if (!doNotTrack) {
             </li>
             <li class="parent d-block "><a href="/community_calls/">Community Calls</a>
               <ul class="sub-menu">
-            <li class="parent d-block  active "><a href="/community_calls/next_call/">Next Community Call 2023-02-22</a>
+            <li class="parent d-block  active "><a href="/community_calls/next_call/">Next Community Call 2023-04-05</a>
+            </li>
+            <li class=""><a href="/community_calls/2023-02-22-notes/">2023-02-22 Notes</a>
             </li>
             <li class=""><a href="/community_calls/2023-01-11-notes/">2023-01-11 Notes</a>
             </li>
@@ -332,8 +334,8 @@ if (!doNotTrack) {
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Next Community Call 2023-02-22</h2>
-            <p>Next call will be on Wednesday, February 22th, at 12 PM PST</p>
+            <h2>Next Community Call 2023-04-05</h2>
+            <p>Next call will be on Wednesday, April 5th, at 12 PM PST</p>
 <h3 id="join-the-call">Join the call</h3>
 <!-- We will have the DSC Community Call at the HerShell Pub in PSWorld (a digital space using [Gather](https://www.gather.town)). Join PSWorld and start mingle at the pub before the event, join PSWorld here: https://app.gather.town/events/hWF235u-R3CYCOFYJfQT
 
@@ -348,8 +350,8 @@ Can't find your way in PSWorld? See [how to find the Pub](#how-to-find-hershell-
 <p>Conference ID:
 503 431 76#</p>
 <h3 id="agenda">Agenda</h3>
-<h4 id="community-presentation">Community presentation</h4>
-<p><strong>&ldquo;WinGet and DSC Resources&rdquo;</strong> presented by Demetrius Nelon.</p>
+<p>TBD. Suggestions for talks are welcomed, we have <a href="https://sessionize.com/dsc-community">Call for speakers</a>
+open.</p>
 <h4 id="community-questions">Community questions</h4>
 <p><em>Submit your questions, or raise them directly in the call.</em></p>
 <!-- Topics or questions from the community (welcome at any point during the call).
@@ -366,14 +368,13 @@ For information on how to join, see <a href="https://dsccommunity.org/community/
 <ul>
 <li>Releases
 <ul>
-<li>ConfigMgrCBDsc v4.0.0 - New resources CMClientSettingsComputerRestart and CMHierarchySetting</li>
+<li>SqlServerDsc v16.1.0 - A big amount of changes, see <a href="https://github.com/dsccommunity/SqlServerDsc/blob/main/CHANGELOG.md#1610---2023-02-28">change log</a>. SQL Server 2022 support. Public commands for SQL Server install actions in preparation for new class-based resources.</li>
 </ul>
 </li>
 <li>Preview
 <ul>
-<li>SqlServerDsc v16.1.0-preview0017 - SQL Server 2022 support + New public commands in preparation for new class-based resources</li>
-<li>UpdateServicesDsc v1.3.0-preview0003 - Various fixes and changes</li>
-<li>StorageDsc v5.1.0-preview0003 - support to use disk SerialNumber as a disk identifer</li>
+<li>SqlServerDsc v16.2.0-preview0007 - Better handling of loading dependent module (SqlServer). Various enhancements and bug fixes, most notable is better support for using encrypted connections.</li>
+<li>ComputerManagementDsc v9.1.0-preview1 - PSResourceRepository now supports property <code>Reasons</code>.</li>
 </ul>
 </li>
 </ul>
@@ -381,17 +382,20 @@ For information on how to join, see <a href="https://dsccommunity.org/community/
 <ul>
 <li>Releases
 <ul>
-<li>None.</li>
+<li>Sampler v0.116.3 - Cleaned up templates and fixed bugs in the resolve dependency script. Since 0.116.1 there is also a new task <code>Set_PSModulePath</code>.</li>
+<li>DscResource.Base v1.1.0 - Handles <code>Reasons</code> re-using each modules own class, e.g. <code>SqlReasons</code> or <code>CMReasons</code>,
+that is specified as the type on the property <code>Reasons</code></li>
+<li>Sampler.AzureDevOpsTasks v0.1.2 - PAT is now correctly used in the task <code>Create_PR_From_SourceBranch</code>.</li>
 </ul>
 </li>
 <li>Preview
 <ul>
-<li>Sampler v0.116.2 - Show PSModulePath in the pipeline output</li>
+<li>Sampler.DscPipeline v0.2.0-preview0012</li>
 </ul>
 </li>
 </ul>
 <h3 id="next-community-call">Next Community Call</h3>
-<p>Next community call is on the 5th of April.
+<p>Next community call is on the 17th of May.
 Suggestions for talks are welcomed, we have <a href="https://sessionize.com/dsc-community">Call for speakers</a>
 open.</p>
 <!-- ### Other events in PSWorld
@@ -426,8 +430,8 @@ If your avatar spawn in the PSConf EU MiniCon, then go outside (move down on the
 </figure>
  -->
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 01 Feb 2023</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/" title="Community Calls"><i class="ti-arrow-left mr-2"></i>Community Calls</a>
-            <a class="nav nav-next" href="/community_calls/2023-01-11-notes/" title="2023-01-11 Notes">2023-01-11 Notes<i class="ti-arrow-right ml-2"></i></a>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 31 Mar 2023</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/" title="Community Calls"><i class="ti-arrow-left mr-2"></i>Community Calls</a>
+            <a class="nav nav-next" href="/community_calls/2023-02-22-notes/" title="2023-02-22 Notes">2023-02-22 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>
