@@ -9,17 +9,17 @@
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
     <lastBuildDate>Sun, 28 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dsccommunity.org/community_calls/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Next Community Call 2023-04-05</title>
+      <title>Next Community Call 2023-08-09</title>
       <link>https://dsccommunity.org/community_calls/next_call/</link>
-      <pubDate>Fri, 31 Mar 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://dsccommunity.org/community_calls/next_call/</guid>
-      <description>Next call will be on Wednesday, April 5th, at 12 PM PST
+      <description>Next call will be on Wednesday, August 9th, at 12 PM PST
 Join the call Join using the Microsoft Teams app
 Or click here to browse the list of available dial-in numbers to find one that is local to your region
 Conference ID: 503 431 76#
-Agenda Community presentation &amp;ldquo;nxtools and DSC v3&amp;rdquo; presented by Jodi Boone, Julia Wang, Brandon Poe, and Steve Lee.
-Come learn about nxtools and DSC v3: tune in for Wednesday&amp;rsquo;s DSC community call, where Azure Automanage Machine Configuration PMs Jodi, Julia and Brandon will join head of PowerShell Steve Lee to share exciting new machine config features and releases.</description>
+Agenda Community presentation **&amp;ldquo;Update on DSC version 3&amp;rdquo; presented by Steve Lee, Michael Greene, and Mikey Lombardi
+Join us to learn about the upcoming &amp;ldquo;version 3&amp;rdquo; of DSC, which is a dramatically different and new platform based on community feedback, and the foundation of PowerShell DSC that we all know and love!</description>
     </item>
     
     <item>
@@ -30,6 +30,16 @@ Come learn about nxtools and DSC v3: tune in for Wednesday&amp;rsquo;s DSC commu
       <guid>https://dsccommunity.org/community_calls/2023-02-22-notes/</guid>
       <description>Recording   Agenda Community presentation &amp;ldquo;WinGet and DSC Resources&amp;rdquo; presented by Demetrius Nelon.
 DSC resource modules that have been released recently  Releases  ConfigMgrCBDsc v4.0.0 - New resources CMClientSettingsComputerRestart and CMHierarchySetting   Preview  SqlServerDsc v16.1.0-preview0017 - SQL Server 2022 support + New public commands in preparation for new class-based resources UpdateServicesDsc v1.3.0-preview0003 - Various fixes and changes StorageDsc v5.1.0-preview0003 - support to use disk SerialNumber as a disk identifer    Tooling modules that have been released recently  Releases  None.</description>
+    </item>
+    
+    <item>
+      <title>2023-02-22 Notes</title>
+      <link>https://dsccommunity.org/community_calls/2023-08-09-notes/</link>
+      <pubDate>Mon, 20 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsccommunity.org/community_calls/2023-08-09-notes/</guid>
+      <description>Recording   Agenda Community presentation &amp;ldquo;Update on DSC version 3&amp;rdquo; presented by Steve Lee, Michael Greene, Michael Lombardi
+DSC resource modules that have been released recently  Releases Preview  Tooling modules that have been released recently  Releases Preview  </description>
     </item>
     
     <item>
