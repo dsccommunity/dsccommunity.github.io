@@ -4,72 +4,52 @@
     <title>Guidelines on DSC Community</title>
     <link>https://dsccommunity.org/guidelines/</link>
     <description>Recent content in Guidelines on DSC Community</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Fri, 28 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://dsccommunity.org/guidelines/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Jan 2020 14:00:00 +0100</lastBuildDate>
+    <atom:link href="https://dsccommunity.org/guidelines/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting Started as a Contributor</title>
       <link>https://dsccommunity.org/guidelines/getting-started/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
-      
       <guid>https://dsccommunity.org/guidelines/getting-started/</guid>
-      <description>There are a lot of guides on the Internet that will show different aspects of what is described here, but this article will focus on a simple way to get started using the workflow we use for DSC modules and DSC resources within the DSC Community.
-After you read through this guide, then please continue with the guide Contributor, especially the section Understand the coding workflow.
-Table of Contents  Quick steps Create free GitHub account Install Visual Studio Code Install Visual Studio Code PowerShell Extension Install Git Configure Git Install PowerShell Module posh-git Install GitVersion Clone repository from GitHub Forking a repository on GitHub Adding the fork as a remote in the local repository Making changes and pushing them to the fork Make changes to an existing pull request of yours Switch between local working branches Delete a branch  Quick steps Here are some quick steps to get started building and testing a project.</description>
+      <description>&lt;p&gt;There are a lot of guides on the Internet that will show different&#xA;aspects of what is described here, but this article will focus on a&#xA;simple way to get started using the workflow we use for DSC modules and&#xA;DSC resources within the DSC Community.&lt;/p&gt;&#xA;&lt;p&gt;After you read through this guide, then please continue with the guide&#xA;&lt;a href=&#34;https://dsccommunity.org/guidelines/contributing/&#34;&gt;Contributor&lt;/a&gt;, especially the section&#xA;&lt;a href=&#34;https://dsccommunity.org/guidelines/contributing/#understand-the-coding-workflow&#34;&gt;Understand the coding workflow&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#quick-steps&#34;&gt;Quick steps&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#create-free-github-account&#34;&gt;Create free GitHub account&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#install-visual-studio-code&#34;&gt;Install Visual Studio Code&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#install-visual-studio-code-powershell-extension&#34;&gt;Install Visual Studio Code PowerShell Extension&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#install-git&#34;&gt;Install Git&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#configure-git&#34;&gt;Configure Git&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#install-powershell-module-posh-git&#34;&gt;Install PowerShell Module posh-git&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#install-gitversion&#34;&gt;Install GitVersion&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#clone-repository-from-github&#34;&gt;Clone repository from GitHub&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#forking-a-repository-on-github&#34;&gt;Forking a repository on GitHub&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#adding-the-fork-as-a-remote-in-the-local-repository&#34;&gt;Adding the fork as a remote in the local repository&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#making-changes-and-pushing-them-to-the-fork&#34;&gt;Making changes and pushing them to the fork&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#make-changes-to-an-existing-pull-request-of-yours&#34;&gt;Make changes to an existing pull request of yours&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#switch-between-local-working-branches&#34;&gt;Switch between local working branches&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/#delete-a-branch&#34;&gt;Delete a branch&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;quick-steps&#34;&gt;Quick steps&lt;/h3&gt;&#xA;&lt;p&gt;Here are some quick steps to get started building and testing a project.&#xA;The detailed steps in the rest of this guide are required for contributing.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Contributing</title>
       <link>https://dsccommunity.org/guidelines/contributing/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
-      
       <guid>https://dsccommunity.org/guidelines/contributing/</guid>
-      <description>Thank you for your interest in contributing to the DSC Community.
-There are several ways you can contribute.
- You can submit an issue to report a bug or to request an improvement. You are encourage to take part in discussions around an issue or pull request. You may review pull requests. You may send in a pull request to improve the DSC modules by adding a new DSC resource, fixing issues in existing DSC resources, improve the CI pipeline, or updating documentation around the DSC modules.</description>
+      <description>&lt;p&gt;Thank you for your interest in contributing to the DSC Community.&lt;/p&gt;&#xA;&lt;p&gt;There are several ways you can contribute.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;You can submit an issue to report a bug or to request an improvement.&lt;/li&gt;&#xA;&lt;li&gt;You are encourage to take part in discussions around an issue or&#xA;pull request.&lt;/li&gt;&#xA;&lt;li&gt;You may review pull requests.&lt;/li&gt;&#xA;&lt;li&gt;You may send in a pull request to improve the DSC modules by adding a&#xA;new DSC resource, fixing issues in existing DSC resources, improve the&#xA;CI pipeline, or updating documentation around the DSC modules.&lt;/li&gt;&#xA;&lt;li&gt;You are welcome to transfer a DSC module over to the DSC Community.&lt;/li&gt;&#xA;&lt;li&gt;You may create an entire new DSC module if there is need for it (you&#xA;will become a maintainer of a new empty repository in DSC Community).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;If want to contribute my making changes to code or documentation but&#xA;are new to contributing and GitHub, then please read the&#xA;&lt;a href=&#34;https://dsccommunity.org/guidelines/getting-started/&#34;&gt;Getting Started as a Contributor&lt;/a&gt; guideline.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Maintaining</title>
       <link>https://dsccommunity.org/guidelines/maintaining/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
-      
       <guid>https://dsccommunity.org/guidelines/maintaining/</guid>
-      <description>Security To be maintainer you must have 2FA enabled on accounts that give you access to DSC Community resources, for example your GitHub account and the account that access DSC Community Azure DevOps organization.
-Breaking Changes See Breaking Changes
-Review Not yet written.
-Merging code Only merge code that passes status checks, have been reviewed, and where all the review comments have be resolved and approved.
-As a maintainer you are allowed to review and merge your own code.</description>
+      <description>&lt;h3 id=&#34;security&#34;&gt;Security&lt;/h3&gt;&#xA;&lt;p&gt;To be maintainer you must have 2FA enabled on accounts that give you&#xA;access to DSC Community resources, for example your GitHub account and&#xA;the account that access DSC Community Azure DevOps organization.&lt;/p&gt;&#xA;&lt;h3 id=&#34;breaking-changes&#34;&gt;Breaking Changes&lt;/h3&gt;&#xA;&lt;p&gt;See &lt;a href=&#34;https://dsccommunity.org/guidelines/contributing/#breaking-changes&#34;&gt;Breaking Changes&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;review&#34;&gt;Review&lt;/h3&gt;&#xA;&lt;p&gt;Not yet written.&lt;/p&gt;&#xA;&lt;h3 id=&#34;merging-code&#34;&gt;Merging code&lt;/h3&gt;&#xA;&lt;p&gt;Only merge code that passes status checks, have been reviewed, and where&#xA;all the review comments have be resolved and approved.&lt;/p&gt;&#xA;&lt;p&gt;As a maintainer you are allowed to review and merge your own code. Minimum&#xA;time before you as a maintainer may merge your own code is 24 hours, but&#xA;it is recommended that the code is merged after 72 hours so the community&#xA;has a chance to comment on the changes. Any pull request that fixes issues&#xA;in a broken CI pipeline can be merged faster to unblock other pull requests.&#xA;A pull request that fixes security issues is also exempted. It is recommended&#xA;to use the label &lt;em&gt;high priority&lt;/em&gt; to flag pull requests that have to be&#xA;merged before the minimum 24 hour time frame.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Style Guidelines</title>
       <link>https://dsccommunity.org/guidelines/style-guidelines/</link>
       <pubDate>Mon, 28 Jan 2019 11:02:05 +0600</pubDate>
-      
       <guid>https://dsccommunity.org/guidelines/style-guidelines/</guid>
-      <description>The Style Guidelines can be found in its own section Style Guidelines.</description>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://dsccommunity.org/styleguidelines/&#34;&gt;Style Guidelines&lt;/a&gt; can be found in its own section&#xA;&lt;a href=&#34;https://dsccommunity.org/styleguidelines/&#34;&gt;Style Guidelines&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Testing Guidelines</title>
       <link>https://dsccommunity.org/guidelines/testing-guidelines/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
       <guid>https://dsccommunity.org/guidelines/testing-guidelines/</guid>
-      <description>General Rules  Tests are written using Pester. Preferably use the concept of test-driven development when writing tests. Each DSC module should contain the following Test folder structure:  tests |---Unit |---Integration  The tests\Unit folder must contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.Tests.ps1. The tests\Integration folder should, whenever possible, contain a Test Script for each DSC Resource in the DSC Module with the filename DSC_&amp;lt;ResourceName&amp;gt;.</description>
+      <description>&lt;h3 id=&#34;general-rules&#34;&gt;General Rules&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Tests are written using &lt;a href=&#34;https://github.com/pester/Pester&#34;&gt;Pester&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Preferably use the concept of&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/Test-driven_development&#34;&gt;test-driven development&lt;/a&gt;&#xA;when writing tests.&lt;/li&gt;&#xA;&lt;li&gt;Each DSC module should contain the following Test folder structure:&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       tests&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       |---Unit&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       |---Integration&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;The &lt;code&gt;tests\Unit&lt;/code&gt; folder must contain a Test Script for each DSC Resource in the&#xA;DSC Module with the filename &lt;code&gt;DSC_&amp;lt;ResourceName&amp;gt;.Tests.ps1&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;The &lt;code&gt;tests\Integration&lt;/code&gt; folder should, whenever possible, contain a Test Script&#xA;for each DSC Resource in the DSC Module with the filename &lt;code&gt;DSC_&amp;lt;ResourceName&amp;gt;.integration.Tests.ps1&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Each Test Script should contain &lt;a href=&#34;https://github.com/pester/Pester&#34;&gt;Pester&lt;/a&gt; based&#xA;tests.&lt;/li&gt;&#xA;&lt;li&gt;Integration tests should be created when possible, but for some DSC resources&#xA;this may not be possible. For example, when integration tests would cause the&#xA;testing computer configuration to be damaged.&lt;/li&gt;&#xA;&lt;li&gt;Unit and Integration tests templates should be created using the Plaster template&#xA;that is generated by the &lt;a href=&#34;https://github.com/gaelcolas/Sampler&#34;&gt;Sampler&lt;/a&gt;&#xA;project.&lt;/li&gt;&#xA;&lt;li&gt;The Unit and Integration test templates are dependent on the CI pipeline&#xA;that is generated by the DSC module Plaster template that is generated by the&#xA;&lt;a href=&#34;https://github.com/gaelcolas/Sampler&#34;&gt;Sampler&lt;/a&gt; project. That template&#xA;contain a CI pipeline that when configured it will help get the&#xA;dependencies to run the tests.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;creating-dsc-resource-unit-test-instructions&#34;&gt;Creating DSC Resource Unit Test Instructions&lt;/h3&gt;&#xA;&lt;p&gt;Not yet written. This should be done through the Plaster template in the&#xA;&lt;a href=&#34;https://github.com/gaelcolas/Sampler&#34;&gt;Sampler&lt;/a&gt; project.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Administration</title>
       <link>https://dsccommunity.org/guidelines/administration/</link>
       <pubDate>Fri, 17 Jan 2020 14:00:00 +0100</pubDate>
-      
       <guid>https://dsccommunity.org/guidelines/administration/</guid>
-      <description>Security To be administrator you must have 2FA enabled on accounts that give you access to DSC Community resources, for example your GitHub account and the account that access DSC Community Azure DevOps organization.
-GitHub Create GitHub organization Team Repository Maintainer Team Each repository that is created in a DSC Community GitHub organization should have at least one team for maintainers. This team should be a child team of the GitHub organization team Maintainers.</description>
+      <description>&lt;h3 id=&#34;security&#34;&gt;Security&lt;/h3&gt;&#xA;&lt;p&gt;To be administrator you must have 2FA enabled on accounts that give you&#xA;access to DSC Community resources, for example your GitHub account and&#xA;the account that access DSC Community Azure DevOps organization.&lt;/p&gt;&#xA;&lt;h3 id=&#34;github&#34;&gt;GitHub&lt;/h3&gt;&#xA;&lt;h4 id=&#34;create-github-organization-team&#34;&gt;Create GitHub organization Team&lt;/h4&gt;&#xA;&lt;h5 id=&#34;repository-maintainer-team&#34;&gt;Repository Maintainer Team&lt;/h5&gt;&#xA;&lt;p&gt;Each repository that is created in a DSC Community GitHub organization&#xA;should have at least one team for maintainers. This team should be a child&#xA;team of the GitHub organization team &lt;a href=&#34;https://github.com/orgs/dsccommunity/teams/maintainers&#34;&gt;Maintainers&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -2,24 +2,12 @@
   <meta charset="utf-8">
   <title>Converting tests to Pester 5</title>
 
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.135.0">
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-144465379-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
 
   <!-- ** Plugins Needed for the Project ** -->
   <!-- Bootstrap -->
@@ -123,6 +111,8 @@ if (!doNotTrack) {
     
     <ul class="list-inline text-center mb-0">
       
+      <li class="list-inline-item"><a class="text-dark" href="https://dsccommunity.org/">En</a></li>
+      
     </ul>
   </div>
 </nav>
@@ -139,197 +129,197 @@ if (!doNotTrack) {
             
             <nav class="sidebar-menu">
               <ul class="list-styled">
-            <li class=""><a href="/community/">Community</a>
+            <li class=" active "><a href="/community/">Community</a>
               <ul class="">
-            <li class=""><a href="/community/origin-story/">Origin Story</a>
+            <li class=" active "><a href="/community/origin-story/">Origin Story</a>
             </li>
-            <li class=""><a href="/community/ownership/">Ownership of DSC Resources</a>
+            <li class=" active "><a href="/community/ownership/">Ownership of DSC Resources</a>
             </li>
-            <li class=""><a href="/community/committee/">DSC Community Committee</a>
+            <li class=" active "><a href="/community/committee/">DSC Community Committee</a>
             </li>
-            <li class=""><a href="/community/maintainers/">Maintainers</a>
+            <li class=" active "><a href="/community/maintainers/">Maintainers</a>
             </li>
-            <li class=""><a href="/community/contact/">Join the Conversation</a>
+            <li class=" active "><a href="/community/contact/">Join the Conversation</a>
             </li></ul>
               
             </li>
-            <li class=""><a href="/resources/">Resource Modules</a>
+            <li class=" active "><a href="/resources/">Resource Modules</a>
             </li>
-            <li class=""><a href="/guidelines/">Guidelines</a>
+            <li class=" active "><a href="/guidelines/">Guidelines</a>
               <ul class="">
-            <li class=""><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
+            <li class=" active "><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
             </li>
-            <li class=""><a href="/guidelines/contributing/">Contributing</a>
+            <li class=" active "><a href="/guidelines/contributing/">Contributing</a>
             </li>
-            <li class=""><a href="/guidelines/maintaining/">Maintaining</a>
+            <li class=" active "><a href="/guidelines/maintaining/">Maintaining</a>
             </li>
-            <li class=""><a href="/guidelines/style-guidelines/">Style Guidelines</a>
+            <li class=" active "><a href="/guidelines/style-guidelines/">Style Guidelines</a>
             </li>
-            <li class=""><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
+            <li class=" active "><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
             </li>
-            <li class=""><a href="/guidelines/administration/">Administration</a>
+            <li class=" active "><a href="/guidelines/administration/">Administration</a>
             </li></ul>
               
             </li>
-            <li class=""><a href="/styleguidelines/">Style Guidelines</a>
+            <li class=" active "><a href="/styleguidelines/">Style Guidelines</a>
               <ul class="">
-            <li class=""><a href="/styleguidelines/markdown-files/">Markdown Files</a>
+            <li class=" active "><a href="/styleguidelines/markdown-files/">Markdown Files</a>
             </li>
-            <li class=""><a href="/styleguidelines/general/">General</a>
+            <li class=" active "><a href="/styleguidelines/general/">General</a>
             </li>
-            <li class=""><a href="/styleguidelines/whitespace/">Whitespace</a>
+            <li class=" active "><a href="/styleguidelines/whitespace/">Whitespace</a>
             </li>
-            <li class=""><a href="/styleguidelines/functions/">Functions</a>
+            <li class=" active "><a href="/styleguidelines/functions/">Functions</a>
             </li>
-            <li class=""><a href="/styleguidelines/parameters/">Parameters</a>
+            <li class=" active "><a href="/styleguidelines/parameters/">Parameters</a>
             </li>
-            <li class=""><a href="/styleguidelines/variables/">Variables</a>
+            <li class=" active "><a href="/styleguidelines/variables/">Variables</a>
             </li>
-            <li class=""><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            <li class=" active "><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
             </li>
-            <li class=""><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            <li class=" active "><a href="/styleguidelines/calling-functions/">Calling Functions</a>
             </li>
-            <li class=""><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            <li class=" active "><a href="/styleguidelines/writing-functions/">Writing Functions</a>
             </li>
-            <li class=""><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            <li class=" active "><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
             </li>
-            <li class=""><a href="/styleguidelines/manifest/">Manifest</a>
+            <li class=" active "><a href="/styleguidelines/manifest/">Manifest</a>
             </li>
-            <li class=""><a href="/styleguidelines/localization/">Localization</a>
+            <li class=" active "><a href="/styleguidelines/localization/">Localization</a>
             </li>
-            <li class=""><a href="/styleguidelines/pester-tests/">Pester Tests</a>
+            <li class=" active "><a href="/styleguidelines/pester-tests/">Pester Tests</a>
             </li></ul>
               
             </li>
-            <li class="parent d-block "><a href="/blog/">Blog Posts</a>
+            <li class="parent d-block  active "><a href="/blog/">Blog Posts</a>
               <ul class="sub-menu">
-            <li class=""><a href="/blog/create-an-article/">Create an Article</a>
+            <li class=" active "><a href="/blog/create-an-article/">Create an Article</a>
             </li>
-            <li class=""><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
+            <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
             </li>
-            <li class=""><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
+            <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
             </li>
-            <li class=""><a href="/blog/class-based-dsc-resources/">Class Based DSC Resource only proposal</a>
+            <li class=" active "><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
             </li>
-            <li class="parent d-block  active "><a href="/blog/converting-tests-to-pester5/">Converting tests to Pester 5</a>
+            <li class=" active "><a href="/blog/class-based-dsc-resources/">Class Based DSC Resource only proposal</a>
             </li>
-            <li class=""><a href="/blog/add-codecov-support-to-repository/">Add Code Coverage Support to Repository</a>
+            <li class=" active "><a href="/blog/converting-tests-to-pester5/">Converting tests to Pester 5</a>
             </li>
-            <li class=""><a href="/blog/use-dscresource-common-functions-in-module/">DscResource.Common functions in a DSC module</a>
+            <li class=" active "><a href="/blog/updating-sampler-github-tasks/">Updating repo with Sampler.GitHubTasks</a>
             </li>
-            <li class=""><a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a>
+            <li class=" active "><a href="/blog/add-codecov-support-to-repository/">Add Code Coverage Support to Repository</a>
             </li>
-            <li class=""><a href="/blog/how-to-use-dsc-logging/">How to Use DSC Logging</a>
+            <li class=" active "><a href="/blog/use-dscresource-common-functions-in-module/">DscResource.Common functions in a DSC module</a>
             </li>
-            <li class=""><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
+            <li class=" active "><a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a>
             </li>
-            <li class=""><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
+            <li class=" active "><a href="/blog/how-to-use-dsc-logging/">How to Use DSC Logging</a>
             </li>
-            <li class=""><a href="/blog/updating-sampler-github-tasks/">Updating repo with Sampler.GitHubTasks</a>
+            <li class=" active "><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
             </li></ul>
               
             </li>
-            <li class=""><a href="/configmgt/">Configuration Management</a>
+            <li class=" active "><a href="/configmgt/">Configuration Management</a>
               <ul class="">
-            <li class=""><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
+            <li class=" active "><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
             </li></ul>
               
             </li>
-            <li class=""><a href="/community_calls/">Community Calls</a>
+            <li class=" active "><a href="/community_calls/">Community Calls</a>
               <ul class="">
-            <li class=""><a href="/community_calls/next_call/">Next Community Call 2023-11-01</a>
+            <li class=" active "><a href="/community_calls/next_call/">Next Community Call 2023-11-01</a>
             </li>
-            <li class=""><a href="/community_calls/2023-09-20-notes/">2023-09-20 Notes</a>
+            <li class=" active "><a href="/community_calls/2023-09-20-notes/">2023-09-20 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2023-04-05-notes/">2023-04-05 Notes</a>
+            <li class=" active "><a href="/community_calls/2023-04-05-notes/">2023-04-05 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2023-02-22-notes/">2023-02-22 Notes</a>
+            <li class=" active "><a href="/community_calls/2023-02-22-notes/">2023-02-22 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2023-01-11-notes/">2023-01-11 Notes</a>
+            <li class=" active "><a href="/community_calls/2023-01-11-notes/">2023-01-11 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2022-11-30-notes/">2022-11-30 Notes</a>
+            <li class=" active "><a href="/community_calls/2022-11-30-notes/">2022-11-30 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2022-10-19-notes/">2022-10-19 Notes</a>
+            <li class=" active "><a href="/community_calls/2022-10-19-notes/">2022-10-19 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2022-05-04-notes/">2022-05-04 Notes</a>
+            <li class=" active "><a href="/community_calls/2022-05-04-notes/">2022-05-04 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2022-09-07-notes/">2022-09-07 Notes</a>
+            <li class=" active "><a href="/community_calls/2022-09-07-notes/">2022-09-07 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2022-03-23-notes/">2022-03-23 Notes</a>
+            <li class=" active "><a href="/community_calls/2022-03-23-notes/">2022-03-23 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2022-02-16-notes/">2022-02-16 Notes</a>
+            <li class=" active "><a href="/community_calls/2022-02-16-notes/">2022-02-16 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2021-11-17-notes/">2021-11-17 Notes</a>
+            <li class=" active "><a href="/community_calls/2021-11-17-notes/">2021-11-17 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2021-10-06-notes/">2021-10-06 Notes</a>
+            <li class=" active "><a href="/community_calls/2021-10-06-notes/">2021-10-06 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2021-08-25-notes/">2021-08-25 Notes</a>
+            <li class=" active "><a href="/community_calls/2021-08-25-notes/">2021-08-25 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
+            <li class=" active "><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2021-04-21-notes/">2021-04-21 Notes</a>
+            <li class=" active "><a href="/community_calls/2021-04-21-notes/">2021-04-21 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2021-03-10-notes/">2021-03-10 Notes</a>
+            <li class=" active "><a href="/community_calls/2021-03-10-notes/">2021-03-10 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2021-01-27-notes/">2021-01-27 Notes</a>
+            <li class=" active "><a href="/community_calls/2021-01-27-notes/">2021-01-27 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2020-12-16-notes/">2020-12-16 Notes</a>
+            <li class=" active "><a href="/community_calls/2020-12-16-notes/">2020-12-16 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2020-09-23-notes/">2020-09-23 Notes</a>
+            <li class=" active "><a href="/community_calls/2020-09-23-notes/">2020-09-23 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2020-08-12-notes/">2020-08-12 Notes</a>
+            <li class=" active "><a href="/community_calls/2020-08-12-notes/">2020-08-12 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2020-07-01-notes/">2020-07-01 Notes</a>
+            <li class=" active "><a href="/community_calls/2020-07-01-notes/">2020-07-01 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2020-05-20-notes/">2020-05-20 Notes</a>
+            <li class=" active "><a href="/community_calls/2020-05-20-notes/">2020-05-20 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
+            <li class=" active "><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2020-02-26-notes/">2020-02-26 Notes</a>
+            <li class=" active "><a href="/community_calls/2020-02-26-notes/">2020-02-26 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2020-01-22-notes/">2020-01-22 Notes</a>
+            <li class=" active "><a href="/community_calls/2020-01-22-notes/">2020-01-22 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2019-12-04-notes/">2019-12-04 Notes</a>
+            <li class=" active "><a href="/community_calls/2019-12-04-notes/">2019-12-04 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
+            <li class=" active "><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
+            <li class=" active "><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
+            <li class=" active "><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
+            <li class=" active "><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
             </li>
-            <li class=""><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
+            <li class=" active "><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
             </li></ul>
               
             </li>
-            <li class=""><a href="/code_of_conduct/">Code of Conduct</a>
+            <li class=" active "><a href="/code_of_conduct/">Code of Conduct</a>
               <ul class="">
-            <li class=""><a href="/code_of_conduct/standards/">Our Standards</a>
+            <li class=" active "><a href="/code_of_conduct/standards/">Our Standards</a>
             </li>
-            <li class=""><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
+            <li class=" active "><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
             </li>
-            <li class=""><a href="/code_of_conduct/scope/">Scope</a>
+            <li class=" active "><a href="/code_of_conduct/scope/">Scope</a>
             </li>
-            <li class=""><a href="/code_of_conduct/enforcement/">Enforcement</a>
+            <li class=" active "><a href="/code_of_conduct/enforcement/">Enforcement</a>
             </li>
-            <li class=""><a href="/code_of_conduct/common_questions/">Common Questions</a>
+            <li class=" active "><a href="/code_of_conduct/common_questions/">Common Questions</a>
             </li>
-            <li class=""><a href="/code_of_conduct/attribution/">Attribution</a>
+            <li class=" active "><a href="/code_of_conduct/attribution/">Attribution</a>
             </li></ul>
               
             </li>
-            <li class=""><a href="/help/">Help</a>
+            <li class=" active "><a href="/help/">Help</a>
               <ul class="">
-            <li class=""><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
+            <li class=" active "><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
             </li>
-            <li class=""><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
+            <li class=" active "><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
             </li></ul>
               
             </li>
-            <li class=""><a href="/contributors/">Elements</a>
+            <li class=" active "><a href="/contributors/">Elements</a>
             </li>
-            <li class=""><a href="/faq/">Frequently Asked Questions</a>
+            <li class=" active "><a href="/faq/">Frequently Asked Questions</a>
             </li></ul>
             </nav>
 
@@ -453,10 +443,10 @@ string and that for some reason resultet in a $null value instead of the
 correct string the test will pass even if the code being test throw the
 wrong error message. To handle this the expected error message variable
 should be assert to contain a value.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">  $errorMessage = $script:localizedString.LocalizedErrorMessage
-  $errorMessage | Should <span style="color:#f92672">-Not</span> -BeNullOrEmpty
-  { Set-Something } | Should -Throw $errorMessage
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>  $errorMessage = $script:localizedString.LocalizedErrorMessage
+</span></span><span style="display:flex;"><span>  $errorMessage | Should <span style="color:#f92672">-Not</span> -BeNullOrEmpty
+</span></span><span style="display:flex;"><span>  { Set-Something } | Should -Throw $errorMessage
+</span></span></code></pre></div></li>
 <li><code>BeforeEach</code> behaves differently (better) than Pester 4. In Pester 4
 if a mock was declared in a previous <code>BeforeAll</code>- or <code>BeforeEach</code>-block
 the <code>BeforeEach</code> block override the previous mock. That is not happening
@@ -472,24 +462,24 @@ The <code>foreach</code>-blocks was removed and replaced with test cases.</li>
 <li>If the tests haven&rsquo;t moved from the Pester 3 syntax, e.g. <code>Should Be</code>
 and <code>Should Throw</code> (without dash), the tests are failing with the error
 message:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">ParameterBindingException: Parameter set cannot be resolved using the specified named parameters.
-One or more parameters issued cannot be used together or an insufficient number of parameters were provided.
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>ParameterBindingException: Parameter set cannot be resolved using the specified named parameters.
+</span></span><span style="display:flex;"><span>One or more parameters issued cannot be used together or an insufficient number of parameters were provided.
+</span></span></code></pre></div></li>
 <li>If using test cases and have defined a parameter block and decorated the
 parameters with <code>[Parameter()]</code> the test will fail. Remove the decoration
 <code>[Parameter()]</code> and the tests work with both Pester 4 and 5. In Pester 5
 it is possible to remove the entire param-block, which is preferably but
 then there is not backward compatibility with Pester 4.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">It <span style="color:#e6db74">&#39;Should...if value is &lt;ParameterValue&gt;&#39;</span> -TestCase @( ... ) {
-      <span style="color:#66d9ef">param</span>
-      (
-          <span style="color:#66d9ef">[System.String]</span>
-          $ParameterValue
-      )
-
-      Get-Something | Should -Be $ParameterValue
-}
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>It <span style="color:#e6db74">&#39;Should...if value is &lt;ParameterValue&gt;&#39;</span> -TestCase @( ... ) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">param</span>
+</span></span><span style="display:flex;"><span>      (
+</span></span><span style="display:flex;"><span>          [<span style="color:#66d9ef">System.String</span>]
+</span></span><span style="display:flex;"><span>          $ParameterValue
+</span></span><span style="display:flex;"><span>      )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      Get-Something | Should -Be $ParameterValue
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
 <li>In Pester 5 it is possible to use <code>Should -Invoke</code> (or alias <code>Assert-MockCalled</code>)
 without having declared a mock for the command. Then <code>Should -Invoke</code> is
 just ignored without any error that there was no mock declared as Pester 4
@@ -508,125 +498,125 @@ be inside <code>Before*</code>-, <code>After*</code>-, and <code>It</code>-block
 to the rule when it comes to test cases.</p>
 <p><em><strong>Note</strong>: This is just an example from me which may change in the future</em>
 <em>when new practices are learned and old habits are improved or replaced.</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#
-</span><span style="color:#75715e">    Import module if using InModuleScope. There are other possible solution for
-</span><span style="color:#75715e">    this, see issue https://github.com/pester/Pester/issues/1543.
-</span><span style="color:#75715e">#&gt;</span>
-Import-Module -Name <span style="color:#e6db74">&#39;.\output\SqlServerDsc\14.0.0\Modules\SqlServerDsc.Common&#39;</span>
-
-BeforeAll {
-    <span style="color:#75715e"># More initialization code like loading stub cmdlets or stub classes</span>
-}
-
-Describe <span style="color:#e6db74">&#39;SqlServerDsc.Common\Set-Something&#39;</span> {
-    Context <span style="color:#e6db74">&#39;When...&#39;</span> {
-        BeforeAll {
-            <span style="color:#75715e"># Test setup. Mock and mock variables as needed.</span>
-        }
-
-        BeforeEach {
-            <span style="color:#75715e"># Test setup per It-block. Mock and mock variable setup.</span>
-        }
-
-        AfterAll {
-            <span style="color:#75715e"># Test teardown.</span>
-        }
-
-        AfterEach {
-            <span style="color:#75715e"># Test teardown per It-block.</span>
-        }
-
-        It <span style="color:#e6db74">&#39;Should...&#39;</span> {
-            { Set-Something } | Should <span style="color:#f92672">-Not</span> -Throw
-
-            Should -Invoke -CommandName Get-Something -Exactly -Times 1 -Scope It
-        }
-    }
-
-    Context <span style="color:#e6db74">&#39;When...&#39;</span> {
-        <span style="color:#75715e"># Test cases can be added directly to the It-block.</span>
-        It <span style="color:#e6db74">&#39;Should...&#39;</span> -TestCases @(
-            {
-                MockVersion = <span style="color:#e6db74">&#39;11&#39;</span>
-            }
-            {
-                MockVersion = <span style="color:#e6db74">&#39;12&#39;</span>
-            }
-        ) {
-            { Set-Something -Version $MockVersion } | Should <span style="color:#f92672">-Not</span> -Throw
-
-            Should -Invoke -CommandName Get-Something -Exactly -Times 1 -Scope It
-        }
-
-        <span style="color:#75715e">&lt;#
-</span><span style="color:#75715e">            If test cases are defined in a variable then the variable
-</span><span style="color:#75715e">            is not allowed to be inside a Before*-block because then
-</span><span style="color:#75715e">            it is not executed during Discovery when the test cases are
-</span><span style="color:#75715e">            evaluated. Correct placement of these variables are inside
-</span><span style="color:#75715e">            the Describe-block and before the It-block, but outside of
-</span><span style="color:#75715e">            the Before*-blocks.
-</span><span style="color:#75715e">        #&gt;</span>
-        $testCases = @(
-            {
-                MockVersion = <span style="color:#e6db74">&#39;11&#39;</span>
-            }
-            {
-                MockVersion = <span style="color:#e6db74">&#39;12&#39;</span>
-            }
-        )
-
-        <span style="color:#75715e"># Test cases can be added directly like this to the It-block-</span>
-        It <span style="color:#e6db74">&#39;Should...&#39;</span> -TestCases $testCases {
-            { Set-Something -Version $MockVersion } | Should <span style="color:#f92672">-Not</span> -Throw
-
-            Should -Invoke -CommandName Get-Something -Exactly -Times 1 -Scope It
-        }
-
-    }
-
-    <span style="color:#75715e">&lt;#
-</span><span style="color:#75715e">        Write tests so you only need to have InModuleScope around as little
-</span><span style="color:#75715e">        code as possible, preferably only inside the It-block. But if the
-</span><span style="color:#75715e">        It-block needs variables in the test setup then that is not possible
-</span><span style="color:#75715e">        since those will not be able in the module scope.
-</span><span style="color:#75715e">        See issue https://github.com/pester/Pester/issues/1543.
-</span><span style="color:#75715e">    #&gt;</span>
-    InModuleScope $script:subModuleName {
-        Context <span style="color:#e6db74">&#39;When...&#39;</span> {
-            BeforeAll {
-                <span style="color:#75715e"># Test setup. Mock and mock variables as needed.</span>
-            }
-
-            BeforeEach {
-                <span style="color:#75715e"># Test setup per It-block. Mock and mock variable setup.</span>
-            }
-
-            AfterAll {
-                <span style="color:#75715e"># Test teardown.</span>
-            }
-
-            AfterEach {
-                <span style="color:#75715e"># Test teardown per It-block.</span>
-            }
-
-            It <span style="color:#e6db74">&#39;Should throw the correct error message&#39;</span> {
-                <span style="color:#75715e"># The variable $localizedData is coming from the module being tested.</span>
-                $mockErrorMessage = $localizedData.LocalizedErrorMessage
-
-                <span style="color:#75715e"># Assert that the localized string was fetched.</span>
-                $mockErrorMessage.Exception.Message | Should <span style="color:#f92672">-Not</span> -BeNullOrEmpty
-
-                <span style="color:#75715e"># Assert that the correct error message was thrown.</span>
-                {
-                    Set-Something
-                } | Should -Throw -ExpectedMessage $mockErrorMessage
-            }
-        }
-    }
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e">&lt;#
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Import module if using InModuleScope. There are other possible solution for
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    this, see issue https://github.com/pester/Pester/issues/1543.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#&gt;</span>
+</span></span><span style="display:flex;"><span>Import-Module -Name <span style="color:#e6db74">&#39;.\output\SqlServerDsc\14.0.0\Modules\SqlServerDsc.Common&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>BeforeAll {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># More initialization code like loading stub cmdlets or stub classes</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Describe <span style="color:#e6db74">&#39;SqlServerDsc.Common\Set-Something&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When...&#39;</span> {
+</span></span><span style="display:flex;"><span>        BeforeAll {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Test setup. Mock and mock variables as needed.</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        BeforeEach {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Test setup per It-block. Mock and mock variable setup.</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        AfterAll {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Test teardown.</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        AfterEach {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Test teardown per It-block.</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should...&#39;</span> {
+</span></span><span style="display:flex;"><span>            { Set-Something } | Should <span style="color:#f92672">-Not</span> -Throw
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            Should -Invoke -CommandName Get-Something -Exactly -Times <span style="color:#ae81ff">1</span> -Scope It
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When...&#39;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Test cases can be added directly to the It-block.</span>
+</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should...&#39;</span> -TestCases @(
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                MockVersion = <span style="color:#e6db74">&#39;11&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                MockVersion = <span style="color:#e6db74">&#39;12&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        ) {
+</span></span><span style="display:flex;"><span>            { Set-Something -Version $MockVersion } | Should <span style="color:#f92672">-Not</span> -Throw
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            Should -Invoke -CommandName Get-Something -Exactly -Times <span style="color:#ae81ff">1</span> -Scope It
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;#
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            If test cases are defined in a variable then the variable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            is not allowed to be inside a Before*-block because then
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            it is not executed during Discovery when the test cases are
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            evaluated. Correct placement of these variables are inside
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            the Describe-block and before the It-block, but outside of
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            the Before*-blocks.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        #&gt;</span>
+</span></span><span style="display:flex;"><span>        $testCases = @(
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                MockVersion = <span style="color:#e6db74">&#39;11&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                MockVersion = <span style="color:#e6db74">&#39;12&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Test cases can be added directly like this to the It-block-</span>
+</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should...&#39;</span> -TestCases $testCases {
+</span></span><span style="display:flex;"><span>            { Set-Something -Version $MockVersion } | Should <span style="color:#f92672">-Not</span> -Throw
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            Should -Invoke -CommandName Get-Something -Exactly -Times <span style="color:#ae81ff">1</span> -Scope It
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;#
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        Write tests so you only need to have InModuleScope around as little
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        code as possible, preferably only inside the It-block. But if the
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        It-block needs variables in the test setup then that is not possible
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        since those will not be able in the module scope.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        See issue https://github.com/pester/Pester/issues/1543.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    #&gt;</span>
+</span></span><span style="display:flex;"><span>    InModuleScope $script:subModuleName {
+</span></span><span style="display:flex;"><span>        Context <span style="color:#e6db74">&#39;When...&#39;</span> {
+</span></span><span style="display:flex;"><span>            BeforeAll {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Test setup. Mock and mock variables as needed.</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            BeforeEach {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Test setup per It-block. Mock and mock variable setup.</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            AfterAll {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Test teardown.</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            AfterEach {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Test teardown per It-block.</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            It <span style="color:#e6db74">&#39;Should throw the correct error message&#39;</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># The variable $localizedData is coming from the module being tested.</span>
+</span></span><span style="display:flex;"><span>                $mockErrorMessage = $localizedData.LocalizedErrorMessage
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Assert that the localized string was fetched.</span>
+</span></span><span style="display:flex;"><span>                $mockErrorMessage.Exception.Message | Should <span style="color:#f92672">-Not</span> -BeNullOrEmpty
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Assert that the correct error message was thrown.</span>
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    Set-Something
+</span></span><span style="display:flex;"><span>                } | Should -Throw -ExpectedMessage $mockErrorMessage
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
             <p class="post-meta border-bottom pb-3 mb-0">Updated on 17 May 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/class-based-dsc-resources/" title="Class Based DSC Resource only proposal"><i class="ti-arrow-left mr-2"></i>Class Based DSC Resource only proposal</a>
-            <a class="nav nav-next" href="/blog/add-codecov-support-to-repository/" title="Add Code Coverage Support to Repository">Add Code Coverage Support to Repository<i class="ti-arrow-right ml-2"></i></a>
+            <a class="nav nav-next" href="/blog/updating-sampler-github-tasks/" title="Updating repo with Sampler.GitHubTasks">Updating repo with Sampler.GitHubTasks<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>
@@ -639,7 +629,7 @@ Describe <span style="color:#e6db74">&#39;SqlServerDsc.Common\Set-Something&#39;
   <div class="container">
     <div class="row">
       <div class="col-md-8 text-md-left text-center">
-        <p>Copyright 2019 the dsccommunity.org contributors.</p> 
+       
       </div>
       <div class="col-md-4 text-md-right text-center">
         <ul class="list-inline mb-3">

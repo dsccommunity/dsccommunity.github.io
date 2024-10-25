@@ -4,61 +4,45 @@
     <title>Community on DSC Community</title>
     <link>https://dsccommunity.org/community/</link>
     <description>Recent content in Community on DSC Community</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Fri, 28 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://dsccommunity.org/community/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Jan 2020 14:00:00 +0100</lastBuildDate>
+    <atom:link href="https://dsccommunity.org/community/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Origin Story</title>
       <link>https://dsccommunity.org/community/origin-story/</link>
       <pubDate>Tue, 30 Jul 2019 15:36:48 +0200</pubDate>
-      
       <guid>https://dsccommunity.org/community/origin-story/</guid>
-      <description>The DSC Resource Kit A lot has changed since the creation of the DSC Resource Kit back in 2013—the PowerShell/DSC Team initiative was created to seed the DSC Ecosystem.
-The intention then was to illustrate the capabilities of DSC, and solve realistic configuration scenarios to build a community of users. The team had been developing the resources and publishing them as the PowerShell Team in TechNet Gallery, long before the PowerShell Gallery existed.</description>
+      <description>&lt;h2 id=&#34;the-dsc-resource-kit&#34;&gt;The DSC Resource Kit&lt;/h2&gt;&#xA;&lt;p&gt;A lot has changed since the &lt;a href=&#34;https://devblogs.microsoft.com/powershell/holiday-gift-desired-state-configuration-dsc-resource-kit-wave-1/&#34;&gt;creation of the &lt;strong&gt;DSC Resource Kit&lt;/strong&gt;&lt;/a&gt;&#xA;back in 2013—the PowerShell/DSC Team initiative was created to seed the DSC&#xA;Ecosystem.&lt;/p&gt;&#xA;&lt;p&gt;The intention then was to illustrate the capabilities of DSC,&#xA;and solve realistic configuration scenarios to build a community of users.&#xA;The team had been developing the resources and publishing them as the&#xA;PowerShell Team in TechNet Gallery, long before the PowerShell Gallery&#xA;existed.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Ownership of DSC Resources</title>
       <link>https://dsccommunity.org/community/ownership/</link>
       <pubDate>Thu, 18 Jul 2019 15:02:05 +0600</pubDate>
-      
       <guid>https://dsccommunity.org/community/ownership/</guid>
-      <description>Goal and purpose Previously owned by the DSC Team, and more specifically by Katie, the DSC Resources are now owned by the DSC Community: a collective of Open Source maintainers getting together to improve the Resources, their quality and the practices around DSC.
-The main purpose is to handle better the increased community contributions, and remove hindrance to improvements by spreading the load on a Committee, and giving more privileges to the maintainers.</description>
+      <description>&lt;h2 id=&#34;goal-and-purpose&#34;&gt;Goal and purpose&lt;/h2&gt;&#xA;&lt;img src=&#34;../../images/DSC_Logo_300p.png&#34; alt=&#34;drawing&#34; style=&#34;width:200px; display:block; float: right; margin-left: auto;margin-right:0;&#34;/&gt;&#xD;&#xA;&lt;p&gt;Previously owned by the DSC Team, and more specifically by &lt;a href=&#34;https://github.com/kwirkykat&#34;&gt;Katie&lt;/a&gt;,&#xA;the DSC Resources are now owned by &lt;a href=&#34;https://github.com/dsccommunity&#34;&gt;the DSC Community&lt;/a&gt;:&#xA;a collective of &lt;strong&gt;Open Source maintainers&lt;/strong&gt; getting together to &lt;strong&gt;improve the Resources&lt;/strong&gt;,&#xA;their &lt;strong&gt;quality&lt;/strong&gt; and the &lt;strong&gt;practices&lt;/strong&gt; around DSC.&lt;/p&gt;&#xA;&lt;p&gt;The main purpose is to handle better the increased community contributions, and&#xA;remove hindrance to improvements by spreading the load on a Committee, and giving&#xA;more privileges to the maintainers.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DSC Community Committee</title>
       <link>https://dsccommunity.org/community/committee/</link>
       <pubDate>Fri, 17 Jan 2020 14:00:00 +0100</pubDate>
-      
       <guid>https://dsccommunity.org/community/committee/</guid>
-      <description>The following is an explanation of what the DSC Committee is attempting to help with, and how we are trying to help the community.
-Come and chat with us if you would like to discuss how we can improve and build a better community!
-Members 
-Katie is the owner of the Resource Kit at Microsoft and has steered its direction over the years. She is also an active member of the Engineering team at Microsoft looking after all things DSC as well as Azure Guest Configuration, and can bridge the communication between the new products and features leveraging DSC and the DSC Community.</description>
+      <description>&lt;p&gt;The following is an explanation of what the DSC Committee is attempting to help&#xA;with, and how we are trying to help the community.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://dsccommunity.org/community/contact/&#34;&gt;Come and chat with us&lt;/a&gt; if you would like to discuss how&#xA;we can improve and build a better community!&lt;/p&gt;&#xA;&lt;h2 id=&#34;members&#34;&gt;Members&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/kwirkykat&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://avatars0.githubusercontent.com/u/6372220?s=400&amp;v=4&#34; alt=&#34;drawing&#34; style=&#34;width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Katie&lt;/strong&gt; is the &lt;strong&gt;owner of the Resource Kit at Microsoft&lt;/strong&gt; and has steered&#xA;its direction over the years. She is also an active member of the Engineering&#xA;team at Microsoft looking after all things DSC as well as&#xA;&lt;a href=&#34;https://docs.microsoft.com/en-us/azure/governance/policy/concepts/guest-configuration&#34;&gt;Azure Guest Configuration&lt;/a&gt;,&#xA;and can bridge the communication between the new products and features&#xA;leveraging DSC and the DSC Community.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Maintainers</title>
       <link>https://dsccommunity.org/community/maintainers/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
-      
       <guid>https://dsccommunity.org/community/maintainers/</guid>
-      <description>Here is a list of the current maintainers of DSC modules in the DSC Community. If you wish to be a maintainer in a module, please either contact a maintainer of the module, or a member of the committee. If you are a maintainer and feel you no longer have the time to put in and want to stop being maintainer then please send in a PR to update this list, or contact a member of the committee.</description>
+      <description>&lt;p&gt;Here is a list of the current maintainers of DSC modules in the DSC Community.&#xA;If you wish to be a maintainer in a module, please either contact a maintainer&#xA;of the module, or a member of the committee. If you are a maintainer and feel&#xA;you no longer have the time to put in and want to stop being maintainer&#xA;then please send in a PR to update this list, or contact a member of the&#xA;committee.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Join the Conversation</title>
       <link>https://dsccommunity.org/community/contact/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
-      
       <guid>https://dsccommunity.org/community/contact/</guid>
-      <description>The #DSC Channel The community gathers in the Virtual PowerShell User Group #DSC channel, which is an open &amp;amp; instant messaging chat room for all DSC related questions, discussions, and collaboration.
-The PowerShell channels are bridged between Discord and Slack, so you can use either service, via the apps or websites.
-The Virtual PowerShell User Group contains more than just the #DSC channel: there are also channels covering topics related to PowerShell, DevOps as well as many other and practices and technologies, so you may also join them too.</description>
+      <description>&lt;h4 id=&#34;the-dsc-channel&#34;&gt;The #DSC Channel&lt;/h4&gt;&#xA;&lt;p&gt;The community gathers in the &lt;strong&gt;Virtual PowerShell User Group&lt;/strong&gt; &lt;em&gt;#DSC&lt;/em&gt; channel,&#xA;which is an open &amp;amp; instant messaging chat room for all DSC related questions,&#xA;discussions, and collaboration.&lt;/p&gt;&#xA;&lt;p&gt;The PowerShell channels are bridged between Discord and Slack, so you&#xA;can use either service, via the apps or websites.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Virtual PowerShell User Group&lt;/strong&gt; contains more than just the &lt;em&gt;#DSC&lt;/em&gt;&#xA;channel: there are also channels covering topics related to PowerShell,&#xA;DevOps as well as many other and practices and technologies, so you&#xA;may also join them too.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -4,19 +4,17 @@
     <title>Configuration Management on DSC Community</title>
     <link>https://dsccommunity.org/configmgt/</link>
     <description>Recent content in Configuration Management on DSC Community</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://dsccommunity.org/configmgt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Jul 2019 16:44:09 +0200</lastBuildDate>
+    <atom:link href="https://dsccommunity.org/configmgt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Future of Configuration Management</title>
       <link>https://dsccommunity.org/configmgt/future-of-config-mgt/</link>
       <pubDate>Wed, 31 Jul 2019 16:44:09 +0200</pubDate>
-      
       <guid>https://dsccommunity.org/configmgt/future-of-config-mgt/</guid>
-      <description>It&amp;rsquo;s good to make sure we understand the world in which DSC evolves, so I thought of writing this post below. Unfortunately, the future is not something we can predict, so this is just a personal opinion, which I hope you&amp;rsquo;ll find useful.
-Configuration Management evolution Some like to classify different configuration management models, but I prefer to show them as an evolution of similar principles, that happened with the evolution of technology and principles.</description>
+      <description>&lt;p&gt;It&amp;rsquo;s good to make sure we understand the world in which&#xA;DSC evolves, so I thought of writing this post below.&#xA;Unfortunately, the future is not something we can predict, so this is&#xA;just a personal opinion, which I hope you&amp;rsquo;ll find useful.&lt;/p&gt;&#xA;&lt;h2 id=&#34;configuration-management-evolution&#34;&gt;Configuration Management evolution&lt;/h2&gt;&#xA;&lt;p&gt;Some like to classify different configuration management models,&#xA;but I prefer to show them as an evolution of similar principles,&#xA;that happened with the evolution of technology and principles.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

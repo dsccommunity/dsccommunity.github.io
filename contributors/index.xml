@@ -4,9 +4,10 @@
     <title>Elements on DSC Community</title>
     <link>https://dsccommunity.org/contributors/</link>
     <description>Recent content in Elements on DSC Community</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Thu, 27 Dec 2018 09:10:27 +0600</lastBuildDate><atom:link href="https://dsccommunity.org/contributors/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="https://dsccommunity.org/contributors/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

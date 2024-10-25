@@ -4,67 +4,52 @@
     <title>Code of Conduct on DSC Community</title>
     <link>https://dsccommunity.org/code_of_conduct/</link>
     <description>Recent content in Code of Conduct on DSC Community</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://dsccommunity.org/code_of_conduct/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Jan 2019 11:02:05 +0600</lastBuildDate>
+    <atom:link href="https://dsccommunity.org/code_of_conduct/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Our Standards</title>
       <link>https://dsccommunity.org/code_of_conduct/standards/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
-      
       <guid>https://dsccommunity.org/code_of_conduct/standards/</guid>
-      <description>Examples of behavior that contributes to creating a positive environment include:
- Using welcoming and inclusive language Being respectful of differing viewpoints and experiences Gracefully accepting constructive criticism Focusing on what is best for the community Showing empathy towards other community members  Examples of unacceptable behavior by participants include:
- The use of sexualized language or imagery and unwelcome sexual attention or advances Trolling, insulting/derogatory comments, and personal or political attacks Public or private harassment Publishing others&#39; private information, such as a physical or electronic address, without explicit permission Other conduct which could reasonably be considered inappropriate in a professional setting  </description>
+      <description>&lt;p&gt;Examples of behavior that contributes to creating a positive environment&#xA;include:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Using welcoming and inclusive language&lt;/li&gt;&#xA;&lt;li&gt;Being respectful of differing viewpoints and experiences&lt;/li&gt;&#xA;&lt;li&gt;Gracefully accepting constructive criticism&lt;/li&gt;&#xA;&lt;li&gt;Focusing on what is best for the community&lt;/li&gt;&#xA;&lt;li&gt;Showing empathy towards other community members&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Examples of unacceptable behavior by participants include:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The use of sexualized language or imagery and unwelcome sexual attention or&#xA;advances&lt;/li&gt;&#xA;&lt;li&gt;Trolling, insulting/derogatory comments, and personal or political attacks&lt;/li&gt;&#xA;&lt;li&gt;Public or private harassment&lt;/li&gt;&#xA;&lt;li&gt;Publishing others&amp;rsquo; private information, such as a physical or electronic&#xA;address, without explicit permission&lt;/li&gt;&#xA;&lt;li&gt;Other conduct which could reasonably be considered inappropriate in a&#xA;professional setting&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Our Responsibilities</title>
       <link>https://dsccommunity.org/code_of_conduct/responsibilities/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
-      
       <guid>https://dsccommunity.org/code_of_conduct/responsibilities/</guid>
-      <description>Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
-Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.</description>
+      <description>&lt;p&gt;Project maintainers are responsible for clarifying the standards of acceptable&#xA;behavior and are expected to take appropriate and fair corrective action in&#xA;response to any instances of unacceptable behavior.&lt;/p&gt;&#xA;&lt;p&gt;Project maintainers have the right and responsibility to remove, edit, or&#xA;reject comments, commits, code, wiki edits, issues, and other contributions&#xA;that are not aligned to this Code of Conduct, or to ban temporarily or&#xA;permanently any contributor for other behaviors that they deem inappropriate,&#xA;threatening, offensive, or harmful.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Scope</title>
       <link>https://dsccommunity.org/code_of_conduct/scope/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
-      
       <guid>https://dsccommunity.org/code_of_conduct/scope/</guid>
-      <description>This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.</description>
+      <description>&lt;p&gt;This Code of Conduct applies both within project spaces and in public spaces&#xA;when an individual is representing the project or its community. Examples of&#xA;representing a project or community include using an official project e-mail&#xA;address, posting via an official social media account, or acting as an appointed&#xA;representative at an online or offline event. Representation of a project may be&#xA;further defined and clarified by project maintainers.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Enforcement</title>
       <link>https://dsccommunity.org/code_of_conduct/enforcement/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
-      
       <guid>https://dsccommunity.org/code_of_conduct/enforcement/</guid>
-      <description>Enforcement Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at dsccommunity@outlook.com. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
-Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project&amp;rsquo;s leadership.</description>
+      <description>&lt;h3 id=&#34;enforcement&#34;&gt;Enforcement&lt;/h3&gt;&#xA;&lt;p&gt;Instances of abusive, harassing, or otherwise unacceptable behavior may be&#xA;reported by contacting the project team at &lt;a href=&#34;mailto:dsccommunity@outlook.com&#34;&gt;dsccommunity@outlook.com&lt;/a&gt;. All&#xA;complaints will be reviewed and investigated and will result in a response that&#xA;is deemed necessary and appropriate to the circumstances. The project team is&#xA;obligated to maintain confidentiality with regard to the reporter of an incident.&#xA;Further details of specific enforcement policies may be posted separately.&lt;/p&gt;&#xA;&lt;p&gt;Project maintainers who do not follow or enforce the Code of Conduct in good&#xA;faith may face temporary or permanent repercussions as determined by other&#xA;members of the project&amp;rsquo;s leadership.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Common Questions</title>
       <link>https://dsccommunity.org/code_of_conduct/common_questions/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
-      
       <guid>https://dsccommunity.org/code_of_conduct/common_questions/</guid>
-      <description>For answers to common questions about this code of conduct, see https://www.contributor-covenant.org/faq</description>
+      <description>&lt;p&gt;For answers to common questions about this code of conduct, see &lt;a href=&#34;https://www.contributor-covenant.org/faq&#34;&gt;https://www.contributor-covenant.org/faq&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Attribution</title>
       <link>https://dsccommunity.org/code_of_conduct/attribution/</link>
       <pubDate>Tue, 29 Jan 2019 11:02:05 +0600</pubDate>
-      
       <guid>https://dsccommunity.org/code_of_conduct/attribution/</guid>
-      <description>This Code of Conduct is adapted from the Contributor Covenant, version 1.4, available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html</description>
+      <description>&lt;p&gt;This Code of Conduct is adapted from the &lt;a href=&#34;https://www.contributor-covenant.org&#34;&gt;Contributor Covenant&lt;/a&gt;,&#xA;version 1.4, available at &lt;a href=&#34;https://www.contributor-covenant.org/version/1/4/code-of-conduct.html&#34;&gt;https://www.contributor-covenant.org/version/1/4/code-of-conduct.html&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

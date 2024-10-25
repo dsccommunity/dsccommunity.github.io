@@ -4,134 +4,94 @@
     <title>Blog Posts on DSC Community</title>
     <link>https://dsccommunity.org/blog/</link>
     <description>Recent content in Blog Posts on DSC Community</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://dsccommunity.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Dec 2020 00:00:00 +0200</lastBuildDate>
+    <atom:link href="https://dsccommunity.org/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create an Article</title>
       <link>https://dsccommunity.org/blog/create-an-article/</link>
       <pubDate>Fri, 08 Mar 2019 12:41:48 +0800</pubDate>
-      
       <guid>https://dsccommunity.org/blog/create-an-article/</guid>
-      <description>Creating the md file is easy, but you might want to double check how it will render on the website. To do so, we recommend you to install Hugo (using Chocolatey it&amp;rsquo;s just a choco install hugo) and test what you create.
-But when you have installed hugo, forked the dsccommunity.org, and cloned your fork locally, you can generate a post from the template, from the source directory:
- C:\src\dsccommunity.org &amp;gt; hugo new blog/your-title-in-lowercase.</description>
+      <description>&lt;p&gt;Creating the md file is easy, but you might want to double check how it will&#xA;render on the website. To do so, we recommend you to install Hugo&#xA;(using Chocolatey it&amp;rsquo;s just a &lt;code&gt;choco install hugo&lt;/code&gt;) and test what you create.&lt;/p&gt;&#xA;&lt;p&gt;But when you have installed hugo, forked the &lt;code&gt;dsccommunity.org&lt;/code&gt;,&#xA;and cloned your fork locally, you can generate a post from the template,&#xA;from the source directory:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;C:\src\dsccommunity.org &amp;gt; hugo new blog/your-title-in-lowercase.md&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DSC is Dead</title>
       <link>https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/</link>
       <pubDate>Sat, 30 May 2020 23:00:00 +0100</pubDate>
-      
       <guid>https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/</guid>
-      <description>Hi PowerShell and DSC folks!
-I wanted to share the PSConfEU session Michael and myself have recorded on DSC and Guest Configuration.
-There will be a live Q&amp;amp;A on the Wednesday 3rd of June at 6PM CEST (9AM Pacific Time), so make sure you have watched and submit any further question. Tune-in as early as Tuesday 2nd of June 5PM CEST to watch the live Opening and Keynote with Tobias, Jeffrey Snover and Joey Aiello.</description>
+      <description>&lt;p&gt;Hi PowerShell and DSC folks!&lt;/p&gt;&#xA;&lt;p&gt;I wanted to share the &lt;a href=&#34;https://psconf.eu&#34;&gt;PSConfEU&lt;/a&gt; session Michael and myself have recorded on DSC and Guest Configuration.&lt;/p&gt;&#xA;&lt;p&gt;There will be a live Q&amp;amp;A on the Wednesday 3rd of June at 6PM CEST (9AM Pacific Time), so make sure you have watched and &lt;a href=&#34;http://powershell.one/psconfeu/psconf.eu-2020/about#asking-questions-in-real-time&#34;&gt;submit any further question&lt;/a&gt;.&#xA;Tune-in as early as Tuesday 2nd of June 5PM CEST to &lt;a href=&#34;http://powershell.one/psconfeu/psconf.eu-2020/about#june-2-2020&#34;&gt;watch the live Opening and Keynote&lt;/a&gt; with Tobias, Jeffrey Snover and Joey Aiello.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Convert tests to Pester 5 for a DSC Community repository</title>
       <link>https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/</link>
       <pubDate>Mon, 28 Dec 2020 00:00:00 +0200</pubDate>
-      
       <guid>https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/</guid>
-      <description>This blog post will guide you on how to convert existing tests in a DSC Community DSC resource module repository using a new pattern that is better suited for Pester 5.
-You are welcome to share any comments or issues you having around this process in the Discord or Slack #DSC channel.
-This previous blog post Converting tests to Pester 5 covered an early version of Pester 5 and the patterns that should be used have been improved (and are still being improved).</description>
+      <description>&lt;p&gt;This blog post will guide you on how to convert existing tests in a&#xA;DSC Community DSC resource module repository using a new pattern that is&#xA;better suited for Pester 5.&lt;/p&gt;&#xA;&lt;p&gt;You are welcome to share any comments or issues you having around this&#xA;process in the &lt;a href=&#34;https://dsccommunity.org/community/contact/&#34;&gt;Discord or Slack #DSC channel&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This previous blog post &lt;a href=&#34;https://dsccommunity.org/blog/converting-tests-to-pester5/&#34;&gt;Converting tests to Pester 5&lt;/a&gt;&#xA;covered an early version of Pester 5 and the patterns that should be used&#xA;have been improved (and are still being improved).&lt;/p&gt;</description>
     </item>
-    
+    <item>
+      <title>Steps to rename master branch to main for a DSC Community resource</title>
+      <link>https://dsccommunity.org/blog/convert-master-to-main/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://dsccommunity.org/blog/convert-master-to-main/</guid>
+      <description>&lt;p&gt;You are welcome to share any comments or issues you having around this&#xA;process in the &lt;a href=&#34;https://dsccommunity.org/community/contact/&#34;&gt;Discord or Slack #DSC channel&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;On the 1st of October 2020, &lt;a href=&#34;https://github.blog/changelog/2020-10-01-the-default-branch-for-newly-created-repositories-is-now-main/&#34;&gt;GitHub announced&lt;/a&gt;&#xA;that the default branch name for new repositories was changing from &lt;code&gt;master&lt;/code&gt;&#xA;to &lt;code&gt;main&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This post describes the process required to rename &lt;code&gt;master&lt;/code&gt; branch to &lt;code&gt;main&lt;/code&gt;&#xA;for a DSC community resource module. It is up to individual maintainers if they&#xA;wish to rename &lt;code&gt;master&lt;/code&gt; to &lt;code&gt;main&lt;/code&gt; on their repositories&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Class Based DSC Resource only proposal</title>
       <link>https://dsccommunity.org/blog/class-based-dsc-resources/</link>
       <pubDate>Fri, 02 Oct 2020 10:00:00 +0200</pubDate>
-      
       <guid>https://dsccommunity.org/blog/class-based-dsc-resources/</guid>
-      <description>Recently, the PowerShell team announced plans to create a new JSON-based schema so that eventually PowerShell Desired State Configuration (DSC) could get rid of its MOF/CIM dependencies, and the PowerShell code base could remove its deprecated Management Interface (MI) implementation (Microsoft.Management.Infrastructure.CimProperty, Microsoft.Management.Infrastructure.CimInstance and so on&amp;hellip;).
-The suggested change was only for DSC Resources schema, and no changes to MOF compilations was announced for now. Removing the CIM/MI/MOF code and dependency is definitely an overarching goal for PowerShell, but it won&amp;rsquo;t happen overnight.</description>
+      <description>&lt;p&gt;Recently, the PowerShell team announced &lt;a href=&#34;https://github.com/PowerShell/PowerShell/issues/13359&#34;&gt;plans to create a new JSON-based schema&lt;/a&gt; so that &lt;em&gt;eventually&lt;/em&gt; PowerShell Desired State Configuration (DSC) could get rid of its MOF/CIM dependencies, and the PowerShell code base could remove its deprecated Management Interface (MI) implementation (&lt;code&gt;Microsoft.Management.Infrastructure.CimProperty&lt;/code&gt;, &lt;code&gt;Microsoft.Management.Infrastructure.CimInstance&lt;/code&gt; and so on&amp;hellip;).&lt;/p&gt;&#xA;&lt;p&gt;The suggested change was only for DSC Resources schema, and no changes to MOF compilations was announced for now. Removing the CIM/MI/MOF code and dependency is definitely an overarching goal for PowerShell, but it won&amp;rsquo;t happen overnight.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Converting tests to Pester 5</title>
       <link>https://dsccommunity.org/blog/converting-tests-to-pester5/</link>
       <pubDate>Sun, 17 May 2020 05:00:00 +0100</pubDate>
-      
       <guid>https://dsccommunity.org/blog/converting-tests-to-pester5/</guid>
-      <description>If you have any questions or suggestions around this blog post then please reach out to @johlju in the Virtual PowerShell User Group #DSC channel.
-UPDATE: To convert tests for a repository in DSC Community also see the blog Convert tests to Pester 5 for a DSC Community repository
-Pester Pester, the famous DSL and module in the PowerShell community, is used throughout the DSC modules and their common modules to ensure we maintain quality for all new contributions by testing any addition and verify they work with the rest of the code to avoid regression.</description>
+      <description>&lt;p&gt;If you have any questions or suggestions around this blog post then please&#xA;reach out to &lt;code&gt;@johlju&lt;/code&gt; in the Virtual PowerShell User Group &lt;a href=&#34;https://dsccommunity.org/community/contact/&#34;&gt;#DSC channel&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; To convert tests for a repository in DSC Community also see&#xA;the blog &lt;a href=&#34;https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/&#34;&gt;Convert tests to Pester 5 for a DSC Community repository&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;pester&#34;&gt;Pester&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/pester&#34;&gt;Pester&lt;/a&gt;, the famous DSL and module in the&#xA;PowerShell community, is used throughout the DSC modules and their common&#xA;modules to ensure we maintain quality for all new contributions by testing&#xA;any addition and verify they work with the rest of the code to avoid&#xA;regression.&lt;/p&gt;</description>
     </item>
-    
+    <item>
+      <title>Updating repo with Sampler.GitHubTasks</title>
+      <link>https://dsccommunity.org/blog/updating-sampler-github-tasks/</link>
+      <pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://dsccommunity.org/blog/updating-sampler-github-tasks/</guid>
+      <description>&lt;p&gt;A lot of improvements have been made to the Sampler module and templates in the last couple&#xA;of weeks, and it&amp;rsquo;s a (small) breaking change that needs a manual update to your repos.&lt;/p&gt;&#xA;&lt;p&gt;We knew for a long time that Sampler was needed some refactor to make it more testable and&#xA;maintainable. A while ago, we took some shortcuts we knew we&amp;rsquo;d have to refactor&#xA;at some point, and we finally did it!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Add Code Coverage Support to Repository</title>
       <link>https://dsccommunity.org/blog/add-codecov-support-to-repository/</link>
       <pubDate>Mon, 03 Feb 2020 19:17:35 +0100</pubDate>
-      
       <guid>https://dsccommunity.org/blog/add-codecov-support-to-repository/</guid>
-      <description>This assumes the repository is using the pattern from the Sampler project. Also make sure you have updated the repository to the latest pipeline.
-Table of Contents  Introduction Not building module, just copying files Building whole or part of module Code coverage for multiple jobs  Introduction With the release of Pester v4.10 it is now possible to upload the Pester generated JoCoCo file. The same file is used to upload code coverage to both Azure Pipelines and to Codecov.</description>
+      <description>&lt;p&gt;&lt;em&gt;This assumes the repository is using the pattern from the &lt;a href=&#34;https://github.com/gaelcolas/Sampler&#34;&gt;Sampler&lt;/a&gt;&lt;/em&gt;&#xA;&lt;em&gt;project. Also make sure you have updated the repository to the latest pipeline.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/blog/add-codecov-support-to-repository/#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/blog/add-codecov-support-to-repository/#not-building-module-just-copying-files&#34;&gt;Not building module, just copying files&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/blog/add-codecov-support-to-repository/#building-whole-or-part-of-module&#34;&gt;Building whole or part of module&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dsccommunity.org/blog/add-codecov-support-to-repository/#code-coverage-for-multiple-jobs&#34;&gt;Code coverage for multiple jobs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;With the release of &lt;a href=&#34;https://www.powershellgallery.com/packages/Pester/4.10.0&#34;&gt;Pester v4.10&lt;/a&gt;&#xA;it is now possible to upload the Pester generated JoCoCo file.&#xA;The same file is used to upload code coverage to both Azure Pipelines and&#xA;to &lt;a href=&#34;https://codecov.io&#34;&gt;Codecov.io&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DscResource.Common functions in a DSC module</title>
       <link>https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/</link>
       <pubDate>Sat, 11 Jan 2020 15:45:00 +0100</pubDate>
-      
       <guid>https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/</guid>
-      <description>What This article will explain the steps needed to use a version of the DscResource.Common module that has been released to the PowerShell Gallery.
-The module DscResource.Common currently has 7 cmdlets.
- Get-LocalizedData New-InvalidArgumentException New-InvalidOperationException New-NotImplementedException New-InvalidResultException New-ObjectNotFoundException Test-DscParameterState  Why Historically, these functions have been duplicated into many DSC resource modules. This has resulted in duplication of effort in maintaining them as well as drift in the code base and feature set with some fixes not being included.</description>
+      <description>&lt;h3 id=&#34;what&#34;&gt;What&lt;/h3&gt;&#xA;&lt;p&gt;This article will explain the steps needed to use a version of the&#xA;&lt;a href=&#34;https://github.com/dsccommunity/DscResource.Common&#34;&gt;DscResource.Common&lt;/a&gt;&#xA;module that has been released to the &lt;a href=&#34;https://www.powershellgallery.com/packages/DscResource.Common&#34;&gt;PowerShell Gallery&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The module DscResource.Common currently has &lt;a href=&#34;https://github.com/dsccommunity/DscResource.Common#cmdlet&#34;&gt;7 cmdlets&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;Get-LocalizedData&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;New-InvalidArgumentException&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;New-InvalidOperationException&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;New-NotImplementedException&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;New-InvalidResultException&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;New-ObjectNotFoundException&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Test-DscParameterState&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;why&#34;&gt;Why&lt;/h3&gt;&#xA;&lt;p&gt;Historically, these functions have been duplicated into many DSC resource&#xA;modules. This has resulted in duplication of effort in maintaining them as&#xA;well as drift in the code base and feature set with some fixes not being&#xA;included. or the same changes. Instead of re-invent the wheel for these&#xA;functions, the community can contribute to these functions in one location&#xA;that then can be reused by all DSC module repositories.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Steps to convert a module for continuous delivery</title>
       <link>https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/</link>
-      <pubDate>Mon, 30 Dec 2019 12:52:00 +0100</pubDate>
-      
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
       <guid>https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/</guid>
-      <description>You are welcome to share any comments or issues you having around this process in the Discord or Slack #DSC channel.
-Before you start, here&amp;rsquo;s an overview of what the new CI looks like:    NOTE: The build is running on Linux in the CI pipeline to be able to support cross-platform DSC resources, so that makes all paths case-sensitive! Have that in mind when updating paths and folders in the configuration files.</description>
+      <description>&lt;p&gt;You are welcome to share any comments or issues you having around this&#xA;process in the &lt;a href=&#34;https://dsccommunity.org/community/contact/&#34;&gt;Discord or Slack #DSC channel&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Before you start, here&amp;rsquo;s an overview of what the new CI looks like:&#xA;&#xA;&#xA;    &#xA;    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;&#xA;      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/UWGKgVB4VNU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&#xA;      &gt;&lt;/iframe&gt;&#xA;    &lt;/div&gt;&#xA;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; The build is running on Linux in the CI pipeline to be able to&#xA;support cross-platform DSC resources, so that makes all paths case-sensitive!&#xA;Have that in mind when updating paths and folders in the configuration&#xA;files. Make sure they match the repository, or change the repository file&#xA;and folder names).&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to Use DSC Logging</title>
       <link>https://dsccommunity.org/blog/how-to-use-dsc-logging/</link>
       <pubDate>Tue, 24 Sep 2019 16:37:42 +0200</pubDate>
-      
       <guid>https://dsccommunity.org/blog/how-to-use-dsc-logging/</guid>
-      <description>The Local Configuration Manager (LCM) in PowerShell Desired State Configuration (DSC) logs its deployment progress and errors on several places. The most commonly known location is the event log, where errors are logged in the log: Applications and Services Logs \ Microsoft \ Windows \ Desired State Configuration \ Operational
-This log contains various events that were generated during a DSC job, it is however less useful to track the progress of a running job.</description>
+      <description>&lt;p&gt;The Local Configuration Manager (LCM) in PowerShell Desired State Configuration (DSC)&#xA;logs its deployment progress and errors on several places. The most commonly known&#xA;location is the event log, where errors are logged in the log:&#xA;&lt;strong&gt;Applications and Services Logs \ Microsoft \ Windows \ Desired State Configuration \ Operational&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;img src=&#34;../../images/dsc_eventlog.png&#34; alt=&#34;DSC Eventlog&#34; style=&#34;width:725px;&#34; /&gt;&#xD;&#xA;&lt;p&gt;This log contains various events that were generated during a DSC job, it is however&#xA;less useful to track the progress of a running job.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Realizing maintenance windows with DSC</title>
       <link>https://dsccommunity.org/blog/dsc-maintenance-windows/</link>
       <pubDate>Thu, 08 Aug 2019 18:11:05 +0200</pubDate>
-      
       <guid>https://dsccommunity.org/blog/dsc-maintenance-windows/</guid>
-      <description>Introduction Since 2017 I have been involved in a number of DSC projects in medium to very large enterprises. It has not been easy to implement DSC for a number of reasons. For some companies, the reason why DSC was not an option is the lack of support for maintenance windows. DSC runs whenever an internal timer expires. This is fine for some enterprises but not for all. This article summarizes the ideas and technical implementation I have worked on with two large enterprises.</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Since 2017 I have been involved in a number of DSC projects in medium to very large enterprises. It has not been easy to implement DSC for a number of reasons. For some companies, the reason why DSC was not an option is the lack of support for maintenance windows. DSC runs whenever an internal timer expires. This is fine for some enterprises but not for all.&#xA;This article summarizes the ideas and technical implementation I have worked on with two large enterprises. Both of them have a very time-sensitive business, they don’t accept downtimes, and both wanted to have DSC running in the &amp;ldquo;ApplyAndAutoCorrect&amp;rdquo; mode.&lt;/p&gt;</description>
     </item>
-    
-    <item>
-      <title>Steps to rename master branch to main for a DSC Community resource</title>
-      <link>https://dsccommunity.org/blog/convert-master-to-main/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dsccommunity.org/blog/convert-master-to-main/</guid>
-      <description>You are welcome to share any comments or issues you having around this process in the Discord or Slack #DSC channel.
-On the 1st of October 2020, GitHub announced that the default branch name for new repositories was changing from master to main.
-This post describes the process required to rename master branch to main for a DSC community resource module. It is up to individual maintainers if they wish to rename master to main on their repositories</description>
-    </item>
-    
-    <item>
-      <title>Updating repo with Sampler.GitHubTasks</title>
-      <link>https://dsccommunity.org/blog/updating-sampler-github-tasks/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dsccommunity.org/blog/updating-sampler-github-tasks/</guid>
-      <description>A lot of improvements have been made to the Sampler module and templates in the last couple of weeks, and it&amp;rsquo;s a (small) breaking change that needs a manual update to your repos.
-We knew for a long time that Sampler was needed some refactor to make it more testable and maintainable. A while ago, we took some shortcuts we knew we&amp;rsquo;d have to refactor at some point, and we finally did it!</description>
-    </item>
-    
   </channel>
 </rss>

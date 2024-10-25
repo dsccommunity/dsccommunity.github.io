@@ -4,31 +4,24 @@
     <title>Help on DSC Community</title>
     <link>https://dsccommunity.org/help/</link>
     <description>Recent content in Help on DSC Community</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
-    <lastBuildDate>Fri, 28 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://dsccommunity.org/help/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Jul 2019 11:35:49 +0200</lastBuildDate>
+    <atom:link href="https://dsccommunity.org/help/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What is Desired State Configuration</title>
       <link>https://dsccommunity.org/help/what-is-dsc/</link>
       <pubDate>Tue, 30 Jul 2019 10:56:10 +0200</pubDate>
-      
       <guid>https://dsccommunity.org/help/what-is-dsc/</guid>
-      <description>As per the official documentation, Desired State Configuration (DSC) is a management platform in PowerShell.
-It is built around different components:
- DSC DSL: The Domain Specific Language of DSC with the Configuration keyword. DSC LCM: The Local Configuration Manager (LCM), that can be seen as the agent enacting the configurations on the managed nodes. DSC Resources: A rich ecosystem of modules exposing a declarative and idempotent interface to imperative code configuring resources.</description>
+      <description>&lt;p&gt;As per &lt;a href=&#34;https://docs.microsoft.com/en-us/powershell/dsc/overview/overview&#34;&gt;the official documentation&lt;/a&gt;,&#xA;Desired State Configuration (DSC) is a management platform in PowerShell.&lt;/p&gt;&#xA;&lt;p&gt;It is built around different components:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;DSC DSL&lt;/strong&gt;: The &lt;strong&gt;Domain Specific Language&lt;/strong&gt; of DSC with the &lt;code&gt;Configuration&lt;/code&gt; keyword.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DSC LCM&lt;/strong&gt;: The &lt;strong&gt;Local Configuration Manager (LCM)&lt;/strong&gt;, that can be seen as the&#xA;agent enacting the configurations on the managed nodes.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DSC Resources&lt;/strong&gt;: A rich ecosystem of modules exposing a declarative and&#xA;idempotent interface to imperative code configuring resources.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DSC Pull Server&lt;/strong&gt;: External component implementing the &lt;a href=&#34;https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-dscpm/ea744c01-51a2-4000-9ef2-312711dcc8c9&#34;&gt;MS-DSCPM protocol&lt;/a&gt;&#xA;to register nodes, offer configuration, gather reporting from the LCM&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The &lt;strong&gt;DSL&lt;/strong&gt; is what allows us to use the Declarative Syntax within PowerShell&#xA;to define the configuration policy of your systems, and compiles (or serialize)&#xA;into MOF Documents.&#xA;The &lt;strong&gt;LCM&lt;/strong&gt; is the agent what enacts those MOF documents, whether on demand or&#xA;periodically when using the Pull model.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>What Future for Dsc</title>
       <link>https://dsccommunity.org/help/what-future-for-dsc/</link>
       <pubDate>Tue, 30 Jul 2019 11:35:49 +0200</pubDate>
-      
       <guid>https://dsccommunity.org/help/what-future-for-dsc/</guid>
-      <description>Despite the few &amp;ldquo;DSC Planning Updates&amp;rdquo; written by Michael Greene (Program Manager for DSC, and DSC Community Committee member), there are still misunderstandings by the community with regards to the directions Microsoft is taking for DSC and its ecosystem.
-Here, we&amp;rsquo;ll try to explain what we understand from the DSC Community.
-Former plans &amp;amp; realignment Microsoft&amp;rsquo;s DSC Team, about a year and an half ago, was working on a new version of the LCM component of the DSC Platform.</description>
+      <description>&lt;p&gt;Despite the few &amp;ldquo;&lt;a href=&#34;https://devblogs.microsoft.com/powershell/?s=DSC+Planning&amp;submit=%EE%9C%A1&#34;&gt;DSC Planning Updates&lt;/a&gt;&amp;rdquo;&#xA;written by Michael Greene (Program Manager for DSC, and DSC Community Committee&#xA;member), there are still misunderstandings by the community with regards to the&#xA;directions Microsoft is taking for DSC and its ecosystem.&lt;/p&gt;&#xA;&lt;p&gt;Here, we&amp;rsquo;ll try to explain what &lt;strong&gt;we&lt;/strong&gt; understand from the DSC Community.&lt;/p&gt;&#xA;&lt;h2 id=&#34;former-plans--realignment&#34;&gt;Former plans &amp;amp; realignment&lt;/h2&gt;&#xA;&lt;p&gt;Microsoft&amp;rsquo;s DSC Team, about a year and an half ago, was working&#xA;on a new version of the LCM component of the DSC Platform.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

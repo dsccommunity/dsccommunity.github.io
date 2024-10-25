@@ -4,8 +4,9 @@
     <title>Categories on DSC Community</title>
     <link>https://dsccommunity.org/categories/</link>
     <description>Recent content in Categories on DSC Community</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright><atom:link href="https://dsccommunity.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
+    <atom:link href="https://dsccommunity.org/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
