@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Style Guidelines on DSC Community</title>
+    <title>Style Guidelines on </title>
     <link>https://dsccommunity.org/styleguidelines/</link>
-    <description>Recent content in Style Guidelines on DSC Community</description>
+    <description>Recent content in Style Guidelines on </description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <copyright>Copyright 2019 the dsccommunity.org contributors.</copyright>
+    <language>en</language>
     <lastBuildDate>Mon, 28 Jan 2019 11:02:05 +0600</lastBuildDate>
     <atom:link href="https://dsccommunity.org/styleguidelines/index.xml" rel="self" type="application/rss+xml" />
     <item>
