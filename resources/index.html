@@ -710,16 +710,16 @@
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">5.1.0-preview0002</span>
+                    <span class="badge badge-success">5.1.0-preview0003</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2024-06-01 14:06</span>
+                    <span class="badge badge-success">2025-05-04 09:07</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-03-27 11:50</span>
+                      <span class="badge badge-secondary">2025-05-27 10:30</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/ActiveDirectoryCSDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -780,7 +780,7 @@
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-ActiveDirectoryCSDsc" role="tabpanel" aria-labelledby="nav-rn-tab-ActiveDirectoryCSDsc">
-                          <div class="card card-body border-top-0"><h2 id="510-preview0002---2024-06-01">[5.1.0-preview0002] - 2024-06-01</h2>
+                          <div class="card card-body border-top-0"><h2 id="510-preview0003---2025-05-04">[5.1.0-preview0003] - 2025-05-04</h2>
 <h3 id="changed">Changed</h3>
 <ul>
 <li>ActiveDirectoryCSDsc
@@ -797,6 +797,14 @@
 <li>Azure Pipelines - Reverted <code>PublishCodeCoverageResults</code> back to v1 to display line level coverage in ADO.</li>
 <li><code>Tests</code> - Added tests for catch blocks in <code>AdcsCertificationAuthority</code>, <code>AcdsOnlineResponder</code>, <code>AdcsWebEnrollment</code>.</li>
 <li><code>Tests</code> - Migrate all tests to Pester 5</li>
+<li>AdcsAuthorityInformationAccess
+<ul>
+<li>Removed <code>AllowRestartService</code> parameter from compared settings, force <code>Get-CaAiaUriList</code>
+to return unmangled <code>System.String[]</code> with single values.
+Fixes <a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/128">Issue #128</a>
+Fixes <a href="https://github.com/dsccommunity/ActiveDirectoryCSDsc/issues/138">Issue #138</a>.</li>
+</ul>
+</li>
 </ul>
 </div>
                       </div>
@@ -821,16 +829,16 @@
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">6.7.0-preview0001</span>
+                    <span class="badge badge-success">6.7.1-preview0001</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2025-03-31 21:35</span>
+                    <span class="badge badge-success">2025-05-29 15:10</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 17:00</span>
+                      <span class="badge badge-secondary">2025-06-01 05:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/ActiveDirectoryDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -898,13 +906,13 @@
                     
                     <span class="badge badge-warning">ADReplicationSiteLink</span>
                     
+                    <span class="badge badge-warning">ADReplicationSubnet</span>
+                    
                     <span class="badge badge-warning">ADServicePrincipalName</span>
                     
                     <span class="badge badge-warning">ADUser</span>
                     
                     <span class="badge badge-warning">WaitForADDomain</span>
-                    
-                    <span class="badge badge-warning">ADReplicationSubnet</span>
                     
                   </div>
                 </div>
@@ -921,35 +929,68 @@
                       <div class="tab-pane fade show active border-top-0" id="nav-desc-ActiveDirectoryDsc" role="tabpanel" aria-labelledby="nav-desc-tab-ActiveDirectoryDsc">
                         <div class="card card-body border-top-0">The ActiveDirectoryDsc module contains DSC resources for deployment and configuration of Active Directory.
 
-These DSC resources allow you to configure new domains, child domains, and high availability domain controllers, establish cross-domain trusts and manage users, groups and OUs.</div>
+    These DSC resources allow you to configure new domains, child domains, and high availability domain controllers, establish cross-domain trusts and manage users, groups and OUs.</div>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-ActiveDirectoryDsc" role="tabpanel" aria-labelledby="nav-rn-tab-ActiveDirectoryDsc">
-                          <div class="card card-body border-top-0"><h2 id="670-preview0001---2025-03-31">[6.7.0-preview0001] - 2025-03-31</h2>
+                          <div class="card card-body border-top-0"><h2 id="671-preview0001---2025-05-29">[6.7.1-preview0001] - 2025-05-29</h2>
 <h3 id="added">Added</h3>
 <ul>
-<li>ADDomain
+<li><code>ActiveDirectoryDsc</code>
 <ul>
-<li>Support for Windows Server 2025 Forest and Domain functional modes.
-(<a href="https://github.com/dsccommunity/ActiveDirectoryDsc/issues/721">issue #721</a>).</li>
+<li>Added strings.psd1 for HQRM compliance.</li>
 </ul>
 </li>
-<li>ADDomainFunctionalLevel
+</ul>
+<h3 id="removed">Removed</h3>
 <ul>
-<li>Support for Windows Server 2025 Domain functional mode.
-(<a href="https://github.com/dsccommunity/ActiveDirectoryDsc/issues/721">issue #721</a>).</li>
+<li>All Resources
+<ul>
+<li>Removed about_*.help.txt from sources as these are now generated at build time.</li>
 </ul>
 </li>
-<li>ADForestFunctionalLevel
+</ul>
+<h3 id="changed">Changed</h3>
 <ul>
-<li>Support for Windows Server 2025 Forest functional mode.
-(<a href="https://github.com/dsccommunity/ActiveDirectoryDsc/issues/721">issue #721</a>).</li>
+<li><code>build.ps1</code>
+<ul>
+<li>Update to latest Sampler version.</li>
 </ul>
 </li>
-<li>ADUser
+<li><code>Resolve-Dependency.ps1</code>
 <ul>
-<li>Support for AdminDescription, PhoneticDisplayName, PreferredLanguage and
-SimpleDisplayName attributes.</li>
+<li>Update to latest Sampler version.</li>
+</ul>
+</li>
+<li><code>Resolve-Dependency.psd1</code>
+<ul>
+<li>Update to latest Sampler version.</li>
+<li>Enable ModuleFast.</li>
+</ul>
+</li>
+<li><code>RequiredModules.psd1</code>
+<ul>
+<li>Add PlatyPS fixes <a href="https://github.com/dsccommunity/ActiveDirectoryDsc/issues/714">#714</a>.</li>
+<li>Indented.ScriptAnalyzerRules.</li>
+</ul>
+</li>
+<li><code>analyzersettings.psd1</code>
+<ul>
+<li>Update to latest dsccommunity version.</li>
+</ul>
+</li>
+<li><code>ActiveDirectory.psd1</code>
+<ul>
+<li>Fix formatting.</li>
+<li>Clear DscResourcesToExport as this is overwritten by ModuleBuilder.</li>
+<li>Add RootModule.</li>
+</ul>
+</li>
+<li><code>build.yaml</code>
+<ul>
+<li>Add doc generation.</li>
+<li>Move module to buildModule directory.</li>
+<li>Add wiki to release assets.</li>
 </ul>
 </li>
 </ul>
@@ -985,7 +1026,7 @@ SimpleDisplayName attributes.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:40</span>
+                      <span class="badge badge-secondary">2025-06-01 18:50</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/AuditPolicyDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1075,7 +1116,7 @@ SimpleDisplayName attributes.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 17:30</span>
+                      <span class="badge badge-secondary">2025-06-01 13:40</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/CertificateDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1202,7 +1243,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 11:50</span>
+                      <span class="badge badge-secondary">2025-05-27 17:20</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/CommonTasks" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1678,16 +1719,16 @@ with a script.</li>
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">10.0.0</span>
+                    <span class="badge badge-success">10.0.1-preview0001</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2025-01-25 15:17</span>
+                    <span class="badge badge-success">2025-05-13 11:15</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:40</span>
+                      <span class="badge badge-secondary">2025-05-31 07:20</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/ComputerManagementDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1768,87 +1809,19 @@ with a script.</li>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-ComputerManagementDsc" role="tabpanel" aria-labelledby="nav-rn-tab-ComputerManagementDsc">
-                          <div class="card card-body border-top-0"><h2 id="1000---2025-01-25">[10.0.0] - 2025-01-25</h2>
-<h3 id="added">Added</h3>
-<ul>
-<li>SystemProtection
-<ul>
-<li>New resource to configure System Protection settings (formerly xWindowsRestore) - Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/364">Issue #364</a>.</li>
-</ul>
-</li>
-<li>SystemRestorePoint
-<ul>
-<li>New resource to create and delete restore points (formerly xSystemRestorePoint) - Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/364">Issue #364</a>.</li>
-</ul>
-</li>
-<li>ScheduledTask
-<ul>
-<li>Added support for ScheduleType &lsquo;OnIdle&rsquo;, &lsquo;AtCreation&rsquo;, &lsquo;OnSessionState&rsquo;.
-Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/282">Issue #282</a>.</li>
-<li>Added support for StateChange to allow specifying which session state changes should
-trigger the task (with ScheduleType = OnSessionState).</li>
-<li>Added support for StopAtDurationEnd permitting control over the &lsquo;Stop all running tasks
-at the end of the repetition duration&rsquo; feature.
-Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/168">Issue #168</a>.</li>
-<li>Added support for TriggerExecutionTimeLimit permitting control over per-trigger &lsquo;Stop task
-if it runs longer than&hellip;&rsquo; feature.</li>
-</ul>
-</li>
-</ul>
+                          <div class="card card-body border-top-0"><h2 id="1001-preview0001---2025-05-13">[10.0.1-preview0001] - 2025-05-13</h2>
 <h3 id="fixed">Fixed</h3>
 <ul>
-<li>BREAKING CHANGE: ScheduledTask
+<li>Computer
 <ul>
-<li>Fixed SynchronizeAcrossTimeZone issue where Test always throws False when a date &amp; time is used
-where Daylight Savings Time is in operation. Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/374">Issue #374</a>.</li>
-<li>Fixed Test-DateStringContainsTimeZone to correctly process date strings behind UTC (-), as well
-as UTC Zulu &lsquo;Z&rsquo; strings.</li>
-<li>Fixed User parameter to correctly return the user that triggers an AtLogon or OnSessionState
-Schedule Type, instead of the current value of ExecuteAsCredential. This parameter
-is only valid when using the AtLogon and OnSessionState Schedule Types.</li>
-<li>Fixed User parameter to permit use even if LogonType = Group.</li>
-<li>Updated RandomDelay logic from a blacklist to a whitelist.</li>
-<li>Updated Delay parameter logic to reflect other TimeSpan based values.</li>
-<li>Updated unit tests to use Should -Invoke for Pester 5 compatibility.</li>
-<li>Updated various parameters with requirements in documentation.</li>
+<li>Fix Get-ComputerDomain function to retrieve the computer NETBIOS domain name instead of the user.</li>
 </ul>
 </li>
-<li><code>VirtualMemory</code> fix incorrect variable name</li>
-<li><code>SmbServerConfiguration</code> remove errant argument</li>
-<li>Update all calls to edit the registry so that the value Type is explicitly set.
-Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/433">Issue #433</a>.</li>
-<li>Made AppVeyor use ModuleFast to resolve dependencies.</li>
-</ul>
-<h3 id="changed">Changed</h3>
+<li><code>UserAccountControl</code>
 <ul>
-<li>BREAKING CHANGE: ScheduledTask
-<ul>
-<li>StartTime has chnage the type from DateTime to String.</li>
-<li>StartTime is now processed on the device, rather than at compile time. This makes it possible
-to configure start times based on each device&rsquo;s timezone, rather than being fixed to the time zone
-configured on the device where the Desired State Configuration compilation was run.</li>
-<li>Allow StartTime to be used to set the &lsquo;Activate&rsquo; setting when adding ScheduleType triggers
-other than &lsquo;Once&rsquo;, &lsquo;Daily&rsquo; and &lsquo;Weekly&rsquo;.</li>
-<li>Changed the default StartTime date from today to 1st January 1980 to prevent configuration flip flopping,
-and added note to configuration README to advise always supplying a date, and not just a time.
-Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/148">Issue #148</a>.
-Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/411">Issue #411</a>.</li>
-<li>Added examples &amp; note to configuration README to supply a timezone when using SynchronizeAcrossTimeZone.</li>
-<li>Allow SynchronizeAcrossTimeZone to be used when adding ScheduleType triggers other than &lsquo;Once&rsquo;,
-&lsquo;Daily&rsquo; and &lsquo;Weekly&rsquo;.</li>
-<li>Updated Delay parameter to support ScheduleType AtLogon, AtStartup, AtCreation, OnSessionState.
-Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/345">Issue #345</a>.</li>
-<li>Updated User parameter for use with ScheduleType OnSessionState in addition to AtLogon.</li>
-<li>Updated integration tests to ensure resource and configuration names are matching.</li>
+<li>Tests remove parameter type on <code>Assert-BoundParameter</code> mocks.</li>
 </ul>
 </li>
-<li>Converted tests to Pester 5</li>
-<li>Rename Delete-ADSIObject to Delete-ADSIObject to satisfy HQRM</li>
-<li>No longer uses alias <code>New-InvalidArgumentException</code> but instead <code>New-ArgumentException</code></li>
-</ul>
-<h3 id="removed">Removed</h3>
-<ul>
-<li>Removed <code>Get-InvalidOperationRecord</code> to use version provided by <code>DscResource.Test</code></li>
 </ul>
 </div>
                       </div>
@@ -1882,7 +1855,7 @@ Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/345"
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-03-21 23:10</span>
+                      <span class="badge badge-secondary">2025-05-23 09:20</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/DFSDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -1981,7 +1954,7 @@ Fixes <a href="https://github.com/dsccommunity/ComputerManagementDsc/issues/345"
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-02-26 11:30</span>
+                      <span class="badge badge-secondary">2025-05-19 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/FSRMDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2114,7 +2087,7 @@ Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/FSRMDsc/issues/
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-03-31 17:00</span>
+                      <span class="badge badge-secondary">2025-05-31 19:10</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/FileContentDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2239,7 +2212,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-03-20 05:00</span>
+                      <span class="badge badge-secondary">2025-05-30 05:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/GPRegistryPolicyDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2333,7 +2306,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 11:40</span>
+                      <span class="badge badge-secondary">2025-05-27 18:50</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/JeaDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2442,16 +2415,16 @@ works (reported issue <a href="https://github.com/dsccommunity/DscResource.DocGe
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">9.0.1-preview0001</span>
+                    <span class="badge badge-success">9.1.0</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2024-06-07 19:45</span>
+                    <span class="badge badge-success">2025-05-11 22:01</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 11:40</span>
+                      <span class="badge badge-secondary">2025-06-01 18:40</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/NetworkingDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2483,9 +2456,13 @@ works (reported issue <a href="https://github.com/dsccommunity/DscResource.DocGe
                     
                     <span class="badge badge-warning">DnsClientGlobalSetting</span>
                     
+                    <span class="badge badge-warning">DnsClientNrptGlobal</span>
+                    
+                    <span class="badge badge-warning">DnsClientNrptRule</span>
+                    
                     <span class="badge badge-warning">DnsConnectionSuffix</span>
                     
-                    <span class="badge badge-warning">DNSServerAddress</span>
+                    <span class="badge badge-warning">DnsServerAddress</span>
                     
                     <span class="badge badge-warning">Firewall</span>
                     
@@ -2505,7 +2482,7 @@ works (reported issue <a href="https://github.com/dsccommunity/DscResource.DocGe
                     
                     <span class="badge badge-warning">NetAdapterName</span>
                     
-                    <span class="badge badge-warning">NetAdapterRDMA</span>
+                    <span class="badge badge-warning">NetAdapterRdma</span>
                     
                     <span class="badge badge-warning">NetAdapterRsc</span>
                     
@@ -2513,7 +2490,7 @@ works (reported issue <a href="https://github.com/dsccommunity/DscResource.DocGe
                     
                     <span class="badge badge-warning">NetAdapterState</span>
                     
-                    <span class="badge badge-warning">NetBIOS</span>
+                    <span class="badge badge-warning">NetBios</span>
                     
                     <span class="badge badge-warning">NetConnectionProfile</span>
                     
@@ -2526,14 +2503,6 @@ works (reported issue <a href="https://github.com/dsccommunity/DscResource.DocGe
                     <span class="badge badge-warning">ProxySettings</span>
                     
                     <span class="badge badge-warning">Route</span>
-                    
-                    <span class="badge badge-warning">WINSSetting</span>
-                    
-                    <span class="badge badge-warning">DnsServerAddress</span>
-                    
-                    <span class="badge badge-warning">NetAdapterRdma</span>
-                    
-                    <span class="badge badge-warning">NetBios</span>
                     
                     <span class="badge badge-warning">WaitForNetworkTeam</span>
                     
@@ -2558,18 +2527,80 @@ works (reported issue <a href="https://github.com/dsccommunity/DscResource.DocGe
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-NetworkingDsc" role="tabpanel" aria-labelledby="nav-rn-tab-NetworkingDsc">
-                          <div class="card card-body border-top-0"><h2 id="901-preview0001---2024-06-07">[9.0.1-preview0001] - 2024-06-07</h2>
+                          <div class="card card-body border-top-0"><h2 id="910---2025-05-09">[9.1.0] - 2025-05-09</h2>
 <h3 id="changed">Changed</h3>
 <ul>
-<li>Updated CHANGELOG.md
+<li>
+<p>Added the following resources:</p>
+<ul>
+<li><strong>DnsClientNrptGlobal</strong>: Configure DNS Client global Name Resolution Policy Table (NRPT) settings.</li>
+<li><strong>DnsClientNrptRule</strong>: Sets a DNS Client NRPT rule on a node.</li>
+</ul>
+</li>
+<li>
+<p>Updated CHANGELOG.md</p>
 <ul>
 <li>Renamed NetworkingDSc to NetworkingDsc in CHANGELOG.md - fixes <a href="https://github.com/dsccommunity/NetworkingDsc/issues/513">Issue #513</a>.</li>
 </ul>
 </li>
-<li>CI Pipeline
+<li>
+<p>CI Pipeline</p>
 <ul>
 <li>Updated pipeline files to match current DSC Community patterns - fixes <a href="https://github.com/dsccommunity/NetworkingDsc/issues/528">Issue #528</a>.</li>
 <li>Updated HQRM and build steps to use windows-latest image.</li>
+<li>Update build pipeline to pin GitVersion v5.</li>
+<li>Added Server 2025 into Unit and Integration tests.</li>
+<li>Remove duplicated pipeline steps and use matrix of VM images.</li>
+<li>Use ModuleFast</li>
+<li>Merge Unit test CodeCoverage</li>
+</ul>
+</li>
+<li>
+<p>Tests</p>
+<ul>
+<li>Update to use Pester 5.</li>
+</ul>
+</li>
+<li>
+<p><code>New-InvalidArgumentException</code> change to <code>New-ArgumentException</code> for HQRM.</p>
+</li>
+<li>
+<p><code>NetworkingDsc.Common</code></p>
+<ul>
+<li>Changed to a buildable module.</li>
+</ul>
+</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li><code>DSC_Firewall</code>
+<ul>
+<li>Fixed comment typo.</li>
+<li>Fixed <code>ParameterList</code> in <code>Set-TargetResource</code> typo.</li>
+<li>Remove <code>DisplayGroup</code> property when creating new firewall rule.</li>
+<li><code>Test-RuleProperties</code>
+<ul>
+<li>Fixed <code>Convert-CIDRToSubnetMask</code> function call typo.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="removed">Removed</h3>
+<ul>
+<li><code>Build.psd1</code>
+<ul>
+<li>Removed as not required.</li>
+</ul>
+</li>
+<li><code>DSC_IPAddress</code>
+<ul>
+<li>Remove IPv6 prefix length as unused.</li>
+</ul>
+</li>
+<li><code>CommonTestHelper</code>
+<ul>
+<li>Use <code>Get-InvalidArgumentRecord</code> from <code>DscResource.Test</code>.</li>
 </ul>
 </li>
 </ul>
@@ -2605,7 +2636,7 @@ works (reported issue <a href="https://github.com/dsccommunity/DscResource.DocGe
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-03-09 14:30</span>
+                      <span class="badge badge-secondary">2025-04-30 20:30</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/OfficeOnlineServerDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2711,7 +2742,7 @@ works (reported issue <a href="https://github.com/dsccommunity/DscResource.DocGe
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:50</span>
+                      <span class="badge badge-secondary">2025-06-01 18:40</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/PSDscResources" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2854,7 +2885,7 @@ Specifically fixes
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-03-13 17:50</span>
+                      <span class="badge badge-secondary">2025-05-14 08:40</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -2925,7 +2956,7 @@ Specifically fixes
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:40</span>
+                      <span class="badge badge-secondary">2025-06-01 18:50</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/PowerShellGet" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3023,7 +3054,7 @@ Specifically fixes
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:00</span>
+                      <span class="badge badge-secondary">2025-06-01 11:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/SChannelDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3132,16 +3163,16 @@ even if only one value is set in the current state (<a href="https://github.com/
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">0.118.3-preview0001</span>
+                    <span class="badge badge-success">0.118.4-preview0002</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2025-02-28 10:15</span>
+                    <span class="badge badge-success">2025-05-20 16:43</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 14:20</span>
+                      <span class="badge badge-secondary">2025-05-31 19:10</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/gaelcolas/Sampler" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3200,15 +3231,12 @@ even if only one value is set in the current state (<a href="https://github.com/
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-Sampler" role="tabpanel" aria-labelledby="nav-rn-tab-Sampler">
-                          <div class="card card-body border-top-0"><h2 id="01183-preview0001---2025-02-28">[0.118.3-preview0001] - 2025-02-28</h2>
+                          <div class="card card-body border-top-0"><h2 id="01184-preview0002---2025-05-20">[0.118.4-preview0002] - 2025-05-20</h2>
 <h3 id="fixed">Fixed</h3>
 <ul>
-<li>Fixed issue with localization string testing with new version of the HQRM
-tests (module DscResource.Test).</li>
-<li>Fixed a problem with ModuleBuilder which throws a parsing error in Windows
-PowerShell (see PR <a href="https://github.com/PoshCode/ModuleBuilder/pull/136)">https://github.com/PoshCode/ModuleBuilder/pull/136)</a>.
-The fix is a workaround until ModuleBuilder release a new version with the
-permanent fix.</li>
+<li>Using full-qualified call for <code>Expand-Archive</code> (<a href="https://github.com/gaelcolas/Sampler/issues/519">#519</a>).</li>
+<li>Fixed a variable scoping issue preventing Pester tests to be invoked after the
+first build (<a href="https://github.com/gaelcolas/Sampler/issues/523">#523</a>).</li>
 </ul>
 </div>
                       </div>
@@ -3233,16 +3261,16 @@ permanent fix.</li>
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">0.3.0-preview0002</span>
+                    <span class="badge badge-success">0.3.0-preview0003</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2025-02-07 15:36</span>
+                    <span class="badge badge-success">2025-05-06 13:28</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-03-26 09:30</span>
+                      <span class="badge badge-secondary">2025-05-27 09:20</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/SynEdgy/Sampler.DscPipeline" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3289,13 +3317,17 @@ permanent fix.</li>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-Sampler.DscPipeline" role="tabpanel" aria-labelledby="nav-rn-tab-Sampler.DscPipeline">
-                          <div class="card card-body border-top-0"><h2 id="030-preview0002---2025-02-07">[0.3.0-preview0002] - 2025-02-07</h2>
+                          <div class="card card-body border-top-0"><h2 id="030-preview0003---2025-05-06">[0.3.0-preview0003] - 2025-05-06</h2>
 <h3 id="added">Added</h3>
 <ul>
 <li>Updated build scripts to latest Sampler version.</li>
 <li>Integration tests for &lsquo;LoadDatumConfigData&rsquo; task.</li>
 <li>Integration tests for &lsquo;CompileDatumRsop&rsquo; task.</li>
 <li>Integration tests for &lsquo;Get-DscResourceProperty&rsquo; function.</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>Fix parsing of UseEnvironment parameter in CompileDatumRsop task (<a href="https://github.com/SynEdgy/Sampler.DscPipeline/issues/39">#39</a>)</li>
 </ul>
 </div>
                       </div>
@@ -3329,7 +3361,7 @@ permanent fix.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 14:10</span>
+                      <span class="badge badge-secondary">2025-05-30 05:50</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/gaelcolas/Sampler.GitHubTasks" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3447,7 +3479,7 @@ if <code>$VerbosePreference</code> says so.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 07:40</span>
+                      <span class="badge badge-secondary">2025-05-31 20:40</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/SecurityPolicyDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3587,16 +3619,16 @@ This means Windows PowerShell 4 (WMF 4) is no longer supported.</li>
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">5.6.1</span>
+                    <span class="badge badge-success">5.7.0-preview0003</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2025-01-29 00:13</span>
+                    <span class="badge badge-success">2025-04-25 14:18</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 17:10</span>
+                      <span class="badge badge-secondary">2025-05-13 01:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/SharePointDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3905,13 +3937,20 @@ This means Windows PowerShell 4 (WMF 4) is no longer supported.</li>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-SharePointDSC" role="tabpanel" aria-labelledby="nav-rn-tab-SharePointDSC">
-                          <div class="card card-body border-top-0"><h2 id="561---2025-01-28">[5.6.1] - 2025-01-28</h2>
+                          <div class="card card-body border-top-0"><h2 id="570-preview0003---2025-04-25">[5.7.0-preview0003] - 2025-04-25</h2>
 <h3 id="fixed">Fixed</h3>
 <ul>
-<li>SPSearchCrawlerImpactRule
+<li>SPDistributedCacheClientSettings
 <ul>
-<li>Resource threw an error on the Set-TargetResource Function because the <code>SPEnterpriseSearchSiteHitRule</code>
-cmdlet Parameter <code>SearchService</code> does not support a Search Service Application Object.</li>
+<li>Resource threw an error on SharePoint Server Subscription Edition with Build &gt;= 16.0.18526.20080.</li>
+</ul>
+</li>
+</ul>
+<h3 id="changed">Changed</h3>
+<ul>
+<li>SPTrustedIdentityTokenIssuer
+<ul>
+<li>Added parameters <code>MetadataEndPoint</code>, <code>OidcScope</code> and <code>UseStateToRedirect</code>.</li>
 </ul>
 </li>
 </ul>
@@ -3938,16 +3977,16 @@ cmdlet Parameter <code>SearchService</code> does not support a Search Service Ap
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">17.1.0-preview0007</span>
+                    <span class="badge badge-success">17.1.0</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2025-03-24 12:27</span>
+                    <span class="badge badge-success">2025-05-22 18:11</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 07:20</span>
+                      <span class="badge badge-secondary">2025-06-01 18:30</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/SqlServerDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -3975,6 +4014,290 @@ cmdlet Parameter <code>SearchService</code> does not support a Search Service Ap
                     
                     <span class="badge badge-pill badge-info">PSModule</span>
                     
+                    <span class="badge badge-pill badge-info">PSFunction_Add-SqlDscNode</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Add-SqlDscNode</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Add-SqlDscTraceFlag</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Add-SqlDscTraceFlag</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Complete-SqlDscFailoverCluster</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Complete-SqlDscFailoverCluster</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Complete-SqlDscImage</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Complete-SqlDscImage</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Connect-SqlDscDatabaseEngine</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Connect-SqlDscDatabaseEngine</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_ConvertFrom-SqlDscDatabasePermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_ConvertFrom-SqlDscDatabasePermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_ConvertFrom-SqlDscServerPermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_ConvertFrom-SqlDscServerPermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_ConvertTo-SqlDscDatabasePermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_ConvertTo-SqlDscDatabasePermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_ConvertTo-SqlDscEditionName</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_ConvertTo-SqlDscEditionName</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_ConvertTo-SqlDscServerPermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_ConvertTo-SqlDscServerPermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Disable-SqlDscAudit</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Disable-SqlDscAudit</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Disconnect-SqlDscDatabaseEngine</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Disconnect-SqlDscDatabaseEngine</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Enable-SqlDscAudit</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Enable-SqlDscAudit</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Get-SqlDscAudit</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Get-SqlDscAudit</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Get-SqlDscConfigurationOption</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Get-SqlDscConfigurationOption</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Get-SqlDscDatabasePermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Get-SqlDscDatabasePermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Get-SqlDscInstalledInstance</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Get-SqlDscInstalledInstance</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Get-SqlDscManagedComputer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Get-SqlDscManagedComputer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Get-SqlDscManagedComputerService</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Get-SqlDscManagedComputerService</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Get-SqlDscPreferredModule</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Get-SqlDscPreferredModule</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Get-SqlDscRSSetupConfiguration</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Get-SqlDscRSSetupConfiguration</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Get-SqlDscServerPermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Get-SqlDscServerPermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Get-SqlDscStartupParameter</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Get-SqlDscStartupParameter</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Get-SqlDscTraceFlag</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Get-SqlDscTraceFlag</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Import-SqlDscPreferredModule</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Import-SqlDscPreferredModule</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Initialize-SqlDscRebuildDatabase</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Initialize-SqlDscRebuildDatabase</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Install-SqlDscBIReportServer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Install-SqlDscBIReportServer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Install-SqlDscReportingService</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Install-SqlDscReportingService</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Install-SqlDscServer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Install-SqlDscServer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Invoke-SqlDscQuery</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Invoke-SqlDscQuery</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_New-SqlDscAudit</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_New-SqlDscAudit</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Remove-SqlDscAudit</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Remove-SqlDscAudit</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Remove-SqlDscNode</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Remove-SqlDscNode</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Remove-SqlDscTraceFlag</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Remove-SqlDscTraceFlag</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Repair-SqlDscBIReportServer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Repair-SqlDscBIReportServer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Repair-SqlDscReportingService</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Repair-SqlDscReportingService</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Repair-SqlDscServer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Repair-SqlDscServer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Save-SqlDscSqlServerMediaFile</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Save-SqlDscSqlServerMediaFile</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Set-SqlDscAudit</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Set-SqlDscAudit</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Set-SqlDscDatabasePermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Set-SqlDscDatabasePermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Set-SqlDscServerPermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Set-SqlDscServerPermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Set-SqlDscStartupParameter</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Set-SqlDscStartupParameter</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Set-SqlDscTraceFlag</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Set-SqlDscTraceFlag</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Test-SqlDscIsDatabasePrincipal</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Test-SqlDscIsDatabasePrincipal</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Test-SqlDscIsLogin</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Test-SqlDscIsLogin</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Test-SqlDscIsRole</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Test-SqlDscIsRole</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Test-SqlDscIsSupportedFeature</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Test-SqlDscIsSupportedFeature</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Test-SqlDscRSInstalled</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Test-SqlDscRSInstalled</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Uninstall-SqlDscBIReportServer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Uninstall-SqlDscBIReportServer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Uninstall-SqlDscReportingService</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Uninstall-SqlDscReportingService</span>
+                    
+                    <span class="badge badge-pill badge-info">PSFunction_Uninstall-SqlDscServer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSCommand_Uninstall-SqlDscServer</span>
+                    
+                    <span class="badge badge-pill badge-info">PSIncludes_Function</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlAudit</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlDatabasePermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlPermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlRSSetup</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlAG</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlAGDatabase</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlAgentAlert</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlAgentFailsafe</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlAgentOperator</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlAGListener</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlAGReplica</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlAlias</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlAlwaysOnService</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlConfiguration</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlDatabase</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlDatabaseDefaultLocation</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlDatabaseMail</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlDatabaseObjectPermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlDatabaseRole</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlDatabaseUser</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlEndpoint</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlEndpointPermission</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlLogin</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlMaxDop</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlMemory</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlProtocol</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlProtocolTcpIp</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlReplication</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlRole</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlRS</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlScript</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlScriptQuery</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlSecureConnection</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlServiceAccount</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlSetup</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlTraceFlag</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlWaitForAG</span>
+                    
+                    <span class="badge badge-pill badge-info">PSDscResource_SqlWindowsFirewall</span>
+                    
+                    <span class="badge badge-pill badge-info">PSIncludes_DscResource</span>
+                    
                   </div>
                 </div>
 
@@ -3983,81 +4306,7 @@ cmdlet Parameter <code>SearchService</code> does not support a Search Service Ap
                   <div style="padding:10px">
                     <strong>DSC Resources:</strong>
                     
-                    <span class="badge badge-warning">SqlAudit</span>
-                    
-                    <span class="badge badge-warning">SqlDatabasePermission</span>
-                    
-                    <span class="badge badge-warning">SqlPermission</span>
-                    
-                    <span class="badge badge-warning">SqlAG</span>
-                    
-                    <span class="badge badge-warning">SqlAGDatabase</span>
-                    
-                    <span class="badge badge-warning">SqlAgentAlert</span>
-                    
-                    <span class="badge badge-warning">SqlAgentFailsafe</span>
-                    
-                    <span class="badge badge-warning">SqlAgentOperator</span>
-                    
-                    <span class="badge badge-warning">SqlAGListener</span>
-                    
-                    <span class="badge badge-warning">SqlAGReplica</span>
-                    
-                    <span class="badge badge-warning">SqlAlias</span>
-                    
-                    <span class="badge badge-warning">SqlAlwaysOnService</span>
-                    
-                    <span class="badge badge-warning">SqlConfiguration</span>
-                    
-                    <span class="badge badge-warning">SqlDatabase</span>
-                    
-                    <span class="badge badge-warning">SqlDatabaseDefaultLocation</span>
-                    
-                    <span class="badge badge-warning">SqlDatabaseMail</span>
-                    
-                    <span class="badge badge-warning">SqlDatabaseObjectPermission</span>
-                    
-                    <span class="badge badge-warning">SqlDatabaseRole</span>
-                    
-                    <span class="badge badge-warning">SqlDatabaseUser</span>
-                    
-                    <span class="badge badge-warning">SqlEndpoint</span>
-                    
-                    <span class="badge badge-warning">SqlEndpointPermission</span>
-                    
-                    <span class="badge badge-warning">SqlLogin</span>
-                    
-                    <span class="badge badge-warning">SqlMaxDop</span>
-                    
-                    <span class="badge badge-warning">SqlMemory</span>
-                    
-                    <span class="badge badge-warning">SqlProtocol</span>
-                    
-                    <span class="badge badge-warning">SqlProtocolTcpIp</span>
-                    
-                    <span class="badge badge-warning">SqlReplication</span>
-                    
-                    <span class="badge badge-warning">SqlRole</span>
-                    
-                    <span class="badge badge-warning">SqlRS</span>
-                    
-                    <span class="badge badge-warning">SqlRSSetup</span>
-                    
-                    <span class="badge badge-warning">SqlScript</span>
-                    
-                    <span class="badge badge-warning">SqlScriptQuery</span>
-                    
-                    <span class="badge badge-warning">SqlSecureConnection</span>
-                    
-                    <span class="badge badge-warning">SqlServiceAccount</span>
-                    
-                    <span class="badge badge-warning">SqlSetup</span>
-                    
-                    <span class="badge badge-warning">SqlTraceFlag</span>
-                    
-                    <span class="badge badge-warning">SqlWaitForAG</span>
-                    
-                    <span class="badge badge-warning">SqlWindowsFirewall</span>
+                    <span class="badge badge-warning"></span>
                     
                   </div>
                 </div>
@@ -4076,13 +4325,45 @@ cmdlet Parameter <code>SearchService</code> does not support a Search Service Ap
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-SqlServerDsc" role="tabpanel" aria-labelledby="nav-rn-tab-SqlServerDsc">
-                          <div class="card card-body border-top-0"><h2 id="1710-preview0007---2025-03-24">[17.1.0-preview0007] - 2025-03-24</h2>
+                          <div class="card card-body border-top-0"><h2 id="1710---2025-05-22">[17.1.0] - 2025-05-22</h2>
 <h3 id="removed">Removed</h3>
 <ul>
+<li>SqlServerDsc
+<ul>
+<li>Revert workaround in GitHub Actions workflows as new version of ModuleBuilder
+was released.</li>
+</ul>
+</li>
 <li>SqlServerDsc.Common
 <ul>
-<li>Removed the function <code>Get-RegistryPropertyValue</code> and <code>Format-Path</code> in
-favor of the commands with the same names in the module <em>DscResource.Common</em>.</li>
+<li>Removed the function <code>Get-RegistryPropertyValue</code>, <code>Format-Path</code> and
+<code>Test-PendingRestart</code> in favor of the commands with the same names in
+the module <em>DscResource.Common</em>.</li>
+</ul>
+</li>
+<li>SqlRSSetup
+<ul>
+<li>The DSC resource has been refactored into a class-based resource.
+<ul>
+<li>The parameter <code>SourcePath</code> was replaced with <code>MediaPath</code>.</li>
+<li>The parameter <code>IAcceptLicensTerms</code> was replaced with a boolean parameter
+<code>AcceptLicensingTerms</code>.</li>
+<li>The parameter <code>SourceCredential</code> was removed. Because of this, the
+functionality that allowed copying the media from a UNC path using
+those credentials was also removed. If this was something you used,
+please open an issue.</li>
+<li>The version validation no longer gets the current version from the
+installed package (using <code>Get-Package</code>), but instead from the registry.</li>
+<li>Prior when install was successful, the resource checked whether there
+were any pending rename operations. Since the install returns 3010
+if a restart is needed it is now assumed that the setup process takes
+care of this. If that is not the case, and this check is needed, then
+open an issue to discuss in what cases this is needed.</li>
+<li>The <code>Edition</code> option &lsquo;Development<code>was replaced by the value</code>Developer`.</li>
+<li>The read-only properties <code>CurrentVersion</code>, <code>ServiceName</code> and <code>ErrorDumpDirectory</code>
+were removed.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -4092,21 +4373,51 @@ favor of the commands with the same names in the module <em>DscResource.Common</
 <ul>
 <li><code>Get-SqlDscInstalledInstance</code> to retrieve installed SQL instances.</li>
 <li><code>Get-SqlDscRSSetupConfiguration</code> to retrieve the setup configuration of
-SQL Server Reporting Services or Power BI Report Server (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2072">issue #2072</a>).</li>
+SQL Server Reporting Services or Power BI Report Server (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2072">issue #2072</a>).
+<ul>
+<li>Add additional properties to <code>Get-SqlDscRSSetupConfiguration</code> output.</li>
+</ul>
+</li>
 <li><code>Install-SqlDscReportingService</code> to install SQL Server Reporting Services
-(<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2010">issue #2010</a>).</li>
+(<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2010">issue #2010</a>).
+<ul>
+<li>Add <code>PassThru</code> parameter to return exit code.</li>
+</ul>
+</li>
 <li><code>Install-SqlDscBIReportServer</code> to install SQL Server BI Report Server.
-(<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2010">issue #2010</a>).</li>
+(<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2010">issue #2010</a>).
+<ul>
+<li>Add <code>PassThru</code> parameter to return exit code.</li>
+</ul>
+</li>
 <li><code>Repair-SqlDscReportingService</code> to repair an already installed SQL Server
-Reporting Services (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2064">issue #2064</a>).</li>
+Reporting Services (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2064">issue #2064</a>).
+<ul>
+<li>Add <code>PassThru</code> parameter to return exit code.</li>
+</ul>
+</li>
 <li><code>Repair-SqlDscBIReportServer</code> to repair an already installed SQL Server
-BI Report Server (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2064">issue #2064</a>).</li>
+BI Report Server (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2064">issue #2064</a>).
+<ul>
+<li>Add <code>PassThru</code> parameter to return exit code.</li>
+</ul>
+</li>
 <li><code>Test-SqlDscRSInstalled</code> to test whether an instance is installed or not
 (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2078">issue #2078</a>).</li>
 <li><code>Uninstall-SqlDscReportingService</code> to uninstall SQL Server Reporting
-Services (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2065">issue #2065</a>).</li>
+Services (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2065">issue #2065</a>).
+<ul>
+<li>Add <code>PassThru</code> parameter to return exit code.</li>
+</ul>
+</li>
 <li><code>Uninstall-SqlDscBIReportServer</code> to uninstall SQL Server BI Report Server
-(<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2065">issue #2065</a>).</li>
+(<a href="https://github.com/dsccommunity/SqlServerDsc/issues/2065">issue #2065</a>).
+<ul>
+<li>Add <code>PassThru</code> parameter to return exit code.</li>
+</ul>
+</li>
+<li><code>ConvertTo-SqlDscEditionName</code> to return the edition name of the specified
+edition ID.</li>
 </ul>
 </li>
 <li>Private function:
@@ -4153,7 +4464,11 @@ several different areas. The tests are dependent on this order:
 <li>Fix style formatting in all PowerShell script files.</li>
 <li>Update module description on GitHub, in the conceptual help, and in
 the module manifest.</li>
-<li>Added Test-SqlDscIsRole to be used like Test-SqlDscIsLogin but tests for a server role as principal.</li>
+<li>Now integration tests will fail on an exception when the command <code>Test-DscConfiguration</code>
+is run.</li>
+<li>Added Test-SqlDscIsRole to be used like Test-SqlDscIsLogin but tests
+for a server role as principal.</li>
+<li>Refine and enhance clarity in Copilot instructions.</li>
 </ul>
 </li>
 <li>SqlSetup
@@ -4162,14 +4477,27 @@ the module manifest.</li>
 setup.exe (<a href="https://github.com/dsccommunity/SqlServerDsc/issues/1171">issue #1171</a>).</li>
 </ul>
 </li>
+<li>SqlRSSetup
+<ul>
+<li>The DSC resource has been refactored into a class-based resource.</li>
+</ul>
+</li>
+<li><code>Set-SqlDscServerPermission</code>
+<ul>
+<li>Added support for assigning permissions to a server role.</li>
+</ul>
+</li>
 </ul>
 <h3 id="fixed">Fixed</h3>
 <ul>
 <li>Fixed workaround for the GitHub Actions to support building module in Windows
 PowerShell.</li>
+<li>Fix tests to redirect output streams correctly.</li>
 <li>SqlServerDsc
 <ul>
 <li>Fix localization tests.</li>
+<li>Cleanup in unit tests for classes.</li>
+<li>Cleanup in localization string files.</li>
 </ul>
 </li>
 <li><code>SqlAudit</code>
@@ -4225,6 +4553,28 @@ PowerShell.</li>
 <li>Change the alias command to real command name, to pass HQRM tests.</li>
 </ul>
 </li>
+<li><code>Get-SqlDscRSSetupConfiguration</code>
+<ul>
+<li>The integration test was updated to verify so that the <code>CurrentVersion</code>
+and <code>ProductVersion</code> strings can be converted to valid versions and
+that they always are higher than what we expect.</li>
+</ul>
+</li>
+<li><code>SqlRS</code>
+<ul>
+<li>Re-enable integration tests.</li>
+</ul>
+</li>
+<li><code>SqlAG</code>
+<ul>
+<li>Fix SeedingMode existence condition.</li>
+</ul>
+</li>
+<li><code>SqlAGReplica</code>
+<ul>
+<li>Fix SeedingMode existence condition.</li>
+</ul>
+</li>
 </ul>
 </div>
                       </div>
@@ -4249,16 +4599,16 @@ PowerShell.</li>
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">6.1.0-preview0001</span>
+                    <span class="badge badge-success">6.1.0-preview0003</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2024-09-16 08:40</span>
+                    <span class="badge badge-success">2025-05-07 14:15</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 16:00</span>
+                      <span class="badge badge-secondary">2025-06-01 16:10</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/StorageDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4298,19 +4648,19 @@ PowerShell.</li>
                   <div style="padding:10px">
                     <strong>DSC Resources:</strong>
                     
+                    <span class="badge badge-warning">Disk</span>
+                    
                     <span class="badge badge-warning">DiskAccessPath</span>
                     
                     <span class="badge badge-warning">MountImage</span>
                     
                     <span class="badge badge-warning">OpticalDiskDriveLetter</span>
                     
+                    <span class="badge badge-warning">VirtualHardDisk</span>
+                    
                     <span class="badge badge-warning">WaitForDisk</span>
                     
                     <span class="badge badge-warning">WaitForVolume</span>
-                    
-                    <span class="badge badge-warning">Disk</span>
-                    
-                    <span class="badge badge-warning">VirtualHardDisk</span>
                     
                   </div>
                 </div>
@@ -4329,7 +4679,43 @@ PowerShell.</li>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-StorageDsc" role="tabpanel" aria-labelledby="nav-rn-tab-StorageDsc">
-                          <div class="card card-body border-top-0"></div>
+                          <div class="card card-body border-top-0"><h2 id="610-preview0003---2025-05-07">[6.1.0-preview0003] - 2025-05-07</h2>
+<h3 id="changed">Changed</h3>
+<ul>
+<li>Unit tests converted to Pester 5. Fixes <a href="https://github.com/dsccommunity/StorageDsc/issues/265">#265</a>.</li>
+<li>Split bundled modules into buildable modules and separate files.</li>
+</ul>
+<h3 id="removed">Removed</h3>
+<ul>
+<li><code>CommonTestHelper</code>
+<ul>
+<li>Use versions from <code>DscResource.Test</code>
+<ul>
+<li>Get-InvalidArgumentRecord</li>
+<li>Get-InvalidOperationRecord</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>Azure DevOps Build Pipeline:
+<ul>
+<li>Update wiki generation to use <code>Generate_Markdown_For_DSC_Resources</code>.</li>
+<li>Remove use of prefix.ps1 and suffix.ps1.</li>
+<li>Added testing on Windows Server 2025.</li>
+<li>Updated Test stage to use matrix strategy to reduce code duplication.</li>
+<li>Refactor pipeline to move integration to separate stage, add merge code coverage task.</li>
+</ul>
+</li>
+<li><code>Disk</code>
+<ul>
+<li>Updated AllocationUnitSize in examples to be a valid UInt32 value instead of a String.</li>
+</ul>
+</li>
+</ul>
+</div>
                       </div>
                       
                     </div>
@@ -4361,7 +4747,7 @@ PowerShell.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 12:30</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/SystemLocaleDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4461,7 +4847,7 @@ files to be formatted as per the DSC Resource kit style guidelines.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 11:40</span>
+                      <span class="badge badge-secondary">2025-05-26 19:50</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/UpdateServicesDsc/" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4586,16 +4972,16 @@ Fixed verbose output of WSUS server in UpdateServicesApprovalRule</li>
                 <div class="row">
                   <div style="padding:10px">
                     <strong>Version:</strong>
-                    <span class="badge badge-success">3.2.0</span>
+                    <span class="badge badge-success">4.0.0-preview0001</span>
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">2025-01-19 09:32</span>
+                    <span class="badge badge-success">2025-05-04 10:51</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 17:50</span>
+                      <span class="badge badge-secondary">2025-05-29 09:40</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/WSManDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4646,81 +5032,49 @@ Fixed verbose output of WSUS server in UpdateServicesApprovalRule</li>
                       </div>
 
                       <div class="tab-pane fade card border-top-0" id="nav-rn-WSManDsc" role="tabpanel" aria-labelledby="nav-rn-tab-WSManDsc">
-                          <div class="card card-body border-top-0"><h2 id="320---2025-01-19">[3.2.0] - 2025-01-19</h2>
+                          <div class="card card-body border-top-0"><h2 id="400-preview0001---2025-05-04">[4.0.0-preview0001] - 2025-05-04</h2>
 <h3 id="added">Added</h3>
 <ul>
-<li>Added build task <code>Generate_Conceptual_Help</code> to generate conceptual help
-for the DSC resource.</li>
-<li>Added build task <code>Generate_Wiki_Content</code> to generate the wiki content
-that can be used to update the GitHub Wiki.</li>
+<li><code>WSManReason</code>
+<ul>
+<li>Used in Class Resources.</li>
+</ul>
+</li>
+<li><code>WSManSubjectFormat</code> Enum.</li>
+<li><code>WSManTransport</code> Enum.</li>
+<li><code>RequiredModules</code>
+<ul>
+<li>Added <code>DscResource.Base</code> class.</li>
+</ul>
+</li>
 </ul>
 <h3 id="changed">Changed</h3>
 <ul>
-<li>Updated CI pipeline files.</li>
-<li>No longer run integration tests when running the build task <code>test</code>, e.g.
-<code>.\build.ps1 -Task test</code>. To manually run integration tests, run the
-following:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.ps1 -Tasks test -PesterScript <span style="color:#e6db74">&#39;tests/Integration&#39;</span> -CodeCoverageThreshold <span style="color:#ae81ff">0</span>
-</span></span></code></pre></div></li>
-<li>Change Azure DevOps Pipeline definition to include <code>source/*</code> - fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/75">Issue #75</a>.</li>
-<li>Updated pipeline to use <code>latest</code> version of <code>ModuleBuilder</code> - fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/75">Issue #75</a>.</li>
-<li>Merge <code>HISTORIC_CHANGELOG.md</code> into <code>CHANGELOG.md</code> - fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/76">Issue #76</a>.</li>
-<li>WSManDsc
+<li><code>DSC_WSManListener</code>
 <ul>
-<li>Updated to use the common module <em>DscResource.Common</em> - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/78">Issue #78</a>.</li>
-<li>Fixed build failures caused by changes in <code>ModuleBuilder</code> module v1.7.0
-by changing <code>CopyDirectories</code> to <code>CopyPaths</code> - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/79">Issue #79</a>.</li>
-<li>Pin <code>Pester</code> module to 4.10.1 because Pester 5.0 is missing code
-coverage - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/78">Issue #78</a>.</li>
-<li>Automatically publish documentation to GitHub Wiki - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/82">Issue #82</a>.</li>
-<li>Fix build pipeline so it uses the build image <code>windows-latest</code>.</li>
-</ul>
-</li>
-<li>Renamed <code>master</code> branch to <code>main</code> - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/82">Issue #82</a>.</li>
-<li>Minor corrections to pipeline files and examples after renaming <code>master</code>
-branch to <code>main</code>.</li>
-<li>Updated <code>GitVersion.yml</code> to latest pattern - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/87">Issue #87</a>.</li>
-<li>Updated build to use <code>Sampler.GitHubTasks</code> - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/90">Issue #90</a>.</li>
-<li>Added support for publishing code coverage to <code>CodeCov.io</code> and
-Azure Pipelines - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/91">Issue #91</a>.</li>
-<li>Build pipeline: Removed unused <code>dscBuildVariable</code> tasks.</li>
-<li>Updated .github issue templates to standard - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/97">Issue #97</a>.</li>
-<li>Added Create_ChangeLog_GitHub_PR task to publish stage of build pipeline.</li>
-<li>Added SECURITY.md.</li>
-<li>Updated pipeline Deploy_Module anb Code_Coverage jobs to use ubuntu-latest
-images - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/96">Issue #96</a>.</li>
-<li>Updated pipeline unit tests and integration tests to use Windows Server 2019 and
-Windows Server 2022 images - Fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/96">Issue #96</a>.</li>
-<li>CI Pipeline
-<ul>
-<li>Updated pipeline files to match current DSC Community patterns - fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/103">Issue #103</a>.</li>
-<li>Updated HQRM and build steps to use windows-latest image.</li>
-<li>Pin gitversion to V5.</li>
-</ul>
-</li>
-<li>WSManDsc
-<ul>
-<li>Added support for changing the hostname and/or certificate thumbprint on the listener fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/23">Issue #23</a>.</li>
-<li>Converted tests to Pester 5 - fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/99">#99</a>.</li>
+<li>Converted to Class Resource.</li>
+<li>Extracted private functions to individual files.</li>
+<li>BREAKING: Renamed parameter <code>DN</code> to <code>BaseDN</code> - fixes <a href="https://github.com/dsccommunity/WSManDsc/issues/89">Issue #89</a>.</li>
 </ul>
 </li>
 <li><code>DSC_WSManConfig</code>
 <ul>
-<li>Refactor <code>Test-TargetResource</code> to use <code>Test-DscParameterState</code>.</li>
-<li>Remove unused strings.</li>
+<li>Removed Export-ModuleMember.</li>
 </ul>
 </li>
 <li><code>DSC_WSManServiceConfig</code>
 <ul>
-<li>Refactor <code>Test-TargetResource</code> to use <code>Test-DscParameterState</code>.</li>
-<li>Remove unused strings</li>
+<li>Removed Export-ModuleMember.</li>
 </ul>
 </li>
 </ul>
-<h3 id="fixed">Fixed</h3>
+<h3 id="removed">Removed</h3>
 <ul>
-<li>Fixed pipeline by replacing the GitVersion task in the <code>azure-pipelines.yml</code>
-with a script.</li>
+<li><code>CommonTestHelper</code>
+<ul>
+<li>This is now provided by <code>DscResource.Test</code></li>
+</ul>
+</li>
 </ul>
 </div>
                       </div>
@@ -4754,7 +5108,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:30</span>
+                      <span class="badge badge-secondary">2025-06-01 14:40</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/SNikalaichyk/cNtfsAccessControl" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -4849,7 +5203,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-03-11 12:20</span>
+                      <span class="badge badge-secondary">2025-04-18 01:50</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/iSCSIDsc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5011,7 +5365,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 17:40</span>
+                      <span class="badge badge-secondary">2025-06-01 13:50</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/Azure/nxtools/" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5123,7 +5477,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xAzure" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5218,7 +5572,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xAzurePack" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5311,7 +5665,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-03-11 18:20</span>
+                      <span class="badge badge-secondary">2025-05-29 00:40</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xBitlocker" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5403,7 +5757,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:50</span>
+                      <span class="badge badge-secondary">2025-06-01 16:20</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xChrome" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5485,7 +5839,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-03-19 13:30</span>
+                      <span class="badge badge-secondary">2025-05-03 03:50</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xCredSSP" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5572,7 +5926,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xDatabase" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5664,7 +6018,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xDefender" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5741,7 +6095,7 @@ with a script.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xDhcpServer" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5871,7 +6225,7 @@ to the new module. The prefix &lsquo;MSFT&rsquo; will be removed from all resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xDisk-Module-PowerShell-6b7870ed" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -5956,7 +6310,7 @@ All of the resources in the DSC Resource Kit are provided AS IS, and are not sup
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 10:50</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xDismFeature" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6039,7 +6393,7 @@ All of the resources in the DSC Resource Kit are provided AS IS, and are not sup
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:00</span>
+                      <span class="badge badge-secondary">2025-06-01 18:50</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xDnsServer" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6445,7 +6799,7 @@ values are not available through that cmdlet.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 17:10</span>
+                      <span class="badge badge-secondary">2025-06-01 17:10</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xExchange" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6647,7 +7001,7 @@ the new module. The prefix &lsquo;x&rsquo; will be removed from all resources in
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:40</span>
+                      <span class="badge badge-secondary">2025-06-01 18:40</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xFailOverCluster" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6748,7 +7102,7 @@ to the new module. The prefix &lsquo;x&rsquo; will be removed from all resources
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:50</span>
+                      <span class="badge badge-secondary">2025-06-01 15:30</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xFirefox" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6836,7 +7190,7 @@ to the new module. The prefix &lsquo;x&rsquo; will be removed from all resources
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 17:40</span>
+                      <span class="badge badge-secondary">2025-06-01 18:40</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xHyper-V" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -6999,7 +7353,7 @@ working for Windows Server 2008 R2.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xInternetExplorerHomePage-8dd59db2" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7076,7 +7430,7 @@ working for Windows Server 2008 R2.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-03-30 06:10</span>
+                      <span class="badge badge-secondary">2025-06-01 06:10</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7149,7 +7503,7 @@ working for Windows Server 2008 R2.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 16:20</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xMySql" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7236,7 +7590,7 @@ working for Windows Server 2008 R2.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:50</span>
+                      <span class="badge badge-secondary">2025-06-01 18:50</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xPSDesiredStateConfiguration" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7366,7 +7720,7 @@ working for Windows Server 2008 R2.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:50</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xPendingReboot" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7451,7 +7805,7 @@ working for Windows Server 2008 R2.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xPhp" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7538,7 +7892,7 @@ working for Windows Server 2008 R2.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 09:20</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xPowerShellExecutionPolicy" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7621,7 +7975,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:40</span>
+                      <span class="badge badge-secondary">2025-06-01 18:50</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xRemoteDesktopAdmin" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7698,7 +8052,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-03-24 18:00</span>
+                      <span class="badge badge-secondary">2025-05-30 20:30</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xRemoteDesktopSessionHost" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7830,7 +8184,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 14:30</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xRobocopy" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7916,7 +8270,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xSCDPM-PowerShell-Desired-f86f6777" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -7997,7 +8351,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xSCOM-PowerShell-Desired-052fc73c" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8090,7 +8444,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xSCSMA" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8186,7 +8540,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xSCSPF-PowerShell-Desired-128739a5" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8271,7 +8625,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xSCSR-PowerShell-Desired-195ad3c3" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8350,7 +8704,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xSCVMM-PowerShell-Desired-0025abcc" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8437,7 +8791,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="http://gallery.technet.microsoft.com/scriptcenter/xSafeHarbor-Module-bd705379" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8512,7 +8866,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:40</span>
+                      <span class="badge badge-secondary">2025-06-01 18:40</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xSmbShare" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8603,7 +8957,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xSqlPs" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8696,7 +9050,7 @@ It will no longer be released. Please use the "PowerShellExecutionPolicy" resour
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:40</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xSystemSecurity" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8862,7 +9216,7 @@ Chocolatey.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 17:10</span>
+                      <span class="badge badge-secondary">2025-06-01 17:10</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xTimeZone" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -8945,7 +9299,7 @@ Chocolatey.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 18:50</span>
+                      <span class="badge badge-secondary">2025-06-01 18:30</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xWebAdministration" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -9104,7 +9458,7 @@ switched around in the <code>README.md</code>.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xWebDeploy" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -9188,7 +9542,7 @@ switched around in the <code>README.md</code>.</li>
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 17:10</span>
+                      <span class="badge badge-secondary">2025-06-01 17:10</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xWinEventLog" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -9274,7 +9628,7 @@ Please use the &ldquo;WinEventLog&rdquo; resource in ComputerManagementDsc inste
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 12:50</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/PowerShell/xWindowsEventForwarding" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -9353,7 +9707,7 @@ Please use the &ldquo;WinEventLog&rdquo; resource in ComputerManagementDsc inste
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-04-01 06:00</span>
+                      <span class="badge badge-secondary">2025-06-01 15:00</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://gallery.technet.microsoft.com/xWindowsRestore-PowerShell-3cef691b" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
@@ -9432,7 +9786,7 @@ Please use the &ldquo;WinEventLog&rdquo; resource in ComputerManagementDsc inste
                   </div>
                   <div style="padding:10px">
                       Information fetched on:
-                      <span class="badge badge-secondary">2025-03-31 19:20</span>
+                      <span class="badge badge-secondary">2025-05-31 19:20</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="https://github.com/dsccommunity/xWindowsUpdate" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>
