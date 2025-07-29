@@ -423,10 +423,16 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>DemoDscClass/
 </span></span><span style="display:flex;"><span>├── DemoDscClass.psd1    # Module manifest
 </span></span><span style="display:flex;"><span>└── DemoDscClass.psm1    # Resource implementation
-</span></span></code></pre></div><blockquote>
-<p>[!IMPORTANT]
-Your module manifest filename must match the project folder name. For example, if your folder is named <code>DemoDscClass</code>, your manifest must be <code>DemoDscClass.psd1</code>.</p></blockquote>
-<h2 id="step-2-create-the-module-manifest">Step 2: Create the module manifest</h2>
+</span></span></code></pre></div>
+            <link rel="stylesheet" href="/css/vendors/admonitions.4fd9a0b8ec8899f2ca952048d255a569f433f77dfb3f52f5bc87e7d65cdce449.css" integrity="sha256-T9mguOyImfLKlSBI0lWlafQz9337P1L1vIfn1lzc5Ek=" crossorigin="anonymous">
+    <div class="admonition important">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
+        <span>Important</span>
+      </div>
+      <div class="admonition-content">
+        <p>Your module manifest filename must match the project folder name. For example, if your folder is named <code>DemoDscClass</code>, your manifest must be <code>DemoDscClass.psd1</code>.</p>
+      </div>
+    </div><h2 id="step-2-create-the-module-manifest">Step 2: Create the module manifest</h2>
 <h3 id="use-powershell-to-generate-the-manifest">Use PowerShell to generate the manifest</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$manifestParams = @{
 </span></span><span style="display:flex;"><span>    Path                  = <span style="color:#e6db74">&#39;.\DemoDscClass.psd1&#39;</span>
@@ -459,10 +465,15 @@ Your module manifest filename must match the project folder name. For example, i
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><blockquote>
-<p>[!NOTE]
-More properties are available to set. For more information, read the article <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_module_manifests">about_Module_Manifest</a></p></blockquote>
-<h2 id="step-3-implement-the-resource-class">Step 3: Implement the resource class</h2>
+</span></span></code></pre></div>
+    <div class="admonition note">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/></svg>
+        <span>Note</span>
+      </div>
+      <div class="admonition-content">
+        <p>More properties are available to set. For more information, read the article <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_module_manifests">about_Module_Manifest</a></p>
+      </div>
+    </div><h2 id="step-3-implement-the-resource-class">Step 3: Implement the resource class</h2>
 <h3 id="define-the-class-structure">Define the class structure</h3>
 <p>Create <code>DemoDscClass.psm1</code> and add the basic class definition:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[DscResource()]                   <span style="color:#75715e"># Marks this class as a DSC resource for discovery</span>
@@ -522,10 +533,15 @@ More properties are available to set. For more information, read the article <a 
 <li>Does it make sense to implement <code>Export()</code>?</li>
 <li>Is it a cheap operation to perform?</li>
 </ol>
-<blockquote>
-<p>[!INFO]
-For example, exporting all Windows services from a machine makes sense and is relatily cheap. Exporting the whole registry <em>might</em> make sense, but isn&rsquo;t a cheap operation to perform.</p></blockquote>
-<h3 id="complete-class-implementation">Complete class implementation</h3>
+
+    <div class="admonition info">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+        <span>Info</span>
+      </div>
+      <div class="admonition-content">
+        <p>For example, exporting all Windows services from a machine makes sense and is relatily cheap. Exporting the whole registry <em>might</em> make sense, but isn&rsquo;t a cheap operation to perform.</p>
+      </div>
+    </div><h3 id="complete-class-implementation">Complete class implementation</h3>
 <p>Here&rsquo;s the complete <code>DemoDscClass.psm1</code> file:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[DscResource()] <span style="color:#75715e"># Attribute marking class as DSC resource</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> DemoDscClass {
@@ -577,17 +593,27 @@ For example, exporting all Windows services from a machine makes sense and is re
 </span></span></code></pre></div><p>It&rsquo;s time to install Microsoft DSC v3 and test out the class using <code>dsc</code>.</p>
 <h2 id="step-4-install-microsoft-dsc-v3">Step 4: Install Microsoft DSC v3</h2>
 <p>To easily install the <code>dsc</code> executable, you can use the <a href="https://www.powershellgallery.com/packages/PSDSC/">PSDSC</a> PowerShell community module.</p>
-<blockquote>
-<p>[!INFO]
-The community module only works on PowerShell 7.</p></blockquote>
-<h3 id="install-using-powershell">Install using PowerShell</h3>
+
+    <div class="admonition info">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+        <span>Info</span>
+      </div>
+      <div class="admonition-content">
+        <p>The community module only works on PowerShell 7.</p>
+      </div>
+    </div><h3 id="install-using-powershell">Install using PowerShell</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Install-PSResource PSDSC -TrustRepository -Quiet
 </span></span><span style="display:flex;"><span>Install-DscExe -IncludePrerelease -Force
 </span></span><span style="display:flex;"><span>dsc --version
-</span></span></code></pre></div><blockquote>
-<p>[!NOTE]
-The command also works on other platforms. You can also grab the asset on <a href="https://github.com/PowerShell/Dsc?tab=readme-ov-file#installing-dscv3">GitHub</a> for the platform you&rsquo;re working on.</p></blockquote>
-<h2 id="step-5-test-your-resource">Step 5: Test your resource</h2>
+</span></span></code></pre></div>
+    <div class="admonition note">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/></svg>
+        <span>Note</span>
+      </div>
+      <div class="admonition-content">
+        <p>The command also works on other platforms. You can also grab the asset on <a href="https://github.com/PowerShell/Dsc?tab=readme-ov-file#installing-dscv3">GitHub</a> for the platform you&rsquo;re working on.</p>
+      </div>
+    </div><h2 id="step-5-test-your-resource">Step 5: Test your resource</h2>
 <h3 id="make-powershell-find-your-resource">Make PowerShell find your resource</h3>
 <p>Add your project folder to the module path:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$env:PSModulePath += [<span style="color:#66d9ef">System.IO.Path</span>]::PathSeparator + (Split-Path -Path (Get-Location) -Parent)
@@ -611,10 +637,15 @@ The command also works on other platforms. You can also grab the asset on <a hre
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Export instances</span>
 </span></span><span style="display:flex;"><span>dsc resource export --resource DemoDscClass/DemoDscClass
-</span></span></code></pre></div><blockquote>
-<p>[!TIP]
-To see detailed trace logs, add the <code>--trace-level trace</code> parameter to any DSC command. DSC&rsquo;s default output is YAML if nothing is piped. If you want the raw JSON, you can add the <code>--output-format json</code> option.</p></blockquote>
-<h2 id="step-6-use-configuration-documents">Step 6: Use configuration documents</h2>
+</span></span></code></pre></div>
+    <div class="admonition tip">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></svg>
+        <span>Tip</span>
+      </div>
+      <div class="admonition-content">
+        <p>To see detailed trace logs, add the <code>--trace-level trace</code> parameter to any DSC command. DSC&rsquo;s default output is YAML if nothing is piped. If you want the raw JSON, you can add the <code>--output-format json</code> option.</p>
+      </div>
+    </div><h2 id="step-6-use-configuration-documents">Step 6: Use configuration documents</h2>
 <p>You can also define a configuration document, allowing you to define multiple resource instances. The next section illustrates how you can create such a configuration document.</p>
 <h3 id="create-a-configuration-document">Create a configuration document</h3>
 <p>Create <code>demo.dsc.config.yaml</code>:</p>
@@ -649,10 +680,15 @@ To see detailed trace logs, add the <code>--trace-level trace</code> parameter t
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">properties</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">Key</span>: <span style="color:#ae81ff">Demo</span>
 </span></span></code></pre></div><p>You can now run the configuration file with the same commands ran earlier.</p>
-<blockquote>
-<p>[!WARNING]
-Using implicit syntax comes at a performance cost. Each adapter runs through the DSC engine to find the relative DSC resource. If you run this command for the first time, it can take a while as no caching has taken place.</p></blockquote>
-<h2 id="step-7-write-tests-with-pester">Step 7: Write tests with Pester</h2>
+
+    <div class="admonition warning">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
+        <span>Warning</span>
+      </div>
+      <div class="admonition-content">
+        <p>Using implicit syntax comes at a performance cost. Each adapter runs through the DSC engine to find the relative DSC resource. If you run this command for the first time, it can take a while as no caching has taken place.</p>
+      </div>
+    </div><h2 id="step-7-write-tests-with-pester">Step 7: Write tests with Pester</h2>
 <h3 id="install-pester">Install Pester</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Install-PSResource -Name Pester
 </span></span></code></pre></div><h3 id="create-test-file">Create test file</h3>
@@ -681,10 +717,15 @@ Using implicit syntax comes at a performance cost. Each adapter runs through the
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="run-tests">Run tests</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Invoke-Pester -Script ./DemoDscClass.tests.ps1 -Output Detailed
-</span></span></code></pre></div><blockquote>
-<p>[!WARNING]
-PowerShell cannot reload class definitions in the current session. After modifying a class, you must restart PowerShell for changes to take effect.</p></blockquote>
-<h2 id="troubleshooting">Troubleshooting</h2>
+</span></span></code></pre></div>
+    <div class="admonition warning">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
+        <span>Warning</span>
+      </div>
+      <div class="admonition-content">
+        <p>PowerShell cannot reload class definitions in the current session. After modifying a class, you must restart PowerShell for changes to take effect.</p>
+      </div>
+    </div><h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="dsc-executable-not-found">DSC executable not found</h3>
 <p>If you receive an error when running <code>dsc</code>, verify the installation:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Check if dsc is in PATH</span>
@@ -702,10 +743,15 @@ PowerShell cannot reload class definitions in the current session. After modifyi
 </span></span><span style="display:flex;"><span>Write-Verbose <span style="color:#e6db74">&#34;message&#34;</span>  <span style="color:#75715e"># Causes JSON parsing issues</span>
 </span></span><span style="display:flex;"><span>Write-Warning <span style="color:#e6db74">&#34;message&#34;</span>  <span style="color:#75715e"># Causes JSON parsing issues</span>
 </span></span><span style="display:flex;"><span>Write-Debug <span style="color:#e6db74">&#34;message&#34;</span> <span style="color:#75715e"># Causes JSON parsing issues</span>
-</span></span></code></pre></div><blockquote>
-<p>[!INFO]
-The issue is currently open on <a href="https://github.com/PowerShell/DSC/issues/833">GitHub</a>.</p></blockquote>
-<h2 id="publish-your-resource-optional">Publish your resource (optional)</h2>
+</span></span></code></pre></div>
+    <div class="admonition info">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+        <span>Info</span>
+      </div>
+      <div class="admonition-content">
+        <p>The issue is currently open on <a href="https://github.com/PowerShell/DSC/issues/833">GitHub</a>.</p>
+      </div>
+    </div><h2 id="publish-your-resource-optional">Publish your resource (optional)</h2>
 <p>To share your resource on PowerShell Gallery:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Publish-PSResource -Path .\ -Repository PSGallery -ApiKey &lt;YOUR-API-KEY&gt;
 </span></span></code></pre></div><h2 id="review-and-next-steps">Review and next steps</h2>
