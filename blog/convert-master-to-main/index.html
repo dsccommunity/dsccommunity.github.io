@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Steps to rename master branch to main for a DSC Community resource</title>
 
-  <meta name="generator" content="Hugo 0.136.5">
+  <meta name="generator" content="Hugo 0.148.2">
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -196,6 +196,8 @@
             <li class=" active "><a href="/blog/create-an-article/">Create an Article</a>
             </li>
             <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
+            </li>
+            <li class=" active "><a href="/blog/your-first-class-based-microsoft-dsc-v3-resource/">Your first class-based Microsoft DSC v3 resource</a>
             </li>
             <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
             </li>
@@ -427,8 +429,7 @@ the following commands:</p>
 </span></span></code></pre></div><h3 id="step-2---update-the-pipeline-files-in-the-main-branch-of-your-fork">Step 2 - Update the pipeline files in the main branch of your fork</h3>
 <blockquote>
 <p>Note: If you have an Azure DevOps pipeline linked to your fork of the
-repository then you should be able to validate that these changes work.</p>
-</blockquote>
+repository then you should be able to validate that these changes work.</p></blockquote>
 <p>Some of the pipeline files in the default branch will need to be updated
 to support the new default branch name &lsquo;main&rsquo;. To update these files:</p>
 <h4 id="update-changelogmd">Update: CHANGELOG.md</h4>
@@ -462,8 +463,7 @@ that refers to the <code>master</code> branch in this repository.</p>
 </span></span></code></pre></div><blockquote>
 <p>Note: Care should be taken to not change URLs that refer to files
 in the master branch of other repositories that have not been updated
-to use <code>main</code>.</p>
-</blockquote>
+to use <code>main</code>.</p></blockquote>
 <h4 id="update-azure-pipelinesyml">Update: azure-pipelines.yml</h4>
 <ol>
 <li>Update the <code>trigger\branches\include</code> section to be <code>main</code></li>
@@ -510,8 +510,7 @@ these values to be set. If that is the case then it is also likely that
 adjustments will also need to be made to <a href="https://github.com/gaelcolas/Sampler">Sampler</a>.
 Please <a href="https://github.com/gaelcolas/Sampler/issues">raise an issue over in the Sampler repository</a>
 if you have a Sampler task that needs to be notified of the change to the
-name of <code>master</code> branch.</p>
-</blockquote>
+name of <code>master</code> branch.</p></blockquote>
 <ol>
 <li>Update the <code>deploy</code> stage <code>condition</code> by changing the
 <code>refs/heads/master</code> to <code>refs/heads/main</code>:</li>
@@ -526,7 +525,7 @@ name of <code>master</code> branch.</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          startsWith(variables[&#39;Build.SourceBranch&#39;], &#39;refs/tags/&#39;)
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ),
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        contains(variables[&#39;System.TeamFoundationCollectionUri&#39;], &#39;dsccommunity&#39;)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      )</span>      
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      )</span>
 </span></span></code></pre></div><h4 id="update-buildyml">Update: build.yml</h4>
 <p>In the <code>build.yml</code> file in the <code>DscTest</code> section add the line:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">MainGitBranch</span>: <span style="color:#ae81ff">main</span>
@@ -558,8 +557,7 @@ rename the default branch in the next step.</p>
 <p><strong>NOTE:</strong> Due to Azure DevOps is using an older version of GitVersion
 it could seem that the pipeline will still work, but running
 <code>.\build.ps -Task build</code> locally with GitVersion v5.6 or higher installed
-will fail the pipeline. This is resolved in the next step.</p>
-</blockquote>
+will fail the pipeline. This is resolved in the next step.</p></blockquote>
 <h3 id="step-3---rename-the-github-default-branch-in-your-fork-to-main">Step 3 - Rename the GitHub default branch in your fork to main</h3>
 <p>In your web browser:</p>
 <ol>
@@ -622,14 +620,12 @@ member.</p>
 The failures will usually occur in the &lsquo;Run HQRM Test&rsquo; task in the &lsquo;HQRM&rsquo;
 stage. This is expected behavior and is unavoidable at this point. This
 pull request will need to be merged in the next step regardless of the
-build failures which will be fixed in subsequent steps.</p>
-</blockquote>
+build failures which will be fixed in subsequent steps.</p></blockquote>
 <p>A maintainer with admin privileges will need to merge this pull request:</p>
 <img src="../../images/convert-master-to-main/github-merge-pull-request-use-admin-privs.png" alt="GitHub merge pull request using administrator privileges" style="width:425px;" />
 <blockquote>
 <p>Note: Using a merge commit or rebase merge are both acceptable. A
-squash merge is not required.</p>
-</blockquote>
+squash merge is not required.</p></blockquote>
 <h4 id="step-8---rename-the-github-default-branch-in-upstream-dsc-community-repository-to-main">Step 8 - Rename the GitHub Default branch in upstream DSC Community repository to main</h4>
 <p>In your web browser:</p>
 <ol>

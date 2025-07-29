@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Class Based DSC Resource only proposal</title>
 
-  <meta name="generator" content="Hugo 0.136.5">
+  <meta name="generator" content="Hugo 0.148.2">
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -197,6 +197,8 @@
             </li>
             <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
             </li>
+            <li class=" active "><a href="/blog/your-first-class-based-microsoft-dsc-v3-resource/">Your first class-based Microsoft DSC v3 resource</a>
+            </li>
             <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
             </li>
             <li class=" active "><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
@@ -353,12 +355,8 @@
 <p>The suggested change was only for DSC Resources schema, and no changes to MOF compilations was announced for now. Removing the CIM/MI/MOF code and dependency is definitely an overarching goal for PowerShell, but it won&rsquo;t happen overnight.</p>
 <p>Let&rsquo;s add that when we mention change to PowerShell, it only affects the version 7.2 and up. <strong>Windows PowerShell 5.1 will (mostly) be untouched and unaffected</strong>.</p>
 <p>After discussing the matter with the community via the GitHub issues, Twitter, and the DSC Community Call, the Powershell team published a change of direction: they intend to <a href="https://github.com/PowerShell/PowerShell/issues/13731">start with supporting DSC Class based resources only</a> (but are still open for discussion).</p>
-
-
-    
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/toTwph350zY?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
-      ></iframe>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/toTwph350zY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
 <h1 id="opinions">Opinions</h1>
@@ -426,8 +424,7 @@ Bear in mind that was more than 7 years ago, as WMF 4.0 was <a href="https://dev
 Bear in mind PS 5.1 is set in stone, so it won&rsquo;t get updated.</p>
 <p>And that leads us to <strong>the major flaw</strong>, in my opinion, for <a href="https://github.com/PowerShell/PowerShell/issues/13359">the former JSON-based DSC resource proposal</a>: We&rsquo;d have to replace the <code>[Microsoft.Management.Infrastructure.CimInstance[]]</code> with <code>[PSObject]</code>.</p>
 <blockquote>
-<p>With this change, embedded objects passed to Get/Set/Test will be PSObjects instead of CimInstances. Unless the script is explicitly checking that it is a CimInstance, existing code should work with PSObject.</p>
-</blockquote>
+<p>With this change, embedded objects passed to Get/Set/Test will be PSObjects instead of CimInstances. Unless the script is explicitly checking that it is a CimInstance, existing code should work with PSObject.</p></blockquote>
 <p>Doing so would <strong>break compatibility between PS 5.1 and PS 7+</strong> for any resource using such subtypes / embedded objects.</p>
 <p>Using class-based DSC resource, and the <code>if {} else {}</code> workaround I mentioned above, would support greater backward compatibility scenarios.</p>
 <p>Obviously, there&rsquo;s still a lot of differences between PS5.1 and PS7 which means for some resources it may not be possible to be used in PS7 anyway<br>
@@ -450,12 +447,8 @@ Older versions of the resource modules are still available in the gallery if nee
 <p>Since then we had a DSC Community call were Bartek Bielawski (<a href="https://twitter.com/bielawb?lang=en">@bielawb</a> on Twitter) came to <a href="https://youtu.be/r-eKNZ7iEfw?t=172">present on the class resources</a> that he&rsquo;s been using in production for a while (along with Daniel Both <a href="https://twitter.com/poshboth">@poshboth</a>).<br>
 We also got more experience with Class-based resource with <a href="https://github.com/dsccommunity/JeaDsc/tree/master/source/DSCClassResources"><code>JeaDsc</code></a>, although it&rsquo;s not the approach I would <em>recommend</em> today. Great experience nonetheless, and great work.</p>
 <p>We&rsquo;ve made several changes to our pipeline automation, and getting to a point (soon) where adding DSC Class Resource should be easier.</p>
-
-
-    
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/bbpFBsl8K9k?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
-      ></iframe>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/bbpFBsl8K9k?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
 <p>I also had to dig a lot deeper when I worked on the <code>Invoke-DscResource</code> RFC with the PowerShell team for PowerShell 7.</p>
@@ -481,8 +474,7 @@ This was well documented by Ben Gelens (<a href="https://twitter.com/bgelens">@b
 </span></span><span style="display:flex;"><span>Mock -CommandName Get-Service -MockWith {[<span style="color:#66d9ef">pscustomobject</span>]@{Name=<span style="color:#e6db74">&#39;Docker&#39;</span>}}
 </span></span></code></pre></div><p>Worth noting, Jakub Jares (<a href="https://twitter.com/nohwnd">@nohwnd</a>, the maintainer of Pester) is <a href="https://twitter.com/nohwnd/status/1308715571756912640?s=20">suggesting to build this in Pester 5</a> (go upvote now, please).</p>
 <blockquote>
-<p><a href="https://twitter.com/nohwnd/status/1308752521142435842?s=20"><em>@nowhnd:</em></a> The api would probably look like this:  Mock -Type ([DateTime]) -Property Now -Get <the value> But imho the final form is not that important. It does work on PowerShell  classes. In the end you should be able to use this to replace almost any method and property.</p>
-</blockquote>
+<p><a href="https://twitter.com/nohwnd/status/1308752521142435842?s=20"><em>@nowhnd:</em></a> The api would probably look like this:  Mock -Type ([DateTime]) -Property Now -Get <the value> But imho the final form is not that important. It does work on PowerShell  classes. In the end you should be able to use this to replace almost any method and property.</p></blockquote>
 <p>Again, that&rsquo;s definitely something that we will work on and document, but I don&rsquo;t see this as a major obstacle.<br>
 We could also mock by inheriting the class and overridding that method.</p>
 <p>Now, I&rsquo;d like to slide-in another opinion, which might be unpopular, but your DSC Resource PSM1 or Class should not be thousands of lines long.<br>

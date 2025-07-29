@@ -1,0 +1,782 @@
+<head>
+  <meta charset="utf-8">
+  <title>Your first class-based Microsoft DSC v3 resource</title>
+
+  <meta name="generator" content="Hugo 0.148.2">
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/themify-icons/themify-icons.css">
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://dsccommunity.org/plugins/highlight/hybrid.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+
+  <style>
+  :root{
+    --primary-color:#003366;
+    --secondary-color:#f9f9f9;
+    --text-color:#242738;
+    --text-color-dark:#000;
+    --white-color:#ffffff;
+  }
+  </style>
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://dsccommunity.org/css/style.min.css" integrity="" media="screen">
+
+  <!-- jquiry -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-1.12.4.js"></script>
+
+  <!-- jquary ui -->
+  <script src="https://dsccommunity.org/plugins/jquery/jquery-ui.js"></script>
+
+  <!--Favicon-->
+  <link rel="icon" href="https://dsccommunity.org/images/favicon.png" type="image/x-icon">
+
+</head>
+
+<!-- navigation -->
+<header class="shadow-bottom sticky-top bg-white">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="https://dsccommunity.org/">DSC Community and Resource Kit</a>
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse text-center" id="navigation">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="https://dsccommunity.org/">Home</a>
+      </li>
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/code_of_conduct">Code of Conduct</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/community_calls">Community Calls</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/faq">Faq</a>
+      </li>
+      
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-dark" href="/help">help</a>
+      </li>
+      
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" >
+          
+          <a class="dropdown-item" href="/community">Community</a>
+          
+          <a class="dropdown-item" href="/resources">Resource Modules</a>
+          
+          <a class="dropdown-item" href="/guidelines">Guidelines</a>
+          
+          <a class="dropdown-item" href="/blog">Blog Posts</a>
+          
+          <a class="dropdown-item" href="/configmgt">Config. Management</a>
+          
+        </div>
+      </li>
+      
+      
+    </ul>
+    
+    <ul class="list-inline text-center mb-0">
+      
+      <li class="list-inline-item"><a class="text-dark" href="https://dsccommunity.org/"></a></li>
+      
+    </ul>
+  </div>
+</nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<section class="single pt-5 bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="p-4 bg-white sticky-top top-100">
+            
+            <nav class="sidebar-menu">
+              <ul class="list-styled">
+            <li class=" active "><a href="/community/">Community</a>
+              <ul class="">
+            <li class=" active "><a href="/community/origin-story/">Origin Story</a>
+            </li>
+            <li class=" active "><a href="/community/ownership/">Ownership of DSC Resources</a>
+            </li>
+            <li class=" active "><a href="/community/committee/">DSC Community Committee</a>
+            </li>
+            <li class=" active "><a href="/community/maintainers/">Maintainers</a>
+            </li>
+            <li class=" active "><a href="/community/contact/">Join the Conversation</a>
+            </li></ul>
+              
+            </li>
+            <li class=" active "><a href="/resources/">Resource Modules</a>
+            </li>
+            <li class=" active "><a href="/guidelines/">Guidelines</a>
+              <ul class="">
+            <li class=" active "><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
+            </li>
+            <li class=" active "><a href="/guidelines/contributing/">Contributing</a>
+            </li>
+            <li class=" active "><a href="/guidelines/maintaining/">Maintaining</a>
+            </li>
+            <li class=" active "><a href="/guidelines/style-guidelines/">Style Guidelines</a>
+            </li>
+            <li class=" active "><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
+            </li>
+            <li class=" active "><a href="/guidelines/administration/">Administration</a>
+            </li></ul>
+              
+            </li>
+            <li class=" active "><a href="/styleguidelines/">Style Guidelines</a>
+              <ul class="">
+            <li class=" active "><a href="/styleguidelines/markdown-files/">Markdown Files</a>
+            </li>
+            <li class=" active "><a href="/styleguidelines/general/">General</a>
+            </li>
+            <li class=" active "><a href="/styleguidelines/whitespace/">Whitespace</a>
+            </li>
+            <li class=" active "><a href="/styleguidelines/functions/">Functions</a>
+            </li>
+            <li class=" active "><a href="/styleguidelines/parameters/">Parameters</a>
+            </li>
+            <li class=" active "><a href="/styleguidelines/variables/">Variables</a>
+            </li>
+            <li class=" active "><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
+            </li>
+            <li class=" active "><a href="/styleguidelines/calling-functions/">Calling Functions</a>
+            </li>
+            <li class=" active "><a href="/styleguidelines/writing-functions/">Writing Functions</a>
+            </li>
+            <li class=" active "><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
+            </li>
+            <li class=" active "><a href="/styleguidelines/manifest/">Manifest</a>
+            </li>
+            <li class=" active "><a href="/styleguidelines/localization/">Localization</a>
+            </li>
+            <li class=" active "><a href="/styleguidelines/pester-tests/">Pester Tests</a>
+            </li></ul>
+              
+            </li>
+            <li class="parent d-block  active "><a href="/blog/">Blog Posts</a>
+              <ul class="sub-menu">
+            <li class=" active "><a href="/blog/create-an-article/">Create an Article</a>
+            </li>
+            <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
+            </li>
+            <li class=" active "><a href="/blog/your-first-class-based-microsoft-dsc-v3-resource/">Your first class-based Microsoft DSC v3 resource</a>
+            </li>
+            <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
+            </li>
+            <li class=" active "><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
+            </li>
+            <li class=" active "><a href="/blog/class-based-dsc-resources/">Class Based DSC Resource only proposal</a>
+            </li>
+            <li class=" active "><a href="/blog/converting-tests-to-pester5/">Converting tests to Pester 5</a>
+            </li>
+            <li class=" active "><a href="/blog/updating-sampler-github-tasks/">Updating repo with Sampler.GitHubTasks</a>
+            </li>
+            <li class=" active "><a href="/blog/add-codecov-support-to-repository/">Add Code Coverage Support to Repository</a>
+            </li>
+            <li class=" active "><a href="/blog/use-dscresource-common-functions-in-module/">DscResource.Common functions in a DSC module</a>
+            </li>
+            <li class=" active "><a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a>
+            </li>
+            <li class=" active "><a href="/blog/how-to-use-dsc-logging/">How to Use DSC Logging</a>
+            </li>
+            <li class=" active "><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
+            </li></ul>
+              
+            </li>
+            <li class=" active "><a href="/configmgt/">Configuration Management</a>
+              <ul class="">
+            <li class=" active "><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
+            </li></ul>
+              
+            </li>
+            <li class=" active "><a href="/community_calls/">Community Calls</a>
+              <ul class="">
+            <li class=" active "><a href="/community_calls/next_call/">Next Community Calls</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2025-02-06-notes/">2025-02-07 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2025-03-29-notes/">2025-03-29 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2024-11-14-notes/">2024-11-14 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2025-06-11-notes/">2025-06-11 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2024-10-11-notes/">2024-10-11 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2024-08-26-notes/">2024-08-26 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2024-05-29-notes/">2024-05-29 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2024-04-19-notes/">2024-04-19 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2024-03-19-notes/">2024-03-19 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2023-11-02-notes/">2023-11-02 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2023-09-20-notes/">2023-09-20 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2023-04-05-notes/">2023-04-05 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2023-02-22-notes/">2023-02-22 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2023-01-11-notes/">2023-01-11 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2022-11-30-notes/">2022-11-30 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2022-10-19-notes/">2022-10-19 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2022-05-04-notes/">2022-05-04 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2022-09-07-notes/">2022-09-07 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2022-03-23-notes/">2022-03-23 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2022-02-16-notes/">2022-02-16 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2021-11-17-notes/">2021-11-17 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2021-10-06-notes/">2021-10-06 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2021-08-25-notes/">2021-08-25 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2021-04-21-notes/">2021-04-21 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2021-03-10-notes/">2021-03-10 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2021-01-27-notes/">2021-01-27 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2020-12-16-notes/">2020-12-16 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2020-09-23-notes/">2020-09-23 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2020-08-12-notes/">2020-08-12 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2020-07-01-notes/">2020-07-01 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2020-05-20-notes/">2020-05-20 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2020-02-26-notes/">2020-02-26 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2020-01-22-notes/">2020-01-22 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2019-12-04-notes/">2019-12-04 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
+            </li>
+            <li class=" active "><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
+            </li></ul>
+              
+            </li>
+            <li class=" active "><a href="/code_of_conduct/">Code of Conduct</a>
+              <ul class="">
+            <li class=" active "><a href="/code_of_conduct/standards/">Our Standards</a>
+            </li>
+            <li class=" active "><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
+            </li>
+            <li class=" active "><a href="/code_of_conduct/scope/">Scope</a>
+            </li>
+            <li class=" active "><a href="/code_of_conduct/enforcement/">Enforcement</a>
+            </li>
+            <li class=" active "><a href="/code_of_conduct/common_questions/">Common Questions</a>
+            </li>
+            <li class=" active "><a href="/code_of_conduct/attribution/">Attribution</a>
+            </li></ul>
+              
+            </li>
+            <li class=" active "><a href="/help/">Help</a>
+              <ul class="">
+            <li class=" active "><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
+            </li>
+            <li class=" active "><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
+            </li></ul>
+              
+            </li>
+            <li class=" active "><a href="/contributors/">Elements</a>
+            </li>
+            <li class=" active "><a href="/faq/">Frequently Asked Questions</a>
+            </li></ul>
+            </nav>
+
+            
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-5 bg-white">
+            <h2>Your first class-based Microsoft DSC v3 resource</h2>
+            <p>Microsoft Desired State Configuration (DSC) v3 represents the next generation of configuration management with cross-platform support. By creating class-based resources, you can build reusable components that work across both modern DSC v3 and legacy PSDSC engines. This tutorial walks you through creating your first DSC resource from scratch.</p>
+<p>In this tutorial, you learn how to:</p>
+<ul>
+<li>Design class-based DSC resources that support Microsoft DSC v3 capabilities.</li>
+<li>Implement the required lifecycle methods.</li>
+<li>Test your resource locally.</li>
+<li>Run your resource with DSC v3 configuration documents.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>PowerShell 7.2 or later installed on Windows, macOS, or Linux</li>
+<li>Basic knowledge of PowerShell scripting and Pester syntax</li>
+<li>A text editor or IDE (Visual Studio Code recommended)</li>
+</ul>
+<h2 id="what-is-a-dsc-resource">What is a DSC resource?</h2>
+<p>A DSC (Desired State Configuration) resource is a building block that tells the engine how to <strong>reach</strong> and <strong>maintain</strong> a desired state. Think of it as a PowerShell class with four lifecycle methods:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Method</th>
+          <th style="text-align: left">Purpose</th>
+          <th style="text-align: left">Returns</th>
+          <th style="text-align: left">Compatibility</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>Get()</code></td>
+          <td style="text-align: left">Retrieves current state</td>
+          <td style="text-align: left">Hashtable with current values</td>
+          <td style="text-align: left">All</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>Test()</code></td>
+          <td style="text-align: left">Validates desired state</td>
+          <td style="text-align: left"><code>$true</code> if compliant, <code>$false</code> if not</td>
+          <td style="text-align: left">All</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>Set()</code></td>
+          <td style="text-align: left">Applies desired state</td>
+          <td style="text-align: left">Nothing (void)</td>
+          <td style="text-align: left">All</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>Export()</code></td>
+          <td style="text-align: left">Exports configuration</td>
+          <td style="text-align: left">Array of resource instances</td>
+          <td style="text-align: left">V3 only</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="why-use-class-based-resources">Why use class-based resources?</h2>
+<p>Class-based DSC resources offer a modern, object-oriented approach to configuration management in PowerShell. Benefits include:</p>
+<ul>
+<li><strong>Broad compatibility</strong>: Works with both DSC v3 and legacy PSDSC engines</li>
+<li><strong>Cleaner code</strong>: Encapsulates logic in a structured, maintainable way</li>
+<li><strong>Cross-platform support</strong>: Runs on Windows, Linux, and macOS with proper implementation</li>
+</ul>
+<h3 id="are-class-based-resources-the-future-of-dsc">Are class-based resources the future of DSC?</h3>
+<p>While class-based resources are currently the recommended pattern for PowerShell DSC resource authoring, DSC v3 supports multiple languages and resource types. You can author resources in <a href="https://powershell.github.io/DSC-Samples/languages/go/first-resource/">Go</a>, C#, Python and other languages. Class-based resources remain well-supported but may not be the only model in the future.</p>
+<p>For example, if your organization migrates from Windows-only infrastructure to a mix of Windows and Linux, or adopts newer versions of PowerShell, class-based resources help ensure your automation investments remain valid and portable across both the new Microsoft DSC v3 engine and the older PSDSC engine.</p>
+<p>In the next section, you will learn to set up a project structure with a class-based DSC resource named <code>DemoDscClass</code>.</p>
+<h2 id="step-1-create-the-project-structure">Step 1: Create the project structure</h2>
+<p>Create a new folder for your DSC resource module:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create and navigate to project folder</span>
+</span></span><span style="display:flex;"><span>mkdir DemoDscClass
+</span></span><span style="display:flex;"><span>cd DemoDscClass
+</span></span></code></pre></div><p>Your project structure should look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>DemoDscClass/
+</span></span><span style="display:flex;"><span>├── DemoDscClass.psd1    # Module manifest
+</span></span><span style="display:flex;"><span>└── DemoDscClass.psm1    # Resource implementation
+</span></span></code></pre></div><blockquote>
+<p>[!IMPORTANT]
+Your module manifest filename must match the project folder name. For example, if your folder is named <code>DemoDscClass</code>, your manifest must be <code>DemoDscClass.psd1</code>.</p></blockquote>
+<h2 id="step-2-create-the-module-manifest">Step 2: Create the module manifest</h2>
+<h3 id="use-powershell-to-generate-the-manifest">Use PowerShell to generate the manifest</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$manifestParams = @{
+</span></span><span style="display:flex;"><span>    Path                  = <span style="color:#e6db74">&#39;.\DemoDscClass.psd1&#39;</span>
+</span></span><span style="display:flex;"><span>    RootModule            = <span style="color:#e6db74">&#39;DemoDscClass.psm1&#39;</span>
+</span></span><span style="display:flex;"><span>    DscResourcesToExport  = <span style="color:#e6db74">&#39;DemoDscClass&#39;</span>
+</span></span><span style="display:flex;"><span>    ModuleVersion         = <span style="color:#e6db74">&#39;0.0.1&#39;</span>
+</span></span><span style="display:flex;"><span>    CompatiblePSEditions  = @(<span style="color:#e6db74">&#39;Desktop&#39;</span>, <span style="color:#e6db74">&#39;Core&#39;</span>)
+</span></span><span style="display:flex;"><span>    PowerShellVersion     = <span style="color:#e6db74">&#39;5.1&#39;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>New-ModuleManifest @manifestParams
+</span></span></code></pre></div><h3 id="or-create-manually">Or create manually</h3>
+<p>You can also create <code>DemoDscClass.psd1</code> using any text editor:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>@{
+</span></span><span style="display:flex;"><span>    RootModule = <span style="color:#e6db74">&#39;DemoDscClass.psm1&#39;</span>
+</span></span><span style="display:flex;"><span>    ModuleVersion = <span style="color:#e6db74">&#39;0.0.1&#39;</span>
+</span></span><span style="display:flex;"><span>    CompatiblePSEditions = <span style="color:#e6db74">&#39;Desktop&#39;</span>, <span style="color:#e6db74">&#39;Core&#39;</span>
+</span></span><span style="display:flex;"><span>    GUID = <span style="color:#e6db74">&#39;03ac4e95-e504-468d-add4-f099e2368239&#39;</span> <span style="color:#75715e"># Change the GUID using New-Guid command</span>
+</span></span><span style="display:flex;"><span>    Author = <span style="color:#e6db74">&#39;username&#39;</span>
+</span></span><span style="display:flex;"><span>    CompanyName = <span style="color:#e6db74">&#39;Unknown&#39;</span>
+</span></span><span style="display:flex;"><span>    Copyright = <span style="color:#e6db74">&#39;(c) developer. All rights reserved.&#39;</span>
+</span></span><span style="display:flex;"><span>    PowerShellVersion = <span style="color:#e6db74">&#39;5.1&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Function</span>sToExport = <span style="color:#e6db74">&#39;*&#39;</span>
+</span></span><span style="display:flex;"><span>    CmdletsToExport = <span style="color:#e6db74">&#39;*&#39;</span>
+</span></span><span style="display:flex;"><span>    VariablesToExport = <span style="color:#e6db74">&#39;*&#39;</span>
+</span></span><span style="display:flex;"><span>    AliasesToExport = <span style="color:#e6db74">&#39;*&#39;</span>
+</span></span><span style="display:flex;"><span>    DscResourcesToExport = <span style="color:#e6db74">&#39;DemoDscClass&#39;</span>
+</span></span><span style="display:flex;"><span>    PrivateData = @{
+</span></span><span style="display:flex;"><span>        PSData = @{
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>[!NOTE]
+More properties are available to set. For more information, read the article <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_module_manifests">about_Module_Manifest</a></p></blockquote>
+<h2 id="step-3-implement-the-resource-class">Step 3: Implement the resource class</h2>
+<h3 id="define-the-class-structure">Define the class structure</h3>
+<p>Create <code>DemoDscClass.psm1</code> and add the basic class definition:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[DscResource()]                   <span style="color:#75715e"># Marks this class as a DSC resource for discovery</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> DemoDscClass {
+</span></span><span style="display:flex;"><span>    [DscProperty(Key)]            <span style="color:#75715e"># Key property (uniquely identifies resource)</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">System.String</span>] $Key
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    [DscProperty()]               <span style="color:#75715e"># Optional property</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">System.String</span>] $OptionalProperty
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    DemoDscClass() {              <span style="color:#75715e"># Constructor (optional)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># initialization logic here</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="add-the-get-method">Add the Get() method</h3>
+<p>The <code>Get()</code> method retrieves the current state:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>    [<span style="color:#66d9ef">DemoDscClass</span>] Get() {
+</span></span><span style="display:flex;"><span>        Write-Verbose -Message <span style="color:#e6db74">&#39;Get called&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $currentState = @{
+</span></span><span style="display:flex;"><span>          Key = $this.Key
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> $currentState
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h3 id="add-the-test-method">Add the Test() method</h3>
+<p>The <code>Test()</code> method checks if the current state matches the desired state:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>    [<span style="color:#66d9ef">System.Boolean</span>] Test() {
+</span></span><span style="display:flex;"><span>        Write-Verbose -Message <span style="color:#e6db74">&#39;Test called - always returns $false to demo Set()&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> $false             <span style="color:#75715e"># Always returns false for demo</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h3 id="add-the-set-method">Add the Set() method</h3>
+<p>The <code>Set()</code> method applies the desired state:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>    [<span style="color:#66d9ef">void</span>] Set() {
+</span></span><span style="display:flex;"><span>        Write-Verbose -Message <span style="color:#e6db74">&#39;Set called - no changes are applied for demo&#39;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h3 id="add-the-export-method">Add the Export() method</h3>
+<p>The <code>Export()</code> method exports every instance of a set of resources in Microsoft DSC v3.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>    static [<span style="color:#66d9ef">DemoDscClass[]</span>] Export() {
+</span></span><span style="display:flex;"><span>        Write-Verbose -Message <span style="color:#e6db74">&#39;Export called - returning three demo instances&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $resultList = [<span style="color:#66d9ef">System.Collections.Generic.List[DemoDscClass]</span>]::new()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">.3</span> | ForEach-Object -Process {
+</span></span><span style="display:flex;"><span>            $obj = New-Object DemoDscClass
+</span></span><span style="display:flex;"><span>            $obj.Key = <span style="color:#e6db74">&#39;Demo{0}&#39;</span> <span style="color:#f92672">-f</span> $_
+</span></span><span style="display:flex;"><span>            $obj.OptionalProperty = <span style="color:#e6db74">&#39;Value of OptionalProperty for Demo{0}&#39;</span> <span style="color:#f92672">-f</span> $_
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            $resultList.Add($obj)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> $resultList.ToArray()
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>You can only call the <code>Export()</code> method by instantiating the class. Prior DSC versions can&rsquo;t directly invoke the capability. Also remember, not all classes should implement <code>Export()</code>. Always ask two questions:</p>
+<ol>
+<li>Does it make sense to implement <code>Export()</code>?</li>
+<li>Is it a cheap operation to perform?</li>
+</ol>
+<blockquote>
+<p>[!INFO]
+For example, exporting all Windows services from a machine makes sense and is relatily cheap. Exporting the whole registry <em>might</em> make sense, but isn&rsquo;t a cheap operation to perform.</p></blockquote>
+<h3 id="complete-class-implementation">Complete class implementation</h3>
+<p>Here&rsquo;s the complete <code>DemoDscClass.psm1</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[DscResource()] <span style="color:#75715e"># Attribute marking class as DSC resource</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> DemoDscClass {
+</span></span><span style="display:flex;"><span>    [DscProperty(Key)] <span style="color:#75715e"># Declares a key property (must uniquely identify the resource instance), at least one key property is required for all DSC resources</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">System.String</span>] $Key
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    [DscProperty()]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">System.String</span>] $OptionalProperty <span style="color:#75715e"># Optional DSC property</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    DemoDscClass() {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># init logic here</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">DemoDscClass</span>] Get() { <span style="color:#75715e"># Returns the current state as a hashtable (DSC accepts either a class instance or a hashtable)</span>
+</span></span><span style="display:flex;"><span>        Write-Verbose -Message <span style="color:#e6db74">&#39;Get called&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $currentState = @{
+</span></span><span style="display:flex;"><span>          Key = $this.Key
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> $currentState
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">System.Boolean</span>] Test() {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Checks if the current state matches the desired state        Write-Verbose -Message &#39;Test called - always returns $false to demo Set()&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> $false <span style="color:#75715e"># Always returns false to force Set() for demo</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">void</span>] Set() { <span style="color:#75715e"># Applies the desired state (no-op in this demo)</span>
+</span></span><span style="display:flex;"><span>        Write-Verbose -Message <span style="color:#e6db74">&#39;Set called - no changes are applied for demo&#39;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    static [<span style="color:#66d9ef">DemoDscClass[]</span>] Export() { <span style="color:#75715e"># New capability in Microsoft DSC v3</span>
+</span></span><span style="display:flex;"><span>        Write-Verbose -Message <span style="color:#e6db74">&#39;Export called - returning three demo instances&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $resultList = [<span style="color:#66d9ef">System.Collections.Generic.List[DemoDscClass]</span>]::new()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">.3</span> | ForEach-Object -Process { <span style="color:#75715e"># In a real resource, return an array of actual resource instances</span>
+</span></span><span style="display:flex;"><span>            $obj = New-Object DemoDscClass
+</span></span><span style="display:flex;"><span>            $obj.Key = <span style="color:#e6db74">&#39;Demo{0}&#39;</span> <span style="color:#f92672">-f</span> $_
+</span></span><span style="display:flex;"><span>            $obj.OptionalProperty = <span style="color:#e6db74">&#39;Value of OptionalProperty for Demo{0}&#39;</span> <span style="color:#f92672">-f</span> $_
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            $resultList.Add($obj)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> $resultList.ToArray()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>It&rsquo;s time to install Microsoft DSC v3 and test out the class using <code>dsc</code>.</p>
+<h2 id="step-4-install-microsoft-dsc-v3">Step 4: Install Microsoft DSC v3</h2>
+<p>To easily install the <code>dsc</code> executable, you can use the <a href="https://www.powershellgallery.com/packages/PSDSC/">PSDSC</a> PowerShell community module.</p>
+<blockquote>
+<p>[!INFO]
+The community module only works on PowerShell 7.</p></blockquote>
+<h3 id="install-using-powershell">Install using PowerShell</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Install-PSResource PSDSC -TrustRepository -Quiet
+</span></span><span style="display:flex;"><span>Install-DscExe -IncludePrerelease -Force
+</span></span><span style="display:flex;"><span>dsc --version
+</span></span></code></pre></div><blockquote>
+<p>[!NOTE]
+The command also works on other platforms. You can also grab the asset on <a href="https://github.com/PowerShell/Dsc?tab=readme-ov-file#installing-dscv3">GitHub</a> for the platform you&rsquo;re working on.</p></blockquote>
+<h2 id="step-5-test-your-resource">Step 5: Test your resource</h2>
+<h3 id="make-powershell-find-your-resource">Make PowerShell find your resource</h3>
+<p>Add your project folder to the module path:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$env:PSModulePath += [<span style="color:#66d9ef">System.IO.Path</span>]::PathSeparator + (Split-Path -Path (Get-Location) -Parent)
+</span></span></code></pre></div><p>This commands adds your current directory to be searchable. PowerShell can now find your DSC resource when you list or invoke capabilities against it.</p>
+<h3 id="list-available-resources">List available resources</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>dsc resource list --adapter Microsoft.DSC/PowerShell
+</span></span></code></pre></div><p>If you want to find the <code>DemoDscClass</code>, you can filter on it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>dsc resource list --adapter Microsoft.DSC/PowerShell DemoDscClass*
+</span></span></code></pre></div><p>You should see <code>DemoDscClass</code> in the list.</p>
+<h3 id="test-lifecycle-operations">Test lifecycle operations</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$desiredParameters = @{ Key = <span style="color:#e6db74">&#39;Demo&#39;</span> } | ConvertTo-Json -Compress
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get current state</span>
+</span></span><span style="display:flex;"><span>dsc resource get --resource DemoDscClass/DemoDscClass --input $desiredParameters
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Test compliance</span>
+</span></span><span style="display:flex;"><span>dsc resource test --resource DemoDscClass/DemoDscClass --input $desiredParameters
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Apply configuration</span>
+</span></span><span style="display:flex;"><span>dsc resource set --resource DemoDscClass/DemoDscClass --input $desiredParameters
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Export instances</span>
+</span></span><span style="display:flex;"><span>dsc resource export --resource DemoDscClass/DemoDscClass
+</span></span></code></pre></div><blockquote>
+<p>[!TIP]
+To see detailed trace logs, add the <code>--trace-level trace</code> parameter to any DSC command. DSC&rsquo;s default output is YAML if nothing is piped. If you want the raw JSON, you can add the <code>--output-format json</code> option.</p></blockquote>
+<h2 id="step-6-use-configuration-documents">Step 6: Use configuration documents</h2>
+<p>You can also define a configuration document, allowing you to define multiple resource instances. The next section illustrates how you can create such a configuration document.</p>
+<h3 id="create-a-configuration-document">Create a configuration document</h3>
+<p>Create <code>demo.dsc.config.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">$schema</span>: <span style="color:#ae81ff">https://aka.ms/dsc/schemas/v3/bundled/config/document.json</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">resources</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Demo Dsc Class</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">Microsoft.DSC/PowerShell</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">properties</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">resources</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Demo Dsc Class 1</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DemoDscClass/DemoDscClass</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">properties</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">Key</span>: <span style="color:#ae81ff">Demo</span>
+</span></span></code></pre></div><h3 id="run-configuration-commands">Run configuration commands</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Get current state</span>
+</span></span><span style="display:flex;"><span>dsc config get --file demo.dsc.config.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Test compliance</span>
+</span></span><span style="display:flex;"><span>dsc config test --file demo.dsc.config.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Apply configuration</span>
+</span></span><span style="display:flex;"><span>dsc config set --file demo.dsc.config.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Export configuration</span>
+</span></span><span style="display:flex;"><span>dsc config export --file demo.dsc.config.yaml
+</span></span></code></pre></div><h3 id="use-implicit-syntax-optional">Use implicit syntax (optional)</h3>
+<p>Microsoft DSC v3 allows you to implicitly call the DSC class-based resource. Create <code>demo-implicit.dsc.config.yaml</code> for a simpler approach:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">$schema</span>: <span style="color:#ae81ff">https://aka.ms/dsc/schemas/v3/bundled/config/document.json</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">resources</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Demo Dsc Class 1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DemoDscClass/DemoDscClass</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">properties</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Key</span>: <span style="color:#ae81ff">Demo</span>
+</span></span></code></pre></div><p>You can now run the configuration file with the same commands ran earlier.</p>
+<blockquote>
+<p>[!WARNING]
+Using implicit syntax comes at a performance cost. Each adapter runs through the DSC engine to find the relative DSC resource. If you run this command for the first time, it can take a while as no caching has taken place.</p></blockquote>
+<h2 id="step-7-write-tests-with-pester">Step 7: Write tests with Pester</h2>
+<h3 id="install-pester">Install Pester</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Install-PSResource -Name Pester
+</span></span></code></pre></div><h3 id="create-test-file">Create test file</h3>
+<p>Create <code>DemoDscClass.tests.ps1</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>BeforeAll {
+</span></span><span style="display:flex;"><span>    $modulePath = $PSScriptRoot
+</span></span><span style="display:flex;"><span>    Import-Module <span style="color:#e6db74">&#34;</span>$modulePath<span style="color:#e6db74">/DemoDscClass.psd1&#34;</span> -Force
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Describe <span style="color:#e6db74">&#39;DemoDscClass&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;Get() method&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Returns the same Key in Get()&#39;</span> {
+</span></span><span style="display:flex;"><span>            $desiredParameters = @{ Key = <span style="color:#e6db74">&#39;X&#39;</span> } | ConvertTo-Json -Compress
+</span></span><span style="display:flex;"><span>            $out = dsc resource get --resource DemoDscClass/DemoDscClass --input $desiredParameters | ConvertFrom-Json
+</span></span><span style="display:flex;"><span>            $out.actualState.Key | Should -Be <span style="color:#e6db74">&#39;X&#39;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;Export() method&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Returns multiple instances in Export()&#39;</span> {
+</span></span><span style="display:flex;"><span>            $outArray = dsc resource export --resource DemoDscClass/DemoDscClass | ConvertFrom-Json
+</span></span><span style="display:flex;"><span>            $outArray.resources | Should -HaveCount <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>            $outArray.resources[<span style="color:#ae81ff">0</span>].properties.Key | Should -BeLike <span style="color:#e6db74">&#39;Demo*&#39;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="run-tests">Run tests</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Invoke-Pester -Script ./DemoDscClass.tests.ps1 -Output Detailed
+</span></span></code></pre></div><blockquote>
+<p>[!WARNING]
+PowerShell cannot reload class definitions in the current session. After modifying a class, you must restart PowerShell for changes to take effect.</p></blockquote>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="dsc-executable-not-found">DSC executable not found</h3>
+<p>If you receive an error when running <code>dsc</code>, verify the installation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Check if dsc is in PATH</span>
+</span></span><span style="display:flex;"><span>Get-Command dsc -ErrorAction SilentlyContinue
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If not found, add to PATH for current session (Windows only)</span>
+</span></span><span style="display:flex;"><span>$env:PATH += [<span style="color:#66d9ef">System.IO.Path</span>]::PathSeparator + (Join-Path -Path $env:LOCALAPPDATA -ChildPath <span style="color:#e6db74">&#39;dsc&#39;</span>)
+</span></span></code></pre></div><h3 id="json-parsing-errors">JSON parsing errors</h3>
+<p>If you encounter the following error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>ERROR Operation: Failed to parse JSON from &#39;get&#39;: executable = &#39;pwsh&#39; stdout = &#39;VERBOSE: Get called
+</span></span><span style="display:flex;"><span>{&#34;result&#34;:[{&#34;name&#34;:&#34;DemoDscClass/DemoDscClass&#34;,&#34;type&#34;:&#34;DemoDscClass/DemoDscClass&#34;,&#34;properties&#34;:{&#34;Key&#34;:&#34;Demo&#34;}}]}
+</span></span><span style="display:flex;"><span>&#39; stderr = &#39;&#39; -&gt; expected value at line 1 column 1
+</span></span></code></pre></div><p>You should remove any output that clutters the STDIN:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Remove these from your methods:</span>
+</span></span><span style="display:flex;"><span>Write-Verbose <span style="color:#e6db74">&#34;message&#34;</span>  <span style="color:#75715e"># Causes JSON parsing issues</span>
+</span></span><span style="display:flex;"><span>Write-Warning <span style="color:#e6db74">&#34;message&#34;</span>  <span style="color:#75715e"># Causes JSON parsing issues</span>
+</span></span><span style="display:flex;"><span>Write-Debug <span style="color:#e6db74">&#34;message&#34;</span> <span style="color:#75715e"># Causes JSON parsing issues</span>
+</span></span></code></pre></div><blockquote>
+<p>[!INFO]
+The issue is currently open on <a href="https://github.com/PowerShell/DSC/issues/833">GitHub</a>.</p></blockquote>
+<h2 id="publish-your-resource-optional">Publish your resource (optional)</h2>
+<p>To share your resource on PowerShell Gallery:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Publish-PSResource -Path .\ -Repository PSGallery -ApiKey &lt;YOUR-API-KEY&gt;
+</span></span></code></pre></div><h2 id="review-and-next-steps">Review and next steps</h2>
+<p>Congratulations – you have built, tested, and executed your very first class-based DSC v3 resource!</p>
+<p>By following this guide, you have learned how to:</p>
+<ol>
+<li>Create a project folder and module manifest.</li>
+<li>Author a PowerShell class with Get(), Test(), Set(), and Export() methods.</li>
+<li>Perform smoke tests using the DSC executable.</li>
+<li>Define configuration files in YAML and run them.</li>
+<li>Write Pester tests to verify resource behavior.</li>
+</ol>
+<h3 id="next-steps">Next steps</h3>
+<p>Now that you&rsquo;ve created your first DSC class-based resource, explore these advanced topics:</p>
+<ul>
+<li>Extend <code>DemoDscClass</code> with additional properties and real-world logic, such as file or registry management.</li>
+<li>Implement more checks in <code>Test()</code> to detect actual configuration drift.</li>
+<li>Practice packaging and publishing your module to the PowerShell Gallery.</li>
+<li>Engage with the PowerShell DSC community through blogs, forums, and GitHub.</li>
+</ul>
+<h2 id="related-content">Related content</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/powershell/dsc/concepts/resources/overview?view=dsc-3.0">DSC resources</a></li>
+<li><a href="https://pester.dev/docs/quick-start">Add unit tests with Pester</a></li>
+<li><a href="https://learn.microsoft.com/powershell/dsc/concepts/cross-platform">Implement cross-platform support</a></li>
+<li><a href="https://leanpub.com/thedscv3handbook/">The DSC V3 Handbook</a></li>
+<li><a href="https://learn.microsoft.com/powershell/gallery/how-to/publishing-packages/publishing-a-package">Publish to PowerShell Gallery</a></li>
+<li><a href="https://learn.microsoft.com/powershell/dsc/overview">DSC v3 overview</a></li>
+<li><a href="https://learn.microsoft.com/powershell/dsc/concepts/class-based-resources">Class-based DSC resources</a></li>
+<li><a href="https://learn.microsoft.com/powershell/dsc/concepts/configurations">DSC configuration documents</a></li>
+<li><a href="https://learn.microsoft.com/powershell/dsc/resources/authoringresourceclass?view=dsc-1.1">Writing a custom DSC resource with PowerShell classes</a></li>
+<li><a href="https://github.com/PowerShell/DSC-Samples">DSC v3 Samples on GitHub</a></li>
+</ul>
+<!-- Link reference definitions -->
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jul 2025</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/dsc-is-dead-long-live-dsc/" title="DSC is Dead"><i class="ti-arrow-left mr-2"></i>DSC is Dead</a>
+            <a class="nav nav-next" href="/blog/convert-tests-to-pester5-for-dsc-community-repository/" title="Convert tests to Pester 5 for a DSC Community repository">Convert tests to Pester 5 for a DSC Community repository<i class="ti-arrow-right ml-2"></i></a>
+            </nav></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- footer -->
+<footer class="section bg-gray pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+        <p>Copyright 2019 the dsccommunity.org contributors.</p> 
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://github.com/dsccommunity/"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/dsccommunity"><i class="ti-twitter-alt"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Bootstrap JS -->
+<script src="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- highlight -->
+<script src="https://dsccommunity.org/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Main Script -->
+
+<script src="https://dsccommunity.org/js/script.min.js"></script>

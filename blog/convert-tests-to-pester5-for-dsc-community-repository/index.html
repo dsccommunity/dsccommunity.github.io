@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Convert tests to Pester 5 for a DSC Community repository</title>
 
-  <meta name="generator" content="Hugo 0.136.5">
+  <meta name="generator" content="Hugo 0.148.2">
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -196,6 +196,8 @@
             <li class=" active "><a href="/blog/create-an-article/">Create an Article</a>
             </li>
             <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
+            </li>
+            <li class=" active "><a href="/blog/your-first-class-based-microsoft-dsc-v3-resource/">Your first class-based Microsoft DSC v3 resource</a>
             </li>
             <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
             </li>
@@ -458,8 +460,7 @@ for the contributor to read just to make a small change.</p>
 <p><strong>NOTE:</strong> There are still complex tests in SqlServerDsc today that are
 <em>very</em> slow due to old bad practices. There are also examples of where
 these <em>very</em> slow tests have been rewritten to be self-contained (which
-duplicates code) and become <em>extremely</em> fast in comparison!</p>
-</blockquote>
+duplicates code) and become <em>extremely</em> fast in comparison!</p></blockquote>
 <p>By having self-contained test the contributor now only needs to find a
 <code>Context</code>-block similar to what their change needs, duplicate that and
 modify the mocks and asserts accordingly. They do not need to worry about
@@ -614,8 +615,7 @@ imports into the DSC resource&rsquo;s own module scope.</p>
 <p><strong>NOTE:</strong> The exposed helper functions will not be available in the
 PowerShell session were Pester runs, only through Pesters command
 <code>InModuleScope</code>. It is not the same as the helper functions would be
-exported through the module manifest.</p>
-</blockquote>
+exported through the module manifest.</p></blockquote>
 <h3 id="rules">Rules</h3>
 <p>Let us go over some rules that we should try to obey. These rules are to
 help us follow the pattern set by Pester 5 and will also help us move
@@ -658,8 +658,7 @@ and will spill-over to other tests. <em>If possible tests that loads stub</em>
 <blockquote>
 <p><strong>NOTE:</strong> Spill-over to another test means that things that were made
 available for one test can spill-over to the next test and make it work
-(or not work) when run together, but not when run individually.</p>
-</blockquote>
+(or not work) when run together, but not when run individually.</p></blockquote>
 <h3 id="fixture-setup-and-teardown">Fixture setup and teardown</h3>
 <p>At the top of the test file there should a <code>BeforeAll</code>-block that sets up
 everything needed to be able to run test. Also there should be a
@@ -677,8 +676,7 @@ is run.</p>
 <blockquote>
 <p><strong>NOTE:</strong> The functions in the helper module <em>CommonTestHelper</em> would be
 better suited to be moved into a generic module like <em>DscResource.Test</em>
-in the future.</p>
-</blockquote>
+in the future.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>BeforeAll {
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Define the DSC module and DSC resource being tested.</span>
 </span></span><span style="display:flex;"><span>    $script:dscModuleName = <span style="color:#e6db74">&#39;SqlServerDsc&#39;</span>
@@ -775,8 +773,7 @@ in the future.</p>
 <p><strong>NOTE:</strong> In the above example the SMO (SQL Server Management Object) C#
 class stubs were loaded into the session. Since assemblies cannot be
 unloaded yet in this example this test file should be run last to avoid
-spill-over.</p>
-</blockquote>
+spill-over.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>AfterAll {
 </span></span><span style="display:flex;"><span>    $PSDefaultParameterValues.Remove(<span style="color:#e6db74">&#39;InModuleScope:ModuleName&#39;</span>)
 </span></span><span style="display:flex;"><span>
@@ -810,8 +807,7 @@ This is an example of a stub function in the stub module <code>SqlServerStub</co
 </span></span></code></pre></div><blockquote>
 <p><strong>NOTE:</strong> A more advanced version of stub modules that use classes
 for the types and how to create it can be found in the DSC resource module
-<a href="https://github.com/dsccommunity/ActiveDirectoryDsc/tree/master/tests/Unit/Stubs"><em>ActiveDirectoryDsc</em> Stubs folder</a>.</p>
-</blockquote>
+<a href="https://github.com/dsccommunity/ActiveDirectoryDsc/tree/master/tests/Unit/Stubs"><em>ActiveDirectoryDsc</em> Stubs folder</a>.</p></blockquote>
 <h4 id="how-to-use-stub-module-in-tests">How to use stub module in tests</h4>
 <p>Preferably, the stub module should only be imported when it is needed and
 then be directly removed to minimize spill-over to other tests. The stub
@@ -857,8 +853,7 @@ then the mock should be for <code>Get-TargetResource</code>, not <code>Get-Somet
 </span></span><span style="display:flex;"><span>      |--- If testing this      |--- Mock this
 </span></span></code></pre></div><blockquote>
 <p>Mocking too deeply slowed down Pester 4. I&rsquo;m not sure if it is a problem in
-Pester 5, but it is a good rule to simplify tests.</p>
-</blockquote>
+Pester 5, but it is a good rule to simplify tests.</p></blockquote>
 <p>It is possible to mock cmdlets from the common modules without scoping them
 to the module&rsquo;s scope since they are imported by the module that is being
 tested. This only works if there are no <code>Export-ModuleMember</code> in the DSC
@@ -977,8 +972,7 @@ word &lsquo;Mock&rsquo; (<code>$MockPipeName</code>) to match the hashtable.</p>
 in the <code>param</code>-block. To simplify these parameters it is (for now) easiest
 to write them as a simple parameter with no type.
 The need to specify a <code>param</code>-block inside the <code>InModuleScope</code> will
-hopefully be removed in a future version of Pester.</p>
-</blockquote>
+hopefully be removed in a future version of Pester.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When the desired protocol is Named Pipes&#39;</span> {
 </span></span><span style="display:flex;"><span>    BeforeAll {
 </span></span><span style="display:flex;"><span>        $mockPipeName = <span style="color:#e6db74">&#39;\\.\pipe\$$\TESTCLU01A\MSSQL$SQL2014\sql\query&#39;</span>
@@ -1251,8 +1245,7 @@ call that could be better asserted or as mentioned before, consider using
 <p><strong>NOTE:</strong> It is possible to use the <code>AfterAll</code>-block at the <code>Describe</code>-level
 but that should be avoided since the mocks also must be at the <code>Describe</code>-level.
 When asserting if a mock was called in an <code>AfterAll</code>-block use it inside
-a <code>Context</code>-block.</p>
-</blockquote>
+a <code>Context</code>-block.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
 </span></span><span style="display:flex;"><span>    BeforeAll {
 </span></span><span style="display:flex;"><span>        Mock -CommandName Get-ServerProtocolObject
@@ -1303,8 +1296,7 @@ is shown below.</p>
 <blockquote>
 <p><strong>NOTE:</strong> With the current implementation of <code>Should -InvokeVerifiable</code>
 it sees verifiable mocks in parent <code>Context</code>-blocks as well, so take care
-how mocks are used and where you put <code>Should -InvokeVerifiable</code>.</p>
-</blockquote>
+how mocks are used and where you put <code>Should -InvokeVerifiable</code>.</p></blockquote>
 <p>In this example there are two <code>Should -InvokeVerifiable</code>. One at the
 <code>Context</code>-level and the other at the <code>Describe</code>-level.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Describe <span style="color:#e6db74">&#39;VerifiableMocks&#39;</span> {
@@ -1399,8 +1391,7 @@ will help create error records for the three most used exceptions.</p>
 <p><strong>NOTE:</strong> New test helper functions might be added to the module
 <em>DscResource.Test</em>, or be available in the individual DSC resource modules.
 Most test helper functions will be available in the module <em>DscResource.Test</em>
-(but it is a work in progress).</p>
-</blockquote>
+(but it is a work in progress).</p></blockquote>
 <p>In addition to the helper functions, to get the expected exception message
 that the code is throwing the variable <code>$script:localizedData</code> in the
 module&rsquo;s scope should be used.</p>
@@ -1408,8 +1399,7 @@ module&rsquo;s scope should be used.</p>
 <p><strong>NOTE:</strong> Normally it is enough to just assert that the localized string
 exception message was thrown, but if there is a need to assert the inner
 exceptions then different logic need to be added in-place of using the
-test helper functions.</p>
-</blockquote>
+test helper functions.</p></blockquote>
 <h5 id="assert-thrown-exception-messages-for-private-functions">Assert thrown exception messages for private functions</h5>
 <p>For the functions <code>Get-TargetResource</code>, <code>Test-TargetResource</code>,
 <code>Set-TargetResource</code>, and other private functions the assertion of thrown
@@ -1497,7 +1487,7 @@ to why the value must be correct. An example would be:</p>
 </span></span><span style="display:flex;"><span> Expected: &#39;MyAlertName2&#39;
 </span></span><span style="display:flex;"><span> But was:  &#39;MyAlertName&#39;
 </span></span></code></pre></div>
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Dec 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/dsc-is-dead-long-live-dsc/" title="DSC is Dead"><i class="ti-arrow-left mr-2"></i>DSC is Dead</a>
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Dec 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/your-first-class-based-microsoft-dsc-v3-resource/" title="Your first class-based Microsoft DSC v3 resource"><i class="ti-arrow-left mr-2"></i>Your first class-based Microsoft DSC v3 resource</a>
             <a class="nav nav-next" href="/blog/convert-master-to-main/" title="Steps to rename master branch to main for a DSC Community resource">Steps to rename master branch to main for a DSC Community resource<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>

@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Maintaining</title>
 
-  <meta name="generator" content="Hugo 0.136.5">
+  <meta name="generator" content="Hugo 0.148.2">
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -197,6 +197,8 @@
             </li>
             <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
             </li>
+            <li class=" active "><a href="/blog/your-first-class-based-microsoft-dsc-v3-resource/">Your first class-based Microsoft DSC v3 resource</a>
+            </li>
             <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
             </li>
             <li class=" active "><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
@@ -378,11 +380,10 @@ preferably in the commit description, but also works in the commit message.</p>
 e.g. updating the CHANGELOG.md after a release. When merging the pull
 request just enter <code>[skip ci]</code> preferably in the commit description, but
 also works in the commit message.</p>
-<p>Read more in <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=yaml#skipping-ci-for-individual-commits">Skipping CI for individual commits</a>.</p>
+<p>Read more in <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&amp;tabs=yaml#skipping-ci-for-individual-commits">Skipping CI for individual commits</a>.</p>
 <blockquote>
 <p>Do not add <code>[skip ci]</code> to a PR title, then the status checks will not
-run.</p>
-</blockquote>
+run.</p></blockquote>
 <h3 id="prerelease">Prerelease</h3>
 <p>For each merge to the branch <code>master</code> there will be a prerelease
 automatically released (continuous delivery).</p>
@@ -399,8 +400,7 @@ example <code>5.0.0-preview0002</code> and so on.</p>
 <p><strong>NOTE:</strong> There are an issue with module ModuleBuilder v1.0.0 and higher
 when using semantic version preview strings that uses a dash, e.g. <code>fix0008-9</code>.
 The string is compliant with SemVer 2.0 but there is a  bug in
-<code>Publish-Module</code> that prevents the module to be released.</p>
-</blockquote>
+<code>Publish-Module</code> that prevents the module to be released.</p></blockquote>
 <h3 id="release">Release</h3>
 <p>Once the next full version should be deployed, do these steps to push
 a new release version tag. Important to have the correct format <code>vX.Y.Z</code>,
@@ -422,8 +422,7 @@ not then change appropriately.</p>
 <em>not retain the linear commit history.</em></p>
 <blockquote>
 <p><strong>NOTE:</strong> You could also tag a specific commit if not all commits should
-be released.</p>
-</blockquote>
+be released.</p></blockquote>
 <h4 id="update-the-list-of-resource-modules">Update the list of resource modules</h4>
 <p>After a new resource module has been released or deprecated, please update
 the list of resource modules to include it on the site <a href="https://dsccommunity.org">https://dsccommunity.org</a>.</p>
@@ -448,8 +447,7 @@ Some of these labels are meant to be used with future automation.</p>
 <p>The script
 <a href="https://gist.github.com/johlju/f83f99787029a6b5d65cfd6844cf9449">DscResourceKit-Labels</a>
 that is provided by the community can be used to update the labels in a
-repository.</p>
-</blockquote>
+repository.</p></blockquote>
 <p>These are also set as the <a href="https://github.com/organizations/dsccommunity/settings/labels">default organization labels</a>
 so that new repositories that are created they will automatically get these labels.</p>
 <table>

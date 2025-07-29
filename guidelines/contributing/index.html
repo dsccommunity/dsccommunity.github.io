@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Contributing</title>
 
-  <meta name="generator" content="Hugo 0.136.5">
+  <meta name="generator" content="Hugo 0.148.2">
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -196,6 +196,8 @@
             <li class=" active "><a href="/blog/create-an-article/">Create an Article</a>
             </li>
             <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
+            </li>
+            <li class=" active "><a href="/blog/your-first-class-based-microsoft-dsc-v3-resource/">Your first class-based Microsoft DSC v3 resource</a>
             </li>
             <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
             </li>
@@ -592,8 +594,7 @@ issue to issue.</p>
 <blockquote>
 <p>If you are new to contributing, then you might want to start with an issue
 labeled with <code>good first issue</code> since they are meant for you as new contributor
-to have something easy from where to start learning the process and workflow.</p>
-</blockquote>
+to have something easy from where to start learning the process and workflow.</p></blockquote>
 <p>If you find an issue you would like to resolve then please comment on that
 issue that you are working on it. This helps others in the community to know
 that this is being worked on, and keeps other contributors from working on
@@ -652,8 +653,7 @@ repositories requires both unit and integration tests.</p>
 have to write tests for your changes. But you do not have to write the full
 set of tests for the resource. You only need to test the changes that you
 made to the resource. But adding unit tests for uncovered code that you
-have not altered is welcomed.</p>
-</blockquote>
+have not altered is welcomed.</p></blockquote>
 <h4 id="update-the-changelog">Update the changelog</h4>
 <p>Each repository has a changelog (<code>CHANGELOG.md</code>) that is required to be
 updated. For each change an entry should be added to the changelog. The
@@ -679,13 +679,13 @@ are:</p>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> ActiveDirectoryDsc
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> Added DSC resource ADOptionalFeature that will enable the Active
 </span></span><span style="display:flex;"><span>    Directory Optional Feature of choice for the target forest
-</span></span><span style="display:flex;"><span>    ([issue #162](https://github.com/dsccommunity/ActiveDirectoryDsc/issues/162)).
+</span></span><span style="display:flex;"><span>    ([<span style="color:#f92672">issue #162</span>](<span style="color:#a6e22e">https://github.com/dsccommunity/ActiveDirectoryDsc/issues/162</span>)).
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">### Removed
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> ADRecycleBin
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> BREAKING CHANGE: The DSC resource was replaced by the DSC resource
-</span></span><span style="display:flex;"><span>    ADOptionalFeature ([issue #162](https://github.com/dsccommunity/ActiveDirectoryDsc/issues/162))..
+</span></span><span style="display:flex;"><span>    ADOptionalFeature ([<span style="color:#f92672">issue #162</span>](<span style="color:#a6e22e">https://github.com/dsccommunity/ActiveDirectoryDsc/issues/162</span>))..
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">### Changed
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
@@ -723,8 +723,7 @@ then you probably have merge conflicts. You can resolve these before or
 after sending in a pull request. The merge conflicts must be resolved
 before the pull request can be merged, and a reviewer might ask you to
 resolve them before a review can be done.</p>
-<p>For help fixing merge conflicts see the section <a href="/guidelines/contributing/#resolve-merge-conflicts">Resolve merge conflicts</a></p>
-</blockquote>
+<p>For help fixing merge conflicts see the section <a href="/guidelines/contributing/#resolve-merge-conflicts">Resolve merge conflicts</a></p></blockquote>
 <img src="../../images/contributing/github_pull_request_target.png" alt="GitHub Pull Request Target" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width:725px;" />
 <h5 id="pull-request-title">Pull Request Title</h5>
 <p>Next, you need to write a short but descriptive PR title. The PR title should
@@ -775,8 +774,7 @@ build and test the DSC module. It is the same pipeline that is used in the
 even if they have nothing to do with your changes. If test failures are
 occurring that do not relate to the changes you made those issue must
 be resolved before the PR can be merged. If you don&rsquo;t know how to resolve
-them then please contact the maintainer of the repository.</p>
-</blockquote>
+them then please contact the maintainer of the repository.</p></blockquote>
 <h3 id="review-a-pull-request-pr">Review a pull request (PR)</h3>
 <p>Anyone is allowed to review pull requests (PR). You are strongly encouraged
 to help review since you probably have some experience of the application
@@ -800,8 +798,7 @@ If you want to become a maintainer, please see <a href="/community/maintainers/"
 <p>If you have an urgent issue that needs to be reviewed in a repository that
 does not have a maintainer, or you haven&rsquo;t heard from the repository
 maintainer for a period of time. Then it is possible to ask for reviews from
-the other community members or general maintainers via <a href="/community/contact/">Slack #DSC channel</a>.</p>
-</blockquote>
+the other community members or general maintainers via <a href="/community/contact/">Slack #DSC channel</a>.</p></blockquote>
 <h3 id="write-documentation">Write documentation</h3>
 <p>All documentation is done in Markdown.</p>
 <p>Updating documentation is done by sending in a pull request (PR).
@@ -821,8 +818,7 @@ proposal.</p>
 <p>A suggestion is to wait for acknowledgement from the community (or maintainer)
 to include the resource before you start working on the new DSC resource.
 For example if the proposed schema must be extended or changed in some
-way you might have to build the logic differently.</p>
-</blockquote>
+way you might have to build the logic differently.</p></blockquote>
 <p>Once the issue is open, you may begin working on the new DSC resource.
 Just like submitting a pull request to fix an issue, a pull request
 containing the proposed DSC resource should be submitted.</p>
@@ -901,8 +897,7 @@ is run.</p>
 session and run the command again. This is due to the old version of
 module <em>PackageManagement</em> still being imported into the session (even when
 we remove it) so <em>PowerShellGet</em> calls the wrong version of the command
-<code>Find-Package</code>.</p>
-</blockquote>
+<code>Find-Package</code>.</p></blockquote>
 <blockquote>
 <p><strong>KNOWN ISSUE 2:</strong> There is currently a known issue with this task when
 moving between local DSC repositories in the same PowerShell session. If
@@ -910,8 +905,7 @@ you have resolved dependencies in one repository, then move to a second
 repository and resolve dependencies all dependencies do not download
 (for example the module PowerShell-Yaml). This is because the module is
 already imported into the session. The workaround is to open each local
-DSC repository folder in separate PowerShell sessions.</p>
-</blockquote>
+DSC repository folder in separate PowerShell sessions.</p></blockquote>
 <h4 id="build-module">Build module</h4>
 <p>This builds the module after which tests can be run on the built
 module. The built module will have the same structure as the one that is
@@ -923,8 +917,7 @@ released.</p>
 <p>The application GitVersion is used in the pipeline to determine
 the next version if it is installed. If <code>gitversion</code> is not installed
 then the build version will always be reported as <code>0.0.1</code>.
-To install GitVersion see <a href="/guidelines/getting-started/#install-gitversion">install GitVersion</a></p>
-</blockquote>
+To install GitVersion see <a href="/guidelines/getting-started/#install-gitversion">install GitVersion</a></p></blockquote>
 <h4 id="test-module">Test module</h4>
 <p>See <a href="/guidelines/testing-guidelines/">Testing Guidelines</a> for more
 information on how to run tests.</p>
@@ -967,8 +960,7 @@ push a working branch to your fork, and it will be tested the same way as
 when you send in a PR.</p>
 <blockquote>
 <p>This is similar to what the upstream repository is using to run CI pipeline,
-it is using the <a href="https://dev.azure.com/dsccommunity">https://dev.azure.com/dsccommunity</a> organization.</p>
-</blockquote>
+it is using the <a href="https://dev.azure.com/dsccommunity">https://dev.azure.com/dsccommunity</a> organization.</p></blockquote>
 <p>This can be used to test that everything works as expected before sending
 in a PR. It can also be used to start a test run that takes a long time without
 having the development environment powered on. Just commit and push the changes
@@ -1021,8 +1013,7 @@ branch in the previous steps that specific <code>azure-pipelines.yml</code> file
 will not always be used, instead the <code>azure-pipelines.yml</code> file from the
 branch (or the commit) being run in the pipeline will be used. So if you
 make changes to the file <code>azure-pipelines.yml</code> those changes will be
-reflected when you run the pipeline.</p>
-</blockquote>
+reflected when you run the pipeline.</p></blockquote>
 <h3 id="resolve-merge-conflicts">Resolve merge conflicts</h3>
 <p>If another pull request is merged while yours is in review, you will need
 to add those new changes into your working branch before your pull request
@@ -1047,8 +1038,7 @@ the <code>main</code> branch is at.</p>
 Run <code>git remote -v</code> to verify that you have the remote name <code>my</code> pointing to your
 fork repository, and remote name <code>origin</code> pointing to the upstream repository.
 If your remotes are named differently, then change the remote names
-accordingly.</p>
-</blockquote>
+accordingly.</p></blockquote>
 <h4 id="1-rebase-the-local-branch-main-from-the-base-branch-main">1. Rebase the local branch <code>main</code> from the base branch <code>main</code></h4>
 <p>In a PowerShell prompt, you need to do the following:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>cd &lt;path to cloned repository&gt;      # This is the path to your cloned repository. I.e. cd C:\Source\ComputerManagementDsc
@@ -1059,8 +1049,7 @@ accordingly.</p>
 <p><strong>Note:</strong> If you used the <strong>main branch as your working branch</strong>, then at
 this point you will probably get merge conflicts that need to be resolved.
 Search for the word &lsquo;CONFLICT&rsquo; in the output. If you used <code>main</code> as your working
-branch, you can skip to step 3 to learn how to resolve the merge conflicts.</p>
-</blockquote>
+branch, you can skip to step 3 to learn how to resolve the merge conflicts.</p></blockquote>
 <p>Force push to your fork&rsquo;s <code>main</code> branch to your forked repository.
 <em>Make sure there were no conflicts before running this command.</em></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git push my main --force

@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Steps to convert a module for continuous delivery</title>
 
-  <meta name="generator" content="Hugo 0.136.5">
+  <meta name="generator" content="Hugo 0.148.2">
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -197,6 +197,8 @@
             </li>
             <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
             </li>
+            <li class=" active "><a href="/blog/your-first-class-based-microsoft-dsc-v3-resource/">Your first class-based Microsoft DSC v3 resource</a>
+            </li>
             <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
             </li>
             <li class=" active "><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
@@ -352,12 +354,8 @@
             <p>You are welcome to share any comments or issues you having around this
 process in the <a href="https://dsccommunity.org/community/contact/">Discord or Slack #DSC channel</a>.</p>
 <p>Before you start, here&rsquo;s an overview of what the new CI looks like:
-
-
-    
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/UWGKgVB4VNU?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
-      ></iframe>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/UWGKgVB4VNU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 </p>
 <blockquote>
@@ -365,8 +363,7 @@ process in the <a href="https://dsccommunity.org/community/contact/">Discord or 
 support cross-platform DSC resources, so that makes all paths case-sensitive!
 Have that in mind when updating paths and folders in the configuration
 files. Make sure they match the repository, or change the repository file
-and folder names).</p>
-</blockquote>
+and folder names).</p></blockquote>
 <p>We are moving away from AppVeyor to Azure DevOps because Azure Pipelines
 gives us longer run time per job plus parallel jobs on a free account (for
 open source projects).</p>
@@ -411,8 +408,7 @@ new format, otherwise GitVersion will not evaluate the versions correctly.</p>
 last tag so that it is using semantic versioning and the correct format for
 the tag. See article <a href="https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/">How To Delete Local and Remote Tags on Git</a>.
 If you ran the script in the previous section this have probably been
-resolved already.</p>
-</blockquote>
+resolved already.</p></blockquote>
 <ol>
 <li><strong>Make sure to have updated the repository with the latest changes and</strong>
 <strong>pulled latest tags, see previous section for the rebasing.</strong></li>
@@ -446,8 +442,7 @@ paste in the change log entries.</li>
 </ol>
 <h2 id="install-prerequisites">Install prerequisites</h2>
 <blockquote>
-<p><strong>NOTE:</strong> You must be an elevated administrator to install this.</p>
-</blockquote>
+<p><strong>NOTE:</strong> You must be an elevated administrator to install this.</p></blockquote>
 <ol>
 <li>Install GitVersion using Chocolatey by running the below. Read more
 about GitVersion on the their website <a href="https://gitversion.readthedocs.io/en/latest/">https://gitversion.readthedocs.io/en/latest/</a>
@@ -565,9 +560,8 @@ module name section.
 <blockquote>
 <p><strong>Note:</strong> To get the definition id, browse to the pipeline in
 the DSC Community Azure DevOps organization and look in the URL, e.g.
-<a href="https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&_a=summary">https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&_a=summary</a>
-<strong>You have to get back to this once the pipeline is configured!</strong></p>
-</blockquote>
+<a href="https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&amp;_a=summary">https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&_a=summary</a>
+<strong>You have to get back to this once the pipeline is configured!</strong></p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># {RepositoryName}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>[<span style="color:#f92672">![Build Status</span>](<span style="color:#a6e22e">https://dev.azure.com/dsccommunity/{repositoryName}/_apis/build/status/dsccommunity.{repositoryName}?branchName=master</span>)](https://dev.azure.com/dsccommunity/{repositoryName}/_build/latest?definitionId={definitionId}<span style="color:#960050;background-color:#1e0010">&amp;</span>branchName=master)
@@ -604,8 +598,7 @@ correct path <code>[...](/source/Examples/Resources/...)</code></li>
 <h3 id="file-changelogmd">File <code>CHANGELOG.md</code></h3>
 <blockquote>
 <p><strong>NOTE:</strong> Build pipeline uses the format of <a href="https://keepachangelog.com/en/1.0.0/">keep a changelog</a>
-so we need to change the changelog accordingly.</p>
-</blockquote>
+so we need to change the changelog accordingly.</p></blockquote>
 <ol>
 <li>Update the Unreleased section of the CHANGELOG.md to use the new format,
 or copy the CHANGELOG.md from the base folder if the old change log does
@@ -629,7 +622,7 @@ not need to be retained. <em>The example change log below is somewhat</em>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> Add .gitattributes file to checkout file correctly with CRLF.
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> Updated .vscode/analyzersettings.psd1 file to correct use PSSA rules
 </span></span><span style="display:flex;"><span>    and custom rules in VS Code.
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> Fix hashtables to align with style guideline ([issue #1437](https://github.com/dsccommunity/{RepositoryName}/issues/1437)).
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> Fix hashtables to align with style guideline ([<span style="color:#f92672">issue #1437</span>](<span style="color:#a6e22e">https://github.com/dsccommunity/{RepositoryName}/issues/1437</span>)).
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> SqlServerMaxDop
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> Fix line endings in code which did not use the correct format.
 </span></span><span style="display:flex;"><span>
@@ -663,7 +656,7 @@ check releases in the PowerShell Gallery.
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Changes to SqlServerDsc
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> Fix keywords to lower-case to align with guideline.
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> Fix keywords to have space before a parenthesis to align with guideline.
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> Fix typo in SqlSetup strings ([issue #1419](https://github.com/dsccommunity/{RepositoryName}/issues/1419)).
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> Fix typo in SqlSetup strings ([<span style="color:#f92672">issue #1419</span>](<span style="color:#a6e22e">https://github.com/dsccommunity/{RepositoryName}/issues/1419</span>)).
 </span></span></code></pre></div></li>
 <li>Update any reference links to issues from <code>https://github.com/PowerShell/</code> to
 <code>https://github.com/dsccommunity/</code>.</li>
@@ -786,8 +779,7 @@ added to the file <code>RequiredModules.psd1</code>. <strong>We need to pin the 
 are detected when configuration files are compiled. If we do not pin
 versions the CI pipeline will se duplicate modules due to the folder
 structure the CI pipeline is using when building the pipeline.
-E.g. paths used <code>\output\;\output\RequiredModules</code>.</p>
-</blockquote>
+E.g. paths used <code>\output\;\output\RequiredModules</code>.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Prerequisites modules needed for examples and integration tests of</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># the {RepositoryName} module.</span>
 </span></span><span style="display:flex;"><span>PSDscResources = <span style="color:#e6db74">&#39;2.12.0.0&#39;</span>
@@ -807,8 +799,7 @@ then set <code>next-version</code> to <code>13.3.0</code>.</li>
 raise the major version to <code>14.0.0</code> you <strong>cannot</strong> set <code>next-version</code> to
 <code>14.0.0</code>. If you want next released version to be <code>14.0.0</code> then set
 <code>next-version</code> to <code>13.3.0</code> and then add a commit with the word <code>breaking</code>
-or <code>major</code> in the commit message.</p>
-</blockquote>
+or <code>major</code> in the commit message.</p></blockquote>
 <h2 id="update-helper-modules">Update helper modules</h2>
 <p>If there are any helper modules then move those to the <code>Modules</code> folder
 under the source folder (and change the code accordingly). Then for each
@@ -865,8 +856,7 @@ or if there are new releases of external modules listed in the file
 <code>RequiredModules.psd1</code>.</p>
 <blockquote>
 <p><strong>NOTE:</strong> This does not install anything, it downloads the prerequisites
-into the <code>output</code> folder.</p>
-</blockquote>
+into the <code>output</code> folder.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.ps1 -ResolveDependency -Tasks noop
 </span></span></code></pre></div><h2 id="run-a-build">Run a build</h2>
 <p>This builds the module after which for example tests can be run on the built
@@ -885,8 +875,7 @@ have been run because it needs to resolve the modules in a <code>$PSModulePath</
 modules. If an example is dependent on other modules, e.g. PSDscResources,
 they need to be present in a <code>$PSModulePath</code>. If not you will get a parse
 error. Dependent modules should have already been pinned in the file
-<code>RequiredModules.psd1</code> and in each example file.</p>
-</blockquote>
+<code>RequiredModules.psd1</code> and in each example file.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$moduleName = <span style="color:#e6db74">&#39;&lt;repositoryName&gt;&#39;</span>
 </span></span><span style="display:flex;"><span>Get-ChildItem -Path <span style="color:#e6db74">&#39;.\source\Examples&#39;</span> -Filter <span style="color:#e6db74">&#39;*.ps1&#39;</span> -Recurse | % {
 </span></span><span style="display:flex;"><span>    Update-ScriptFileInfo -Path $_.FullName `
@@ -1025,8 +1014,7 @@ This runs all the unit tests for the module. <em>It runs the tests that are</em>
 <p>To run the integration tests you will need to add the parameter <code>PesterScript</code>,
 e.g.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.ps1 -Tasks test -PesterScript <span style="color:#e6db74">&#39;tests/Integration&#39;</span>.
-</span></span></code></pre></div><p><strong>Only do this in a lab environment or CI environment.</strong></p>
-</blockquote>
+</span></span></code></pre></div><p><strong>Only do this in a lab environment or CI environment.</strong></p></blockquote>
 <h2 id="configure-ci-test-pipeline">Configure CI test pipeline</h2>
 <h3 id="file-azure-pipelinesyml">File <code>azure-pipelines.yml</code></h3>
 <ol>
@@ -1072,7 +1060,7 @@ e.g.</p>
 </span></span><span style="display:flex;"><span>        - <span style="color:#f92672">powershell</span>: |<span style="color:#e6db74">
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            $repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split &#39;/&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            echo &#34;##vso[task.setvariable variable=RepositoryOwner;isOutput=true]$repositoryOwner&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            echo &#34;##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName&#34;</span>            
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            echo &#34;##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName&#34;</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">dscBuildVariable</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Set Environment Variables&#39;</span>
 </span></span><span style="display:flex;"><span>        - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadBuildArtifacts@0</span>
@@ -1159,7 +1147,7 @@ key <code>vmImage</code> to a supported image listed in the section
 part of the <code>appveyor.yml</code>. For example to install a feature, add this
 before the task <code>Test</code> in the job <code>Test_Integration</code>.
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">powershell</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Install-WindowsFeature -IncludeAllSubFeature -IncludeManagementTools -Name &#39;Web-Server&#39;</span>    
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Install-WindowsFeature -IncludeAllSubFeature -IncludeManagementTools -Name &#39;Web-Server&#39;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">InstallWebServerFeature</span>
 </span></span></code></pre></div></li>
 <li>(Optional) If there are need to run integration tests in order (or
@@ -1206,8 +1194,7 @@ push a working branch to your fork and it will be tested the same way as
 when you send in a PR.</p>
 <blockquote>
 <p>This is similar to what the upstream repository is using to run CI pipeline,
-it is using the <a href="https://dev.azure.com/dsccommunity">https://dev.azure.com/dsccommunity</a> organization.</p>
-</blockquote>
+it is using the <a href="https://dev.azure.com/dsccommunity">https://dev.azure.com/dsccommunity</a> organization.</p></blockquote>
 <p>This is can be used to test that everything works  as expected before sending
 in a PR. It can also be used to start a test run that takes a long time without
 having the development environment powered on. Just commit and push the changes
@@ -1257,8 +1244,7 @@ will trigger on that and start a run.</p>
 <blockquote>
 <p><strong>NOTE:</strong> Even if we choose a specific YAML file that will not be used,
 instead the YAML file from the branch being pushed will be used, so any
-changes to the file <code>azure-pipelines.yml</code> will be reflected.</p>
-</blockquote>
+changes to the file <code>azure-pipelines.yml</code> will be reflected.</p></blockquote>
 <h2 id="modify-upstream-repository">Modify upstream repository</h2>
 <p>Once all the tests are passing (preferably verified in you own Azure DevOps
 organization) it time to update the upstream repository on the DscCommunity
@@ -1294,8 +1280,7 @@ and provide the e-mail address you want to access the Azure DevOps
 organization with. He will create the Azure DevOps project for the
 repository. He will also invite you as a stakeholder to the DSC Community
 Azure DevOps organization and give you permission in the Azure DevOps
-project.</p>
-</blockquote>
+project.</p></blockquote>
 <p>Prior to doing this, make sure that the working branch was pushed to
 the upstream repository since we need to have access to the file
 <code>azure-pipelines.yml</code> in the next step.</p>
@@ -1349,8 +1334,7 @@ repository) targeting the <code>dev</code> branch.</li>
 <p><strong>NOTE:</strong> GitHub will say &ldquo;Changing the default branch can have unintended
 consequences that can affect new pull requests and clones.&rdquo;. We have to
 help contributors so solve any consequences so just ignore ignore it and
-continue.</p>
-</blockquote>
+continue.</p></blockquote>
 <h3 id="set-new-repository-branch-protection-rules">Set new repository branch protection rules</h3>
 <p>Browse to the repository settings page and set the branch protection
 rules for branch <code>master</code> to add the status check for Azure Pipelines.
@@ -1371,8 +1355,7 @@ See branch protection rules at <a href="https://github.com/dsccommunity/%7Brepos
 etc.</p>
 <blockquote>
 <p><strong>NOTE:</strong> Names can differ depending on what the jobs were named
-in the file <code>azure-pipelines.yml</code>.</p>
-</blockquote>
+in the file <code>azure-pipelines.yml</code>.</p></blockquote>
 <h3 id="transfer-powershell-gallery-package">Transfer PowerShell Gallery package</h3>
 <p><del>Ask @gaelcolas to transfer the package for the repository over to the</del>
 <del>DSC Community. <strong>This must be done prior to merging changes into the</strong></del>
@@ -1420,8 +1403,7 @@ not then change appropriately.</p>
 </span></span><span style="display:flex;"><span>git push origin --tags <span style="color:#75715e"># Push the new tag that was created locally</span>
 </span></span></code></pre></div><blockquote>
 <p><strong>NOTE:</strong> You could also tag a specific commit if not all commits should
-be released.</p>
-</blockquote>
+be released.</p></blockquote>
 <h3 id="remove-branch-dev-from-upstream-repository">Remove branch <code>dev</code> from upstream repository</h3>
 <p><strong>BE AWARE OF AFFECTED PULL REQUESTS.</strong></p>
 <ol>

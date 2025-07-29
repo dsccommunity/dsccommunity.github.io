@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Getting Started as a Contributor</title>
 
-  <meta name="generator" content="Hugo 0.136.5">
+  <meta name="generator" content="Hugo 0.148.2">
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -197,6 +197,8 @@
             </li>
             <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
             </li>
+            <li class=" active "><a href="/blog/your-first-class-based-microsoft-dsc-v3-resource/">Your first class-based Microsoft DSC v3 resource</a>
+            </li>
             <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
             </li>
             <li class=" active "><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
@@ -385,8 +387,7 @@ or later with only <em>Windows PowerShell</em> available.</p>
 (to get <code>winget</code>).
 <blockquote>
 <p><strong>NOTE:</strong> Newer versions of Windows have WinGet preinstalled, then this
-step is not required.</p>
-</blockquote>
+step is not required.</p></blockquote>
 </li>
 <li>Install Git
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>winget install Git.Git
@@ -415,8 +416,7 @@ with all other dependencies being saved into the project&rsquo;s <code>output</c
 session and run the command again. This is due to the old version of
 module <em>PackageManagement</em> is still available in the session (even when
 we remove it) so <em>PowerShellGet</em> calls the wrong version of the command
-<code>Find-Package</code>.</p>
-</blockquote>
+<code>Find-Package</code>.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.ps1 -ResolveDependency -Tasks noop
 </span></span></code></pre></div></li>
 <li>Build the project.
@@ -458,8 +458,7 @@ make sure to install <em>App Installer</em> (by Microsoft) from the <a href="htt
 to use <code>winget</code>.</p>
 <blockquote>
 <p><strong>NOTE:</strong> To use <code>code</code> from command-line you might need to logout and login
-again after installation for environment variable <code>PATH</code> to be updated.</p>
-</blockquote>
+again after installation for environment variable <code>PATH</code> to be updated.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>winget install vscode
 </span></span></code></pre></div><h3 id="install-visual-studio-code-powershell-extension">Install Visual Studio Code PowerShell Extension</h3>
 <p>To be able to write PowerShell code in Visual Studio Code the extension
@@ -467,8 +466,7 @@ need to be installed.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>code --install-extension ms-vscode.PowerShell
 </span></span></code></pre></div><blockquote>
 <p><strong>NOTE:</strong> This step is only relevant if Visual Studio Code was installed in the
-previous step.</p>
-</blockquote>
+previous step.</p></blockquote>
 <h3 id="install-git">Install Git</h3>
 <h4 id="windows-2">Windows</h4>
 <p>To install using:</p>
@@ -544,8 +542,7 @@ this installed.</p>
 <p>See <a href="https://chocolatey.org">Chocolatey</a> for prerequisites to use <code>choco</code>.</p>
 <p>Once you have Chocolatey installed you can install GitVersion using the following:</p>
 <blockquote>
-<p><strong>NOTE:</strong> You must be an elevated administrator to run <code>choco install</code>.</p>
-</blockquote>
+<p><strong>NOTE:</strong> You must be an elevated administrator to run <code>choco install</code>.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>choco install GitVersion.Portable
 </span></span></code></pre></div><h5 id="dotnet">DotNet</h5>
 <p>To be able to install <em>GitVersion</em> the command <code>dotnet</code> must first be installed
@@ -553,8 +550,7 @@ using WinGet.</p>
 <blockquote>
 <p><strong>NOTE</strong>: Newer versions of Windows have WinGet preinstalled. If it is not installed
 make sure to install <em>App Installer</em> (by Microsoft) from the <a href="https://www.microsoft.com/store/%3EproductId/9NBLGGH4NNS1">Microsoft Store</a>
-to use <code>winget</code>.</p>
-</blockquote>
+to use <code>winget</code>.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>winget install dotnet-sdk-6
 </span></span></code></pre></div><p>Make sure there is a Nuget source listed by running:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet nuget list source
@@ -564,24 +560,21 @@ by running the following:</p>
 </span></span></code></pre></div><p>Then we install <em>GitVersion</em> using <code>dotnet</code>.</p>
 <blockquote>
 <p>Note: To use <code>dotnet</code> from command-line you might need to logout and login
-again after installation for environment variable <code>PATH</code> to be updated.</p>
-</blockquote>
+again after installation for environment variable <code>PATH</code> to be updated.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet tool install --global GitVersion.Tool
 </span></span></code></pre></div><h4 id="macos">macOS</h4>
 <p>You install <a href="https://gitversion.net/docs/">GitVersion</a> using the following:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install gitversion
 </span></span></code></pre></div><blockquote>
 <p><strong>NOTE:</strong> You need install <a href="https://brew.sh/">Homebrew</a> first if you do
-not have it installed already.</p>
-</blockquote>
+not have it installed already.</p></blockquote>
 <h4 id="linux-or-docker">Linux (or Docker)</h4>
 <h5 id="using-homebrew">Using Homebrew</h5>
 <p>You install <a href="https://gitversion.net/docs/">GitVersion</a> using the following:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install gitversion
 </span></span></code></pre></div><blockquote>
 <p><strong>NOTE:</strong> You need install <a href="https://brew.sh/">Homebrew</a> first, if you do
-not have it installed already.</p>
-</blockquote>
+not have it installed already.</p></blockquote>
 <h5 id="using-release-package">Using release package</h5>
 <p>If you don&rsquo;t have or don&rsquo;t want to use Homebrew, it is possible to install
 it from a release package directly.</p>
@@ -595,8 +588,7 @@ version from previous step.</li>
 </ol>
 <blockquote>
 <p><strong>NOTE:</strong> These steps have been verified in Ubuntu 16.04 and Ubuntu 20.04.
-In other distributions the folders and steps might vary.</p>
-</blockquote>
+In other distributions the folders and steps might vary.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a new folder under current user home folder</span>
@@ -695,8 +687,7 @@ several other branches during the same period.</p>
 allow you to create other working branches off of branch <code>main</code> later
 while your other working branches is still open for code reviews.</p>
 <p>Limiting your current working branch to a single issue will also both
-streamline the code review and reduce the possibility of merge conflicts.</p>
-</blockquote>
+streamline the code review and reduce the possibility of merge conflicts.</p></blockquote>
 <p>You create a new working branch using the following command
 <code>git checkout -b &lt;working-branch-name&gt; my/main</code>. You should also
 track the branch <code>main</code> in your fork, e.g. <code>my/main</code> so that you
@@ -715,20 +706,15 @@ Visual Studio Code and get it to automatically load the folder by running</p>
 Below we show how to commit and push using the command line, but it might
 be easier to commit (using <code>git</code>) from within Visual Studio Code. How to
 do that can be seen in this video.</p>
-
-
-    
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/B8RSMBSzFuA?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
-      ></iframe>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/B8RSMBSzFuA?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
 <p>You can see the status of changes with <code>git status</code>. To <strong>commit</strong> all
 current changes (all modified files) you use <code>git commit -a -m &quot;&lt;Commit message&gt;&quot;</code>.</p>
 <blockquote>
 <p><code>-a</code> argument tells Git to include all modified files in commit.
-<code>-m</code> argument specifies the commit message.</p>
-</blockquote>
+<code>-m</code> argument specifies the commit message.</p></blockquote>
 <p>To commit all changes with a commit message <code>Fix issue #123</code>, you run the
 following.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git commit -a -m <span style="color:#e6db74">&#34;Fix issue #123&#34;</span>
@@ -737,8 +723,7 @@ following.</p>
 just one commit for all changes, make a commit for each file you change,
 or a make a commit for each bug or feature if there are more than one you
 want to resolve. It is entirely up to you how, what and when you commit
-changes.</p>
-</blockquote>
+changes.</p></blockquote>
 <p>To <strong>push</strong> one or more commits containing your changes we use
 <code>git push &lt;remote-name&gt;</code>. So to push the local working branch in your local
 repository to the fork we do the following.</p>
@@ -762,8 +747,7 @@ run <code>git branch -v</code>.</p>
 <p>Active branch is marked with an asterisk (<code>*</code>). The  argument <code>-a</code> tells
 Git to show both <a href="http://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging"><strong>local</strong></a>
 and <a href="http://git-scm.com/book/en/v2/Git-Branching-Remote-Branches"><strong>remote</strong></a>
-branches.</p>
-</blockquote>
+branches.</p></blockquote>
 <p>To switch to another working branch you use <code>git checkout &lt;branch-name&gt;</code>.</p>
 <p>For example to switch to the working branch <code>fix-issue-#123</code> we do the
 following.</p>

@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Realizing maintenance windows with DSC</title>
 
-  <meta name="generator" content="Hugo 0.136.5">
+  <meta name="generator" content="Hugo 0.148.2">
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -197,6 +197,8 @@
             </li>
             <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
             </li>
+            <li class=" active "><a href="/blog/your-first-class-based-microsoft-dsc-v3-resource/">Your first class-based Microsoft DSC v3 resource</a>
+            </li>
             <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
             </li>
             <li class=" active "><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
@@ -364,8 +366,7 @@ This article summarizes the ideas and technical implementation I have worked on 
 </ul>
 <h2 id="a-detour-to-configuration-management">A detour to configuration management</h2>
 <blockquote>
-<p>NOTE: It helps having looked or even better played with the DscWorkshop project. Implementing maintenance windows within the demo provided was quite an easy task, as many things are already covered. You will find a lot of other cool principals and patterns around DSC, Policy-Driven Infrastructure and config management.</p>
-</blockquote>
+<p>NOTE: It helps having looked or even better played with the DscWorkshop project. Implementing maintenance windows within the demo provided was quite an easy task, as many things are already covered. You will find a lot of other cool principals and patterns around DSC, Policy-Driven Infrastructure and config management.</p></blockquote>
 <p>Before covering the maintenance windows, we have to take a little detour to make ourselves familiar with roles and configurations. This detour is very scenic and worth every minute. And finally, it saves you a lot of time in any future DSC project.</p>
 <p>In the <a href="https://github.com/dsccommunity/DscWorkshop">DscWorkshop</a> project we use <a href="https://github.com/gaelcolas/Datum">Datum</a> to handle the configuration data. With Datum we can apply a pattern similar to <a href="https://puppet.com/docs/pe/2017.2/r_n_p_intro.html">Puppet’s Roles and Profiles</a>. The DscWorkshop uses configurations defined in the <a href="https://github.com/dsccommunity/CommonTasks">CommonTasks</a> repository. This repository is named CommonTasks as it provides simple access to a few common configurations that most of you might need when configuring servers. For example, let’s suppose you want to configure a web server with DSC. This could be the list of configurations you want to assign to a web server:</p>
 <ul>
@@ -377,8 +378,7 @@ This article summarizes the ideas and technical implementation I have worked on 
 <p>These four configurations are <a href="https://docs.microsoft.com/en-us/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7">DSC composite resources</a>. If a DSC configuration gets too large, you should split it up in portions that are called composite resources. Composite resources are like functions. You can add some logic to it to meet your / your businesses’ requirements, like done in the <a href="https://github.com/dsccommunity/CommonTasks/blob/dev/CommonTasks/DscResources/SecurityBase/SecurityBase.schema.psm1">SecurityBase</a> configuration.
 We gain efficiency, flexibility and scalability by converting all common requirements into configurations (DSC composite resources). Your next task may be configuring file servers with DSC as the web server thing went great. File servers should be even simpler, and you can reuse the NetworkIpConfiguration, WindowsFeature and FilesAndFolders configuration and you are almost done. Adding configuration data should be quick now.</p>
 <blockquote>
-<p>Note: There will be some further articles describing the <a href="https://github.com/dsccommunity/DscWorkshop">DscWorkshop</a> project. These ones will give an introduction into configuration management data for DSC and how to build an infrastructure release pipeline.</p>
-</blockquote>
+<p>Note: There will be some further articles describing the <a href="https://github.com/dsccommunity/DscWorkshop">DscWorkshop</a> project. These ones will give an introduction into configuration management data for DSC and how to build an infrastructure release pipeline.</p></blockquote>
 <h2 id="technical-implementation-and-details">Technical implementation and details</h2>
 <p>Now let’s get back to maintenance windows. Maintenance windows should be configured on every business-critical server. DSC should only do changes to a computer if in maintenance window. However monitoring the computer should be done all the time. It makes sense to provide maintenance windows and the &ldquo;new LCM behavior&rdquo; as configurations, so one can assign them to a role like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Configurations</span>:
@@ -408,8 +408,7 @@ We gain efficiency, flexibility and scalability by converting all common require
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">MaintenanceWindowOverride</span>: <span style="color:#66d9ef">false</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">WriteTranscripts</span>: <span style="color:#66d9ef">true</span>
 </span></span></code></pre></div><blockquote>
-<p>Note: The extremely short intervals used here are mainly for testing and demonstration purposes and not recommended in production.</p>
-</blockquote>
+<p>Note: The extremely short intervals used here are mainly for testing and demonstration purposes and not recommended in production.</p></blockquote>
 <p>This YAML is taken from the file <a href="https://github.com/dsccommunity/DscWorkshop/blob/dev/DSC/DscConfigData/Roles/DscBaseline.yml">DscBaseline.yml</a> part of the DscWorkshop’s configuration data. The configurations section defines that a node having the DscBaseline role assigned, applies the configuration DscLcmController and DscLcmMaintenanceWindows. The rest of the YAML are the parameters to these configurations. There will be an extra post about the config management in the DscWorkshop project.</p>
 <h3 id="dsclcmmaintenancewindows-configuration">DscLcmMaintenanceWindows configuration</h3>
 <p>The configuration &ldquo;DscLcmMaintenanceWindows&rdquo; only writes some registry keys according to the configuration data (the parameters) you hand over to it. In the previous YAML there are 2 maintenance windows defined, and this is what we can find in the registry after DSC has applied the config:</p>
@@ -455,8 +454,7 @@ DscLcmController               MaintenanceWindowMode       : AutoCorrect
                                LastRefresh                 : 08/27/2019 10:58:28
                                LastMonitor                 : 08/27/2019 20:46:22
 </code></pre><blockquote>
-<p>Note: Last three registry values are not written by the DSC configuration but the scheduled task &ldquo;DscLcmController&rdquo;.</p>
-</blockquote>
+<p>Note: Last three registry values are not written by the DSC configuration but the scheduled task &ldquo;DscLcmController&rdquo;.</p></blockquote>
 <ul>
 <li><code>MaintenanceWindowMode</code>: This should be set to &lsquo;AutoCorrect&rsquo;. If set to &lsquo;Monitor&rsquo; the maintenance window functionality is disabled.</li>
 <li><code>MonitorInterval</code>: If this interval applies, the LcmController script puts the LCM to the &lsquo;ApplyAndMonitor&rsquo; mode and triggers a consistency check.</li>
@@ -514,8 +512,7 @@ d-----         8/5/2019   5:38 PM                MetaMof
 <h4 id="lcmcontrollerlog">LcmController.log</h4>
 <p>This log file is only written, if the registry value &ldquo;WriteTranscripts&rdquo; is set to 1. This setting is controlled by the &ldquo;DscLcmController&rdquo; configuration / DSC composite resource. Thanks to the hierarchical configuration data, you can turn on this setting for all nodes, for a role or just a specific node.</p>
 <blockquote>
-<p>Note: Depending on the interval of the DscLcmController scheduled task, this log can grow over time. Only enable &ldquo;WriteTranscripts&rdquo; for debugging.</p>
-</blockquote>
+<p>Note: Depending on the interval of the DscLcmController scheduled task, this log can grow over time. Only enable &ldquo;WriteTranscripts&rdquo; for debugging.</p></blockquote>
 <h4 id="lcmcontrolsummerytxt">LcmControlSummery.txt</h4>
 <p>This file shows the decision matrix the DscLcmContoller script has done. It stores the data as CSV for human readability:</p>
 <pre tabindex="0"><code class="language-none" data-lang="none">PS C:\ProgramData\Dsc\LcmController&gt; Import-Csv -Path .\LcmControllerSummery.txt | Format-Table -Property *

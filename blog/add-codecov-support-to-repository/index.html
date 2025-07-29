@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Add Code Coverage Support to Repository</title>
 
-  <meta name="generator" content="Hugo 0.136.5">
+  <meta name="generator" content="Hugo 0.148.2">
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -197,6 +197,8 @@
             </li>
             <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
             </li>
+            <li class=" active "><a href="/blog/your-first-class-based-microsoft-dsc-v3-resource/">Your first class-based Microsoft DSC v3 resource</a>
+            </li>
             <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
             </li>
             <li class=" active "><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
@@ -384,8 +386,7 @@ and <code>&lt;sourcefile&gt;</code> element, and Codecov.io expects the <code>&l
 the GitHub repository (at the commit). Azure Pipelines code coverage
 generate source files form the code that are available in the pipeline,
 and it can only be a single path, and that single path does not support
-pattern matching.</p>
-</blockquote>
+pattern matching.</p></blockquote>
 <p>To upload code coverage we need to:</p>
 <ul>
 <li>change the <code>build.yaml</code></li>
@@ -427,8 +428,7 @@ it doesn&rsquo;t.</p>
 </span></span></code></pre></div><blockquote>
 <p><em>NOTE:</em> the filename can be anything after the prefix <code>JaCoCo</code>, for example
 it is possible to use <code>JaCoCo_$OsShortName.xml</code> which results in
-the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</p>
-</blockquote>
+the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</p></blockquote>
 <h3 id="modify-azure-pipelinesyml">Modify <code>azure-pipelines.yml</code></h3>
 <p>From the job <code>Test_Unit</code> we can remove the task <code>Set Environment Variables</code>
 and the task <code>Publish Code Coverage</code>. Those two task will be moved to the
@@ -561,19 +561,17 @@ in the previous section)</li>
 </span></span><span style="display:flex;"><span>              <span style="color:#f92672">summaryFileLocation</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#39;</span>
 </span></span><span style="display:flex;"><span>              <span style="color:#f92672">pathToSources</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(sourceFolderName)/&#39;</span>
 </span></span><span style="display:flex;"><span>          - <span style="color:#f92672">script</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              bash &lt;(curl -s https://codecov.io/bash) -f &#34;./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#34;</span>              
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              bash &lt;(curl -s https://codecov.io/bash) -f &#34;./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#34;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage to Codecov.io&#39;</span>
 </span></span></code></pre></div><h3 id="add-codecovyml">Add <code>codecov.yml</code></h3>
 <p>This file is not necessary if Codecov.io is not used.</p>
 <blockquote>
 <p><strong>NOTE:</strong> Make sure to update the default branch name in the Codecov.io
-project site if the default branch name is renamed.</p>
-</blockquote>
+project site if the default branch name is renamed.</p></blockquote>
 <blockquote>
 <p><strong>NOTE:</strong> If this file exist and starts with a full stop <code>.</code>, e.g. <code>.codecov.yml</code>,
 then please rename it to <code>codecov.yml</code>. See this FAQ for more information
-<a href="https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml">https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml</a></p>
-</blockquote>
+<a href="https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml">https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml</a></p></blockquote>
 <p>These settings can be set as desired, but the values below are what are used
 by default in the DSC Community repositories.</p>
 <p>The important part is the key <code>fixes</code>. <a href="https://codecov.io">Codecov.io</a>
@@ -589,8 +587,7 @@ the JaCoCo XML file to the correct paths that <a href="https://codecov.io">Codec
 expects.</p>
 <blockquote>
 <p>See the <a href="https://docs.codecov.io/docs/codecovyml-reference">codecov.yml Reference</a>
-for more information about these settings.</p>
-</blockquote>
+for more information about these settings.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">codecov</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">require_ci_to_pass</span>: <span style="color:#66d9ef">no</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e"># main should be the baseline for reporting</span>
@@ -719,8 +716,7 @@ this:</p>
 <blockquote>
 <p><em>NOTE:</em> the filename can be anything after the prefix <code>JaCoCo</code>, for example
 it is possible to use <code>JaCoCo_$OsShortName.xml</code> which results in
-the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</p>
-</blockquote>
+the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Pester</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">OutputFormat</span>: <span style="color:#ae81ff">NUnitXML</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">ExcludeFromCodeCoverage</span>:
@@ -763,8 +759,7 @@ that the task <em>Merge_CodeCoverage_Files</em> will generate and is the file
 that will be uploaded to the code coverage services.</p>
 <blockquote>
 <p><strong>NOTE:</strong> For the service Codecov.io the filename must be prefixed with
-&lsquo;JaCoCo&rsquo;.</p>
-</blockquote>
+&lsquo;JaCoCo&rsquo;.</p></blockquote>
 <p>The keyword <code>CodeCoverageFilePattern</code> is the pattern to recursively look
 for under the <code>output/testResults</code> folder. It should use a pattern that
 can recognize the JaCoCo files that the test jobs generate.</p>

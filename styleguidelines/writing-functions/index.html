@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>Writing Functions</title>
 
-  <meta name="generator" content="Hugo 0.136.5">
+  <meta name="generator" content="Hugo 0.148.2">
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -196,6 +196,8 @@
             <li class=" active "><a href="/blog/create-an-article/">Create an Article</a>
             </li>
             <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
+            </li>
+            <li class=" active "><a href="/blog/your-first-class-based-microsoft-dsc-v3-resource/">Your first class-based Microsoft DSC v3 resource</a>
             </li>
             <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
             </li>
@@ -413,7 +415,7 @@ instead.</p>
 <p><strong>Bad:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"></code></pre></div><p><strong>Good:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"></code></pre></div><h2 id="avoid-redefining-reserved-parameters">Avoid Redefining Reserved Parameters</h2>
-<p><a href="https://msdn.microsoft.com/en-us/library/dd901844(v=vs.85).aspx">Reserved Parameters</a>
+<p><a href="https://msdn.microsoft.com/en-us/library/dd901844%28v=vs.85%29.aspx">Reserved Parameters</a>
 such as Verbose, Debug, etc. are already added to the function at runtime so don&rsquo;t
 redefine them. Add the CmdletBinding attribute to include the reserved parameters
 in your function.</p>
