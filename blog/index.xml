@@ -6,7 +6,7 @@
     <description>Recent content in Blog Posts on </description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 28 Jul 2025 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 30 Jul 2025 00:00:00 +0100</lastBuildDate>
     <atom:link href="https://dsccommunity.org/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create an Article</title>
@@ -21,6 +21,13 @@
       <pubDate>Sat, 30 May 2020 23:00:00 +0100</pubDate>
       <guid>https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/</guid>
       <description>&lt;p&gt;Hi PowerShell and DSC folks!&lt;/p&gt;&#xA;&lt;p&gt;I wanted to share the &lt;a href=&#34;https://psconf.eu&#34;&gt;PSConfEU&lt;/a&gt; session Michael and myself have recorded on DSC and Guest Configuration.&lt;/p&gt;&#xA;&lt;p&gt;There will be a live Q&amp;amp;A on the Wednesday 3rd of June at 6PM CEST (9AM Pacific Time), so make sure you have watched and &lt;a href=&#34;http://powershell.one/psconfeu/psconf.eu-2020/about#asking-questions-in-real-time&#34;&gt;submit any further question&lt;/a&gt;.&#xA;Tune-in as early as Tuesday 2nd of June 5PM CEST to &lt;a href=&#34;http://powershell.one/psconfeu/psconf.eu-2020/about#june-2-2020&#34;&gt;watch the live Opening and Keynote&lt;/a&gt; with Tobias, Jeffrey Snover and Joey Aiello.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What is Microsoft DSC v3</title>
+      <link>https://dsccommunity.org/blog/what-is-microsoft-dscv3/</link>
+      <pubDate>Wed, 30 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>https://dsccommunity.org/blog/what-is-microsoft-dscv3/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Microsoft DSC v3 is a simple, single executable tool that helps you declare and enforce the desired state of your systems in a cross-platform way.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;what-is-microsoft-dsc-v3&#34;&gt;What is Microsoft DSC v3?&lt;/h2&gt;&#xA;&lt;p&gt;Microsoft Desired State Configuration (DSC) v3 is a cross-platform tool that lets you describe how you want your system to look and behave. You write a configuration document in JSON, Bicep, or YAML describing the desired state and Microsoft DSC v3 ensures your machines matches the state.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Your first class-based Microsoft DSC v3 resource</title>

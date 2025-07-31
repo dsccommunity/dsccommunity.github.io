@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Maintaining</title>
+  <title>What is Microsoft DSC v3</title>
 
   <meta name="generator" content="Hugo 0.148.2">
 
@@ -145,8 +145,8 @@
             </li>
             <li class=" active "><a href="/resources/">Resource Modules</a>
             </li>
-            <li class="parent d-block  active "><a href="/guidelines/">Guidelines</a>
-              <ul class="sub-menu">
+            <li class=" active "><a href="/guidelines/">Guidelines</a>
+              <ul class="">
             <li class=" active "><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
             </li>
             <li class=" active "><a href="/guidelines/contributing/">Contributing</a>
@@ -191,8 +191,8 @@
             </li></ul>
               
             </li>
-            <li class=" active "><a href="/blog/">Blog Posts</a>
-              <ul class="">
+            <li class="parent d-block  active "><a href="/blog/">Blog Posts</a>
+              <ul class="sub-menu">
             <li class=" active "><a href="/blog/create-an-article/">Create an Article</a>
             </li>
             <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
@@ -352,313 +352,107 @@
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Maintaining</h2>
-            <h3 id="security">Security</h3>
-<p>To be maintainer you must have 2FA enabled on accounts that give you
-access to DSC Community resources, for example your GitHub account and
-the account that access DSC Community Azure DevOps organization.</p>
-<h3 id="breaking-changes">Breaking Changes</h3>
-<p>See <a href="/guidelines/contributing/#breaking-changes">Breaking Changes</a></p>
-<h3 id="review">Review</h3>
-<p>Not yet written.</p>
-<h3 id="merging-code">Merging code</h3>
-<p>Only merge code that passes status checks, have been reviewed, and where
-all the review comments have be resolved and approved.</p>
-<p>As a maintainer you are allowed to review and merge your own code. Minimum
-time before you as a maintainer may merge your own code is 24 hours, but
-it is recommended that the code is merged after 72 hours so the community
-has a chance to comment on the changes. Any pull request that fixes issues
-in a broken CI pipeline can be merged faster to unblock other pull requests.
-A pull request that fixes security issues is also exempted. It is recommended
-to use the label <em>high priority</em> to flag pull requests that have to be
-merged before the minimum 24 hour time frame.</p>
-<h4 id="skip-raising-version">Skip raising version</h4>
-<p>It is possible to tell the CI build pipeline (GitVersion) to not raise
-the version when merging a pull request, e.g. when updating the CHANGELOG.md
-after a release. When merging the pull request just enter <code>+semver:skip</code>
-preferably in the commit description, but also works in the commit message.</p>
-<h4 id="skip-ci-on-merge">Skip CI on merge</h4>
-<p>It is possible to skip running the CI pipeline when merging a pull request,
-e.g. updating the CHANGELOG.md after a release. When merging the pull
-request just enter <code>[skip ci]</code> preferably in the commit description, but
-also works in the commit message.</p>
-<p>Read more in <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&amp;tabs=yaml#skipping-ci-for-individual-commits">Skipping CI for individual commits</a>.</p>
-<blockquote>
-<p>Do not add <code>[skip ci]</code> to a PR title, then the status checks will not
-run.</p></blockquote>
-<h3 id="prerelease">Prerelease</h3>
-<p>For each merge to the branch <code>master</code> there will be a prerelease
-automatically released (continuous delivery).</p>
-<p>The version is automatically calculated in the CI pipeline based on the
-commit history since the previous release. The calculation is done by
-<a href="https://gitversion.net/docs/">GitVersion</a> and each repository has a file
-<code>GitVersion.yml</code> that controls how this calculation is performed.</p>
-<p>The CI pipeline will create a tag in the format vX.Y.Z-previewXXXX, e.g
-<code>v5.0.0-preview0001</code>, and the prerelease to the PowerShell Gallery will have
-the format X.Y.Z-previewXXXX, e.g. <code>5.0.0-preview0001</code>. Any consequent
-merges to master will make a new preview release which will be named for
-example <code>5.0.0-preview0002</code> and so on.</p>
-<blockquote>
-<p><strong>NOTE:</strong> There are an issue with module ModuleBuilder v1.0.0 and higher
-when using semantic version preview strings that uses a dash, e.g. <code>fix0008-9</code>.
-The string is compliant with SemVer 2.0 but there is a  bug in
-<code>Publish-Module</code> that prevents the module to be released.</p></blockquote>
-<h3 id="release">Release</h3>
-<p>Once the next full version should be deployed, do these steps to push
-a new release version tag. Important to have the correct format <code>vX.Y.Z</code>,
-e.g. <code>v1.14.1</code>.</p>
-<p>Assuming &lsquo;origin&rsquo; is the remote name pointing the upstream repository, if
-not then change appropriately.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Make sure to get the latest history, use rebase to retain the linear</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># commit history.</span>
-</span></span><span style="display:flex;"><span>git checkout master
-</span></span><span style="display:flex;"><span>git fetch origin master
-</span></span><span style="display:flex;"><span>git rebase origin/master
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>git fetch origin --tags <span style="color:#75715e"># Fetch all tags from upstream master branch</span>
-</span></span><span style="display:flex;"><span>git describe --tags <span style="color:#75715e"># To see the the latest tag, e.g. vX.Y.Z-preview0002</span>
-</span></span><span style="display:flex;"><span>git tag vX.Y.Z <span style="color:#75715e"># Creates the new version tag locally.</span>
-</span></span><span style="display:flex;"><span>git push origin --tags <span style="color:#75715e"># Push the new tag that was created locally</span>
-</span></span></code></pre></div><p><em>Avoid using <code>git pull --tags</code> as it also will merge (not rebase) any</em>
-<em>changes from upstream (unless already rebased). Using <code>git pull</code> will</em>
-<em>not retain the linear commit history.</em></p>
-<blockquote>
-<p><strong>NOTE:</strong> You could also tag a specific commit if not all commits should
-be released.</p></blockquote>
-<h4 id="update-the-list-of-resource-modules">Update the list of resource modules</h4>
-<p>After a new resource module has been released or deprecated, please update
-the list of resource modules to include it on the site <a href="https://dsccommunity.org">https://dsccommunity.org</a>.</p>
-<p>See the section <a href="https://github.com/dsccommunity/dsccommunity.org#resource-modules">Resource modules</a>
-to learn how to update the list of resource modules.</p>
-<h3 id="running-the-task-pack-locally">Running the task <code>pack</code> locally</h3>
-<p>If the task <code>pack´ is run locally, e.g. ´.\build.ps1 -Task pack</code>, then
-<code>nuget.exe</code> must be updated so that it is not outdated. If it is outdated
-you can run into the issue <a href="https://github.com/PowerShell/PowerShellGet/issues/295">PowerShell/PowerShellGet#295</a>.</p>
-<p>To update run the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Non-admin</span>
-</span></span><span style="display:flex;"><span>Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile <span style="color:#e6db74">&#34;</span>$env<span style="color:#e6db74">:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Admin</span>
-</span></span><span style="display:flex;"><span>Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile <span style="color:#e6db74">&#34;</span>$env<span style="color:#e6db74">:ProgramData\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe&#34;</span>
-</span></span></code></pre></div><h3 id="labels">Labels</h3>
-<p>Labels are used in the issue and pull request workflows to show the
-current state.</p>
-<p>These are the labels currently used by the resource modules in DSC Community.
-Some of these labels are meant to be used with future automation.</p>
-<blockquote>
-<p>The script
-<a href="https://gist.github.com/johlju/f83f99787029a6b5d65cfd6844cf9449">DscResourceKit-Labels</a>
-that is provided by the community can be used to update the labels in a
-repository.</p></blockquote>
-<p>These are also set as the <a href="https://github.com/organizations/dsccommunity/settings/labels">default organization labels</a>
-so that new repositories that are created they will automatically get these labels.</p>
-<table>
-  <thead>
-      <tr>
-          <th>Label</th>
-          <th>Description</th>
-          <th>Color Hex</th>
-          <th>Area of usage</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>abandoned</td>
-          <td>The pull request has been abandoned.</td>
-          <td>#ffffff White</td>
-          <td>PR</td>
-      </tr>
-      <tr>
-          <td>blocking release</td>
-          <td>The issue or pull request is blocking the next release. Higher priority than label &lsquo;High priority&rsquo;.</td>
-          <td>#800000 Dark red</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>breaking change</td>
-          <td>When used on an issue, the issue has been found to be a breaking change.</td>
-          <td>#ff9900 Orange</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>bug</td>
-          <td>The issue is a bug.</td>
-          <td>#ee0701 Red</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>by design</td>
-          <td>The issue is describing an expect behavior.</td>
-          <td>#ffffff White</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>closed by author</td>
-          <td>The issue or pull request was closed by the author.</td>
-          <td>#ffffff White</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>discussion</td>
-          <td>The issue is a discussion.</td>
-          <td>#993399 Purple</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>documentation</td>
-          <td>The issue is related to documentation only.</td>
-          <td>#c5def5 Lighter blue</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>duplicate</td>
-          <td>The issue or PR is the duplicate of another.</td>
-          <td>#ffffff White</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>good first issue</td>
-          <td>The issue should be easier to fix and can be taken up by a beginner to learn to contribute on GitHub</td>
-          <td>#5319e7 Purple</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>enhancement</td>
-          <td>The issue is an enhancement request.</td>
-          <td>#84b6eb Light blue</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>external</td>
-          <td>The issue cannot be resolved within the DSC Resource Kit.</td>
-          <td>#ffffff White</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>help wanted</td>
-          <td>The issue is up for grabs for anyone in the community.</td>
-          <td>#128A0C Green</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>high priority</td>
-          <td>The issue or PR should be resolved first. It is of less priority than the label &lsquo;Blocking Release&rsquo;.</td>
-          <td>#ffcc99 Light orange</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>in progress</td>
-          <td>The issue is being actively worked on by someone.</td>
-          <td>#99ffcc Turquoise</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>needs investigation</td>
-          <td>The issue needs to be investigated by the maintainers or/and the community.</td>
-          <td>#ffff99 Yellow</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>needs more information</td>
-          <td>The issue needs more information from the author or the community.</td>
-          <td>#ffff99 Yellow</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>needs review</td>
-          <td>The pull request needs a code review.</td>
-          <td>#99ff33 Lime green</td>
-          <td>PR</td>
-      </tr>
-      <tr>
-          <td>not fixed</td>
-          <td>The issue was closed without being fixed.</td>
-          <td>#ffffff White</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>on hold</td>
-          <td>The issue or pull request has been put on hold by a maintainer.</td>
-          <td>#1e1e7b Dark blue</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>question</td>
-          <td>The issue is a question.</td>
-          <td>#cc317c Dark pink</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>ready for merge</td>
-          <td>The pull request was approved by the community and is ready to be merged by a maintainer.</td>
-          <td>#215e82 Dark cyan</td>
-          <td>PR</td>
-      </tr>
-      <tr>
-          <td>resolved in dev</td>
-          <td>A fix has been merged into the dev-branch but the issue is still open and awaits next release.</td>
-          <td>#215e82 Dark cyan</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>resource proposal</td>
-          <td>The issue is proposing a new resource in the resource module.</td>
-          <td>#fbca04 Dark yellow</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>stale</td>
-          <td>The issue was marked as stale because there has not been activity from the community.</td>
-          <td>#cccccc Grey</td>
-          <td>Issues</td>
-      </tr>
-      <tr>
-          <td>tests</td>
-          <td>The issue or pull request is about tests only.</td>
-          <td>#c5def5 Lighter blue</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>updated by author</td>
-          <td>The author last updated the pull request.</td>
-          <td>#e3f1dA Lighter Green</td>
-          <td>PR</td>
-      </tr>
-      <tr>
-          <td>waiting for author response</td>
-          <td>The pull request is waiting for the author to respond to comments in the pull request.</td>
-          <td>#ffff99 Yellow</td>
-          <td>PR</td>
-      </tr>
-      <tr>
-          <td>waiting for code fix</td>
-          <td>A review left open comments, and the pull request is waiting for changes to be pushed by the author.</td>
-          <td>#ffff99 Yellow</td>
-          <td>PR</td>
-      </tr>
-      <tr>
-          <td>Linux</td>
-          <td>This targets Linux platform-family.</td>
-          <td>#221A3e Heavy Blue Dark</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>macOS</td>
-          <td>This targets macOS platform-family.</td>
-          <td>#221A3e Heavy Blue Dark</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>Windows</td>
-          <td>This targets Windows platform-family.</td>
-          <td>#221A3e Heavy Blue Dark</td>
-          <td>Issue, PR</td>
-      </tr>
-  </tbody>
-</table>
+            <h2>What is Microsoft DSC v3</h2>
+            <blockquote>
+<p>Microsoft DSC v3 is a simple, single executable tool that helps you declare and enforce the desired state of your systems in a cross-platform way.</p></blockquote>
+<h2 id="what-is-microsoft-dsc-v3">What is Microsoft DSC v3?</h2>
+<p>Microsoft Desired State Configuration (DSC) v3 is a cross-platform tool that lets you describe how you want your system to look and behave. You write a configuration document in JSON, Bicep, or YAML describing the desired state and Microsoft DSC v3 ensures your machines matches the state.</p>
+<p>For example, what file and folders should always exist or which services should be running <em>always</em>.</p>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/guidelines/contributing/" title="Contributing"><i class="ti-arrow-left mr-2"></i>Contributing</a>
-            <a class="nav nav-next" href="/guidelines/style-guidelines/" title="Style Guidelines">Style Guidelines<i class="ti-arrow-right ml-2"></i></a>
+            <link rel="stylesheet" href="/css/vendors/admonitions.4fd9a0b8ec8899f2ca952048d255a569f433f77dfb3f52f5bc87e7d65cdce449.css" integrity="sha256-T9mguOyImfLKlSBI0lWlafQz9337P1L1vIfn1lzc5Ek=" crossorigin="anonymous">
+    <div class="admonition tip">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></svg>
+        <span>Tip</span>
+      </div>
+      <div class="admonition-content">
+        <p>To learn why you want to use Microsoft DSC v3, check out the <a href="demodscclass-your-first-class-based-dsc-v3-resource.md#why-use-class-based-resources">following article</a></p>
+      </div>
+    </div><h2 id="installing-dsc-v3">Installing DSC v3</h2>
+<p>The following sections demonstrate how you can install Microsoft DSC v3 on the different platforms and methods.</p>
+<h3 id="installing-microsoft-dsc-v3-using-psdsc">Installing Microsoft DSC v3 using PSDSC</h3>
+<p>To install Microsoft DSC v3 on all platforms, you can use a community PowerShell module which runs on PowerShell 7+:</p>
+<ol>
+<li>Open a PowerShell terminal session</li>
+<li>Install the <code>PSDSC</code> module by typing:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Install-PSResource -Name PSDSC -Repository PSGallery
+</span></span></code></pre></div><ol>
+<li>Execute <code>Install-DscExe</code> in your terminal session</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Install-DscExe
+</span></span></code></pre></div>
+    <div class="admonition tip">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></svg>
+        <span>Tip</span>
+      </div>
+      <div class="admonition-content">
+        <p>You can also install pre-release version by adding the <code>IncludePreRelease</code> switch parameter.</p>
+      </div>
+    </div><p>The command automatically adds the <code>dsc</code> executable to the <code>PATH</code> environment variable.</p>
+
+    <div class="admonition tip">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></svg>
+        <span>Tip</span>
+      </div>
+      <div class="admonition-content">
+        <p>The WinGet community package repository also contains <code>dsc</code>. For more information, check out the <a href="https://learn.microsoft.com/en-us/powershell/dsc/overview?view=dsc-3.0#install-dsc-on-windows-with-winget">Install DSC on Windows with WinGet</a> (only applies to Windows).</p>
+      </div>
+    </div><h3 id="installing-from-github">Installing from GitHub</h3>
+<p>To install Microsoft DSC v3 on Windows using GitHub, you first should determine your OS architecture. There are multiple ways to determine the operating system (OS) architecture. The following three demonstrate using the command prompt, PowerShell, or msinfo.</p>
+<ol>
+<li>Open a command prompt and type: echo %PROCESSOR_ARCHITECTURE%.</li>
+<li>Open a PowerShell terminal session and type: [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture.</li>
+<li>In your Quick Start menu, type in msinfo32.exe and locate the System Type property in the System Summary.</li>
+</ol>
+<p>After determining your OS architecture, proceed to download the release asset from GitHub.</p>
+<ol>
+<li>Open the following <a href="https://github.com/PowerShell/DSC/releases/">link</a> in your favorite browser</li>
+<li>Select the version you want to download and scroll-down.</li>
+<li>Expand the <em>Assets</em> and press the asset relevant to your OS architecture.</li>
+<li>Save the file to your Downloads folder.</li>
+</ol>
+<p>When the download is finished, you can expand the files to extract them to your application data folder.</p>
+<ol>
+<li>Right-click the file and select <em>Extract all&hellip;</em></li>
+<li>Extract the files to <code>C:\Users\&lt;userProfile&gt;\AppData\Local\dsc</code> by replacing the <code>&lt;userProfile&gt;</code> with your profile name.</li>
+<li>Open a command prompt and type: <code>rundll32.exe sysdm.cpl,EditEnvironmentVariables</code> to open the environment variables.</li>
+<li>In your user variables, edit your <code>PATH</code> environment variable and include the path <code>C:\Users\&lt;userProfile&gt;\AppData\Local\dsc</code>.</li>
+</ol>
+<p>Verify the installation by re-opening a command prompt and typing: <code>dsc --version</code></p>
+<h2 id="quick-introduction-getting-the-current-state">Quick introduction: Getting the current state</h2>
+<p>To quickly learn about Microsoft DSC v3, let&rsquo;s create a configuration document that gets the operating system information on your system.</p>
+<ol>
+<li>
+<p>Create the following YAML file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># osinfo.dsc.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$schema</span>: <span style="color:#ae81ff">https://aka.ms/dsc/schemas/v3/bundled/config/document.json</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">resources</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">os</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">Microsoft/OSInfo</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">properties</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">family</span>: <span style="color:#ae81ff">Windows</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Run the following command to get the current state</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dsc config get --file osinfo.dsc.yaml
+</span></span></code></pre></div></li>
+</ol>
+
+    <div class="admonition note">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/></svg>
+        <span>Note</span>
+      </div>
+      <div class="admonition-content">
+        <p>It is also possible to get the current state by running <code>dsc resource get -r Microsoft/OSInfo</code>
+without needing a configuration file.</p>
+      </div>
+    </div><h2 id="conclusion">Conclusion</h2>
+<p>Microsoft DSC v3 redefines the DSC experience by providing a single executable into a lightweight and cross-platform tool. It seamlessly fits into modern DevOps pipelines. With a new concept called <em>adapters</em>, existing DSC resource are still able to be executed. Start small to learn the new resource syntax and build up to automate your entire infrastructure.</p>
+<p>Happy configuring!</p>
+<!-- Link reference definitions -->
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 30 Jul 2025</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/dsc-is-dead-long-live-dsc/" title="DSC is Dead"><i class="ti-arrow-left mr-2"></i>DSC is Dead</a>
+            <a class="nav nav-next" href="/blog/your-first-class-based-microsoft-dsc-v3-resource/" title="Your first class-based Microsoft DSC v3 resource">Your first class-based Microsoft DSC v3 resource<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>

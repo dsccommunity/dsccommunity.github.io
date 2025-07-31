@@ -6,7 +6,7 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 28 Jul 2025 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 30 Jul 2025 00:00:00 +0100</lastBuildDate>
     <atom:link href="https://dsccommunity.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Next Community Calls</title>
@@ -546,6 +546,13 @@
       <pubDate>Sun, 28 Jul 2019 23:35:30 +0200</pubDate>
       <guid>https://dsccommunity.org/community_calls/2019-05-08-notes/</guid>
       <description>&lt;h3 id=&#34;resources-to-be-released&#34;&gt;Resources to be released&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;TBC&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;discussions&#34;&gt;Discussions&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Topics or questions from the community (welcome at any point during the call)&lt;/li&gt;&#xA;&lt;li&gt;Celebrating new maintainers:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot&lt;/li&gt;&#xA;&lt;li&gt;Jason Patton &amp;ndash;&amp;gt; xDnsServer&lt;/li&gt;&#xA;&lt;li&gt;Nehru Ali &amp;ndash;&amp;gt; xPendingReboot&lt;/li&gt;&#xA;&lt;li&gt;Brian Wilhite &amp;ndash;&amp;gt; xPendingReboot&lt;/li&gt;&#xA;&lt;li&gt;Johan Ljunggren &amp;ndash;&amp;gt; xSmbShare (this resource is being moved to ComputerManagementDsc)&lt;/li&gt;&#xA;&lt;li&gt;Jason Ryberg &amp;ndash;&amp;gt; xActiveDirectory, ActiveDirectoryCSDsc and xAzure&lt;/li&gt;&#xA;&lt;li&gt;Mike Beggs &amp;ndash;&amp;gt; NetworkingDsc and xDhcpServer&lt;/li&gt;&#xA;&lt;li&gt;Ryan Christman &amp;ndash;&amp;gt; xActiveDirectory&lt;/li&gt;&#xA;&lt;li&gt;Jan-Hendrik Peters &amp;ndash;&amp;gt; xActiveDirectory and xSCVMM&lt;/li&gt;&#xA;&lt;li&gt;Chase Wilson &amp;ndash;&amp;gt; xAzure and xFirefox&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Waffle board will be closing, still looking into a replacement&lt;/li&gt;&#xA;&lt;li&gt;Moving off gitter to PoshCode slack: the #dsc channel in either &lt;a href=&#34;https://powershell.slack.com&#34;&gt;Slack&lt;/a&gt; or &lt;a href=&#34;https://discordapp.com/channels/180528040881815552/447475636487979008&#34;&gt;Discord&lt;/a&gt;. &lt;em&gt;The form on the page &lt;a href=&#34;http://slack.poshcode.org/&#34;&gt;http://slack.poshcode.org/&lt;/a&gt; does not work, though there is a link in the text on that page that works. Joel has said that the form is meant to be removed&lt;/em&gt;.&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Join through Slack: &lt;a href=&#34;https://j.mp/psslack&#34;&gt;https://j.mp/psslack&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Join through Discord: &lt;a href=&#34;https://j.mp/psdiscord&#34;&gt;https://j.mp/psdiscord&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;New module submissions (if the module submission is not ready, the item is moved to next community call)&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Office365Dsc&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>What is Microsoft DSC v3</title>
+      <link>https://dsccommunity.org/blog/what-is-microsoft-dscv3/</link>
+      <pubDate>Wed, 30 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>https://dsccommunity.org/blog/what-is-microsoft-dscv3/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Microsoft DSC v3 is a simple, single executable tool that helps you declare and enforce the desired state of your systems in a cross-platform way.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;what-is-microsoft-dsc-v3&#34;&gt;What is Microsoft DSC v3?&lt;/h2&gt;&#xA;&lt;p&gt;Microsoft Desired State Configuration (DSC) v3 is a cross-platform tool that lets you describe how you want your system to look and behave. You write a configuration document in JSON, Bicep, or YAML describing the desired state and Microsoft DSC v3 ensures your machines matches the state.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Your first class-based Microsoft DSC v3 resource</title>
