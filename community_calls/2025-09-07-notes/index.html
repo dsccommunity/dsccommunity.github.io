@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Maintaining</title>
+  <title>2025-09-07 Notes</title>
 
   <meta name="generator" content="Hugo 0.148.2">
 
@@ -145,8 +145,8 @@
             </li>
             <li class=" active "><a href="/resources/">Resource Modules</a>
             </li>
-            <li class="parent d-block  active "><a href="/guidelines/">Guidelines</a>
-              <ul class="sub-menu">
+            <li class=" active "><a href="/guidelines/">Guidelines</a>
+              <ul class="">
             <li class=" active "><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
             </li>
             <li class=" active "><a href="/guidelines/contributing/">Contributing</a>
@@ -229,8 +229,8 @@
             </li></ul>
               
             </li>
-            <li class=" active "><a href="/community_calls/">Community Calls</a>
-              <ul class="">
+            <li class="parent d-block  active "><a href="/community_calls/">Community Calls</a>
+              <ul class="sub-menu">
             <li class=" active "><a href="/community_calls/next_call/">Next Community Calls</a>
             </li>
             <li class=" active "><a href="/community_calls/2025-02-06-notes/">2025-02-07 Notes</a>
@@ -354,313 +354,37 @@
       </div>
       <div class="col-lg-9">
         <div class="p-5 bg-white">
-            <h2>Maintaining</h2>
-            <h3 id="security">Security</h3>
-<p>To be maintainer you must have 2FA enabled on accounts that give you
-access to DSC Community resources, for example your GitHub account and
-the account that access DSC Community Azure DevOps organization.</p>
-<h3 id="breaking-changes">Breaking Changes</h3>
-<p>See <a href="/guidelines/contributing/#breaking-changes">Breaking Changes</a></p>
-<h3 id="review">Review</h3>
-<p>Not yet written.</p>
-<h3 id="merging-code">Merging code</h3>
-<p>Only merge code that passes status checks, have been reviewed, and where
-all the review comments have be resolved and approved.</p>
-<p>As a maintainer you are allowed to review and merge your own code. Minimum
-time before you as a maintainer may merge your own code is 24 hours, but
-it is recommended that the code is merged after 72 hours so the community
-has a chance to comment on the changes. Any pull request that fixes issues
-in a broken CI pipeline can be merged faster to unblock other pull requests.
-A pull request that fixes security issues is also exempted. It is recommended
-to use the label <em>high priority</em> to flag pull requests that have to be
-merged before the minimum 24 hour time frame.</p>
-<h4 id="skip-raising-version">Skip raising version</h4>
-<p>It is possible to tell the CI build pipeline (GitVersion) to not raise
-the version when merging a pull request, e.g. when updating the CHANGELOG.md
-after a release. When merging the pull request just enter <code>+semver:skip</code>
-preferably in the commit description, but also works in the commit message.</p>
-<h4 id="skip-ci-on-merge">Skip CI on merge</h4>
-<p>It is possible to skip running the CI pipeline when merging a pull request,
-e.g. updating the CHANGELOG.md after a release. When merging the pull
-request just enter <code>[skip ci]</code> preferably in the commit description, but
-also works in the commit message.</p>
-<p>Read more in <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&amp;tabs=yaml#skipping-ci-for-individual-commits">Skipping CI for individual commits</a>.</p>
-<blockquote>
-<p>Do not add <code>[skip ci]</code> to a PR title, then the status checks will not
-run.</p></blockquote>
-<h3 id="prerelease">Prerelease</h3>
-<p>For each merge to the branch <code>master</code> there will be a prerelease
-automatically released (continuous delivery).</p>
-<p>The version is automatically calculated in the CI pipeline based on the
-commit history since the previous release. The calculation is done by
-<a href="https://gitversion.net/docs/">GitVersion</a> and each repository has a file
-<code>GitVersion.yml</code> that controls how this calculation is performed.</p>
-<p>The CI pipeline will create a tag in the format vX.Y.Z-previewXXXX, e.g
-<code>v5.0.0-preview0001</code>, and the prerelease to the PowerShell Gallery will have
-the format X.Y.Z-previewXXXX, e.g. <code>5.0.0-preview0001</code>. Any consequent
-merges to master will make a new preview release which will be named for
-example <code>5.0.0-preview0002</code> and so on.</p>
-<blockquote>
-<p><strong>NOTE:</strong> There are an issue with module ModuleBuilder v1.0.0 and higher
-when using semantic version preview strings that uses a dash, e.g. <code>fix0008-9</code>.
-The string is compliant with SemVer 2.0 but there is a  bug in
-<code>Publish-Module</code> that prevents the module to be released.</p></blockquote>
-<h3 id="release">Release</h3>
-<p>Once the next full version should be deployed, do these steps to push
-a new release version tag. Important to have the correct format <code>vX.Y.Z</code>,
-e.g. <code>v1.14.1</code>.</p>
-<p>Assuming &lsquo;origin&rsquo; is the remote name pointing the upstream repository, if
-not then change appropriately.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Make sure to get the latest history, use rebase to retain the linear</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># commit history.</span>
-</span></span><span style="display:flex;"><span>git checkout master
-</span></span><span style="display:flex;"><span>git fetch origin master
-</span></span><span style="display:flex;"><span>git rebase origin/master
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>git fetch origin --tags <span style="color:#75715e"># Fetch all tags from upstream master branch</span>
-</span></span><span style="display:flex;"><span>git describe --tags <span style="color:#75715e"># To see the the latest tag, e.g. vX.Y.Z-preview0002</span>
-</span></span><span style="display:flex;"><span>git tag vX.Y.Z <span style="color:#75715e"># Creates the new version tag locally.</span>
-</span></span><span style="display:flex;"><span>git push origin --tags <span style="color:#75715e"># Push the new tag that was created locally</span>
-</span></span></code></pre></div><p><em>Avoid using <code>git pull --tags</code> as it also will merge (not rebase) any</em>
-<em>changes from upstream (unless already rebased). Using <code>git pull</code> will</em>
-<em>not retain the linear commit history.</em></p>
-<blockquote>
-<p><strong>NOTE:</strong> You could also tag a specific commit if not all commits should
-be released.</p></blockquote>
-<h4 id="update-the-list-of-resource-modules">Update the list of resource modules</h4>
-<p>After a new resource module has been released or deprecated, please update
-the list of resource modules to include it on the site <a href="https://dsccommunity.org">https://dsccommunity.org</a>.</p>
-<p>See the section <a href="https://github.com/dsccommunity/dsccommunity.org#resource-modules">Resource modules</a>
-to learn how to update the list of resource modules.</p>
-<h3 id="running-the-task-pack-locally">Running the task <code>pack</code> locally</h3>
-<p>If the task <code>pack´ is run locally, e.g. ´.\build.ps1 -Task pack</code>, then
-<code>nuget.exe</code> must be updated so that it is not outdated. If it is outdated
-you can run into the issue <a href="https://github.com/PowerShell/PowerShellGet/issues/295">PowerShell/PowerShellGet#295</a>.</p>
-<p>To update run the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Non-admin</span>
-</span></span><span style="display:flex;"><span>Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile <span style="color:#e6db74">&#34;</span>$env<span style="color:#e6db74">:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Admin</span>
-</span></span><span style="display:flex;"><span>Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile <span style="color:#e6db74">&#34;</span>$env<span style="color:#e6db74">:ProgramData\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe&#34;</span>
-</span></span></code></pre></div><h3 id="labels">Labels</h3>
-<p>Labels are used in the issue and pull request workflows to show the
-current state.</p>
-<p>These are the labels currently used by the resource modules in DSC Community.
-Some of these labels are meant to be used with future automation.</p>
-<blockquote>
-<p>The script
-<a href="https://gist.github.com/johlju/f83f99787029a6b5d65cfd6844cf9449">DscResourceKit-Labels</a>
-that is provided by the community can be used to update the labels in a
-repository.</p></blockquote>
-<p>These are also set as the <a href="https://github.com/organizations/dsccommunity/settings/labels">default organization labels</a>
-so that new repositories that are created they will automatically get these labels.</p>
-<table>
-  <thead>
-      <tr>
-          <th>Label</th>
-          <th>Description</th>
-          <th>Color Hex</th>
-          <th>Area of usage</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>abandoned</td>
-          <td>The pull request has been abandoned.</td>
-          <td>#ffffff White</td>
-          <td>PR</td>
-      </tr>
-      <tr>
-          <td>blocking release</td>
-          <td>The issue or pull request is blocking the next release. Higher priority than label &lsquo;High priority&rsquo;.</td>
-          <td>#800000 Dark red</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>breaking change</td>
-          <td>When used on an issue, the issue has been found to be a breaking change.</td>
-          <td>#ff9900 Orange</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>bug</td>
-          <td>The issue is a bug.</td>
-          <td>#ee0701 Red</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>by design</td>
-          <td>The issue is describing an expect behavior.</td>
-          <td>#ffffff White</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>closed by author</td>
-          <td>The issue or pull request was closed by the author.</td>
-          <td>#ffffff White</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>discussion</td>
-          <td>The issue is a discussion.</td>
-          <td>#993399 Purple</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>documentation</td>
-          <td>The issue is related to documentation only.</td>
-          <td>#c5def5 Lighter blue</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>duplicate</td>
-          <td>The issue or PR is the duplicate of another.</td>
-          <td>#ffffff White</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>good first issue</td>
-          <td>The issue should be easier to fix and can be taken up by a beginner to learn to contribute on GitHub</td>
-          <td>#5319e7 Purple</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>enhancement</td>
-          <td>The issue is an enhancement request.</td>
-          <td>#84b6eb Light blue</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>external</td>
-          <td>The issue cannot be resolved within the DSC Resource Kit.</td>
-          <td>#ffffff White</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>help wanted</td>
-          <td>The issue is up for grabs for anyone in the community.</td>
-          <td>#128A0C Green</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>high priority</td>
-          <td>The issue or PR should be resolved first. It is of less priority than the label &lsquo;Blocking Release&rsquo;.</td>
-          <td>#ffcc99 Light orange</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>in progress</td>
-          <td>The issue is being actively worked on by someone.</td>
-          <td>#99ffcc Turquoise</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>needs investigation</td>
-          <td>The issue needs to be investigated by the maintainers or/and the community.</td>
-          <td>#ffff99 Yellow</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>needs more information</td>
-          <td>The issue needs more information from the author or the community.</td>
-          <td>#ffff99 Yellow</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>needs review</td>
-          <td>The pull request needs a code review.</td>
-          <td>#99ff33 Lime green</td>
-          <td>PR</td>
-      </tr>
-      <tr>
-          <td>not fixed</td>
-          <td>The issue was closed without being fixed.</td>
-          <td>#ffffff White</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>on hold</td>
-          <td>The issue or pull request has been put on hold by a maintainer.</td>
-          <td>#1e1e7b Dark blue</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>question</td>
-          <td>The issue is a question.</td>
-          <td>#cc317c Dark pink</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>ready for merge</td>
-          <td>The pull request was approved by the community and is ready to be merged by a maintainer.</td>
-          <td>#215e82 Dark cyan</td>
-          <td>PR</td>
-      </tr>
-      <tr>
-          <td>resolved in dev</td>
-          <td>A fix has been merged into the dev-branch but the issue is still open and awaits next release.</td>
-          <td>#215e82 Dark cyan</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>resource proposal</td>
-          <td>The issue is proposing a new resource in the resource module.</td>
-          <td>#fbca04 Dark yellow</td>
-          <td>Issue</td>
-      </tr>
-      <tr>
-          <td>stale</td>
-          <td>The issue was marked as stale because there has not been activity from the community.</td>
-          <td>#cccccc Grey</td>
-          <td>Issues</td>
-      </tr>
-      <tr>
-          <td>tests</td>
-          <td>The issue or pull request is about tests only.</td>
-          <td>#c5def5 Lighter blue</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>updated by author</td>
-          <td>The author last updated the pull request.</td>
-          <td>#e3f1dA Lighter Green</td>
-          <td>PR</td>
-      </tr>
-      <tr>
-          <td>waiting for author response</td>
-          <td>The pull request is waiting for the author to respond to comments in the pull request.</td>
-          <td>#ffff99 Yellow</td>
-          <td>PR</td>
-      </tr>
-      <tr>
-          <td>waiting for code fix</td>
-          <td>A review left open comments, and the pull request is waiting for changes to be pushed by the author.</td>
-          <td>#ffff99 Yellow</td>
-          <td>PR</td>
-      </tr>
-      <tr>
-          <td>Linux</td>
-          <td>This targets Linux platform-family.</td>
-          <td>#221A3e Heavy Blue Dark</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>macOS</td>
-          <td>This targets macOS platform-family.</td>
-          <td>#221A3e Heavy Blue Dark</td>
-          <td>Issue, PR</td>
-      </tr>
-      <tr>
-          <td>Windows</td>
-          <td>This targets Windows platform-family.</td>
-          <td>#221A3e Heavy Blue Dark</td>
-          <td>Issue, PR</td>
-      </tr>
-  </tbody>
-</table>
+            <h2>2025-09-07 Notes</h2>
+            <h3 id="recording">Recording</h3>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/w6b76SxCd-Q?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Jan 2019</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/guidelines/contributing/" title="Contributing"><i class="ti-arrow-left mr-2"></i>Contributing</a>
-            <a class="nav nav-next" href="/guidelines/style-guidelines/" title="Style Guidelines">Style Guidelines<i class="ti-arrow-right ml-2"></i></a>
+<h2 id="agenda">Agenda</h2>
+<h4 id="community-presentation">Community presentation</h4>
+<p>None</p>
+<h4 id="open-discussions">Open discussions</h4>
+<ul>
+<li>The meeting focused on the Model Context Protocol (MCP) and its integration with language models and Desired State Configuration (DSC), highlighting how MCP enables AI agents to interact with external tools and resources, such as GitHub and PowerShell, to automate tasks and manage system configurations.</li>
+<li>Steve Lee shared practical scenarios, including automating &ldquo;presentation mode&rdquo; setups on laptops using DSC resources and AI, and discussed the need for MCP servers to bridge AI and system management tools.</li>
+<li>The group discussed the current state and future of DSC, including the development of MCP servers, collaboration with internal Microsoft teams, and the importance of building robust DSC resources for broader adoption.</li>
+<li>Technical challenges around exporting and cloning configurations, the evolution from DSC v2 to v3, and the introduction of new resource capabilities like &ldquo;delete&rdquo; and &ldquo;export&rdquo; were explored, with Mikey and Steve providing insights into implementation details and best practices. 40:53</li>
+<li>Community contributions, funding needs, and the growing collaboration between DSC and other projects like Winget were addressed, emphasizing the expanding ecosystem and the importance of higher-level tools for end users.</li>
+<li>The meeting concluded with a Q&amp;A on technical specifics, resource design, and future directions for DSC and MCP integration, encouraging community feedback and experimentation.</li>
+</ul>
+<h3 id="dsc-resource-modules-that-have-been-released-recently">DSC resource modules that have been released recently</h3>
+<ul>
+<li>Releases</li>
+<li>Preview</li>
+</ul>
+<h4 id="tooling-modules-that-have-been-released-recently">Tooling modules that have been released recently</h4>
+<ul>
+<li>Releases</li>
+<li>Preview</li>
+</ul>
+
+            <p class="post-meta border-bottom pb-3 mb-0">Updated on 07 Sep 2025</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/community_calls/2024-10-11-notes/" title="2024-10-11 Notes"><i class="ti-arrow-left mr-2"></i>2024-10-11 Notes</a>
+            <a class="nav nav-next" href="/community_calls/2024-08-26-notes/" title="2024-08-26 Notes">2024-08-26 Notes<i class="ti-arrow-right ml-2"></i></a>
             </nav></div>
       </div>
     </div>
