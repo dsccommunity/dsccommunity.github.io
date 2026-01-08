@@ -1,363 +1,481 @@
-<head>
-  <meta charset="utf-8">
-  <title>Convert tests to Pester 5 for a DSC Community repository</title>
+<!DOCTYPE html>
+<html
+  lang="en"
+  data-theme="light"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A collaborative community of authors and maintainers working to improve DSC resources, their quality, and development practices."
+    />
+    <meta name="author" content="DSC Community" />
 
-  <meta name="generator" content="Hugo 0.148.2">
+    <title>Convert tests to Pester 5 for a DSC Community repository | </title>
 
-  <!-- mobile responsive meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
+    <meta name="generator" content="Hugo 0.148.2">
 
-  <!-- ** Plugins Needed for the Project ** -->
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.css">
-  <!-- themefy-icon -->
-  <link rel="stylesheet" href="https://dsccommunity.org/plugins/themify-icons/themify-icons.css">
-  <!-- highlight -->
-  <link rel="stylesheet" href="https://dsccommunity.org/plugins/highlight/hybrid.css">
-  <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-
-
-  <style>
-  :root{
-    --primary-color:#003366;
-    --secondary-color:#f9f9f9;
-    --text-color:#242738;
-    --text-color-dark:#000;
-    --white-color:#ffffff;
-  }
-  </style>
-
-  <!-- Main Stylesheet -->
-  
-  <link rel="stylesheet" href="https://dsccommunity.org/css/style.min.css" integrity="" media="screen">
-
-  <!-- jquiry -->
-  <script src="https://dsccommunity.org/plugins/jquery/jquery-1.12.4.js"></script>
-
-  <!-- jquary ui -->
-  <script src="https://dsccommunity.org/plugins/jquery/jquery-ui.js"></script>
-
-  <!--Favicon-->
-  <link rel="icon" href="https://dsccommunity.org/images/favicon.png" type="image/x-icon">
-
-</head>
-
-<!-- navigation -->
-<header class="shadow-bottom sticky-top bg-white">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="https://dsccommunity.org/">DSC Community and Resource Kit</a>
-  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
-    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse text-center" id="navigation">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link text-dark" href="https://dsccommunity.org/">Home</a>
-      </li>
-      
-      
-      <li class="nav-item">
-          <a class="nav-link text-dark" href="/code_of_conduct">Code of Conduct</a>
-      </li>
-      
-      
-      
-      <li class="nav-item">
-          <a class="nav-link text-dark" href="/community_calls">Community Calls</a>
-      </li>
-      
-      
-      
-      <li class="nav-item">
-          <a class="nav-link text-dark" href="/faq">Faq</a>
-      </li>
-      
-      
-      
-      <li class="nav-item">
-          <a class="nav-link text-dark" href="/help">help</a>
-      </li>
-      
-      
-      
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          Categories
-        </a>
-        <div class="dropdown-menu" >
-          
-          <a class="dropdown-item" href="/community">Community</a>
-          
-          <a class="dropdown-item" href="/resources">Resource Modules</a>
-          
-          <a class="dropdown-item" href="/guidelines">Guidelines</a>
-          
-          <a class="dropdown-item" href="/blog">Blog Posts</a>
-          
-          <a class="dropdown-item" href="/configmgt">Config. Management</a>
-          
-        </div>
-      </li>
-      
-      
-    </ul>
     
-    <ul class="list-inline text-center mb-0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+    />
+
+    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css"
+    />
+
+    
+    
+    <link
+      rel="stylesheet"
+      href="https://dsccommunity.org/css/futuristic.min.2fe77f06d9e00c9c5b3ed8d96e487ab36a763589c09b8cf99c143b793fe8c975.css"
+      integrity="sha256-L&#43;d/BtngDJxbPtjZbkh6s2p2NYnAm4z5nBQ7eT/oyXU="
+    />
+
+    
+    <link
+      rel="icon"
+      href="https://dsccommunity.org/images/favicon.png"
+      type="image/x-icon"
+    />
+
+    
+    <meta property="og:title" content="Convert tests to Pester 5 for a DSC Community repository" />
+    <meta
+      property="og:description"
+      content="A collaborative community of authors and maintainers working to improve DSC resources, their quality, and development practices."
+    />
+    <meta
+      property="og:type"
+      content="article"
+    />
+    <meta property="og:url" content="https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/" />
+    
+    <meta property="og:image" content="https://dsccommunity.org/images/dsc-community-og.png" />
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Convert tests to Pester 5 for a DSC Community repository" />
+    <meta
+      name="twitter:description"
+      content="A collaborative community of authors and maintainers working to improve DSC resources, their quality, and development practices."
+    />
+
+    
+    <script>
+      (function () {
+        const theme =
+          localStorage.getItem("theme") ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+  </head>
+  <body>
+    
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
       
-      <li class="list-inline-item"><a class="text-dark" href="https://dsccommunity.org/"></a></li>
+      <a href="https://dsccommunity.org/" class="site-logo">
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="32" height="32" rx="8" fill="url(#logo-gradient)" />
+          <path
+            d="M8 12h16M8 16h12M8 20h16"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <defs>
+            <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#3b82f6" />
+              <stop offset="100%" stop-color="#8b5cf6" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>DSC Community</span>
+      </a>
+
       
-    </ul>
-  </div>
-</nav>
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <ul class="nav-list">
+           
+          <li class="nav-item">
+            <a
+              href="/code_of_conduct"
+              class="nav-link"
+            >
+              Code of Conduct
+            </a>
+          </li>
+            
+          <li class="nav-item">
+            <a
+              href="/community_calls"
+              class="nav-link"
+            >
+              Community Calls
+            </a>
+          </li>
+            
+          <li class="nav-item">
+            <a
+              href="/faq"
+              class="nav-link"
+            >
+              FAQ
+            </a>
+          </li>
+            
+          <li class="nav-item">
+            <a
+              href="/help"
+              class="nav-link"
+            >
+              Help
+            </a>
+          </li>
+            
+          <li class="nav-item">
+            <a
+              href="#"
+              class="nav-link"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Categories
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              
+              <a href="/community" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-team-line"></i>
+                  
+                </span>
+                <span>Community</span>
+              </a>
+              
+              <a href="/resources" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-apps-2-line"></i>
+                  
+                </span>
+                <span>Resource Modules</span>
+              </a>
+              
+              <a href="/guidelines" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-book-open-line"></i>
+                  
+                </span>
+                <span>Guidelines</span>
+              </a>
+              
+              <a href="/blog" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-article-line"></i>
+                  
+                </span>
+                <span>Blog Posts</span>
+              </a>
+              
+              <a href="/configmgt" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-settings-3-line"></i>
+                  
+                </span>
+                <span>Config. Management</span>
+              </a>
+              
+            </div>
+          </li>
+           
+        </ul>
+      </nav>
+
+      
+      <div class="header-actions">
+        
+        <button
+          class="search-toggle"
+          onclick="openSearchModal()"
+          aria-label="Search"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+          <span>Search</span>
+          <kbd class="shortcut-mac">⌘K</kbd>
+          <kbd class="shortcut-other">Ctrl+K</kbd>
+        </button>
+
+        
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+          onclick="toggleTheme()"
+        >
+          <svg
+            class="sun-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+            />
+          </svg>
+          <svg
+            class="moon-icon"
+            style="display: none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </button>
+
+        
+        <a
+          href="https://github.com/dsccommunity"
+          class="theme-toggle"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+            />
+          </svg>
+        </a>
+
+        
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Toggle menu"
+          onclick="toggleMobileMenu()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 </header>
-<!-- /navigation -->
+<main id="main-content">
 
 
-<section class="single pt-5 bg-gray">
+<section class="hero" style="padding: var(--space-12) 0;">
+  <div class="hero-grid"></div>
   <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        <div class="p-4 bg-white sticky-top top-100">
-            
-            <nav class="sidebar-menu">
-              <ul class="list-styled">
-            <li class=" active "><a href="/community/">Community</a>
-              <ul class="">
-            <li class=" active "><a href="/community/origin-story/">Origin Story</a>
-            </li>
-            <li class=" active "><a href="/community/ownership/">Ownership of DSC Resources</a>
-            </li>
-            <li class=" active "><a href="/community/committee/">DSC Community Committee</a>
-            </li>
-            <li class=" active "><a href="/community/maintainers/">Maintainers</a>
-            </li>
-            <li class=" active "><a href="/community/contact/">Join the Conversation</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/resources/">Resource Modules</a>
-            </li>
-            <li class=" active "><a href="/guidelines/">Guidelines</a>
-              <ul class="">
-            <li class=" active "><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
-            </li>
-            <li class=" active "><a href="/guidelines/contributing/">Contributing</a>
-            </li>
-            <li class=" active "><a href="/guidelines/maintaining/">Maintaining</a>
-            </li>
-            <li class=" active "><a href="/guidelines/style-guidelines/">Style Guidelines</a>
-            </li>
-            <li class=" active "><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
-            </li>
-            <li class=" active "><a href="/guidelines/administration/">Administration</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/styleguidelines/">Style Guidelines</a>
-              <ul class="">
-            <li class=" active "><a href="/styleguidelines/markdown-files/">Markdown Files</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/general/">General</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/whitespace/">Whitespace</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/functions/">Functions</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/parameters/">Parameters</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/variables/">Variables</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/calling-functions/">Calling Functions</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/writing-functions/">Writing Functions</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/manifest/">Manifest</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/localization/">Localization</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/pester-tests/">Pester Tests</a>
-            </li></ul>
-              
-            </li>
-            <li class="parent d-block  active "><a href="/blog/">Blog Posts</a>
-              <ul class="sub-menu">
-            <li class=" active "><a href="/blog/create-an-article/">Create an Article</a>
-            </li>
-            <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
-            </li>
-            <li class=" active "><a href="/blog/what-is-microsoft-dscv3/">What is Microsoft DSC v3</a>
-            </li>
-            <li class=" active "><a href="/blog/your-first-class-based-microsoft-dsc-v3-resource/">Your first class-based Microsoft DSC v3 resource</a>
-            </li>
-            <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
-            </li>
-            <li class=" active "><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
-            </li>
-            <li class=" active "><a href="/blog/class-based-dsc-resources/">Class Based DSC Resource only proposal</a>
-            </li>
-            <li class=" active "><a href="/blog/converting-tests-to-pester5/">Converting tests to Pester 5</a>
-            </li>
-            <li class=" active "><a href="/blog/updating-sampler-github-tasks/">Updating repo with Sampler.GitHubTasks</a>
-            </li>
-            <li class=" active "><a href="/blog/add-codecov-support-to-repository/">Add Code Coverage Support to Repository</a>
-            </li>
-            <li class=" active "><a href="/blog/use-dscresource-common-functions-in-module/">DscResource.Common functions in a DSC module</a>
-            </li>
-            <li class=" active "><a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a>
-            </li>
-            <li class=" active "><a href="/blog/how-to-use-dsc-logging/">How to Use DSC Logging</a>
-            </li>
-            <li class=" active "><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/configmgt/">Configuration Management</a>
-              <ul class="">
-            <li class=" active "><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/community_calls/">Community Calls</a>
-              <ul class="">
-            <li class=" active "><a href="/community_calls/next_call/">Next Community Calls</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2025-02-06-notes/">2025-02-07 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2025-03-29-notes/">2025-03-29 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2024-11-14-notes/">2024-11-14 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2025-06-11-notes/">2025-06-11 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2024-10-11-notes/">2024-10-11 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2025-09-07-notes/">2025-09-07 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2024-08-26-notes/">2024-08-26 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2025-10-15-notes/">2025-10-15 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2024-05-29-notes/">2024-05-29 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2024-04-19-notes/">2024-04-19 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2024-03-19-notes/">2024-03-19 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2023-11-02-notes/">2023-11-02 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2023-09-20-notes/">2023-09-20 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2023-04-05-notes/">2023-04-05 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2023-02-22-notes/">2023-02-22 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2023-01-11-notes/">2023-01-11 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2022-11-30-notes/">2022-11-30 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2022-10-19-notes/">2022-10-19 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2022-05-04-notes/">2022-05-04 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2022-09-07-notes/">2022-09-07 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2022-03-23-notes/">2022-03-23 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2022-02-16-notes/">2022-02-16 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-11-17-notes/">2021-11-17 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-10-06-notes/">2021-10-06 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-08-25-notes/">2021-08-25 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-04-21-notes/">2021-04-21 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-03-10-notes/">2021-03-10 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-01-27-notes/">2021-01-27 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-12-16-notes/">2020-12-16 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-09-23-notes/">2020-09-23 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-08-12-notes/">2020-08-12 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-07-01-notes/">2020-07-01 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-05-20-notes/">2020-05-20 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-02-26-notes/">2020-02-26 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-01-22-notes/">2020-01-22 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2019-12-04-notes/">2019-12-04 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/code_of_conduct/">Code of Conduct</a>
-              <ul class="">
-            <li class=" active "><a href="/code_of_conduct/standards/">Our Standards</a>
-            </li>
-            <li class=" active "><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
-            </li>
-            <li class=" active "><a href="/code_of_conduct/scope/">Scope</a>
-            </li>
-            <li class=" active "><a href="/code_of_conduct/enforcement/">Enforcement</a>
-            </li>
-            <li class=" active "><a href="/code_of_conduct/common_questions/">Common Questions</a>
-            </li>
-            <li class=" active "><a href="/code_of_conduct/attribution/">Attribution</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/help/">Help</a>
-              <ul class="">
-            <li class=" active "><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
-            </li>
-            <li class=" active "><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/contributors/">Elements</a>
-            </li>
-            <li class=" active "><a href="/faq/">Frequently Asked Questions</a>
-            </li></ul>
-            </nav>
+    <div class="hero-content" style="max-width: 900px;">
+      
+      <nav style="margin-bottom: var(--space-4);">
+        <ol style="display: flex; align-items: center; gap: var(--space-2); list-style: none; padding: 0; margin: 0; font-size: var(--text-sm);">
+          <li><a href="https://dsccommunity.org/" style="color: rgba(255,255,255,0.7);">Home</a></li>
+          <li style="color: rgba(255,255,255,0.5);">/</li>
+          
+          <li><a href="https://dsccommunity.org/blog/" style="color: rgba(255,255,255,0.7);">Blog Posts</a></li>
+          <li style="color: rgba(255,255,255,0.5);">/</li>
+          
+          <li style="color: rgba(255,255,255,0.9);">Convert tests to Pester 5 for a DSC Community repository</li>
+        </ol>
+      </nav>
+      <h1 class="hero-title" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));">Convert tests to Pester 5 for a DSC Community repository</h1>
+      
+      <p class="hero-description" style="font-size: var(--text-base);">
+        <time datetime="2020-12-28">December 28, 2020</time>
+         • by johlju
+         • 30 min read
+      </p>
+      
+    </div>
+  </div>
+</section>
 
+
+<section class="section" style="padding-top: var(--space-8);">
+  <div class="container">
+    <div class="content-layout">
+      
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <nav class="sidebar-nav">
             
+            <h4 class="sidebar-title">Blog Posts</h4>
+            <ul class="sidebar-list">
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/create-an-article/" class="sidebar-link">
+                  Create an Article
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/" class="sidebar-link">
+                  DSC is Dead
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/what-is-microsoft-dscv3/" class="sidebar-link">
+                  What is Microsoft DSC v3
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/your-first-class-based-microsoft-dsc-v3-resource/" class="sidebar-link">
+                  Your first class-based Microsoft DSC v3 resource
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/" class="sidebar-link active">
+                  Convert tests to Pester 5 for a DSC Community repository
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/convert-master-to-main/" class="sidebar-link">
+                  Steps to rename master branch to main for a DSC Community resource
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/class-based-dsc-resources/" class="sidebar-link">
+                  Class Based DSC Resource only proposal
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/converting-tests-to-pester5/" class="sidebar-link">
+                  Converting tests to Pester 5
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/updating-sampler-github-tasks/" class="sidebar-link">
+                  Updating repo with Sampler.GitHubTasks
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/add-codecov-support-to-repository/" class="sidebar-link">
+                  Add Code Coverage Support to Repository
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/" class="sidebar-link">
+                  DscResource.Common functions in a DSC module
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/" class="sidebar-link">
+                  Steps to convert a module for continuous delivery
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/how-to-use-dsc-logging/" class="sidebar-link">
+                  How to Use DSC Logging
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/dsc-maintenance-windows/" class="sidebar-link">
+                  Realizing maintenance windows with DSC
+                </a>
+              </li>
+              
+            </ul>
+            
+          </nav>
         </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="p-5 bg-white">
-            <h2>Convert tests to Pester 5 for a DSC Community repository</h2>
-            <p>This blog post will guide you on how to convert existing tests in a
+      </aside>
+
+      
+      <div class="main-content">
+        <article class="article-content">
+          <p>This blog post will guide you on how to convert existing tests in a
 DSC Community DSC resource module repository using a new pattern that is
 better suited for Pester 5.</p>
 <p>You are welcome to share any comments or issues you having around this
@@ -471,138 +589,138 @@ duplicates code) and become <em>extremely</em> fast in comparison!</p></blockquo
 <code>Context</code>-block similar to what their change needs, duplicate that and
 modify the mocks and asserts accordingly. They do not need to worry about
 code in parent blocks messes up their new test.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Describe <span style="color:#e6db74">&#39;SqlProtocol\Set-TargetResource&#39;</span> -Tag <span style="color:#e6db74">&#39;Set&#39;</span> {
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When the system is not in the desired state&#39;</span> {
-</span></span><span style="display:flex;"><span>        Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
-</span></span><span style="display:flex;"><span>            Context <span style="color:#e6db74">&#39;When enabling and setting all the protocol properties&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Describe <span style="color:#a5d6ff">&#39;SqlProtocol\Set-TargetResource&#39;</span> -Tag <span style="color:#a5d6ff">&#39;Set&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When the system is not in the desired state&#39;</span> {
+</span></span><span style="display:flex;"><span>        Context <span style="color:#a5d6ff">&#39;When the desired protocol is TCP/IP&#39;</span> {
+</span></span><span style="display:flex;"><span>            Context <span style="color:#a5d6ff">&#39;When enabling and setting all the protocol properties&#39;</span> {
 </span></span><span style="display:flex;"><span>                BeforeAll {
 </span></span><span style="display:flex;"><span>                    InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                        $script:mockInstanceName = <span style="color:#e6db74">&#39;DSCTEST&#39;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#79c0ff">$script:mockInstanceName</span> = <span style="color:#a5d6ff">&#39;DSCTEST&#39;</span>
 </span></span><span style="display:flex;"><span>                    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                    Mock -CommandName Restart-SqlService
 </span></span><span style="display:flex;"><span>                    Mock -CommandName Compare-TargetResourceState -MockWith {
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">return</span> @(
-</span></span><span style="display:flex;"><span>                            @{
-</span></span><span style="display:flex;"><span>                                ParameterName  = <span style="color:#e6db74">&#39;Enabled&#39;</span>
-</span></span><span style="display:flex;"><span>                                Actual         = $false
-</span></span><span style="display:flex;"><span>                                Expected       = $true
-</span></span><span style="display:flex;"><span>                                InDesiredState = $false
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">@</span>(
+</span></span><span style="display:flex;"><span>                            <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                                ParameterName  = <span style="color:#a5d6ff">&#39;Enabled&#39;</span>
+</span></span><span style="display:flex;"><span>                                Actual         = <span style="color:#79c0ff">$false</span>
+</span></span><span style="display:flex;"><span>                                Expected       = <span style="color:#79c0ff">$true</span>
+</span></span><span style="display:flex;"><span>                                InDesiredState = <span style="color:#79c0ff">$false</span>
 </span></span><span style="display:flex;"><span>                            }
-</span></span><span style="display:flex;"><span>                            @{
-</span></span><span style="display:flex;"><span>                                ParameterName  = <span style="color:#e6db74">&#39;ListenOnAllIpAddresses&#39;</span>
-</span></span><span style="display:flex;"><span>                                Actual         = $false
-</span></span><span style="display:flex;"><span>                                Expected       = $true
-</span></span><span style="display:flex;"><span>                                InDesiredState = $false
+</span></span><span style="display:flex;"><span>                            <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                                ParameterName  = <span style="color:#a5d6ff">&#39;ListenOnAllIpAddresses&#39;</span>
+</span></span><span style="display:flex;"><span>                                Actual         = <span style="color:#79c0ff">$false</span>
+</span></span><span style="display:flex;"><span>                                Expected       = <span style="color:#79c0ff">$true</span>
+</span></span><span style="display:flex;"><span>                                InDesiredState = <span style="color:#79c0ff">$false</span>
 </span></span><span style="display:flex;"><span>                            }
-</span></span><span style="display:flex;"><span>                            @{
-</span></span><span style="display:flex;"><span>                                ParameterName  = <span style="color:#e6db74">&#39;KeepAlive&#39;</span>
-</span></span><span style="display:flex;"><span>                                Actual         = <span style="color:#ae81ff">30000</span>
-</span></span><span style="display:flex;"><span>                                Expected       = <span style="color:#ae81ff">50000</span>
-</span></span><span style="display:flex;"><span>                                InDesiredState = $false
+</span></span><span style="display:flex;"><span>                            <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                                ParameterName  = <span style="color:#a5d6ff">&#39;KeepAlive&#39;</span>
+</span></span><span style="display:flex;"><span>                                Actual         = <span style="color:#a5d6ff">30000</span>
+</span></span><span style="display:flex;"><span>                                Expected       = <span style="color:#a5d6ff">50000</span>
+</span></span><span style="display:flex;"><span>                                InDesiredState = <span style="color:#79c0ff">$false</span>
 </span></span><span style="display:flex;"><span>                            }
 </span></span><span style="display:flex;"><span>                        )
 </span></span><span style="display:flex;"><span>                    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                    Mock -CommandName Get-ServerProtocolObject -MockWith {
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">return</span> New-Object -TypeName PSObject |
-</span></span><span style="display:flex;"><span>                            Add-Member -MemberType NoteProperty -Name <span style="color:#e6db74">&#39;IsEnabled&#39;</span> -Value $false -PassThru |
-</span></span><span style="display:flex;"><span>                            Add-Member -MemberType ScriptProperty -Name <span style="color:#e6db74">&#39;ProtocolProperties&#39;</span> -Value {
-</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">return</span> @{
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff7b72">return</span> New-Object -TypeName PSObject |
+</span></span><span style="display:flex;"><span>                            Add-Member -MemberType NoteProperty -Name <span style="color:#a5d6ff">&#39;IsEnabled&#39;</span> -Value <span style="color:#79c0ff">$false</span> -PassThru |
+</span></span><span style="display:flex;"><span>                            Add-Member -MemberType ScriptProperty -Name <span style="color:#a5d6ff">&#39;ProtocolProperties&#39;</span> -Value {
+</span></span><span style="display:flex;"><span>                                <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">@</span>{
 </span></span><span style="display:flex;"><span>                                    ListenOnAllIPs = New-Object -TypeName PSObject |
-</span></span><span style="display:flex;"><span>                                        Add-Member -MemberType NoteProperty -Name <span style="color:#e6db74">&#39;Value&#39;</span> -Value $false -PassThru -Force
+</span></span><span style="display:flex;"><span>                                        Add-Member -MemberType NoteProperty -Name <span style="color:#a5d6ff">&#39;Value&#39;</span> -Value <span style="color:#79c0ff">$false</span> -PassThru -Force
 </span></span><span style="display:flex;"><span>                                        KeepAlive  = New-Object -TypeName PSObject |
-</span></span><span style="display:flex;"><span>                                            Add-Member -MemberType NoteProperty -Name <span style="color:#e6db74">&#39;Value&#39;</span> -Value <span style="color:#ae81ff">30000</span> -PassThru -Force
+</span></span><span style="display:flex;"><span>                                            Add-Member -MemberType NoteProperty -Name <span style="color:#a5d6ff">&#39;Value&#39;</span> -Value <span style="color:#a5d6ff">30000</span> -PassThru -Force
 </span></span><span style="display:flex;"><span>                                        }
 </span></span><span style="display:flex;"><span>                                    } -PassThru |
-</span></span><span style="display:flex;"><span>                                    Add-Member -MemberType ScriptMethod -Name <span style="color:#e6db74">&#39;Alter&#39;</span> -Value {
-</span></span><span style="display:flex;"><span>                                        <span style="color:#75715e"># This is used to verify so that method Alter() is actually called or not.</span>
+</span></span><span style="display:flex;"><span>                                    Add-Member -MemberType ScriptMethod -Name <span style="color:#a5d6ff">&#39;Alter&#39;</span> -Value {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#8b949e;font-style:italic"># This is used to verify so that method Alter() is actually called or not.</span>
 </span></span><span style="display:flex;"><span>                                        InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                                            $script:wasMethodAlterCalled = $true
+</span></span><span style="display:flex;"><span>                                            <span style="color:#79c0ff">$script:wasMethodAlterCalled</span> = <span style="color:#79c0ff">$true</span>
 </span></span><span style="display:flex;"><span>                                        }
 </span></span><span style="display:flex;"><span>                                    } -PassThru -Force
 </span></span><span style="display:flex;"><span>                    }
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                It <span style="color:#e6db74">&#39;Should set the desired values and restart the SQL Server service&#39;</span> {
+</span></span><span style="display:flex;"><span>                It <span style="color:#a5d6ff">&#39;Should set the desired values and restart the SQL Server service&#39;</span> {
 </span></span><span style="display:flex;"><span>                    InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                        Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                        Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                        $script:wasMethodAlterCalled = $false
+</span></span><span style="display:flex;"><span>                        <span style="color:#79c0ff">$script:wasMethodAlterCalled</span> = <span style="color:#79c0ff">$false</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                        $setTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                            InstanceName           = $mockInstanceName
-</span></span><span style="display:flex;"><span>                            ProtocolName           = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
-</span></span><span style="display:flex;"><span>                            ListenOnAllIpAddresses = $true
-</span></span><span style="display:flex;"><span>                            KeepAlive              = <span style="color:#ae81ff">50000</span>
-</span></span><span style="display:flex;"><span>                            Enabled                = $true
+</span></span><span style="display:flex;"><span>                        <span style="color:#79c0ff">$setTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                            InstanceName           = <span style="color:#79c0ff">$mockInstanceName</span>
+</span></span><span style="display:flex;"><span>                            ProtocolName           = <span style="color:#a5d6ff">&#39;TcpIp&#39;</span>
+</span></span><span style="display:flex;"><span>                            ListenOnAllIpAddresses = <span style="color:#79c0ff">$true</span>
+</span></span><span style="display:flex;"><span>                            KeepAlive              = <span style="color:#a5d6ff">50000</span>
+</span></span><span style="display:flex;"><span>                            Enabled                = <span style="color:#79c0ff">$true</span>
 </span></span><span style="display:flex;"><span>                        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                        { Set-TargetResource @setTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+</span></span><span style="display:flex;"><span>                        { Set-TargetResource <span style="color:#79c0ff">@setTargetResourceParameters</span> } | Should <span style="color:#ff7b72;font-weight:bold">-Not</span> -Throw
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                        $script:wasMethodAlterCalled | Should -BeTrue
+</span></span><span style="display:flex;"><span>                        <span style="color:#79c0ff">$script:wasMethodAlterCalled</span> | Should -BeTrue
 </span></span><span style="display:flex;"><span>                    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                    Should -Invoke -CommandName Restart-SqlService -Exactly -Times <span style="color:#ae81ff">1</span> -Scope It
+</span></span><span style="display:flex;"><span>                    Should -Invoke -CommandName Restart-SqlService -Exactly -Times <span style="color:#a5d6ff">1</span> -Scope It
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            Context <span style="color:#e6db74">&#39;When enabling the protocol and leaving the rest of the properties set to their default value&#39;</span> {
+</span></span><span style="display:flex;"><span>            Context <span style="color:#a5d6ff">&#39;When enabling the protocol and leaving the rest of the properties set to their default value&#39;</span> {
 </span></span><span style="display:flex;"><span>                BeforeAll {
 </span></span><span style="display:flex;"><span>                    InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                        $script:mockInstanceName = <span style="color:#e6db74">&#39;DSCTEST&#39;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#79c0ff">$script:mockInstanceName</span> = <span style="color:#a5d6ff">&#39;DSCTEST&#39;</span>
 </span></span><span style="display:flex;"><span>                    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                    Mock -CommandName Restart-SqlService
 </span></span><span style="display:flex;"><span>                    Mock -CommandName Compare-TargetResourceState -MockWith {
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">return</span> @(
-</span></span><span style="display:flex;"><span>                            @{
-</span></span><span style="display:flex;"><span>                                ParameterName  = <span style="color:#e6db74">&#39;Enabled&#39;</span>
-</span></span><span style="display:flex;"><span>                                Actual         = $false
-</span></span><span style="display:flex;"><span>                                Expected       = $true
-</span></span><span style="display:flex;"><span>                                InDesiredState = $false
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">@</span>(
+</span></span><span style="display:flex;"><span>                            <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                                ParameterName  = <span style="color:#a5d6ff">&#39;Enabled&#39;</span>
+</span></span><span style="display:flex;"><span>                                Actual         = <span style="color:#79c0ff">$false</span>
+</span></span><span style="display:flex;"><span>                                Expected       = <span style="color:#79c0ff">$true</span>
+</span></span><span style="display:flex;"><span>                                InDesiredState = <span style="color:#79c0ff">$false</span>
 </span></span><span style="display:flex;"><span>                            }
 </span></span><span style="display:flex;"><span>                        )
 </span></span><span style="display:flex;"><span>                    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                    Mock -CommandName Get-ServerProtocolObject -MockWith {
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">return</span> New-Object -TypeName PSObject |
-</span></span><span style="display:flex;"><span>                            Add-Member -MemberType NoteProperty -Name <span style="color:#e6db74">&#39;IsEnabled&#39;</span> -Value $false -PassThru |
-</span></span><span style="display:flex;"><span>                            Add-Member -MemberType ScriptProperty -Name <span style="color:#e6db74">&#39;ProtocolProperties&#39;</span> -Value {
-</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">return</span> @{
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff7b72">return</span> New-Object -TypeName PSObject |
+</span></span><span style="display:flex;"><span>                            Add-Member -MemberType NoteProperty -Name <span style="color:#a5d6ff">&#39;IsEnabled&#39;</span> -Value <span style="color:#79c0ff">$false</span> -PassThru |
+</span></span><span style="display:flex;"><span>                            Add-Member -MemberType ScriptProperty -Name <span style="color:#a5d6ff">&#39;ProtocolProperties&#39;</span> -Value {
+</span></span><span style="display:flex;"><span>                                <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">@</span>{
 </span></span><span style="display:flex;"><span>                                    ListenOnAllIPs = New-Object -TypeName PSObject |
-</span></span><span style="display:flex;"><span>                                        Add-Member -MemberType NoteProperty -Name <span style="color:#e6db74">&#39;Value&#39;</span> -Value $false -PassThru -Force
+</span></span><span style="display:flex;"><span>                                        Add-Member -MemberType NoteProperty -Name <span style="color:#a5d6ff">&#39;Value&#39;</span> -Value <span style="color:#79c0ff">$false</span> -PassThru -Force
 </span></span><span style="display:flex;"><span>                                        KeepAlive  = New-Object -TypeName PSObject |
-</span></span><span style="display:flex;"><span>                                            Add-Member -MemberType NoteProperty -Name <span style="color:#e6db74">&#39;Value&#39;</span> -Value <span style="color:#ae81ff">30000</span> -PassThru -Force
+</span></span><span style="display:flex;"><span>                                            Add-Member -MemberType NoteProperty -Name <span style="color:#a5d6ff">&#39;Value&#39;</span> -Value <span style="color:#a5d6ff">30000</span> -PassThru -Force
 </span></span><span style="display:flex;"><span>                                        }
 </span></span><span style="display:flex;"><span>                                    } -PassThru |
-</span></span><span style="display:flex;"><span>                                    Add-Member -MemberType ScriptMethod -Name <span style="color:#e6db74">&#39;Alter&#39;</span> -Value {
-</span></span><span style="display:flex;"><span>                                        <span style="color:#75715e"># This is used to verify so that method Alter() is actually called or not.</span>
+</span></span><span style="display:flex;"><span>                                    Add-Member -MemberType ScriptMethod -Name <span style="color:#a5d6ff">&#39;Alter&#39;</span> -Value {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#8b949e;font-style:italic"># This is used to verify so that method Alter() is actually called or not.</span>
 </span></span><span style="display:flex;"><span>                                        InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                                            $script:wasMethodAlterCalled = $true
+</span></span><span style="display:flex;"><span>                                            <span style="color:#79c0ff">$script:wasMethodAlterCalled</span> = <span style="color:#79c0ff">$true</span>
 </span></span><span style="display:flex;"><span>                                        }
 </span></span><span style="display:flex;"><span>                                    } -PassThru -Force
 </span></span><span style="display:flex;"><span>                    }
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                It <span style="color:#e6db74">&#39;Should set the desired values and restart the SQL Server service&#39;</span> {
+</span></span><span style="display:flex;"><span>                It <span style="color:#a5d6ff">&#39;Should set the desired values and restart the SQL Server service&#39;</span> {
 </span></span><span style="display:flex;"><span>                    InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                        Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                        Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                        $script:wasMethodAlterCalled = $false
+</span></span><span style="display:flex;"><span>                        <span style="color:#79c0ff">$script:wasMethodAlterCalled</span> = <span style="color:#79c0ff">$false</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                        $setTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                            InstanceName = $mockInstanceName
-</span></span><span style="display:flex;"><span>                            ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
-</span></span><span style="display:flex;"><span>                            Enabled      = $true
+</span></span><span style="display:flex;"><span>                        <span style="color:#79c0ff">$setTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                            InstanceName = <span style="color:#79c0ff">$mockInstanceName</span>
+</span></span><span style="display:flex;"><span>                            ProtocolName = <span style="color:#a5d6ff">&#39;TcpIp&#39;</span>
+</span></span><span style="display:flex;"><span>                            Enabled      = <span style="color:#79c0ff">$true</span>
 </span></span><span style="display:flex;"><span>                        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                        { Set-TargetResource @setTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+</span></span><span style="display:flex;"><span>                        { Set-TargetResource <span style="color:#79c0ff">@setTargetResourceParameters</span> } | Should <span style="color:#ff7b72;font-weight:bold">-Not</span> -Throw
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                        $script:wasMethodAlterCalled | Should -BeTrue
+</span></span><span style="display:flex;"><span>                        <span style="color:#79c0ff">$script:wasMethodAlterCalled</span> | Should -BeTrue
 </span></span><span style="display:flex;"><span>                    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                    Should -Invoke -CommandName Restart-SqlService -Exactly -Times <span style="color:#ae81ff">1</span> -Scope It
+</span></span><span style="display:flex;"><span>                    Should -Invoke -CommandName Restart-SqlService -Exactly -Times <span style="color:#a5d6ff">1</span> -Scope It
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
@@ -683,33 +801,33 @@ is run.</p>
 <p><strong>NOTE:</strong> The functions in the helper module <em>CommonTestHelper</em> would be
 better suited to be moved into a generic module like <em>DscResource.Test</em>
 in the future.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>BeforeAll {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Define the DSC module and DSC resource being tested.</span>
-</span></span><span style="display:flex;"><span>    $script:dscModuleName = <span style="color:#e6db74">&#39;SqlServerDsc&#39;</span>
-</span></span><span style="display:flex;"><span>    $script:dscResourceName = <span style="color:#e6db74">&#39;DSC_SqlProtocol&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>BeforeAll {
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Define the DSC module and DSC resource being tested.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$script:dscModuleName</span> = <span style="color:#a5d6ff">&#39;SqlServerDsc&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$script:dscResourceName</span> = <span style="color:#a5d6ff">&#39;DSC_SqlProtocol&#39;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Import the test pipeline code.</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Import the test pipeline code.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        Import-Module -Name DscResource.Test -Force -ErrorAction <span style="color:#e6db74">&#39;Stop&#39;</span>
+</span></span><span style="display:flex;"><span>        Import-Module -Name DscResource.<span style="color:#79c0ff">Test</span> -Force -ErrorAction <span style="color:#a5d6ff">&#39;Stop&#39;</span>
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">catch</span> [<span style="color:#66d9ef">System.IO.FileNotFoundException</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">catch</span> [<span style="color:#79c0ff;font-weight:bold">System.IO.FileNotFoundException</span>]
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#e6db74">&#39;DscResource.Test module dependency not found. Please run &#34;.\build.ps1 -Tasks build&#34; first.&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">throw</span> <span style="color:#a5d6ff">&#39;DscResource.Test module dependency not found. Please run &#34;.\build.ps1 -Tasks build&#34; first.&#39;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Setup test environment and imports the DSC resource being tested.</span>
-</span></span><span style="display:flex;"><span>    $script:testEnvironment = Initialize-TestEnvironment `
-</span></span><span style="display:flex;"><span>        -DSCModuleName $script:dscModuleName `
-</span></span><span style="display:flex;"><span>        -DSCResourceName $script:dscResourceName `
-</span></span><span style="display:flex;"><span>        -ResourceType <span style="color:#e6db74">&#39;Mof&#39;</span> `
-</span></span><span style="display:flex;"><span>        -TestType <span style="color:#e6db74">&#39;Unit&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Setup test environment and imports the DSC resource being tested.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$script:testEnvironment</span> = Initialize-TestEnvironment `
+</span></span><span style="display:flex;"><span>        -DSCModuleName <span style="color:#79c0ff">$script:dscModuleName</span> `
+</span></span><span style="display:flex;"><span>        -DSCResourceName <span style="color:#79c0ff">$script:dscResourceName</span> `
+</span></span><span style="display:flex;"><span>        -ResourceType <span style="color:#a5d6ff">&#39;Mof&#39;</span> `
+</span></span><span style="display:flex;"><span>        -TestType <span style="color:#a5d6ff">&#39;Unit&#39;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Import the test helper module.</span>
-</span></span><span style="display:flex;"><span>    Import-Module -Name (Join-Path -Path $PSScriptRoot -ChildPath <span style="color:#e6db74">&#39;..\TestHelpers\CommonTestHelper.psm1&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Import the test helper module.</span>
+</span></span><span style="display:flex;"><span>    Import-Module -Name (Join-Path -Path <span style="color:#79c0ff">$PSScriptRoot</span> -ChildPath <span style="color:#a5d6ff">&#39;..\TestHelpers\CommonTestHelper.psm1&#39;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Sets the default value for parameter ModuleName for the InModuleScope-blocks</span>
-</span></span><span style="display:flex;"><span>    $PSDefaultParameterValues[<span style="color:#e6db74">&#39;InModuleScope:ModuleName&#39;</span>] = $script:dscResourceName
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Sets the default value for parameter ModuleName for the InModuleScope-blocks</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$PSDefaultParameterValues</span>[<span style="color:#a5d6ff">&#39;InModuleScope:ModuleName&#39;</span>] = <span style="color:#79c0ff">$script:dscResourceName</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The script level <code>AfterAll</code>-block teardown:</p>
 <ul>
@@ -718,18 +836,18 @@ in the future.</p></blockquote>
 <li>the DSC resource module from the session</li>
 <li>the local helper module <em>CommonTestHelper</em></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>AfterAll {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Remove default parameter value.</span>
-</span></span><span style="display:flex;"><span>    $PSDefaultParameterValues.Remove(<span style="color:#e6db74">&#39;InModuleScope:ModuleName&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>AfterAll {
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Remove default parameter value.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$PSDefaultParameterValues</span>.<span style="color:#79c0ff">Remove</span>(<span style="color:#a5d6ff">&#39;InModuleScope:ModuleName&#39;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Teardown test environment.</span>
-</span></span><span style="display:flex;"><span>    Restore-TestEnvironment -TestEnvironment $script:testEnvironment
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Teardown test environment.</span>
+</span></span><span style="display:flex;"><span>    Restore-TestEnvironment -TestEnvironment <span style="color:#79c0ff">$script:testEnvironment</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Unload the module being tested so that it doesn&#39;t impact any other tests.</span>
-</span></span><span style="display:flex;"><span>    Get-Module -Name $script:dscResourceName -All | Remove-Module -Force
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Unload the module being tested so that it doesn&#39;t impact any other tests.</span>
+</span></span><span style="display:flex;"><span>    Get-Module -Name <span style="color:#79c0ff">$script:dscResourceName</span> -All | Remove-Module -Force
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Remove module common test helper.</span>
-</span></span><span style="display:flex;"><span>    Get-Module -Name <span style="color:#e6db74">&#39;CommonTestHelper&#39;</span> -All | Remove-Module -Force
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Remove module common test helper.</span>
+</span></span><span style="display:flex;"><span>    Get-Module -Name <span style="color:#a5d6ff">&#39;CommonTestHelper&#39;</span> -All | Remove-Module -Force
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h4 id="dsc-resource-common-module">DSC Resource Common Module</h4>
 <p>The script level <code>BeforeAll</code>-block setups:</p>
@@ -740,34 +858,34 @@ in the future.</p></blockquote>
 <li>(optionally) loads the C# class stubs into the session.</li>
 <li>the default parameter <code>ModuleName</code> for the <code>InModuleScope</code>-blocks</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>BeforeAll {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Define the DSC module and common module being tested.</span>
-</span></span><span style="display:flex;"><span>    $script:dscModuleName = <span style="color:#e6db74">&#39;SqlServerDsc&#39;</span>
-</span></span><span style="display:flex;"><span>    $script:subModuleName = <span style="color:#e6db74">&#39;SqlServerDsc.Common&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>BeforeAll {
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Define the DSC module and common module being tested.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$script:dscModuleName</span> = <span style="color:#a5d6ff">&#39;SqlServerDsc&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$script:subModuleName</span> = <span style="color:#a5d6ff">&#39;SqlServerDsc.Common&#39;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    $script:parentModule = Get-Module -Name $script:dscModuleName -ListAvailable | Select-Object -First <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    $script:subModulesFolder = Join-Path -Path $script:parentModule.ModuleBase -ChildPath <span style="color:#e6db74">&#39;Modules&#39;</span>
-</span></span><span style="display:flex;"><span>    $script:subModulePath = Join-Path -Path $script:subModulesFolder -ChildPath $script:subModuleName
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$script:parentModule</span> = Get-Module -Name <span style="color:#79c0ff">$script:dscModuleName</span> -ListAvailable | Select-Object -First <span style="color:#a5d6ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$script:subModulesFolder</span> = Join-Path -Path <span style="color:#79c0ff">$script:parentModule</span>.<span style="color:#79c0ff">ModuleBase</span> -ChildPath <span style="color:#a5d6ff">&#39;Modules&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$script:subModulePath</span> = Join-Path -Path <span style="color:#79c0ff">$script:subModulesFolder</span> -ChildPath <span style="color:#79c0ff">$script:subModuleName</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;#
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        Import the common module into the session. The path $script:subModulePath
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        points to the folder of the common module so that the module manifest is
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        used when importing the module. This is so done to test that the functions
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        are exported as expected.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    #&gt;</span>
-</span></span><span style="display:flex;"><span>    Import-Module -Name $script:subModulePath -Force -ErrorAction <span style="color:#e6db74">&#39;Stop&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic">&lt;#
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">        Import the common module into the session. The path $script:subModulePath
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">        points to the folder of the common module so that the module manifest is
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">        used when importing the module. This is so done to test that the functions
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">        are exported as expected.
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    #&gt;</span>
+</span></span><span style="display:flex;"><span>    Import-Module -Name <span style="color:#79c0ff">$script:subModulePath</span> -Force -ErrorAction <span style="color:#a5d6ff">&#39;Stop&#39;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Import the test helper module.</span>
-</span></span><span style="display:flex;"><span>    Import-Module -Name (Join-Path -Path $PSScriptRoot -ChildPath <span style="color:#e6db74">&#39;..\TestHelpers\CommonTestHelper.psm1&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Import the test helper module.</span>
+</span></span><span style="display:flex;"><span>    Import-Module -Name (Join-Path -Path <span style="color:#79c0ff">$PSScriptRoot</span> -ChildPath <span style="color:#a5d6ff">&#39;..\TestHelpers\CommonTestHelper.psm1&#39;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Loading SMO (SQL Server Management Object) C# class stubs.</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> (<span style="color:#e6db74">&#39;Microsoft.SqlServer.Management.Smo.Server&#39;</span> <span style="color:#f92672">-as</span> [<span style="color:#66d9ef">Type</span>]))
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Loading SMO (SQL Server Management Object) C# class stubs.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> (<span style="color:#ff7b72;font-weight:bold">-not</span> (<span style="color:#a5d6ff">&#39;Microsoft.SqlServer.Management.Smo.Server&#39;</span> <span style="color:#ff7b72;font-weight:bold">-as</span> [<span style="color:#79c0ff;font-weight:bold">Type</span>]))
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        Add-Type -Path (Join-Path -Path (Join-Path -Path $PSScriptRoot -ChildPath <span style="color:#e6db74">&#39;Stubs&#39;</span>) -ChildPath <span style="color:#e6db74">&#39;SMO.cs&#39;</span>)
+</span></span><span style="display:flex;"><span>        Add-Type -Path (Join-Path -Path (Join-Path -Path <span style="color:#79c0ff">$PSScriptRoot</span> -ChildPath <span style="color:#a5d6ff">&#39;Stubs&#39;</span>) -ChildPath <span style="color:#a5d6ff">&#39;SMO.cs&#39;</span>)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Sets the default value for parameter ModuleName for the InModuleScope-blocks</span>
-</span></span><span style="display:flex;"><span>    $PSDefaultParameterValues[<span style="color:#e6db74">&#39;InModuleScope:ModuleName&#39;</span>] = $script:subModuleName
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Sets the default value for parameter ModuleName for the InModuleScope-blocks</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$PSDefaultParameterValues</span>[<span style="color:#a5d6ff">&#39;InModuleScope:ModuleName&#39;</span>] = <span style="color:#79c0ff">$script:subModuleName</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The script level <code>AfterAll</code>-block teardown:</p>
 <ul>
@@ -780,14 +898,14 @@ in the future.</p></blockquote>
 class stubs were loaded into the session. Since assemblies cannot be
 unloaded yet in this example this test file should be run last to avoid
 spill-over.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>AfterAll {
-</span></span><span style="display:flex;"><span>    $PSDefaultParameterValues.Remove(<span style="color:#e6db74">&#39;InModuleScope:ModuleName&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>AfterAll {
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$PSDefaultParameterValues</span>.<span style="color:#79c0ff">Remove</span>(<span style="color:#a5d6ff">&#39;InModuleScope:ModuleName&#39;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Unload the module being tested so that it doesn&#39;t impact any other tests.</span>
-</span></span><span style="display:flex;"><span>    Get-Module -Name $script:subModuleName -All | Remove-Module -Force
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Unload the module being tested so that it doesn&#39;t impact any other tests.</span>
+</span></span><span style="display:flex;"><span>    Get-Module -Name <span style="color:#79c0ff">$script:subModuleName</span> -All | Remove-Module -Force
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Remove module common test helper.</span>
-</span></span><span style="display:flex;"><span>    Get-Module -Name <span style="color:#e6db74">&#39;CommonTestHelper&#39;</span> -All | Remove-Module -Force
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Remove module common test helper.</span>
+</span></span><span style="display:flex;"><span>    Get-Module -Name <span style="color:#a5d6ff">&#39;CommonTestHelper&#39;</span> -All | Remove-Module -Force
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="using-stub-powershell-module">Using stub PowerShell module</h3>
 <p>To be able to run unit tests on a development machine that does not have
@@ -798,17 +916,17 @@ tests.</p>
 <p>A stub PowerShell module is a module that has stubs of the actual cmdlets
 to mimic the name of the cmdlets and their parameters.
 This is an example of a stub function in the stub module <code>SqlServerStub</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> Convert-UrnToPath {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#ff7b72">function</span><span style="color:#6e7681"> </span>Convert-UrnToPath {
 </span></span><span style="display:flex;"><span>    [CmdletBinding()]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">param</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">param</span>
 </span></span><span style="display:flex;"><span>    (
-</span></span><span style="display:flex;"><span>        [Parameter(<span style="color:#a6e22e">Mandatory</span>=$true, <span style="color:#a6e22e">Position</span>=<span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">ValueFromPipeline</span>=$true, <span style="color:#a6e22e">ValueFromPipelineByPropertyName</span>=$true)]
+</span></span><span style="display:flex;"><span>        [Parameter(Mandatory=<span style="color:#79c0ff">$true</span>, Position=<span style="color:#a5d6ff">1</span>, ValueFromPipeline=<span style="color:#79c0ff">$true</span>, ValueFromPipelineByPropertyName=<span style="color:#79c0ff">$true</span>)]
 </span></span><span style="display:flex;"><span>        [ValidateNotNullOrEmpty()]
-</span></span><span style="display:flex;"><span>        [<span style="color:#66d9ef">System.String</span>]
+</span></span><span style="display:flex;"><span>        [<span style="color:#79c0ff;font-weight:bold">System.String</span>]
 </span></span><span style="display:flex;"><span>        ${Urn}
 </span></span><span style="display:flex;"><span>   )
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throw</span> <span style="color:#e6db74">&#39;{0}: StubNotImplemented&#39;</span> <span style="color:#f92672">-f</span> $MyInvocation.MyCommand
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">throw</span> <span style="color:#a5d6ff">&#39;{0}: StubNotImplemented&#39;</span> <span style="color:#ff7b72;font-weight:bold">-f</span> <span style="color:#79c0ff">$MyInvocation</span>.<span style="color:#79c0ff">MyCommand</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><blockquote>
 <p><strong>NOTE:</strong> A more advanced version of stub modules that use classes
@@ -819,23 +937,23 @@ for the types and how to create it can be found in the DSC resource module
 then be directly removed to minimize spill-over to other tests. The stub
 module should be imported in an <code>BeforeAll</code>-block and removed in an
 <code>AfterAll</code>-block.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When Invoke-SqlScript is invoked with credentials&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#a5d6ff">&#39;When Invoke-SqlScript is invoked with credentials&#39;</span> {
 </span></span><span style="display:flex;"><span>    BeforeAll {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Import PowerShell module SqlServer stub cmdlets.</span>
-</span></span><span style="display:flex;"><span>        Import-Module -Name <span style="color:#e6db74">&#39;.\Stubs\SqlServerStubs.psm1&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic"># Import PowerShell module SqlServer stub cmdlets.</span>
+</span></span><span style="display:flex;"><span>        Import-Module -Name <span style="color:#a5d6ff">&#39;.\Stubs\SqlServerStubs.psm1&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        Mock -CommandName Invoke-Sqlcmd
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    AfterAll {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Remove PowerShell module SqlServer stub cmdlets.</span>
-</span></span><span style="display:flex;"><span>        Get-Module -Name <span style="color:#e6db74">&#39;SqlServerStubs&#39;</span> -All | Remove-Module -Force
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic"># Remove PowerShell module SqlServer stub cmdlets.</span>
+</span></span><span style="display:flex;"><span>        Get-Module -Name <span style="color:#a5d6ff">&#39;SqlServerStubs&#39;</span> -All | Remove-Module -Force
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    It <span style="color:#e6db74">&#39;Should call Invoke-SqlScript without throwing&#39;</span> {
-</span></span><span style="display:flex;"><span>        { Invoke-SqlScript @invokeScriptFileParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+</span></span><span style="display:flex;"><span>    It <span style="color:#a5d6ff">&#39;Should call Invoke-SqlScript without throwing&#39;</span> {
+</span></span><span style="display:flex;"><span>        { Invoke-SqlScript <span style="color:#79c0ff">@invokeScriptFileParameters</span> } | Should <span style="color:#ff7b72;font-weight:bold">-Not</span> -Throw
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        Should -Invoke -CommandName Invoke-Sqlcmd -Times <span style="color:#ae81ff">1</span> -Exactly -Scope It
+</span></span><span style="display:flex;"><span>        Should -Invoke -CommandName Invoke-Sqlcmd -Times <span style="color:#a5d6ff">1</span> -Exactly -Scope It
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="mocking">Mocking</h3>
@@ -854,7 +972,7 @@ the other functions within the function under test. Let say the function
 under test is <code>Test-TargetResource</code>. Assume the function <code>Test-TargetResource</code>
 calls <code>Get-TargetResource</code> which in turn call the cmdlet <code>Get-Something</code>,
 then the mock should be for <code>Get-TargetResource</code>, not <code>Get-Something</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Test-TargetResource -&gt; Get-TargetResource -&gt; Get-Something
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Test-TargetResource -&gt; Get-TargetResource -&gt; Get-Something
 </span></span><span style="display:flex;"><span>      ↑                         ↑
 </span></span><span style="display:flex;"><span>      |--- If testing this      |--- Mock this
 </span></span></code></pre></div><blockquote>
@@ -864,19 +982,19 @@ Pester 5, but it is a good rule to simplify tests.</p></blockquote>
 to the module&rsquo;s scope since they are imported by the module that is being
 tested. This only works if there are no <code>Export-ModuleMember</code> in the DSC
 resource code that limits what is seen by Pester.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When ... a code path does something...&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#a5d6ff">&#39;When ... a code path does something...&#39;</span> {
 </span></span><span style="display:flex;"><span>    BeforeAll {
 </span></span><span style="display:flex;"><span>        Mock -CommandName Get-Something
 </span></span><span style="display:flex;"><span>        Mock -CommandName Test-Something -MockWith {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> @(
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Value1&#39;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">@</span>(
+</span></span><span style="display:flex;"><span>                <span style="color:#a5d6ff">&#39;Value1&#39;</span>
 </span></span><span style="display:flex;"><span>            )
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    It <span style="color:#e6db74">&#39;Should ...do this...&#39;</span> {
+</span></span><span style="display:flex;"><span>    It <span style="color:#a5d6ff">&#39;Should ...do this...&#39;</span> {
 </span></span><span style="display:flex;"><span>        InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Call the function test and assert.</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic"># Call the function test and assert.</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
@@ -904,25 +1022,25 @@ use the helper functions in the test. For example below the cmdlet
 <code>Get-ComputerName</code> is used from <em>DscResource.Common</em> to return the current
 computer name instead of using <code>$env:COMPUTERNAME</code> which is not available
 cross-plattform.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When the system is not in the desired state&#39;</span> {
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When something does not exist&#39;</span> {
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#a5d6ff">&#39;When the system is not in the desired state&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When something does not exist&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should return the correct values&#39;</span> {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># ServerName is not set, the default value is used within the resource.</span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic"># ServerName is not set, the default value is used within the resource.</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#a5d6ff">&#39;TEST&#39;</span>
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceResult</span> = Get-TargetResource <span style="color:#79c0ff">@getTargetResourceParameters</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceResult.InstanceName | Should -Be <span style="color:#e6db74">&#39;TEST&#39;</span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceResult.SuppressRestart | Should -BeFalse
-</span></span><span style="display:flex;"><span>                $getTargetResourceResult.RestartTimeout | Should -Be <span style="color:#ae81ff">120</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceResult</span>.<span style="color:#79c0ff">InstanceName</span> | Should -Be <span style="color:#a5d6ff">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceResult</span>.<span style="color:#79c0ff">SuppressRestart</span> | Should -BeFalse
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceResult</span>.<span style="color:#79c0ff">RestartTimeout</span> | Should -Be <span style="color:#a5d6ff">120</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Use the helper function from inside the module (DscResource.Common).</span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceResult.ServerName | Should -Be (Get-ComputerName)
+</span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic"># Use the helper function from inside the module (DscResource.Common).</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceResult</span>.<span style="color:#79c0ff">ServerName</span> | Should -Be (Get-ComputerName)
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
@@ -940,25 +1058,25 @@ available when the hashtable <code>$getTargetResourceParameters</code> is declar
 It also used to assert that the <code>Get-TargetResource</code> returns the correct
 value. Note that there is no need to use <code>$script</code>-scope when using the
 value of the variable.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When the system is not in the desired state&#39;</span> {
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When something does not exist&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#a5d6ff">&#39;When the system is not in the desired state&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When something does not exist&#39;</span> {
 </span></span><span style="display:flex;"><span>        BeforeAll {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                $script:mockInstanceName = <span style="color:#e6db74">&#39;DSCTEST&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$script:mockInstanceName</span> = <span style="color:#a5d6ff">&#39;DSCTEST&#39;</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should return the same value as passed for InstanceName&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should return the same value as passed for InstanceName&#39;</span> {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                    InstanceName = $mockInstanceName
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#79c0ff">$mockInstanceName</span>
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceResult</span> = Get-TargetResource <span style="color:#79c0ff">@getTargetResourceParameters</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceResult.InstanceName | Should -Be $mockInstanceName
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceResult</span>.<span style="color:#79c0ff">InstanceName</span> | Should -Be <span style="color:#79c0ff">$mockInstanceName</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
@@ -979,32 +1097,32 @@ in the <code>param</code>-block. To simplify these parameters it is (for now) ea
 to write them as a simple parameter with no type.
 The need to specify a <code>param</code>-block inside the <code>InModuleScope</code> will
 hopefully be removed in a future version of Pester.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When the desired protocol is Named Pipes&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#a5d6ff">&#39;When the desired protocol is Named Pipes&#39;</span> {
 </span></span><span style="display:flex;"><span>    BeforeAll {
-</span></span><span style="display:flex;"><span>        $mockPipeName = <span style="color:#e6db74">&#39;\\.\pipe\$$\TESTCLU01A\MSSQL$SQL2014\sql\query&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#79c0ff">$mockPipeName</span> = <span style="color:#a5d6ff">&#39;\\.\pipe\$$\TESTCLU01A\MSSQL$SQL2014\sql\query&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        Mock -CommandName Get-PipeName -MockWith {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> $mockPipeName
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">$mockPipeName</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
-</span></span><span style="display:flex;"><span>        $inModuleScopeParameters = @{
-</span></span><span style="display:flex;"><span>            MockPipeName = $mockPipeName
+</span></span><span style="display:flex;"><span>    It <span style="color:#a5d6ff">&#39;Should return the correct values&#39;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#79c0ff">$inModuleScopeParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>            MockPipeName = <span style="color:#79c0ff">$mockPipeName</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        InModuleScope -Parameters $inModuleScopeParameters -ScriptBlock {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># The need for this will hopefully be removed in a future version of Pester.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">param</span>
+</span></span><span style="display:flex;"><span>        InModuleScope -Parameters <span style="color:#79c0ff">$inModuleScopeParameters</span> -ScriptBlock {
+</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic"># The need for this will hopefully be removed in a future version of Pester.</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">param</span>
 </span></span><span style="display:flex;"><span>            (
-</span></span><span style="display:flex;"><span>                $MockPipeName
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$MockPipeName</span>
 </span></span><span style="display:flex;"><span>            )
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>            Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            $getTargetResourceResult = Get-TargetResource -ProtocolName <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#79c0ff">$getTargetResourceResult</span> = Get-TargetResource -ProtocolName <span style="color:#a5d6ff">&#39;NamedPipes&#39;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            $getTargetResourceResult.PipeName | Should -Be $MockPipeName
+</span></span><span style="display:flex;"><span>            <span style="color:#79c0ff">$getTargetResourceResult</span>.<span style="color:#79c0ff">PipeName</span> | Should -Be <span style="color:#79c0ff">$MockPipeName</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
@@ -1020,20 +1138,20 @@ should not be used.</p>
 <h5 id="assert-result-in-the-it-block">Assert result in the <code>It</code>-block</h5>
 <p>The most straight forward way is to assert (using <code>Should</code>) directly inside an
 <code>InModuleScope</code>-block inside the <code>It</code>-block.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#a5d6ff">&#39;When the system is in the desired state&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When the desired protocol is TCP/IP&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should return the correct values&#39;</span> {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
-</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#a5d6ff">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#a5d6ff">&#39;TcpIp&#39;</span>
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceResult</span> = Get-TargetResource <span style="color:#79c0ff">@getTargetResourceParameters</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceResult.InstanceName | Should -Be <span style="color:#e6db74">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceResult</span>.<span style="color:#79c0ff">InstanceName</span> | Should -Be <span style="color:#a5d6ff">&#39;TEST&#39;</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
@@ -1051,43 +1169,43 @@ in the variable in an <code>AfterEach</code>-block. There is no need to referenc
 the variable using the <code>script:</code> scope. But to make the test more readable
 it is worth to explicitly say that it is the value of the variable in the
 script scope we are asserting.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#a5d6ff">&#39;When the system is in the desired state&#39;</span> {
 </span></span><span style="display:flex;"><span>    AfterEach {
 </span></span><span style="display:flex;"><span>        InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>            $script:getTargetResourceResult.InstanceName | Should -Be <span style="color:#e6db74">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#79c0ff">$script:getTargetResourceResult</span>.<span style="color:#79c0ff">InstanceName</span> | Should -Be <span style="color:#a5d6ff">&#39;TEST&#39;</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When the desired protocol is TCP/IP&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should return the correct values&#39;</span> {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
-</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#a5d6ff">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#a5d6ff">&#39;TcpIp&#39;</span>
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $script:getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$script:getTargetResourceResult</span> = Get-TargetResource <span style="color:#79c0ff">@getTargetResourceParameters</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $script:getTargetResourceResult.ProtocolName | Should -Be <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$script:getTargetResourceResult</span>.<span style="color:#79c0ff">ProtocolName</span> | Should -Be <span style="color:#a5d6ff">&#39;TcpIp&#39;</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When the desired protocol is Named Pipes&#39;</span> {
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When the desired protocol is Named Pipes&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should return the correct values&#39;</span> {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
-</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#a5d6ff">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#a5d6ff">&#39;NamedPipes&#39;</span>
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $script:getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$script:getTargetResourceResult</span> = Get-TargetResource <span style="color:#79c0ff">@getTargetResourceParameters</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $script:getTargetResourceResult.ProtocolName | Should -Be <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$script:getTargetResourceResult</span>.<span style="color:#79c0ff">ProtocolName</span> | Should -Be <span style="color:#a5d6ff">&#39;NamedPipes&#39;</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
@@ -1108,48 +1226,48 @@ in the variable in an <code>AfterAll</code>-block. There is no need to reference
 the variable using the <code>script:</code> scope. But to make the test more readable
 it is worth explicitly declaring the value of the variable in the
 script scope we are asserting.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#a5d6ff">&#39;When the system is in the desired state&#39;</span> {
 </span></span><span style="display:flex;"><span>    BeforeAll {
 </span></span><span style="display:flex;"><span>        Mock -CommandName Get-ServerProtocolObject
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    AfterAll {
 </span></span><span style="display:flex;"><span>        InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>            $script:getTargetResourceResult1.InstanceName | Should -Be <span style="color:#e6db74">&#39;TEST1&#39;</span>
-</span></span><span style="display:flex;"><span>            $script:getTargetResourceResult2.InstanceName | Should -Be <span style="color:#e6db74">&#39;TEST2&#39;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#79c0ff">$script:getTargetResourceResult1</span>.<span style="color:#79c0ff">InstanceName</span> | Should -Be <span style="color:#a5d6ff">&#39;TEST1&#39;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#79c0ff">$script:getTargetResourceResult2</span>.<span style="color:#79c0ff">InstanceName</span> | Should -Be <span style="color:#a5d6ff">&#39;TEST2&#39;</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When the desired protocol is TCP/IP&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should return the correct values&#39;</span> {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#e6db74">&#39;TEST1&#39;</span>
-</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#a5d6ff">&#39;TEST1&#39;</span>
+</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#a5d6ff">&#39;TcpIp&#39;</span>
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $script:getTargetResourceResult1 = Get-TargetResource @getTargetResourceParameters
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$script:getTargetResourceResult1</span> = Get-TargetResource <span style="color:#79c0ff">@getTargetResourceParameters</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $script:getTargetResourceResult1.ProtocolName | Should -Be <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$script:getTargetResourceResult1</span>.<span style="color:#79c0ff">ProtocolName</span> | Should -Be <span style="color:#a5d6ff">&#39;TcpIp&#39;</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When the desired protocol is Named Pipes&#39;</span> {
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When the desired protocol is Named Pipes&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should return the correct values&#39;</span> {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#e6db74">&#39;TEST2&#39;</span>
-</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#a5d6ff">&#39;TEST2&#39;</span>
+</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#a5d6ff">&#39;NamedPipes&#39;</span>
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $script:getTargetResourceResult2 = Get-TargetResource @getTargetResourceParameters
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$script:getTargetResourceResult2</span> = Get-TargetResource <span style="color:#79c0ff">@getTargetResourceParameters</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $script:getTargetResourceResult2.ProtocolName | Should -Be <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$script:getTargetResourceResult2</span>.<span style="color:#79c0ff">ProtocolName</span> | Should -Be <span style="color:#a5d6ff">&#39;NamedPipes&#39;</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
@@ -1160,25 +1278,25 @@ script scope we are asserting.</p>
 <code>Should -Invoke</code> must use the value <code>It</code> for the parameter <code>Scope</code>.</p>
 <p>The <code>Should -Invoke</code> should not be wrapped inside an <code>InModuleScope</code>-block,
 but be called after the <code>InModuleScope</code>-block.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#a5d6ff">&#39;When the system is in the desired state&#39;</span> {
 </span></span><span style="display:flex;"><span>    BeforeAll {
 </span></span><span style="display:flex;"><span>        Mock -CommandName Get-ServerProtocolObject
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When the desired protocol is TCP/IP&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should return the correct values&#39;</span> {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
-</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#a5d6ff">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#a5d6ff">&#39;TcpIp&#39;</span>
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                { Get-TargetResource @getTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+</span></span><span style="display:flex;"><span>                { Get-TargetResource <span style="color:#79c0ff">@getTargetResourceParameters</span> } | Should <span style="color:#ff7b72;font-weight:bold">-Not</span> -Throw
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            Should -Invoke -CommandName Get-ServerProtocolObject -Exactly -Times <span style="color:#ae81ff">1</span> -Scope It
+</span></span><span style="display:flex;"><span>            Should -Invoke -CommandName Get-ServerProtocolObject -Exactly -Times <span style="color:#a5d6ff">1</span> -Scope It
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
@@ -1186,41 +1304,41 @@ but be called after the <code>InModuleScope</code>-block.</p>
 <p>When asserting if a mock was called in an <code>AfterEach</code>-block the
 <code>Should -Invoke</code> must use the value <code>It</code> for the parameter <code>Scope</code>.</p>
 <p>The <code>Should -Invoke</code> should not be wrapped inside an <code>InModuleScope</code>-block.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#a5d6ff">&#39;When the system is in the desired state&#39;</span> {
 </span></span><span style="display:flex;"><span>    BeforeAll {
 </span></span><span style="display:flex;"><span>        Mock -CommandName Get-ServerProtocolObject
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    AfterEach {
-</span></span><span style="display:flex;"><span>        Should -Invoke -CommandName Get-ServerProtocolObject -Exactly -Times <span style="color:#ae81ff">1</span> -Scope It
+</span></span><span style="display:flex;"><span>        Should -Invoke -CommandName Get-ServerProtocolObject -Exactly -Times <span style="color:#a5d6ff">1</span> -Scope It
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When the desired protocol is TCP/IP&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should return the correct values&#39;</span> {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
-</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#a5d6ff">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#a5d6ff">&#39;TcpIp&#39;</span>
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                { Get-TargetResource @getTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+</span></span><span style="display:flex;"><span>                { Get-TargetResource <span style="color:#79c0ff">@getTargetResourceParameters</span> } | Should <span style="color:#ff7b72;font-weight:bold">-Not</span> -Throw
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When the desired protocol is TCP/IP&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should return the correct values&#39;</span> {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
-</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#a5d6ff">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#a5d6ff">&#39;NamedPipes&#39;</span>
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                { Get-TargetResource @getTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+</span></span><span style="display:flex;"><span>                { Get-TargetResource <span style="color:#79c0ff">@getTargetResourceParameters</span> } | Should <span style="color:#ff7b72;font-weight:bold">-Not</span> -Throw
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
@@ -1252,41 +1370,41 @@ call that could be better asserted or as mentioned before, consider using
 but that should be avoided since the mocks also must be at the <code>Describe</code>-level.
 When asserting if a mock was called in an <code>AfterAll</code>-block use it inside
 a <code>Context</code>-block.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#a5d6ff">&#39;When the system is in the desired state&#39;</span> {
 </span></span><span style="display:flex;"><span>    BeforeAll {
 </span></span><span style="display:flex;"><span>        Mock -CommandName Get-ServerProtocolObject
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    AfterAll {
-</span></span><span style="display:flex;"><span>        Should -Invoke -CommandName Get-ServerProtocolObject -Exactly -Times <span style="color:#ae81ff">2</span> -Scope Context
+</span></span><span style="display:flex;"><span>        Should -Invoke -CommandName Get-ServerProtocolObject -Exactly -Times <span style="color:#a5d6ff">2</span> -Scope Context
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When the desired protocol is TCP/IP&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should return the correct values&#39;</span> {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
-</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#a5d6ff">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#a5d6ff">&#39;TcpIp&#39;</span>
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                { Get-TargetResource @getTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+</span></span><span style="display:flex;"><span>                { Get-TargetResource <span style="color:#79c0ff">@getTargetResourceParameters</span> } | Should <span style="color:#ff7b72;font-weight:bold">-Not</span> -Throw
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When the desired protocol is TCP/IP&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should return the correct values&#39;</span> {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
-</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#e6db74">&#39;NamedPipes&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#a5d6ff">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#a5d6ff">&#39;NamedPipes&#39;</span>
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                { Get-TargetResource @getTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+</span></span><span style="display:flex;"><span>                { Get-TargetResource <span style="color:#79c0ff">@getTargetResourceParameters</span> } | Should <span style="color:#ff7b72;font-weight:bold">-Not</span> -Throw
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
@@ -1305,18 +1423,18 @@ it sees verifiable mocks in parent <code>Context</code>-blocks as well, so take 
 how mocks are used and where you put <code>Should -InvokeVerifiable</code>.</p></blockquote>
 <p>In this example there are two <code>Should -InvokeVerifiable</code>. One at the
 <code>Context</code>-level and the other at the <code>Describe</code>-level.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Describe <span style="color:#e6db74">&#39;VerifiableMocks&#39;</span> {
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When some code path is executed&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Describe <span style="color:#a5d6ff">&#39;VerifiableMocks&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When some code path is executed&#39;</span> {
 </span></span><span style="display:flex;"><span>        BeforeAll {
 </span></span><span style="display:flex;"><span>            Mock -CommandName Get-Process -Verifiable
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should call all verifiable mocks&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should call all verifiable mocks&#39;</span> {
 </span></span><span style="display:flex;"><span>            Should -InvokeVerifiable
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    It <span style="color:#e6db74">&#39;Should call all verifiable mocks&#39;</span> {
+</span></span><span style="display:flex;"><span>    It <span style="color:#a5d6ff">&#39;Should call all verifiable mocks&#39;</span> {
 </span></span><span style="display:flex;"><span>        Should -InvokeVerifiable
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
@@ -1324,7 +1442,7 @@ how mocks are used and where you put <code>Should -InvokeVerifiable</code>.</p><
 <code>Context</code>-level is returning that the mock was not called, but the other
 at the <code>Describe</code>-level passes even though the mock was never called which
 gives a false positive.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Describing VerifiableMocks
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Describing VerifiableMocks
 </span></span><span style="display:flex;"><span> Context When some code path is executed
 </span></span><span style="display:flex;"><span>   [-] Should call all verifiable mocks 5ms (2ms|2ms)
 </span></span><span style="display:flex;"><span>     Expected Get-Process to be called with
@@ -1336,27 +1454,27 @@ gives a false positive.</p>
 </span></span></code></pre></div><h5 id="verifiable-mock-in-beforeall-block">Verifiable mock in <code>BeforeAll</code>-block</h5>
 <p>The <code>Should -InvokeVerifiable</code> must be inside an <code>It</code>-block, but should
 not be wrapped inside an <code>InModuleScope</code>-block.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#e6db74">&#39;When the system is in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Context <span style="color:#a5d6ff">&#39;When the system is in the desired state&#39;</span> {
 </span></span><span style="display:flex;"><span>    BeforeAll {
 </span></span><span style="display:flex;"><span>        Mock -CommandName Get-ServerProtocolObject -Verifiable
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When the desired protocol is TCP/IP&#39;</span> {
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should return the correct values&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When the desired protocol is TCP/IP&#39;</span> {
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should return the correct values&#39;</span> {
 </span></span><span style="display:flex;"><span>            InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                $getTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
-</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#e6db74">&#39;TcpIp&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#79c0ff">$getTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>                    InstanceName = <span style="color:#a5d6ff">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>                    ProtocolName = <span style="color:#a5d6ff">&#39;TcpIp&#39;</span>
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                { Get-TargetResource @getTargetResourceParameters } | Should <span style="color:#f92672">-Not</span> -Throw
+</span></span><span style="display:flex;"><span>                { Get-TargetResource <span style="color:#79c0ff">@getTargetResourceParameters</span> } | Should <span style="color:#ff7b72;font-weight:bold">-Not</span> -Throw
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    It <span style="color:#e6db74">&#39;Should call all verifiable mocks&#39;</span> {
+</span></span><span style="display:flex;"><span>    It <span style="color:#a5d6ff">&#39;Should call all verifiable mocks&#39;</span> {
 </span></span><span style="display:flex;"><span>        Should -InvokeVerifiable
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
@@ -1364,14 +1482,14 @@ not be wrapped inside an <code>InModuleScope</code>-block.</p>
 <p>If the mock is setup in a <code>BeforeEach</code>-block or an <code>It</code>-block then the
 <code>Should -InvokeVerifiable</code> must be inside the <code>It</code>-block that is calling
 the function being tested.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Describe <span style="color:#e6db74">&#39;VerifiableMocks&#39;</span> {
-</span></span><span style="display:flex;"><span>    Context <span style="color:#e6db74">&#39;When some code path is executed&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Describe <span style="color:#a5d6ff">&#39;VerifiableMocks&#39;</span> {
+</span></span><span style="display:flex;"><span>    Context <span style="color:#a5d6ff">&#39;When some code path is executed&#39;</span> {
 </span></span><span style="display:flex;"><span>        BeforeEach {
 </span></span><span style="display:flex;"><span>            Mock -CommandName Get-Process -Verifiable
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        It <span style="color:#e6db74">&#39;Should call all verifiable mocks&#39;</span> {
-</span></span><span style="display:flex;"><span>            { Get-Process } | Should <span style="color:#f92672">-Not</span> -Throw
+</span></span><span style="display:flex;"><span>        It <span style="color:#a5d6ff">&#39;Should call all verifiable mocks&#39;</span> {
+</span></span><span style="display:flex;"><span>            { Get-Process } | Should <span style="color:#ff7b72;font-weight:bold">-Not</span> -Throw
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            Should -InvokeVerifiable
 </span></span><span style="display:flex;"><span>        }
@@ -1421,20 +1539,20 @@ string as opposed to Pester 4 that did a <code>-contains</code>. The reason we n
 to add the wildcard character is because the inner exceptions (stack trace)
 are not the same between the helper functions and the error record that is
 thrown.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>It <span style="color:#e6db74">&#39;Should throw the correct error&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>It <span style="color:#a5d6ff">&#39;Should throw the correct error&#39;</span> {
 </span></span><span style="display:flex;"><span>    InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>        Set-StrictMode -Version <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>        Set-StrictMode -Version <span style="color:#a5d6ff">1.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        $mockErrorRecord = Get-InvalidOperationRecord -Message (
-</span></span><span style="display:flex;"><span>            $script:localizedData.FailedToGetSqlServerProtocol <span style="color:#f92672">-f</span> <span style="color:#e6db74">&#39;Variable1&#39;</span>, <span style="color:#e6db74">&#39;Variable2&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#79c0ff">$mockErrorRecord</span> = Get-InvalidOperationRecord -Message (
+</span></span><span style="display:flex;"><span>            <span style="color:#79c0ff">$script:localizedData</span>.<span style="color:#79c0ff">FailedToGetSqlServerProtocol</span> <span style="color:#ff7b72;font-weight:bold">-f</span> <span style="color:#a5d6ff">&#39;Variable1&#39;</span>, <span style="color:#a5d6ff">&#39;Variable2&#39;</span>
 </span></span><span style="display:flex;"><span>        )
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        $setTargetResourceParameters = @{
-</span></span><span style="display:flex;"><span>            InstanceName = <span style="color:#e6db74">&#39;TEST&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#79c0ff">$setTargetResourceParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>            InstanceName = <span style="color:#a5d6ff">&#39;TEST&#39;</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        { Set-TargetResource @setTargetResourceParameters } |
-</span></span><span style="display:flex;"><span>            Should -Throw -ExpectedMessage ($mockErrorRecord.Exception.Message + <span style="color:#e6db74">&#39;*&#39;</span>)
+</span></span><span style="display:flex;"><span>        { Set-TargetResource <span style="color:#79c0ff">@setTargetResourceParameters</span> } |
+</span></span><span style="display:flex;"><span>            Should -Throw -ExpectedMessage (<span style="color:#79c0ff">$mockErrorRecord</span>.<span style="color:#79c0ff">Exception</span>.<span style="color:#79c0ff">Message</span> + <span style="color:#a5d6ff">&#39;*&#39;</span>)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h5 id="assert-thrown-exception-messages-for-public-functions">Assert thrown exception messages for public functions</h5>
@@ -1452,21 +1570,21 @@ Pester 5 does a <code>-like</code> comparison on the text string as opposed to
 Pester 4 that did a <code>-contains</code>. The reason we need to add the wildcard
 character is because the inner exceptions (stack trace) are not the same
 between the helper functions and the error record that is thrown.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>It <span style="color:#e6db74">&#39;Should throw the correct error message&#39;</span> {
-</span></span><span style="display:flex;"><span>    $mockGetServerProtocolObjectParameters = @{
-</span></span><span style="display:flex;"><span>        Instance     = <span style="color:#e6db74">&#39;TEST&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>It <span style="color:#a5d6ff">&#39;Should throw the correct error message&#39;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$mockGetServerProtocolObjectParameters</span> = <span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>        Instance     = <span style="color:#a5d6ff">&#39;TEST&#39;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    $mockLocalizedString = InModuleScope -ScriptBlock {
-</span></span><span style="display:flex;"><span>        $script:localizedData.FailedToObtainServerInstance
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$mockLocalizedString</span> = InModuleScope -ScriptBlock {
+</span></span><span style="display:flex;"><span>        <span style="color:#79c0ff">$script:localizedData</span>.<span style="color:#79c0ff">FailedToObtainServerInstance</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    $mockErrorRecord = Get-InvalidOperationRecord -Message (
-</span></span><span style="display:flex;"><span>        $mockLocalizedString <span style="color:#f92672">-f</span> $mockGetServerProtocolObjectParameters.Instance
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$mockErrorRecord</span> = Get-InvalidOperationRecord -Message (
+</span></span><span style="display:flex;"><span>        <span style="color:#79c0ff">$mockLocalizedString</span> <span style="color:#ff7b72;font-weight:bold">-f</span> <span style="color:#79c0ff">$mockGetServerProtocolObjectParameters</span>.<span style="color:#79c0ff">Instance</span>
 </span></span><span style="display:flex;"><span>    )
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    { Get-ServerProtocolObject @mockGetServerProtocolObjectParameters } |
-</span></span><span style="display:flex;"><span>        Should -Throw -ExpectedMessage ($mockErrorRecord.Exception.Message + <span style="color:#e6db74">&#39;*&#39;</span>)
+</span></span><span style="display:flex;"><span>    { Get-ServerProtocolObject <span style="color:#79c0ff">@mockGetServerProtocolObjectParameters</span> } |
+</span></span><span style="display:flex;"><span>        Should -Throw -ExpectedMessage (<span style="color:#79c0ff">$mockErrorRecord</span>.<span style="color:#79c0ff">Exception</span>.<span style="color:#79c0ff">Message</span> + <span style="color:#a5d6ff">&#39;*&#39;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h4 id="using-because-in-assert">Using <code>Because</code> in assert</h4>
 <p>When using the parameter <code>Because</code> in the assert it should give more information
@@ -1476,16 +1594,16 @@ it reads correctly in the Pester output.</p>
 <p>For example if the <code>It</code>-block description would be the following
 &ldquo;<em>Should not throw and return the correct values for the properties</em>&rdquo; then
 the following would not really add more value.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>It <span style="color:#e6db74">&#39;Should not throw and return the correct values for the properties&#39;</span> {
-</span></span><span style="display:flex;"><span>    $result | Should -Be <span style="color:#e6db74">&#39;MyAlertName2&#39;</span> -Because <span style="color:#e6db74">&#39;the correct alert name must be returned&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>It <span style="color:#a5d6ff">&#39;Should not throw and return the correct values for the properties&#39;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$result</span> | Should -Be <span style="color:#a5d6ff">&#39;MyAlertName2&#39;</span> -Because <span style="color:#a5d6ff">&#39;the correct alert name must be returned&#39;</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>In this case, the parameter <code>Because</code> should be used to add more information
 to why the value must be correct. An example would be:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>It <span style="color:#e6db74">&#39;Should not throw and return the correct values for the properties&#39;</span> {
-</span></span><span style="display:flex;"><span>    $result | Should -Be <span style="color:#e6db74">&#39;MyAlertName2&#39;</span> -Because <span style="color:#e6db74">&#39;the correct alert name must be returned when the alert does not exist so user knows what alert failed&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>It <span style="color:#a5d6ff">&#39;Should not throw and return the correct values for the properties&#39;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$result</span> | Should -Be <span style="color:#a5d6ff">&#39;MyAlertName2&#39;</span> -Because <span style="color:#a5d6ff">&#39;the correct alert name must be returned when the alert does not exist so user knows what alert failed&#39;</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>It would result in the following output from Pester:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>[-] Should not throw and return the correct values for the properties 9ms (7ms|2ms)
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>[-] Should not throw and return the correct values for the properties 9ms (7ms|2ms)
 </span></span><span style="display:flex;"><span> Expected strings to be the same, because the correct alert name must be returned when the alert does not exist so user knows what alert failed, but they were different.
 </span></span><span style="display:flex;"><span> Expected length: 12
 </span></span><span style="display:flex;"><span> Actual length:   11
@@ -1493,42 +1611,290 @@ to why the value must be correct. An example would be:</p>
 </span></span><span style="display:flex;"><span> Expected: &#39;MyAlertName2&#39;
 </span></span><span style="display:flex;"><span> But was:  &#39;MyAlertName&#39;
 </span></span></code></pre></div>
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 28 Dec 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/your-first-class-based-microsoft-dsc-v3-resource/" title="Your first class-based Microsoft DSC v3 resource"><i class="ti-arrow-left mr-2"></i>Your first class-based Microsoft DSC v3 resource</a>
-            <a class="nav nav-next" href="/blog/convert-master-to-main/" title="Steps to rename master branch to main for a DSC Community resource">Steps to rename master branch to main for a DSC Community resource<i class="ti-arrow-right ml-2"></i></a>
-            </nav></div>
+        </article>
+
+        
+        <footer style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--border-primary);">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-4);">
+            <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: 0;">
+              Last updated: December 19, 2025
+            </p>
+            
+            <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/content/blog%5cconvert-tests-to-pester5-for-dsc-community-repository.md"
+               class="btn btn-ghost btn-sm"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="ri-edit-line"></i>
+              Edit this page
+            </a>
+            
+          </div>
+        </footer>
+
+        
+        <nav style="display: flex; justify-content: space-between; margin-top: var(--space-8); gap: var(--space-4);">
+          
+          <a href="https://dsccommunity.org/blog/convert-master-to-main/" class="card" style="flex: 1; max-width: 45%; text-decoration: none;">
+            <div style="display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
+              <i class="ri-arrow-left-line"></i>
+              Previous
+            </div>
+            <span class="card-title" style="font-size: var(--text-base);">Steps to rename master branch to main for a DSC Community resource</span>
+          </a>
+          
+
+          
+          <a href="https://dsccommunity.org/blog/your-first-class-based-microsoft-dsc-v3-resource/" class="card" style="flex: 1; max-width: 45%; text-align: right; text-decoration: none;">
+            <div style="display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
+              Next
+              <i class="ri-arrow-right-line"></i>
+            </div>
+            <span class="card-title" style="font-size: var(--text-base);">Your first class-based Microsoft DSC v3 resource</span>
+          </a>
+          
+        </nav>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- footer -->
-<footer class="section bg-gray pb-0">
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const article = document.querySelector('.article-content');
+  const tocList = document.getElementById('tocList');
+
+  if (article && tocList && !tocList.children.length) {
+    const headings = article.querySelectorAll('h2, h3');
+
+    if (headings.length > 0) {
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = 'heading-' + index;
+        }
+
+        const li = document.createElement('li');
+        li.className = 'sidebar-list-item';
+
+        const a = document.createElement('a');
+        a.href = '#' + heading.id;
+        a.className = 'sidebar-link';
+        a.textContent = heading.textContent;
+
+        if (heading.tagName === 'H3') {
+          a.style.paddingLeft = 'var(--space-6)';
+          a.style.fontSize = 'var(--text-xs)';
+        }
+
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+    }
+  }
+});
+</script>
+
+</main>
+<footer class="site-footer">
   <div class="container">
-    <div class="row">
-      <div class="col-md-8 text-md-left text-center">
-        <p>Copyright 2019 the dsccommunity.org contributors.</p> 
+    <div class="footer-grid">
+      
+      <div class="footer-brand">
+        <a href="https://dsccommunity.org/" class="footer-logo">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="32"
+              height="32"
+              rx="8"
+              fill="url(#footer-logo-gradient)"
+            />
+            <path
+              d="M8 12h16M8 16h12M8 20h16"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <defs>
+              <linearGradient
+                id="footer-logo-gradient"
+                x1="0"
+                y1="0"
+                x2="32"
+                y2="32"
+              >
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>DSC Community</span>
+        </a>
+        <p class="footer-description">
+          A collaborative community of authors and maintainers working to
+          improve DSC resources, their quality, and development practices.
+        </p>
+        <div class="footer-social">
+          <a
+            href="https://github.com/dsccommunity"
+            class="footer-social-link"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://twitter.com/dsccommunity"
+            class="footer-social-link"
+            aria-label="Twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://discord.gg/dsccommunity"
+            class="footer-social-link"
+            aria-label="Discord"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"
+              />
+            </svg>
+          </a>
+        </div>
       </div>
-      <div class="col-md-4 text-md-right text-center">
-        <ul class="list-inline mb-3">
-          
-          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://github.com/dsccommunity/"><i class="ti-github"></i></a></li>
-          
-          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/dsccommunity"><i class="ti-twitter-alt"></i></a></li>
-          
+
+      
+      <div class="footer-column">
+        <h4 class="footer-column-title">Resources</h4>
+        <ul class="footer-links">
+          <li><a href="/resources">Resource Modules</a></li>
+          <li><a href="/guidelines">Guidelines</a></li>
+          <li><a href="/blog">Blog Posts</a></li>
+          <li><a href="/faq">FAQ</a></li>
         </ul>
+      </div>
+
+      
+      <div class="footer-column">
+        <h4 class="footer-column-title">Community</h4>
+        <ul class="footer-links">
+          <li><a href="/community">About Us</a></li>
+          <li><a href="/community_calls">Community Calls</a></li>
+          <li><a href="/community/maintainers">Maintainers</a></li>
+          <li><a href="/community/committee">Committee</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-column">
+        <h4 class="footer-column-title">Support</h4>
+        <ul class="footer-links">
+          <li><a href="/code_of_conduct">Code of Conduct</a></li>
+          <li><a href="/help">Get Help</a></li>
+          <li><a href="/contributing">Contributing</a></li>
+          <li>
+            <a
+              href="https://github.com/dsccommunity"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © 2026 DSC Community Contributors. Built with
+        <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer"
+          >Hugo</a
+        >.
+      </p>
+      <div class="footer-legal">
+        <a href="/code_of_conduct">Code of Conduct</a>
+        <a
+          href="https://github.com/dsccommunity/dsccommunity.org/blob/master/LICENSE"
+          >License</a
+        >
       </div>
     </div>
   </div>
 </footer>
-<!-- /footer -->
 
-<!-- Bootstrap JS -->
-<script src="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.js"></script>
-<!-- highlight -->
-<script src="https://dsccommunity.org/plugins/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+    <div class="search-modal" id="searchModal" aria-hidden="true">
+      <div class="search-modal-content" role="dialog" aria-label="Search">
+        <div class="search-modal-header">
+          <i class="ri-search-line"></i>
+          <input
+            type="text"
+            class="search-modal-input"
+            id="searchInput"
+            placeholder="Search documentation..."
+            autocomplete="off"
+          />
+          <button class="search-modal-close" onclick="closeSearchModal()">
+            ESC
+          </button>
+        </div>
+        <div class="search-modal-results" id="searchResults">
+          
+        </div>
+        <div class="search-modal-footer">
+          <div class="search-shortcuts">
+            <span class="search-shortcut"
+              ><kbd>↑</kbd><kbd>↓</kbd> Navigate</span
+            >
+            <span class="search-shortcut"><kbd>↵</kbd> Open</span>
+            <span class="search-shortcut"><kbd>ESC</kbd> Close</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<!-- Main Script -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/powershell.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/bash.min.js"></script>
 
-<script src="https://dsccommunity.org/js/script.min.js"></script>
+    
+    <script
+      src="https://dsccommunity.org/js/main.min.9a596f512ca53270aac01ee7314fba2b9cbdd17fb33667198c82f28d1dc82006.js"
+      integrity="sha256-mllvUSylMnCqwB7nMU&#43;6K5y90X&#43;zNmcZjILyjR3IIAY="
+    ></script>
+  </body>
+</html>

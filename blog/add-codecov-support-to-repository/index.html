@@ -1,364 +1,483 @@
-<head>
-  <meta charset="utf-8">
-  <title>Add Code Coverage Support to Repository</title>
+<!DOCTYPE html>
+<html
+  lang="en"
+  data-theme="light"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A collaborative community of authors and maintainers working to improve DSC resources, their quality, and development practices."
+    />
+    <meta name="author" content="DSC Community" />
 
-  <meta name="generator" content="Hugo 0.148.2">
+    <title>Add Code Coverage Support to Repository | </title>
 
-  <!-- mobile responsive meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
+    <meta name="generator" content="Hugo 0.148.2">
 
-  <!-- ** Plugins Needed for the Project ** -->
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.css">
-  <!-- themefy-icon -->
-  <link rel="stylesheet" href="https://dsccommunity.org/plugins/themify-icons/themify-icons.css">
-  <!-- highlight -->
-  <link rel="stylesheet" href="https://dsccommunity.org/plugins/highlight/hybrid.css">
-  <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-
-
-  <style>
-  :root{
-    --primary-color:#003366;
-    --secondary-color:#f9f9f9;
-    --text-color:#242738;
-    --text-color-dark:#000;
-    --white-color:#ffffff;
-  }
-  </style>
-
-  <!-- Main Stylesheet -->
-  
-  <link rel="stylesheet" href="https://dsccommunity.org/css/style.min.css" integrity="" media="screen">
-
-  <!-- jquiry -->
-  <script src="https://dsccommunity.org/plugins/jquery/jquery-1.12.4.js"></script>
-
-  <!-- jquary ui -->
-  <script src="https://dsccommunity.org/plugins/jquery/jquery-ui.js"></script>
-
-  <!--Favicon-->
-  <link rel="icon" href="https://dsccommunity.org/images/favicon.png" type="image/x-icon">
-
-</head>
-
-<!-- navigation -->
-<header class="shadow-bottom sticky-top bg-white">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="https://dsccommunity.org/">DSC Community and Resource Kit</a>
-  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
-    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse text-center" id="navigation">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link text-dark" href="https://dsccommunity.org/">Home</a>
-      </li>
-      
-      
-      <li class="nav-item">
-          <a class="nav-link text-dark" href="/code_of_conduct">Code of Conduct</a>
-      </li>
-      
-      
-      
-      <li class="nav-item">
-          <a class="nav-link text-dark" href="/community_calls">Community Calls</a>
-      </li>
-      
-      
-      
-      <li class="nav-item">
-          <a class="nav-link text-dark" href="/faq">Faq</a>
-      </li>
-      
-      
-      
-      <li class="nav-item">
-          <a class="nav-link text-dark" href="/help">help</a>
-      </li>
-      
-      
-      
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          Categories
-        </a>
-        <div class="dropdown-menu" >
-          
-          <a class="dropdown-item" href="/community">Community</a>
-          
-          <a class="dropdown-item" href="/resources">Resource Modules</a>
-          
-          <a class="dropdown-item" href="/guidelines">Guidelines</a>
-          
-          <a class="dropdown-item" href="/blog">Blog Posts</a>
-          
-          <a class="dropdown-item" href="/configmgt">Config. Management</a>
-          
-        </div>
-      </li>
-      
-      
-    </ul>
     
-    <ul class="list-inline text-center mb-0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+    />
+
+    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css"
+    />
+
+    
+    
+    <link
+      rel="stylesheet"
+      href="https://dsccommunity.org/css/futuristic.min.2fe77f06d9e00c9c5b3ed8d96e487ab36a763589c09b8cf99c143b793fe8c975.css"
+      integrity="sha256-L&#43;d/BtngDJxbPtjZbkh6s2p2NYnAm4z5nBQ7eT/oyXU="
+    />
+
+    
+    <link
+      rel="icon"
+      href="https://dsccommunity.org/images/favicon.png"
+      type="image/x-icon"
+    />
+
+    
+    <meta property="og:title" content="Add Code Coverage Support to Repository" />
+    <meta
+      property="og:description"
+      content="A collaborative community of authors and maintainers working to improve DSC resources, their quality, and development practices."
+    />
+    <meta
+      property="og:type"
+      content="article"
+    />
+    <meta property="og:url" content="https://dsccommunity.org/blog/add-codecov-support-to-repository/" />
+    
+    <meta property="og:image" content="https://dsccommunity.org/images/dsc-community-og.png" />
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Add Code Coverage Support to Repository" />
+    <meta
+      name="twitter:description"
+      content="A collaborative community of authors and maintainers working to improve DSC resources, their quality, and development practices."
+    />
+
+    
+    <script>
+      (function () {
+        const theme =
+          localStorage.getItem("theme") ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+  </head>
+  <body>
+    
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
       
-      <li class="list-inline-item"><a class="text-dark" href="https://dsccommunity.org/"></a></li>
+      <a href="https://dsccommunity.org/" class="site-logo">
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="32" height="32" rx="8" fill="url(#logo-gradient)" />
+          <path
+            d="M8 12h16M8 16h12M8 20h16"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <defs>
+            <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#3b82f6" />
+              <stop offset="100%" stop-color="#8b5cf6" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>DSC Community</span>
+      </a>
+
       
-    </ul>
-  </div>
-</nav>
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <ul class="nav-list">
+           
+          <li class="nav-item">
+            <a
+              href="/code_of_conduct"
+              class="nav-link"
+            >
+              Code of Conduct
+            </a>
+          </li>
+            
+          <li class="nav-item">
+            <a
+              href="/community_calls"
+              class="nav-link"
+            >
+              Community Calls
+            </a>
+          </li>
+            
+          <li class="nav-item">
+            <a
+              href="/faq"
+              class="nav-link"
+            >
+              FAQ
+            </a>
+          </li>
+            
+          <li class="nav-item">
+            <a
+              href="/help"
+              class="nav-link"
+            >
+              Help
+            </a>
+          </li>
+            
+          <li class="nav-item">
+            <a
+              href="#"
+              class="nav-link"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Categories
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              
+              <a href="/community" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-team-line"></i>
+                  
+                </span>
+                <span>Community</span>
+              </a>
+              
+              <a href="/resources" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-apps-2-line"></i>
+                  
+                </span>
+                <span>Resource Modules</span>
+              </a>
+              
+              <a href="/guidelines" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-book-open-line"></i>
+                  
+                </span>
+                <span>Guidelines</span>
+              </a>
+              
+              <a href="/blog" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-article-line"></i>
+                  
+                </span>
+                <span>Blog Posts</span>
+              </a>
+              
+              <a href="/configmgt" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-settings-3-line"></i>
+                  
+                </span>
+                <span>Config. Management</span>
+              </a>
+              
+            </div>
+          </li>
+           
+        </ul>
+      </nav>
+
+      
+      <div class="header-actions">
+        
+        <button
+          class="search-toggle"
+          onclick="openSearchModal()"
+          aria-label="Search"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+          <span>Search</span>
+          <kbd class="shortcut-mac">⌘K</kbd>
+          <kbd class="shortcut-other">Ctrl+K</kbd>
+        </button>
+
+        
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+          onclick="toggleTheme()"
+        >
+          <svg
+            class="sun-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+            />
+          </svg>
+          <svg
+            class="moon-icon"
+            style="display: none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </button>
+
+        
+        <a
+          href="https://github.com/dsccommunity"
+          class="theme-toggle"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+            />
+          </svg>
+        </a>
+
+        
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Toggle menu"
+          onclick="toggleMobileMenu()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 </header>
-<!-- /navigation -->
+<main id="main-content">
 
 
-<section class="single pt-5 bg-gray">
+<section class="hero" style="padding: var(--space-12) 0;">
+  <div class="hero-grid"></div>
   <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        <div class="p-4 bg-white sticky-top top-100">
-            
-            <nav class="sidebar-menu">
-              <ul class="list-styled">
-            <li class=" active "><a href="/community/">Community</a>
-              <ul class="">
-            <li class=" active "><a href="/community/origin-story/">Origin Story</a>
-            </li>
-            <li class=" active "><a href="/community/ownership/">Ownership of DSC Resources</a>
-            </li>
-            <li class=" active "><a href="/community/committee/">DSC Community Committee</a>
-            </li>
-            <li class=" active "><a href="/community/maintainers/">Maintainers</a>
-            </li>
-            <li class=" active "><a href="/community/contact/">Join the Conversation</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/resources/">Resource Modules</a>
-            </li>
-            <li class=" active "><a href="/guidelines/">Guidelines</a>
-              <ul class="">
-            <li class=" active "><a href="/guidelines/getting-started/">Getting Started as a Contributor</a>
-            </li>
-            <li class=" active "><a href="/guidelines/contributing/">Contributing</a>
-            </li>
-            <li class=" active "><a href="/guidelines/maintaining/">Maintaining</a>
-            </li>
-            <li class=" active "><a href="/guidelines/style-guidelines/">Style Guidelines</a>
-            </li>
-            <li class=" active "><a href="/guidelines/testing-guidelines/">Testing Guidelines</a>
-            </li>
-            <li class=" active "><a href="/guidelines/administration/">Administration</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/styleguidelines/">Style Guidelines</a>
-              <ul class="">
-            <li class=" active "><a href="/styleguidelines/markdown-files/">Markdown Files</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/general/">General</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/whitespace/">Whitespace</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/functions/">Functions</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/parameters/">Parameters</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/variables/">Variables</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/general-best-practices/">General Best Practices</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/calling-functions/">Calling Functions</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/writing-functions/">Writing Functions</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/dsc-resource-functions/">Dsc Resource Functions</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/manifest/">Manifest</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/localization/">Localization</a>
-            </li>
-            <li class=" active "><a href="/styleguidelines/pester-tests/">Pester Tests</a>
-            </li></ul>
-              
-            </li>
-            <li class="parent d-block  active "><a href="/blog/">Blog Posts</a>
-              <ul class="sub-menu">
-            <li class=" active "><a href="/blog/create-an-article/">Create an Article</a>
-            </li>
-            <li class=" active "><a href="/blog/dsc-is-dead-long-live-dsc/">DSC is Dead</a>
-            </li>
-            <li class=" active "><a href="/blog/what-is-microsoft-dscv3/">What is Microsoft DSC v3</a>
-            </li>
-            <li class=" active "><a href="/blog/your-first-class-based-microsoft-dsc-v3-resource/">Your first class-based Microsoft DSC v3 resource</a>
-            </li>
-            <li class=" active "><a href="/blog/convert-tests-to-pester5-for-dsc-community-repository/">Convert tests to Pester 5 for a DSC Community repository</a>
-            </li>
-            <li class=" active "><a href="/blog/convert-master-to-main/">Steps to rename master branch to main for a DSC Community resource</a>
-            </li>
-            <li class=" active "><a href="/blog/class-based-dsc-resources/">Class Based DSC Resource only proposal</a>
-            </li>
-            <li class=" active "><a href="/blog/converting-tests-to-pester5/">Converting tests to Pester 5</a>
-            </li>
-            <li class=" active "><a href="/blog/updating-sampler-github-tasks/">Updating repo with Sampler.GitHubTasks</a>
-            </li>
-            <li class=" active "><a href="/blog/add-codecov-support-to-repository/">Add Code Coverage Support to Repository</a>
-            </li>
-            <li class=" active "><a href="/blog/use-dscresource-common-functions-in-module/">DscResource.Common functions in a DSC module</a>
-            </li>
-            <li class=" active "><a href="/blog/convert-a-module-for-continuous-delivery/">Steps to convert a module for continuous delivery</a>
-            </li>
-            <li class=" active "><a href="/blog/how-to-use-dsc-logging/">How to Use DSC Logging</a>
-            </li>
-            <li class=" active "><a href="/blog/dsc-maintenance-windows/">Realizing maintenance windows with DSC</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/configmgt/">Configuration Management</a>
-              <ul class="">
-            <li class=" active "><a href="/configmgt/future-of-config-mgt/">Future of Configuration Management</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/community_calls/">Community Calls</a>
-              <ul class="">
-            <li class=" active "><a href="/community_calls/next_call/">Next Community Calls</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2025-02-06-notes/">2025-02-07 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2025-03-29-notes/">2025-03-29 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2024-11-14-notes/">2024-11-14 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2025-06-11-notes/">2025-06-11 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2024-10-11-notes/">2024-10-11 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2025-09-07-notes/">2025-09-07 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2024-08-26-notes/">2024-08-26 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2025-10-15-notes/">2025-10-15 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2024-05-29-notes/">2024-05-29 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2024-04-19-notes/">2024-04-19 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2024-03-19-notes/">2024-03-19 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2023-11-02-notes/">2023-11-02 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2023-09-20-notes/">2023-09-20 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2023-04-05-notes/">2023-04-05 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2023-02-22-notes/">2023-02-22 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2023-01-11-notes/">2023-01-11 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2022-11-30-notes/">2022-11-30 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2022-10-19-notes/">2022-10-19 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2022-05-04-notes/">2022-05-04 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2022-09-07-notes/">2022-09-07 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2022-03-23-notes/">2022-03-23 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2022-02-16-notes/">2022-02-16 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-11-17-notes/">2021-11-17 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-10-06-notes/">2021-10-06 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-08-25-notes/">2021-08-25 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-06-02-notes/">2021-06-02 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-04-21-notes/">2021-04-21 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-03-10-notes/">2021-03-10 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2021-01-27-notes/">2021-01-27 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-12-16-notes/">2020-12-16 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-09-23-notes/">2020-09-23 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-08-12-notes/">2020-08-12 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-07-01-notes/">2020-07-01 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-05-20-notes/">2020-05-20 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-04-08-notes/">2020-04-08 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-02-26-notes/">2020-02-26 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2020-01-22-notes/">2020-01-22 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2019-12-04-notes/">2019-12-04 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2019-10-23-notes/">2019-10-23 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2019-09-11-notes/">2019-09-11 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2019-07-31-notes/">2019-07-31 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2019-06-19-notes/">2019-06-19 Notes</a>
-            </li>
-            <li class=" active "><a href="/community_calls/2019-05-08-notes/">2019-05-08 Notes</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/code_of_conduct/">Code of Conduct</a>
-              <ul class="">
-            <li class=" active "><a href="/code_of_conduct/standards/">Our Standards</a>
-            </li>
-            <li class=" active "><a href="/code_of_conduct/responsibilities/">Our Responsibilities</a>
-            </li>
-            <li class=" active "><a href="/code_of_conduct/scope/">Scope</a>
-            </li>
-            <li class=" active "><a href="/code_of_conduct/enforcement/">Enforcement</a>
-            </li>
-            <li class=" active "><a href="/code_of_conduct/common_questions/">Common Questions</a>
-            </li>
-            <li class=" active "><a href="/code_of_conduct/attribution/">Attribution</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/help/">Help</a>
-              <ul class="">
-            <li class=" active "><a href="/help/what-is-dsc/">What is Desired State Configuration</a>
-            </li>
-            <li class=" active "><a href="/help/what-future-for-dsc/">What Future for Dsc</a>
-            </li></ul>
-              
-            </li>
-            <li class=" active "><a href="/contributors/">Elements</a>
-            </li>
-            <li class=" active "><a href="/faq/">Frequently Asked Questions</a>
-            </li></ul>
-            </nav>
+    <div class="hero-content" style="max-width: 900px;">
+      
+      <nav style="margin-bottom: var(--space-4);">
+        <ol style="display: flex; align-items: center; gap: var(--space-2); list-style: none; padding: 0; margin: 0; font-size: var(--text-sm);">
+          <li><a href="https://dsccommunity.org/" style="color: rgba(255,255,255,0.7);">Home</a></li>
+          <li style="color: rgba(255,255,255,0.5);">/</li>
+          
+          <li><a href="https://dsccommunity.org/blog/" style="color: rgba(255,255,255,0.7);">Blog Posts</a></li>
+          <li style="color: rgba(255,255,255,0.5);">/</li>
+          
+          <li style="color: rgba(255,255,255,0.9);">Add Code Coverage Support to Repository</li>
+        </ol>
+      </nav>
+      <h1 class="hero-title" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));">Add Code Coverage Support to Repository</h1>
+      
+      <p class="hero-description" style="font-size: var(--text-base);">
+        <time datetime="2020-02-03">February 3, 2020</time>
+         • by johlju
+         • 15 min read
+      </p>
+      
+    </div>
+  </div>
+</section>
 
+
+<section class="section" style="padding-top: var(--space-8);">
+  <div class="container">
+    <div class="content-layout">
+      
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <nav class="sidebar-nav">
             
+            <h4 class="sidebar-title">Blog Posts</h4>
+            <ul class="sidebar-list">
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/create-an-article/" class="sidebar-link">
+                  Create an Article
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/" class="sidebar-link">
+                  DSC is Dead
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/what-is-microsoft-dscv3/" class="sidebar-link">
+                  What is Microsoft DSC v3
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/your-first-class-based-microsoft-dsc-v3-resource/" class="sidebar-link">
+                  Your first class-based Microsoft DSC v3 resource
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/" class="sidebar-link">
+                  Convert tests to Pester 5 for a DSC Community repository
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/convert-master-to-main/" class="sidebar-link">
+                  Steps to rename master branch to main for a DSC Community resource
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/class-based-dsc-resources/" class="sidebar-link">
+                  Class Based DSC Resource only proposal
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/converting-tests-to-pester5/" class="sidebar-link">
+                  Converting tests to Pester 5
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/updating-sampler-github-tasks/" class="sidebar-link">
+                  Updating repo with Sampler.GitHubTasks
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/add-codecov-support-to-repository/" class="sidebar-link active">
+                  Add Code Coverage Support to Repository
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/" class="sidebar-link">
+                  DscResource.Common functions in a DSC module
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/" class="sidebar-link">
+                  Steps to convert a module for continuous delivery
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/how-to-use-dsc-logging/" class="sidebar-link">
+                  How to Use DSC Logging
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/dsc-maintenance-windows/" class="sidebar-link">
+                  Realizing maintenance windows with DSC
+                </a>
+              </li>
+              
+            </ul>
+            
+          </nav>
         </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="p-5 bg-white">
-            <h2>Add Code Coverage Support to Repository</h2>
-            <p><em>This assumes the repository is using the pattern from the <a href="https://github.com/gaelcolas/Sampler">Sampler</a></em>
-<em>project. Also make sure you have updated the repository to the latest pipeline.</em></p>
+      </aside>
+
+      
+      <div class="main-content">
+        <article class="article-content">
+          <p>Code coverage metrics help ensure your DSC resources are well-tested. This guide explains how to configure Codecov.io integration for your DSC Community repository to track and report code coverage in your CI pipeline using Pester&rsquo;s JaCoCo output.</p>
+<p><em>This assumes the repository is using the pattern from the <a href="https://github.com/gaelcolas/Sampler">Sampler</a>
+project. Also make sure you have updated the repository to the latest pipeline.</em></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ul>
 <li><a href="/blog/add-codecov-support-to-repository/#introduction">Introduction</a></li>
@@ -420,18 +539,18 @@ must be set to a value between <code>1</code> and <code>100</code>. Normally the
 is a good value if the repository have enough coverage, lower the value if
 it doesn&rsquo;t.</p>
 <p>It can look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Pester</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">OutputFormat</span>: <span style="color:#ae81ff">NUnitXML</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ExcludeFromCodeCoverage</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">Modules/DscResource.Common</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Script</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">tests/Unit</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ExcludeTag</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Tag</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CodeCoverageThreshold</span>: <span style="color:#ae81ff">80</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CodeCoverageOutputFile</span>: <span style="color:#ae81ff">JaCoCo_coverage.xml</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CodeCoverageOutputFileEncoding</span>: <span style="color:#ae81ff">ascii</span>
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Pester</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">OutputFormat</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">NUnitXML</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">ExcludeFromCodeCoverage</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Modules/DscResource.Common</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">Script</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">tests/Unit</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">ExcludeTag</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">Tag</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageThreshold</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">80</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageOutputFile</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">JaCoCo_coverage.xml</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageOutputFileEncoding</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">ascii</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><blockquote>
 <p><em>NOTE:</em> the filename can be anything after the prefix <code>JaCoCo</code>, for example
 it is possible to use <code>JaCoCo_$OsShortName.xml</code> which results in
 the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</p></blockquote>
@@ -443,33 +562,33 @@ the test result files that ended up in the folder <code>output/testResults</code
 <h4 id="add-global-variables">Add global variables</h4>
 <p>At the top of the file, at the same level as the key <code>trigger</code> add the
 following.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">variables</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">buildFolderName</span>: <span style="color:#ae81ff">output</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">buildArtifactName</span>: <span style="color:#ae81ff">output</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">testResultFolderName</span>: <span style="color:#ae81ff">testResults</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">testArtifactName</span>: <span style="color:#ae81ff">testResults</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">sourceFolderName</span>: <span style="color:#ae81ff">source</span>
-</span></span></code></pre></div><p>It should look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">branches</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">include</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">main</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">paths</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">include</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">source/*</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tags</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">include</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;v*&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">exclude</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;*-*&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">variables</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">buildFolderName</span>: <span style="color:#ae81ff">output</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">buildArtifactName</span>: <span style="color:#ae81ff">output</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">testResultFolderName</span>: <span style="color:#ae81ff">testResults</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">testArtifactName</span>: <span style="color:#ae81ff">testResults</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">sourceFolderName</span>: <span style="color:#ae81ff">source</span>
-</span></span></code></pre></div><h4 id="update-job-test_unit">Update job <code>Test_Unit</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">variables</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">buildFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">output</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">buildArtifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">output</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">testResultFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">testResults</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">testArtifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">testResults</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">sourceFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">source</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><p>It should look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">trigger</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">branches</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">include</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">main</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">paths</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">include</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">source/*</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">tags</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">include</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">&#34;v*&#34;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">exclude</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">&#34;*-*&#34;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">variables</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">buildFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">output</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">buildArtifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">output</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">testResultFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">testResults</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">testArtifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">testResults</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">sourceFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">source</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h4 id="update-job-test_unit">Update job <code>Test_Unit</code></h4>
 <p>The main tasks of this job must be:</p>
 <ul>
 <li>Download the build artifact using task <code>DownloadPipelineArtifact@2</code> (or
@@ -489,39 +608,39 @@ But most important is if the <code>CodeCoverageThreshold</code> argument is used
 override the value in <code>build.yaml</code> then the value for <code>CodeCoverageThreshold</code>
 may not be set to <code>0</code>. The value <code>0</code> means that no coverage is gathered.</p>
 <p>This is how it can look like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Test_Unit</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Unit&#39;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">pool</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span> <span style="color:#75715e"># Must be present for build task to work.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Pipeline Artifact&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(buildArtifactName)</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span> <span style="color:#75715e"># Runs the tests, and generates code coverage.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">test</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Run Unit Test&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">arguments</span>: <span style="color:#e6db74">&#34;-Tasks test -PesterScript &#39;tests/Unit&#39;&#34;</span> <span style="color:#75715e"># &lt;--- Arguments can differ depending on repository.</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">pwsh</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishTestResults@2</span> <span style="color:#75715e"># &lt;--- Task optional, not necessary for code coverage.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">succeededOrFailed()</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">testResultsFiles</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">testRunTitle</span>: <span style="color:#e6db74">&#39;Unit&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishPipelineArtifact@1 </span> <span style="color:#75715e"># &lt;--- This task is most important.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Artifact&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(testArtifactName)</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">parallel</span>: <span style="color:#66d9ef">true</span>
-</span></span></code></pre></div><h4 id="update-job-codecoverage">Update job <code>CodeCoverage</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Test_Unit</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Unit&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">pool</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span><span style="color:#7ee787">vmImage</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;windows-2019&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">timeoutInMinutes</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">0</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">steps</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">DownloadPipelineArtifact@2</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Must be present for build task to work.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Download Pipeline Artifact&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">buildType</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;current&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">artifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">$(buildArtifactName)</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">targetPath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">PowerShell@2</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Runs the tests, and generates code coverage.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">name</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">test</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Run Unit Test&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">filePath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;./build.ps1&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">arguments</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;-Tasks test -PesterScript &#39;tests/Unit&#39;&#34;</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># &lt;--- Arguments can differ depending on repository.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">pwsh</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">false</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">PublishTestResults@2</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># &lt;--- Task optional, not necessary for code coverage.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Test Results&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">condition</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">succeededOrFailed()</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">testResultsFormat</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;NUnit&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">testResultsFiles</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">testRunTitle</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Unit&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">PublishPipelineArtifact@1 </span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># &lt;--- This task is most important.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Test Artifact&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">targetPath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(buildFolderName)/$(testResultFolderName)/&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">artifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">$(testArtifactName)</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">parallel</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">true</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h4 id="update-job-codecoverage">Update job <code>CodeCoverage</code></h4>
 <p>Add a new job that depends on the job <code>Test_Unit</code> (see previous section)
 since we must wait for the JaCoCo XML file to exist. The reason for having
 a separate job is that we need (or at least it is easiest) to run the
@@ -541,35 +660,35 @@ in the previous section)</li>
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Code_Coverage</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage&#39;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Test_Unit</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">pool</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu 16.04&#39;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Pipeline Artifact&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(buildArtifactName)</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Test Artifact&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(testArtifactName)</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishCodeCoverageResults@1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage to Azure DevOps&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">codeCoverageTool</span>: <span style="color:#e6db74">&#39;JaCoCo&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">summaryFileLocation</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">pathToSources</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(sourceFolderName)/&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">script</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              bash &lt;(curl -s https://codecov.io/bash) -f &#34;./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage to Codecov.io&#39;</span>
-</span></span></code></pre></div><h3 id="add-codecovyml">Add <code>codecov.yml</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Code_Coverage</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Code Coverage&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">dependsOn</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Test_Unit</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">pool</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span><span style="color:#7ee787">vmImage</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;ubuntu 16.04&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">timeoutInMinutes</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">0</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">steps</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">DownloadPipelineArtifact@2</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Download Pipeline Artifact&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">buildType</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;current&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">artifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">$(buildArtifactName)</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">targetPath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">DownloadPipelineArtifact@2</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Download Test Artifact&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">buildType</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;current&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">artifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">$(testArtifactName)</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">targetPath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">PublishCodeCoverageResults@1</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Code Coverage to Azure DevOps&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">codeCoverageTool</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;JaCoCo&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">summaryFileLocation</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">pathToSources</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(Build.SourcesDirectory)/$(sourceFolderName)/&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">script</span>:<span style="color:#6e7681"> </span>|<span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">              bash &lt;(curl -s https://codecov.io/bash) -f &#34;./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#34;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Code Coverage to Codecov.io&#39;</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="add-codecovyml">Add <code>codecov.yml</code></h3>
 <p>This file is not necessary if Codecov.io is not used.</p>
 <blockquote>
 <p><strong>NOTE:</strong> Make sure to update the default branch name in the Codecov.io
@@ -594,40 +713,40 @@ expects.</p>
 <blockquote>
 <p>See the <a href="https://docs.codecov.io/docs/codecovyml-reference">codecov.yml Reference</a>
 for more information about these settings.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">codecov</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">require_ci_to_pass</span>: <span style="color:#66d9ef">no</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># main should be the baseline for reporting</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">comment</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">layout</span>: <span style="color:#e6db74">&#34;reach, diff, flags, files&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">behavior</span>: <span style="color:#ae81ff">default</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">coverage</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">range</span>: <span style="color:#ae81ff">50</span><span style="color:#ae81ff">..80</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">round</span>: <span style="color:#ae81ff">down</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">precision</span>: <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">status</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">project</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">default</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Set the overall project code coverage requirement to 70%</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">target</span>: <span style="color:#ae81ff">70</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">patch</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">default</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Set the pull request requirement to not regress overall coverage by more than 5%</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># and let codecov.io set the goal for the code changed in the patch.</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">target</span>: <span style="color:#ae81ff">auto</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">threshold</span>: <span style="color:#ae81ff">5</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">fixes</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#39;^\d+\.\d+\.\d+::source&#39;</span>  <span style="color:#75715e"># move path &#34;X.Y.Z&#34; =&gt; &#34;source&#34;</span>
-</span></span></code></pre></div><h3 id="add-status-badge-to-readmemd">Add status badge to <code>README.md</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">codecov</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">require_ci_to_pass</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">no</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic"># main should be the baseline for reporting</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">branch</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">main</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">comment</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">layout</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;reach, diff, flags, files&#34;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">behavior</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">default</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">coverage</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">range</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">50</span><span style="color:#a5d6ff">..80</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">round</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">down</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">precision</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">0</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">status</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">project</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span><span style="color:#7ee787">default</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic"># Set the overall project code coverage requirement to 70%</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">target</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">70</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">patch</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span><span style="color:#7ee787">default</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic"># Set the pull request requirement to not regress overall coverage by more than 5%</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic"># and let codecov.io set the goal for the code changed in the patch.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">target</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">auto</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">threshold</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">5</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">fixes</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span>- <span style="color:#a5d6ff">&#39;^\d+\.\d+\.\d+::source&#39;</span><span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic"># move path &#34;X.Y.Z&#34; =&gt; &#34;source&#34;</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="add-status-badge-to-readmemd">Add status badge to <code>README.md</code></h3>
 <p>Finally we should add the status badges to the README.md. Replace
 <code>{repositoryName}</code> with the actual repository name, e.g. <code>ComputerManagementDsc</code>.
 Also replace <code>{defaultbranch}</code> to the name of the default branch, e.g. <code>main</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>[<span style="color:#f92672">![codecov</span>](<span style="color:#a6e22e">https://codecov.io/gh/dsccommunity/{repositoryName}/branch/{defaultbranch}/graph/badge.svg</span>)](https://codecov.io/gh/dsccommunity/{repositoryName})
-</span></span><span style="display:flex;"><span>![<span style="color:#f92672">Azure DevOps coverage (branch)</span>](<span style="color:#a6e22e">https://img.shields.io/azure-devops/coverage/dsccommunity/{repositoryName}/14/{defaultbranch}</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>[<span style="color:#7ee787">![codecov</span>](https://codecov.io/gh/dsccommunity/{repositoryName}/branch/{defaultbranch}/graph/badge.svg)](https://codecov.io/gh/dsccommunity/{repositoryName})
+</span></span><span style="display:flex;"><span>![<span style="color:#7ee787">Azure DevOps coverage (branch)</span>](https://img.shields.io/azure-devops/coverage/dsccommunity/{repositoryName}/14/{defaultbranch})
 </span></span></code></pre></div><h2 id="building-whole-or-part-of-module">Building whole or part of module</h2>
 <p>If the repository is building all or just part of the module using the ModuleBuilder&rsquo;s
 pattern of <code>Private</code>, <code>Public</code>, <code>Classes</code> and/or <code>Enum</code>. E.g. combination of
@@ -646,11 +765,11 @@ a new coverage file that is then merged with the original file that Pester
 generated.</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>  <span style="color:#f92672">test</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">Pester_Tests_Stop_On_Fail</span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">Convert_Pester_Coverage</span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">Pester_if_Code_Coverage_Under_Threshold</span>
-</span></span></code></pre></div><h3 id="modify-azure-pipelinesyml-1">Modify <code>azure-pipelines.yml</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">test</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Pester_Tests_Stop_On_Fail</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Convert_Pester_Coverage</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Pester_if_Code_Coverage_Under_Threshold</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="modify-azure-pipelinesyml-1">Modify <code>azure-pipelines.yml</code></h3>
 <p>Update <code>azure-pipelines.yml</code> exactly the same way as in the section <a href="/blog/add-codecov-support-to-repository/#modify-azure-pipelines.yml">Modify azure-pipelines.yml</a>
 in <a href="/blog/add-codecov-support-to-repository/#not-building-module-just-copies-files">Not building module, just copies files</a>.</p>
 <h3 id="add-codecovyml-1">Add <code>codecov.yml</code></h3>
@@ -663,32 +782,32 @@ the <code>covecov.yml</code> should look like below. Note that the main differen
 (from <a href="/blog/add-codecov-support-to-repository/#not-building-module-just-copying-files">Not building module, just copying files</a>)
 is that it is not using <code>fixes</code> keyword as the task <em>Convert_Pester_Coverage</em>
 will do that for us.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">codecov</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">require_ci_to_pass</span>: <span style="color:#66d9ef">no</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># main should be the baseline for reporting</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">comment</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">layout</span>: <span style="color:#e6db74">&#34;reach, diff, flags, files&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">behavior</span>: <span style="color:#ae81ff">default</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">coverage</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">range</span>: <span style="color:#ae81ff">50</span><span style="color:#ae81ff">..80</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">round</span>: <span style="color:#ae81ff">down</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">precision</span>: <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">status</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">project</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">default</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Set the overall project code coverage requirement to 70%</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">target</span>: <span style="color:#ae81ff">70</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">patch</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">default</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Set the pull request requirement to not regress overall coverage by more than 5%</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># and let codecov.io set the goal for the code changed in the patch.</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">target</span>: <span style="color:#ae81ff">auto</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">threshold</span>: <span style="color:#ae81ff">5</span>
-</span></span></code></pre></div><h3 id="add-status-badge-to-readmemd-1">Add status badge to <code>README.md</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">codecov</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">require_ci_to_pass</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">no</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic"># main should be the baseline for reporting</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">branch</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">main</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">comment</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">layout</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;reach, diff, flags, files&#34;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">behavior</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">default</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">coverage</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">range</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">50</span><span style="color:#a5d6ff">..80</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">round</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">down</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">precision</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">0</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">status</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">project</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span><span style="color:#7ee787">default</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic"># Set the overall project code coverage requirement to 70%</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">target</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">70</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">patch</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span><span style="color:#7ee787">default</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic"># Set the pull request requirement to not regress overall coverage by more than 5%</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic"># and let codecov.io set the goal for the code changed in the patch.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">target</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">auto</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">threshold</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">5</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="add-status-badge-to-readmemd-1">Add status badge to <code>README.md</code></h3>
 <p>Update <code>README.md</code> exactly the same way as in the section <a href="/blog/add-codecov-support-to-repository/#add-status-badge-to-README.md">Add status badge to <code>README.md</code></a>
 in <a href="/blog/add-codecov-support-to-repository/#not-building-module-just-copies-files">Not building module, just copies files</a>.</p>
 <h2 id="code-coverage-for-multiple-jobs">Code coverage for multiple jobs</h2>
@@ -723,30 +842,30 @@ this:</p>
 <p><em>NOTE:</em> the filename can be anything after the prefix <code>JaCoCo</code>, for example
 it is possible to use <code>JaCoCo_$OsShortName.xml</code> which results in
 the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Pester</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">OutputFormat</span>: <span style="color:#ae81ff">NUnitXML</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ExcludeFromCodeCoverage</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">Modules/DscResource.Common</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Script</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">tests/Unit</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ExcludeTag</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Tag</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CodeCoverageThreshold</span>: <span style="color:#ae81ff">80</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CodeCoverageOutputFile</span>: <span style="color:#ae81ff">JaCoCo_Merge.xml</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CodeCoverageOutputFileEncoding</span>: <span style="color:#ae81ff">ascii</span>
-</span></span></code></pre></div><p>If you choose to remove <code>CodeCoverageOutputFile</code> keyword, the <code>Pester</code> section
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Pester</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">OutputFormat</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">NUnitXML</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">ExcludeFromCodeCoverage</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Modules/DscResource.Common</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">Script</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">tests/Unit</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">ExcludeTag</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">Tag</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageThreshold</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">80</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageOutputFile</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">JaCoCo_Merge.xml</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageOutputFileEncoding</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">ascii</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><p>If you choose to remove <code>CodeCoverageOutputFile</code> keyword, the <code>Pester</code> section
 can look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Pester</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">OutputFormat</span>: <span style="color:#ae81ff">NUnitXML</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ExcludeFromCodeCoverage</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">Modules/DscResource.Common</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Script</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">tests/Unit</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ExcludeTag</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Tag</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CodeCoverageThreshold</span>: <span style="color:#ae81ff">80</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CodeCoverageOutputFileEncoding</span>: <span style="color:#ae81ff">ascii</span>
-</span></span></code></pre></div><p>We also need to add a new build task that we call <code>merge</code> that will run
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Pester</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">OutputFormat</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">NUnitXML</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">ExcludeFromCodeCoverage</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Modules/DscResource.Common</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">Script</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">tests/Unit</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">ExcludeTag</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">Tag</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageThreshold</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">80</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageOutputFileEncoding</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">ascii</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><p>We also need to add a new build task that we call <code>merge</code> that will run
 the task <em>Merge_CodeCoverage_Files</em>. This task should be added under the
 keyword <code>BuildWorkflow:</code>.</p>
 <p>It can look something like this:</p>
@@ -770,14 +889,14 @@ that will be uploaded to the code coverage services.</p>
 for under the <code>output/testResults</code> folder. It should use a pattern that
 can recognize the JaCoCo files that the test jobs generate.</p>
 <p>If using the default filenames it can look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">CodeCoverage</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CodeCoverageMergedOutputFile</span>: <span style="color:#ae81ff">JaCoCo_coverage.xml</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CodeCoverageFilePattern</span>: <span style="color:#ae81ff">Codecov*.xml</span>
-</span></span></code></pre></div><p>If a specific filename was used it can look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">CodeCoverage</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CodeCoverageMergedOutputFile</span>: <span style="color:#ae81ff">JaCoCo_coverage.xml</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CodeCoverageFilePattern</span>: <span style="color:#ae81ff">JaCoCo_Merge.xml</span>
-</span></span></code></pre></div><h3 id="modify-azure-pipelinesyml-2">Modify <code>azure-pipelines.yml</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">CodeCoverage</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageMergedOutputFile</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">JaCoCo_coverage.xml</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageFilePattern</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Codecov*.xml</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><p>If a specific filename was used it can look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">CodeCoverage</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageMergedOutputFile</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">JaCoCo_coverage.xml</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageFilePattern</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">JaCoCo_Merge.xml</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="modify-azure-pipelinesyml-2">Modify <code>azure-pipelines.yml</code></h3>
 <p>From the job <code>Test_Unit</code> we can remove the task <code>Set Environment Variables</code>
 and the task <code>Publish Code Coverage</code>. Those two tasks will be moved to the
 new job. Instead we add the task <code>Publish Test Artifact</code> which uploads
@@ -785,25 +904,25 @@ the test result files that ended up in the folder <code>output/testResults</code
 <h4 id="remove-global-variable">Remove global variable</h4>
 <p>We can remove the global variable <code>testArtifactName</code> since it will not be used.</p>
 <p>After removing the global variable it should look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">branches</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">include</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">main</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">paths</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">include</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">source/*</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tags</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">include</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;v*&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">exclude</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;*-*&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">variables</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">buildFolderName</span>: <span style="color:#ae81ff">output</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">buildArtifactName</span>: <span style="color:#ae81ff">output</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">testResultFolderName</span>: <span style="color:#ae81ff">testResults</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">sourceFolderName</span>: <span style="color:#ae81ff">source</span>
-</span></span></code></pre></div><h4 id="update-test-tasks">Update test tasks</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">trigger</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">branches</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">include</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">main</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">paths</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">include</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">source/*</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">tags</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">include</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">&#34;v*&#34;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">exclude</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">&#34;*-*&#34;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">variables</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">buildFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">output</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">buildArtifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">output</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">testResultFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">testResults</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">sourceFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">source</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h4 id="update-test-tasks">Update test tasks</h4>
 <p>At least two test tasks must be used. The main tasks for each job must be:</p>
 <ul>
 <li>Download the build artifact using task <code>DownloadPipelineArtifact@2</code> (or
@@ -824,71 +943,71 @@ But most important is if the <code>CodeCoverageThreshold</code> argument is used
 override the value in <code>build.yaml</code> then the value for <code>CodeCoverageThreshold</code>
 may not be set to <code>0</code>. The value <code>0</code> means that no coverage is gathered.</p>
 <p>This is how it can look like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">test_windows_core</span> <span style="color:#75715e"># Run tests in PowerShell 7 on Windows</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Windows (PowerShell Core)&#39;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">pool</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;windows-2019&#39;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span> <span style="color:#75715e"># Download build artifact.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Pipeline Artifact&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(buildArtifactName)</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span> <span style="color:#75715e"># Run tests and gather code coverage.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">test</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Run Tests&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">arguments</span>: <span style="color:#e6db74">&#39;-tasks test&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">pwsh</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishTestResults@2</span> <span style="color:#75715e"># Optional. Publish test results.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">succeededOrFailed()</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">testResultsFiles</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">testRunTitle</span>: <span style="color:#e6db74">&#39;Windows Server Core (PowerShell Core)&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishPipelineArtifact@1</span> <span style="color:#75715e"># Publish test artifact with unique name for this job.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Artifact&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">artifactName</span>: <span style="color:#e6db74">&#39;CodeCoverageWinPS7&#39;</span> <span style="color:#75715e"># An unique artifact name.</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">parallel</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">test_linux</span> <span style="color:#75715e"># Run tests in PowerShell 7 on Linux</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Linux&#39;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">pool</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu 16.04&#39;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span> <span style="color:#75715e"># Download build artifact.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Pipeline Artifact&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(buildArtifactName)</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span> <span style="color:#75715e"># Run tests and gather code coverage.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">test</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Run Tests&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">arguments</span>: <span style="color:#e6db74">&#39;-tasks test&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishTestResults@2</span> <span style="color:#75715e"># Optional. Publish test results.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Results&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">succeededOrFailed()</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">testResultsFormat</span>: <span style="color:#e6db74">&#39;NUnit&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">testResultsFiles</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">testRunTitle</span>: <span style="color:#e6db74">&#39;Linux&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishPipelineArtifact@1</span> <span style="color:#75715e"># Publish test artifact with unique name for this job.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Test Artifact&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(buildFolderName)/$(testResultFolderName)/&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">artifactName</span>: <span style="color:#e6db74">&#39;CodeCoverageLinux&#39;</span> <span style="color:#75715e"># An unique artifact name.</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">parallel</span>: <span style="color:#66d9ef">true</span>
-</span></span></code></pre></div><h4 id="update-job-codecoverage-1">Update job <code>CodeCoverage</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">test_windows_core</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Run tests in PowerShell 7 on Windows</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Windows (PowerShell Core)&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">timeoutInMinutes</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">0</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">pool</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span><span style="color:#7ee787">vmImage</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;windows-2019&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">steps</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">DownloadPipelineArtifact@2</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Download build artifact.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Download Pipeline Artifact&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">buildType</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;current&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">artifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">$(buildArtifactName)</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">targetPath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">PowerShell@2</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Run tests and gather code coverage.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">name</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">test</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Run Tests&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">filePath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;./build.ps1&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">arguments</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;-tasks test&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">pwsh</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">true</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">PublishTestResults@2</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Optional. Publish test results.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Test Results&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">condition</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">succeededOrFailed()</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">testResultsFormat</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;NUnit&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">testResultsFiles</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">testRunTitle</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Windows Server Core (PowerShell Core)&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">PublishPipelineArtifact@1</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Publish test artifact with unique name for this job.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Test Artifact&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">targetPath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(buildFolderName)/$(testResultFolderName)/&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">artifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;CodeCoverageWinPS7&#39;</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># An unique artifact name.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">parallel</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">true</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">test_linux</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Run tests in PowerShell 7 on Linux</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Linux&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">timeoutInMinutes</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">0</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">pool</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span><span style="color:#7ee787">vmImage</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;ubuntu 16.04&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">steps</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">DownloadPipelineArtifact@2</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Download build artifact.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Download Pipeline Artifact&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">buildType</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;current&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">artifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">$(buildArtifactName)</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">targetPath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">PowerShell@2</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Run tests and gather code coverage.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">name</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">test</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Run Tests&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">filePath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;./build.ps1&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">arguments</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;-tasks test&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">PublishTestResults@2</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Optional. Publish test results.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Test Results&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">condition</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">succeededOrFailed()</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">testResultsFormat</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;NUnit&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">testResultsFiles</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(buildFolderName)/$(testResultFolderName)/NUnit*.xml&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">testRunTitle</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Linux&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">PublishPipelineArtifact@1</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Publish test artifact with unique name for this job.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Test Artifact&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">targetPath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(buildFolderName)/$(testResultFolderName)/&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">artifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;CodeCoverageLinux&#39;</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># An unique artifact name.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">parallel</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">true</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h4 id="update-job-codecoverage-1">Update job <code>CodeCoverage</code></h4>
 <p>Add a new job that depends on all the test jobs (see previous section) since
 we must wait for all of the JaCoCo XML files to exist.</p>
 <p>The tasks of this job must be:</p>
@@ -912,86 +1031,334 @@ or that there is a risk that the default filename might not be unique, then
 we need to specify specific folders where the test artifacts are downloaded.</p>
 <p>The publishing tasks must specify the filename that was specified in the
 keyword <code>CodeCoverageMergedOutputFile</code> in the <code>build.yaml</code> file.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Code_Coverage</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage&#39;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">dependsOn</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">test_windows_core</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">test_linux</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">pool</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu 16.04&#39;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">timeoutInMinutes</span>: <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Pipeline Artifact&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">artifactName</span>: <span style="color:#ae81ff">$(buildArtifactName)</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span> <span style="color:#75715e"># Downloads the artifact &#39;CodeCoverageLinux&#39;.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Test Artifact Linux&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">artifactName</span>: <span style="color:#e6db74">&#39;CodeCoverageLinux&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DownloadPipelineArtifact@2</span> <span style="color:#75715e"># Downloads the artifact &#39;CodeCoverageWinPS7&#39;.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Download Test Artifact Windows (PS7)&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">buildType</span>: <span style="color:#e6db74">&#39;current&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">artifactName</span>: <span style="color:#e6db74">&#39;CodeCoverageWinPS7&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PowerShell@2</span> <span style="color:#75715e"># Merge the code coverage files.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">merge</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Merge Code Coverage files&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">filePath</span>: <span style="color:#e6db74">&#39;./build.ps1&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">arguments</span>: <span style="color:#e6db74">&#39;-tasks merge&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">pwsh</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishCodeCoverageResults@1</span> <span style="color:#75715e"># Must specify the file specified in the `CodeCoverageMergedOutputFile`</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage to Azure DevOps&#39;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">codeCoverageTool</span>: <span style="color:#e6db74">&#39;JaCoCo&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">summaryFileLocation</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">pathToSources</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/$(sourceFolderName)/&#39;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">|</span> <span style="color:#75715e"># Must specify the file specified in the `CodeCoverageMergedOutputFile`</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#ae81ff">bash &lt;(curl -s https://codecov.io/bash) -f &#34;./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Publish Code Coverage to Codecov.io&#39;</span>
-</span></span></code></pre></div>
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on 03 Feb 2020</p><nav class="pagination mt-3"><a class="nav nav-prev" href="/blog/updating-sampler-github-tasks/" title="Updating repo with Sampler.GitHubTasks"><i class="ti-arrow-left mr-2"></i>Updating repo with Sampler.GitHubTasks</a>
-            <a class="nav nav-next" href="/blog/use-dscresource-common-functions-in-module/" title="DscResource.Common functions in a DSC module">DscResource.Common functions in a DSC module<i class="ti-arrow-right ml-2"></i></a>
-            </nav></div>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Code_Coverage</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Code Coverage&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">dependsOn</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#a5d6ff">test_windows_core</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#a5d6ff">test_linux</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">pool</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span><span style="color:#7ee787">vmImage</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;ubuntu 16.04&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">timeoutInMinutes</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">0</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">steps</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">DownloadPipelineArtifact@2</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Download Pipeline Artifact&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">buildType</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;current&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">artifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">$(buildArtifactName)</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">targetPath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(Build.SourcesDirectory)/$(buildArtifactName)&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">DownloadPipelineArtifact@2</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Downloads the artifact &#39;CodeCoverageLinux&#39;.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Download Test Artifact Linux&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">buildType</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;current&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">artifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;CodeCoverageLinux&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">targetPath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">DownloadPipelineArtifact@2</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Downloads the artifact &#39;CodeCoverageWinPS7&#39;.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Download Test Artifact Windows (PS7)&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">buildType</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;current&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">artifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;CodeCoverageWinPS7&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">targetPath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">PowerShell@2</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Merge the code coverage files.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">name</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">merge</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Merge Code Coverage files&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">filePath</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;./build.ps1&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">arguments</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;-tasks merge&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">pwsh</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">true</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">task</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">PublishCodeCoverageResults@1</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Must specify the file specified in the `CodeCoverageMergedOutputFile`</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Code Coverage to Azure DevOps&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">inputs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">codeCoverageTool</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;JaCoCo&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">summaryFileLocation</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#7ee787">pathToSources</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;$(Build.SourcesDirectory)/$(sourceFolderName)/&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">script</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">|</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Must specify the file specified in the `CodeCoverageMergedOutputFile`</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#a5d6ff">bash &lt;(curl -s https://codecov.io/bash) -f &#34;./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#34;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Code Coverage to Codecov.io&#39;</span><span style="color:#6e7681">
+</span></span></span></code></pre></div>
+        </article>
+
+        
+        <footer style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--border-primary);">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-4);">
+            <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: 0;">
+              Last updated: December 19, 2025
+            </p>
+            
+            <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/content/blog%5cadd-codecov-support-to-repository.md"
+               class="btn btn-ghost btn-sm"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="ri-edit-line"></i>
+              Edit this page
+            </a>
+            
+          </div>
+        </footer>
+
+        
+        <nav style="display: flex; justify-content: space-between; margin-top: var(--space-8); gap: var(--space-4);">
+          
+          <a href="https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/" class="card" style="flex: 1; max-width: 45%; text-decoration: none;">
+            <div style="display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
+              <i class="ri-arrow-left-line"></i>
+              Previous
+            </div>
+            <span class="card-title" style="font-size: var(--text-base);">DscResource.Common functions in a DSC module</span>
+          </a>
+          
+
+          
+          <a href="https://dsccommunity.org/blog/updating-sampler-github-tasks/" class="card" style="flex: 1; max-width: 45%; text-align: right; text-decoration: none;">
+            <div style="display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
+              Next
+              <i class="ri-arrow-right-line"></i>
+            </div>
+            <span class="card-title" style="font-size: var(--text-base);">Updating repo with Sampler.GitHubTasks</span>
+          </a>
+          
+        </nav>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- footer -->
-<footer class="section bg-gray pb-0">
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const article = document.querySelector('.article-content');
+  const tocList = document.getElementById('tocList');
+
+  if (article && tocList && !tocList.children.length) {
+    const headings = article.querySelectorAll('h2, h3');
+
+    if (headings.length > 0) {
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = 'heading-' + index;
+        }
+
+        const li = document.createElement('li');
+        li.className = 'sidebar-list-item';
+
+        const a = document.createElement('a');
+        a.href = '#' + heading.id;
+        a.className = 'sidebar-link';
+        a.textContent = heading.textContent;
+
+        if (heading.tagName === 'H3') {
+          a.style.paddingLeft = 'var(--space-6)';
+          a.style.fontSize = 'var(--text-xs)';
+        }
+
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+    }
+  }
+});
+</script>
+
+</main>
+<footer class="site-footer">
   <div class="container">
-    <div class="row">
-      <div class="col-md-8 text-md-left text-center">
-        <p>Copyright 2019 the dsccommunity.org contributors.</p> 
+    <div class="footer-grid">
+      
+      <div class="footer-brand">
+        <a href="https://dsccommunity.org/" class="footer-logo">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="32"
+              height="32"
+              rx="8"
+              fill="url(#footer-logo-gradient)"
+            />
+            <path
+              d="M8 12h16M8 16h12M8 20h16"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <defs>
+              <linearGradient
+                id="footer-logo-gradient"
+                x1="0"
+                y1="0"
+                x2="32"
+                y2="32"
+              >
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>DSC Community</span>
+        </a>
+        <p class="footer-description">
+          A collaborative community of authors and maintainers working to
+          improve DSC resources, their quality, and development practices.
+        </p>
+        <div class="footer-social">
+          <a
+            href="https://github.com/dsccommunity"
+            class="footer-social-link"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://twitter.com/dsccommunity"
+            class="footer-social-link"
+            aria-label="Twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://discord.gg/dsccommunity"
+            class="footer-social-link"
+            aria-label="Discord"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"
+              />
+            </svg>
+          </a>
+        </div>
       </div>
-      <div class="col-md-4 text-md-right text-center">
-        <ul class="list-inline mb-3">
-          
-          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://github.com/dsccommunity/"><i class="ti-github"></i></a></li>
-          
-          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/dsccommunity"><i class="ti-twitter-alt"></i></a></li>
-          
+
+      
+      <div class="footer-column">
+        <h4 class="footer-column-title">Resources</h4>
+        <ul class="footer-links">
+          <li><a href="/resources">Resource Modules</a></li>
+          <li><a href="/guidelines">Guidelines</a></li>
+          <li><a href="/blog">Blog Posts</a></li>
+          <li><a href="/faq">FAQ</a></li>
         </ul>
+      </div>
+
+      
+      <div class="footer-column">
+        <h4 class="footer-column-title">Community</h4>
+        <ul class="footer-links">
+          <li><a href="/community">About Us</a></li>
+          <li><a href="/community_calls">Community Calls</a></li>
+          <li><a href="/community/maintainers">Maintainers</a></li>
+          <li><a href="/community/committee">Committee</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-column">
+        <h4 class="footer-column-title">Support</h4>
+        <ul class="footer-links">
+          <li><a href="/code_of_conduct">Code of Conduct</a></li>
+          <li><a href="/help">Get Help</a></li>
+          <li><a href="/contributing">Contributing</a></li>
+          <li>
+            <a
+              href="https://github.com/dsccommunity"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © 2026 DSC Community Contributors. Built with
+        <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer"
+          >Hugo</a
+        >.
+      </p>
+      <div class="footer-legal">
+        <a href="/code_of_conduct">Code of Conduct</a>
+        <a
+          href="https://github.com/dsccommunity/dsccommunity.org/blob/master/LICENSE"
+          >License</a
+        >
       </div>
     </div>
   </div>
 </footer>
-<!-- /footer -->
 
-<!-- Bootstrap JS -->
-<script src="https://dsccommunity.org/plugins/bootstrap/bootstrap.min.js"></script>
-<!-- highlight -->
-<script src="https://dsccommunity.org/plugins/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+    <div class="search-modal" id="searchModal" aria-hidden="true">
+      <div class="search-modal-content" role="dialog" aria-label="Search">
+        <div class="search-modal-header">
+          <i class="ri-search-line"></i>
+          <input
+            type="text"
+            class="search-modal-input"
+            id="searchInput"
+            placeholder="Search documentation..."
+            autocomplete="off"
+          />
+          <button class="search-modal-close" onclick="closeSearchModal()">
+            ESC
+          </button>
+        </div>
+        <div class="search-modal-results" id="searchResults">
+          
+        </div>
+        <div class="search-modal-footer">
+          <div class="search-shortcuts">
+            <span class="search-shortcut"
+              ><kbd>↑</kbd><kbd>↓</kbd> Navigate</span
+            >
+            <span class="search-shortcut"><kbd>↵</kbd> Open</span>
+            <span class="search-shortcut"><kbd>ESC</kbd> Close</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<!-- Main Script -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/powershell.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/bash.min.js"></script>
 
-<script src="https://dsccommunity.org/js/script.min.js"></script>
+    
+    <script
+      src="https://dsccommunity.org/js/main.min.9a596f512ca53270aac01ee7314fba2b9cbdd17fb33667198c82f28d1dc82006.js"
+      integrity="sha256-mllvUSylMnCqwB7nMU&#43;6K5y90X&#43;zNmcZjILyjR3IIAY="
+    ></script>
+  </body>
+</html>
