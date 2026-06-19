@@ -14,7 +14,7 @@
 
     <title>Community Calls | </title>
 
-    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Hugo 0.163.3">
 
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,8 +42,8 @@
     
     <link
       rel="stylesheet"
-      href="https://dsccommunity.org/css/futuristic.min.2fe77f06d9e00c9c5b3ed8d96e487ab36a763589c09b8cf99c143b793fe8c975.css"
-      integrity="sha256-L&#43;d/BtngDJxbPtjZbkh6s2p2NYnAm4z5nBQ7eT/oyXU="
+      href="https://dsccommunity.org/css/futuristic.min.64c9c720b33245978cd805363c7f551a4638810479e30c132a829e57bcc642ed.css"
+      integrity="sha256-ZMnHILMyRZeM2AU2PH9VGkY4gQR54wwTKoKeV7zGQu0="
     />
 
     
@@ -318,7 +318,8 @@
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Toggle menu"
+          aria-label="Open menu"
+          aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
           <svg
@@ -330,8 +331,8 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
@@ -339,6 +340,148 @@
     </div>
   </div>
 </header>
+
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <div>
+        <span class="mobile-menu-eyebrow"></span>
+        <h2 class="mobile-menu-title">Menu</h2>
+      </div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <ul class="mobile-menu-list">
+        
+        
+        <li>
+          <a href="/code_of_conduct" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-shield-check-line"></i>
+              
+            </span>
+            <span>Code of Conduct</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/community_calls" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-calendar-event-line"></i>
+              
+            </span>
+            <span>Community Calls</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/faq" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-question-answer-line"></i>
+              
+            </span>
+            <span>FAQ</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/help" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-lifebuoy-line"></i>
+              
+            </span>
+            <span>Help</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="mobile-menu-group">
+          <span class="mobile-menu-heading">
+            <span class="mobile-menu-icon"><i class="ri-folder-3-line"></i></span>
+            <span>Categories</span>
+          </span>
+          <div class="mobile-submenu">
+            
+            <a href="/community" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-team-line"></i>
+                
+              </span>
+              <span>Community</span>
+            </a>
+            
+            <a href="/resources" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-apps-2-line"></i>
+                
+              </span>
+              <span>Resource Modules</span>
+            </a>
+            
+            <a href="/guidelines" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-book-open-line"></i>
+                
+              </span>
+              <span>Guidelines</span>
+            </a>
+            
+            <a href="/blog" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-article-line"></i>
+                
+              </span>
+              <span>Blog Posts</span>
+            </a>
+            
+            <a href="/configmgt" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-settings-3-line"></i>
+                
+              </span>
+              <span>Config. Management</span>
+            </a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="ri-contrast-2-line"></i>
+        <span>Theme</span>
+      </button>
+      <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
+        <i class="ri-github-fill"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </aside>
+</div>
 <main id="main-content">
 
 
@@ -804,12 +947,13 @@ notes for the previous community calls.
 Please feel free to send in PR&rsquo;s to add items you feel need to be discussed
 in the next community call in the agenda.</p>
 <blockquote>
-<p>The file to update for new agenda items is <a href="https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md"><code>content/community_calls/next_call.en.md</code></a></p></blockquote>
+<p>The file to update for new agenda items is <a href="https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md"><code>content/community_calls/next_call.en.md</code></a></p>
+</blockquote>
 <h3 id="add-next-community-call-agenda-and-update-notes-to-the-web-site">Add next community call agenda and update notes to the web site</h3>
 <p>Make sure after the call that the agenda (next_call.en.md) is renamed
 appropriately, and the <code>weight: 99x</code> decremented from the last notes.</p>
 <p>Then run the command below to create a new file under <code>content/community_calls</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new community_calls/next_call.en.md
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new community_calls/next_call.en.md
 </span></span></code></pre></div><h3 id="agenda-presentation-template">Agenda Presentation Template</h3>
 <p>A <a href="../../pptx/dsc_community_call_agenda.pptx">PowerPoint presentation</a> for
 displaying the agenda for the call is available.</p>
@@ -856,8 +1000,8 @@ displaying the agenda for the call is available.</p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/UcpIFYOBLKA?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/UcpIFYOBLKA?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h4 id="community-presentation">Community presentation</h4>
@@ -889,15 +1033,15 @@ displaying the agenda for the call is available.</p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/am_dTvruypo?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/am_dTvruypo?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h4 id="community-presentation">Community presentation</h4>
 <p>None</p>
 <h4 id="open-discussions">Open discussions</h4>
 <ul>
-<li>DSC V3 Releases: Steve announces the …</li></ul></p>
+<li>DSC V3 Releases: Steve announces the general …</li></ul></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -923,13 +1067,13 @@ displaying the agenda for the call is available.</p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/TXQrq9UDLJs?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/TXQrq9UDLJs?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h4 id="community-presentation">Community presentation</h4>
 <p><strong>Azure DevOps class-based DSC resources</strong> by Michael Zanatta</p>
-<h3 id="dsc-resource-modules-that-have-been-released-recently">DSC …</h3></p>
+<h3 id="dsc-resource-modules-that-have-been-released-recently">DSC resource …</h3></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -955,15 +1099,15 @@ displaying the agenda for the call is available.</p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/w6b76SxCd-Q?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/w6b76SxCd-Q?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h4 id="community-presentation">Community presentation</h4>
 <p>None</p>
 <h4 id="open-discussions">Open discussions</h4>
 <ul>
-<li>Define PSDSC method signatures: Mikey …</li></ul></p>
+<li>Define PSDSC method signatures: Mikey created a …</li></ul></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -989,8 +1133,8 @@ displaying the agenda for the call is available.</p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/EHyUdnsuiJE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/EHyUdnsuiJE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h4 id="community-presentation">Community presentation</h4>
@@ -1021,8 +1165,8 @@ displaying the agenda for the call is available.</p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/w6b76SxCd-Q?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/w6b76SxCd-Q?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h4 id="community-presentation">Community presentation</h4>
@@ -1055,12 +1199,13 @@ displaying the agenda for the call is available.</p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/cGTpYDsmMN8?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/cGTpYDsmMN8?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h4 id="community-presentation">Community presentation</h4>
-<p><strong>YAML DSC v3 Completion Provider Extension</strong> by Andrew Menagarishvili …</p></p>
+<p><strong>YAML DSC v3 Completion Provider Extension</strong> by Andrew Menagarishvili</p>
+<h4 id="dsc-v3-development-and-features">DSC …</h4></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1086,15 +1231,15 @@ displaying the agenda for the call is available.</p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/_ezyrvAVszc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/_ezyrvAVszc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h4 id="community-presentation">Community presentation</h4>
 <p>None</p>
 <h4 id="topics">Topics</h4>
 <ul>
-<li>Discovery and Performance Improvements: How JSON …</li></ul></p>
+<li>Discovery and Performance Improvements: How JSON manifests …</li></ul></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1120,12 +1265,12 @@ displaying the agenda for the call is available.</p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/wvyZwLXayhA&amp;t?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/wvyZwLXayhA&amp;t?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h4 id="community-presentation">Community presentation</h4>
-<p><strong>&ldquo;WinGet and DSC Resources&rdquo;</strong> presented by Demetrius …</p></p>
+<p><strong>&ldquo;WinGet and DSC Resources&rdquo;</strong> presented by Demetrius Nelon. …</p></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1151,14 +1296,14 @@ displaying the agenda for the call is available.</p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Vbs2LK6oo-Q?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Vbs2LK6oo-Q?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h4 id="community-presentation">Community presentation</h4>
 <p>None</p>
 <h4 id="topics">Topics</h4>
-<p>This call focused on recent DSC advancements, …</p></p>
+<p>This call focused on recent DSC advancements, featuring …</p></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1184,12 +1329,12 @@ displaying the agenda for the call is available.</p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/yzl645hsyAs&amp;t?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/yzl645hsyAs&amp;t?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h2 id="community-presentation">Community presentation</h2>
-<p>The team announced to skip the next alpha release and bring a …</p></p>
+<p>The team announced to skip the next alpha release and bring a preview …</p></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1215,13 +1360,13 @@ displaying the agenda for the call is available.</p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OyaPpKh68SQ&amp;t?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OyaPpKh68SQ&amp;t?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h2 id="call-attendance">Call attendance</h2>
 <p>Attendance for the DSC Community call has been inconsistent.
-A proposal …</p></p>
+A proposal was …</p></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1247,12 +1392,12 @@ A proposal …</p></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/hTU6oLYHLsQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/hTU6oLYHLsQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h2 id="community-presentation">Community presentation</h2>
-<p>Mutemwa Masheke is the new Product Manager on the machine …</p></p>
+<p>Mutemwa Masheke is the new Product Manager on the machine configuration …</p></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1278,12 +1423,12 @@ A proposal …</p></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/96x2wfS-mUg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/96x2wfS-mUg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h4 id="community-presentation">Community presentation</h4>
-<p><strong>&ldquo;Update on DSC version 3&rdquo;</strong> presented by Steve Lee, …</p></p>
+<p><strong>&ldquo;Update on DSC version 3&rdquo;</strong> presented by Steve Lee, Michael …</p></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1309,8 +1454,8 @@ A proposal …</p></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/QsyyN6ejNA4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/QsyyN6ejNA4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h4 id="community-presentation">Community presentation</h4>
@@ -1341,12 +1486,12 @@ A proposal …</p></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/IN6QPf7cgWI?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/IN6QPf7cgWI?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h4 id="community-presentation">Community presentation</h4>
-<p><strong>&ldquo;WinGet and DSC Resources&rdquo;</strong> presented by Demetrius …</p></p>
+<p><strong>&ldquo;WinGet and DSC Resources&rdquo;</strong> presented by Demetrius Nelon. …</p></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1372,12 +1517,12 @@ A proposal …</p></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MDj3u2VeYus?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MDj3u2VeYus?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h3 id="agenda">Agenda</h3>
 <h4 id="community-presentation">Community presentation</h4>
-<p><strong>&ldquo;Microsoft365DSC is a DSC module like any other, or is …</strong></p></p>
+<p><strong>&ldquo;Microsoft365DSC is a DSC module like any other, or is it?&rdquo; …</strong></p></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1403,8 +1548,8 @@ A proposal …</p></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/SZVSF6_Jch0?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/SZVSF6_Jch0?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h3 id="agenda">Agenda</h3>
 <ul>
@@ -1436,13 +1581,13 @@ A proposal …</p></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/sFANse2fz6U?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/sFANse2fz6U?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h3 id="agenda">Agenda</h3>
 <h4 id="community-presentation">Community Presentation</h4>
 <ul>
-<li>Constantin Hager: Azure Automation DSC and the Azure VM DSC …</li></ul></p>
+<li>Constantin Hager: Azure Automation DSC and the Azure VM DSC Extension. …</li></ul></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1468,8 +1613,8 @@ A proposal …</p></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/VBTY2JG6mmM?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/VBTY2JG6mmM?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h3 id="agenda">Agenda</h3>
 <h4 id="quick-update-on-activity">Quick update on activity</h4>
@@ -1502,14 +1647,16 @@ A proposal …</p></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/unBHYnRw8eg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/unBHYnRw8eg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h3 id="agenda">Agenda</h3>
 <h4 id="quick-update-on-activity">Quick update on activity</h4>
 <ul>
 <li><a href="https://techcommunity.microsoft.com/t5/azure-governance-and-management/generally-available-apply-settings-inside-machines-using/ba-p/3589614">Machine Config is GA</a></li>
-<li><a href="https://learn.microsoft.com/en-us/powershell/dsc/overview?view=dsc-2.0">Updates on DSC Docs</a> by Sean and Mikey. …</li></ul></p>
+<li><a href="https://learn.microsoft.com/en-us/powershell/dsc/overview?view=dsc-2.0">Updates on DSC Docs</a> by Sean and Mikey.</li>
+</ul>
+<h4 id="special-guests--announcement">Special …</h4></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1535,13 +1682,14 @@ A proposal …</p></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/5LlfK_NLbeI?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/5LlfK_NLbeI?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h4 id="quick-update-on-activity">Quick update on activity</h4>
 <ul>
 <li>
-<p>DscCommunity.org pipeline is fixed (using a workaround) - still …</p></li></ul></p>
+<p>DscCommunity.org pipeline is fixed (using a workaround) - still waiting
+on …</p></li></ul></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1567,12 +1715,13 @@ A proposal …</p></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/EOKPokVjxSk?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/EOKPokVjxSk?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h4 id="quick-update-on-activity">Quick update on activity</h4>
 <ul>
-<li>DscCommunity.org pipeline is fixed (using a workaround) - still …</li></ul></p>
+<li>DscCommunity.org pipeline is fixed (using a workaround) - still waiting
+on …</li></ul></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1598,13 +1747,13 @@ A proposal …</p></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/0QRHBk6auTM?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/0QRHBk6auTM?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h4 id="quick-update-on-activity">Quick update on activity</h4>
 <ul>
 <li>Azure DevOps has removed the build worker Ubuntu 16.04. Repos using
-it …</li></ul></p>
+it in …</li></ul></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1630,13 +1779,13 @@ it …</li></ul></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/TrrSvisNUhk?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/TrrSvisNUhk?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h3 id="agenda">Agenda</h3>
 <ul>
 <li>Steve and Andrew from the PowerShell team join us to discuss the recent
-changes to …</li></ul></p>
+changes to PowerShell …</li></ul></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1662,8 +1811,8 @@ changes to …</li></ul></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/jGyH81Llhp4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/jGyH81Llhp4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h3 id="agenda">Agenda</h3>
 <h4 id="quick-update-on-activity">Quick update on activity</h4>
@@ -1696,8 +1845,8 @@ changes to …</li></ul></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/FdYtaImtj6Y?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/FdYtaImtj6Y?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h3 id="agenda">Agenda</h3>
 <h4 id="main-session-guest-configuration">Main Session: Guest Configuration</h4>
@@ -1727,12 +1876,12 @@ changes to …</li></ul></p>
             
             <p class="card-description"><h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/8F7LmgJqBqk?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/8F7LmgJqBqk?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h3 id="agenda">Agenda</h3>
 <h4 id="quick-update-on-activity">Quick update on activity</h4>
-<p>Updated blog post on how to enable code coverage for …</p></p>
+<p>Updated blog post on how to enable code coverage for built-modules. …</p></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1758,13 +1907,13 @@ changes to …</li></ul></p>
             
             <p class="card-description"><h2 id="recording">Recording</h2>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/0C_j2smg6FU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/0C_j2smg6FU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h3 id="agenda">Agenda</h3>
 <h4 id="quick-update-on-activity">Quick update on activity</h4>
 <h5 id="rename-default-branch">Rename default branch</h5>
-<p>Work in progress to rename default branch …</p></p>
+<p>Work in progress to rename default branch to …</p></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1790,13 +1939,13 @@ changes to …</li></ul></p>
             
             <p class="card-description"><h2 id="recording">Recording</h2>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MieKeJhtNzs?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MieKeJhtNzs?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="agenda">Agenda</h2>
 <h3 id="quick-update-on-activity">Quick update on activity</h3>
 <h4 id="move-to-new-pipeline">Move to new pipeline</h4>
-<p>Currently active repositories have moved to …</p></p>
+<p>Currently active repositories have moved to the …</p></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1822,14 +1971,14 @@ changes to …</li></ul></p>
             
             <p class="card-description"><h2 id="recording">Recording</h2>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/QGU4gpSX6Zc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/QGU4gpSX6Zc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="notes">Notes</h2>
 <ol>
 <li>Quick update on activity:</li>
 <li>DSC resource modules that have been released recently</li>
-<li>News …</li></ol></p>
+<li>News recap …</li></ol></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1855,14 +2004,16 @@ changes to …</li></ul></p>
             
             <p class="card-description"><h2 id="recording">Recording</h2>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/toTwph350zY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/toTwph350zY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="notes">Notes</h2>
 <ol>
 <li>Quick update on activity:
 <ul>
-<li>Migration to Continuous Delivery Process (<a href="https://github.com/orgs/dsccommunity/projects/1">GitHub Board</a>): …</li></ul></li></ol></p>
+<li>Migration to Continuous Delivery Process (<a href="https://github.com/orgs/dsccommunity/projects/1">GitHub Board</a>):
+<ul>
+<li>Completed …</li></ul></li></ul></li></ol></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1888,8 +2039,8 @@ changes to …</li></ul></p>
             
             <p class="card-description"><h2 id="recording">Recording</h2>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/UgxzwrkWXxs?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/UgxzwrkWXxs?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="notes">Notes</h2>
 <ol>
@@ -1922,14 +2073,16 @@ changes to …</li></ul></p>
             
             <p class="card-description"><h2 id="recording">Recording</h2>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OAAQhaOruLk?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OAAQhaOruLk?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h2 id="notes">Notes</h2>
 <ol>
 <li>Quick update on activity:
 <ul>
-<li>Migration to Continuous Delivery Process (<a href="https://github.com/orgs/dsccommunity/projects/1">GitHub Board</a>): …</li></ul></li></ol></p>
+<li>Migration to Continuous Delivery Process (<a href="https://github.com/orgs/dsccommunity/projects/1">GitHub Board</a>):
+<ul>
+<li>Completed …</li></ul></li></ul></li></ol></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -1955,8 +2108,8 @@ changes to …</li></ul></p>
             
             <p class="card-description"><h2 id="recording">Recording</h2>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/r-eKNZ7iEfw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/r-eKNZ7iEfw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h3 id="notes">Notes</h3>
 <ol>
@@ -1991,8 +2144,8 @@ changes to …</li></ul></p>
 <p>Waiting to be published</p>
 <!-- [Meeting recording](https://youtu.be/gZqWw_ePhxs)
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/gZqWw_ePhxs?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/gZqWw_ePhxs?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
  --> …</p>
             
             <span class="blog-card-read-more">
@@ -2021,13 +2174,15 @@ changes to …</li></ul></p>
 <h3 id="recording">Recording</h3>
 <p><a href="https://youtu.be/gZqWw_ePhxs">Meeting recording</a>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/gZqWw_ePhxs?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/gZqWw_ePhxs?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 </p>
 <h3 id="agenda">Agenda</h3>
 <ul>
 <li>
-<p>What to do about resources that have no maintainer? …</p></li></ul></p>
+<p>What to do about resources that have no maintainer?</p>
+<ul>
+<li>Problem: …</li></ul></li></ul></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -2055,8 +2210,8 @@ changes to …</li></ul></p>
 <h3 id="recording">Recording</h3>
 <p><a href="https://youtu.be/WO2JuBew4wU">Meeting recording</a>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/WO2JuBew4wU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/WO2JuBew4wU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 </p>
 <h3 id="agenda">Agenda</h3>
 <ul>
@@ -2064,7 +2219,7 @@ changes to …</li></ul></p>
 <p>Welcome to New Community Committee Member.</p>
 </li>
 <li>
-<p>What to do …</p></li></ul></p>
+<p>What to do if a …</p></li></ul></p>
             
             <span class="blog-card-read-more">
               Read more
@@ -2174,8 +2329,8 @@ Blog post, on PowerShell&rsquo;s blog.</p>
             
             <p class="card-description"><p>The community call was recorded, you can listen here.</p>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/QDMJlzRw4iw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/QDMJlzRw4iw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h3 id="agenda">Agenda</h3>
 <h4 id="resource-kit-august-2019">Resource Kit August 2019</h4>
@@ -2464,8 +2619,8 @@ Blog post, on PowerShell&rsquo;s blog.</p>
 
     
     <script
-      src="https://dsccommunity.org/js/main.min.9a596f512ca53270aac01ee7314fba2b9cbdd17fb33667198c82f28d1dc82006.js"
-      integrity="sha256-mllvUSylMnCqwB7nMU&#43;6K5y90X&#43;zNmcZjILyjR3IIAY="
+      src="https://dsccommunity.org/js/main.min.56bc7a80dd440714f8194bda3bfc8dbf08ebd1bbb8bbc0a7d0dd285149f685af.js"
+      integrity="sha256-Vrx6gN1EBxT4GUvaO/yNvwjr0bu4u8Cn0N0oUUn2ha8="
     ></script>
   </body>
 </html>

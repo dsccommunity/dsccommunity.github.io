@@ -14,7 +14,7 @@
 
     <title>What is Microsoft DSC v3 | </title>
 
-    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Hugo 0.163.3">
 
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,8 +42,8 @@
     
     <link
       rel="stylesheet"
-      href="https://dsccommunity.org/css/futuristic.min.2fe77f06d9e00c9c5b3ed8d96e487ab36a763589c09b8cf99c143b793fe8c975.css"
-      integrity="sha256-L&#43;d/BtngDJxbPtjZbkh6s2p2NYnAm4z5nBQ7eT/oyXU="
+      href="https://dsccommunity.org/css/futuristic.min.64c9c720b33245978cd805363c7f551a4638810479e30c132a829e57bcc642ed.css"
+      integrity="sha256-ZMnHILMyRZeM2AU2PH9VGkY4gQR54wwTKoKeV7zGQu0="
     />
 
     
@@ -318,7 +318,8 @@
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Toggle menu"
+          aria-label="Open menu"
+          aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
           <svg
@@ -330,8 +331,8 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
@@ -339,144 +340,210 @@
     </div>
   </div>
 </header>
+
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <div>
+        <span class="mobile-menu-eyebrow"></span>
+        <h2 class="mobile-menu-title">Menu</h2>
+      </div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <ul class="mobile-menu-list">
+        
+        
+        <li>
+          <a href="/code_of_conduct" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-shield-check-line"></i>
+              
+            </span>
+            <span>Code of Conduct</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/community_calls" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-calendar-event-line"></i>
+              
+            </span>
+            <span>Community Calls</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/faq" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-question-answer-line"></i>
+              
+            </span>
+            <span>FAQ</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/help" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-lifebuoy-line"></i>
+              
+            </span>
+            <span>Help</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="mobile-menu-group">
+          <span class="mobile-menu-heading">
+            <span class="mobile-menu-icon"><i class="ri-folder-3-line"></i></span>
+            <span>Categories</span>
+          </span>
+          <div class="mobile-submenu">
+            
+            <a href="/community" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-team-line"></i>
+                
+              </span>
+              <span>Community</span>
+            </a>
+            
+            <a href="/resources" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-apps-2-line"></i>
+                
+              </span>
+              <span>Resource Modules</span>
+            </a>
+            
+            <a href="/guidelines" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-book-open-line"></i>
+                
+              </span>
+              <span>Guidelines</span>
+            </a>
+            
+            <a href="/blog" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-article-line"></i>
+                
+              </span>
+              <span>Blog Posts</span>
+            </a>
+            
+            <a href="/configmgt" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-settings-3-line"></i>
+                
+              </span>
+              <span>Config. Management</span>
+            </a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="ri-contrast-2-line"></i>
+        <span>Theme</span>
+      </button>
+      <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
+        <i class="ri-github-fill"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </aside>
+</div>
 <main id="main-content">
 
 
-<section class="hero" style="padding: var(--space-12) 0;">
-  <div class="hero-grid"></div>
-  <div class="container">
-    <div class="hero-content" style="max-width: 900px;">
-      
-      <nav style="margin-bottom: var(--space-4);">
-        <ol style="display: flex; align-items: center; gap: var(--space-2); list-style: none; padding: 0; margin: 0; font-size: var(--text-sm);">
-          <li><a href="https://dsccommunity.org/" style="color: rgba(255,255,255,0.7);">Home</a></li>
-          <li style="color: rgba(255,255,255,0.5);">/</li>
-          
-          <li><a href="https://dsccommunity.org/blog/" style="color: rgba(255,255,255,0.7);">Blog Posts</a></li>
-          <li style="color: rgba(255,255,255,0.5);">/</li>
-          
-          <li style="color: rgba(255,255,255,0.9);">What is Microsoft DSC v3</li>
-        </ol>
-      </nav>
-      <h1 class="hero-title" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));">What is Microsoft DSC v3</h1>
-      
-      <p class="hero-description" style="font-size: var(--text-base);">
-        <time datetime="2025-07-30">July 30, 2025</time>
-         • by johlju
-         • 3 min read
-      </p>
-      
-    </div>
-  </div>
-</section>
+<article class="blog-article">
+  <header class="article-header" style="background: var(--gradient-hero); padding: var(--space-16) 0; position: relative; overflow: hidden;">
+    <div class="hero-grid"></div>
+    <div class="container" style="max-width: 1100px; position: relative;">
+      <a href="/blog" class="btn btn-ghost" style="margin-bottom: var(--space-6); color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.2);">
+        <i class="ri-arrow-left-line"></i>
+        Back to Blog
+      </a>
 
-
-<section class="section" style="padding-top: var(--space-8);">
-  <div class="container">
-    <div class="content-layout">
       
-      <aside class="sidebar">
-        <div class="sidebar-inner">
-          <nav class="sidebar-nav">
-            
-            <h4 class="sidebar-title">Blog Posts</h4>
-            <ul class="sidebar-list">
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/create-an-article/" class="sidebar-link">
-                  Create an Article
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/" class="sidebar-link">
-                  DSC is Dead
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/what-is-microsoft-dscv3/" class="sidebar-link active">
-                  What is Microsoft DSC v3
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/your-first-class-based-microsoft-dsc-v3-resource/" class="sidebar-link">
-                  Your first class-based Microsoft DSC v3 resource
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/" class="sidebar-link">
-                  Convert tests to Pester 5 for a DSC Community repository
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/convert-master-to-main/" class="sidebar-link">
-                  Steps to rename master branch to main for a DSC Community resource
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/class-based-dsc-resources/" class="sidebar-link">
-                  Class Based DSC Resource only proposal
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/converting-tests-to-pester5/" class="sidebar-link">
-                  Converting tests to Pester 5
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/updating-sampler-github-tasks/" class="sidebar-link">
-                  Updating repo with Sampler.GitHubTasks
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/add-codecov-support-to-repository/" class="sidebar-link">
-                  Add Code Coverage Support to Repository
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/" class="sidebar-link">
-                  DscResource.Common functions in a DSC module
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/" class="sidebar-link">
-                  Steps to convert a module for continuous delivery
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/how-to-use-dsc-logging/" class="sidebar-link">
-                  How to Use DSC Logging
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/dsc-maintenance-windows/" class="sidebar-link">
-                  Realizing maintenance windows with DSC
-                </a>
-              </li>
-              
-            </ul>
-            
-          </nav>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);">
+        <span class="badge badge-primary">Microsoft DSC</span>
+      </div>
+      
+
+      <h1 style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); line-height: 1.2; margin-bottom: var(--space-6); max-width: 800px; color: #ffffff;">
+        What is Microsoft DSC v3
+      </h1>
+
+      
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-6); color: rgba(255,255,255,0.65); font-size: var(--text-sm);">
+        
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--gradient-accent); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; text-transform: uppercase; font-size: var(--text-sm); flex-shrink: 0;">
+            j
+          </div>
+          <div>
+            <div style="color: rgba(255,255,255,0.9); font-weight: 500;">johlju</div>
+            <div style="font-size: var(--text-xs); color: rgba(255,255,255,0.5);">Author</div>
+          </div>
         </div>
-      </aside>
+        
+
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <i class="ri-calendar-line"></i>
+          <time datetime="2025-07-30">
+            July 30, 2025
+          </time>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <i class="ri-time-line"></i>
+          3 min read
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+  <div class="container" style="max-width: 1100px; padding-top: var(--space-12); padding-bottom: var(--space-16);">
+    <div class="article-with-toc">
 
       
-      <div class="main-content">
-        <article class="article-content">
+      <div class="article-body">
+        <div class="article-content">
           <blockquote>
-<p>Microsoft DSC v3 is a simple, single executable tool that helps you declare and enforce the desired state of your systems in a cross-platform way.</p></blockquote>
+<p>Microsoft DSC v3 is a simple, single executable tool that helps you declare and enforce the desired state of your systems in a cross-platform way.</p>
+</blockquote>
 <h2 id="what-is-microsoft-dsc-v3">What is Microsoft DSC v3?</h2>
 <p>Microsoft Desired State Configuration (DSC) v3 is a cross-platform tool that lets you describe how you want your system to look and behave. You write a configuration document in JSON, Bicep, or YAML describing the desired state and Microsoft DSC v3 ensures your machines matches the state.</p>
 <p>For example, what file and folders should always exist or which services should be running <em>always</em>.</p>
@@ -497,11 +564,11 @@
 <li>Open a PowerShell terminal session</li>
 <li>Install the <code>PSDSC</code> module by typing:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Install-PSResource -Name PSDSC -Repository PSGallery
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Install-PSResource -Name PSDSC -Repository PSGallery
 </span></span></code></pre></div><ol>
 <li>Execute <code>Install-DscExe</code> in your terminal session</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Install-DscExe
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Install-DscExe
 </span></span></code></pre></div>
     <div class="admonition tip">
       <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></svg>
@@ -546,9 +613,9 @@
 <ol>
 <li>
 <p>Create the following YAML file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># osinfo.dsc.yaml</span><span style="color:#6e7681">
-</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">$schema</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">https://aka.ms/dsc/schemas/v3/bundled/config/document.json</span><span style="color:#6e7681">
-</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">resources</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># osinfo.dsc.yaml</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">$schema</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">https://aka.ms/dsc/schemas/v3/bundled/config/document.json</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">resources</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span>- <span style="color:#7ee787">name</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">os</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">type</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Microsoft/OSInfo</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">properties</span>:<span style="color:#6e7681">
@@ -556,7 +623,7 @@
 </span></span></span></code></pre></div></li>
 <li>
 <p>Run the following command to get the current state</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dsc config get --file osinfo.dsc.yaml
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dsc config get --file osinfo.dsc.yaml
 </span></span></code></pre></div></li>
 </ol>
 
@@ -573,88 +640,63 @@ without needing a configuration file.</p>
 <p>Happy configuring!</p>
 <!-- Link reference definitions -->
 
-        </article>
+        </div>
 
         
-        <footer style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--border-primary);">
-          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-4);">
-            <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: 0;">
-              Last updated: July 31, 2025
-            </p>
-            
-            <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/content/blog%5cwhat-is-microsoft-dscv3.md"
-               class="btn btn-ghost btn-sm"
-               target="_blank"
-               rel="noopener noreferrer">
-              <i class="ri-edit-line"></i>
-              Edit this page
-            </a>
-            
+        
+
+        
+        <div style="margin-top: var(--space-8); padding: var(--space-6); background: var(--bg-secondary); border-radius: var(--radius-xl); border: 1px solid var(--border-color);">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4);">
+            <div>
+              <h4 style="margin-bottom: var(--space-1);">Share this article</h4>
+              <p style="color: var(--text-secondary); font-size: var(--text-sm);">Help spread the word about DSC Community!</p>
+            </div>
+            <div style="display: flex; gap: var(--space-2);">
+              <a href="https://twitter.com/intent/tweet?text=What&#43;is&#43;Microsoft&#43;DSC&#43;v3&url=https%3A%2F%2Fdsccommunity.org%2Fblog%2Fwhat-is-microsoft-dscv3%2F" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on Twitter">
+                <i class="ri-twitter-x-line" style="font-size: 1.25rem;"></i>
+              </a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdsccommunity.org%2Fblog%2Fwhat-is-microsoft-dscv3%2F&title=What&#43;is&#43;Microsoft&#43;DSC&#43;v3" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on LinkedIn">
+                <i class="ri-linkedin-line" style="font-size: 1.25rem;"></i>
+              </a>
+              <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fdsccommunity.org%2Fblog%2Fwhat-is-microsoft-dscv3%2F&title=What&#43;is&#43;Microsoft&#43;DSC&#43;v3" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on Reddit">
+                <i class="ri-reddit-line" style="font-size: 1.25rem;"></i>
+              </a>
+            </div>
           </div>
-        </footer>
-
-        
-        <nav style="display: flex; justify-content: space-between; margin-top: var(--space-8); gap: var(--space-4);">
-          
-          <a href="https://dsccommunity.org/blog/your-first-class-based-microsoft-dsc-v3-resource/" class="card" style="flex: 1; max-width: 45%; text-decoration: none;">
-            <div style="display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
-              <i class="ri-arrow-left-line"></i>
-              Previous
-            </div>
-            <span class="card-title" style="font-size: var(--text-base);">Your first class-based Microsoft DSC v3 resource</span>
-          </a>
-          
-
-          
-          <a href="https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/" class="card" style="flex: 1; max-width: 45%; text-align: right; text-decoration: none;">
-            <div style="display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
-              Next
-              <i class="ri-arrow-right-line"></i>
-            </div>
-            <span class="card-title" style="font-size: var(--text-base);">DSC is Dead</span>
-          </a>
-          
-        </nav>
+        </div>
       </div>
+
+      
+      
+      <aside class="article-toc">
+        <div class="toc-sticky">
+          <h4 class="toc-heading">
+            <i class="ri-list-unordered"></i>
+            On this page
+          </h4>
+          <nav class="toc-nav">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-microsoft-dsc-v3">What is Microsoft DSC v3?</a></li>
+    <li><a href="#installing-dsc-v3">Installing DSC v3</a>
+      <ul>
+        <li><a href="#installing-microsoft-dsc-v3-using-psdsc">Installing Microsoft DSC v3 using PSDSC</a></li>
+        <li><a href="#installing-from-github">Installing from GitHub</a></li>
+      </ul>
+    </li>
+    <li><a href="#quick-introduction-getting-the-current-state">Quick introduction: Getting the current state</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+          </nav>
+        </div>
+      </aside>
+      
+
     </div>
   </div>
-</section>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const article = document.querySelector('.article-content');
-  const tocList = document.getElementById('tocList');
-
-  if (article && tocList && !tocList.children.length) {
-    const headings = article.querySelectorAll('h2, h3');
-
-    if (headings.length > 0) {
-      headings.forEach((heading, index) => {
-        if (!heading.id) {
-          heading.id = 'heading-' + index;
-        }
-
-        const li = document.createElement('li');
-        li.className = 'sidebar-list-item';
-
-        const a = document.createElement('a');
-        a.href = '#' + heading.id;
-        a.className = 'sidebar-link';
-        a.textContent = heading.textContent;
-
-        if (heading.tagName === 'H3') {
-          a.style.paddingLeft = 'var(--space-6)';
-          a.style.fontSize = 'var(--text-xs)';
-        }
-
-        li.appendChild(a);
-        tocList.appendChild(li);
-      });
-    }
-  }
-});
-</script>
+</article>
 
 </main>
 <footer class="site-footer">
@@ -855,8 +897,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     <script
-      src="https://dsccommunity.org/js/main.min.9a596f512ca53270aac01ee7314fba2b9cbdd17fb33667198c82f28d1dc82006.js"
-      integrity="sha256-mllvUSylMnCqwB7nMU&#43;6K5y90X&#43;zNmcZjILyjR3IIAY="
+      src="https://dsccommunity.org/js/main.min.56bc7a80dd440714f8194bda3bfc8dbf08ebd1bbb8bbc0a7d0dd285149f685af.js"
+      integrity="sha256-Vrx6gN1EBxT4GUvaO/yNvwjr0bu4u8Cn0N0oUUn2ha8="
     ></script>
   </body>
 </html>

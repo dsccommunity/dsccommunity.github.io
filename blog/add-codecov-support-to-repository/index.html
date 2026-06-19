@@ -14,7 +14,7 @@
 
     <title>Add Code Coverage Support to Repository | </title>
 
-    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Hugo 0.163.3">
 
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,8 +42,8 @@
     
     <link
       rel="stylesheet"
-      href="https://dsccommunity.org/css/futuristic.min.2fe77f06d9e00c9c5b3ed8d96e487ab36a763589c09b8cf99c143b793fe8c975.css"
-      integrity="sha256-L&#43;d/BtngDJxbPtjZbkh6s2p2NYnAm4z5nBQ7eT/oyXU="
+      href="https://dsccommunity.org/css/futuristic.min.64c9c720b33245978cd805363c7f551a4638810479e30c132a829e57bcc642ed.css"
+      integrity="sha256-ZMnHILMyRZeM2AU2PH9VGkY4gQR54wwTKoKeV7zGQu0="
     />
 
     
@@ -318,7 +318,8 @@
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Toggle menu"
+          aria-label="Open menu"
+          aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
           <svg
@@ -330,8 +331,8 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
@@ -339,142 +340,207 @@
     </div>
   </div>
 </header>
+
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <div>
+        <span class="mobile-menu-eyebrow"></span>
+        <h2 class="mobile-menu-title">Menu</h2>
+      </div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <ul class="mobile-menu-list">
+        
+        
+        <li>
+          <a href="/code_of_conduct" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-shield-check-line"></i>
+              
+            </span>
+            <span>Code of Conduct</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/community_calls" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-calendar-event-line"></i>
+              
+            </span>
+            <span>Community Calls</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/faq" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-question-answer-line"></i>
+              
+            </span>
+            <span>FAQ</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/help" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-lifebuoy-line"></i>
+              
+            </span>
+            <span>Help</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="mobile-menu-group">
+          <span class="mobile-menu-heading">
+            <span class="mobile-menu-icon"><i class="ri-folder-3-line"></i></span>
+            <span>Categories</span>
+          </span>
+          <div class="mobile-submenu">
+            
+            <a href="/community" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-team-line"></i>
+                
+              </span>
+              <span>Community</span>
+            </a>
+            
+            <a href="/resources" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-apps-2-line"></i>
+                
+              </span>
+              <span>Resource Modules</span>
+            </a>
+            
+            <a href="/guidelines" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-book-open-line"></i>
+                
+              </span>
+              <span>Guidelines</span>
+            </a>
+            
+            <a href="/blog" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-article-line"></i>
+                
+              </span>
+              <span>Blog Posts</span>
+            </a>
+            
+            <a href="/configmgt" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-settings-3-line"></i>
+                
+              </span>
+              <span>Config. Management</span>
+            </a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="ri-contrast-2-line"></i>
+        <span>Theme</span>
+      </button>
+      <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
+        <i class="ri-github-fill"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </aside>
+</div>
 <main id="main-content">
 
 
-<section class="hero" style="padding: var(--space-12) 0;">
-  <div class="hero-grid"></div>
-  <div class="container">
-    <div class="hero-content" style="max-width: 900px;">
-      
-      <nav style="margin-bottom: var(--space-4);">
-        <ol style="display: flex; align-items: center; gap: var(--space-2); list-style: none; padding: 0; margin: 0; font-size: var(--text-sm);">
-          <li><a href="https://dsccommunity.org/" style="color: rgba(255,255,255,0.7);">Home</a></li>
-          <li style="color: rgba(255,255,255,0.5);">/</li>
-          
-          <li><a href="https://dsccommunity.org/blog/" style="color: rgba(255,255,255,0.7);">Blog Posts</a></li>
-          <li style="color: rgba(255,255,255,0.5);">/</li>
-          
-          <li style="color: rgba(255,255,255,0.9);">Add Code Coverage Support to Repository</li>
-        </ol>
-      </nav>
-      <h1 class="hero-title" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));">Add Code Coverage Support to Repository</h1>
-      
-      <p class="hero-description" style="font-size: var(--text-base);">
-        <time datetime="2020-02-03">February 3, 2020</time>
-         • by johlju
-         • 15 min read
-      </p>
-      
-    </div>
-  </div>
-</section>
+<article class="blog-article">
+  <header class="article-header" style="background: var(--gradient-hero); padding: var(--space-16) 0; position: relative; overflow: hidden;">
+    <div class="hero-grid"></div>
+    <div class="container" style="max-width: 1100px; position: relative;">
+      <a href="/blog" class="btn btn-ghost" style="margin-bottom: var(--space-6); color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.2);">
+        <i class="ri-arrow-left-line"></i>
+        Back to Blog
+      </a>
 
-
-<section class="section" style="padding-top: var(--space-8);">
-  <div class="container">
-    <div class="content-layout">
       
-      <aside class="sidebar">
-        <div class="sidebar-inner">
-          <nav class="sidebar-nav">
-            
-            <h4 class="sidebar-title">Blog Posts</h4>
-            <ul class="sidebar-list">
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/create-an-article/" class="sidebar-link">
-                  Create an Article
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/" class="sidebar-link">
-                  DSC is Dead
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/what-is-microsoft-dscv3/" class="sidebar-link">
-                  What is Microsoft DSC v3
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/your-first-class-based-microsoft-dsc-v3-resource/" class="sidebar-link">
-                  Your first class-based Microsoft DSC v3 resource
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/" class="sidebar-link">
-                  Convert tests to Pester 5 for a DSC Community repository
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/convert-master-to-main/" class="sidebar-link">
-                  Steps to rename master branch to main for a DSC Community resource
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/class-based-dsc-resources/" class="sidebar-link">
-                  Class Based DSC Resource only proposal
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/converting-tests-to-pester5/" class="sidebar-link">
-                  Converting tests to Pester 5
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/updating-sampler-github-tasks/" class="sidebar-link">
-                  Updating repo with Sampler.GitHubTasks
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/add-codecov-support-to-repository/" class="sidebar-link active">
-                  Add Code Coverage Support to Repository
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/" class="sidebar-link">
-                  DscResource.Common functions in a DSC module
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/" class="sidebar-link">
-                  Steps to convert a module for continuous delivery
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/how-to-use-dsc-logging/" class="sidebar-link">
-                  How to Use DSC Logging
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/dsc-maintenance-windows/" class="sidebar-link">
-                  Realizing maintenance windows with DSC
-                </a>
-              </li>
-              
-            </ul>
-            
-          </nav>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);">
+        <span class="badge badge-primary">Community</span>
+      </div>
+      
+
+      <h1 style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); line-height: 1.2; margin-bottom: var(--space-6); max-width: 800px; color: #ffffff;">
+        Add Code Coverage Support to Repository
+      </h1>
+
+      
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-6); color: rgba(255,255,255,0.65); font-size: var(--text-sm);">
+        
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--gradient-accent); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; text-transform: uppercase; font-size: var(--text-sm); flex-shrink: 0;">
+            j
+          </div>
+          <div>
+            <div style="color: rgba(255,255,255,0.9); font-weight: 500;">johlju</div>
+            <div style="font-size: var(--text-xs); color: rgba(255,255,255,0.5);">Author</div>
+          </div>
         </div>
-      </aside>
+        
+
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <i class="ri-calendar-line"></i>
+          <time datetime="2020-02-03">
+            February 3, 2020
+          </time>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <i class="ri-time-line"></i>
+          15 min read
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+  <div class="container" style="max-width: 1100px; padding-top: var(--space-12); padding-bottom: var(--space-16);">
+    <div class="article-with-toc">
 
       
-      <div class="main-content">
-        <article class="article-content">
+      <div class="article-body">
+        <div class="article-content">
           <p>Code coverage metrics help ensure your DSC resources are well-tested. This guide explains how to configure Codecov.io integration for your DSC Community repository to track and report code coverage in your CI pipeline using Pester&rsquo;s JaCoCo output.</p>
 <p><em>This assumes the repository is using the pattern from the <a href="https://github.com/gaelcolas/Sampler">Sampler</a>
 project. Also make sure you have updated the repository to the latest pipeline.</em></p>
@@ -511,7 +577,8 @@ and <code>&lt;sourcefile&gt;</code> element, and Codecov.io expects the <code>&l
 the GitHub repository (at the commit). Azure Pipelines code coverage
 generate source files form the code that are available in the pipeline,
 and it can only be a single path, and that single path does not support
-pattern matching.</p></blockquote>
+pattern matching.</p>
+</blockquote>
 <p>To upload code coverage we need to:</p>
 <ul>
 <li>change the <code>build.yaml</code></li>
@@ -539,7 +606,7 @@ must be set to a value between <code>1</code> and <code>100</code>. Normally the
 is a good value if the repository have enough coverage, lower the value if
 it doesn&rsquo;t.</p>
 <p>It can look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Pester</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Pester</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">OutputFormat</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">NUnitXML</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">ExcludeFromCodeCoverage</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Modules/DscResource.Common</span><span style="color:#6e7681">
@@ -553,7 +620,8 @@ it doesn&rsquo;t.</p>
 </span></span></span></code></pre></div><blockquote>
 <p><em>NOTE:</em> the filename can be anything after the prefix <code>JaCoCo</code>, for example
 it is possible to use <code>JaCoCo_$OsShortName.xml</code> which results in
-the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</p></blockquote>
+the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</p>
+</blockquote>
 <h3 id="modify-azure-pipelinesyml">Modify <code>azure-pipelines.yml</code></h3>
 <p>From the job <code>Test_Unit</code> we can remove the task <code>Set Environment Variables</code>
 and the task <code>Publish Code Coverage</code>. Those two task will be moved to the
@@ -562,14 +630,14 @@ the test result files that ended up in the folder <code>output/testResults</code
 <h4 id="add-global-variables">Add global variables</h4>
 <p>At the top of the file, at the same level as the key <code>trigger</code> add the
 following.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">variables</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">variables</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">buildFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">output</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">buildArtifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">output</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">testResultFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">testResults</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">testArtifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">testResults</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">sourceFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">source</span><span style="color:#6e7681">
 </span></span></span></code></pre></div><p>It should look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">trigger</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">trigger</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">branches</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">include</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">main</span><span style="color:#6e7681">
@@ -582,7 +650,7 @@ following.</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">exclude</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">&#34;*-*&#34;</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
-</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">variables</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">variables</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">buildFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">output</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">buildArtifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">output</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">testResultFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">testResults</span><span style="color:#6e7681">
@@ -608,7 +676,7 @@ But most important is if the <code>CodeCoverageThreshold</code> argument is used
 override the value in <code>build.yaml</code> then the value for <code>CodeCoverageThreshold</code>
 may not be set to <code>0</code>. The value <code>0</code> means that no coverage is gathered.</p>
 <p>This is how it can look like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Test_Unit</span><span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Test_Unit</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Unit&#39;</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">pool</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span><span style="color:#7ee787">vmImage</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;windows-2019&#39;</span><span style="color:#6e7681">
@@ -660,7 +728,7 @@ in the previous section)</li>
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Code_Coverage</span><span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Code_Coverage</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Code Coverage&#39;</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">dependsOn</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Test_Unit</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">pool</span>:<span style="color:#6e7681">
@@ -692,11 +760,13 @@ in the previous section)</li>
 <p>This file is not necessary if Codecov.io is not used.</p>
 <blockquote>
 <p><strong>NOTE:</strong> Make sure to update the default branch name in the Codecov.io
-project site if the default branch name is renamed.</p></blockquote>
+project site if the default branch name is renamed.</p>
+</blockquote>
 <blockquote>
 <p><strong>NOTE:</strong> If this file exist and starts with a full stop <code>.</code>, e.g. <code>.codecov.yml</code>,
 then please rename it to <code>codecov.yml</code>. See this FAQ for more information
-<a href="https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml">https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml</a></p></blockquote>
+<a href="https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml">https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml</a></p>
+</blockquote>
 <p>These settings can be set as desired, but the values below are what are used
 by default in the DSC Community repositories.</p>
 <p>The important part is the key <code>fixes</code>. <a href="https://codecov.io">Codecov.io</a>
@@ -712,17 +782,18 @@ the JaCoCo XML file to the correct paths that <a href="https://codecov.io">Codec
 expects.</p>
 <blockquote>
 <p>See the <a href="https://docs.codecov.io/docs/codecovyml-reference">codecov.yml Reference</a>
-for more information about these settings.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">codecov</span>:<span style="color:#6e7681">
+for more information about these settings.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">codecov</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">require_ci_to_pass</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">no</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic"># main should be the baseline for reporting</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">branch</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">main</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
-</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">comment</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">comment</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">layout</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;reach, diff, flags, files&#34;</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">behavior</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">default</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
-</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">coverage</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">coverage</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">range</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">50</span><span style="color:#a5d6ff">..80</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">round</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">down</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">precision</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">0</span><span style="color:#6e7681">
@@ -739,13 +810,13 @@ for more information about these settings.</p></blockquote>
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">target</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">auto</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">threshold</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">5</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
-</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">fixes</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">fixes</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span>- <span style="color:#a5d6ff">&#39;^\d+\.\d+\.\d+::source&#39;</span><span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic"># move path &#34;X.Y.Z&#34; =&gt; &#34;source&#34;</span><span style="color:#6e7681">
 </span></span></span></code></pre></div><h3 id="add-status-badge-to-readmemd">Add status badge to <code>README.md</code></h3>
 <p>Finally we should add the status badges to the README.md. Replace
 <code>{repositoryName}</code> with the actual repository name, e.g. <code>ComputerManagementDsc</code>.
 Also replace <code>{defaultbranch}</code> to the name of the default branch, e.g. <code>main</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>[<span style="color:#7ee787">![codecov</span>](https://codecov.io/gh/dsccommunity/{repositoryName}/branch/{defaultbranch}/graph/badge.svg)](https://codecov.io/gh/dsccommunity/{repositoryName})
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>[<span style="color:#7ee787">![codecov</span>](https://codecov.io/gh/dsccommunity/{repositoryName}/branch/{defaultbranch}/graph/badge.svg)](https://codecov.io/gh/dsccommunity/{repositoryName})
 </span></span><span style="display:flex;"><span>![<span style="color:#7ee787">Azure DevOps coverage (branch)</span>](https://img.shields.io/azure-devops/coverage/dsccommunity/{repositoryName}/14/{defaultbranch})
 </span></span></code></pre></div><h2 id="building-whole-or-part-of-module">Building whole or part of module</h2>
 <p>If the repository is building all or just part of the module using the ModuleBuilder&rsquo;s
@@ -765,7 +836,7 @@ a new coverage file that is then merged with the original file that Pester
 generated.</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">test</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">test</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Pester_Tests_Stop_On_Fail</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Convert_Pester_Coverage</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Pester_if_Code_Coverage_Under_Threshold</span><span style="color:#6e7681">
@@ -782,16 +853,16 @@ the <code>covecov.yml</code> should look like below. Note that the main differen
 (from <a href="/blog/add-codecov-support-to-repository/#not-building-module-just-copying-files">Not building module, just copying files</a>)
 is that it is not using <code>fixes</code> keyword as the task <em>Convert_Pester_Coverage</em>
 will do that for us.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">codecov</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">codecov</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">require_ci_to_pass</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">no</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic"># main should be the baseline for reporting</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">branch</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">main</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
-</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">comment</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">comment</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">layout</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;reach, diff, flags, files&#34;</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">behavior</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">default</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
-</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">coverage</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">coverage</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">range</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">50</span><span style="color:#a5d6ff">..80</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">round</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">down</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">precision</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">0</span><span style="color:#6e7681">
@@ -841,8 +912,9 @@ this:</p>
 <blockquote>
 <p><em>NOTE:</em> the filename can be anything after the prefix <code>JaCoCo</code>, for example
 it is possible to use <code>JaCoCo_$OsShortName.xml</code> which results in
-the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Pester</span>:<span style="color:#6e7681">
+the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Pester</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">OutputFormat</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">NUnitXML</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">ExcludeFromCodeCoverage</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Modules/DscResource.Common</span><span style="color:#6e7681">
@@ -855,7 +927,7 @@ the filename <code>JaCoCO_macOs.xml</code> when the test task is run on macOS.</
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageOutputFileEncoding</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">ascii</span><span style="color:#6e7681">
 </span></span></span></code></pre></div><p>If you choose to remove <code>CodeCoverageOutputFile</code> keyword, the <code>Pester</code> section
 can look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Pester</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Pester</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">OutputFormat</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">NUnitXML</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">ExcludeFromCodeCoverage</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Modules/DscResource.Common</span><span style="color:#6e7681">
@@ -884,16 +956,17 @@ that the task <em>Merge_CodeCoverage_Files</em> will generate and is the file
 that will be uploaded to the code coverage services.</p>
 <blockquote>
 <p><strong>NOTE:</strong> For the service Codecov.io the filename must be prefixed with
-&lsquo;JaCoCo&rsquo;.</p></blockquote>
+&lsquo;JaCoCo&rsquo;.</p>
+</blockquote>
 <p>The keyword <code>CodeCoverageFilePattern</code> is the pattern to recursively look
 for under the <code>output/testResults</code> folder. It should use a pattern that
 can recognize the JaCoCo files that the test jobs generate.</p>
 <p>If using the default filenames it can look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">CodeCoverage</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">CodeCoverage</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageMergedOutputFile</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">JaCoCo_coverage.xml</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageFilePattern</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Codecov*.xml</span><span style="color:#6e7681">
 </span></span></span></code></pre></div><p>If a specific filename was used it can look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">CodeCoverage</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">CodeCoverage</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageMergedOutputFile</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">JaCoCo_coverage.xml</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">CodeCoverageFilePattern</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">JaCoCo_Merge.xml</span><span style="color:#6e7681">
 </span></span></span></code></pre></div><h3 id="modify-azure-pipelinesyml-2">Modify <code>azure-pipelines.yml</code></h3>
@@ -904,7 +977,7 @@ the test result files that ended up in the folder <code>output/testResults</code
 <h4 id="remove-global-variable">Remove global variable</h4>
 <p>We can remove the global variable <code>testArtifactName</code> since it will not be used.</p>
 <p>After removing the global variable it should look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">trigger</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">trigger</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">branches</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">include</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">main</span><span style="color:#6e7681">
@@ -917,7 +990,7 @@ the test result files that ended up in the folder <code>output/testResults</code
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">exclude</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">&#34;*-*&#34;</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
-</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">variables</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">variables</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">buildFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">output</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">buildArtifactName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">output</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">testResultFolderName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">testResults</span><span style="color:#6e7681">
@@ -943,7 +1016,7 @@ But most important is if the <code>CodeCoverageThreshold</code> argument is used
 override the value in <code>build.yaml</code> then the value for <code>CodeCoverageThreshold</code>
 may not be set to <code>0</code>. The value <code>0</code> means that no coverage is gathered.</p>
 <p>This is how it can look like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">test_windows_core</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Run tests in PowerShell 7 on Windows</span><span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">test_windows_core</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Run tests in PowerShell 7 on Windows</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Windows (PowerShell Core)&#39;</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">timeoutInMinutes</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">0</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">pool</span>:<span style="color:#6e7681">
@@ -1031,7 +1104,7 @@ or that there is a risk that the default filename might not be unique, then
 we need to specify specific folders where the test artifacts are downloaded.</p>
 <p>The publishing tasks must specify the filename that was specified in the
 keyword <code>CodeCoverageMergedOutputFile</code> in the <code>build.yaml</code> file.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Code_Coverage</span><span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Code_Coverage</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Code Coverage&#39;</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">dependsOn</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#a5d6ff">test_windows_core</span><span style="color:#6e7681">
@@ -1075,88 +1148,78 @@ keyword <code>CodeCoverageMergedOutputFile</code> in the <code>build.yaml</code>
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">              </span><span style="color:#a5d6ff">bash &lt;(curl -s https://codecov.io/bash) -f &#34;./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml&#34;</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">displayName</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;Publish Code Coverage to Codecov.io&#39;</span><span style="color:#6e7681">
 </span></span></span></code></pre></div>
-        </article>
+        </div>
 
         
-        <footer style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--border-primary);">
-          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-4);">
-            <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: 0;">
-              Last updated: December 19, 2025
-            </p>
-            
-            <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/content/blog%5cadd-codecov-support-to-repository.md"
-               class="btn btn-ghost btn-sm"
-               target="_blank"
-               rel="noopener noreferrer">
-              <i class="ri-edit-line"></i>
-              Edit this page
-            </a>
-            
+        
+
+        
+        <div style="margin-top: var(--space-8); padding: var(--space-6); background: var(--bg-secondary); border-radius: var(--radius-xl); border: 1px solid var(--border-color);">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4);">
+            <div>
+              <h4 style="margin-bottom: var(--space-1);">Share this article</h4>
+              <p style="color: var(--text-secondary); font-size: var(--text-sm);">Help spread the word about DSC Community!</p>
+            </div>
+            <div style="display: flex; gap: var(--space-2);">
+              <a href="https://twitter.com/intent/tweet?text=Add&#43;Code&#43;Coverage&#43;Support&#43;to&#43;Repository&url=https%3A%2F%2Fdsccommunity.org%2Fblog%2Fadd-codecov-support-to-repository%2F" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on Twitter">
+                <i class="ri-twitter-x-line" style="font-size: 1.25rem;"></i>
+              </a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdsccommunity.org%2Fblog%2Fadd-codecov-support-to-repository%2F&title=Add&#43;Code&#43;Coverage&#43;Support&#43;to&#43;Repository" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on LinkedIn">
+                <i class="ri-linkedin-line" style="font-size: 1.25rem;"></i>
+              </a>
+              <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fdsccommunity.org%2Fblog%2Fadd-codecov-support-to-repository%2F&title=Add&#43;Code&#43;Coverage&#43;Support&#43;to&#43;Repository" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on Reddit">
+                <i class="ri-reddit-line" style="font-size: 1.25rem;"></i>
+              </a>
+            </div>
           </div>
-        </footer>
-
-        
-        <nav style="display: flex; justify-content: space-between; margin-top: var(--space-8); gap: var(--space-4);">
-          
-          <a href="https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/" class="card" style="flex: 1; max-width: 45%; text-decoration: none;">
-            <div style="display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
-              <i class="ri-arrow-left-line"></i>
-              Previous
-            </div>
-            <span class="card-title" style="font-size: var(--text-base);">DscResource.Common functions in a DSC module</span>
-          </a>
-          
-
-          
-          <a href="https://dsccommunity.org/blog/updating-sampler-github-tasks/" class="card" style="flex: 1; max-width: 45%; text-align: right; text-decoration: none;">
-            <div style="display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
-              Next
-              <i class="ri-arrow-right-line"></i>
-            </div>
-            <span class="card-title" style="font-size: var(--text-base);">Updating repo with Sampler.GitHubTasks</span>
-          </a>
-          
-        </nav>
+        </div>
       </div>
+
+      
+      
+      <aside class="article-toc">
+        <div class="toc-sticky">
+          <h4 class="toc-heading">
+            <i class="ri-list-unordered"></i>
+            On this page
+          </h4>
+          <nav class="toc-nav">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#table-of-contents">Table of Contents</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#not-building-module-just-copying-files">Not building module, just copying files</a>
+      <ul>
+        <li><a href="#modify-buildyaml">Modify <code>build.yaml</code></a></li>
+        <li><a href="#modify-azure-pipelinesyml">Modify <code>azure-pipelines.yml</code></a></li>
+        <li><a href="#add-codecovyml">Add <code>codecov.yml</code></a></li>
+        <li><a href="#add-status-badge-to-readmemd">Add status badge to <code>README.md</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#building-whole-or-part-of-module">Building whole or part of module</a>
+      <ul>
+        <li><a href="#modify-buildyaml-1">Modify <code>build.yaml</code></a></li>
+        <li><a href="#modify-azure-pipelinesyml-1">Modify <code>azure-pipelines.yml</code></a></li>
+        <li><a href="#add-codecovyml-1">Add <code>codecov.yml</code></a></li>
+        <li><a href="#add-status-badge-to-readmemd-1">Add status badge to <code>README.md</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#code-coverage-for-multiple-jobs">Code coverage for multiple jobs</a>
+      <ul>
+        <li><a href="#modify-buildyaml-2">Modify <code>build.yaml</code></a></li>
+        <li><a href="#modify-azure-pipelinesyml-2">Modify <code>azure-pipelines.yml</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </nav>
+        </div>
+      </aside>
+      
+
     </div>
   </div>
-</section>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const article = document.querySelector('.article-content');
-  const tocList = document.getElementById('tocList');
-
-  if (article && tocList && !tocList.children.length) {
-    const headings = article.querySelectorAll('h2, h3');
-
-    if (headings.length > 0) {
-      headings.forEach((heading, index) => {
-        if (!heading.id) {
-          heading.id = 'heading-' + index;
-        }
-
-        const li = document.createElement('li');
-        li.className = 'sidebar-list-item';
-
-        const a = document.createElement('a');
-        a.href = '#' + heading.id;
-        a.className = 'sidebar-link';
-        a.textContent = heading.textContent;
-
-        if (heading.tagName === 'H3') {
-          a.style.paddingLeft = 'var(--space-6)';
-          a.style.fontSize = 'var(--text-xs)';
-        }
-
-        li.appendChild(a);
-        tocList.appendChild(li);
-      });
-    }
-  }
-});
-</script>
+</article>
 
 </main>
 <footer class="site-footer">
@@ -1357,8 +1420,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     <script
-      src="https://dsccommunity.org/js/main.min.9a596f512ca53270aac01ee7314fba2b9cbdd17fb33667198c82f28d1dc82006.js"
-      integrity="sha256-mllvUSylMnCqwB7nMU&#43;6K5y90X&#43;zNmcZjILyjR3IIAY="
+      src="https://dsccommunity.org/js/main.min.56bc7a80dd440714f8194bda3bfc8dbf08ebd1bbb8bbc0a7d0dd285149f685af.js"
+      integrity="sha256-Vrx6gN1EBxT4GUvaO/yNvwjr0bu4u8Cn0N0oUUn2ha8="
     ></script>
   </body>
 </html>

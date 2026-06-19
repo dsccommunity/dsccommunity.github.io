@@ -14,7 +14,7 @@
 
     <title>2023-01-11 Notes | </title>
 
-    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Hugo 0.163.3">
 
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,8 +42,8 @@
     
     <link
       rel="stylesheet"
-      href="https://dsccommunity.org/css/futuristic.min.2fe77f06d9e00c9c5b3ed8d96e487ab36a763589c09b8cf99c143b793fe8c975.css"
-      integrity="sha256-L&#43;d/BtngDJxbPtjZbkh6s2p2NYnAm4z5nBQ7eT/oyXU="
+      href="https://dsccommunity.org/css/futuristic.min.64c9c720b33245978cd805363c7f551a4638810479e30c132a829e57bcc642ed.css"
+      integrity="sha256-ZMnHILMyRZeM2AU2PH9VGkY4gQR54wwTKoKeV7zGQu0="
     />
 
     
@@ -318,7 +318,8 @@
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Toggle menu"
+          aria-label="Open menu"
+          aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
           <svg
@@ -330,8 +331,8 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
@@ -339,6 +340,148 @@
     </div>
   </div>
 </header>
+
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <div>
+        <span class="mobile-menu-eyebrow"></span>
+        <h2 class="mobile-menu-title">Menu</h2>
+      </div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <ul class="mobile-menu-list">
+        
+        
+        <li>
+          <a href="/code_of_conduct" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-shield-check-line"></i>
+              
+            </span>
+            <span>Code of Conduct</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/community_calls" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-calendar-event-line"></i>
+              
+            </span>
+            <span>Community Calls</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/faq" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-question-answer-line"></i>
+              
+            </span>
+            <span>FAQ</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/help" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-lifebuoy-line"></i>
+              
+            </span>
+            <span>Help</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="mobile-menu-group">
+          <span class="mobile-menu-heading">
+            <span class="mobile-menu-icon"><i class="ri-folder-3-line"></i></span>
+            <span>Categories</span>
+          </span>
+          <div class="mobile-submenu">
+            
+            <a href="/community" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-team-line"></i>
+                
+              </span>
+              <span>Community</span>
+            </a>
+            
+            <a href="/resources" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-apps-2-line"></i>
+                
+              </span>
+              <span>Resource Modules</span>
+            </a>
+            
+            <a href="/guidelines" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-book-open-line"></i>
+                
+              </span>
+              <span>Guidelines</span>
+            </a>
+            
+            <a href="/blog" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-article-line"></i>
+                
+              </span>
+              <span>Blog Posts</span>
+            </a>
+            
+            <a href="/configmgt" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-settings-3-line"></i>
+                
+              </span>
+              <span>Config. Management</span>
+            </a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="ri-contrast-2-line"></i>
+        <span>Theme</span>
+      </button>
+      <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
+        <i class="ri-github-fill"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </aside>
+</div>
 <main id="main-content">
 
 
@@ -663,8 +806,8 @@
         <article class="article-content">
           <h3 id="recording">Recording</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MDj3u2VeYus?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MDj3u2VeYus?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h3 id="agenda">Agenda</h3>
 <h4 id="community-presentation">Community presentation</h4>
@@ -986,8 +1129,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     <script
-      src="https://dsccommunity.org/js/main.min.9a596f512ca53270aac01ee7314fba2b9cbdd17fb33667198c82f28d1dc82006.js"
-      integrity="sha256-mllvUSylMnCqwB7nMU&#43;6K5y90X&#43;zNmcZjILyjR3IIAY="
+      src="https://dsccommunity.org/js/main.min.56bc7a80dd440714f8194bda3bfc8dbf08ebd1bbb8bbc0a7d0dd285149f685af.js"
+      integrity="sha256-Vrx6gN1EBxT4GUvaO/yNvwjr0bu4u8Cn0N0oUUn2ha8="
     ></script>
   </body>
 </html>

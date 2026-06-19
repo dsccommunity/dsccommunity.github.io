@@ -14,7 +14,7 @@
 
     <title>Class Based DSC Resource only proposal | </title>
 
-    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Hugo 0.163.3">
 
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,8 +42,8 @@
     
     <link
       rel="stylesheet"
-      href="https://dsccommunity.org/css/futuristic.min.2fe77f06d9e00c9c5b3ed8d96e487ab36a763589c09b8cf99c143b793fe8c975.css"
-      integrity="sha256-L&#43;d/BtngDJxbPtjZbkh6s2p2NYnAm4z5nBQ7eT/oyXU="
+      href="https://dsccommunity.org/css/futuristic.min.64c9c720b33245978cd805363c7f551a4638810479e30c132a829e57bcc642ed.css"
+      integrity="sha256-ZMnHILMyRZeM2AU2PH9VGkY4gQR54wwTKoKeV7zGQu0="
     />
 
     
@@ -318,7 +318,8 @@
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Toggle menu"
+          aria-label="Open menu"
+          aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
           <svg
@@ -330,8 +331,8 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
@@ -339,150 +340,215 @@
     </div>
   </div>
 </header>
+
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <div>
+        <span class="mobile-menu-eyebrow"></span>
+        <h2 class="mobile-menu-title">Menu</h2>
+      </div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <ul class="mobile-menu-list">
+        
+        
+        <li>
+          <a href="/code_of_conduct" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-shield-check-line"></i>
+              
+            </span>
+            <span>Code of Conduct</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/community_calls" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-calendar-event-line"></i>
+              
+            </span>
+            <span>Community Calls</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/faq" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-question-answer-line"></i>
+              
+            </span>
+            <span>FAQ</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/help" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-lifebuoy-line"></i>
+              
+            </span>
+            <span>Help</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="mobile-menu-group">
+          <span class="mobile-menu-heading">
+            <span class="mobile-menu-icon"><i class="ri-folder-3-line"></i></span>
+            <span>Categories</span>
+          </span>
+          <div class="mobile-submenu">
+            
+            <a href="/community" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-team-line"></i>
+                
+              </span>
+              <span>Community</span>
+            </a>
+            
+            <a href="/resources" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-apps-2-line"></i>
+                
+              </span>
+              <span>Resource Modules</span>
+            </a>
+            
+            <a href="/guidelines" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-book-open-line"></i>
+                
+              </span>
+              <span>Guidelines</span>
+            </a>
+            
+            <a href="/blog" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-article-line"></i>
+                
+              </span>
+              <span>Blog Posts</span>
+            </a>
+            
+            <a href="/configmgt" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-settings-3-line"></i>
+                
+              </span>
+              <span>Config. Management</span>
+            </a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="ri-contrast-2-line"></i>
+        <span>Theme</span>
+      </button>
+      <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
+        <i class="ri-github-fill"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </aside>
+</div>
 <main id="main-content">
 
 
-<section class="hero" style="padding: var(--space-12) 0;">
-  <div class="hero-grid"></div>
-  <div class="container">
-    <div class="hero-content" style="max-width: 900px;">
-      
-      <nav style="margin-bottom: var(--space-4);">
-        <ol style="display: flex; align-items: center; gap: var(--space-2); list-style: none; padding: 0; margin: 0; font-size: var(--text-sm);">
-          <li><a href="https://dsccommunity.org/" style="color: rgba(255,255,255,0.7);">Home</a></li>
-          <li style="color: rgba(255,255,255,0.5);">/</li>
-          
-          <li><a href="https://dsccommunity.org/blog/" style="color: rgba(255,255,255,0.7);">Blog Posts</a></li>
-          <li style="color: rgba(255,255,255,0.5);">/</li>
-          
-          <li style="color: rgba(255,255,255,0.9);">Class Based DSC Resource only proposal</li>
-        </ol>
-      </nav>
-      <h1 class="hero-title" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));">Class Based DSC Resource only proposal</h1>
-      
-      <p class="hero-description" style="font-size: var(--text-base);">
-        <time datetime="2020-10-02">October 2, 2020</time>
-         • by gaelcolas
-         • 13 min read
-      </p>
-      
-    </div>
-  </div>
-</section>
+<article class="blog-article">
+  <header class="article-header" style="background: var(--gradient-hero); padding: var(--space-16) 0; position: relative; overflow: hidden;">
+    <div class="hero-grid"></div>
+    <div class="container" style="max-width: 1100px; position: relative;">
+      <a href="/blog" class="btn btn-ghost" style="margin-bottom: var(--space-6); color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.2);">
+        <i class="ri-arrow-left-line"></i>
+        Back to Blog
+      </a>
 
-
-<section class="section" style="padding-top: var(--space-8);">
-  <div class="container">
-    <div class="content-layout">
       
-      <aside class="sidebar">
-        <div class="sidebar-inner">
-          <nav class="sidebar-nav">
-            
-            <h4 class="sidebar-title">Blog Posts</h4>
-            <ul class="sidebar-list">
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/create-an-article/" class="sidebar-link">
-                  Create an Article
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/" class="sidebar-link">
-                  DSC is Dead
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/what-is-microsoft-dscv3/" class="sidebar-link">
-                  What is Microsoft DSC v3
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/your-first-class-based-microsoft-dsc-v3-resource/" class="sidebar-link">
-                  Your first class-based Microsoft DSC v3 resource
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/" class="sidebar-link">
-                  Convert tests to Pester 5 for a DSC Community repository
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/convert-master-to-main/" class="sidebar-link">
-                  Steps to rename master branch to main for a DSC Community resource
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/class-based-dsc-resources/" class="sidebar-link active">
-                  Class Based DSC Resource only proposal
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/converting-tests-to-pester5/" class="sidebar-link">
-                  Converting tests to Pester 5
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/updating-sampler-github-tasks/" class="sidebar-link">
-                  Updating repo with Sampler.GitHubTasks
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/add-codecov-support-to-repository/" class="sidebar-link">
-                  Add Code Coverage Support to Repository
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/" class="sidebar-link">
-                  DscResource.Common functions in a DSC module
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/" class="sidebar-link">
-                  Steps to convert a module for continuous delivery
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/how-to-use-dsc-logging/" class="sidebar-link">
-                  How to Use DSC Logging
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/dsc-maintenance-windows/" class="sidebar-link">
-                  Realizing maintenance windows with DSC
-                </a>
-              </li>
-              
-            </ul>
-            
-          </nav>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);">
+        <span class="badge badge-primary">PowerShell DSC</span>
+      </div>
+      
+
+      <h1 style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); line-height: 1.2; margin-bottom: var(--space-6); max-width: 800px; color: #ffffff;">
+        Class Based DSC Resource only proposal
+      </h1>
+
+      
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-6); color: rgba(255,255,255,0.65); font-size: var(--text-sm);">
+        
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--gradient-accent); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; text-transform: uppercase; font-size: var(--text-sm); flex-shrink: 0;">
+            g
+          </div>
+          <div>
+            <div style="color: rgba(255,255,255,0.9); font-weight: 500;">gaelcolas</div>
+            <div style="font-size: var(--text-xs); color: rgba(255,255,255,0.5);">Author</div>
+          </div>
         </div>
-      </aside>
+        
+
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <i class="ri-calendar-line"></i>
+          <time datetime="2020-10-02">
+            October 2, 2020
+          </time>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <i class="ri-time-line"></i>
+          13 min read
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+  <div class="container" style="max-width: 1100px; padding-top: var(--space-12); padding-bottom: var(--space-16);">
+    <div class="article-with-toc">
 
       
-      <div class="main-content">
-        <article class="article-content">
+      <div class="article-body">
+        <div class="article-content">
           <p>The PowerShell team announced plans to focus on class-based DSC resources only for PowerShell 7.2+, moving away from MOF/CIM dependencies. This article explains why this is a good direction, addresses common concerns about backward compatibility and testing, and shares the DSC Community&rsquo;s perspective on this change.</p>
 <p>Recently, the PowerShell team announced <a href="https://github.com/PowerShell/PowerShell/issues/13359">plans to create a new JSON-based schema</a> so that <em>eventually</em> PowerShell Desired State Configuration (DSC) could get rid of its MOF/CIM dependencies, and the PowerShell code base could remove its deprecated Management Interface (MI) implementation (<code>Microsoft.Management.Infrastructure.CimProperty</code>, <code>Microsoft.Management.Infrastructure.CimInstance</code> and so on&hellip;).</p>
 <p>The suggested change was only for DSC Resources schema, and no changes to MOF compilations was announced for now. Removing the CIM/MI/MOF code and dependency is definitely an overarching goal for PowerShell, but it won&rsquo;t happen overnight.</p>
 <p>Let&rsquo;s add that when we mention change to PowerShell, it only affects the version 7.2 and up. <strong>Windows PowerShell 5.1 will (mostly) be untouched and unaffected</strong>.</p>
 <p>After discussing the matter with the community via the GitHub issues, Twitter, and the DSC Community Call, the Powershell team published a change of direction: they intend to <a href="https://github.com/PowerShell/PowerShell/issues/13731">start with supporting DSC Class based resources only</a> (but are still open for discussion).</p>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/toTwph350zY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/toTwph350zY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <h1 id="opinions">Opinions</h1>
 <p>Now that I&rsquo;ve explained the context for those just joining-in, I&rsquo;ll explain why I think it&rsquo;s a good move and one I&rsquo;ve advocated for.
@@ -501,7 +567,7 @@ Bear in mind that was more than 7 years ago, as WMF 4.0 was <a href="https://dev
 <p>The role of that MOF file is to add the metadata about the properties, and describe how those objects should be serialized and deserialized (think about Credential objects for instance), for CIM. CIM has no knowledge or understanding of PowerShell.</p>
 <p>Mapping PowerShell Object to CIM using MOF wasn&rsquo;t great for non scalar types, and that&rsquo;s why we ended up with with things like <code>EmbeddedInstance(&quot;MSFT_Credential&quot;)</code> in the MOFs or <code>[Microsoft.Management.Infrastructure.CimInstance[]]</code> in your PowerShell code to represent a dictionary, that you <a href="https://powershell.org/forums/topic/hashtable-as-parameter-for-custom-dsc-resource/">then had to convert to a hashtable</a>.</p>
 <p>See Dave Wyatt&rsquo;s answer below (note, this one is not recursive, for brevity):</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#ff7b72">function</span><span style="color:#6e7681"> </span>Convert-CimInstancesToHashtable([Microsoft.Management.Infrastructure.CimInstance[]] <span style="color:#79c0ff">$Pairs</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#ff7b72">function</span><span style="color:#6e7681"> </span>Convert-CimInstancesToHashtable([Microsoft.Management.Infrastructure.CimInstance[]] <span style="color:#79c0ff">$Pairs</span>)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$hash</span> = <span style="color:#79c0ff">@</span>{}
 </span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">foreach</span> (<span style="color:#79c0ff">$pair</span> <span style="color:#ff7b72">in</span> <span style="color:#79c0ff">$Pairs</span>)
@@ -512,14 +578,14 @@ Bear in mind that was more than 7 years ago, as WMF 4.0 was <a href="https://dev
 </span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">$hash</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>You may also have came across DSC Resources that use <code>New-CimInstance</code> to <a href="https://github.com/dsccommunity/xHyper-V/blob/aff660f3a76edb6f60e243e7a8bc450b56340cc0/source/DSCResources/MSFT_xVhdFileDirectory/MSFT_xVhdFileDirectory.psm1#L78-L81">create an object that is added to the hashtable returned by the resource</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span>New-CimInstance -ClassName MSFT_FileDirectoryConfiguration -Property <span style="color:#79c0ff">@</span>{
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span>New-CimInstance -ClassName MSFT_FileDirectoryConfiguration -Property <span style="color:#79c0ff">@</span>{
 </span></span><span style="display:flex;"><span>                DestinationPath = <span style="color:#79c0ff">$finalPath</span>
 </span></span><span style="display:flex;"><span>                Ensure = <span style="color:#a5d6ff">&#39;Absent&#39;</span>
 </span></span><span style="display:flex;"><span>            } -Namespace <span style="color:#a5d6ff">&#39;root/microsoft/windows/desiredstateconfiguration&#39;</span> -ClientOnly
 </span></span></code></pre></div><p>Let me add that this is not trivial for people new to DSC, and moving away from CIM/MOF means we have a chance to <em>eventually</em> use the actual PowerShell types end to end, as we would not be limited by type mapping between CIM and PowerShell via MOF.</p>
 <p>This is particularly a problem for resources on Linux as the <code>CIM Cmdlets</code> do not exist there. Also the PowerShell team would like to clean up the CIM libraries in PowerShell, so <a href="https://github.com/dsccommunity/DscResource.Common/blob/master/source/Public/ConvertTo-CimInstance.ps1#L26">there would be no workaround like this</a>.</p>
 <p>Class-based DSC Resources do not need the MOF definition for the extra metadata, as we use the <code>[DscResource()]</code> and <code>[DscProperty()]</code> attributes for them, and property types can use Enum or a custom Class.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span>[DscResource()]
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span>[DscResource()]
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span><span style="color:#6e7681"> </span>ClassRsrcWithSubType2 {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    [DscProperty(Mandatory)]
@@ -533,7 +599,7 @@ Bear in mind that was more than 7 years ago, as WMF 4.0 was <a href="https://dev
 </span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># ...</span>
 </span></span></code></pre></div><p>That said, some limitations are similar because under the hood, the conversion still occurs from PowerShell to CIM, and back to PowerShell when the LCM is involved.</p>
 <p>But if we have a slightly different way to <strong>return</strong> the data between PS5.1 and PS7.2+, we can easily update the resources with an <code>if {} else {}</code> statement:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#ff7b72">if</span> (<span style="color:#79c0ff">$PSVersionTable</span>.<span style="color:#79c0ff">PSVersion</span>.<span style="color:#79c0ff">Major</span> <span style="color:#ff7b72;font-weight:bold">-ge</span> <span style="color:#a5d6ff">7</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#ff7b72">if</span> (<span style="color:#79c0ff">$PSVersionTable</span>.<span style="color:#79c0ff">PSVersion</span>.<span style="color:#79c0ff">Major</span> <span style="color:#ff7b72;font-weight:bold">-ge</span> <span style="color:#a5d6ff">7</span>) {
 </span></span><span style="display:flex;"><span>    [<span style="color:#79c0ff;font-weight:bold">MSFT_FileDirectoryConfiguration</span>]<span style="color:#79c0ff">@</span>{
 </span></span><span style="display:flex;"><span>      Ensure = <span style="color:#a5d6ff">&#39;Absent&#39;</span>
 </span></span><span style="display:flex;"><span>      DestinationPath = <span style="color:#79c0ff">$finalPath</span>
@@ -549,7 +615,8 @@ Bear in mind that was more than 7 years ago, as WMF 4.0 was <a href="https://dev
 Bear in mind PS 5.1 is set in stone, so it won&rsquo;t get updated.</p>
 <p>And that leads us to <strong>the major flaw</strong>, in my opinion, for <a href="https://github.com/PowerShell/PowerShell/issues/13359">the former JSON-based DSC resource proposal</a>: We&rsquo;d have to replace the <code>[Microsoft.Management.Infrastructure.CimInstance[]]</code> with <code>[PSObject]</code>.</p>
 <blockquote>
-<p>With this change, embedded objects passed to Get/Set/Test will be PSObjects instead of CimInstances. Unless the script is explicitly checking that it is a CimInstance, existing code should work with PSObject.</p></blockquote>
+<p>With this change, embedded objects passed to Get/Set/Test will be PSObjects instead of CimInstances. Unless the script is explicitly checking that it is a CimInstance, existing code should work with PSObject.</p>
+</blockquote>
 <p>Doing so would <strong>break compatibility between PS 5.1 and PS 7+</strong> for any resource using such subtypes / embedded objects.</p>
 <p>Using class-based DSC resource, and the <code>if {} else {}</code> workaround I mentioned above, would support greater backward compatibility scenarios.</p>
 <p>Obviously, there&rsquo;s still a lot of differences between PS5.1 and PS7 which means for some resources it may not be possible to be used in PS7 anyway
@@ -573,8 +640,8 @@ Older versions of the resource modules are still available in the gallery if nee
 We also got more experience with Class-based resource with <a href="https://github.com/dsccommunity/JeaDsc/tree/master/source/DSCClassResources"><code>JeaDsc</code></a>, although it&rsquo;s not the approach I would <em>recommend</em> today. Great experience nonetheless, and great work.</p>
 <p>We&rsquo;ve made several changes to our pipeline automation, and getting to a point (soon) where adding DSC Class Resource should be easier.</p>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/bbpFBsl8K9k?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/bbpFBsl8K9k?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <p>I also had to dig a lot deeper when I worked on the <code>Invoke-DscResource</code> RFC with the PowerShell team for PowerShell 7.</p>
 <p>During this experimentation, and also following the <a href="https://puppetlabs.github.io/iac/news/roadmap/2020/09/21/dsc-release.html">great work done by Michael Lombardi at Puppet</a> to &ldquo;Puppetize&rdquo; DSC Resource modules, we identified some challenges in getting type information for DSC resources, and that Classes could make this easier.</p>
@@ -588,7 +655,7 @@ We also got more experience with Class-based resource with <a href="https://gith
 They were new, we had little experience with them, and <a href="https://github.com/pester/Pester/issues/706">the &ldquo;traditional&rdquo; way to mock them was not working</a>.</p>
 <p>Now, the way DSC uses PowerShell Classes is relatively <em>simple</em> and you can achieve something close to mocking by using different techniques, such as using script Method on your object.
 This was well documented by Ben Gelens (<a href="https://twitter.com/bgelens">@bgelens</a>) back in his <a href="https://github.com/bgelens/DockerDsc/blob/Dev/Tests/Unit/DockerService.Tests.ps1#L84">DockerDsc module</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#79c0ff">$dockerDsc</span> = [<span style="color:#79c0ff;font-weight:bold">DockerService</span>]::new()
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#79c0ff">$dockerDsc</span> = [<span style="color:#79c0ff;font-weight:bold">DockerService</span>]::new()
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">$dockerDsc</span>.<span style="color:#79c0ff">Ensure</span> = [<span style="color:#79c0ff;font-weight:bold">Ensure</span>]::Present
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">$dockerDsc</span> = <span style="color:#79c0ff">$dockerDsc</span> | Add-Member -MemberType ScriptMethod `
 </span></span><span style="display:flex;"><span>  -Name ResolveDockerDPath `
@@ -599,7 +666,8 @@ This was well documented by Ben Gelens (<a href="https://twitter.com/bgelens">@b
 </span></span><span style="display:flex;"><span>Mock -CommandName Get-Service -MockWith {[<span style="color:#79c0ff;font-weight:bold">pscustomobject</span>]<span style="color:#79c0ff">@</span>{Name=<span style="color:#a5d6ff">&#39;Docker&#39;</span>}}
 </span></span></code></pre></div><p>Worth noting, Jakub Jares (<a href="https://twitter.com/nohwnd">@nohwnd</a>, the maintainer of Pester) is <a href="https://twitter.com/nohwnd/status/1308715571756912640?s=20">suggesting to build this in Pester 5</a> (go upvote now, please).</p>
 <blockquote>
-<p><a href="https://twitter.com/nohwnd/status/1308752521142435842?s=20"><em>@nowhnd:</em></a> The api would probably look like this:  Mock -Type ([DateTime]) -Property Now -Get <the value> But imho the final form is not that important. It does work on PowerShell  classes. In the end you should be able to use this to replace almost any method and property.</p></blockquote>
+<p><a href="https://twitter.com/nohwnd/status/1308752521142435842?s=20"><em>@nowhnd:</em></a> The api would probably look like this:  Mock -Type ([DateTime]) -Property Now -Get <the value> But imho the final form is not that important. It does work on PowerShell  classes. In the end you should be able to use this to replace almost any method and property.</p>
+</blockquote>
 <p>Again, that&rsquo;s definitely something that we will work on and document, but I don&rsquo;t see this as a major obstacle.
 We could also mock by inheriting the class and overridding that method.</p>
 <p>Now, I&rsquo;d like to slide-in another opinion, which might be unpopular, but your DSC Resource PSM1 or Class should not be thousands of lines long.
@@ -639,88 +707,68 @@ I&rsquo;m lucky to be working closely with them through my work with the Guest C
 <p>In the GitHub issue Steve Lee clarifies that it&rsquo;s the initial intention, but if we (the community) feel that we&rsquo;re missing out or this initial plan is not enough, they can always re-consider adding the JSON schema to DSC Resources.</p>
 <p>This is a good (re)start and the DSC Community will do it&rsquo;s part to make the transition smoother.</p>
 
-        </article>
+        </div>
 
         
-        <footer style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--border-primary);">
-          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-4);">
-            <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: 0;">
-              Last updated: December 19, 2025
-            </p>
-            
-            <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/content/blog%5cclass-based-dsc-resources.md"
-               class="btn btn-ghost btn-sm"
-               target="_blank"
-               rel="noopener noreferrer">
-              <i class="ri-edit-line"></i>
-              Edit this page
-            </a>
-            
+        
+
+        
+        <div style="margin-top: var(--space-8); padding: var(--space-6); background: var(--bg-secondary); border-radius: var(--radius-xl); border: 1px solid var(--border-color);">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4);">
+            <div>
+              <h4 style="margin-bottom: var(--space-1);">Share this article</h4>
+              <p style="color: var(--text-secondary); font-size: var(--text-sm);">Help spread the word about DSC Community!</p>
+            </div>
+            <div style="display: flex; gap: var(--space-2);">
+              <a href="https://twitter.com/intent/tweet?text=Class&#43;Based&#43;DSC&#43;Resource&#43;only&#43;proposal&url=https%3A%2F%2Fdsccommunity.org%2Fblog%2Fclass-based-dsc-resources%2F" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on Twitter">
+                <i class="ri-twitter-x-line" style="font-size: 1.25rem;"></i>
+              </a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdsccommunity.org%2Fblog%2Fclass-based-dsc-resources%2F&title=Class&#43;Based&#43;DSC&#43;Resource&#43;only&#43;proposal" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on LinkedIn">
+                <i class="ri-linkedin-line" style="font-size: 1.25rem;"></i>
+              </a>
+              <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fdsccommunity.org%2Fblog%2Fclass-based-dsc-resources%2F&title=Class&#43;Based&#43;DSC&#43;Resource&#43;only&#43;proposal" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on Reddit">
+                <i class="ri-reddit-line" style="font-size: 1.25rem;"></i>
+              </a>
+            </div>
           </div>
-        </footer>
-
-        
-        <nav style="display: flex; justify-content: space-between; margin-top: var(--space-8); gap: var(--space-4);">
-          
-          <a href="https://dsccommunity.org/blog/converting-tests-to-pester5/" class="card" style="flex: 1; max-width: 45%; text-decoration: none;">
-            <div style="display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
-              <i class="ri-arrow-left-line"></i>
-              Previous
-            </div>
-            <span class="card-title" style="font-size: var(--text-base);">Converting tests to Pester 5</span>
-          </a>
-          
-
-          
-          <a href="https://dsccommunity.org/blog/convert-master-to-main/" class="card" style="flex: 1; max-width: 45%; text-align: right; text-decoration: none;">
-            <div style="display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
-              Next
-              <i class="ri-arrow-right-line"></i>
-            </div>
-            <span class="card-title" style="font-size: var(--text-base);">Steps to rename master branch to main for a DSC Community resource</span>
-          </a>
-          
-        </nav>
+        </div>
       </div>
+
+      
+      
+      <aside class="article-toc">
+        <div class="toc-sticky">
+          <h4 class="toc-heading">
+            <i class="ri-list-unordered"></i>
+            On this page
+          </h4>
+          <nav class="toc-nav">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#backward-compatibility">Backward Compatibility</a>
+      <ul>
+        <li><a href="#why-mof-and-cim-to-begin-with">Why MOF and CIM, to begin with?</a></li>
+      </ul>
+    </li>
+    <li><a href="#dsc-community-does-not-use-class-based-resources">DSC Community does not use class-based resources</a></li>
+    <li><a href="#unit-testing-classes-and-class-based-dsc-resources-is-hard">Unit Testing classes and Class-Based DSC Resources is hard</a></li>
+    <li><a href="#classes-are-more-complex-for-non-dev">Classes are more complex for non-dev</a>
+      <ul>
+        <li><a href="#harder-to-pick-up">Harder to pick up</a></li>
+        <li><a href="#json-is-easier">JSON is easier</a></li>
+        <li><a href="#reduce-number-of-potential-contributors">Reduce number of (potential) contributors</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </nav>
+        </div>
+      </aside>
+      
+
     </div>
   </div>
-</section>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const article = document.querySelector('.article-content');
-  const tocList = document.getElementById('tocList');
-
-  if (article && tocList && !tocList.children.length) {
-    const headings = article.querySelectorAll('h2, h3');
-
-    if (headings.length > 0) {
-      headings.forEach((heading, index) => {
-        if (!heading.id) {
-          heading.id = 'heading-' + index;
-        }
-
-        const li = document.createElement('li');
-        li.className = 'sidebar-list-item';
-
-        const a = document.createElement('a');
-        a.href = '#' + heading.id;
-        a.className = 'sidebar-link';
-        a.textContent = heading.textContent;
-
-        if (heading.tagName === 'H3') {
-          a.style.paddingLeft = 'var(--space-6)';
-          a.style.fontSize = 'var(--text-xs)';
-        }
-
-        li.appendChild(a);
-        tocList.appendChild(li);
-      });
-    }
-  }
-});
-</script>
+</article>
 
 </main>
 <footer class="site-footer">
@@ -921,8 +969,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     <script
-      src="https://dsccommunity.org/js/main.min.9a596f512ca53270aac01ee7314fba2b9cbdd17fb33667198c82f28d1dc82006.js"
-      integrity="sha256-mllvUSylMnCqwB7nMU&#43;6K5y90X&#43;zNmcZjILyjR3IIAY="
+      src="https://dsccommunity.org/js/main.min.56bc7a80dd440714f8194bda3bfc8dbf08ebd1bbb8bbc0a7d0dd285149f685af.js"
+      integrity="sha256-Vrx6gN1EBxT4GUvaO/yNvwjr0bu4u8Cn0N0oUUn2ha8="
     ></script>
   </body>
 </html>

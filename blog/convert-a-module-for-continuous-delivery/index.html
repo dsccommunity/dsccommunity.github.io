@@ -14,7 +14,7 @@
 
     <title>Steps to convert a module for continuous delivery | </title>
 
-    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Hugo 0.163.3">
 
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,8 +42,8 @@
     
     <link
       rel="stylesheet"
-      href="https://dsccommunity.org/css/futuristic.min.2fe77f06d9e00c9c5b3ed8d96e487ab36a763589c09b8cf99c143b793fe8c975.css"
-      integrity="sha256-L&#43;d/BtngDJxbPtjZbkh6s2p2NYnAm4z5nBQ7eT/oyXU="
+      href="https://dsccommunity.org/css/futuristic.min.64c9c720b33245978cd805363c7f551a4638810479e30c132a829e57bcc642ed.css"
+      integrity="sha256-ZMnHILMyRZeM2AU2PH9VGkY4gQR54wwTKoKeV7zGQu0="
     />
 
     
@@ -318,7 +318,8 @@
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Toggle menu"
+          aria-label="Open menu"
+          aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
           <svg
@@ -330,8 +331,8 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
@@ -339,150 +340,215 @@
     </div>
   </div>
 </header>
+
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <div>
+        <span class="mobile-menu-eyebrow"></span>
+        <h2 class="mobile-menu-title">Menu</h2>
+      </div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <ul class="mobile-menu-list">
+        
+        
+        <li>
+          <a href="/code_of_conduct" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-shield-check-line"></i>
+              
+            </span>
+            <span>Code of Conduct</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/community_calls" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-calendar-event-line"></i>
+              
+            </span>
+            <span>Community Calls</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/faq" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-question-answer-line"></i>
+              
+            </span>
+            <span>FAQ</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/help" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-lifebuoy-line"></i>
+              
+            </span>
+            <span>Help</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="mobile-menu-group">
+          <span class="mobile-menu-heading">
+            <span class="mobile-menu-icon"><i class="ri-folder-3-line"></i></span>
+            <span>Categories</span>
+          </span>
+          <div class="mobile-submenu">
+            
+            <a href="/community" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-team-line"></i>
+                
+              </span>
+              <span>Community</span>
+            </a>
+            
+            <a href="/resources" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-apps-2-line"></i>
+                
+              </span>
+              <span>Resource Modules</span>
+            </a>
+            
+            <a href="/guidelines" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-book-open-line"></i>
+                
+              </span>
+              <span>Guidelines</span>
+            </a>
+            
+            <a href="/blog" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-article-line"></i>
+                
+              </span>
+              <span>Blog Posts</span>
+            </a>
+            
+            <a href="/configmgt" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-settings-3-line"></i>
+                
+              </span>
+              <span>Config. Management</span>
+            </a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="ri-contrast-2-line"></i>
+        <span>Theme</span>
+      </button>
+      <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
+        <i class="ri-github-fill"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </aside>
+</div>
 <main id="main-content">
 
 
-<section class="hero" style="padding: var(--space-12) 0;">
-  <div class="hero-grid"></div>
-  <div class="container">
-    <div class="hero-content" style="max-width: 900px;">
-      
-      <nav style="margin-bottom: var(--space-4);">
-        <ol style="display: flex; align-items: center; gap: var(--space-2); list-style: none; padding: 0; margin: 0; font-size: var(--text-sm);">
-          <li><a href="https://dsccommunity.org/" style="color: rgba(255,255,255,0.7);">Home</a></li>
-          <li style="color: rgba(255,255,255,0.5);">/</li>
-          
-          <li><a href="https://dsccommunity.org/blog/" style="color: rgba(255,255,255,0.7);">Blog Posts</a></li>
-          <li style="color: rgba(255,255,255,0.5);">/</li>
-          
-          <li style="color: rgba(255,255,255,0.9);">Steps to convert a module for continuous delivery</li>
-        </ol>
-      </nav>
-      <h1 class="hero-title" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));">Steps to convert a module for continuous delivery</h1>
-      
-      <p class="hero-description" style="font-size: var(--text-base);">
-        <time datetime="2019-12-30">December 30, 2019</time>
-         • by johlju
-         • 28 min read
-      </p>
-      
-    </div>
-  </div>
-</section>
+<article class="blog-article">
+  <header class="article-header" style="background: var(--gradient-hero); padding: var(--space-16) 0; position: relative; overflow: hidden;">
+    <div class="hero-grid"></div>
+    <div class="container" style="max-width: 1100px; position: relative;">
+      <a href="/blog" class="btn btn-ghost" style="margin-bottom: var(--space-6); color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.2);">
+        <i class="ri-arrow-left-line"></i>
+        Back to Blog
+      </a>
 
-
-<section class="section" style="padding-top: var(--space-8);">
-  <div class="container">
-    <div class="content-layout">
       
-      <aside class="sidebar">
-        <div class="sidebar-inner">
-          <nav class="sidebar-nav">
-            
-            <h4 class="sidebar-title">Blog Posts</h4>
-            <ul class="sidebar-list">
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/create-an-article/" class="sidebar-link">
-                  Create an Article
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/" class="sidebar-link">
-                  DSC is Dead
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/what-is-microsoft-dscv3/" class="sidebar-link">
-                  What is Microsoft DSC v3
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/your-first-class-based-microsoft-dsc-v3-resource/" class="sidebar-link">
-                  Your first class-based Microsoft DSC v3 resource
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/" class="sidebar-link">
-                  Convert tests to Pester 5 for a DSC Community repository
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/convert-master-to-main/" class="sidebar-link">
-                  Steps to rename master branch to main for a DSC Community resource
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/class-based-dsc-resources/" class="sidebar-link">
-                  Class Based DSC Resource only proposal
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/converting-tests-to-pester5/" class="sidebar-link">
-                  Converting tests to Pester 5
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/updating-sampler-github-tasks/" class="sidebar-link">
-                  Updating repo with Sampler.GitHubTasks
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/add-codecov-support-to-repository/" class="sidebar-link">
-                  Add Code Coverage Support to Repository
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/" class="sidebar-link">
-                  DscResource.Common functions in a DSC module
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/" class="sidebar-link active">
-                  Steps to convert a module for continuous delivery
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/how-to-use-dsc-logging/" class="sidebar-link">
-                  How to Use DSC Logging
-                </a>
-              </li>
-              
-              <li class="sidebar-list-item">
-                <a href="https://dsccommunity.org/blog/dsc-maintenance-windows/" class="sidebar-link">
-                  Realizing maintenance windows with DSC
-                </a>
-              </li>
-              
-            </ul>
-            
-          </nav>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);">
+        <span class="badge badge-primary">PowerShell DSC</span>
+      </div>
+      
+
+      <h1 style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); line-height: 1.2; margin-bottom: var(--space-6); max-width: 800px; color: #ffffff;">
+        Steps to convert a module for continuous delivery
+      </h1>
+
+      
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-6); color: rgba(255,255,255,0.65); font-size: var(--text-sm);">
+        
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--gradient-accent); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; text-transform: uppercase; font-size: var(--text-sm); flex-shrink: 0;">
+            j
+          </div>
+          <div>
+            <div style="color: rgba(255,255,255,0.9); font-weight: 500;">johlju</div>
+            <div style="font-size: var(--text-xs); color: rgba(255,255,255,0.5);">Author</div>
+          </div>
         </div>
-      </aside>
+        
+
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <i class="ri-calendar-line"></i>
+          <time datetime="2019-12-30">
+            December 30, 2019
+          </time>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <i class="ri-time-line"></i>
+          28 min read
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+  <div class="container" style="max-width: 1100px; padding-top: var(--space-12); padding-bottom: var(--space-16);">
+    <div class="article-with-toc">
 
       
-      <div class="main-content">
-        <article class="article-content">
+      <div class="article-body">
+        <div class="article-content">
           <p>This guide walks you through converting a DSC Community module to use the Sampler-based CI/CD pipeline for continuous delivery with Azure DevOps. We are moving away from AppVeyor to Azure Pipelines because Azure Pipelines
 gives us longer run time per job plus parallel jobs on a free account for open source projects.</p>
 <p>You are welcome to share any comments or issues you having around this
 process in the <a href="https://dsccommunity.org/community/contact/">Discord or Slack #DSC channel</a>.</p>
 <p>Before you start, here&rsquo;s an overview of what the new CI looks like:
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/UWGKgVB4VNU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/UWGKgVB4VNU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 </p>
 <p>Also, we are no longer requiring signing of CLA since the modules are
 now part of DSC Community.</p>
@@ -495,7 +561,7 @@ the release notes for that release.</p>
 <h3 id="re-create-all-old-tags">Re-create all old tags</h3>
 <p>You can use the script <a href="https://gist.github.com/PlagueHO/40d80a7f3747c18594e63584f7745cbc">Convert-GitTagForDsc.ps1</a>
 to re-create all existing tags. You run it with the following.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Move to the local repo</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Move to the local repo</span>
 </span></span><span style="display:flex;"><span>cd c:\source\{repositoryFolder}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Make sure you have the remote names to upstream and fork.</span>
@@ -525,7 +591,8 @@ new format, otherwise GitVersion will not evaluate the versions correctly.</p>
 last tag so that it is using semantic versioning and the correct format for
 the tag. See article <a href="https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/">How To Delete Local and Remote Tags on Git</a>.
 If you ran the script in the previous section this have probably been
-resolved already.</p></blockquote>
+resolved already.</p>
+</blockquote>
 <ol>
 <li><strong>Make sure to have updated the repository with the latest changes and</strong>
 <strong>pulled latest tags, see previous section for the rebasing.</strong></li>
@@ -537,12 +604,12 @@ something like <code>Merge pull request #xxxx from PowerShell/dev</code>).</li>
 <li>For each SHA run the following (in release ascending order). The
 following shows how to tag <code>v13.1.0</code> on the specific
 commit and adding a descriptive text on the tag.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git tag -a v13.1.0 596ff25a61099b312a6f9e2eb2c6dccc9597ac28 -m <span style="color:#a5d6ff">&#34;Release of version 13.1.0.0 of {RepositoryName}&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git tag -a v13.1.0 596ff25a61099b312a6f9e2eb2c6dccc9597ac28 -m <span style="color:#a5d6ff">&#34;Release of version 13.1.0.0 of {RepositoryName}&#34;</span>
 </span></span></code></pre></div></li>
 <li>Running <code>git tag</code> should list the new tags, and running <code>git show v13.1.0</code>
 would show a specific tag.</li>
 <li>Push the new tags to the upstream repository by running.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push origin --tags <span style="color:#8b949e;font-style:italic"># origin is the remote pointing to upstream</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push origin --tags <span style="color:#8b949e;font-style:italic"># origin is the remote pointing to upstream</span>
 </span></span><span style="display:flex;"><span>git push my --tags <span style="color:#8b949e;font-style:italic"># my is the remote pointing to fork</span>
 </span></span></code></pre></div></li>
 </ol>
@@ -559,18 +626,19 @@ paste in the change log entries.</li>
 </ol>
 <h2 id="install-prerequisites">Install prerequisites</h2>
 <blockquote>
-<p><strong>NOTE:</strong> You must be an elevated administrator to install this.</p></blockquote>
+<p><strong>NOTE:</strong> You must be an elevated administrator to install this.</p>
+</blockquote>
 <ol>
 <li>Install GitVersion using Chocolatey by running the below. Read more
 about GitVersion on the their website <a href="https://gitversion.readthedocs.io/en/latest/">https://gitversion.readthedocs.io/en/latest/</a>
 <em>NOTE: You must have Chocolatey installed prior to running this command,</em>
 <em>see <a href="https://chocolatey.org/install">https://chocolatey.org/install</a> on how to install Chocolatey.</em>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>choco install GitVersion.Portable
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>choco install GitVersion.Portable
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="create-a-new-working-branch">Create a new working branch</h2>
 <p>Create a new working branch based on dev branch.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd c:<span style="color:#79c0ff">\s</span>ource<span style="color:#79c0ff">\{</span>repositoryName<span style="color:#ff7b72;font-weight:bold">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd c:<span style="color:#79c0ff">\s</span>ource<span style="color:#79c0ff">\{</span>repositoryName<span style="color:#ff7b72;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>git checkout dev
 </span></span><span style="display:flex;"><span>git fetch origin dev <span style="color:#8b949e;font-style:italic"># origin is the remote pointing to upstream</span>
 </span></span><span style="display:flex;"><span>git rebase origin/dev
@@ -584,7 +652,7 @@ need to covert the module.</p>
 <p>Overwrite any files it suggest, then check the <code>git</code> diff if you need to
 keep anything. Remove any .bak files that are created if they ar no longer
 needed.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>cd C:\source\{RepositoryName}
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>cd C:\source\{RepositoryName}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Install-Module -Name <span style="color:#a5d6ff">&#39;Sampler&#39;</span> -Scope <span style="color:#a5d6ff">&#39;CurrentUser&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">$samplerModule</span> = Import-Module -Name Sampler -PassThru
@@ -610,7 +678,7 @@ the build and automatic release.</p>
 </ul>
 </li>
 <li>Rename the folder <code>Tests</code> to lower-case <code>tests</code>.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git mv Tests tests2
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git mv Tests tests2
 </span></span><span style="display:flex;"><span>git mv tests2 tests
 </span></span></code></pre></div></li>
 <li>Remove DscResource.Tests from the local repository if it was previously
@@ -625,7 +693,7 @@ folder. Overwrite any current file.</li>
 <h2 id="update-repository-and-module-files">Update repository and module files</h2>
 <h3 id="module-manifest">Module manifest</h3>
 <p>Change the module manifest in the source folder, e.g. <code>SqlServerDsc.psd1</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$moduleName</span> = <span style="color:#a5d6ff">&#39;{ModuleName}&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$moduleName</span> = <span style="color:#a5d6ff">&#39;{ModuleName}&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">$powerShellVersion</span> = <span style="color:#a5d6ff">&#39;5.1&#39;</span> <span style="color:#8b949e;font-style:italic"># Must be 5.1 to support the property DscResourcesToExport. Change manually after.</span>
 </span></span><span style="display:flex;"><span>
@@ -656,7 +724,7 @@ folder. Overwrite any current file.</li>
 <li>Having the export properties set to <code>'*'</code> is not optimal. Update or
 add the export properties to optimize discovery. <em>If any of these are</em>
 <em>already exporting objects then leave that export property as is.</em>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Functions to export from this module</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Functions to export from this module</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">Function</span>sToExport = <span style="color:#79c0ff">@</span>()
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Cmdlets to export from this module</span>
@@ -678,24 +746,25 @@ module name section.
 <p><strong>Note:</strong> To get the definition id, browse to the pipeline in
 the DSC Community Azure DevOps organization and look in the URL, e.g.
 <a href="https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&amp;_a=summary">https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&_a=summary</a>
-<strong>You have to get back to this once the pipeline is configured!</strong></p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff;font-weight:bold"># {RepositoryName}
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff;font-weight:bold"></span>
-</span></span><span style="display:flex;"><span>[<span style="color:#7ee787">![Build Status</span>](https://dev.azure.com/dsccommunity/{repositoryName}/_apis/build/status/dsccommunity.{repositoryName}?branchName=master)](https://dev.azure.com/dsccommunity/{repositoryName}/_build/latest?definitionId={definitionId}<span style="color:#f85149">&amp;</span>branchName=master)
+<strong>You have to get back to this once the pipeline is configured!</strong></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff;font-weight:bold"># {RepositoryName}
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#7ee787">![Build Status</span>](https://dev.azure.com/dsccommunity/{repositoryName}/_apis/build/status/dsccommunity.{repositoryName}?branchName=master)](https://dev.azure.com/dsccommunity/{repositoryName}/_build/latest?definitionId={definitionId}&amp;branchName=master)
 </span></span><span style="display:flex;"><span>![<span style="color:#7ee787">Azure DevOps coverage (branch)</span>](https://img.shields.io/azure-devops/coverage/dsccommunity/{repositoryName}/{definitionId}/master)
-</span></span><span style="display:flex;"><span>[<span style="color:#7ee787">![Azure DevOps tests</span>](https://img.shields.io/azure-devops/tests/dsccommunity/{repositoryName}/{definitionId}/master)](https://dsccommunity.visualstudio.com/{repositoryName}/_test/analytics?definitionId={definitionId}<span style="color:#f85149">&amp;</span>contextType=build)
+</span></span><span style="display:flex;"><span>[<span style="color:#7ee787">![Azure DevOps tests</span>](https://img.shields.io/azure-devops/tests/dsccommunity/{repositoryName}/{definitionId}/master)](https://dsccommunity.visualstudio.com/{repositoryName}/_test/analytics?definitionId={definitionId}&amp;contextType=build)
 </span></span><span style="display:flex;"><span>[<span style="color:#7ee787">![PowerShell Gallery (with prereleases)</span>](https://img.shields.io/powershellgallery/vpre/{repositoryName}?label={repositoryName}%20Preview)](https://www.powershellgallery.com/packages/{repositoryName}/)
 </span></span><span style="display:flex;"><span>[<span style="color:#7ee787">![PowerShell Gallery</span>](https://img.shields.io/powershellgallery/v/{repositoryName}?label={repositoryName})](https://www.powershellgallery.com/packages/{repositoryName}/)
 </span></span></code></pre></div></li>
 <li>Replace the text referencing the code of conduct with this new section
 instead.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff">## Code of Conduct
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff">## Code of Conduct
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>This project has adopted this [<span style="color:#7ee787">Code of Conduct</span>](CODE_OF_CONDUCT.md).
 </span></span></code></pre></div></li>
 <li>Add a <em>Releases</em> section after the <em>Code of Conduct</em> section.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff">## Releases
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff">## Releases
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>For each merge to the branch <span style="color:#a5d6ff">`master`</span> a preview release will be
 </span></span><span style="display:flex;"><span>deployed to [<span style="color:#7ee787">PowerShell Gallery</span>](https://www.powershellgallery.com/).
 </span></span><span style="display:flex;"><span>Periodically a release version tag will be pushed which will deploy a
@@ -715,26 +784,27 @@ correct path <code>[...](/source/Examples/Resources/...)</code></li>
 <h3 id="file-changelogmd">File <code>CHANGELOG.md</code></h3>
 <blockquote>
 <p><strong>NOTE:</strong> Build pipeline uses the format of <a href="https://keepachangelog.com/en/1.0.0/">keep a changelog</a>
-so we need to change the changelog accordingly.</p></blockquote>
+so we need to change the changelog accordingly.</p>
+</blockquote>
 <ol>
 <li>Update the Unreleased section of the CHANGELOG.md to use the new format,
 or copy the CHANGELOG.md from the base folder if the old change log does
 not need to be retained. <em>The example change log below is somewhat</em>
 *changed from the CHANGELOG.md in base folder.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff;font-weight:bold"># Change log for {RepositoryName}
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff;font-weight:bold"></span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff;font-weight:bold"># Change log for {RepositoryName}
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>The format is based on and uses the types of changes according to [<span style="color:#7ee787">Keep a Changelog</span>](https://keepachangelog.com/en/1.0.0/),
 </span></span><span style="display:flex;"><span>and this project adheres to [<span style="color:#7ee787">Semantic Versioning</span>](https://semver.org/spec/v2.0.0.html).
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">## [Unreleased]
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">### Added
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> SqlServerDsc
 </span></span><span style="display:flex;"><span>  <span style="color:#ff7b72">-</span> Added automatic release with a new CI pipeline.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">### Changed
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> SqlServerDsc
 </span></span><span style="display:flex;"><span>  <span style="color:#ff7b72">-</span> Add .gitattributes file to checkout file correctly with CRLF.
 </span></span><span style="display:flex;"><span>  <span style="color:#ff7b72">-</span> Updated .vscode/analyzersettings.psd1 file to correct use PSSA rules
@@ -744,19 +814,19 @@ not need to be retained. <em>The example change log below is somewhat</em>
 </span></span><span style="display:flex;"><span>  <span style="color:#ff7b72">-</span> Fix line endings in code which did not use the correct format.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">### Deprecated
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> None
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">### Removed
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> None
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">### Fixed
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> None
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">### Security
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> None
 </span></span></code></pre></div></li>
 <li>(Optional) Update old entires in the change log to match the new
@@ -764,12 +834,12 @@ change log format, see example in the Sampled repository
 <a href="https://github.com/gaelcolas/Sampler/blob/master/CHANGELOG.md">https://github.com/gaelcolas/Sampler/blob/master/CHANGELOG.md</a>.
 You can get the date for each tag (release) by running this, or
 check releases in the PowerShell Gallery.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log --tags --simplify-by-decoration --pretty<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;format:%ai %d&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log --tags --simplify-by-decoration --pretty<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;format:%ai %d&#34;</span>
 </span></span></code></pre></div>Example of log entry
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff">## [13.2.0.0] - 2019-09-18
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff">## [13.2.0.0] - 2019-09-18
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">### Changed
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> Changes to SqlServerDsc
 </span></span><span style="display:flex;"><span>  <span style="color:#ff7b72">-</span> Fix keywords to lower-case to align with guideline.
 </span></span><span style="display:flex;"><span>  <span style="color:#ff7b72">-</span> Fix keywords to have space before a parenthesis to align with guideline.
@@ -781,45 +851,45 @@ check releases in the PowerShell Gallery.
 <h3 id="file-githubpull_request_templatemd">File <code>.github/PULL_REQUEST_TEMPLATE.md</code></h3>
 <p>Make sure this file is updated to reflect having a CHANGELOG.md. The
 following is a proposed file but can changed to reflected other needs.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">&lt;!--
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    Thanks for submitting a Pull Request (PR) to this project. Your contribution to this project
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    is greatly appreciated!
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    Please prefix the PR title with the resource name, e.g. &#39;ResourceName: My short description&#39;.
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    If this is a breaking change, then also prefix the PR title with &#39;BREAKING CHANGE:&#39;,
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    e.g. &#39;BREAKING CHANGE: ResourceName: My short description&#39;.
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    You may remove this comment block, and the other comment blocks, but please keep the headers
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    and the task list.
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">--&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&lt;!--
+</span></span><span style="display:flex;"><span>    Thanks for submitting a Pull Request (PR) to this project. Your contribution to this project
+</span></span><span style="display:flex;"><span>    is greatly appreciated!
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Please prefix the PR title with the resource name, e.g. &#39;ResourceName: My short description&#39;.
+</span></span><span style="display:flex;"><span>    If this is a breaking change, then also prefix the PR title with &#39;BREAKING CHANGE:&#39;,
+</span></span><span style="display:flex;"><span>    e.g. &#39;BREAKING CHANGE: ResourceName: My short description&#39;.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    You may remove this comment block, and the other comment blocks, but please keep the headers
+</span></span><span style="display:flex;"><span>    and the task list.
+</span></span><span style="display:flex;"><span>--&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">#### Pull Request (PR) description
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">&lt;!--
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    Replace this comment block with a description of your PR. Also, make sure you have updated the
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    CHANGELOG.md, see the task list below. An entry in the CHANGELOG.md is mandatory for all PRs.
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">--&gt;</span>
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;!--
+</span></span><span style="display:flex;"><span>    Replace this comment block with a description of your PR. Also, make sure you have updated the
+</span></span><span style="display:flex;"><span>    CHANGELOG.md, see the task list below. An entry in the CHANGELOG.md is mandatory for all PRs.
+</span></span><span style="display:flex;"><span>--&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">#### This Pull Request (PR) fixes the following issues
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">&lt;!--
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    If this PR does not fix an open issue, replace this comment block with None. If this PR
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    resolves one or more open issues, replace this comment block with a list of the issues using
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    a GitHub closing keyword, e.g.:
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> <span style="color:#8b949e;font-style:italic">Fixes </span><span style="color:#ffa657">#123</span><span style="color:#8b949e;font-style:italic">
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span><span style="color:#ff7b72">-</span> <span style="color:#8b949e;font-style:italic">Fixes </span><span style="color:#ffa657">#124</span><span style="color:#8b949e;font-style:italic">
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">--&gt;</span>
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;!--
+</span></span><span style="display:flex;"><span>    If this PR does not fix an open issue, replace this comment block with None. If this PR
+</span></span><span style="display:flex;"><span>    resolves one or more open issues, replace this comment block with a list of the issues using
+</span></span><span style="display:flex;"><span>    a GitHub closing keyword, e.g.:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> Fixes <span style="color:#ffa657">#123</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> Fixes <span style="color:#ffa657">#124</span>
+</span></span><span style="display:flex;"><span>--&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">#### Task list
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">&lt;!--
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    To aid community reviewers in reviewing and merging your PR, please take the time to run
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    through the below checklist and make sure your PR has everything updated as required.
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    Change to [x] for each task in the task list that applies to your PR. For those task that
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">    don&#39;t apply to you PR, leave those as is.
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">--&gt;</span>
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;!--
+</span></span><span style="display:flex;"><span>    To aid community reviewers in reviewing and merging your PR, please take the time to run
+</span></span><span style="display:flex;"><span>    through the below checklist and make sure your PR has everything updated as required.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Change to [x] for each task in the task list that applies to your PR. For those task that
+</span></span><span style="display:flex;"><span>    don&#39;t apply to you PR, leave those as is.
+</span></span><span style="display:flex;"><span>--&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">- [ ]</span> Added an entry to the change log under the Unreleased section of the file CHANGELOG.md.
 </span></span><span style="display:flex;"><span>      Entry should say what was changed and how that affects users (if applicable), and
@@ -836,7 +906,7 @@ following is a proposed file but can changed to reflected other needs.</p>
 </span></span></code></pre></div><h3 id="file-githubissue_templateproblem_with_resourcemd">File <code>.github/ISSUE_TEMPLATE/Problem_with_resource.md</code></h3>
 <p>Change the last line to the following, removing the sentence within the
 parenthesis.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff">#### Version of the DSC module that was used
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff">#### Version of the DSC module that was used
 </span></span></span></code></pre></div><h3 id="other-repository-files">Other repository files</h3>
 <ol>
 <li>Remove the file <code>.MetaTestOptIn.json</code> since it is no longer used.
@@ -846,7 +916,7 @@ parenthesis.</p>
 <code>Copyright (c) DSC Community contributors.</code></li>
 <li>Update the contents of the conceptual help file under <code>./source/en-US</code>
 to describe the module. Change as necessary, like module name. E.g.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>TOPIC
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>TOPIC
 </span></span><span style="display:flex;"><span>    about_{RepositoryName}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>SHORT DESCRIPTION
@@ -879,7 +949,7 @@ to describe the module. Change as necessary, like module name. E.g.
 <li>Uncomment the folder <code>Modules</code> if the folder exist under the source folder,
 or if there are any helper modules (which need to be moved to the <code>Modules</code>
 folder).
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">CopyPaths</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">CopyPaths</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span>- <span style="color:#a5d6ff">Modules</span><span style="color:#6e7681">
 </span></span></span></code></pre></div></li>
 <li>(Optional) Clear out any commented rows <em>(they can always be found in the</em>
@@ -896,8 +966,9 @@ added to the file <code>RequiredModules.psd1</code>. <strong>We need to pin the 
 are detected when configuration files are compiled. If we do not pin
 versions the CI pipeline will se duplicate modules due to the folder
 structure the CI pipeline is using when building the pipeline.
-E.g. paths used <code>\output\;\output\RequiredModules</code>.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Prerequisites modules needed for examples and integration tests of</span>
+E.g. paths used <code>\output\;\output\RequiredModules</code>.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Prerequisites modules needed for examples and integration tests of</span>
 </span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># the {RepositoryName} module.</span>
 </span></span><span style="display:flex;"><span>PSDscResources = <span style="color:#a5d6ff">&#39;2.12.0.0&#39;</span>
 </span></span><span style="display:flex;"><span>StorageDsc     = <span style="color:#a5d6ff">&#39;4.9.0.0&#39;</span>
@@ -916,7 +987,8 @@ then set <code>next-version</code> to <code>13.3.0</code>.</li>
 raise the major version to <code>14.0.0</code> you <strong>cannot</strong> set <code>next-version</code> to
 <code>14.0.0</code>. If you want next released version to be <code>14.0.0</code> then set
 <code>next-version</code> to <code>13.3.0</code> and then add a commit with the word <code>breaking</code>
-or <code>major</code> in the commit message.</p></blockquote>
+or <code>major</code> in the commit message.</p>
+</blockquote>
 <h2 id="update-helper-modules">Update helper modules</h2>
 <p>If there are any helper modules then move those to the <code>Modules</code> folder
 under the source folder (and change the code accordingly). Then for each
@@ -925,7 +997,7 @@ helper module these steps should be done.</p>
 <li>Any helper module is required to have a module manifest.
 Create one using <code>New-ModuleManifest</code>, e.g.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$helperModuleName</span> = <span style="color:#a5d6ff">&#39;{HelperModuleName}&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$helperModuleName</span> = <span style="color:#a5d6ff">&#39;{HelperModuleName}&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Need the full path to work with WriteAllText().</span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">$helperModulePath</span> = <span style="color:#a5d6ff">&#34;</span><span style="color:#79c0ff">$PWD</span><span style="color:#a5d6ff">\source\Modules\</span><span style="color:#79c0ff">$helperModuleName</span><span style="color:#a5d6ff">&#34;</span>
@@ -962,7 +1034,7 @@ Create one using <code>New-ModuleManifest</code>, e.g.</li>
 must use a pinned version. The pinned version must be the same version that
 was pinned in the file <code>RequiredModules.psd1</code> (or make sure to pin the same
 version there too). Example of pinning a version in the configuration file.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Import-DscResource -ModuleName <span style="color:#a5d6ff">&#39;PSDscResources&#39;</span> -ModuleVersion <span style="color:#a5d6ff">&#39;2.12.0.0&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Import-DscResource -ModuleName <span style="color:#a5d6ff">&#39;PSDscResources&#39;</span> -ModuleVersion <span style="color:#a5d6ff">&#39;2.12.0.0&#39;</span>
 </span></span><span style="display:flex;"><span>Import-DscResource -ModuleName <span style="color:#a5d6ff">&#39;StorageDsc&#39;</span> -ModuleVersion <span style="color:#a5d6ff">&#39;4.9.0.0&#39;</span>
 </span></span></code></pre></div><h2 id="resolve-build-dependencies">Resolve build dependencies</h2>
 <p>This requires that all steps above have been done. Running this command
@@ -973,15 +1045,16 @@ or if there are new releases of external modules listed in the file
 <code>RequiredModules.psd1</code>.</p>
 <blockquote>
 <p><strong>NOTE:</strong> This does not install anything, it downloads the prerequisites
-into the <code>output</code> folder.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -ResolveDependency -Tasks noop
+into the <code>output</code> folder.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -ResolveDependency -Tasks noop
 </span></span></code></pre></div><h2 id="run-a-build">Run a build</h2>
 <p>This builds the module after which for example tests can be run on the built
 module. The built module will look the same as the one that is release.
 <code>GitVersion</code> is used to determine the next version if it is installed.</p>
 <p><strong>This must be run each time changes have been made to files in the source</strong>
 <strong>folder.</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks build
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks build
 </span></span></code></pre></div><h2 id="examples-files-if-publishing-to-gallery">Examples files (if publishing to Gallery)</h2>
 <p>For examples that are published to the Gallery the <em>Script File Information</em>
 section need to be changed. This script must be run after the build task
@@ -992,8 +1065,9 @@ have been run because it needs to resolve the modules in a <code>$PSModulePath</
 modules. If an example is dependent on other modules, e.g. PSDscResources,
 they need to be present in a <code>$PSModulePath</code>. If not you will get a parse
 error. Dependent modules should have already been pinned in the file
-<code>RequiredModules.psd1</code> and in each example file.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$moduleName</span> = <span style="color:#a5d6ff">&#39;&lt;repositoryName&gt;&#39;</span>
+<code>RequiredModules.psd1</code> and in each example file.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$moduleName</span> = <span style="color:#a5d6ff">&#39;&lt;repositoryName&gt;&#39;</span>
 </span></span><span style="display:flex;"><span>Get-ChildItem -Path <span style="color:#a5d6ff">&#39;.\source\Examples&#39;</span> -Filter <span style="color:#a5d6ff">&#39;*.ps1&#39;</span> -Recurse | % {
 </span></span><span style="display:flex;"><span>    Update-ScriptFileInfo -Path <span style="color:#79c0ff">$_</span>.<span style="color:#79c0ff">FullName</span> `
 </span></span><span style="display:flex;"><span>        -Version <span style="color:#a5d6ff">&#39;1.0.1&#39;</span> `
@@ -1010,12 +1084,12 @@ error. Dependent modules should have already been pinned in the file
 <ol>
 <li>From the <code>test:</code> task, remove the activity <code>hqrmtest</code>.</li>
 <li>Under the key <code>Pester</code> update the key <code>Script</code> to this.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Script</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Script</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span>- <span style="color:#a5d6ff">tests/Unit</span><span style="color:#6e7681">
 </span></span></span></code></pre></div></li>
 <li>Under the key <code>Pester</code> remove all the items from the key <code>ExcludeTag</code>.
 Remove these:
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#ff7b72">-</span> helpQuality
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#ff7b72">-</span> helpQuality
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> FunctionalQuality
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> TestQuality
 </span></span></code></pre></div></li>
@@ -1027,7 +1101,7 @@ of the previous test framework. Everything between and including
 any helper modules, that need to be imported). Replace it with the following code,
 add the code inside the function <code>Invoke-TestSetup</code>. Also update the function
 <code>Invoke-TestCleanup</code>. Make sure the <code>Invoke-TestSetup</code> is called outside the <code>try</code>-block.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#ff7b72">function</span><span style="color:#6e7681"> </span>Invoke-TestSetup
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#ff7b72">function</span><span style="color:#6e7681"> </span>Invoke-TestSetup
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>
 </span></span><span style="display:flex;"><span>    {
@@ -1068,7 +1142,7 @@ of the previous test framework. Everything between and including
 <code>#region HEADER</code> and <code>#endregion HEADER</code>. Replace it with the following
 code. Make sure to change the parameter of the cmdlet <code>Restore-TestEnvironment</code>
 at the end of the file too.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#ff7b72">try</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#ff7b72">try</span>
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    Import-Module -Name DscResource.<span style="color:#79c0ff">Test</span> -Force -ErrorAction <span style="color:#a5d6ff">&#39;Stop&#39;</span>
 </span></span><span style="display:flex;"><span>}
@@ -1084,7 +1158,7 @@ at the end of the file too.</p>
 </span></span><span style="display:flex;"><span>    -TestType <span style="color:#a5d6ff">&#39;Integration&#39;</span>
 </span></span></code></pre></div><p>Change the parameter of the cmdlet <code>Restore-TestEnvironment</code> at the end
 of the file.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#ff7b72">finally</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#ff7b72">finally</span>
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    Restore-TestEnvironment -TestEnvironment <span style="color:#79c0ff">$script:testEnvironment</span>
 </span></span><span style="display:flex;"><span>}
@@ -1093,12 +1167,12 @@ that module must use a pinned version. The pinned version must be the same
 version that was pinned in the file <code>RequiredModules.psd1</code> (or make sure to
 pin the same version there too). Example of pinning a version in the
 configuration file.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Import-DscResource -ModuleName <span style="color:#a5d6ff">&#39;PSDscResources&#39;</span> -ModuleVersion <span style="color:#a5d6ff">&#39;2.12.0.0&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Import-DscResource -ModuleName <span style="color:#a5d6ff">&#39;PSDscResources&#39;</span> -ModuleVersion <span style="color:#a5d6ff">&#39;2.12.0.0&#39;</span>
 </span></span><span style="display:flex;"><span>Import-DscResource -ModuleName <span style="color:#a5d6ff">&#39;StorageDsc&#39;</span> -ModuleVersion <span style="color:#a5d6ff">&#39;4.9.0.0&#39;</span>
 </span></span></code></pre></div><h3 id="unit-tests-for-helper-modules">Unit tests for helper modules</h3>
 <p>For any helper modules, add this to each unit test (and remove any
 other code that imported the helper module previously).</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">#region HEADER</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">#region HEADER</span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">$script:projectPath</span> = <span style="color:#a5d6ff">&#34;</span><span style="color:#79c0ff">$PSScriptRoot</span><span style="color:#a5d6ff">\..\..&#34;</span> | Convert-Path
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">$script:projectName</span> = (Get-ChildItem -Path <span style="color:#a5d6ff">&#34;</span><span style="color:#79c0ff">$script:projectPath</span><span style="color:#a5d6ff">\*\*.psd1&#34;</span> | Where-Object -FilterScript {
 </span></span><span style="display:flex;"><span>        (<span style="color:#79c0ff">$_</span>.<span style="color:#79c0ff">Directory</span>.<span style="color:#79c0ff">Name</span> <span style="color:#ff7b72;font-weight:bold">-match</span> <span style="color:#a5d6ff">&#39;source|src&#39;</span> <span style="color:#ff7b72;font-weight:bold">-or</span> <span style="color:#79c0ff">$_</span>.<span style="color:#79c0ff">Directory</span>.<span style="color:#79c0ff">Name</span> <span style="color:#ff7b72;font-weight:bold">-eq</span> <span style="color:#79c0ff">$_</span>.BaseName) <span style="color:#ff7b72;font-weight:bold">-and</span>
@@ -1125,19 +1199,20 @@ This runs all the unit tests for the module. <em>It runs the tests that are</em>
 <em><code>build.yaml</code>.</em></p>
 <p><strong>Remember to run the build task if any file has been changed in the source</strong>
 <strong>folder.</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks hqrmtest
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks hqrmtest
 </span></span><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks test
 </span></span></code></pre></div><blockquote>
 <p>To run the integration tests you will need to add the parameter <code>PesterScript</code>,
 e.g.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks test -PesterScript <span style="color:#a5d6ff">&#39;tests/Integration&#39;</span>.
-</span></span></code></pre></div><p><strong>Only do this in a lab environment or CI environment.</strong></p></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks test -PesterScript <span style="color:#a5d6ff">&#39;tests/Integration&#39;</span>.
+</span></span></code></pre></div><p><strong>Only do this in a lab environment or CI environment.</strong></p>
+</blockquote>
 <h2 id="configure-ci-test-pipeline">Configure CI test pipeline</h2>
 <h3 id="file-azure-pipelinesyml">File <code>azure-pipelines.yml</code></h3>
 <ol>
 <li>Replace the string <code>Build_artefact</code> with <code>Build</code> (in one locations).</li>
 <li>Replace the entire stage <code>test_module</code> with the following.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#7ee787">stage</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Test</span><span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#7ee787">stage</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Test</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">dependsOn</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Build</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">jobs</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#7ee787">job</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Test_HQRM</span><span style="color:#6e7681">
@@ -1263,7 +1338,7 @@ key <code>vmImage</code> to a supported image listed in the section
 <li>(Optional) If needed, add anything that was specific to running tests that was
 part of the <code>appveyor.yml</code>. For example to install a feature, add this
 before the task <code>Test</code> in the job <code>Test_Integration</code>.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#7ee787">powershell</span>:<span style="color:#6e7681"> </span>|<span style="color:#a5d6ff">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#7ee787">powershell</span>:<span style="color:#6e7681"> </span>|<span style="color:#a5d6ff">
 </span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Install-WindowsFeature -IncludeAllSubFeature -IncludeManagementTools -Name &#39;Web-Server&#39;</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">name</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">InstallWebServerFeature</span><span style="color:#6e7681">
 </span></span></span></code></pre></div></li>
@@ -1271,7 +1346,7 @@ before the task <code>Test</code> in the job <code>Test_Integration</code>.
 prioritize specific tests) then specify the order in which the tests
 should run. <strong>This does not work if you call the pipeline using the</strong>
 <strong>parameter <code>PesterScript</code>, e.g. <code>./build.ps1 -Tasks test -PesterScript 'tests/Integration'</code>.</strong>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Pester</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Pester</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic"># Run the script in order. First all of unit tests in no particular order,</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic"># and then all the integration tests in a specific group order.</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span>- <span style="color:#a5d6ff">tests/Unit</span><span style="color:#6e7681">
@@ -1311,7 +1386,8 @@ push a working branch to your fork and it will be tested the same way as
 when you send in a PR.</p>
 <blockquote>
 <p>This is similar to what the upstream repository is using to run CI pipeline,
-it is using the <a href="https://dev.azure.com/dsccommunity">https://dev.azure.com/dsccommunity</a> organization.</p></blockquote>
+it is using the <a href="https://dev.azure.com/dsccommunity">https://dev.azure.com/dsccommunity</a> organization.</p>
+</blockquote>
 <p>This is can be used to test that everything works  as expected before sending
 in a PR. It can also be used to start a test run that takes a long time without
 having the development environment powered on. Just commit and push the changes
@@ -1361,7 +1437,8 @@ will trigger on that and start a run.</p>
 <blockquote>
 <p><strong>NOTE:</strong> Even if we choose a specific YAML file that will not be used,
 instead the YAML file from the branch being pushed will be used, so any
-changes to the file <code>azure-pipelines.yml</code> will be reflected.</p></blockquote>
+changes to the file <code>azure-pipelines.yml</code> will be reflected.</p>
+</blockquote>
 <h2 id="modify-upstream-repository">Modify upstream repository</h2>
 <p>Once all the tests are passing (preferably verified in you own Azure DevOps
 organization) it time to update the upstream repository on the DscCommunity
@@ -1397,7 +1474,8 @@ and provide the e-mail address you want to access the Azure DevOps
 organization with. He will create the Azure DevOps project for the
 repository. He will also invite you as a stakeholder to the DSC Community
 Azure DevOps organization and give you permission in the Azure DevOps
-project.</p></blockquote>
+project.</p>
+</blockquote>
 <p>Prior to doing this, make sure that the working branch was pushed to
 the upstream repository since we need to have access to the file
 <code>azure-pipelines.yml</code> in the next step.</p>
@@ -1451,7 +1529,8 @@ repository) targeting the <code>dev</code> branch.</li>
 <p><strong>NOTE:</strong> GitHub will say &ldquo;Changing the default branch can have unintended
 consequences that can affect new pull requests and clones.&rdquo;. We have to
 help contributors so solve any consequences so just ignore ignore it and
-continue.</p></blockquote>
+continue.</p>
+</blockquote>
 <h3 id="set-new-repository-branch-protection-rules">Set new repository branch protection rules</h3>
 <p>Browse to the repository settings page and set the branch protection
 rules for branch <code>master</code> to add the status check for Azure Pipelines.
@@ -1472,7 +1551,8 @@ See branch protection rules at <a href="https://github.com/dsccommunity/%7Brepos
 etc.</p>
 <blockquote>
 <p><strong>NOTE:</strong> Names can differ depending on what the jobs were named
-in the file <code>azure-pipelines.yml</code>.</p></blockquote>
+in the file <code>azure-pipelines.yml</code>.</p>
+</blockquote>
 <h3 id="transfer-powershell-gallery-package">Transfer PowerShell Gallery package</h3>
 <p><del>Ask @gaelcolas to transfer the package for the repository over to the</del>
 <del>DSC Community. <strong>This must be done prior to merging changes into the</strong></del>
@@ -1486,7 +1566,7 @@ at <a href="https://github.com/dsccommunity/%7Brepository%7D/settings/branches">
 <li>Get the linear commit history of upstream branch <code>master</code> into the upstream
 branch <code>dev</code>. <em>This must be done to keep the commits that us used by the</em>
 <em>tags.</em>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout dev
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout dev
 </span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># get latest changes from upstream dev into local branch dev</span>
 </span></span><span style="display:flex;"><span>git fetch origin dev
 </span></span><span style="display:flex;"><span>git rebase origin/dev
@@ -1507,7 +1587,7 @@ a new release version tag. Important to have the correct format <code>vX.Y.Z</co
 e.g. <code>v1.14.1</code>.</p>
 <p>Assuming &lsquo;origin&rsquo; is the remote name pointing the upstream repository, if
 not then change appropriately.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Make sure to get the latest history, use rebase to retain the linear</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Make sure to get the latest history, use rebase to retain the linear</span>
 </span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># commit history.</span>
 </span></span><span style="display:flex;"><span>git checkout master
 </span></span><span style="display:flex;"><span>git fetch origin master
@@ -1520,7 +1600,8 @@ not then change appropriately.</p>
 </span></span><span style="display:flex;"><span>git push origin --tags <span style="color:#8b949e;font-style:italic"># Push the new tag that was created locally</span>
 </span></span></code></pre></div><blockquote>
 <p><strong>NOTE:</strong> You could also tag a specific commit if not all commits should
-be released.</p></blockquote>
+be released.</p>
+</blockquote>
 <h3 id="remove-branch-dev-from-upstream-repository">Remove branch <code>dev</code> from upstream repository</h3>
 <p><strong>BE AWARE OF AFFECTED PULL REQUESTS.</strong></p>
 <ol>
@@ -1537,7 +1618,7 @@ repository at <a href="https://ci.appveyor.com/projects">https://ci.appveyor.com
 <li>Change the default branch to <code>master</code> in the <em>forked</em> repository.</li>
 <li>Remove branch <code>dev</code> from the <em>forked</em> repository.</li>
 <li>Update the branch <code>master</code> in the <em>forked</em> repository.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout master
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout master
 </span></span><span style="display:flex;"><span>git fetch origin master
 </span></span><span style="display:flex;"><span>git rebase origin/master
 </span></span><span style="display:flex;"><span>git push my --force
@@ -1559,88 +1640,121 @@ because the repo is not connected&rdquo;. Click on the green button that says
 <strong>CONNECT DSCCOMMUNITY/{repositoryName}</strong>.</p>
 <p>Reviewable should now have been re-connected.</p>
 
-        </article>
+        </div>
 
         
-        <footer style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--border-primary);">
-          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-4);">
-            <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: 0;">
-              Last updated: December 19, 2025
-            </p>
-            
-            <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/content/blog%5cconvert-a-module-for-continuous-delivery.en.md"
-               class="btn btn-ghost btn-sm"
-               target="_blank"
-               rel="noopener noreferrer">
-              <i class="ri-edit-line"></i>
-              Edit this page
-            </a>
-            
+        
+
+        
+        <div style="margin-top: var(--space-8); padding: var(--space-6); background: var(--bg-secondary); border-radius: var(--radius-xl); border: 1px solid var(--border-color);">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4);">
+            <div>
+              <h4 style="margin-bottom: var(--space-1);">Share this article</h4>
+              <p style="color: var(--text-secondary); font-size: var(--text-sm);">Help spread the word about DSC Community!</p>
+            </div>
+            <div style="display: flex; gap: var(--space-2);">
+              <a href="https://twitter.com/intent/tweet?text=Steps&#43;to&#43;convert&#43;a&#43;module&#43;for&#43;continuous&#43;delivery&url=https%3A%2F%2Fdsccommunity.org%2Fblog%2Fconvert-a-module-for-continuous-delivery%2F" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on Twitter">
+                <i class="ri-twitter-x-line" style="font-size: 1.25rem;"></i>
+              </a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdsccommunity.org%2Fblog%2Fconvert-a-module-for-continuous-delivery%2F&title=Steps&#43;to&#43;convert&#43;a&#43;module&#43;for&#43;continuous&#43;delivery" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on LinkedIn">
+                <i class="ri-linkedin-line" style="font-size: 1.25rem;"></i>
+              </a>
+              <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fdsccommunity.org%2Fblog%2Fconvert-a-module-for-continuous-delivery%2F&title=Steps&#43;to&#43;convert&#43;a&#43;module&#43;for&#43;continuous&#43;delivery" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on Reddit">
+                <i class="ri-reddit-line" style="font-size: 1.25rem;"></i>
+              </a>
+            </div>
           </div>
-        </footer>
-
-        
-        <nav style="display: flex; justify-content: space-between; margin-top: var(--space-8); gap: var(--space-4);">
-          
-          <a href="https://dsccommunity.org/blog/how-to-use-dsc-logging/" class="card" style="flex: 1; max-width: 45%; text-decoration: none;">
-            <div style="display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
-              <i class="ri-arrow-left-line"></i>
-              Previous
-            </div>
-            <span class="card-title" style="font-size: var(--text-base);">How to Use DSC Logging</span>
-          </a>
-          
-
-          
-          <a href="https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/" class="card" style="flex: 1; max-width: 45%; text-align: right; text-decoration: none;">
-            <div style="display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
-              Next
-              <i class="ri-arrow-right-line"></i>
-            </div>
-            <span class="card-title" style="font-size: var(--text-base);">DscResource.Common functions in a DSC module</span>
-          </a>
-          
-        </nav>
+        </div>
       </div>
+
+      
+      
+      <aside class="article-toc">
+        <div class="toc-sticky">
+          <h4 class="toc-heading">
+            <i class="ri-list-unordered"></i>
+            On this page
+          </h4>
+          <nav class="toc-nav">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#prepare-repository-for-automatic-releases">Prepare repository for automatic releases</a>
+      <ul>
+        <li><a href="#re-create-all-old-tags">Re-create all old tags</a></li>
+        <li><a href="#make-sure-all-previous-releases-has-tags">Make sure all previous releases has tags</a></li>
+        <li><a href="#optional-create-github-releases-for-all-releases">(Optional) Create GitHub Releases for all releases</a></li>
+      </ul>
+    </li>
+    <li><a href="#install-prerequisites">Install prerequisites</a></li>
+    <li><a href="#create-a-new-working-branch">Create a new working branch</a></li>
+    <li><a href="#add-ci-pipeline-configuration-files">Add CI pipeline configuration files</a></li>
+    <li><a href="#change-repository-folder-structure">Change repository folder structure</a></li>
+    <li><a href="#update-repository-and-module-files">Update repository and module files</a>
+      <ul>
+        <li><a href="#module-manifest">Module manifest</a></li>
+        <li><a href="#file-readmemd">File <code>README.md</code></a></li>
+        <li><a href="#file-changelogmd">File <code>CHANGELOG.md</code></a></li>
+        <li><a href="#file-githubpull_request_templatemd">File <code>.github/PULL_REQUEST_TEMPLATE.md</code></a></li>
+        <li><a href="#file-githubissue_templateproblem_with_resourcemd">File <code>.github/ISSUE_TEMPLATE/Problem_with_resource.md</code></a></li>
+        <li><a href="#other-repository-files">Other repository files</a></li>
+      </ul>
+    </li>
+    <li><a href="#configure-ci-build-pipeline">Configure CI build pipeline</a>
+      <ul>
+        <li><a href="#file-buildyaml">File <code>build.yaml</code></a></li>
+        <li><a href="#file-requiredmodulespsd1">File <code>RequiredModules.psd1</code></a></li>
+        <li><a href="#file-gitversionyml">File <code>GitVersion.yml</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#update-helper-modules">Update helper modules</a></li>
+    <li><a href="#update-examples">Update examples</a></li>
+    <li><a href="#resolve-build-dependencies">Resolve build dependencies</a></li>
+    <li><a href="#run-a-build">Run a build</a></li>
+    <li><a href="#examples-files-if-publishing-to-gallery">Examples files (if publishing to Gallery)</a></li>
+    <li><a href="#prepare-the-module-to-use-the-ci-test-pipeline">Prepare the module to use the CI test pipeline</a>
+      <ul>
+        <li><a href="#file-buildyaml-1">File <code>build.yaml</code></a></li>
+        <li><a href="#update-unit-tests">Update unit tests</a></li>
+        <li><a href="#update-integration-tests">Update integration tests</a></li>
+        <li><a href="#unit-tests-for-helper-modules">Unit tests for helper modules</a></li>
+      </ul>
+    </li>
+    <li><a href="#run-tests-locally">Run tests locally</a></li>
+    <li><a href="#configure-ci-test-pipeline">Configure CI test pipeline</a>
+      <ul>
+        <li><a href="#file-azure-pipelinesyml">File <code>azure-pipelines.yml</code></a></li>
+        <li><a href="#optional-add-codecov-support-to-repository">(Optional) Add Codecov Support to Repository</a></li>
+      </ul>
+    </li>
+    <li><a href="#attach-your-fork-to-a-free-azure-devops-organization">Attach your fork to a free Azure DevOps organization</a></li>
+    <li><a href="#modify-upstream-repository">Modify upstream repository</a>
+      <ul>
+        <li><a href="#remove-webhooks">Remove WebHooks</a></li>
+        <li><a href="#remove-appveyor-ci">Remove AppVeyor CI</a></li>
+        <li><a href="#push-working-branch-to-upstream-repository">Push working branch to upstream repository</a></li>
+        <li><a href="#attach-dsc-community-azure-devops-organization">Attach DSC Community Azure DevOps organization</a></li>
+        <li><a href="#remove-repository-branch-protection-rules">Remove repository branch protection rules</a></li>
+        <li><a href="#update-dev-branch">Update dev branch</a></li>
+        <li><a href="#change-default-branch">Change default branch</a></li>
+        <li><a href="#set-new-repository-branch-protection-rules">Set new repository branch protection rules</a></li>
+        <li><a href="#transfer-powershell-gallery-package">Transfer PowerShell Gallery package</a></li>
+        <li><a href="#update-master-branch">Update master branch</a></li>
+        <li><a href="#publish-the-next-full-version">Publish the next full version</a></li>
+        <li><a href="#remove-branch-dev-from-upstream-repository">Remove branch <code>dev</code> from upstream repository</a></li>
+      </ul>
+    </li>
+    <li><a href="#modify-the-forked-repository">Modify the <em>forked</em> repository</a></li>
+    <li><a href="#re-connect-reviewable">Re-connect Reviewable</a></li>
+  </ul>
+</nav>
+          </nav>
+        </div>
+      </aside>
+      
+
     </div>
   </div>
-</section>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const article = document.querySelector('.article-content');
-  const tocList = document.getElementById('tocList');
-
-  if (article && tocList && !tocList.children.length) {
-    const headings = article.querySelectorAll('h2, h3');
-
-    if (headings.length > 0) {
-      headings.forEach((heading, index) => {
-        if (!heading.id) {
-          heading.id = 'heading-' + index;
-        }
-
-        const li = document.createElement('li');
-        li.className = 'sidebar-list-item';
-
-        const a = document.createElement('a');
-        a.href = '#' + heading.id;
-        a.className = 'sidebar-link';
-        a.textContent = heading.textContent;
-
-        if (heading.tagName === 'H3') {
-          a.style.paddingLeft = 'var(--space-6)';
-          a.style.fontSize = 'var(--text-xs)';
-        }
-
-        li.appendChild(a);
-        tocList.appendChild(li);
-      });
-    }
-  }
-});
-</script>
+</article>
 
 </main>
 <footer class="site-footer">
@@ -1841,8 +1955,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     <script
-      src="https://dsccommunity.org/js/main.min.9a596f512ca53270aac01ee7314fba2b9cbdd17fb33667198c82f28d1dc82006.js"
-      integrity="sha256-mllvUSylMnCqwB7nMU&#43;6K5y90X&#43;zNmcZjILyjR3IIAY="
+      src="https://dsccommunity.org/js/main.min.56bc7a80dd440714f8194bda3bfc8dbf08ebd1bbb8bbc0a7d0dd285149f685af.js"
+      integrity="sha256-Vrx6gN1EBxT4GUvaO/yNvwjr0bu4u8Cn0N0oUUn2ha8="
     ></script>
   </body>
 </html>

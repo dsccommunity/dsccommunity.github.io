@@ -14,7 +14,7 @@
 
     <title>Contributing | </title>
 
-    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Hugo 0.163.3">
 
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,8 +42,8 @@
     
     <link
       rel="stylesheet"
-      href="https://dsccommunity.org/css/futuristic.min.2fe77f06d9e00c9c5b3ed8d96e487ab36a763589c09b8cf99c143b793fe8c975.css"
-      integrity="sha256-L&#43;d/BtngDJxbPtjZbkh6s2p2NYnAm4z5nBQ7eT/oyXU="
+      href="https://dsccommunity.org/css/futuristic.min.64c9c720b33245978cd805363c7f551a4638810479e30c132a829e57bcc642ed.css"
+      integrity="sha256-ZMnHILMyRZeM2AU2PH9VGkY4gQR54wwTKoKeV7zGQu0="
     />
 
     
@@ -318,7 +318,8 @@
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Toggle menu"
+          aria-label="Open menu"
+          aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
           <svg
@@ -330,8 +331,8 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
@@ -339,6 +340,148 @@
     </div>
   </div>
 </header>
+
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <div>
+        <span class="mobile-menu-eyebrow"></span>
+        <h2 class="mobile-menu-title">Menu</h2>
+      </div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <ul class="mobile-menu-list">
+        
+        
+        <li>
+          <a href="/code_of_conduct" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-shield-check-line"></i>
+              
+            </span>
+            <span>Code of Conduct</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/community_calls" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-calendar-event-line"></i>
+              
+            </span>
+            <span>Community Calls</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/faq" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-question-answer-line"></i>
+              
+            </span>
+            <span>FAQ</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/help" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-lifebuoy-line"></i>
+              
+            </span>
+            <span>Help</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="mobile-menu-group">
+          <span class="mobile-menu-heading">
+            <span class="mobile-menu-icon"><i class="ri-folder-3-line"></i></span>
+            <span>Categories</span>
+          </span>
+          <div class="mobile-submenu">
+            
+            <a href="/community" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-team-line"></i>
+                
+              </span>
+              <span>Community</span>
+            </a>
+            
+            <a href="/resources" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-apps-2-line"></i>
+                
+              </span>
+              <span>Resource Modules</span>
+            </a>
+            
+            <a href="/guidelines" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-book-open-line"></i>
+                
+              </span>
+              <span>Guidelines</span>
+            </a>
+            
+            <a href="/blog" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-article-line"></i>
+                
+              </span>
+              <span>Blog Posts</span>
+            </a>
+            
+            <a href="/configmgt" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-settings-3-line"></i>
+                
+              </span>
+              <span>Config. Management</span>
+            </a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="ri-contrast-2-line"></i>
+        <span>Theme</span>
+      </button>
+      <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
+        <i class="ri-github-fill"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </aside>
+</div>
 <main id="main-content">
 
 
@@ -598,7 +741,7 @@ you provide, the easier it will be for the community to help you with your
 issue.</p>
 <p><em>This example does not provide much context. It has also been shortened</em>
 <em>for the sake of brevity.</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>    #### Details of the scenario you tried and the problem that is occurring
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>    #### Details of the scenario you tried and the problem that is occurring
 </span></span><span style="display:flex;"><span>    It cannot find the power plan when I...
 </span></span><span style="display:flex;"><span>    The issue #11, #72, and PowerShell/xPSDesiredStateConfiguration#160
 </span></span><span style="display:flex;"><span>    is related
@@ -670,7 +813,8 @@ issue to issue.</p>
 <blockquote>
 <p>If you are new to contributing, then you might want to start with an issue
 labeled with <code>good first issue</code> since they are meant for you as new contributor
-to have something easy from where to start learning the process and workflow.</p></blockquote>
+to have something easy from where to start learning the process and workflow.</p>
+</blockquote>
 <p>If you find an issue you would like to resolve then please comment on that
 issue that you are working on it. This helps others in the community to know
 that this is being worked on, and keeps other contributors from working on
@@ -729,7 +873,8 @@ repositories requires both unit and integration tests.</p>
 have to write tests for your changes. But you do not have to write the full
 set of tests for the resource. You only need to test the changes that you
 made to the resource. But adding unit tests for uncovered code that you
-have not altered is welcomed.</p></blockquote>
+have not altered is welcomed.</p>
+</blockquote>
 <h4 id="update-the-changelog">Update the changelog</h4>
 <p>Each repository has a changelog (<code>CHANGELOG.md</code>) that is required to be
 updated. For each change an entry should be added to the changelog. The
@@ -748,23 +893,23 @@ are:</p>
 <li><code>### Security</code> - in case of vulnerabilities.</li>
 </ul>
 <p>Example of the <em>Unreleased</em> section of the file <code>CHANGELOG.md</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff">## [Unreleased]
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#79c0ff">## [Unreleased]
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">### Added
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> ActiveDirectoryDsc
 </span></span><span style="display:flex;"><span>  <span style="color:#ff7b72">-</span> Added DSC resource ADOptionalFeature that will enable the Active
 </span></span><span style="display:flex;"><span>    Directory Optional Feature of choice for the target forest
 </span></span><span style="display:flex;"><span>    ([<span style="color:#7ee787">issue #162</span>](https://github.com/dsccommunity/ActiveDirectoryDsc/issues/162)).
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">### Removed
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> ADRecycleBin
 </span></span><span style="display:flex;"><span>  <span style="color:#ff7b72">-</span> BREAKING CHANGE: The DSC resource was replaced by the DSC resource
 </span></span><span style="display:flex;"><span>    ADOptionalFeature ([<span style="color:#7ee787">issue #162</span>](https://github.com/dsccommunity/ActiveDirectoryDsc/issues/162))..
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">### Changed
-</span></span></span><span style="display:flex;"><span><span style="color:#79c0ff"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">-</span> ADDomain
 </span></span><span style="display:flex;"><span>  <span style="color:#ff7b72">-</span> The property DomainName was changed to always return the same value
 </span></span><span style="display:flex;"><span>    as was passed in as the parameter. For the fully qualified domain
@@ -799,7 +944,8 @@ then you probably have merge conflicts. You can resolve these before or
 after sending in a pull request. The merge conflicts must be resolved
 before the pull request can be merged, and a reviewer might ask you to
 resolve them before a review can be done.</p>
-<p>For help fixing merge conflicts see the section <a href="/guidelines/contributing/#resolve-merge-conflicts">Resolve merge conflicts</a></p></blockquote>
+<p>For help fixing merge conflicts see the section <a href="/guidelines/contributing/#resolve-merge-conflicts">Resolve merge conflicts</a></p>
+</blockquote>
 <img src="../../images/contributing/github_pull_request_target.png" alt="GitHub Pull Request Target" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width:725px;" />
 <h5 id="pull-request-title">Pull Request Title</h5>
 <p>Next, you need to write a short but descriptive PR title. The PR title should
@@ -850,7 +996,8 @@ build and test the DSC module. It is the same pipeline that is used in the
 even if they have nothing to do with your changes. If test failures are
 occurring that do not relate to the changes you made those issue must
 be resolved before the PR can be merged. If you don&rsquo;t know how to resolve
-them then please contact the maintainer of the repository.</p></blockquote>
+them then please contact the maintainer of the repository.</p>
+</blockquote>
 <h3 id="review-a-pull-request-pr">Review a pull request (PR)</h3>
 <p>Anyone is allowed to review pull requests (PR). You are strongly encouraged
 to help review since you probably have some experience of the application
@@ -874,7 +1021,8 @@ If you want to become a maintainer, please see <a href="/community/maintainers/"
 <p>If you have an urgent issue that needs to be reviewed in a repository that
 does not have a maintainer, or you haven&rsquo;t heard from the repository
 maintainer for a period of time. Then it is possible to ask for reviews from
-the other community members or general maintainers via <a href="/community/contact/">Slack #DSC channel</a>.</p></blockquote>
+the other community members or general maintainers via <a href="/community/contact/">Slack #DSC channel</a>.</p>
+</blockquote>
 <h3 id="write-documentation">Write documentation</h3>
 <p>All documentation is done in Markdown.</p>
 <p>Updating documentation is done by sending in a pull request (PR).
@@ -894,7 +1042,8 @@ proposal.</p>
 <p>A suggestion is to wait for acknowledgement from the community (or maintainer)
 to include the resource before you start working on the new DSC resource.
 For example if the proposed schema must be extended or changed in some
-way you might have to build the logic differently.</p></blockquote>
+way you might have to build the logic differently.</p>
+</blockquote>
 <p>Once the issue is open, you may begin working on the new DSC resource.
 Just like submitting a pull request to fix an issue, a pull request
 containing the proposed DSC resource should be submitted.</p>
@@ -966,14 +1115,15 @@ provider (for example by downloading any package from <em>PowerShell Gallery</em
 prior to running this command. If the Nuget package provider is not installed
 it will be installed in the current user&rsquo;s scope when the following command
 is run.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -ResolveDependency -Tasks noop
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -ResolveDependency -Tasks noop
 </span></span></code></pre></div><blockquote>
 <p><strong>KNOWN ISSUE 1:</strong> If the project is dependent on pre-releases and the error
 <code>Find-Module: A parameter cannot be found that matches parameter name 'AllowPrereleaseVersions'</code> is thrown, restart the <em>Windows PowerShell</em>
 session and run the command again. This is due to the old version of
 module <em>PackageManagement</em> still being imported into the session (even when
 we remove it) so <em>PowerShellGet</em> calls the wrong version of the command
-<code>Find-Package</code>.</p></blockquote>
+<code>Find-Package</code>.</p>
+</blockquote>
 <blockquote>
 <p><strong>KNOWN ISSUE 2:</strong> There is currently a known issue with this task when
 moving between local DSC repositories in the same PowerShell session. If
@@ -981,19 +1131,21 @@ you have resolved dependencies in one repository, then move to a second
 repository and resolve dependencies all dependencies do not download
 (for example the module PowerShell-Yaml). This is because the module is
 already imported into the session. The workaround is to open each local
-DSC repository folder in separate PowerShell sessions.</p></blockquote>
+DSC repository folder in separate PowerShell sessions.</p>
+</blockquote>
 <h4 id="build-module">Build module</h4>
 <p>This builds the module after which tests can be run on the built
 module. The built module will have the same structure as the one that is
 released.</p>
 <p><strong>This must be run each time changes have been made to files in the source</strong>
 <strong>folder.</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks build
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks build
 </span></span></code></pre></div><blockquote>
 <p>The application GitVersion is used in the pipeline to determine
 the next version if it is installed. If <code>gitversion</code> is not installed
 then the build version will always be reported as <code>0.0.1</code>.
-To install GitVersion see <a href="/guidelines/getting-started/#install-gitversion">install GitVersion</a></p></blockquote>
+To install GitVersion see <a href="/guidelines/getting-started/#install-gitversion">install GitVersion</a></p>
+</blockquote>
 <h4 id="test-module">Test module</h4>
 <p>See <a href="/guidelines/testing-guidelines/">Testing Guidelines</a> for more
 information on how to run tests.</p>
@@ -1036,7 +1188,8 @@ push a working branch to your fork, and it will be tested the same way as
 when you send in a PR.</p>
 <blockquote>
 <p>This is similar to what the upstream repository is using to run CI pipeline,
-it is using the <a href="https://dev.azure.com/dsccommunity">https://dev.azure.com/dsccommunity</a> organization.</p></blockquote>
+it is using the <a href="https://dev.azure.com/dsccommunity">https://dev.azure.com/dsccommunity</a> organization.</p>
+</blockquote>
 <p>This can be used to test that everything works as expected before sending
 in a PR. It can also be used to start a test run that takes a long time without
 having the development environment powered on. Just commit and push the changes
@@ -1089,7 +1242,8 @@ branch in the previous steps that specific <code>azure-pipelines.yml</code> file
 will not always be used, instead the <code>azure-pipelines.yml</code> file from the
 branch (or the commit) being run in the pipeline will be used. So if you
 make changes to the file <code>azure-pipelines.yml</code> those changes will be
-reflected when you run the pipeline.</p></blockquote>
+reflected when you run the pipeline.</p>
+</blockquote>
 <h3 id="resolve-merge-conflicts">Resolve merge conflicts</h3>
 <p>If another pull request is merged while yours is in review, you will need
 to add those new changes into your working branch before your pull request
@@ -1114,10 +1268,11 @@ the <code>main</code> branch is at.</p>
 Run <code>git remote -v</code> to verify that you have the remote name <code>my</code> pointing to your
 fork repository, and remote name <code>origin</code> pointing to the upstream repository.
 If your remotes are named differently, then change the remote names
-accordingly.</p></blockquote>
+accordingly.</p>
+</blockquote>
 <h4 id="1-rebase-the-local-branch-main-from-the-base-branch-main">1. Rebase the local branch <code>main</code> from the base branch <code>main</code></h4>
 <p>In a PowerShell prompt, you need to do the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>cd &lt;path to cloned repository&gt;      # This is the path to your cloned repository. I.e. cd C:\Source\ComputerManagementDsc
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>cd &lt;path to cloned repository&gt;      # This is the path to your cloned repository. I.e. cd C:\Source\ComputerManagementDsc
 </span></span><span style="display:flex;"><span>git checkout main                 # Checkout (move) to your local main branch.
 </span></span><span style="display:flex;"><span>git fetch origin main             # Get all changes from origin/main (and branch information).
 </span></span><span style="display:flex;"><span>git rebase origin/main            # Rebase changes from origin/main into your local main branch.
@@ -1125,13 +1280,14 @@ accordingly.</p></blockquote>
 <p><strong>Note:</strong> If you used the <strong>main branch as your working branch</strong>, then at
 this point you will probably get merge conflicts that need to be resolved.
 Search for the word &lsquo;CONFLICT&rsquo; in the output. If you used <code>main</code> as your working
-branch, you can skip to step 3 to learn how to resolve the merge conflicts.</p></blockquote>
+branch, you can skip to step 3 to learn how to resolve the merge conflicts.</p>
+</blockquote>
 <p>Force push to your fork&rsquo;s <code>main</code> branch to your forked repository.
 <em>Make sure there were no conflicts before running this command.</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git push my main --force
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git push my main --force
 </span></span></code></pre></div><h4 id="2-rebase-your-working-branch">2. Rebase your working branch</h4>
 <p>In a PowerShell prompt, you need to do the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>cd &lt;path to cloned repository&gt;      # This is the path to your cloned repository. I.e. cd C:\Source\ComputerManagementDsc.
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>cd &lt;path to cloned repository&gt;      # This is the path to your cloned repository. I.e. cd C:\Source\ComputerManagementDsc.
 </span></span><span style="display:flex;"><span>git checkout &lt;your PR branch&gt;       # Checkout (move) to your working branch, i.e git checkout awesome_feature.
 </span></span><span style="display:flex;"><span>git rebase my/main                # This will rebase your working branch from your forks main branch.
 </span></span></code></pre></div><p><strong>NOTE! At this point you will most likely get merge conflicts that need to be
@@ -1139,7 +1295,7 @@ resolved before you continue with the next step. Search for the word &lsquo;CONF
 in the output. See step 3 to learn how to resolve the merge conflicts.</strong></p>
 <h4 id="3-resolve-merge-conflicts">3. Resolve merge conflicts</h4>
 <p>If you get the following message:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Auto-merging README.md
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Auto-merging README.md
 </span></span><span style="display:flex;"><span>CONFLICT (content): Merge conflict in README.md
 </span></span><span style="display:flex;"><span>error: Failed to merge in the changes.
 </span></span></code></pre></div><p>Then you have encountered a merge conflict. To resolve merge conflicts, take a look at the following articles:</p>
@@ -1148,7 +1304,7 @@ in the output. See step 3 to learn how to resolve the merge conflicts.</strong><
 <li><a href="https://github.blog/developer-skills/github-education/beginners-guide-to-github-merging-a-pull-request/">Beginners guide to GitHub merging a pull request</a></li>
 </ul>
 <p>In the following example, there is a merge conflict in the <code>README.md</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>...
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>...
 </span></span><span style="display:flex;"><span>### Unreleased
 </span></span><span style="display:flex;"><span>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 </span></span><span style="display:flex;"><span>* Added tests for resources
@@ -1171,7 +1327,7 @@ in the output. See step 3 to learn how to resolve the merge conflicts.</strong><
 in any way you need to solve the conflict.</p>
 <p><em>Note: You must remove the lines <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>, <code>========</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/main</code>.</em></p>
 <p>After resolving the conflict, <code>README.md</code> could look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>...
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>...
 </span></span><span style="display:flex;"><span>### Unreleased
 </span></span><span style="display:flex;"><span>* Added resources
 </span></span><span style="display:flex;"><span>  - xSQLServerReplication
@@ -1186,7 +1342,7 @@ in any way you need to solve the conflict.</p>
 <p><em>Note: Only when all merge conflicts are resolved, rebase can be performed</em></p>
 <p>To continue with the rebase. In the same PowerShell prompt as you started the
 rebase, you need to do the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git status            # (optional) If you unsure of the name, you can use this to see the files that was in conflict.
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git status            # (optional) If you unsure of the name, you can use this to see the files that was in conflict.
 </span></span><span style="display:flex;"><span>git add &lt;file&gt;        # Do this for each file that you fixed merged conflicts in. I.e &#39;git add README.md&#39;. This stages the file for commit. You could also use &#39;git add *&#39; to stage all files at once.
 </span></span><span style="display:flex;"><span>git rebase --continue
 </span></span></code></pre></div><p><strong>You may now get more merge conflicts.</strong> If so, then you have to resolve those
@@ -1198,7 +1354,7 @@ resolve (and no longer need to run the command <code>rebase --continue</code>).<
 <p>Force push to your branch in your forked repository. The pull request will then
 be updated automatically by GitHub.
 <em>Force push &ldquo;overwrites&rdquo; the branch in the fork, and is always needed after rebase.</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git push my &lt;pull request branch&gt; --force     # I.e git push my awesome_feature --force
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git push my &lt;pull request branch&gt; --force     # I.e git push my awesome_feature --force
 </span></span></code></pre></div><h3 id="how-to-continue-working-on-a-pull-request-pr-when-an-author-contributor-is-unable-to-complete-it">How to continue working on a pull request (PR) when an author (contributor) is unable to complete it</h3>
 <p>Anyone in the community is allowed to continue the work on pull requests (PR&rsquo;s)
 if either of these are true.</p>
@@ -1224,44 +1380,44 @@ much the same as when you have to resolve merge conflicts.</p>
 <ol>
 <li>
 <p>Create a new working branch in your fork.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>cd &lt;path to cloned repository&gt;
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>cd &lt;path to cloned repository&gt;
 </span></span><span style="display:flex;"><span>git checkout -b changes-from-PR#&lt;number&gt;  # Change to the PR number, i.e. git checkout -b changes-from-PR#34
 </span></span></code></pre></div></li>
 <li>
 <p>Add a remote to the original contributors fork. <em>In this example we use the users name as the remotes name.</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git remote add &lt;username&gt; &lt;url&gt;           # I.e git remote add johlju https://github.com/johlju/xSQLServer.git
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git remote add &lt;username&gt; &lt;url&gt;           # I.e git remote add johlju https://github.com/johlju/xSQLServer.git
 </span></span></code></pre></div></li>
 <li>
 <p>Rebase your working branch using the fork and branch from the original contributor.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git fetch &lt;username&gt;
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git fetch &lt;username&gt;
 </span></span><span style="display:flex;"><span>git rebase &lt;username&gt;/&lt;branch&gt;
 </span></span></code></pre></div></li>
 <li>
 <p>Fix conflicts and when all conflicts are resolved stage all files and continue
 with the rebase.
 <em>This step might have to be done several times until all conflicts are resolved</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git add &lt;file&gt;                            # i.e git add README.md
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git add &lt;file&gt;                            # i.e git add README.md
 </span></span><span style="display:flex;"><span>git rebase --continue
 </span></span></code></pre></div></li>
 <li>
 <p>Push changes to your forked repository</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git push my changes-from-PR#&lt;number&gt; --force  # Change to the PR number, i.e. git push my changes-from-PR#34 --force
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git push my changes-from-PR#&lt;number&gt; --force  # Change to the PR number, i.e. git push my changes-from-PR#34 --force
 </span></span></code></pre></div></li>
 <li>
 <p>Now we rebase again, this time against <code>my/main</code> (which should already be rebased
 against <code>origin/main</code>, see section Resolving merge conflicts on how to do that).</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git rebase `my/main`
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git rebase `my/main`
 </span></span></code></pre></div></li>
 <li>
 <p>Again, fix conflicts and when all conflicts are resolved stage all files and
 continue with the rebase.
 <em>This step might have to be done several times until all conflicts are resolved</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git add &lt;file&gt;                            # i.e git add README.md
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git add &lt;file&gt;                            # i.e git add README.md
 </span></span><span style="display:flex;"><span>git rebase --continue
 </span></span></code></pre></div></li>
 <li>
 <p>Push to your forked repository again</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git push my changes-from-PR#&lt;number&gt; --force  # Change to the PR number, i.e. git push my changes-from-PR#34 --force
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>git push my changes-from-PR#&lt;number&gt; --force  # Change to the PR number, i.e. git push my changes-from-PR#34 --force
 </span></span></code></pre></div></li>
 <li>
 <p>Now, go to your forked repository on GitHub and create the pull request the
@@ -1551,8 +1707,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     <script
-      src="https://dsccommunity.org/js/main.min.9a596f512ca53270aac01ee7314fba2b9cbdd17fb33667198c82f28d1dc82006.js"
-      integrity="sha256-mllvUSylMnCqwB7nMU&#43;6K5y90X&#43;zNmcZjILyjR3IIAY="
+      src="https://dsccommunity.org/js/main.min.56bc7a80dd440714f8194bda3bfc8dbf08ebd1bbb8bbc0a7d0dd285149f685af.js"
+      integrity="sha256-Vrx6gN1EBxT4GUvaO/yNvwjr0bu4u8Cn0N0oUUn2ha8="
     ></script>
   </body>
 </html>

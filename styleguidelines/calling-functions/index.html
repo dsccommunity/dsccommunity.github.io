@@ -14,7 +14,7 @@
 
     <title>Calling Functions | </title>
 
-    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Hugo 0.163.3">
 
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,8 +42,8 @@
     
     <link
       rel="stylesheet"
-      href="https://dsccommunity.org/css/futuristic.min.2fe77f06d9e00c9c5b3ed8d96e487ab36a763589c09b8cf99c143b793fe8c975.css"
-      integrity="sha256-L&#43;d/BtngDJxbPtjZbkh6s2p2NYnAm4z5nBQ7eT/oyXU="
+      href="https://dsccommunity.org/css/futuristic.min.64c9c720b33245978cd805363c7f551a4638810479e30c132a829e57bcc642ed.css"
+      integrity="sha256-ZMnHILMyRZeM2AU2PH9VGkY4gQR54wwTKoKeV7zGQu0="
     />
 
     
@@ -318,7 +318,8 @@
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Toggle menu"
+          aria-label="Open menu"
+          aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
           <svg
@@ -330,8 +331,8 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
@@ -339,6 +340,148 @@
     </div>
   </div>
 </header>
+
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <div>
+        <span class="mobile-menu-eyebrow"></span>
+        <h2 class="mobile-menu-title">Menu</h2>
+      </div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <ul class="mobile-menu-list">
+        
+        
+        <li>
+          <a href="/code_of_conduct" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-shield-check-line"></i>
+              
+            </span>
+            <span>Code of Conduct</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/community_calls" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-calendar-event-line"></i>
+              
+            </span>
+            <span>Community Calls</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/faq" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-question-answer-line"></i>
+              
+            </span>
+            <span>FAQ</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/help" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-lifebuoy-line"></i>
+              
+            </span>
+            <span>Help</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="mobile-menu-group">
+          <span class="mobile-menu-heading">
+            <span class="mobile-menu-icon"><i class="ri-folder-3-line"></i></span>
+            <span>Categories</span>
+          </span>
+          <div class="mobile-submenu">
+            
+            <a href="/community" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-team-line"></i>
+                
+              </span>
+              <span>Community</span>
+            </a>
+            
+            <a href="/resources" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-apps-2-line"></i>
+                
+              </span>
+              <span>Resource Modules</span>
+            </a>
+            
+            <a href="/guidelines" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-book-open-line"></i>
+                
+              </span>
+              <span>Guidelines</span>
+            </a>
+            
+            <a href="/blog" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-article-line"></i>
+                
+              </span>
+              <span>Blog Posts</span>
+            </a>
+            
+            <a href="/configmgt" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-settings-3-line"></i>
+                
+              </span>
+              <span>Config. Management</span>
+            </a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="ri-contrast-2-line"></i>
+        <span>Theme</span>
+      </button>
+      <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
+        <i class="ri-github-fill"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </aside>
+</div>
 <main id="main-content">
 
 
@@ -473,47 +616,47 @@
 <p>When calling a function use the full command not an alias.
 You can get the full command an alias represents by calling <code>Get-Alias</code>.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>ls <span style="color:#ff7b72;font-weight:bold">-File</span> <span style="color:#79c0ff">$root</span> -Recurse | ? { <span style="color:#79c0ff">@</span>(<span style="color:#a5d6ff">&#39;.gitignore&#39;</span>, <span style="color:#a5d6ff">&#39;.mof&#39;</span>) <span style="color:#ff7b72;font-weight:bold">-contains</span> <span style="color:#79c0ff">$_</span>.<span style="color:#79c0ff">Extension</span> }
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>ls <span style="color:#ff7b72;font-weight:bold">-File</span> <span style="color:#79c0ff">$root</span> -Recurse | ? { <span style="color:#79c0ff">@</span>(<span style="color:#a5d6ff">&#39;.gitignore&#39;</span>, <span style="color:#a5d6ff">&#39;.mof&#39;</span>) <span style="color:#ff7b72;font-weight:bold">-contains</span> <span style="color:#79c0ff">$_</span>.<span style="color:#79c0ff">Extension</span> }
 </span></span></code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Powershell" data-lang="Powershell"><span style="display:flex;"><span>Get-ChildItem <span style="color:#ff7b72;font-weight:bold">-File</span> <span style="color:#79c0ff">$root</span> -Recurse | Where-Object -FilterScript {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Powershell" data-lang="Powershell"><span style="display:flex;"><span>Get-ChildItem <span style="color:#ff7b72;font-weight:bold">-File</span> <span style="color:#79c0ff">$root</span> -Recurse | Where-Object -FilterScript {
 </span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">@</span>(<span style="color:#a5d6ff">&#39;.gitignore&#39;</span>, <span style="color:#a5d6ff">&#39;.mof&#39;</span>) <span style="color:#ff7b72;font-weight:bold">-contains</span> <span style="color:#79c0ff">$_</span>.<span style="color:#79c0ff">Extension</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="avoid-invoke-expression">Avoid Invoke-Expression</h3>
 <p>Invoke-Expression is vulnerable to string injection attacks.
 It should not be used in any DSC resources.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Invoke-Expression -Command <span style="color:#a5d6ff">&#34;Test-</span><span style="color:#79c0ff">$DSCResourceName</span><span style="color:#a5d6ff">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Invoke-Expression -Command <span style="color:#a5d6ff">&#34;Test-</span><span style="color:#79c0ff">$DSCResourceName</span><span style="color:#a5d6ff">&#34;</span>
 </span></span></code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>&amp; <span style="color:#a5d6ff">&#34;Test-</span><span style="color:#79c0ff">$DSCResourceName</span><span style="color:#a5d6ff">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>&amp; <span style="color:#a5d6ff">&#34;Test-</span><span style="color:#79c0ff">$DSCResourceName</span><span style="color:#a5d6ff">&#34;</span>
 </span></span></code></pre></div><h2 id="use-the-force-parameter-with-calls-to-shouldcontinue">Use the Force Parameter with Calls to ShouldContinue</h2>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"></code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"></code></pre></div><h2 id="avoid-the-wmi-cmdlets">Avoid the WMI Cmdlets</h2>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"></code></pre></div><p><strong>Good:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"></code></pre></div><h2 id="avoid-the-wmi-cmdlets">Avoid the WMI Cmdlets</h2>
 <p>The WMI cmdlets can all be replaced by CIM cmdlets.
 Use the CIM cmdlets instead because they align with industry standards.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Get-WMIInstance -ClassName Win32_Process
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Get-WMIInstance -ClassName Win32_Process
 </span></span></code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Get-CIMInstance -ClassName Win32_Process
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Get-CIMInstance -ClassName Win32_Process
 </span></span></code></pre></div><h2 id="avoid-write-host">Avoid Write-Host</h2>
 <p><a href="http://www.jsnover.com/blog/2013/12/07/write-host-considered-harmful/">Write-Host is harmful</a>.
 Use alternatives such as Write-Verbose, Write-Output, Write-Debug, etc.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Write-Host <span style="color:#a5d6ff">&#39;Setting the variable to a value.&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Write-Host <span style="color:#a5d6ff">&#39;Setting the variable to a value.&#39;</span>
 </span></span></code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Write-Verbose -Message <span style="color:#a5d6ff">&#39;Setting the variable to a value.&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Write-Verbose -Message <span style="color:#a5d6ff">&#39;Setting the variable to a value.&#39;</span>
 </span></span></code></pre></div><h2 id="avoid-convertto-securestring-with-asplaintext">Avoid ConvertTo-SecureString with AsPlainText</h2>
 <p>SecureStrings should be encrypted. When using ConvertTo-SecureString with the
 <code>AsPlainText</code> parameter specified the SecureString text is not encrypted and thus
 not secure. This is allowed in tests/examples when needed, but never in the actual
 resources.</p>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>ConvertTo-SecureString -String <span style="color:#a5d6ff">&#39;mySecret&#39;</span> -AsPlainText -Force
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>ConvertTo-SecureString -String <span style="color:#a5d6ff">&#39;mySecret&#39;</span> -AsPlainText -Force
 </span></span></code></pre></div><h2 id="assign-function-results-to-variables-rather-than-extensive-inline-calls">Assign Function Results to Variables Rather Than Extensive Inline Calls</h2>
 <p><strong>Bad:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Set-Background -Color (Get-Color -Name ((Get-Settings -User (Get-CurrentUser)).ColorName))
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Set-Background -Color (Get-Color -Name ((Get-Settings -User (Get-CurrentUser)).ColorName))
 </span></span></code></pre></div><p><strong>Good:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$currentUser</span> = Get-CurrentUser
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$currentUser</span> = Get-CurrentUser
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">$userSettings</span> = Get-Settings -User <span style="color:#79c0ff">$currentUser</span>
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">$backgroundColor</span> = Get-Color -Name <span style="color:#79c0ff">$userSettings</span>.<span style="color:#79c0ff">ColorName</span>
 </span></span><span style="display:flex;"><span>
@@ -801,8 +944,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     <script
-      src="https://dsccommunity.org/js/main.min.9a596f512ca53270aac01ee7314fba2b9cbdd17fb33667198c82f28d1dc82006.js"
-      integrity="sha256-mllvUSylMnCqwB7nMU&#43;6K5y90X&#43;zNmcZjILyjR3IIAY="
+      src="https://dsccommunity.org/js/main.min.56bc7a80dd440714f8194bda3bfc8dbf08ebd1bbb8bbc0a7d0dd285149f685af.js"
+      integrity="sha256-Vrx6gN1EBxT4GUvaO/yNvwjr0bu4u8Cn0N0oUUn2ha8="
     ></script>
   </body>
 </html>

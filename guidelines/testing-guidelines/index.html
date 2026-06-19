@@ -14,7 +14,7 @@
 
     <title>Testing Guidelines | </title>
 
-    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Hugo 0.163.3">
 
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,8 +42,8 @@
     
     <link
       rel="stylesheet"
-      href="https://dsccommunity.org/css/futuristic.min.2fe77f06d9e00c9c5b3ed8d96e487ab36a763589c09b8cf99c143b793fe8c975.css"
-      integrity="sha256-L&#43;d/BtngDJxbPtjZbkh6s2p2NYnAm4z5nBQ7eT/oyXU="
+      href="https://dsccommunity.org/css/futuristic.min.64c9c720b33245978cd805363c7f551a4638810479e30c132a829e57bcc642ed.css"
+      integrity="sha256-ZMnHILMyRZeM2AU2PH9VGkY4gQR54wwTKoKeV7zGQu0="
     />
 
     
@@ -318,7 +318,8 @@
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Toggle menu"
+          aria-label="Open menu"
+          aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
           <svg
@@ -330,8 +331,8 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
@@ -339,6 +340,148 @@
     </div>
   </div>
 </header>
+
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <div>
+        <span class="mobile-menu-eyebrow"></span>
+        <h2 class="mobile-menu-title">Menu</h2>
+      </div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <ul class="mobile-menu-list">
+        
+        
+        <li>
+          <a href="/code_of_conduct" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-shield-check-line"></i>
+              
+            </span>
+            <span>Code of Conduct</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/community_calls" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-calendar-event-line"></i>
+              
+            </span>
+            <span>Community Calls</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/faq" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-question-answer-line"></i>
+              
+            </span>
+            <span>FAQ</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/help" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-lifebuoy-line"></i>
+              
+            </span>
+            <span>Help</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="mobile-menu-group">
+          <span class="mobile-menu-heading">
+            <span class="mobile-menu-icon"><i class="ri-folder-3-line"></i></span>
+            <span>Categories</span>
+          </span>
+          <div class="mobile-submenu">
+            
+            <a href="/community" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-team-line"></i>
+                
+              </span>
+              <span>Community</span>
+            </a>
+            
+            <a href="/resources" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-apps-2-line"></i>
+                
+              </span>
+              <span>Resource Modules</span>
+            </a>
+            
+            <a href="/guidelines" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-book-open-line"></i>
+                
+              </span>
+              <span>Guidelines</span>
+            </a>
+            
+            <a href="/blog" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-article-line"></i>
+                
+              </span>
+              <span>Blog Posts</span>
+            </a>
+            
+            <a href="/configmgt" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-settings-3-line"></i>
+                
+              </span>
+              <span>Config. Management</span>
+            </a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="ri-contrast-2-line"></i>
+        <span>Theme</span>
+      </button>
+      <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
+        <i class="ri-github-fill"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </aside>
+</div>
 <main id="main-content">
 
 
@@ -435,7 +578,7 @@
 when writing tests.</li>
 <li>Each DSC module should contain the following Test folder structure:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>       tests
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>       tests
 </span></span><span style="display:flex;"><span>       |---Unit
 </span></span><span style="display:flex;"><span>       |---Integration
 </span></span></code></pre></div><ul>
@@ -484,11 +627,11 @@ Preferably you should opt-out from tests.</p>
 <li>Configuring the <code>build.yaml</code> with the tag <code>ExcludeTag</code> under either the
 key <code>Pester</code> or <code>DscTest</code> (JSON files override excludes for the key
 <code>DscTest</code>).
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Pester</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">Pester</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">ExcludeTag</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">&#39;TagOnUnitTest&#39;</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
-</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">DscTest</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">DscTest</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">ExcludeTag</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Common Tests - New Error-Level Script Analyzer Rules</span><span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Common Tests - Validate Example Files</span><span style="color:#6e7681">
@@ -500,7 +643,7 @@ key <code>Pester</code> or <code>DscTest</code> (JSON files override excludes fo
 <p>This HQRM tests is opt-out by default since it tests the ScriptAnalyzer
 rules <code>PSDSCDscExamplesPresent</code> and <code>PSDSCDscTestsPresent</code> which does not
 currently work with the folder structure needed by CI pipeline.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">DscTest</span>:<span style="color:#6e7681">
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">DscTest</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">ExcludeTag</span>:<span style="color:#6e7681">
 </span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">&#39;Common Tests - New Error-Level Script Analyzer Rules&#39;</span><span style="color:#6e7681">
 </span></span></span></code></pre></div><p>Even if opt-out this test will still run. You opt-out from the test phase
@@ -524,7 +667,8 @@ dependencies first. After that you must build the module.</p>
 <blockquote>
 <p><strong>NOTE!</strong> Each time a source file changes you must re-build the module before
 running tests again. This is because the tests are always run against the
-built module in the &lsquo;output&rsquo; folder, not the modules source files.</p></blockquote>
+built module in the &lsquo;output&rsquo; folder, not the modules source files.</p>
+</blockquote>
 <blockquote>
 <p><strong>KNOWN ISSUE:</strong> If the DSC resources are importing a module from the folder
 <code>Modules</code> (common module), the common module is already imported if you
@@ -533,7 +677,8 @@ the common module are not reflected in the test run. To workaround this
 the common module have to be manually removed using <code>Remove-Module -Name 'ModuleName'</code>.
 There are a second workaround, force import the module in the DSC resources.
 Force importing the module are not recommended due to performance and could
-have a big impact in production.</p></blockquote>
+have a big impact in production.</p>
+</blockquote>
 <h5 id="running-tests-locally-using-pipeline">Running Tests Locally Using Pipeline</h5>
 <p><strong>Remember to run the build task if any file has been changed in the source</strong>
 <strong>folder.</strong></p>
@@ -541,11 +686,11 @@ have a big impact in production.</p></blockquote>
 <strong>to run integration tests too if they exist! Integration tests may disrupt</strong>
 <strong>the system configuration temporarily, leave system changed, or may require</strong>
 <strong>specific dependencies to execute.</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks test
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks test
 </span></span></code></pre></div><p>This will just run the unit tests for the module using code coverage.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks test -PesterScript <span style="color:#a5d6ff">&#39;tests/Unit&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks test -PesterScript <span style="color:#a5d6ff">&#39;tests/Unit&#39;</span>
 </span></span></code></pre></div><p>This will just run the integration tests for the module without code coverage.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks test -PesterScript <span style="color:#a5d6ff">&#39;tests/Integration&#39;</span> -CodeCoverageThreshold <span style="color:#a5d6ff">0</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks test -PesterScript <span style="color:#a5d6ff">&#39;tests/Integration&#39;</span> -CodeCoverageThreshold <span style="color:#a5d6ff">0</span>
 </span></span></code></pre></div><h5 id="running-tests-locally-using-invoke-pester">Running Tests Locally Using Invoke-Pester</h5>
 <p>Not yet written.</p>
 <h5 id="running-tests-locally-within-visual-studio-code">Running Tests Locally Within Visual Studio Code</h5>
@@ -564,7 +709,7 @@ change to the PR, or close and directly reopen the PR.</p>
 <p>If a resource contains private (non-exported) functions that need to be tested,
 then to allow these functions to be tested by Pester, they must be contained
 in an <code>InModuleScope</code> Pester block:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>InModuleScope <span style="color:#79c0ff">$script:dscResourceName</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>InModuleScope <span style="color:#79c0ff">$script:dscResourceName</span> {
 </span></span><span style="display:flex;"><span>    Describe <span style="color:#a5d6ff">&#34;</span>$(<span style="color:#79c0ff">$script:dscResourceName</span>)<span style="color:#a5d6ff">\Get-FirewallRuleProperty&#34;</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic"># Test Get-FirewallRuleProperty private/non-exported function</span>
 </span></span><span style="display:flex;"><span>    }
@@ -580,7 +725,8 @@ resource. Variables declared at the module scope (private variables) can not
 be accessed by unit tests that are not inside an <code>InModuleScope</code> Pester block.</p>
 <blockquote>
 <p><strong>Note:</strong> See <a href="/styleguidelines/localization/">Localization</a> section for
-more information of using localized messages in tests.</p></blockquote>
+more information of using localized messages in tests.</p>
+</blockquote>
 <p>There are three solutions to this:</p>
 <ol>
 <li>
@@ -590,14 +736,14 @@ script scope variables like <code>$script:localizedData</code>.</p>
 <li>
 <p>Use the <code>InModuleScope</code> to copy the private variable into a variable
 scoped to the Unit test:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$localizedData</span> = InModuleScope <span style="color:#79c0ff">$script:dscResourceName</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$localizedData</span> = InModuleScope <span style="color:#79c0ff">$script:dscResourceName</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$script:localizedData</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></li>
 <li>
 <p>Add any variables that are required to be accessed outside the module
 by unit tests to the <code>Export-ModuleMember</code> cmdlet in the DSC Resource:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Export-ModuleMember -Function *-TargetResource -Variables LocalizedData
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Export-ModuleMember -Function *-TargetResource -Variables LocalizedData
 </span></span></code></pre></div></li>
 </ol>
 <h3 id="creating-mock-output-variables-without-inmodulescope">Creating Mock Output Variables without InModuleScope</h3>
@@ -607,7 +753,7 @@ These variables are often used many times over a single unit test file and so
 assigning each to a variable is essential to reduce the size of the unit test as
 well as improve readability and maintainability.
 For example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$MockNetAdapter</span> = <span style="color:#79c0ff">@</span>{
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$MockNetAdapter</span> = <span style="color:#79c0ff">@</span>{
 </span></span><span style="display:flex;"><span>    Name              = <span style="color:#a5d6ff">&#39;Ethernet&#39;</span>
 </span></span><span style="display:flex;"><span>    PhysicalMediaType = <span style="color:#a5d6ff">&#39;802.3&#39;</span>
 </span></span><span style="display:flex;"><span>    Status            = <span style="color:#a5d6ff">&#39;Up&#39;</span>
@@ -620,7 +766,7 @@ For example:</p>
 </span></span></code></pre></div><p>However, when <code>InModuleScope</code> is being used the variables that are defined won&rsquo;t
 be accessible from within the mocked cmdlets. The solution to this is create a script
 block variable that contains the mocked object and then assign that to the Mock.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$GetNetAdapter_PhysicalNetAdapterMock</span> = {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$GetNetAdapter_PhysicalNetAdapterMock</span> = {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">@</span>{
 </span></span><span style="display:flex;"><span>        Name              = <span style="color:#a5d6ff">&#39;Ethernet&#39;</span>
 </span></span><span style="display:flex;"><span>        PhysicalMediaType = <span style="color:#a5d6ff">&#39;802.3&#39;</span>
@@ -637,7 +783,7 @@ block variable that contains the mocked object and then assign that to the Mock.
 <p>Pattern 1:
 The goal of this pattern should be to describe the potential states a system could
 be in for each function.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>        Describe <span style="color:#a5d6ff">&#39;Get-TargetResource&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>        Describe <span style="color:#a5d6ff">&#39;Get-TargetResource&#39;</span> {
 </span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic"># TODO: Complete Get-TargetResource Tests...</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
@@ -657,7 +803,7 @@ Describe block. For a more detailed description of this approach please review #
 the DSC resource is designed to work with, below a simple &lsquo;is in desired state&rsquo;
 and &lsquo;is not in desired state&rsquo; are used, but there may be more complex combinations
 of factors, depending on how complex your resource is.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Describe <span style="color:#a5d6ff">&#39;The system is not in the desired state&#39;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Describe <span style="color:#a5d6ff">&#39;The system is not in the desired state&#39;</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic">#TODO: Mock cmdlets here that represent the system not being in the desired state</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic">#TODO: Create a set of parameters to test your get/set/test methods in this state</span>
@@ -723,8 +869,9 @@ the resource module script file, the strings can easily be used like this in
 tests.</p>
 <blockquote>
 <p><strong>Note:</strong> For this to work the test (the It-block) must be inside a
-<code>InModuleScope</code>-block.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>It <span style="color:#a5d6ff">&#39;Should throw the correct error message&#39;</span> {
+<code>InModuleScope</code>-block.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>It <span style="color:#a5d6ff">&#39;Should throw the correct error message&#39;</span> {
 </span></span><span style="display:flex;"><span>    {
 </span></span><span style="display:flex;"><span>        Set-TargetResource <span style="color:#79c0ff">@setTargetResourceParameters</span>
 </span></span><span style="display:flex;"><span>    } | Should -Throw <span style="color:#79c0ff">$script:localizedData</span>.<span style="color:#79c0ff">DatabaseMailDisabled</span>
@@ -743,7 +890,7 @@ resource module.</p>
 <p>This helper function returns an invalid argument exception error object.
 Below is an example of how it could look like in the tests to test that the
 correct localized error record is returned.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$errorRecord</span> = Get-InvalidArgumentRecord `
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$errorRecord</span> = Get-InvalidArgumentRecord `
 </span></span><span style="display:flex;"><span>    -Message (<span style="color:#79c0ff">$script:localizedData</span>.<span style="color:#79c0ff">InterfaceNotAvailableError</span> <span style="color:#ff7b72;font-weight:bold">-f</span> <span style="color:#79c0ff">$interfaceAlias</span>) `
 </span></span><span style="display:flex;"><span>    -ArgumentName <span style="color:#a5d6ff">&#39;Interface&#39;</span>
 </span></span><span style="display:flex;"><span>
@@ -754,7 +901,7 @@ correct localized error record is returned.</p>
 <p>This helper function returns an invalid operation exception error object.
 Below is an example of how it could look like in the tests to test that the
 correct localized error record is returned.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$errorRecord</span> = Get-InvalidOperationRecord `
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$errorRecord</span> = Get-InvalidOperationRecord `
 </span></span><span style="display:flex;"><span>    -Message (<span style="color:#79c0ff">$script:localizedData</span>.NetAdapterNotFoundError)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>It <span style="color:#a5d6ff">&#39;Should throw the correct exception&#39;</span> {
@@ -1045,8 +1192,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     <script
-      src="https://dsccommunity.org/js/main.min.9a596f512ca53270aac01ee7314fba2b9cbdd17fb33667198c82f28d1dc82006.js"
-      integrity="sha256-mllvUSylMnCqwB7nMU&#43;6K5y90X&#43;zNmcZjILyjR3IIAY="
+      src="https://dsccommunity.org/js/main.min.56bc7a80dd440714f8194bda3bfc8dbf08ebd1bbb8bbc0a7d0dd285149f685af.js"
+      integrity="sha256-Vrx6gN1EBxT4GUvaO/yNvwjr0bu4u8Cn0N0oUUn2ha8="
     ></script>
   </body>
 </html>

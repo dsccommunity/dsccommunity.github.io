@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  data-theme="light"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A collaborative community of authors and maintainers working to improve DSC resources, their quality, and development practices."
+    />
+    <meta name="author" content="DSC Community" />
+
+    <title>How to generate Microsoft DSC adapted resource manifests with DscResource.Authoring | </title>
+
+    <meta name="generator" content="Hugo 0.163.3">
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+    />
+
+    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css"
+    />
+
+    
+    
+    <link
+      rel="stylesheet"
+      href="https://dsccommunity.org/css/futuristic.min.64c9c720b33245978cd805363c7f551a4638810479e30c132a829e57bcc642ed.css"
+      integrity="sha256-ZMnHILMyRZeM2AU2PH9VGkY4gQR54wwTKoKeV7zGQu0="
+    />
+
+    
+    <link
+      rel="icon"
+      href="https://dsccommunity.org/images/favicon.png"
+      type="image/x-icon"
+    />
+
+    
+    <meta property="og:title" content="How to generate Microsoft DSC adapted resource manifests with DscResource.Authoring" />
+    <meta
+      property="og:description"
+      content="A collaborative community of authors and maintainers working to improve DSC resources, their quality, and development practices."
+    />
+    <meta
+      property="og:type"
+      content="article"
+    />
+    <meta property="og:url" content="https://dsccommunity.org/blog/how-to-generate-microsoft-dsc-adapted-resource-manifests-with-dscresource.authoring/" />
+    
+    <meta property="og:image" content="https://dsccommunity.org/images/dsc-community-og.png" />
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to generate Microsoft DSC adapted resource manifests with DscResource.Authoring" />
+    <meta
+      name="twitter:description"
+      content="A collaborative community of authors and maintainers working to improve DSC resources, their quality, and development practices."
+    />
+
+    
+    <script>
+      (function () {
+        const theme =
+          localStorage.getItem("theme") ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+  </head>
+  <body>
+    
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
+      
+      <a href="https://dsccommunity.org/" class="site-logo">
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="32" height="32" rx="8" fill="url(#logo-gradient)" />
+          <path
+            d="M8 12h16M8 16h12M8 20h16"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <defs>
+            <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#3b82f6" />
+              <stop offset="100%" stop-color="#8b5cf6" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>DSC Community</span>
+      </a>
+
+      
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <ul class="nav-list">
+           
+          <li class="nav-item">
+            <a
+              href="/code_of_conduct"
+              class="nav-link"
+            >
+              Code of Conduct
+            </a>
+          </li>
+            
+          <li class="nav-item">
+            <a
+              href="/community_calls"
+              class="nav-link"
+            >
+              Community Calls
+            </a>
+          </li>
+            
+          <li class="nav-item">
+            <a
+              href="/faq"
+              class="nav-link"
+            >
+              FAQ
+            </a>
+          </li>
+            
+          <li class="nav-item">
+            <a
+              href="/help"
+              class="nav-link"
+            >
+              Help
+            </a>
+          </li>
+            
+          <li class="nav-item">
+            <a
+              href="#"
+              class="nav-link"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Categories
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              
+              <a href="/community" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-team-line"></i>
+                  
+                </span>
+                <span>Community</span>
+              </a>
+              
+              <a href="/resources" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-apps-2-line"></i>
+                  
+                </span>
+                <span>Resource Modules</span>
+              </a>
+              
+              <a href="/guidelines" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-book-open-line"></i>
+                  
+                </span>
+                <span>Guidelines</span>
+              </a>
+              
+              <a href="/blog" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-article-line"></i>
+                  
+                </span>
+                <span>Blog Posts</span>
+              </a>
+              
+              <a href="/configmgt" class="dropdown-link">
+                <span class="dropdown-link-icon">
+                  
+                  <i class="ri-settings-3-line"></i>
+                  
+                </span>
+                <span>Config. Management</span>
+              </a>
+              
+            </div>
+          </li>
+           
+        </ul>
+      </nav>
+
+      
+      <div class="header-actions">
+        
+        <button
+          class="search-toggle"
+          onclick="openSearchModal()"
+          aria-label="Search"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+          <span>Search</span>
+          <kbd class="shortcut-mac">⌘K</kbd>
+          <kbd class="shortcut-other">Ctrl+K</kbd>
+        </button>
+
+        
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+          onclick="toggleTheme()"
+        >
+          <svg
+            class="sun-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+            />
+          </svg>
+          <svg
+            class="moon-icon"
+            style="display: none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </button>
+
+        
+        <a
+          href="https://github.com/dsccommunity"
+          class="theme-toggle"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+            />
+          </svg>
+        </a>
+
+        
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          onclick="toggleMobileMenu()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <div>
+        <span class="mobile-menu-eyebrow"></span>
+        <h2 class="mobile-menu-title">Menu</h2>
+      </div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <ul class="mobile-menu-list">
+        
+        
+        <li>
+          <a href="/code_of_conduct" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-shield-check-line"></i>
+              
+            </span>
+            <span>Code of Conduct</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/community_calls" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-calendar-event-line"></i>
+              
+            </span>
+            <span>Community Calls</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/faq" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-question-answer-line"></i>
+              
+            </span>
+            <span>FAQ</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/help" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-lifebuoy-line"></i>
+              
+            </span>
+            <span>Help</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="mobile-menu-group">
+          <span class="mobile-menu-heading">
+            <span class="mobile-menu-icon"><i class="ri-folder-3-line"></i></span>
+            <span>Categories</span>
+          </span>
+          <div class="mobile-submenu">
+            
+            <a href="/community" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-team-line"></i>
+                
+              </span>
+              <span>Community</span>
+            </a>
+            
+            <a href="/resources" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-apps-2-line"></i>
+                
+              </span>
+              <span>Resource Modules</span>
+            </a>
+            
+            <a href="/guidelines" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-book-open-line"></i>
+                
+              </span>
+              <span>Guidelines</span>
+            </a>
+            
+            <a href="/blog" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-article-line"></i>
+                
+              </span>
+              <span>Blog Posts</span>
+            </a>
+            
+            <a href="/configmgt" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-settings-3-line"></i>
+                
+              </span>
+              <span>Config. Management</span>
+            </a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="ri-contrast-2-line"></i>
+        <span>Theme</span>
+      </button>
+      <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
+        <i class="ri-github-fill"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </aside>
+</div>
+<main id="main-content">
+
+
+<section class="hero" style="padding: var(--space-12) 0;">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content" style="max-width: 900px;">
+      
+      <nav style="margin-bottom: var(--space-4);">
+        <ol style="display: flex; align-items: center; gap: var(--space-2); list-style: none; padding: 0; margin: 0; font-size: var(--text-sm);">
+          <li><a href="https://dsccommunity.org/" style="color: rgba(255,255,255,0.7);">Home</a></li>
+          <li style="color: rgba(255,255,255,0.5);">/</li>
+          
+          <li><a href="https://dsccommunity.org/blog/" style="color: rgba(255,255,255,0.7);">Blog Posts</a></li>
+          <li style="color: rgba(255,255,255,0.5);">/</li>
+          
+          <li style="color: rgba(255,255,255,0.9);">How to generate Microsoft DSC adapted resource manifests with DscResource.Authoring</li>
+        </ol>
+      </nav>
+      <h1 class="hero-title" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));">How to generate Microsoft DSC adapted resource manifests with DscResource.Authoring</h1>
+      
+      <p class="hero-description" style="font-size: var(--text-base);">
+        <time datetime="2026-06-19">June 19, 2026</time>
+         • by Gijsreyn
+         • 11 min read
+      </p>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="section" style="padding-top: var(--space-8);">
+  <div class="container">
+    <div class="content-layout">
+      
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <nav class="sidebar-nav">
+            
+            <h4 class="sidebar-title">Blog Posts</h4>
+            <ul class="sidebar-list">
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/create-an-article/" class="sidebar-link">
+                  Create an Article
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/" class="sidebar-link">
+                  DSC is Dead
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/how-to-generate-microsoft-dsc-adapted-resource-manifests-with-dscresource.authoring/" class="sidebar-link active">
+                  How to generate Microsoft DSC adapted resource manifests with DscResource.Authoring
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/what-is-microsoft-dscv3/" class="sidebar-link">
+                  What is Microsoft DSC v3
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/your-first-class-based-microsoft-dsc-v3-resource/" class="sidebar-link">
+                  Your first class-based Microsoft DSC v3 resource
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/" class="sidebar-link">
+                  Convert tests to Pester 5 for a DSC Community repository
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/convert-master-to-main/" class="sidebar-link">
+                  Steps to rename master branch to main for a DSC Community resource
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/class-based-dsc-resources/" class="sidebar-link">
+                  Class Based DSC Resource only proposal
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/converting-tests-to-pester5/" class="sidebar-link">
+                  Converting tests to Pester 5
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/updating-sampler-github-tasks/" class="sidebar-link">
+                  Updating repo with Sampler.GitHubTasks
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/add-codecov-support-to-repository/" class="sidebar-link">
+                  Add Code Coverage Support to Repository
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/" class="sidebar-link">
+                  DscResource.Common functions in a DSC module
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/convert-a-module-for-continuous-delivery/" class="sidebar-link">
+                  Steps to convert a module for continuous delivery
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/how-to-use-dsc-logging/" class="sidebar-link">
+                  How to Use DSC Logging
+                </a>
+              </li>
+              
+              <li class="sidebar-list-item">
+                <a href="https://dsccommunity.org/blog/dsc-maintenance-windows/" class="sidebar-link">
+                  Realizing maintenance windows with DSC
+                </a>
+              </li>
+              
+            </ul>
+            
+          </nav>
+        </div>
+      </aside>
+
+      
+      <div class="main-content">
+        <article class="article-content">
+          <p>Class-based DSC resources are the way forward. Period. At least, if it wants to
+adopt new capabilities that Microsoft DSC&rsquo;s engine exposes, like the <code>Export</code>
+method signature.</p>
+<p>Whilst there are a ton of script-based DSC resources available in this community,
+slowly, more class-based start to appear.
+Now, with Microsoft DSC, two new features were launched during release v3.2:
+resource discovery and optimizing the execution have become more explicit.
+In this case, DSC&rsquo;s engine needs a so-called adapted resource manifest,
+describing the resource, its capabilities, and their JSON schema representation.</p>
+<p>That leaves maintainers of the current class-based resources with a question:
+should every existing class-based resource now have a hand-written manifest too?</p>
+<p>The goal of the newly introduced <code>DscResource.Authoring</code> module is to remove
+that manual step. The module is capable of reading class-based DSC resources
+from a <code>.ps1</code>, <code>.psm1</code>, or <code>.psd1</code> file. It then extracts their DSC properties
+and implemented methods, in the end, producing either a single resource manifest
+(<code>*.dsc.manifests.json</code>) or for each class a separate file (<code>*.dsc.adaptedResource.json</code>).</p>
+<p>Each DSC community project stored in the organization uses the standardized
+scaffolding layout from Sampler, giving a place to make this manifest generation
+repeatable: the build script. Each DSC community project can thus generate
+adapted resource manifests for class-based resources in three simple steps:</p>
+<ol>
+<li>Add the module dependency in <code>RequiredModules.psd1</code>.</li>
+<li>Update <code>build.yaml</code> with the tasks to import from that new module dependency
+using the <code>Task.*</code> alias.</li>
+<li>Update the build workflow to include the new task(s).</li>
+</ol>
+<p>In this blog post, we go into more detail about why these adapted
+resource manifests matter, what the module actually creates, and how you can
+adopt it with ease.</p>
+<h2 id="why-adapted-resource-manifests-matter">Why adapted resource manifests matter</h2>
+<p>Adapted resource manifests slowly started emerging in DSC&rsquo;s engine to help
+transition existing PSDSC resources. The original issue has been lost, but the
+<a href="https://github.com/PowerShell/DSC/pull/1375">pull request</a> isn&rsquo;t.</p>
+<p>In its simplest form, an adapted resource manifest defines how DSC should
+discover a resource that is implemented somewhere else. It tells DSC what
+the resource is called, which adapter is required to invoke it, where the
+resource definition lives, which operations it supports, and what shape the
+resource input and output should have.</p>
+<p>For example, an adapted resource manifest for the <code>Microsoft.WinGet.DSC/WinGetPackage</code>
+resource would look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;$schema&#34;</span>: <span style="color:#a5d6ff">&#34;https://aka.ms/dsc/schemas/v3/bundled/adaptedresource/manifest.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;Microsoft.WinGet.DSC/WinGetPackage&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;kind&#34;</span>: <span style="color:#a5d6ff">&#34;resource&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;version&#34;</span>: <span style="color:#a5d6ff">&#34;1.12.440&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;capabilities&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;get&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;test&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;set&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;PowerShell Module with DSC resources related to WinGet configurations&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;author&#34;</span>: <span style="color:#a5d6ff">&#34;Microsoft Corporation&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;requireAdapter&#34;</span>: <span style="color:#a5d6ff">&#34;Microsoft.Adapter/PowerShell&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;path&#34;</span>: <span style="color:#a5d6ff">&#34;Microsoft.WinGet.DSC.psd1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;schema&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;embedded&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#7ee787">&#34;Id&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;Id&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;The Id property.&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#7ee787">&#34;Source&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;Source&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;The Source property.&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#7ee787">&#34;Version&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;Version&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;The Version property.&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#7ee787">&#34;Ensure&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;enum&#34;</span>: [
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;Absent&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;Present&#34;</span>
+</span></span><span style="display:flex;"><span>          ],
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;Ensure&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;The Ensure property.&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#7ee787">&#34;MatchOption&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;enum&#34;</span>: [
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;Equals&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;EqualsCaseInsensitive&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;StartsWithCaseInsensitive&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;ContainsCaseInsensitive&#34;</span>
+</span></span><span style="display:flex;"><span>          ],
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;MatchOption&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;The MatchOption property.&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#7ee787">&#34;UseLatest&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;boolean&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;UseLatest&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;The UseLatest property.&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#7ee787">&#34;InstallMode&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;enum&#34;</span>: [
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;Default&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;Silent&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;Interactive&#34;</span>
+</span></span><span style="display:flex;"><span>          ],
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;InstallMode&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;The InstallMode property.&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;additionalProperties&#34;</span>: <span style="color:#79c0ff">false</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;PowerShell Module with DSC resources related to WinGet configurations&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;$schema&#34;</span>: <span style="color:#a5d6ff">&#34;https://json-schema.org/draft/2020-12/schema&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;Microsoft.WinGet.DSC/WinGetPackage&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;object&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;required&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;Id&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;Source&#34;</span>
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>There are a few important parts in this file. The <code>type</code> is the name DSC uses to
+identify the resource. The <code>capabilities</code> array tells DSC which operations
+the resource supports. The <code>requireAdapter</code> value tells DSC which adapter to use.
+The <code>path</code> points to the PowerShell module manifest file.
+Finally, the embedded JSON schema describes the resource properties,
+including their names, types, descriptions, and whether DSC should allow
+additional properties.</p>
+<p>It&rsquo;s a lot of metadata to maintain by hand, especially when you have more
+class-based resources. But it still didn&rsquo;t fully answer the question of why
+the adapted resource manifest matters. See, most examples found in DSC&rsquo;s repository
+just define the direct <code>type</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">$schema</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">https://aka.ms/dsc/schemas/v3/bundled/config/document.json</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">resources</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span>- <span style="color:#7ee787">name</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">MyApp</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">type</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Microsoft.WinGet.DSC/WinGetPackage</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">properties</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">Id</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Microsoft.VisualStudio.Code</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">Ensure</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Present</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><p>Now, DSC doesn&rsquo;t know if this is a command-based resource. It will quickly find
+out if it can&rsquo;t find the <code>*.dsc.resource.json</code> file on the <code>PATH</code>. It will
+then search for adapted resource manifest file(s), and if that&rsquo;s not found,
+it&rsquo;ll go through each adapter on the system. And anyone who knows adapters
+knows they have an initial cost at the time of discovery and execution.</p>
+<p>The following image illustrates this process:</p>
+<p><img src="/images/discover-dsc-resources-process.png" alt="Discover DSC resources process"></p>
+<p>Let&rsquo;s take it one more step further and already see what happens when running
+the resource with and without an adapted resource manifest based on performance.
+The first image measures how long it runs on an initial <code>dsc.exe</code> installation
+without an adapted resource manifest:</p>
+<p><img src="/images/dsc-without-adapted-resource-manifest.png" alt="Running WinGet resource without adapted resource manifest"></p>
+<p>For the second run, the above adapted resource manifest was added in the
+<code>$env:PSModulePath</code> and an additional element was added (<code>requireAdapter</code>):</p>
+<p><img src="/images/dsc-with-adapted-resource-manifest.png" alt="Running WinGet resource with adapted resource manifest"></p>
+<p>It&rsquo;s twice as fast! This makes consuming PSDSC class-based resources easier to
+consume for DSC&rsquo;s adapter model. Plus, you can now run <code>dsc resource schema</code>
+command against the adapted resource.</p>
+
+            <link rel="stylesheet" href="/css/vendors/admonitions.4fd9a0b8ec8899f2ca952048d255a569f433f77dfb3f52f5bc87e7d65cdce449.css" integrity="sha256-T9mguOyImfLKlSBI0lWlafQz9337P1L1vIfn1lzc5Ek=" crossorigin="anonymous">
+    <div class="admonition important">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
+        <span>Important</span>
+      </div>
+      <div class="admonition-content">
+        <p><code>Microsoft.Adapter/PowerShell</code> is the default. Only the PowerShell 7+ adapter
+supports adapted resources. Windows PowerShell is not supported.</p>
+      </div>
+    </div><h2 id="what-the-module-generates">What the module generates</h2>
+<p>You&rsquo;ve now learned that adapted resource manifests help in discovery. But they
+also speed up the process of execution as they bypass certain areas in the adapter
+itself, like caching.</p>
+<p>Now, as mentioned already, crafting such adapted resource manifests by hand for
+each of your class-based resources can be time-consuming. They can also drift
+if you modify the source code, but forget to update the <code>*.dsc.adaptedResource.json</code>
+file. That begs the question, what does the module generate?</p>
+<p>The easiest way to understand the output is to walk through the class metadata
+that <code>DscResource.Authoring</code> inspects. It reads the module manifest, class declaration,
+methods, properties, validation attributes, and it&rsquo;s even looking at
+comment-based help at the top of a class. All those pieces together generate the
+adapted resource manifest structure already seen above.</p>
+
+    <div class="admonition note">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/></svg>
+        <span>Note</span>
+      </div>
+      <div class="admonition-content">
+        <p>The module does not invent a new resource model. Instead, it builds on top of
+it.</p>
+      </div>
+    </div><p>Let&rsquo;s start by going through one of the commands: <code>New-DscAdaptedResourceManifest</code>.
+If you target a <code>.psd1</code> file, the module attempts to resolve the root module.
+Next up, the module name, version, author, and description are grabbed.
+If you take the <code>.psd1</code> file from the <code>Microsoft.WinGet.DSC</code> module:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">@</span>{
+</span></span><span style="display:flex;"><span>    RootModule    = <span style="color:#a5d6ff">&#39;Microsoft.WinGet.DSC.psm1&#39;</span>
+</span></span><span style="display:flex;"><span>    ModuleVersion = <span style="color:#a5d6ff">&#39;1.12.440&#39;</span>
+</span></span><span style="display:flex;"><span>    Author        = <span style="color:#a5d6ff">&#39;Microsoft Corporation&#39;</span>
+</span></span><span style="display:flex;"><span>    Description   = <span style="color:#a5d6ff">&#39;PowerShell Module with DSC resources related to WinGet configurations&#39;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>It becomes the top-level manifest metadata:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;$schema&#34;</span>: <span style="color:#a5d6ff">&#34;https://aka.ms/dsc/schemas/v3/bundled/adaptedresource/manifest.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;Microsoft.WinGet.DSC/WinGetPackage&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;kind&#34;</span>: <span style="color:#a5d6ff">&#34;resource&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;version&#34;</span>: <span style="color:#a5d6ff">&#34;1.12.440&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;PowerShell Module with DSC resources related to WinGet configurations&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;author&#34;</span>: <span style="color:#a5d6ff">&#34;Microsoft Corporation&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;requireAdapter&#34;</span>: <span style="color:#a5d6ff">&#34;Microsoft.Adapter/PowerShell&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;path&#34;</span>: <span style="color:#a5d6ff">&#34;Microsoft.WinGet.DSC.psd1&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>You can now clearly see the <code>requireAdapter</code> defined in the adapted resource
+manifest and the earlier image when the example was run. These factors tell
+the engine what adapter is <em>required</em> when you run a configuration document
+leveraging PSDSC class-based resources.</p>
+<p>With the top-level defined, the module starts inspecting which methods are
+implemented on the class. The helper looks for methods named <code>Get</code>, <code>Set</code>,
+<code>Test</code>, <code>WhatIf</code>, <code>SetHandlesExist</code>, <code>Delete</code>, and <code>Export</code>. Here you immediately
+see why class-based resources are the <strong>preferred</strong> way forward because
+script-based can only implement <code>Get</code>, <code>Set</code>, and <code>Test</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[DscResource()]
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span><span style="color:#6e7681"> </span>WinGetPackage {
+</span></span><span style="display:flex;"><span>    [<span style="color:#79c0ff;font-weight:bold">WinGetPackage</span>] Get() { <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">$this</span> }
+</span></span><span style="display:flex;"><span>    [<span style="color:#79c0ff;font-weight:bold">void</span>] Set() { }
+</span></span><span style="display:flex;"><span>    [<span style="color:#79c0ff;font-weight:bold">bool</span>] Test() { <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">$true</span> }
+</span></span><span style="display:flex;"><span>    static [<span style="color:#79c0ff;font-weight:bold">WinGetPackage[]</span>] Export() { <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">@</span>() }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Those methods become the <code>capabilities</code> array in the adapted resource manifest:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;capabilities&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;get&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;set&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;test&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;export&#34;</span>
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>After that, the module walks the DSC properties. It only includes properties
+decorated with <code>[DscProperty()]</code>. A key property is also treated as required,
+because a class-based DSC resource cannot identify an instance without its key.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[DscProperty(Key)]
+</span></span><span style="display:flex;"><span>[<span style="color:#79c0ff;font-weight:bold">string</span>] <span style="color:#79c0ff">$Id</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[DscProperty(Mandatory)]
+</span></span><span style="display:flex;"><span>[<span style="color:#79c0ff;font-weight:bold">string</span>] <span style="color:#79c0ff">$Source</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[DscProperty()]
+</span></span><span style="display:flex;"><span>[<span style="color:#79c0ff;font-weight:bold">bool</span>] <span style="color:#79c0ff">$UseLatest</span>
+</span></span></code></pre></div><p>This produces the following JSON schema shape:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;required&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;Id&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;Source&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;Id&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;Id&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;Source&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;Source&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;UseLatest&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;boolean&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;UseLatest&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The above JSON shape only misses the <code>description</code> element compared to the earlier
+one seen in the previous section. And that&rsquo;s for a reason. The DSC community
+standardizes the comment-based help above class-based resources seen in, for example,
+the <a href="https://github.com/dsccommunity/SqlServerDsc/blob/main/source/Classes/020.SqlAudit.ps1">SqlAudit</a> from SqlServerDsc. But don&rsquo;t worry, you&rsquo;ll learn how this can
+be overwritten if it&rsquo;s not present in the original source.</p>
+<p>That&rsquo;s in the basic form what the function does. There are more scenarios, like
+<code>[ValidateSet()]</code> attribute, but more information can be found in the <a href="https://github.com/dsccommunity/DscResource.Authoring/wiki">wiki</a>
+for that. It&rsquo;s time to look further at some of the commands.</p>
+<h2 id="generating-adapted-resource-manifests">Generating adapted resource manifests</h2>
+<p>The <code>New-DscAdaptedResourceManifest</code> is the main entry point to create a
+<code>DscAdaptedResourceManifest</code> type. Now, let&rsquo;s say you want to create the
+adapted resource manifests for the <code>Microsoft.WinGet.DSC</code> module. The module
+itself contains five classes. To create each individual file, you can run the
+following example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$module</span> = Get-Module Microsoft.<span style="color:#79c0ff">WinGet</span>.<span style="color:#79c0ff">DSC</span> -ListAvailable |
+</span></span><span style="display:flex;"><span>    Sort-Object -Property Version -Descending |
+</span></span><span style="display:flex;"><span>    Select-Object -First <span style="color:#a5d6ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#79c0ff">$manifests</span> = New-DscAdaptedResourceManifest -Path <span style="color:#79c0ff">$module</span>.<span style="color:#79c0ff">Path</span> <span style="color:#8b949e;font-style:italic"># Import the .psd1 file</span>
+</span></span><span style="display:flex;"><span><span style="color:#79c0ff">$manifests</span>.<span style="color:#79c0ff">Count</span> <span style="color:#8b949e;font-style:italic"># Should return five</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">foreach</span> (<span style="color:#79c0ff">$manifest</span> <span style="color:#ff7b72">in</span> <span style="color:#79c0ff">$manifests</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$type</span> = <span style="color:#79c0ff">$manifest</span>.<span style="color:#79c0ff">Type</span>.<span style="color:#79c0ff">Split</span>(<span style="color:#a5d6ff">&#34;/&#34;</span>)[<span style="color:#a5d6ff">-1</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$sourcePath</span> = Split-Path -Path <span style="color:#79c0ff">$module</span>.<span style="color:#79c0ff">Path</span> -Parent
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$outputPath</span> = Join-Path -Path <span style="color:#79c0ff">$sourcePath</span> -ChildPath <span style="color:#a5d6ff">&#34;</span><span style="color:#79c0ff">$type</span><span style="color:#a5d6ff">.dsc.adaptedResource.json&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Generate JSON variant</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">$manifest</span>.<span style="color:#79c0ff">ToJson</span>() | Set-Content -Path <span style="color:#79c0ff">$outputPath</span> -Encoding UTF8
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This generated five adapted resource manifest files.</p>
+<p><img src="/images/dsc-generate-adapted-manifest-winget.png" alt="Generate adapted resource manifest for Microsoft.WinGet.DSC"></p>
+<p>If you inspect the <code>WinGetPackage.dsc.adaptedResource.json</code> file, you still
+notice that <code>description</code> elements are still added. But all of these contain
+default values.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-jsonc" data-lang="jsonc"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#8b949e;font-style:italic">// redacted
+</span></span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;schema&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;embedded&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;object&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;required&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;Id&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;Source&#34;</span>
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;PowerShell Module with DSC resources related to WinGet configurations&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#7ee787">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#7ee787">&#34;Id&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;Id&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;The Id property.&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#7ee787">&#34;Source&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;Source&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;The Source property.&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#7ee787">&#34;Version&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;Version&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;The Version property.&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#7ee787">&#34;Ensure&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;enum&#34;</span>: [
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;Absent&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;Present&#34;</span>
+</span></span><span style="display:flex;"><span>          ],
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;Ensure&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;The Ensure property.&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#7ee787">&#34;MatchOption&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;type&#34;</span>: <span style="color:#a5d6ff">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;enum&#34;</span>: [
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;Equals&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;EqualsCaseInsensitive&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;StartsWithCaseInsensitive&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#34;ContainsCaseInsensitive&#34;</span>
+</span></span><span style="display:flex;"><span>          ],
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;title&#34;</span>: <span style="color:#a5d6ff">&#34;MatchOption&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#7ee787">&#34;description&#34;</span>: <span style="color:#a5d6ff">&#34;The MatchOption property.&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic">// redacted
+</span></span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>That&rsquo;s where you can use a combination of <code>New-DscPropertyOverride</code> and
+<code>Update-DscAdaptedResourceManifest</code>. Imagine you want to update the
+<code>description</code> on <code>Version</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#79c0ff">$override</span> = New-DscPropertyOverride `
+</span></span><span style="display:flex;"><span>    -Name <span style="color:#a5d6ff">&#39;Version&#39;</span> `
+</span></span><span style="display:flex;"><span>    -Description <span style="color:#a5d6ff">&#39;Specify the exact version to install.&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#79c0ff">$manifest</span> |
+</span></span><span style="display:flex;"><span>    Update-DscAdaptedResourceManifest -PropertyOverride <span style="color:#79c0ff">$override</span> |
+</span></span><span style="display:flex;"><span>    ForEach-Object { <span style="color:#79c0ff">$_</span>.<span style="color:#79c0ff">ToJson</span>() }
+</span></span></code></pre></div><p>You can use this to perform post-processing where the generated schema need
+more attention. Time to look at the final part: how can resource authors
+easily adopt it in their existing workflows</p>
+<h2 id="automate-generation-in-buildyaml">Automate generation in build.yaml</h2>
+<p>Each DSC community module contains a <code>build.yaml</code>. To easily adopt the automatic
+generation of an adapted resource manifest, you can define one of the two build
+tasks:</p>
+<ol>
+<li><code>Create_DscAdaptedResourceManifests</code> - which generates <code>*.dsc.adaptedResource.json</code>
+files for each class-based resource</li>
+<li><code>Create_DscResourceManifestsList</code> - which generates <code>*.dsc.manifests.json</code> file
+containing multiple entries to adapted resources</li>
+</ol>
+<p>Say you have the following <code>build.yaml</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">####################################################</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Pipeline Build Task Configuration (Invoke-Build) #</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">####################################################</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">BuildWorkflow</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">&#39;.&#39;</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">build</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">test</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">build</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Clean</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Build_Module_ModuleBuilder</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Build_NestedModules_ModuleBuilder</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Create_Changelog_Release_Output</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">docs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Clean_WikiContent_Folder</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Check_SqlServer_Availability</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Generate_Conceptual_Help</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Generate_Wiki_Content</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Generate_Wiki_Sidebar</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Clean_Markdown_Metadata</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Package_Wiki_Content</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">pack</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">build</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">docs</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#7ee787">package_module_nupkg # cSpell</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">disable-line</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">hqrmtest: # cSpell</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">disable-line</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Invoke_HQRM_Tests_Stop_On_Fail</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">test</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Pester_Tests_Stop_On_Fail</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Convert_Pester_Coverage</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Pester_If_Code_Coverage_Under_Threshold</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">publish</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Publish_Release_To_GitHub</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Publish_Module_To_gallery</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Publish_GitHub_Wiki_Content</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><p>After the <code>build</code> task, you can add one of the two tasks mentioned above. Let&rsquo;s
+say you want to create individual files for each class-based DSC resource,
+you can add the following snippet:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">####################################################</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Pipeline Build Task Configuration (Invoke-Build) #</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">####################################################</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">BuildWorkflow</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">&#39;.&#39;</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">build</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">test</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">build</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Clean</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Build_Module_ModuleBuilder</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Build_NestedModules_ModuleBuilder</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Create_Changelog_Release_Output</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">Create_DscAdaptedResourceManifests</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># The line creating adapted resource manifest(s)</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic"># Truncated</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Import ModuleBuilder tasks from a specific PowerShell module using the build</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># task&#39;s alias. Wildcard * can be used to specify all tasks that has a similar</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># prefix and or suffix. The module contain the task must be added as a required</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># module in the file RequiredModules.psd1.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">ModuleBuildTasks</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic"># Truncated</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">DscResource.Authoring</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>- <span style="color:#a5d6ff">&#39;Task.*&#39;</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Line to import the available task from the module</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><p>This results in the following being generated:</p>
+<p><img src="/images/dsc-sqlserver-adapted-manifests.png" alt="Example using SqlServerDsc to generate adapted resource manifests"></p>
+
+    <div class="admonition note">
+      <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/></svg>
+        <span>Note</span>
+      </div>
+      <div class="admonition-content">
+        <p>The example above used the <code>SqlServerDsc</code> module as it contained multiple
+class-based resources.</p>
+      </div>
+    </div><p>Through the <code>build.yaml</code> file, you can always apply customizations. Here&rsquo;s
+an example snippet to overwrite the <code>Ensure</code> property on a resource called <code>MyResource</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">DscResource.Authoring</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">Create_DscAdaptedResourceManifests</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">FileNamePattern</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;{ProjectName}.{ResourceName}.dsc.adaptedResource.json&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">PropertyOverrides</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span><span style="color:#7ee787">MyResource</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>- <span style="color:#7ee787">Name</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Ensure</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span><span style="color:#7ee787">Description</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Specifies whether the resource should exist.</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span><span style="color:#7ee787">JsonSchema</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">default</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">Present</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h2 id="wrap-up">Wrap-up</h2>
+<p>You&rsquo;ve just learned that adapted resource manifests make class-based DSC
+resources easier for Microsoft DSC to discover, understand, and execute.
+They remove the guessing game, especially around the two PowerShell adapters.
+When the time was measured, it made visible that adapted resource manifests
+were way quicker by short-circuiting the process in the engine.</p>
+<p>But the important part is that you should not have to maintain those files by hand
+Especially because there&rsquo;s already a ton of automation around DSC community modules.
+The <code>DscResource.Authoring</code> module was brought to life using this information in
+existing repositories. From there, it can be hooked into the existing build
+workflows with ease.</p>
+<p>If you maintain a DSC community module with class-based resources, or you&rsquo;ve now
+been inspired to create them, then this next step can be added simply. The short
+version:</p>
+<ol>
+<li>Open the <code>build.yaml</code></li>
+<li>Choose one of the two tasks exposed from <code>DscResource.Authoring</code></li>
+<li>Add one of them</li>
+<li>Generate the manifest and inspect the output</li>
+</ol>
+<p>These adapted resource manifest(s) can be shipped with your module and will be
+discovered by the PowerShell discovery extension from DSC&rsquo;s engine.</p>
+<!-- Link reference definitions -->
+<!-- Images reference definitions -->
+
+        </article>
+
+        
+        <footer style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--border-primary);">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-4);">
+            <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: 0;">
+              Last updated: June 19, 2026
+            </p>
+            
+            <a href="https://github.com/dsccommunity/dsccommunity.org/edit/master/content/blog%5chow-to-generate-microsoft-dsc-adapted-resource-manifests-with-dscresource.authoring.md"
+               class="btn btn-ghost btn-sm"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="ri-edit-line"></i>
+              Edit this page
+            </a>
+            
+          </div>
+        </footer>
+
+        
+        <nav style="display: flex; justify-content: space-between; margin-top: var(--space-8); gap: var(--space-4);">
+          
+          <a href="https://dsccommunity.org/blog/what-is-microsoft-dscv3/" class="card" style="flex: 1; max-width: 45%; text-decoration: none;">
+            <div style="display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
+              <i class="ri-arrow-left-line"></i>
+              Previous
+            </div>
+            <span class="card-title" style="font-size: var(--text-base);">What is Microsoft DSC v3</span>
+          </a>
+          
+
+          
+          <a href="https://dsccommunity.org/blog/dsc-is-dead-long-live-dsc/" class="card" style="flex: 1; max-width: 45%; text-align: right; text-decoration: none;">
+            <div style="display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-2);">
+              Next
+              <i class="ri-arrow-right-line"></i>
+            </div>
+            <span class="card-title" style="font-size: var(--text-base);">DSC is Dead</span>
+          </a>
+          
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const article = document.querySelector('.article-content');
+  const tocList = document.getElementById('tocList');
+
+  if (article && tocList && !tocList.children.length) {
+    const headings = article.querySelectorAll('h2, h3');
+
+    if (headings.length > 0) {
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = 'heading-' + index;
+        }
+
+        const li = document.createElement('li');
+        li.className = 'sidebar-list-item';
+
+        const a = document.createElement('a');
+        a.href = '#' + heading.id;
+        a.className = 'sidebar-link';
+        a.textContent = heading.textContent;
+
+        if (heading.tagName === 'H3') {
+          a.style.paddingLeft = 'var(--space-6)';
+          a.style.fontSize = 'var(--text-xs)';
+        }
+
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+    }
+  }
+});
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      
+      <div class="footer-brand">
+        <a href="https://dsccommunity.org/" class="footer-logo">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="32"
+              height="32"
+              rx="8"
+              fill="url(#footer-logo-gradient)"
+            />
+            <path
+              d="M8 12h16M8 16h12M8 20h16"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <defs>
+              <linearGradient
+                id="footer-logo-gradient"
+                x1="0"
+                y1="0"
+                x2="32"
+                y2="32"
+              >
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>DSC Community</span>
+        </a>
+        <p class="footer-description">
+          A collaborative community of authors and maintainers working to
+          improve DSC resources, their quality, and development practices.
+        </p>
+        <div class="footer-social">
+          <a
+            href="https://github.com/dsccommunity"
+            class="footer-social-link"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://twitter.com/dsccommunity"
+            class="footer-social-link"
+            aria-label="Twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://discord.gg/dsccommunity"
+            class="footer-social-link"
+            aria-label="Discord"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      
+      <div class="footer-column">
+        <h4 class="footer-column-title">Resources</h4>
+        <ul class="footer-links">
+          <li><a href="/resources">Resource Modules</a></li>
+          <li><a href="/guidelines">Guidelines</a></li>
+          <li><a href="/blog">Blog Posts</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-column">
+        <h4 class="footer-column-title">Community</h4>
+        <ul class="footer-links">
+          <li><a href="/community">About Us</a></li>
+          <li><a href="/community_calls">Community Calls</a></li>
+          <li><a href="/community/maintainers">Maintainers</a></li>
+          <li><a href="/community/committee">Committee</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-column">
+        <h4 class="footer-column-title">Support</h4>
+        <ul class="footer-links">
+          <li><a href="/code_of_conduct">Code of Conduct</a></li>
+          <li><a href="/help">Get Help</a></li>
+          <li><a href="/contributing">Contributing</a></li>
+          <li>
+            <a
+              href="https://github.com/dsccommunity"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © 2026 DSC Community Contributors. Built with
+        <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer"
+          >Hugo</a
+        >.
+      </p>
+      <div class="footer-legal">
+        <a href="/code_of_conduct">Code of Conduct</a>
+        <a
+          href="https://github.com/dsccommunity/dsccommunity.org/blob/master/LICENSE"
+          >License</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div class="search-modal" id="searchModal" aria-hidden="true">
+      <div class="search-modal-content" role="dialog" aria-label="Search">
+        <div class="search-modal-header">
+          <i class="ri-search-line"></i>
+          <input
+            type="text"
+            class="search-modal-input"
+            id="searchInput"
+            placeholder="Search documentation..."
+            autocomplete="off"
+          />
+          <button class="search-modal-close" onclick="closeSearchModal()">
+            ESC
+          </button>
+        </div>
+        <div class="search-modal-results" id="searchResults">
+          
+        </div>
+        <div class="search-modal-footer">
+          <div class="search-shortcuts">
+            <span class="search-shortcut"
+              ><kbd>↑</kbd><kbd>↓</kbd> Navigate</span
+            >
+            <span class="search-shortcut"><kbd>↵</kbd> Open</span>
+            <span class="search-shortcut"><kbd>ESC</kbd> Close</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/powershell.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/bash.min.js"></script>
+
+    
+    <script
+      src="https://dsccommunity.org/js/main.min.56bc7a80dd440714f8194bda3bfc8dbf08ebd1bbb8bbc0a7d0dd285149f685af.js"
+      integrity="sha256-Vrx6gN1EBxT4GUvaO/yNvwjr0bu4u8Cn0N0oUUn2ha8="
+    ></script>
+  </body>
+</html>

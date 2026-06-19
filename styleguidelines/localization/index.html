@@ -14,7 +14,7 @@
 
     <title>Localization | </title>
 
-    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Hugo 0.163.3">
 
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,8 +42,8 @@
     
     <link
       rel="stylesheet"
-      href="https://dsccommunity.org/css/futuristic.min.2fe77f06d9e00c9c5b3ed8d96e487ab36a763589c09b8cf99c143b793fe8c975.css"
-      integrity="sha256-L&#43;d/BtngDJxbPtjZbkh6s2p2NYnAm4z5nBQ7eT/oyXU="
+      href="https://dsccommunity.org/css/futuristic.min.64c9c720b33245978cd805363c7f551a4638810479e30c132a829e57bcc642ed.css"
+      integrity="sha256-ZMnHILMyRZeM2AU2PH9VGkY4gQR54wwTKoKeV7zGQu0="
     />
 
     
@@ -318,7 +318,8 @@
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Toggle menu"
+          aria-label="Open menu"
+          aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
           <svg
@@ -330,8 +331,8 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
@@ -339,6 +340,148 @@
     </div>
   </div>
 </header>
+
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <div>
+        <span class="mobile-menu-eyebrow"></span>
+        <h2 class="mobile-menu-title">Menu</h2>
+      </div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <ul class="mobile-menu-list">
+        
+        
+        <li>
+          <a href="/code_of_conduct" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-shield-check-line"></i>
+              
+            </span>
+            <span>Code of Conduct</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/community_calls" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-calendar-event-line"></i>
+              
+            </span>
+            <span>Community Calls</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/faq" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-question-answer-line"></i>
+              
+            </span>
+            <span>FAQ</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/help" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-lifebuoy-line"></i>
+              
+            </span>
+            <span>Help</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="mobile-menu-group">
+          <span class="mobile-menu-heading">
+            <span class="mobile-menu-icon"><i class="ri-folder-3-line"></i></span>
+            <span>Categories</span>
+          </span>
+          <div class="mobile-submenu">
+            
+            <a href="/community" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-team-line"></i>
+                
+              </span>
+              <span>Community</span>
+            </a>
+            
+            <a href="/resources" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-apps-2-line"></i>
+                
+              </span>
+              <span>Resource Modules</span>
+            </a>
+            
+            <a href="/guidelines" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-book-open-line"></i>
+                
+              </span>
+              <span>Guidelines</span>
+            </a>
+            
+            <a href="/blog" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-article-line"></i>
+                
+              </span>
+              <span>Blog Posts</span>
+            </a>
+            
+            <a href="/configmgt" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-settings-3-line"></i>
+                
+              </span>
+              <span>Config. Management</span>
+            </a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="ri-contrast-2-line"></i>
+        <span>Theme</span>
+      </button>
+      <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
+        <i class="ri-github-fill"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </aside>
+</div>
 <main id="main-content">
 
 
@@ -480,7 +623,7 @@ There is also the list of
 Each localized string file should contain the following with the correct
 localization key and accompanying localization string value (the example uses
 the friendly resource name of &lsquo;Folder&rsquo;).</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Localized resources for Folder</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Localized resources for Folder</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>ConvertFrom-StringData <span style="color:#79c0ff">@&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#79c0ff">    CreateFolder = Creating folder at path &#39;{0}&#39;. (F0001)
@@ -490,7 +633,7 @@ the friendly resource name of &lsquo;Folder&rsquo;).</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#79c0ff">&#39;@</span>
 </span></span></code></pre></div><p>When using the previous example, the folder structure would look like the
 following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>DSCResources\DSC_Folder\en-US\DSC_Folder.strings.psd1
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>DSCResources\DSC_Folder\en-US\DSC_Folder.strings.psd1
 </span></span><span style="display:flex;"><span>DSCResources\DSC_Folder\es-ES\DSC_Folder.strings.psd1
 </span></span></code></pre></div><p>To use the localization strings in a resource, then localization strings are
 imported at the top of each resource PowerShell module script file (.psm1). The
@@ -504,7 +647,8 @@ for example code change).</p>
 <blockquote>
 <p>Using this method we could also test that each localized string is
 represented in each language specific localization file for that
-resource.</p></blockquote>
+resource.</p>
+</blockquote>
 <p><strong>Format:</strong> <code>(ID:yyyyZZZZ)</code></p>
 <ul>
 <li>&lsquo;yyyy&rsquo; - The resource name prefix. It is composed of every first letter of
@@ -513,73 +657,73 @@ every word in the resource friendly name.</li>
 </ul>
 <p><strong>Example of prefixes:</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>Module</th>
-          <th>Resource</th>
-          <th>ID prefix (yyyy)</th>
-          <th>First string ID suffix</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>PSDscResources</td>
-          <td>GroupResource</td>
-          <td>GR</td>
-          <td><code>(GR0001)</code></td>
-      </tr>
-      <tr>
-          <td>PSDscResources</td>
-          <td>WindowsOptionalFeature</td>
-          <td>WOF</td>
-          <td><code>(WOF0001)</code></td>
-      </tr>
-      <tr>
-          <td>SqlServerDsc</td>
-          <td>SqlSetup</td>
-          <td>SS</td>
-          <td><code>(SS0001)</code></td>
-      </tr>
-      <tr>
-          <td>SqlServerDsc</td>
-          <td>SqlAGDatabase</td>
-          <td>SAGD</td>
-          <td><code>(SAGD0001)</code></td>
-      </tr>
-      <tr>
-          <td>NetworkingDsc</td>
-          <td>DnsClientGlobalSetting</td>
-          <td>DCGS</td>
-          <td><code>(DCGS0001)</code></td>
-      </tr>
-      <tr>
-          <td>NetworkingDsc</td>
-          <td>Firewall</td>
-          <td>F</td>
-          <td><code>(F0001)</code></td>
-      </tr>
-      <tr>
-          <td>CertificateDsc</td>
-          <td>PfxImport</td>
-          <td>PI</td>
-          <td><code>(PI0001)</code></td>
-      </tr>
-      <tr>
-          <td>CertificateDsc</td>
-          <td>WaitForCertificateServices</td>
-          <td>WFCS</td>
-          <td><code>(WFCS0001)</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Module</th>
+					<th>Resource</th>
+					<th>ID prefix (yyyy)</th>
+					<th>First string ID suffix</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>PSDscResources</td>
+					<td>GroupResource</td>
+					<td>GR</td>
+					<td><code>(GR0001)</code></td>
+			</tr>
+			<tr>
+					<td>PSDscResources</td>
+					<td>WindowsOptionalFeature</td>
+					<td>WOF</td>
+					<td><code>(WOF0001)</code></td>
+			</tr>
+			<tr>
+					<td>SqlServerDsc</td>
+					<td>SqlSetup</td>
+					<td>SS</td>
+					<td><code>(SS0001)</code></td>
+			</tr>
+			<tr>
+					<td>SqlServerDsc</td>
+					<td>SqlAGDatabase</td>
+					<td>SAGD</td>
+					<td><code>(SAGD0001)</code></td>
+			</tr>
+			<tr>
+					<td>NetworkingDsc</td>
+					<td>DnsClientGlobalSetting</td>
+					<td>DCGS</td>
+					<td><code>(DCGS0001)</code></td>
+			</tr>
+			<tr>
+					<td>NetworkingDsc</td>
+					<td>Firewall</td>
+					<td>F</td>
+					<td><code>(F0001)</code></td>
+			</tr>
+			<tr>
+					<td>CertificateDsc</td>
+					<td>PfxImport</td>
+					<td>PI</td>
+					<td><code>(PI0001)</code></td>
+			</tr>
+			<tr>
+					<td>CertificateDsc</td>
+					<td>WaitForCertificateServices</td>
+					<td>WFCS</td>
+					<td><code>(WFCS0001)</code></td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Example of usage:</strong></p>
 <p>See example of localized strings under <a href="/styleguidelines/localization/#localization">Localization</a>.</p>
 <h2 id="using-localization-string-in-code">Using localization string in code</h2>
 <p>This is an example of how to write localized verbose messages.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Write-Verbose -Message `
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Write-Verbose -Message `
 </span></span><span style="display:flex;"><span>    (<span style="color:#79c0ff">$script:localizedData</span>.<span style="color:#79c0ff">RetrievingFolderInformation</span> <span style="color:#ff7b72;font-weight:bold">-f</span> <span style="color:#79c0ff">$path</span>)
 </span></span></code></pre></div><p>This is an example of how to write localized warning messages.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Write-Warning -Message `
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Write-Warning -Message `
 </span></span><span style="display:flex;"><span>    (<span style="color:#79c0ff">$script:localizedData</span>.<span style="color:#79c0ff">ProblemAccessFolder</span> <span style="color:#ff7b72;font-weight:bold">-f</span> <span style="color:#79c0ff">$path</span>)
 </span></span></code></pre></div><p>This is an example of how to throw localized error messages, but the
 <a href="/styleguidelines/localization/#helper-functions-for-localization">helper functions</a>
@@ -588,7 +732,7 @@ every word in the resource friendly name.</li>
 <a href="/styleguidelines/localization/#new-objectnotfoundexception"><code>New-ObjectNotFoundException</code></a> and
 <a href="/styleguidelines/localization/#new-invalidresultexception"><code>New-InvalidResultException</code></a>
 should preferably be used whenever possible.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#ff7b72">throw</span> (<span style="color:#79c0ff">$script:localizedData</span>.<span style="color:#79c0ff">FailedToReadProperties</span> <span style="color:#ff7b72;font-weight:bold">-f</span> <span style="color:#79c0ff">$property</span>, <span style="color:#79c0ff">$path</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#ff7b72">throw</span> (<span style="color:#79c0ff">$script:localizedData</span>.<span style="color:#79c0ff">FailedToReadProperties</span> <span style="color:#ff7b72;font-weight:bold">-f</span> <span style="color:#79c0ff">$property</span>, <span style="color:#79c0ff">$path</span>)
 </span></span></code></pre></div><h3 id="cmdlets-for-localization">Cmdlets for localization</h3>
 <p>The module <a href="https://github.com/dsccommunity/DscResource.Common">DscResource.Common</a>
 has cmdlets that help with localization. See the <a href="https://github.com/dsccommunity/DscResource.Common#cmdlet">cmdlet documentation</a>
@@ -877,8 +1021,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     <script
-      src="https://dsccommunity.org/js/main.min.9a596f512ca53270aac01ee7314fba2b9cbdd17fb33667198c82f28d1dc82006.js"
-      integrity="sha256-mllvUSylMnCqwB7nMU&#43;6K5y90X&#43;zNmcZjILyjR3IIAY="
+      src="https://dsccommunity.org/js/main.min.56bc7a80dd440714f8194bda3bfc8dbf08ebd1bbb8bbc0a7d0dd285149f685af.js"
+      integrity="sha256-Vrx6gN1EBxT4GUvaO/yNvwjr0bu4u8Cn0N0oUUn2ha8="
     ></script>
   </body>
 </html>

@@ -14,7 +14,7 @@
 
     <title>Getting Started as a Contributor | </title>
 
-    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Hugo 0.163.3">
 
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,8 +42,8 @@
     
     <link
       rel="stylesheet"
-      href="https://dsccommunity.org/css/futuristic.min.2fe77f06d9e00c9c5b3ed8d96e487ab36a763589c09b8cf99c143b793fe8c975.css"
-      integrity="sha256-L&#43;d/BtngDJxbPtjZbkh6s2p2NYnAm4z5nBQ7eT/oyXU="
+      href="https://dsccommunity.org/css/futuristic.min.64c9c720b33245978cd805363c7f551a4638810479e30c132a829e57bcc642ed.css"
+      integrity="sha256-ZMnHILMyRZeM2AU2PH9VGkY4gQR54wwTKoKeV7zGQu0="
     />
 
     
@@ -318,7 +318,8 @@
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Toggle menu"
+          aria-label="Open menu"
+          aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
           <svg
@@ -330,8 +331,8 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
@@ -339,6 +340,148 @@
     </div>
   </div>
 </header>
+
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <div>
+        <span class="mobile-menu-eyebrow"></span>
+        <h2 class="mobile-menu-title">Menu</h2>
+      </div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <ul class="mobile-menu-list">
+        
+        
+        <li>
+          <a href="/code_of_conduct" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-shield-check-line"></i>
+              
+            </span>
+            <span>Code of Conduct</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/community_calls" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-calendar-event-line"></i>
+              
+            </span>
+            <span>Community Calls</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/faq" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-question-answer-line"></i>
+              
+            </span>
+            <span>FAQ</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/help" class="mobile-menu-link">
+            <span class="mobile-menu-icon">
+              
+              <i class="ri-lifebuoy-line"></i>
+              
+            </span>
+            <span>Help</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="mobile-menu-group">
+          <span class="mobile-menu-heading">
+            <span class="mobile-menu-icon"><i class="ri-folder-3-line"></i></span>
+            <span>Categories</span>
+          </span>
+          <div class="mobile-submenu">
+            
+            <a href="/community" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-team-line"></i>
+                
+              </span>
+              <span>Community</span>
+            </a>
+            
+            <a href="/resources" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-apps-2-line"></i>
+                
+              </span>
+              <span>Resource Modules</span>
+            </a>
+            
+            <a href="/guidelines" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-book-open-line"></i>
+                
+              </span>
+              <span>Guidelines</span>
+            </a>
+            
+            <a href="/blog" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-article-line"></i>
+                
+              </span>
+              <span>Blog Posts</span>
+            </a>
+            
+            <a href="/configmgt" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                
+                <i class="ri-settings-3-line"></i>
+                
+              </span>
+              <span>Config. Management</span>
+            </a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="ri-contrast-2-line"></i>
+        <span>Theme</span>
+      </button>
+      <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
+        <i class="ri-github-fill"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </aside>
+</div>
 <main id="main-content">
 
 
@@ -463,23 +606,24 @@ or later with only <em>Windows PowerShell</em> available.</p>
 (to get <code>winget</code>).
 <blockquote>
 <p><strong>NOTE:</strong> Newer versions of Windows have WinGet preinstalled, then this
-step is not required.</p></blockquote>
+step is not required.</p>
+</blockquote>
 </li>
 <li>Install Git
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>winget install Git.<span style="color:#79c0ff">Git</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>winget install Git.<span style="color:#79c0ff">Git</span>
 </span></span></code></pre></div></li>
 <li>Allow execution of scripts.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 </span></span></code></pre></div></li>
 <li>Make a local folder for cloning projects
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>mkdir c:/source
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>mkdir c:/source
 </span></span><span style="display:flex;"><span>cd c:/source
 </span></span></code></pre></div></li>
 <li>Clone the git repo (change URI as needed)
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>git clone https<span style="color:#f85149">:</span>//github.com/dsccommunity/SqlServerDsc
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>git clone https<span style="color:#f85149">:</span>//github.com/dsccommunity/SqlServerDsc
 </span></span></code></pre></div></li>
 <li>Move into the local repository folder
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>cd ./SqlServerDsc
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>cd ./SqlServerDsc
 </span></span></code></pre></div></li>
 <li>Get informative messaged (optional)
 <pre tabindex="0"><code>$InformationPreference = &#39;Continue&#39;
@@ -492,14 +636,15 @@ with all other dependencies being saved into the project&rsquo;s <code>output</c
 session and run the command again. This is due to the old version of
 module <em>PackageManagement</em> is still available in the session (even when
 we remove it) so <em>PowerShellGet</em> calls the wrong version of the command
-<code>Find-Package</code>.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -ResolveDependency -Tasks noop
+<code>Find-Package</code>.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -ResolveDependency -Tasks noop
 </span></span></code></pre></div></li>
 <li>Build the project.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks build
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks build
 </span></span></code></pre></div></li>
 <li>Test the project.
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks test
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\build.<span style="color:#79c0ff">ps1</span> -Tasks test
 </span></span></code></pre></div></li>
 </ol>
 <h3 id="create-free-github-account">Create free GitHub account</h3>
@@ -527,22 +672,24 @@ style guideline violations.</p>
 Normally all defaults values suggested by the wizard can be used.</p>
 <h5 id="chocolatey">Chocolatey</h5>
 <p>See <a href="https://chocolatey.org">Chocolatey</a> for prerequisites to use <code>choco</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>choco install vscode
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>choco install vscode
 </span></span></code></pre></div><h5 id="winget">WinGet</h5>
 <p>Newer versions of Windows have WinGet preinstalled. If it is not installed
 make sure to install <em>App Installer</em> (by Microsoft) from the <a href="https://www.microsoft.com/store/productId/9NBLGGH4NNS1">Microsoft Store</a>
 to use <code>winget</code>.</p>
 <blockquote>
 <p><strong>NOTE:</strong> To use <code>code</code> from command-line you might need to logout and login
-again after installation for environment variable <code>PATH</code> to be updated.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>winget install vscode
+again after installation for environment variable <code>PATH</code> to be updated.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>winget install vscode
 </span></span></code></pre></div><h3 id="install-visual-studio-code-powershell-extension">Install Visual Studio Code PowerShell Extension</h3>
 <p>To be able to write PowerShell code in Visual Studio Code the extension
 need to be installed.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>code --install-extension ms-vscode.PowerShell
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>code --install-extension ms-vscode.PowerShell
 </span></span></code></pre></div><blockquote>
 <p><strong>NOTE:</strong> This step is only relevant if Visual Studio Code was installed in the
-previous step.</p></blockquote>
+previous step.</p>
+</blockquote>
 <h3 id="install-git">Install Git</h3>
 <h4 id="windows-2">Windows</h4>
 <p>To install using:</p>
@@ -569,7 +716,7 @@ Visual Studio Code as the default editor for Git instead of Vim.</p>
 <img src="../../images/getting_started_with_github/git_experimental.png" alt="Git experimental" style="width:425px;" />
 <p>After the installation you can run this in PowerShell and it should return
 the version of <code>git</code> if it was installed correctly.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PS&gt; git --version
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PS&gt; git --version
 </span></span><span style="display:flex;"><span>git version 2.24.1.windows.2
 </span></span></code></pre></div><p><strong>Git for Windows</strong> installed a credential manager that will help you
 connect using your GitHub credentials. It will popup the first time
@@ -577,31 +724,31 @@ your credentials are needed, for example when pushing to a repository on
 GitHub.</p>
 <h5 id="chocolatey-1">Chocolatey</h5>
 <p>See <a href="https://chocolatey.org">Chocolatey</a> for prerequisites to use <code>choco</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>choco install git
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>choco install git
 </span></span></code></pre></div><h5 id="winget-1">WinGet</h5>
 <p>Newer versions of Windows have WinGet preinstalled. If it is not installed
 make sure to install <em>App Installer</em> (by Microsoft) from the <a href="https://www.microsoft.com/store/productId/9NBLGGH4NNS1">Microsoft Store</a>
 to use <code>winget</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>winget install Git.Git
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>winget install Git.Git
 </span></span></code></pre></div><h3 id="configure-git">Configure Git</h3>
 <p>Now you need to setup your name and e-mail in the global settings. This
 is used when you commit and push changes to a repository.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config --global user.name <span style="color:#a5d6ff">&#34;Your Name&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config --global user.name <span style="color:#a5d6ff">&#34;Your Name&#34;</span>
 </span></span><span style="display:flex;"><span>git config --global user.email <span style="color:#a5d6ff">&#34;your@emailaddress.com&#34;</span>
 </span></span></code></pre></div><p>We also need set how line endings should be treated.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config --global core.autocrlf true
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config --global core.autocrlf true
 </span></span></code></pre></div><h3 id="install-powershell-module-posh-git">Install PowerShell Module posh-git</h3>
 <p>This is optional but helps with tab completion and better visualization
 of what branch you are working on when using PowerShell.</p>
 <p>Run this in PowerShell.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Install-Module posh-git -Scope CurrentUser -Force
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Install-Module posh-git -Scope CurrentUser -Force
 </span></span><span style="display:flex;"><span>Import-Module -Name posh-git
 </span></span></code></pre></div><p>Then to make sure the module is loaded each time you start PowerShell,
 add the import of the module to your PowerShell profile script.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>code <span style="color:#79c0ff">$profile</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>code <span style="color:#79c0ff">$profile</span>
 </span></span></code></pre></div><p>In the file that opened up in Visual Studio Code, add the following and
 save the file.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Import-Module -Name posh-git
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Import-Module -Name posh-git
 </span></span></code></pre></div><h3 id="install-gitversion">Install GitVersion</h3>
 <p>The application <a href="https://gitversion.net/docs/">GitVersion</a> is used to
 automatically increase the version in the build pipeline. It is optional,
@@ -618,39 +765,44 @@ this installed.</p>
 <p>See <a href="https://chocolatey.org">Chocolatey</a> for prerequisites to use <code>choco</code>.</p>
 <p>Once you have Chocolatey installed you can install GitVersion using the following:</p>
 <blockquote>
-<p><strong>NOTE:</strong> You must be an elevated administrator to run <code>choco install</code>.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>choco install GitVersion.Portable
+<p><strong>NOTE:</strong> You must be an elevated administrator to run <code>choco install</code>.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>choco install GitVersion.Portable
 </span></span></code></pre></div><h5 id="dotnet">DotNet</h5>
 <p>To be able to install <em>GitVersion</em> the command <code>dotnet</code> must first be installed
 using WinGet.</p>
 <blockquote>
 <p><strong>NOTE</strong>: Newer versions of Windows have WinGet preinstalled. If it is not installed
 make sure to install <em>App Installer</em> (by Microsoft) from the <a href="https://www.microsoft.com/store/%3EproductId/9NBLGGH4NNS1">Microsoft Store</a>
-to use <code>winget</code>.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>winget install dotnet-sdk-6
+to use <code>winget</code>.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>winget install dotnet-sdk-6
 </span></span></code></pre></div><p>Make sure there is a Nuget source listed by running:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet nuget list source
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet nuget list source
 </span></span></code></pre></div><p>If it does not return any Nuget source, add the <a href="https://api.nuget.org/v3/index.json">Nuget.org source</a>
 by running the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
 </span></span></code></pre></div><p>Then we install <em>GitVersion</em> using <code>dotnet</code>.</p>
 <blockquote>
 <p>Note: To use <code>dotnet</code> from command-line you might need to logout and login
-again after installation for environment variable <code>PATH</code> to be updated.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet tool install --global GitVersion.Tool
+again after installation for environment variable <code>PATH</code> to be updated.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet tool install --global GitVersion.Tool
 </span></span></code></pre></div><h4 id="macos">macOS</h4>
 <p>You install <a href="https://gitversion.net/docs/">GitVersion</a> using the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install gitversion
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install gitversion
 </span></span></code></pre></div><blockquote>
 <p><strong>NOTE:</strong> You need install <a href="https://brew.sh/">Homebrew</a> first if you do
-not have it installed already.</p></blockquote>
+not have it installed already.</p>
+</blockquote>
 <h4 id="linux-or-docker">Linux (or Docker)</h4>
 <h5 id="using-homebrew">Using Homebrew</h5>
 <p>You install <a href="https://gitversion.net/docs/">GitVersion</a> using the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install gitversion
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install gitversion
 </span></span></code></pre></div><blockquote>
 <p><strong>NOTE:</strong> You need install <a href="https://brew.sh/">Homebrew</a> first, if you do
-not have it installed already.</p></blockquote>
+not have it installed already.</p>
+</blockquote>
 <h5 id="using-release-package">Using release package</h5>
 <p>If you don&rsquo;t have or don&rsquo;t want to use Homebrew, it is possible to install
 it from a release package directly.</p>
@@ -664,9 +816,10 @@ version from previous step.</li>
 </ol>
 <blockquote>
 <p><strong>NOTE:</strong> These steps have been verified in Ubuntu 16.04 and Ubuntu 20.04.
-In other distributions the folders and steps might vary.</p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8b949e;font-weight:bold;font-style:italic">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-weight:bold;font-style:italic"></span>
+In other distributions the folders and steps might vary.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8b949e;font-weight:bold;font-style:italic">#!/bin/bash
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Create a new folder under current user home folder</span>
 </span></span><span style="display:flex;"><span>cd ~
 </span></span><span style="display:flex;"><span>mkdir gitversion
@@ -699,17 +852,17 @@ and the repository name. The owner for DSC Community repositories are
 <code>dsccommunity</code> and the repository name can be found in the <a href="https://dsccommunity.org/resources/">list of
 modules</a></p>
 <p>Once you have that information you can clone the repository by using</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/<span style="color:#ff7b72;font-weight:bold">{</span>owner<span style="color:#ff7b72;font-weight:bold">}</span>/<span style="color:#ff7b72;font-weight:bold">{</span>repositoryName<span style="color:#ff7b72;font-weight:bold">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/<span style="color:#ff7b72;font-weight:bold">{</span>owner<span style="color:#ff7b72;font-weight:bold">}</span>/<span style="color:#ff7b72;font-weight:bold">{</span>repositoryName<span style="color:#ff7b72;font-weight:bold">}</span>
 </span></span></code></pre></div><p>For example to clone the repository for the module ComputerManagementDsc
 into the folder <code>c:\source</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd c:<span style="color:#79c0ff">\s</span>ource
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd c:<span style="color:#79c0ff">\s</span>ource
 </span></span><span style="display:flex;"><span>git clone https://github.com/dsccommunity/ComputerManagementDsc
 </span></span></code></pre></div><p>This will make <code>git</code> to create a new directory with corresponding name
 to the repository name (e.g. <code>ComputerManagementDsc</code>). This new folder
 is called the <strong>local repository</strong>.</p>
 <p>To see that the repository was cloned correctly then run <code>git status</code> in
 the local repository folder.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PS&gt; cd c:<span style="color:#79c0ff">\s</span>ource<span style="color:#79c0ff">\C</span>omputerManagementDsc
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PS&gt; cd c:<span style="color:#79c0ff">\s</span>ource<span style="color:#79c0ff">\C</span>omputerManagementDsc
 </span></span><span style="display:flex;"><span>PS&gt; git status
 </span></span><span style="display:flex;"><span>On branch main
 </span></span><span style="display:flex;"><span>Your branch is up to date with <span style="color:#a5d6ff">&#39;origin/main&#39;</span>.
@@ -740,10 +893,10 @@ to the fork would be <code>https://github.com/{yourGitHubAccountName}/{repositor
 <p>So for example to add remote pointing to your fork of <em>ComputerManagementDsc</em>
 we run the following. <em>Replace <code>johlju</code> with your actual GItHUb account</em>
 <em>name.</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd c:<span style="color:#79c0ff">\s</span>ource<span style="color:#79c0ff">\C</span>omputerManagementDsc
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd c:<span style="color:#79c0ff">\s</span>ource<span style="color:#79c0ff">\C</span>omputerManagementDsc
 </span></span><span style="display:flex;"><span>git remote add my https://github.com/johlju/ComputerManagementDsc<span style="color:#a5d6ff">`</span>.
 </span></span></code></pre></div><p>To verify that the remote was added correctly you can run the following.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PS&gt; git remote -v
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PS&gt; git remote -v
 </span></span><span style="display:flex;"><span>my      https://github.com/johlju/ComputerManagementDsc <span style="color:#ff7b72;font-weight:bold">(</span>fetch<span style="color:#ff7b72;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>my      https://github.com/johlju/ComputerManagementDsc <span style="color:#ff7b72;font-weight:bold">(</span>push<span style="color:#ff7b72;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>origin  https://github.com/dsccommunity/ComputerManagementDsc <span style="color:#ff7b72;font-weight:bold">(</span>fetch<span style="color:#ff7b72;font-weight:bold">)</span>
@@ -763,7 +916,8 @@ several other branches during the same period.</p>
 allow you to create other working branches off of branch <code>main</code> later
 while your other working branches is still open for code reviews.</p>
 <p>Limiting your current working branch to a single issue will also both
-streamline the code review and reduce the possibility of merge conflicts.</p></blockquote>
+streamline the code review and reduce the possibility of merge conflicts.</p>
+</blockquote>
 <p>You create a new working branch using the following command
 <code>git checkout -b &lt;working-branch-name&gt; my/main</code>. You should also
 track the branch <code>main</code> in your fork, e.g. <code>my/main</code> so that you
@@ -771,39 +925,41 @@ will better see if the branch is behind or ahead in commits.</p>
 <p>This will create a new local working branch in the local repository of
 <em>ComputerManagementDsc</em>, start tracking your fork&rsquo;s main branch and
 then checkout (move) to the new branch.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd c:<span style="color:#79c0ff">\s</span>ource<span style="color:#79c0ff">\C</span>omputerManagementDsc
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd c:<span style="color:#79c0ff">\s</span>ource<span style="color:#79c0ff">\C</span>omputerManagementDsc
 </span></span><span style="display:flex;"><span>git checkout main
 </span></span><span style="display:flex;"><span>git checkout -b my-working-branch my/main
 </span></span></code></pre></div><p>You can now start making changes in your local branch. You can easily start
 Visual Studio Code and get it to automatically load the folder by running</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd c:<span style="color:#79c0ff">\s</span>ource<span style="color:#79c0ff">\C</span>omputerManagementDsc
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd c:<span style="color:#79c0ff">\s</span>ource<span style="color:#79c0ff">\C</span>omputerManagementDsc
 </span></span><span style="display:flex;"><span>code .
 </span></span></code></pre></div><p>When you have made changes you need to commit them to your local branch.
 Below we show how to commit and push using the command line, but it might
 be easier to commit (using <code>git</code>) from within Visual Studio Code. How to
 do that can be seen in this video.</p>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/B8RSMBSzFuA?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/B8RSMBSzFuA?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <p>You can see the status of changes with <code>git status</code>. To <strong>commit</strong> all
 current changes (all modified files) you use <code>git commit -a -m &quot;&lt;Commit message&gt;&quot;</code>.</p>
 <blockquote>
 <p><code>-a</code> argument tells Git to include all modified files in commit.
-<code>-m</code> argument specifies the commit message.</p></blockquote>
+<code>-m</code> argument specifies the commit message.</p>
+</blockquote>
 <p>To commit all changes with a commit message <code>Fix issue #123</code>, you run the
 following.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git commit -a -m <span style="color:#a5d6ff">&#34;Fix issue #123&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git commit -a -m <span style="color:#a5d6ff">&#34;Fix issue #123&#34;</span>
 </span></span></code></pre></div><blockquote>
 <p><strong>NOTE:</strong> You may make as many commits as you like. For example you can make
 just one commit for all changes, make a commit for each file you change,
 or a make a commit for each bug or feature if there are more than one you
 want to resolve. It is entirely up to you how, what and when you commit
-changes.</p></blockquote>
+changes.</p>
+</blockquote>
 <p>To <strong>push</strong> one or more commits containing your changes we use
 <code>git push &lt;remote-name&gt;</code>. So to push the local working branch in your local
 repository to the fork we do the following.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push my
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push my
 </span></span></code></pre></div><p>This will create a new branch in the fork, or update the existing branch
 if it was created in a previous push.</p>
 <p>See the <a href="/guidelines/contributor/#create-or-update-a-pull-request-pr">contributing guidelines</a>
@@ -823,11 +979,12 @@ run <code>git branch -v</code>.</p>
 <p>Active branch is marked with an asterisk (<code>*</code>). The  argument <code>-a</code> tells
 Git to show both <a href="http://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging"><strong>local</strong></a>
 and <a href="http://git-scm.com/book/en/v2/Git-Branching-Remote-Branches"><strong>remote</strong></a>
-branches.</p></blockquote>
+branches.</p>
+</blockquote>
 <p>To switch to another working branch you use <code>git checkout &lt;branch-name&gt;</code>.</p>
 <p>For example to switch to the working branch <code>fix-issue-#123</code> we do the
 following.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout fix-issue-#123
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout fix-issue-#123
 </span></span></code></pre></div><h3 id="delete-a-branch">Delete a branch</h3>
 <p>Once a pull request with your changes have been successfully merged into
 the upstream repository you can delete the working branch. It is no longer
@@ -1120,8 +1277,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     <script
-      src="https://dsccommunity.org/js/main.min.9a596f512ca53270aac01ee7314fba2b9cbdd17fb33667198c82f28d1dc82006.js"
-      integrity="sha256-mllvUSylMnCqwB7nMU&#43;6K5y90X&#43;zNmcZjILyjR3IIAY="
+      src="https://dsccommunity.org/js/main.min.56bc7a80dd440714f8194bda3bfc8dbf08ebd1bbb8bbc0a7d0dd285149f685af.js"
+      integrity="sha256-Vrx6gN1EBxT4GUvaO/yNvwjr0bu4u8Cn0N0oUUn2ha8="
     ></script>
   </body>
 </html>
